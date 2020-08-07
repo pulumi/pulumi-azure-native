@@ -13,18 +13,24 @@ class GetDatabaseResult:
     """
     Represents a Database.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, charset=None, collation=None, name=None, type=None):
+        if charset and not isinstance(charset, str):
+            raise TypeError("Expected argument 'charset' to be a str")
+        __self__.charset = charset
+        """
+        The charset of the database.
+        """
+        if collation and not isinstance(collation, str):
+            raise TypeError("Expected argument 'collation' to be a str")
+        __self__.collation = collation
+        """
+        The collation of the database.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The properties of a database.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +46,9 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         if False:
             yield self
         return GetDatabaseResult(
+            charset=self.charset,
+            collation=self.collation,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -64,6 +71,7 @@ def get_database(name=None, resource_group_name=None, server_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:dbformariadb/v20180601:getDatabase', __args__, opts=opts).value
 
     return AwaitableGetDatabaseResult(
+        charset=__ret__.get('charset'),
+        collation=__ret__.get('collation'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

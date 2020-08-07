@@ -13,18 +13,36 @@ class GetGroupResult:
     """
     Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, built_in=None, description=None, display_name=None, external_id=None, name=None, type=None):
+        if built_in and not isinstance(built_in, bool):
+            raise TypeError("Expected argument 'built_in' to be a bool")
+        __self__.built_in = built_in
+        """
+        true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Group description. Can contain HTML formatting tags.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Group name.
+        """
+        if external_id and not isinstance(external_id, str):
+            raise TypeError("Expected argument 'external_id' to be a str")
+        __self__.external_id = external_id
+        """
+        For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Group entity contract properties.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetGroupResult(GetGroupResult):
         if False:
             yield self
         return GetGroupResult(
+            built_in=self.built_in,
+            description=self.description,
+            display_name=self.display_name,
+            external_id=self.external_id,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -64,6 +85,9 @@ def get_group(name=None, resource_group_name=None, service_name=None, opts=None)
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getGroup', __args__, opts=opts).value
 
     return AwaitableGetGroupResult(
+        built_in=__ret__.get('builtIn'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        external_id=__ret__.get('externalId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

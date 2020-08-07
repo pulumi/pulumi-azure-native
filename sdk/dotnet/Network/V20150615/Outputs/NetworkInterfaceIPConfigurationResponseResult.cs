@@ -22,13 +22,35 @@ namespace Pulumi.AzureRM.Network.V20150615.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The reference of LoadBalancerBackendAddressPool resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BackendAddressPoolResponseResult> LoadBalancerBackendAddressPools;
+        /// <summary>
+        /// A list of references of LoadBalancerInboundNatRules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InboundNatRuleResponseResult> LoadBalancerInboundNatRules;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of IP configuration.
+        /// Gets whether this is a primary customer address on the network interface.
         /// </summary>
-        public readonly Outputs.NetworkInterfaceIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly bool? Primary;
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Public IP address resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Subnet in a virtual network resource.
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
 
         [OutputConstructor]
         private NetworkInterfaceIPConfigurationResponseResult(
@@ -36,14 +58,35 @@ namespace Pulumi.AzureRM.Network.V20150615.Outputs
 
             string? id,
 
+            ImmutableArray<Outputs.BackendAddressPoolResponseResult> loadBalancerBackendAddressPools,
+
+            ImmutableArray<Outputs.InboundNatRuleResponseResult> loadBalancerInboundNatRules,
+
             string? name,
 
-            Outputs.NetworkInterfaceIPConfigurationPropertiesFormatResponseResult? properties)
+            bool? primary,
+
+            string? privateIPAddress,
+
+            string? privateIPAllocationMethod,
+
+            string? provisioningState,
+
+            Outputs.PublicIPAddressResponseResult? publicIPAddress,
+
+            Outputs.SubnetResponseResult? subnet)
         {
             Etag = etag;
             Id = id;
+            LoadBalancerBackendAddressPools = loadBalancerBackendAddressPools;
+            LoadBalancerInboundNatRules = loadBalancerInboundNatRules;
             Name = name;
-            Properties = properties;
+            Primary = primary;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
         }
     }
 }

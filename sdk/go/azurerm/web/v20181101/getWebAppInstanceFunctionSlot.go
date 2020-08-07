@@ -27,12 +27,28 @@ type LookupWebAppInstanceFunctionSlotArgs struct {
 
 // Web Job Information.
 type LookupWebAppInstanceFunctionSlotResult struct {
+	// Config information.
+	Config map[string]interface{} `pulumi:"config"`
+	// Config URI.
+	Config_href *string `pulumi:"config_href"`
+	// File list.
+	Files map[string]string `pulumi:"files"`
+	// Function App ID.
+	Function_app_id *string `pulumi:"function_app_id"`
+	// Function URI.
+	Href *string `pulumi:"href"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// FunctionEnvelope resource specific properties
-	Properties FunctionEnvelopeResponseProperties `pulumi:"properties"`
+	// Script URI.
+	Script_href *string `pulumi:"script_href"`
+	// Script root path URI.
+	Script_root_path_href *string `pulumi:"script_root_path_href"`
+	// Secrets file URI.
+	Secrets_file_href *string `pulumi:"secrets_file_href"`
+	// Test data used when testing via the Azure Portal.
+	Test_data *string `pulumi:"test_data"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

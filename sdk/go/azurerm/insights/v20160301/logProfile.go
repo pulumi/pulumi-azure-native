@@ -14,12 +14,20 @@ import (
 type LogProfile struct {
 	pulumi.CustomResourceState
 
+	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+	Categories pulumi.StringArrayOutput `pulumi:"categories"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
+	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+	Locations pulumi.StringArrayOutput `pulumi:"locations"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The log profile properties of the resource.
-	Properties LogProfilePropertiesResponseOutput `pulumi:"properties"`
+	// the retention policy for the events in the log.
+	RetentionPolicy RetentionPolicyResponseOutput `pulumi:"retentionPolicy"`
+	// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+	ServiceBusRuleId pulumi.StringPtrOutput `pulumi:"serviceBusRuleId"`
+	// the resource id of the storage account to which you would like to send the Activity Log.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type
@@ -69,12 +77,20 @@ func GetLogProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogProfile resources.
 type logProfileState struct {
+	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+	Categories []string `pulumi:"categories"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+	Locations []string `pulumi:"locations"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// The log profile properties of the resource.
-	Properties *LogProfilePropertiesResponse `pulumi:"properties"`
+	// the retention policy for the events in the log.
+	RetentionPolicy *RetentionPolicyResponse `pulumi:"retentionPolicy"`
+	// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
+	// the resource id of the storage account to which you would like to send the Activity Log.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
@@ -82,12 +98,20 @@ type logProfileState struct {
 }
 
 type LogProfileState struct {
+	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+	Categories pulumi.StringArrayInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+	Locations pulumi.StringArrayInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// The log profile properties of the resource.
-	Properties LogProfilePropertiesResponsePtrInput
+	// the retention policy for the events in the log.
+	RetentionPolicy RetentionPolicyResponsePtrInput
+	// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+	ServiceBusRuleId pulumi.StringPtrInput
+	// the resource id of the storage account to which you would like to send the Activity Log.
+	StorageAccountId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Azure resource type

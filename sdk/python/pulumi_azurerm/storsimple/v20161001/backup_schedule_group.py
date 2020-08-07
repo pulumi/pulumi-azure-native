@@ -14,12 +14,11 @@ class BackupScheduleGroup(pulumi.CustomResource):
     """
     The name.
     """
-    properties: pulumi.Output[dict]
+    start_time: pulumi.Output[dict]
     """
-    Properties of BackupScheduleGroup
-      * `start_time` (`dict`) - The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
-        * `hour` (`float`) - The hour.
-        * `minute` (`float`) - The minute.
+    The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+      * `hour` (`float`) - The hour.
+      * `minute` (`float`) - The minute.
     """
     type: pulumi.Output[str]
     """
@@ -74,7 +73,6 @@ class BackupScheduleGroup(pulumi.CustomResource):
             if start_time is None:
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time
-            __props__['properties'] = None
             __props__['type'] = None
         super(BackupScheduleGroup, __self__).__init__(
             'azurerm:storsimple/v20161001:BackupScheduleGroup',

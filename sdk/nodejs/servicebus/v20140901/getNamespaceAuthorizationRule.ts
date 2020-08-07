@@ -49,9 +49,9 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly name: string;
     /**
-     * SharedAccessAuthorizationRule properties.
+     * The rights associated with the rule.
      */
-    readonly properties: outputs.servicebus.v20140901.SharedAccessAuthorizationRuleGetPropertiesResponse;
+    readonly rights: string[];
     /**
      * Resource type
      */

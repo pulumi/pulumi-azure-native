@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -41,9 +39,13 @@ export class NotebookWorkspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Resource properties.
+     * Specifies the endpoint of Notebook server.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20191212.NotebookWorkspacePropertiesResponse>;
+    public /*out*/ readonly notebookServerEndpoint!: pulumi.Output<string>;
+    /**
+     * Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The type of Azure resource.
      */
@@ -74,7 +76,8 @@ export class NotebookWorkspace extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["notebookServerEndpoint"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

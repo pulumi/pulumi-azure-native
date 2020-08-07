@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.Authorization.V20160901
     public partial class ManagementLockAtResourceLevel : Pulumi.CustomResource
     {
         /// <summary>
+        /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        /// </summary>
+        [Output("level")]
+        public Output<string> Level { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the lock.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the lock.
+        /// Notes about the lock. Maximum of 512 characters.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ManagementLockPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notes")]
+        public Output<string?> Notes { get; private set; } = null!;
+
+        /// <summary>
+        /// The owners of the lock.
+        /// </summary>
+        [Output("owners")]
+        public Output<ImmutableArray<Outputs.ManagementLockOwnerResponseResult>> Owners { get; private set; } = null!;
 
         /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.

@@ -13,7 +13,13 @@ class GetApplicationResult:
     """
     Information about managed application.
     """
-    def __init__(__self__, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, application_definition_id=None, identity=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, sku=None, tags=None, type=None):
+        if application_definition_id and not isinstance(application_definition_id, str):
+            raise TypeError("Expected argument 'application_definition_id' to be a str")
+        __self__.application_definition_id = application_definition_id
+        """
+        The fully qualified path of managed application definition Id.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -38,11 +44,29 @@ class GetApplicationResult:
         """
         ID of the resource that manages this resource.
         """
+        if managed_resource_group_id and not isinstance(managed_resource_group_id, str):
+            raise TypeError("Expected argument 'managed_resource_group_id' to be a str")
+        __self__.managed_resource_group_id = managed_resource_group_id
+        """
+        The managed resource group Id.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
+        """
+        if outputs and not isinstance(outputs, dict):
+            raise TypeError("Expected argument 'outputs' to be a dict")
+        __self__.outputs = outputs
+        """
+        Name and value pairs that define the managed application outputs.
+        """
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
+        """
+        Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         """
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
@@ -50,11 +74,11 @@ class GetApplicationResult:
         """
         The plan information.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The managed application properties.
+        The managed application provisioning state.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -82,13 +106,17 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
+            application_definition_id=self.application_definition_id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
             managed_by=self.managed_by,
+            managed_resource_group_id=self.managed_resource_group_id,
             name=self.name,
+            outputs=self.outputs,
+            parameters=self.parameters,
             plan=self.plan,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -111,13 +139,17 @@ def get_application(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:solutions/v20180601:getApplication', __args__, opts=opts).value
 
     return AwaitableGetApplicationResult(
+        application_definition_id=__ret__.get('applicationDefinitionId'),
         identity=__ret__.get('identity'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         managed_by=__ret__.get('managedBy'),
+        managed_resource_group_id=__ret__.get('managedResourceGroupId'),
         name=__ret__.get('name'),
+        outputs=__ret__.get('outputs'),
+        parameters=__ret__.get('parameters'),
         plan=__ret__.get('plan'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

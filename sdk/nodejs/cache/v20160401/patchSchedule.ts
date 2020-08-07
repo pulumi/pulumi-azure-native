@@ -47,7 +47,7 @@ export class PatchSchedule extends pulumi.CustomResource {
     /**
      * List of patch schedules for a Redis cache.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cache.v20160401.ScheduleEntriesResponse>;
+    public readonly scheduleEntries!: pulumi.Output<outputs.cache.v20160401.ScheduleEntryResponse[]>;
     /**
      * Resource type.
      */
@@ -79,7 +79,6 @@ export class PatchSchedule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

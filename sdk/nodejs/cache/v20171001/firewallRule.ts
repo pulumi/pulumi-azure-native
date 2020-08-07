@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,17 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /**
+     * highest IP address included in the range
+     */
+    public readonly endIP!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * redis cache firewall rule properties
+     * lowest IP address included in the range
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cache.v20171001.RedisFirewallRulePropertiesResponse>;
+    public readonly startIP!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -82,7 +84,6 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startIP"] = args ? args.startIP : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

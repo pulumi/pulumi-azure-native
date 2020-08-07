@@ -25,16 +25,28 @@ type LookupP2sVpnGatewayArgs struct {
 
 // P2SVpnGateway Resource.
 type LookupP2sVpnGatewayResult struct {
+	// List of all customer specified DNS servers IP addresses.
+	CustomDnsServers []string `pulumi:"customDnsServers"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the P2SVpnGateway.
-	Properties P2SVpnGatewayPropertiesResponse `pulumi:"properties"`
+	// List of all p2s connection configurations of the gateway.
+	P2SConnectionConfigurations []P2SConnectionConfigurationResponse `pulumi:"p2SConnectionConfigurations"`
+	// The provisioning state of the P2S VPN gateway resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The VirtualHub to which the gateway belongs.
+	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+	// All P2S VPN clients' connection health status.
+	VpnClientConnectionHealth VpnClientConnectionHealthResponse `pulumi:"vpnClientConnectionHealth"`
+	// The scale unit for this p2s vpn gateway.
+	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
+	// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+	VpnServerConfiguration *SubResourceResponse `pulumi:"vpnServerConfiguration"`
 }

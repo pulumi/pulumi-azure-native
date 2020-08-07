@@ -37,6 +37,10 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
     }
 
     /**
+     * List of index keys
+     */
+    public /*out*/ readonly indexes!: pulumi.Output<outputs.documentdb.v20151106.MongoIndexResponse[] | undefined>;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     public /*out*/ readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +49,9 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of an Azure Cosmos DB MongoDB collection
+     * A key-value pair of shard keys to be applied for the request.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20151106.MongoDBCollectionPropertiesResponse>;
+    public /*out*/ readonly shardKey!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -94,8 +98,9 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["indexes"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["shardKey"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

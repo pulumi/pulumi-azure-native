@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Web.V20181101
     public partial class WebAppDeployment : Pulumi.CustomResource
     {
         /// <summary>
+        /// True if deployment is currently active, false if completed and null if not started.
+        /// </summary>
+        [Output("active")]
+        public Output<bool?> Active { get; private set; } = null!;
+
+        /// <summary>
+        /// Who authored the deployment.
+        /// </summary>
+        [Output("author")]
+        public Output<string?> Author { get; private set; } = null!;
+
+        /// <summary>
+        /// Author email.
+        /// </summary>
+        [Output("author_email")]
+        public Output<string?> Author_email { get; private set; } = null!;
+
+        /// <summary>
+        /// Who performed the deployment.
+        /// </summary>
+        [Output("deployer")]
+        public Output<string?> Deployer { get; private set; } = null!;
+
+        /// <summary>
+        /// Details on deployment.
+        /// </summary>
+        [Output("details")]
+        public Output<string?> Details { get; private set; } = null!;
+
+        /// <summary>
+        /// End time.
+        /// </summary>
+        [Output("end_time")]
+        public Output<string?> End_time { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// Details about deployment status.
+        /// </summary>
+        [Output("message")]
+        public Output<string?> Message { get; private set; } = null!;
 
         /// <summary>
         /// Resource Name.
@@ -27,10 +69,16 @@ namespace Pulumi.AzureRM.Web.V20181101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Deployment resource specific properties
+        /// Start time.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DeploymentResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("start_time")]
+        public Output<string?> Start_time { get; private set; } = null!;
+
+        /// <summary>
+        /// Deployment status.
+        /// </summary>
+        [Output("status")]
+        public Output<int?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

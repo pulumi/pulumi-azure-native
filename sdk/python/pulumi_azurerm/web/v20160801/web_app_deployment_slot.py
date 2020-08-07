@@ -10,27 +10,49 @@ from ... import _utilities, _tables
 
 
 class WebAppDeploymentSlot(pulumi.CustomResource):
+    active: pulumi.Output[bool]
+    """
+    True if deployment is currently active, false if completed and null if not started.
+    """
+    author: pulumi.Output[str]
+    """
+    Who authored the deployment.
+    """
+    author_email: pulumi.Output[str]
+    """
+    Author email.
+    """
+    deployer: pulumi.Output[str]
+    """
+    Who performed the deployment.
+    """
+    details: pulumi.Output[str]
+    """
+    Details on deployment.
+    """
+    end_time: pulumi.Output[str]
+    """
+    End time.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
+    """
+    message: pulumi.Output[str]
+    """
+    Details about deployment status.
     """
     name: pulumi.Output[str]
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    start_time: pulumi.Output[str]
     """
-    Deployment resource specific properties
-      * `active` (`bool`) - True if deployment is currently active, false if completed and null if not started.
-      * `author` (`str`) - Who authored the deployment.
-      * `author_email` (`str`) - Author email.
-      * `deployer` (`str`) - Who performed the deployment.
-      * `details` (`str`) - Details on deployment.
-      * `end_time` (`str`) - End time.
-      * `id` (`str`) - Identifier for deployment.
-      * `message` (`str`) - Details about deployment status.
-      * `start_time` (`str`) - Start time.
-      * `status` (`float`) - Deployment status.
+    Start time.
+    """
+    status: pulumi.Output[float]
+    """
+    Deployment status.
     """
     type: pulumi.Output[str]
     """
@@ -92,7 +114,6 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['start_time'] = start_time
             __props__['status'] = status
-            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppDeploymentSlot, __self__).__init__(
             'azurerm:web/v20160801:WebAppDeploymentSlot',

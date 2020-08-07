@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.Network.V20200401
     public partial class LocalNetworkGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings.
+        /// </summary>
+        [Output("bgpSettings")]
+        public Output<Outputs.BgpSettingsResponseResult?> BgpSettings { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// FQDN of local network gateway.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string?> Fqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// IP address of local network gateway.
+        /// </summary>
+        [Output("gatewayIpAddress")]
+        public Output<string?> GatewayIpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Local network site address space.
+        /// </summary>
+        [Output("localNetworkAddressSpace")]
+        public Output<Outputs.AddressSpaceResponseResult?> LocalNetworkAddressSpace { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +57,16 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the local network gateway.
+        /// The provisioning state of the local network gateway resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LocalNetworkGatewayPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the local network gateway resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

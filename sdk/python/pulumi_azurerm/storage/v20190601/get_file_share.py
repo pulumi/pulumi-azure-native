@@ -13,12 +13,60 @@ class GetFileShareResult:
     """
     Properties of the file share, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, access_tier=None, access_tier_change_time=None, access_tier_status=None, deleted=None, deleted_time=None, enabled_protocols=None, etag=None, last_modified_time=None, metadata=None, name=None, remaining_retention_days=None, root_squash=None, share_quota=None, share_usage_bytes=None, type=None, version=None):
+        if access_tier and not isinstance(access_tier, str):
+            raise TypeError("Expected argument 'access_tier' to be a str")
+        __self__.access_tier = access_tier
+        """
+        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+        """
+        if access_tier_change_time and not isinstance(access_tier_change_time, str):
+            raise TypeError("Expected argument 'access_tier_change_time' to be a str")
+        __self__.access_tier_change_time = access_tier_change_time
+        """
+        Indicates the last modification time for share access tier.
+        """
+        if access_tier_status and not isinstance(access_tier_status, str):
+            raise TypeError("Expected argument 'access_tier_status' to be a str")
+        __self__.access_tier_status = access_tier_status
+        """
+        Indicates if there is a pending transition for access tier.
+        """
+        if deleted and not isinstance(deleted, bool):
+            raise TypeError("Expected argument 'deleted' to be a bool")
+        __self__.deleted = deleted
+        """
+        Indicates whether the share was deleted.
+        """
+        if deleted_time and not isinstance(deleted_time, str):
+            raise TypeError("Expected argument 'deleted_time' to be a str")
+        __self__.deleted_time = deleted_time
+        """
+        The deleted time if the share was deleted.
+        """
+        if enabled_protocols and not isinstance(enabled_protocols, str):
+            raise TypeError("Expected argument 'enabled_protocols' to be a str")
+        __self__.enabled_protocols = enabled_protocols
+        """
+        The authentication protocol that is used for the file share. Can only be specified when creating a share.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Resource Etag.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Returns the date and time the share was last modified.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        A name-value pair to associate with the share as metadata.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +74,41 @@ class GetFileShareResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if remaining_retention_days and not isinstance(remaining_retention_days, float):
+            raise TypeError("Expected argument 'remaining_retention_days' to be a float")
+        __self__.remaining_retention_days = remaining_retention_days
         """
-        Properties of the file share.
+        Remaining retention days for share that was soft deleted.
+        """
+        if root_squash and not isinstance(root_squash, str):
+            raise TypeError("Expected argument 'root_squash' to be a str")
+        __self__.root_squash = root_squash
+        """
+        The property is for NFS share only. The default is NoRootSquash.
+        """
+        if share_quota and not isinstance(share_quota, float):
+            raise TypeError("Expected argument 'share_quota' to be a float")
+        __self__.share_quota = share_quota
+        """
+        The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        """
+        if share_usage_bytes and not isinstance(share_usage_bytes, float):
+            raise TypeError("Expected argument 'share_usage_bytes' to be a float")
+        __self__.share_usage_bytes = share_usage_bytes
+        """
+        The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        The version of the share.
         """
 
 
@@ -46,10 +118,22 @@ class AwaitableGetFileShareResult(GetFileShareResult):
         if False:
             yield self
         return GetFileShareResult(
+            access_tier=self.access_tier,
+            access_tier_change_time=self.access_tier_change_time,
+            access_tier_status=self.access_tier_status,
+            deleted=self.deleted,
+            deleted_time=self.deleted_time,
+            enabled_protocols=self.enabled_protocols,
             etag=self.etag,
+            last_modified_time=self.last_modified_time,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            remaining_retention_days=self.remaining_retention_days,
+            root_squash=self.root_squash,
+            share_quota=self.share_quota,
+            share_usage_bytes=self.share_usage_bytes,
+            type=self.type,
+            version=self.version)
 
 
 def get_file_share(account_name=None, name=None, resource_group_name=None, opts=None):
@@ -71,7 +155,19 @@ def get_file_share(account_name=None, name=None, resource_group_name=None, opts=
     __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190601:getFileShare', __args__, opts=opts).value
 
     return AwaitableGetFileShareResult(
+        access_tier=__ret__.get('accessTier'),
+        access_tier_change_time=__ret__.get('accessTierChangeTime'),
+        access_tier_status=__ret__.get('accessTierStatus'),
+        deleted=__ret__.get('deleted'),
+        deleted_time=__ret__.get('deletedTime'),
+        enabled_protocols=__ret__.get('enabledProtocols'),
         etag=__ret__.get('etag'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        remaining_retention_days=__ret__.get('remainingRetentionDays'),
+        root_squash=__ret__.get('rootSquash'),
+        share_quota=__ret__.get('shareQuota'),
+        share_usage_bytes=__ret__.get('shareUsageBytes'),
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

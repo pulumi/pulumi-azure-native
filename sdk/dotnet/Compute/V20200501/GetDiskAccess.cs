@@ -47,11 +47,22 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.DiskAccessPropertiesResponseResult Properties;
+        /// <summary>
+        /// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        /// <summary>
+        /// The disk access resource provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The time when the disk access was created.
+        /// </summary>
+        public readonly string TimeCreated;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -63,16 +74,22 @@ namespace Pulumi.AzureRM.Compute.V20200501
 
             string name,
 
-            Outputs.DiskAccessPropertiesResponseResult properties,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
+
+            string timeCreated,
 
             string type)
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
             Tags = tags;
+            TimeCreated = timeCreated;
             Type = type;
         }
     }

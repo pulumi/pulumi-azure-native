@@ -14,9 +14,25 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
     public sealed class InboundNatPoolResponseResult
     {
         /// <summary>
+        /// Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
+        /// </summary>
+        public readonly int BackendPort;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Gets or sets a reference to frontend IP Addresses
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FrontendIPConfiguration;
+        /// <summary>
+        /// Gets or sets the ending port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
+        /// </summary>
+        public readonly int FrontendPortRangeEnd;
+        /// <summary>
+        /// Gets or sets the starting port range for the NAT pool. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
+        /// </summary>
+        public readonly int FrontendPortRangeStart;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -26,24 +42,43 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of Inbound NAT pool
+        /// Gets or sets the transport protocol for the endpoint. Possible values are Udp or Tcp
         /// </summary>
-        public readonly Outputs.InboundNatPoolPropertiesFormatResponseResult? Properties;
+        public readonly string Protocol;
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private InboundNatPoolResponseResult(
+            int backendPort,
+
             string? etag,
+
+            Outputs.SubResourceResponseResult? frontendIPConfiguration,
+
+            int frontendPortRangeEnd,
+
+            int frontendPortRangeStart,
 
             string? id,
 
             string? name,
 
-            Outputs.InboundNatPoolPropertiesFormatResponseResult? properties)
+            string protocol,
+
+            string? provisioningState)
         {
+            BackendPort = backendPort;
             Etag = etag;
+            FrontendIPConfiguration = frontendIPConfiguration;
+            FrontendPortRangeEnd = frontendPortRangeEnd;
+            FrontendPortRangeStart = frontendPortRangeStart;
             Id = id;
             Name = name;
-            Properties = properties;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
         }
     }
 }

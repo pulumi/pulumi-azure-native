@@ -14,22 +14,50 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201.Outputs
     public sealed class InitContainerDefinitionResponseResult
     {
         /// <summary>
+        /// The command to execute within the init container in exec form.
+        /// </summary>
+        public readonly ImmutableArray<string> Command;
+        /// <summary>
+        /// The environment variables to set in the init container.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EnvironmentVariableResponseResult> EnvironmentVariables;
+        /// <summary>
+        /// The image of the init container.
+        /// </summary>
+        public readonly string? Image;
+        /// <summary>
+        /// The instance view of the init container. Only valid in response.
+        /// </summary>
+        public readonly Outputs.InitContainerPropertiesDefinitionResponseInstanceViewResult InstanceView;
+        /// <summary>
         /// The name for the init container.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties for the init container.
+        /// The volume mounts available to the init container.
         /// </summary>
-        public readonly Outputs.InitContainerPropertiesDefinitionResponseResult Properties;
+        public readonly ImmutableArray<Outputs.VolumeMountResponseResult> VolumeMounts;
 
         [OutputConstructor]
         private InitContainerDefinitionResponseResult(
+            ImmutableArray<string> command,
+
+            ImmutableArray<Outputs.EnvironmentVariableResponseResult> environmentVariables,
+
+            string? image,
+
+            Outputs.InitContainerPropertiesDefinitionResponseInstanceViewResult instanceView,
+
             string name,
 
-            Outputs.InitContainerPropertiesDefinitionResponseResult properties)
+            ImmutableArray<Outputs.VolumeMountResponseResult> volumeMounts)
         {
+            Command = command;
+            EnvironmentVariables = environmentVariables;
+            Image = image;
+            InstanceView = instanceView;
             Name = name;
-            Properties = properties;
+            VolumeMounts = volumeMounts;
         }
     }
 }

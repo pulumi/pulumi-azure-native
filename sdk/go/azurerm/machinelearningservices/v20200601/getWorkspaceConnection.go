@@ -27,10 +27,16 @@ type LookupWorkspaceConnectionArgs struct {
 
 // Workspace connection.
 type LookupWorkspaceConnectionResult struct {
+	// Authorization type of the workspace connection.
+	AuthType *string `pulumi:"authType"`
+	// Category of the workspace connection.
+	Category *string `pulumi:"category"`
 	// Friendly name of the workspace connection.
 	Name string `pulumi:"name"`
-	// Properties of workspace connection.
-	Properties WorkspaceConnectionPropsResponse `pulumi:"properties"`
+	// Target of the workspace connection.
+	Target *string `pulumi:"target"`
 	// Resource type of workspace connection.
 	Type string `pulumi:"type"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
 }

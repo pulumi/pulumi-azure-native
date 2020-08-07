@@ -13,18 +13,42 @@ class GetIscsiServerResult:
     """
     The iSCSI server.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, backup_schedule_group_id=None, chap_id=None, description=None, name=None, reverse_chap_id=None, storage_domain_id=None, type=None):
+        if backup_schedule_group_id and not isinstance(backup_schedule_group_id, str):
+            raise TypeError("Expected argument 'backup_schedule_group_id' to be a str")
+        __self__.backup_schedule_group_id = backup_schedule_group_id
+        """
+        The backup policy id.
+        """
+        if chap_id and not isinstance(chap_id, str):
+            raise TypeError("Expected argument 'chap_id' to be a str")
+        __self__.chap_id = chap_id
+        """
+        The chap id.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if reverse_chap_id and not isinstance(reverse_chap_id, str):
+            raise TypeError("Expected argument 'reverse_chap_id' to be a str")
+        __self__.reverse_chap_id = reverse_chap_id
         """
-        The properties.
+        The reverse chap id.
+        """
+        if storage_domain_id and not isinstance(storage_domain_id, str):
+            raise TypeError("Expected argument 'storage_domain_id' to be a str")
+        __self__.storage_domain_id = storage_domain_id
+        """
+        The storage domain id.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetIscsiServerResult(GetIscsiServerResult):
         if False:
             yield self
         return GetIscsiServerResult(
+            backup_schedule_group_id=self.backup_schedule_group_id,
+            chap_id=self.chap_id,
+            description=self.description,
             name=self.name,
-            properties=self.properties,
+            reverse_chap_id=self.reverse_chap_id,
+            storage_domain_id=self.storage_domain_id,
             type=self.type)
 
 
@@ -66,6 +94,10 @@ def get_iscsi_server(device_name=None, manager_name=None, name=None, resource_gr
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getIscsiServer', __args__, opts=opts).value
 
     return AwaitableGetIscsiServerResult(
+        backup_schedule_group_id=__ret__.get('backupScheduleGroupId'),
+        chap_id=__ret__.get('chapId'),
+        description=__ret__.get('description'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        reverse_chap_id=__ret__.get('reverseChapId'),
+        storage_domain_id=__ret__.get('storageDomainId'),
         type=__ret__.get('type'))

@@ -10,6 +10,32 @@ from ... import _utilities, _tables
 
 
 class MetricAlert(pulumi.CustomResource):
+    actions: pulumi.Output[list]
+    """
+    the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+      * `action_group_id` (`str`) - the id of the action group to use.
+      * `web_hook_properties` (`dict`) - The properties of a webhook object.
+    """
+    auto_mitigate: pulumi.Output[bool]
+    """
+    the flag that indicates whether the alert should be auto resolved or not. The default is true.
+    """
+    description: pulumi.Output[str]
+    """
+    the description of the metric alert that will be included in the alert email.
+    """
+    enabled: pulumi.Output[bool]
+    """
+    the flag that indicates whether the metric alert is enabled.
+    """
+    evaluation_frequency: pulumi.Output[str]
+    """
+    how often the metric alert is evaluated represented in ISO 8601 duration format.
+    """
+    last_updated_time: pulumi.Output[str]
+    """
+    Last time the rule was updated in ISO8601 format.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,31 +44,33 @@ class MetricAlert(pulumi.CustomResource):
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    scopes: pulumi.Output[list]
     """
-    The alert rule properties of the resource.
-      * `actions` (`list`) - the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        * `action_group_id` (`str`) - the id of the action group to use.
-        * `web_hook_properties` (`dict`) - The properties of a webhook object.
-
-      * `auto_mitigate` (`bool`) - the flag that indicates whether the alert should be auto resolved or not. The default is true.
-      * `description` (`str`) - the description of the metric alert that will be included in the alert email.
-      * `enabled` (`bool`) - the flag that indicates whether the metric alert is enabled.
-      * `evaluation_frequency` (`str`) - how often the metric alert is evaluated represented in ISO 8601 duration format.
-      * `last_updated_time` (`str`) - Last time the rule was updated in ISO8601 format.
-      * `scopes` (`list`) - the list of resource id's that this metric alert is scoped to.
-      * `severity` (`float`) - Alert severity {0, 1, 2, 3, 4}
-      * `target_resource_region` (`str`) - the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
-      * `target_resource_type` (`str`) - the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
-      * `window_size` (`str`) - the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+    the list of resource id's that this metric alert is scoped to.
+    """
+    severity: pulumi.Output[float]
+    """
+    Alert severity {0, 1, 2, 3, 4}
     """
     tags: pulumi.Output[dict]
     """
     Resource tags
     """
+    target_resource_region: pulumi.Output[str]
+    """
+    the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+    """
+    target_resource_type: pulumi.Output[str]
+    """
+    the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+    """
     type: pulumi.Output[str]
     """
     Azure resource type
+    """
+    window_size: pulumi.Output[str]
+    """
+    the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
     """
     def __init__(__self__, resource_name, opts=None, actions=None, auto_mitigate=None, description=None, enabled=None, evaluation_frequency=None, location=None, name=None, resource_group_name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, window_size=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -117,7 +145,7 @@ class MetricAlert(pulumi.CustomResource):
             if window_size is None:
                 raise TypeError("Missing required property 'window_size'")
             __props__['window_size'] = window_size
-            __props__['properties'] = None
+            __props__['last_updated_time'] = None
             __props__['type'] = None
         super(MetricAlert, __self__).__init__(
             'azurerm:insights/v20180301:MetricAlert',

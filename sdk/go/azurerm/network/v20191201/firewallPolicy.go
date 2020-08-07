@@ -14,16 +14,26 @@ import (
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
+	// The parent firewall policy from which rules are inherited.
+	BasePolicy SubResourceResponsePtrOutput `pulumi:"basePolicy"`
+	// List of references to Child Firewall Policies.
+	ChildPolicies SubResourceResponseArrayOutput `pulumi:"childPolicies"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// List of references to Azure Firewalls that this Firewall Policy is associated with.
+	Firewalls SubResourceResponseArrayOutput `pulumi:"firewalls"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the firewall policy.
-	Properties FirewallPolicyPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the firewall policy resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// List of references to FirewallPolicyRuleGroups.
+	RuleGroups SubResourceResponseArrayOutput `pulumi:"ruleGroups"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode pulumi.StringPtrOutput `pulumi:"threatIntelMode"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,31 +72,51 @@ func GetFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallPolicy resources.
 type firewallPolicyState struct {
+	// The parent firewall policy from which rules are inherited.
+	BasePolicy *SubResourceResponse `pulumi:"basePolicy"`
+	// List of references to Child Firewall Policies.
+	ChildPolicies []SubResourceResponse `pulumi:"childPolicies"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// List of references to Azure Firewalls that this Firewall Policy is associated with.
+	Firewalls []SubResourceResponse `pulumi:"firewalls"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the firewall policy.
-	Properties *FirewallPolicyPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the firewall policy resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// List of references to FirewallPolicyRuleGroups.
+	RuleGroups []SubResourceResponse `pulumi:"ruleGroups"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type FirewallPolicyState struct {
+	// The parent firewall policy from which rules are inherited.
+	BasePolicy SubResourceResponsePtrInput
+	// List of references to Child Firewall Policies.
+	ChildPolicies SubResourceResponseArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// List of references to Azure Firewalls that this Firewall Policy is associated with.
+	Firewalls SubResourceResponseArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the firewall policy.
-	Properties FirewallPolicyPropertiesFormatResponsePtrInput
+	// The provisioning state of the firewall policy resource.
+	ProvisioningState pulumi.StringPtrInput
+	// List of references to FirewallPolicyRuleGroups.
+	RuleGroups SubResourceResponseArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

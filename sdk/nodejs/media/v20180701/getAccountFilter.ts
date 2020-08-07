@@ -41,13 +41,21 @@ export interface GetAccountFilterArgs {
  */
 export interface GetAccountFilterResult {
     /**
+     * The first quality.
+     */
+    readonly firstQuality?: outputs.media.v20180701.FirstQualityResponse;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The Media Filter properties.
+     * The presentation time range.
      */
-    readonly properties: outputs.media.v20180701.MediaFilterPropertiesResponse;
+    readonly presentationTimeRange?: outputs.media.v20180701.PresentationTimeRangeResponse;
+    /**
+     * The tracks selection conditions.
+     */
+    readonly tracks?: outputs.media.v20180701.FilterTrackSelectionResponse[];
     /**
      * The type of the resource.
      */

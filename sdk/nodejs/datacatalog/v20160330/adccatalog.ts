@@ -37,6 +37,14 @@ export class ADCCatalog extends pulumi.CustomResource {
     }
 
     /**
+     * Azure data catalog admin list.
+     */
+    public readonly admins!: pulumi.Output<outputs.datacatalog.v20160330.PrincipalsResponse[] | undefined>;
+    /**
+     * Automatic unit adjustment enabled or not.
+     */
+    public readonly enableAutomaticUnitAdjustment!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource etag
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +57,13 @@ export class ADCCatalog extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Azure Data Catalog properties.
+     * Azure data catalog SKU.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datacatalog.v20160330.ADCCatalogPropertiesResponse>;
+    public readonly sku!: pulumi.Output<string | undefined>;
+    /**
+     * Azure data catalog provision status.
+     */
+    public readonly successfullyProvisioned!: pulumi.Output<boolean | undefined>;
     /**
      * Resource tags
      */
@@ -60,6 +72,14 @@ export class ADCCatalog extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Azure data catalog units.
+     */
+    public readonly units!: pulumi.Output<number | undefined>;
+    /**
+     * Azure data catalog user list.
+     */
+    public readonly users!: pulumi.Output<outputs.datacatalog.v20160330.PrincipalsResponse[] | undefined>;
 
     /**
      * Create a ADCCatalog resource with the given unique name, arguments, and options.
@@ -91,7 +111,6 @@ export class ADCCatalog extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["units"] = args ? args.units : undefined;
             inputs["users"] = args ? args.users : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

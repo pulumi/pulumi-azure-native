@@ -27,10 +27,20 @@ type LookupStreamingPolicyArgs struct {
 
 // A Streaming Policy resource
 type LookupStreamingPolicyResult struct {
+	// Configuration of CommonEncryptionCbcs
+	CommonEncryptionCbcs *CommonEncryptionCbcsResponse `pulumi:"commonEncryptionCbcs"`
+	// Configuration of CommonEncryptionCenc
+	CommonEncryptionCenc *CommonEncryptionCencResponse `pulumi:"commonEncryptionCenc"`
+	// Creation time of Streaming Policy
+	Created string `pulumi:"created"`
+	// Default ContentKey used by current Streaming Policy
+	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
+	// Configuration of EnvelopeEncryption
+	EnvelopeEncryption *EnvelopeEncryptionResponse `pulumi:"envelopeEncryption"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Class to specify properties of Streaming Policy
-	Properties StreamingPolicyPropertiesResponse `pulumi:"properties"`
+	// Configurations of NoEncryption
+	NoEncryption *NoEncryptionResponse `pulumi:"noEncryption"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

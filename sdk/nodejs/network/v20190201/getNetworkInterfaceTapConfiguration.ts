@@ -49,11 +49,15 @@ export interface GetNetworkInterfaceTapConfigurationResult {
      */
     readonly name?: string;
     /**
-     * Properties of the Virtual Network Tap configuration
+     * The provisioning state of the network interface tap configuration. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly properties: outputs.network.v20190201.NetworkInterfaceTapConfigurationPropertiesFormatResponse;
+    readonly provisioningState: string;
     /**
      * Sub Resource type.
      */
     readonly type: string;
+    /**
+     * The reference of the Virtual Network Tap resource.
+     */
+    readonly virtualNetworkTap?: outputs.network.v20190201.VirtualNetworkTapResponse;
 }

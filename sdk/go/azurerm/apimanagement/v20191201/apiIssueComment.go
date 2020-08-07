@@ -14,12 +14,16 @@ import (
 type ApiIssueComment struct {
 	pulumi.CustomResourceState
 
+	// Date and time when the comment was created.
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Issue Comment.
-	Properties IssueCommentContractPropertiesResponseOutput `pulumi:"properties"`
+	// Comment text.
+	Text pulumi.StringOutput `pulumi:"text"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// A resource identifier for the user who left the comment.
+	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
 // NewApiIssueComment registers a new resource with the given unique name, arguments, and options.
@@ -71,21 +75,29 @@ func GetApiIssueComment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiIssueComment resources.
 type apiIssueCommentState struct {
+	// Date and time when the comment was created.
+	CreatedDate *string `pulumi:"createdDate"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Issue Comment.
-	Properties *IssueCommentContractPropertiesResponse `pulumi:"properties"`
+	// Comment text.
+	Text *string `pulumi:"text"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
+	// A resource identifier for the user who left the comment.
+	UserId *string `pulumi:"userId"`
 }
 
 type ApiIssueCommentState struct {
+	// Date and time when the comment was created.
+	CreatedDate pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Issue Comment.
-	Properties IssueCommentContractPropertiesResponsePtrInput
+	// Comment text.
+	Text pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
+	// A resource identifier for the user who left the comment.
+	UserId pulumi.StringPtrInput
 }
 
 func (ApiIssueCommentState) ElementType() reflect.Type {

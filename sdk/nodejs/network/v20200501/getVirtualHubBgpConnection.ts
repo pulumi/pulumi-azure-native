@@ -41,6 +41,10 @@ export interface GetVirtualHubBgpConnectionArgs {
  */
 export interface GetVirtualHubBgpConnectionResult {
     /**
+     * The current state of the VirtualHub to Peer.
+     */
+    readonly connectionState: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -49,9 +53,17 @@ export interface GetVirtualHubBgpConnectionResult {
      */
     readonly name?: string;
     /**
-     * The properties of the Bgp connections.
+     * Peer ASN.
      */
-    readonly properties: outputs.network.v20200501.BgpConnectionPropertiesResponse;
+    readonly peerAsn?: number;
+    /**
+     * Peer IP.
+     */
+    readonly peerIp?: string;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * Connection type.
      */

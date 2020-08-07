@@ -25,10 +25,16 @@ type LookupLinkedServerArgs struct {
 
 // Response to put/get linked server (with properties) for Redis cache.
 type LookupLinkedServerResult struct {
+	// Fully qualified resourceId of the linked redis cache.
+	LinkedRedisCacheId string `pulumi:"linkedRedisCacheId"`
+	// Location of the linked redis cache.
+	LinkedRedisCacheLocation string `pulumi:"linkedRedisCacheLocation"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the linked server.
-	Properties RedisLinkedServerPropertiesResponse `pulumi:"properties"`
+	// Terminal state of the link between primary and secondary redis cache.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Role of the linked server.
+	ServerRole string `pulumi:"serverRole"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

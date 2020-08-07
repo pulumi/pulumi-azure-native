@@ -13,16 +13,31 @@ class GetCustomDomainResult:
     """
     CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, host_name=None, name=None, provisioning_state=None, resource_state=None, type=None):
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        The host name of the custom domain. Must be a domain name.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning status of the custom domain.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the custom domain.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
@@ -37,8 +52,10 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
         if False:
             yield self
         return GetCustomDomainResult(
+            host_name=self.host_name,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
             type=self.type)
 
 
@@ -63,6 +80,8 @@ def get_custom_domain(endpoint_name=None, name=None, profile_name=None, resource
     __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20150601:getCustomDomain', __args__, opts=opts).value
 
     return AwaitableGetCustomDomainResult(
+        host_name=__ret__.get('hostName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
         type=__ret__.get('type'))

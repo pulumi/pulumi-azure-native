@@ -37,13 +37,25 @@ export class Container extends pulumi.CustomResource {
     }
 
     /**
+     * Current status of the container.
+     */
+    public /*out*/ readonly containerStatus!: pulumi.Output<string>;
+    /**
+     * The UTC time when container got created.
+     */
+    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
+    /**
+     * DataFormat for Container
+     */
+    public readonly dataFormat!: pulumi.Output<string>;
+    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The container properties.
+     * Details of the refresh job on this container.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.ContainerPropertiesResponse>;
+    public /*out*/ readonly refreshDetails!: pulumi.Output<outputs.databoxedge.v20190801.RefreshDetailsResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -82,7 +94,9 @@ export class Container extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["containerStatus"] = undefined /*out*/;
+            inputs["createdDateTime"] = undefined /*out*/;
+            inputs["refreshDetails"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

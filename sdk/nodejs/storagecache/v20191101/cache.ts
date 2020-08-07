@@ -37,21 +37,37 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /**
+     * The size of this Cache, in GB.
+     */
+    public readonly cacheSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * Health of the Cache.
+     */
+    public /*out*/ readonly health!: pulumi.Output<outputs.storagecache.v20191101.CacheHealthResponse>;
+    /**
      * Region name string.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Array of IP addresses that can be used by clients mounting this Cache.
+     */
+    public /*out*/ readonly mountAddresses!: pulumi.Output<string[]>;
     /**
      * Name of Cache.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Cache.
+     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storagecache.v20191101.CacheResponseProperties>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * SKU for the Cache.
      */
     public readonly sku!: pulumi.Output<outputs.storagecache.v20191101.CacheResponseSku | undefined>;
+    /**
+     * Subnet used for the Cache.
+     */
+    public readonly subnet!: pulumi.Output<string | undefined>;
     /**
      * ARM tags as name/value pairs.
      */
@@ -60,6 +76,10 @@ export class Cache extends pulumi.CustomResource {
      * Type of the Cache; Microsoft.StorageCache/Cache
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Upgrade status of the Cache.
+     */
+    public /*out*/ readonly upgradeStatus!: pulumi.Output<outputs.storagecache.v20191101.CacheUpgradeStatusResponse | undefined>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -88,8 +108,10 @@ export class Cache extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["health"] = undefined /*out*/;
+            inputs["mountAddresses"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["upgradeStatus"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

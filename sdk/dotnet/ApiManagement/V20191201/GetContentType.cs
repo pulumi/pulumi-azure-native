@@ -46,29 +46,43 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetContentTypeResult
     {
         /// <summary>
+        /// Content type description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the content type.
+        /// Content type schema.
         /// </summary>
-        public readonly Outputs.ContentTypeContractPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, object>? Schema;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Content type version.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetContentTypeResult(
+            string? description,
+
             string name,
 
-            Outputs.ContentTypeContractPropertiesResponseResult properties,
+            ImmutableDictionary<string, object>? schema,
 
-            string type)
+            string type,
+
+            string? version)
         {
+            Description = description;
             Name = name;
-            Properties = properties;
+            Schema = schema;
             Type = type;
+            Version = version;
         }
     }
 }

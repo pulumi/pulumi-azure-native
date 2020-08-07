@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20181001.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of rewrite rule set of the application gateway.
+        /// Provisioning state of the rewrite rule set resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayRewriteRuleSetPropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Rewrite rules in the rewrite rule set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRewriteRuleResponseResult> RewriteRules;
 
         [OutputConstructor]
         private ApplicationGatewayRewriteRuleSetResponseResult(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureRM.Network.V20181001.Outputs
 
             string? name,
 
-            Outputs.ApplicationGatewayRewriteRuleSetPropertiesFormatResponseResult? properties)
+            string provisioningState,
+
+            ImmutableArray<Outputs.ApplicationGatewayRewriteRuleResponseResult> rewriteRules)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RewriteRules = rewriteRules;
         }
     }
 }

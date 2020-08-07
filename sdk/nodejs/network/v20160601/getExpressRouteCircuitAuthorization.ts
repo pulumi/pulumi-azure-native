@@ -41,6 +41,14 @@ export interface GetExpressRouteCircuitAuthorizationArgs {
  */
 export interface GetExpressRouteCircuitAuthorizationResult {
     /**
+     * Gets or sets the authorization key
+     */
+    readonly authorizationKey?: string;
+    /**
+     * Gets or sets AuthorizationUseStatus
+     */
+    readonly authorizationUseStatus?: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: string;
@@ -48,5 +56,8 @@ export interface GetExpressRouteCircuitAuthorizationResult {
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
     readonly name?: string;
-    readonly properties: outputs.network.v20160601.AuthorizationPropertiesFormatResponse;
+    /**
+     * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: string;
 }

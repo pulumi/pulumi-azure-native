@@ -13,7 +13,13 @@ class GetDatabaseResult:
     """
     Class representing a Kusto database.
     """
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, hot_cache_period=None, location=None, name=None, provisioning_state=None, soft_delete_period=None, statistics=None, type=None):
+        if hot_cache_period and not isinstance(hot_cache_period, str):
+            raise TypeError("Expected argument 'hot_cache_period' to be a str")
+        __self__.hot_cache_period = hot_cache_period
+        """
+        The time the data that should be kept in cache for fast queries in TimeSpan.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,23 @@ class GetDatabaseResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The database properties.
+        The provisioned state of the resource.
+        """
+        if soft_delete_period and not isinstance(soft_delete_period, str):
+            raise TypeError("Expected argument 'soft_delete_period' to be a str")
+        __self__.soft_delete_period = soft_delete_period
+        """
+        The time the data should be kept before it stops being accessible to queries in TimeSpan.
+        """
+        if statistics and not isinstance(statistics, dict):
+            raise TypeError("Expected argument 'statistics' to be a dict")
+        __self__.statistics = statistics
+        """
+        The statistics of the database.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +64,12 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         if False:
             yield self
         return GetDatabaseResult(
+            hot_cache_period=self.hot_cache_period,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            soft_delete_period=self.soft_delete_period,
+            statistics=self.statistics,
             type=self.type)
 
 
@@ -71,7 +92,10 @@ def get_database(cluster_name=None, name=None, resource_group_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20190121:getDatabase', __args__, opts=opts).value
 
     return AwaitableGetDatabaseResult(
+        hot_cache_period=__ret__.get('hotCachePeriod'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        soft_delete_period=__ret__.get('softDeletePeriod'),
+        statistics=__ret__.get('statistics'),
         type=__ret__.get('type'))

@@ -10,117 +10,153 @@ from ... import _utilities, _tables
 
 
 class Cluster(pulumi.CustomResource):
+    allocation_state: pulumi.Output[str]
+    """
+    Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+    """
+    allocation_state_transition_time: pulumi.Output[str]
+    """
+    The time at which the cluster entered its current allocation state.
+    """
+    creation_time: pulumi.Output[str]
+    """
+    The time when the cluster was created.
+    """
+    current_node_count: pulumi.Output[float]
+    """
+    The number of compute nodes currently assigned to the cluster.
+    """
+    errors: pulumi.Output[list]
+    """
+    Collection of errors encountered by various compute nodes during node setup.
+      * `code` (`str`) - An identifier of the error. Codes are invariant and are intended to be consumed programmatically.
+      * `details` (`list`) - A list of additional details about the error.
+        * `name` (`str`) - The name in the name-value pair.
+        * `value` (`str`) - The value in the name-value pair.
+
+      * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    node_setup: pulumi.Output[dict]
     """
-    The properties associated with the Cluster.
-      * `allocation_state` (`str`) - Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
-      * `allocation_state_transition_time` (`str`) - The time at which the cluster entered its current allocation state.
-      * `creation_time` (`str`) - The time when the cluster was created.
-      * `current_node_count` (`float`) - The number of compute nodes currently assigned to the cluster.
-      * `errors` (`list`) - Collection of errors encountered by various compute nodes during node setup.
-        * `code` (`str`) - An identifier of the error. Codes are invariant and are intended to be consumed programmatically.
-        * `details` (`list`) - A list of additional details about the error.
-          * `name` (`str`) - The name in the name-value pair.
-          * `value` (`str`) - The value in the name-value pair.
+    Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
+      * `mount_volumes` (`dict`) - Mount volumes to be available to setup task and all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
+        * `azure_blob_file_systems` (`list`) - A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
+          * `account_name` (`str`) - Name of the Azure storage account.
+          * `container_name` (`str`) - Name of the Azure Blob Storage container to mount on the cluster.
+          * `credentials` (`dict`) - Information about the Azure storage credentials.
+            * `account_key` (`str`) - Storage account key. One of accountKey or accountKeySecretReference must be specified.
+            * `account_key_secret_reference` (`dict`) - Information about KeyVault secret storing the storage account key. One of accountKey or accountKeySecretReference must be specified.
+              * `secret_url` (`str`) - The URL referencing a secret in the Key Vault.
+              * `source_vault` (`dict`) - Fully qualified resource identifier of the Key Vault.
+                * `id` (`str`) - The ID of the resource
 
-        * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
+          * `mount_options` (`str`) - Mount options for mounting blobfuse file system.
+          * `relative_mount_path` (`str`) - The relative path on the compute node where the Azure File container will be mounted. Note that all cluster level containers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level containers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
 
-      * `node_setup` (`dict`) - Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
-        * `mount_volumes` (`dict`) - Mount volumes to be available to setup task and all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
-          * `azure_blob_file_systems` (`list`) - A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
-            * `account_name` (`str`) - Name of the Azure storage account.
-            * `container_name` (`str`) - Name of the Azure Blob Storage container to mount on the cluster.
-            * `credentials` (`dict`) - Information about the Azure storage credentials.
-              * `account_key` (`str`) - Storage account key. One of accountKey or accountKeySecretReference must be specified.
-              * `account_key_secret_reference` (`dict`) - Information about KeyVault secret storing the storage account key. One of accountKey or accountKeySecretReference must be specified.
-                * `secret_url` (`str`) - The URL referencing a secret in the Key Vault.
-                * `source_vault` (`dict`) - Fully qualified resource identifier of the Key Vault.
-                  * `id` (`str`) - The ID of the resource
+        * `azure_file_shares` (`list`) - A collection of Azure File Shares that are to be mounted to the cluster nodes.
+          * `account_name` (`str`) - Name of the Azure storage account.
+          * `azure_file_url` (`str`) - URL to access the Azure File.
+          * `credentials` (`dict`) - Information about the Azure storage credentials.
+          * `directory_mode` (`str`) - File mode for directories on the mounted file share. Default value: 0777.
+          * `file_mode` (`str`) - File mode for files on the mounted file share. Default value: 0777.
+          * `relative_mount_path` (`str`) - The relative path on the compute node where the Azure File share will be mounted. Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
 
-            * `mount_options` (`str`) - Mount options for mounting blobfuse file system.
-            * `relative_mount_path` (`str`) - The relative path on the compute node where the Azure File container will be mounted. Note that all cluster level containers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level containers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+        * `file_servers` (`list`) - A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
+          * `file_server` (`dict`) - Resource ID of the existing File Server to be mounted.
+          * `mount_options` (`str`) - Mount options to be passed to mount command.
+          * `relative_mount_path` (`str`) - The relative path on the compute node where the File Server will be mounted. Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+          * `source_directory` (`str`) - File Server directory that needs to be mounted. If this property is not specified, the entire File Server will be mounted.
 
-          * `azure_file_shares` (`list`) - A collection of Azure File Shares that are to be mounted to the cluster nodes.
-            * `account_name` (`str`) - Name of the Azure storage account.
-            * `azure_file_url` (`str`) - URL to access the Azure File.
-            * `credentials` (`dict`) - Information about the Azure storage credentials.
-            * `directory_mode` (`str`) - File mode for directories on the mounted file share. Default value: 0777.
-            * `file_mode` (`str`) - File mode for files on the mounted file share. Default value: 0777.
-            * `relative_mount_path` (`str`) - The relative path on the compute node where the Azure File share will be mounted. Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+        * `unmanaged_file_systems` (`list`) - A collection of unmanaged file systems that are to be mounted to the cluster nodes.
+          * `mount_command` (`str`) - Mount command line. Note, Batch AI will append mount path to the command on its own.
+          * `relative_mount_path` (`str`) - The relative path on the compute node where the unmanaged file system will be mounted. Note that all cluster level unmanaged file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level unmanaged file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
 
-          * `file_servers` (`list`) - A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
-            * `file_server` (`dict`) - Resource ID of the existing File Server to be mounted.
-            * `mount_options` (`str`) - Mount options to be passed to mount command.
-            * `relative_mount_path` (`str`) - The relative path on the compute node where the File Server will be mounted. Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-            * `source_directory` (`str`) - File Server directory that needs to be mounted. If this property is not specified, the entire File Server will be mounted.
+      * `performance_counters_settings` (`dict`) - Settings for performance counters collecting and uploading.
+        * `app_insights_reference` (`dict`) - Azure Application Insights information for performance counters reporting. If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
+          * `component` (`dict`) - Azure Application Insights component resource ID.
+          * `instrumentation_key` (`str`) - Value of the Azure Application Insights instrumentation key.
+          * `instrumentation_key_secret_reference` (`dict`) - KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
 
-          * `unmanaged_file_systems` (`list`) - A collection of unmanaged file systems that are to be mounted to the cluster nodes.
-            * `mount_command` (`str`) - Mount command line. Note, Batch AI will append mount path to the command on its own.
-            * `relative_mount_path` (`str`) - The relative path on the compute node where the unmanaged file system will be mounted. Note that all cluster level unmanaged file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level unmanaged file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+      * `setup_task` (`dict`) - Setup task to run on cluster nodes when nodes got created or rebooted. The setup task code needs to be idempotent. Generally the setup task is used to download static data that is required for all jobs that run on the cluster VMs and/or to download/install software.
+        * `command_line` (`str`) - The command line to be executed on each cluster's node after it being allocated or rebooted. The command is executed in a bash subshell as a root.
+        * `environment_variables` (`list`) - A collection of user defined environment variables to be set for setup task.
+          * `name` (`str`) - The name of the environment variable.
+          * `value` (`str`) - The value of the environment variable.
 
-        * `performance_counters_settings` (`dict`) - Settings for performance counters collecting and uploading.
-          * `app_insights_reference` (`dict`) - Azure Application Insights information for performance counters reporting. If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
-            * `component` (`dict`) - Azure Application Insights component resource ID.
-            * `instrumentation_key` (`str`) - Value of the Azure Application Insights instrumentation key.
-            * `instrumentation_key_secret_reference` (`dict`) - KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
+        * `secrets` (`list`) - A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
+          * `name` (`str`) - The name of the environment variable to store the secret value.
+          * `value` (`str`) - The value of the environment variable. This value will never be reported back by Batch AI.
+          * `value_secret_reference` (`dict`) - KeyVault store and secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
 
-        * `setup_task` (`dict`) - Setup task to run on cluster nodes when nodes got created or rebooted. The setup task code needs to be idempotent. Generally the setup task is used to download static data that is required for all jobs that run on the cluster VMs and/or to download/install software.
-          * `command_line` (`str`) - The command line to be executed on each cluster's node after it being allocated or rebooted. The command is executed in a bash subshell as a root.
-          * `environment_variables` (`list`) - A collection of user defined environment variables to be set for setup task.
-            * `name` (`str`) - The name of the environment variable.
-            * `value` (`str`) - The value of the environment variable.
+        * `std_out_err_path_prefix` (`str`) - The prefix of a path where the Batch AI service will upload the stdout, stderr and execution log of the setup task.
+        * `std_out_err_path_suffix` (`str`) - A path segment appended by Batch AI to stdOutErrPathPrefix to form a path where stdout, stderr and execution log of the setup task will be uploaded. Batch AI creates the setup task output directories under an unique path to avoid conflicts between different clusters. The full path can be obtained by concatenation of stdOutErrPathPrefix and stdOutErrPathSuffix.
+    """
+    node_state_counts: pulumi.Output[dict]
+    """
+    Counts of various node states on the cluster.
+      * `idle_node_count` (`float`) - Number of compute nodes in idle state.
+      * `leaving_node_count` (`float`) - Number of compute nodes which are leaving the cluster.
+      * `preparing_node_count` (`float`) - Number of compute nodes which are being prepared.
+      * `running_node_count` (`float`) - Number of compute nodes which are running jobs.
+      * `unusable_node_count` (`float`) - Number of compute nodes which are in unusable state.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+    """
+    provisioning_state_transition_time: pulumi.Output[str]
+    """
+    Time when the provisioning state was changed.
+    """
+    scale_settings: pulumi.Output[dict]
+    """
+    Scale settings of the cluster.
+      * `auto_scale` (`dict`) - Auto-scale settings for the cluster.
+        * `initial_node_count` (`float`) - The number of compute nodes to allocate on cluster creation. Note that this value is used only during cluster creation. Default: 0.
+        * `maximum_node_count` (`float`) - The maximum number of compute nodes the cluster can have.
+        * `minimum_node_count` (`float`) - The minimum number of compute nodes the Batch AI service will try to allocate for the cluster. Note, the actual number of nodes can be less than the specified value if the subscription has not enough quota to fulfill the request.
 
-          * `secrets` (`list`) - A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
-            * `name` (`str`) - The name of the environment variable to store the secret value.
-            * `value` (`str`) - The value of the environment variable. This value will never be reported back by Batch AI.
-            * `value_secret_reference` (`dict`) - KeyVault store and secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
-
-          * `std_out_err_path_prefix` (`str`) - The prefix of a path where the Batch AI service will upload the stdout, stderr and execution log of the setup task.
-          * `std_out_err_path_suffix` (`str`) - A path segment appended by Batch AI to stdOutErrPathPrefix to form a path where stdout, stderr and execution log of the setup task will be uploaded. Batch AI creates the setup task output directories under an unique path to avoid conflicts between different clusters. The full path can be obtained by concatenation of stdOutErrPathPrefix and stdOutErrPathSuffix.
-
-      * `node_state_counts` (`dict`) - Counts of various node states on the cluster.
-        * `idle_node_count` (`float`) - Number of compute nodes in idle state.
-        * `leaving_node_count` (`float`) - Number of compute nodes which are leaving the cluster.
-        * `preparing_node_count` (`float`) - Number of compute nodes which are being prepared.
-        * `running_node_count` (`float`) - Number of compute nodes which are running jobs.
-        * `unusable_node_count` (`float`) - Number of compute nodes which are in unusable state.
-
-      * `provisioning_state` (`str`) - Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
-      * `provisioning_state_transition_time` (`str`) - Time when the provisioning state was changed.
-      * `scale_settings` (`dict`) - Scale settings of the cluster.
-        * `auto_scale` (`dict`) - Auto-scale settings for the cluster.
-          * `initial_node_count` (`float`) - The number of compute nodes to allocate on cluster creation. Note that this value is used only during cluster creation. Default: 0.
-          * `maximum_node_count` (`float`) - The maximum number of compute nodes the cluster can have.
-          * `minimum_node_count` (`float`) - The minimum number of compute nodes the Batch AI service will try to allocate for the cluster. Note, the actual number of nodes can be less than the specified value if the subscription has not enough quota to fulfill the request.
-
-        * `manual` (`dict`) - Manual scale settings for the cluster.
-          * `node_deallocation_option` (`str`) - An action to be performed when the cluster size is decreasing. The default value is requeue.
-          * `target_node_count` (`float`) - The desired number of compute nodes in the Cluster. Default is 0.
-
-      * `subnet` (`dict`) - Virtual network subnet resource ID the cluster nodes belong to.
-      * `user_account_settings` (`dict`) - Administrator user account settings which can be used to SSH to compute nodes.
-        * `admin_user_name` (`str`) - Name of the administrator user account which can be used to SSH to nodes.
-        * `admin_user_password` (`str`) - Password of the administrator user account.
-        * `admin_user_ssh_public_key` (`str`) - SSH public key of the administrator user account.
-
-      * `virtual_machine_configuration` (`dict`) - Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
-        * `image_reference` (`dict`) - OS image reference for cluster nodes.
-          * `offer` (`str`) - Offer of the image.
-          * `publisher` (`str`) - Publisher of the image.
-          * `sku` (`str`) - SKU of the image.
-          * `version` (`str`) - Version of the image.
-          * `virtual_machine_image_id` (`str`) - The ARM resource identifier of the virtual machine image for the compute nodes. This is of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}. The virtual machine image must be in the same region and subscription as the cluster. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. Note, you need to provide publisher, offer and sku of the base OS image of which the custom image has been derived from.
-
-      * `vm_priority` (`str`) - VM priority of cluster nodes.
-      * `vm_size` (`str`) - The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
+      * `manual` (`dict`) - Manual scale settings for the cluster.
+        * `node_deallocation_option` (`str`) - An action to be performed when the cluster size is decreasing. The default value is requeue.
+        * `target_node_count` (`float`) - The desired number of compute nodes in the Cluster. Default is 0.
+    """
+    subnet: pulumi.Output[dict]
+    """
+    Virtual network subnet resource ID the cluster nodes belong to.
+      * `id` (`str`) - The ID of the resource
     """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    user_account_settings: pulumi.Output[dict]
+    """
+    Administrator user account settings which can be used to SSH to compute nodes.
+      * `admin_user_name` (`str`) - Name of the administrator user account which can be used to SSH to nodes.
+      * `admin_user_password` (`str`) - Password of the administrator user account.
+      * `admin_user_ssh_public_key` (`str`) - SSH public key of the administrator user account.
+    """
+    virtual_machine_configuration: pulumi.Output[dict]
+    """
+    Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
+      * `image_reference` (`dict`) - OS image reference for cluster nodes.
+        * `offer` (`str`) - Offer of the image.
+        * `publisher` (`str`) - Publisher of the image.
+        * `sku` (`str`) - SKU of the image.
+        * `version` (`str`) - Version of the image.
+        * `virtual_machine_image_id` (`str`) - The ARM resource identifier of the virtual machine image for the compute nodes. This is of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}. The virtual machine image must be in the same region and subscription as the cluster. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. Note, you need to provide publisher, offer and sku of the base OS image of which the custom image has been derived from.
+    """
+    vm_priority: pulumi.Output[str]
+    """
+    VM priority of cluster nodes.
+    """
+    vm_size: pulumi.Output[str]
+    """
+    The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
     """
     def __init__(__self__, resource_name, opts=None, name=None, node_setup=None, resource_group_name=None, scale_settings=None, subnet=None, user_account_settings=None, virtual_machine_configuration=None, vm_priority=None, vm_size=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -255,7 +291,14 @@ class Cluster(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
+            __props__['allocation_state'] = None
+            __props__['allocation_state_transition_time'] = None
+            __props__['creation_time'] = None
+            __props__['current_node_count'] = None
+            __props__['errors'] = None
+            __props__['node_state_counts'] = None
+            __props__['provisioning_state'] = None
+            __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(
             'azurerm:batchai/v20180501:Cluster',

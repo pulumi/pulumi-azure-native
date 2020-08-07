@@ -18,13 +18,12 @@ class PatchSchedule(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    schedule_entries: pulumi.Output[list]
     """
     List of patch schedules for a Redis cache.
-      * `schedule_entries` (`list`) - List of patch schedules for a Redis cache.
-        * `day_of_week` (`str`) - Day of the week when a cache can be patched.
-        * `maintenance_window` (`str`) - ISO8601 timespan specifying how much time cache patching can take. 
-        * `start_hour_utc` (`float`) - Start hour after which cache patching can start.
+      * `day_of_week` (`str`) - Day of the week when a cache can be patched.
+      * `maintenance_window` (`str`) - ISO8601 timespan specifying how much time cache patching can take. 
+      * `start_hour_utc` (`float`) - Start hour after which cache patching can start.
     """
     type: pulumi.Output[str]
     """
@@ -73,7 +72,6 @@ class PatchSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schedule_entries'")
             __props__['schedule_entries'] = schedule_entries
             __props__['location'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(PatchSchedule, __self__).__init__(
             'azurerm:cache/v20160401:PatchSchedule',

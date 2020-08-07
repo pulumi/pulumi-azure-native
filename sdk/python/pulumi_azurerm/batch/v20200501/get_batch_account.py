@@ -13,12 +13,57 @@ class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, identity=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
+        if account_endpoint and not isinstance(account_endpoint, str):
+            raise TypeError("Expected argument 'account_endpoint' to be a str")
+        __self__.account_endpoint = account_endpoint
+        """
+        The account endpoint used to interact with the Batch service.
+        """
+        if active_job_and_job_schedule_quota and not isinstance(active_job_and_job_schedule_quota, float):
+            raise TypeError("Expected argument 'active_job_and_job_schedule_quota' to be a float")
+        __self__.active_job_and_job_schedule_quota = active_job_and_job_schedule_quota
+        if auto_storage and not isinstance(auto_storage, dict):
+            raise TypeError("Expected argument 'auto_storage' to be a dict")
+        __self__.auto_storage = auto_storage
+        """
+        Contains information about the auto-storage account associated with a Batch account.
+        """
+        if dedicated_core_quota and not isinstance(dedicated_core_quota, float):
+            raise TypeError("Expected argument 'dedicated_core_quota' to be a float")
+        __self__.dedicated_core_quota = dedicated_core_quota
+        """
+        For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+        """
+        if dedicated_core_quota_per_vm_family and not isinstance(dedicated_core_quota_per_vm_family, list):
+            raise TypeError("Expected argument 'dedicated_core_quota_per_vm_family' to be a list")
+        __self__.dedicated_core_quota_per_vm_family = dedicated_core_quota_per_vm_family
+        """
+        A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+        """
+        if dedicated_core_quota_per_vm_family_enforced and not isinstance(dedicated_core_quota_per_vm_family_enforced, bool):
+            raise TypeError("Expected argument 'dedicated_core_quota_per_vm_family_enforced' to be a bool")
+        __self__.dedicated_core_quota_per_vm_family_enforced = dedicated_core_quota_per_vm_family_enforced
+        """
+        Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+        """
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        __self__.encryption = encryption
+        """
+        Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The identity of the Batch account.
+        """
+        if key_vault_reference and not isinstance(key_vault_reference, dict):
+            raise TypeError("Expected argument 'key_vault_reference' to be a dict")
+        __self__.key_vault_reference = key_vault_reference
+        """
+        Identifies the Azure key vault associated with a Batch account.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +71,44 @@ class GetBatchAccountResult:
         """
         The location of the resource.
         """
+        if low_priority_core_quota and not isinstance(low_priority_core_quota, float):
+            raise TypeError("Expected argument 'low_priority_core_quota' to be a float")
+        __self__.low_priority_core_quota = low_priority_core_quota
+        """
+        For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if pool_allocation_mode and not isinstance(pool_allocation_mode, str):
+            raise TypeError("Expected argument 'pool_allocation_mode' to be a str")
+        __self__.pool_allocation_mode = pool_allocation_mode
         """
-        The properties associated with the account.
+        The allocation mode for creating pools in the Batch account.
+        """
+        if pool_quota and not isinstance(pool_quota, float):
+            raise TypeError("Expected argument 'pool_quota' to be a float")
+        __self__.pool_quota = pool_quota
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
+        """
+        List of private endpoint connections associated with the Batch account
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioned state of the resource
+        """
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        __self__.public_network_access = public_network_access
+        """
+        If not specified, the default value is 'enabled'.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +130,23 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
         if False:
             yield self
         return GetBatchAccountResult(
+            account_endpoint=self.account_endpoint,
+            active_job_and_job_schedule_quota=self.active_job_and_job_schedule_quota,
+            auto_storage=self.auto_storage,
+            dedicated_core_quota=self.dedicated_core_quota,
+            dedicated_core_quota_per_vm_family=self.dedicated_core_quota_per_vm_family,
+            dedicated_core_quota_per_vm_family_enforced=self.dedicated_core_quota_per_vm_family_enforced,
+            encryption=self.encryption,
             identity=self.identity,
+            key_vault_reference=self.key_vault_reference,
             location=self.location,
+            low_priority_core_quota=self.low_priority_core_quota,
             name=self.name,
-            properties=self.properties,
+            pool_allocation_mode=self.pool_allocation_mode,
+            pool_quota=self.pool_quota,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +168,22 @@ def get_batch_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:batch/v20200501:getBatchAccount', __args__, opts=opts).value
 
     return AwaitableGetBatchAccountResult(
+        account_endpoint=__ret__.get('accountEndpoint'),
+        active_job_and_job_schedule_quota=__ret__.get('activeJobAndJobScheduleQuota'),
+        auto_storage=__ret__.get('autoStorage'),
+        dedicated_core_quota=__ret__.get('dedicatedCoreQuota'),
+        dedicated_core_quota_per_vm_family=__ret__.get('dedicatedCoreQuotaPerVMFamily'),
+        dedicated_core_quota_per_vm_family_enforced=__ret__.get('dedicatedCoreQuotaPerVMFamilyEnforced'),
+        encryption=__ret__.get('encryption'),
         identity=__ret__.get('identity'),
+        key_vault_reference=__ret__.get('keyVaultReference'),
         location=__ret__.get('location'),
+        low_priority_core_quota=__ret__.get('lowPriorityCoreQuota'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        pool_allocation_mode=__ret__.get('poolAllocationMode'),
+        pool_quota=__ret__.get('poolQuota'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_network_access=__ret__.get('publicNetworkAccess'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

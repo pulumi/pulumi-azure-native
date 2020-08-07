@@ -46,17 +46,49 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class GetIntegrationAccountAgreementResult
     {
         /// <summary>
+        /// The agreement type.
+        /// </summary>
+        public readonly string AgreementType;
+        /// <summary>
+        /// The changed time.
+        /// </summary>
+        public readonly string ChangedTime;
+        /// <summary>
+        /// The agreement content.
+        /// </summary>
+        public readonly Outputs.AgreementContentResponseResult Content;
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
+        /// The business identity of the guest partner.
+        /// </summary>
+        public readonly Outputs.BusinessIdentityResponseResult GuestIdentity;
+        /// <summary>
+        /// The integration account partner that is set as guest partner for this agreement.
+        /// </summary>
+        public readonly string GuestPartner;
+        /// <summary>
+        /// The business identity of the host partner.
+        /// </summary>
+        public readonly Outputs.BusinessIdentityResponseResult HostIdentity;
+        /// <summary>
+        /// The integration account partner that is set as host partner for this agreement.
+        /// </summary>
+        public readonly string HostPartner;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// The metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Metadata;
+        /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The integration account agreement properties.
-        /// </summary>
-        public readonly Outputs.IntegrationAccountAgreementPropertiesResponseResult Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -68,19 +100,43 @@ namespace Pulumi.AzureRM.Logic.V20190501
 
         [OutputConstructor]
         private GetIntegrationAccountAgreementResult(
+            string agreementType,
+
+            string changedTime,
+
+            Outputs.AgreementContentResponseResult content,
+
+            string createdTime,
+
+            Outputs.BusinessIdentityResponseResult guestIdentity,
+
+            string guestPartner,
+
+            Outputs.BusinessIdentityResponseResult hostIdentity,
+
+            string hostPartner,
+
             string? location,
 
-            string name,
+            ImmutableDictionary<string, object>? metadata,
 
-            Outputs.IntegrationAccountAgreementPropertiesResponseResult properties,
+            string name,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AgreementType = agreementType;
+            ChangedTime = changedTime;
+            Content = content;
+            CreatedTime = createdTime;
+            GuestIdentity = guestIdentity;
+            GuestPartner = guestPartner;
+            HostIdentity = hostIdentity;
+            HostPartner = hostPartner;
             Location = location;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
             Tags = tags;
             Type = type;
         }

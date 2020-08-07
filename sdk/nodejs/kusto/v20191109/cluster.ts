@@ -37,9 +37,25 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * The cluster data ingestion URI.
+     */
+    public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
+    /**
+     * A boolean value that indicates if the cluster's disks are encrypted.
+     */
+    public readonly enableDiskEncryption!: pulumi.Output<boolean | undefined>;
+    /**
+     * A boolean value that indicates if the streaming ingest is enabled.
+     */
+    public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
+    /**
      * The identity of the cluster, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.kusto.v20191109.IdentityResponse | undefined>;
+    /**
+     * KeyVault properties for the cluster encryption.
+     */
+    public readonly keyVaultProperties!: pulumi.Output<outputs.kusto.v20191109.KeyVaultPropertiesResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -49,21 +65,45 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The cluster properties.
+     * Optimized auto scale definition.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.kusto.v20191109.ClusterPropertiesResponse>;
+    public readonly optimizedAutoscale!: pulumi.Output<outputs.kusto.v20191109.OptimizedAutoscaleResponse | undefined>;
+    /**
+     * The provisioned state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The SKU of the cluster.
      */
     public readonly sku!: pulumi.Output<outputs.kusto.v20191109.AzureSkuResponse>;
     /**
+     * The state of the resource.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * The reason for the cluster's current state.
+     */
+    public /*out*/ readonly stateReason!: pulumi.Output<string>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The cluster's external tenants.
+     */
+    public readonly trustedExternalTenants!: pulumi.Output<outputs.kusto.v20191109.TrustedExternalTenantResponse[] | undefined>;
+    /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The cluster URI.
+     */
+    public /*out*/ readonly uri!: pulumi.Output<string>;
+    /**
+     * Virtual network definition.
+     */
+    public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.kusto.v20191109.VirtualNetworkConfigurationResponse | undefined>;
     /**
      * The availability zones of the cluster.
      */
@@ -107,8 +147,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
             inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["dataIngestionUri"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["stateReason"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uri"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

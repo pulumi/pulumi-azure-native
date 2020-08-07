@@ -45,9 +45,17 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Resource properties.
+     * Private endpoint which the connection belongs to.
      */
-    readonly properties: outputs.dbformariadb.v20180601.PrivateEndpointConnectionPropertiesResponse;
+    readonly privateEndpoint?: outputs.dbformariadb.v20180601.PrivateEndpointPropertyResponse;
+    /**
+     * Connection state of the private endpoint connection.
+     */
+    readonly privateLinkServiceConnectionState?: outputs.dbformariadb.v20180601.PrivateLinkServiceConnectionStatePropertyResponse;
+    /**
+     * State of the private endpoint connection.
+     */
+    readonly provisioningState: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

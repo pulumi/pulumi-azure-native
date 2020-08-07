@@ -10,20 +10,25 @@ from ... import _utilities, _tables
 
 
 class HybridUseBenefit(pulumi.CustomResource):
+    created_date: pulumi.Output[str]
+    """
+    Created date
+    """
     etag: pulumi.Output[float]
     """
     Indicates the revision of the hybrid use benefit
+    """
+    last_updated_date: pulumi.Output[str]
+    """
+    Last updated date
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Property bag for a hybrid use benefit response
-      * `created_date` (`str`) - Created date
-      * `last_updated_date` (`str`) - Last updated date
-      * `provisioning_state` (`str`) - Provisioning state
+    Provisioning state
     """
     sku: pulumi.Output[dict]
     """
@@ -74,8 +79,10 @@ class HybridUseBenefit(pulumi.CustomResource):
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
+            __props__['created_date'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['last_updated_date'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(HybridUseBenefit, __self__).__init__(
             'azurerm:softwareplan/v20191201:HybridUseBenefit',

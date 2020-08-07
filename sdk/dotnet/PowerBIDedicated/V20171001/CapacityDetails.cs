@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
     public partial class CapacityDetails : Pulumi.CustomResource
     {
         /// <summary>
+        /// A collection of Dedicated capacity administrators
+        /// </summary>
+        [Output("administration")]
+        public Output<Outputs.DedicatedCapacityAdministratorsResponseResult?> Administration { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the PowerBI Dedicated resource.
         /// </summary>
         [Output("location")]
@@ -27,16 +33,22 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the provision operation request.
+        /// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DedicatedCapacityPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the PowerBI Dedicated resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ResourceSkuResponseResult> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.

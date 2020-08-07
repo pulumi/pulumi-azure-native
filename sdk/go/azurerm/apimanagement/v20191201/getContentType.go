@@ -27,10 +27,14 @@ type LookupContentTypeArgs struct {
 
 // Content type contract details.
 type LookupContentTypeResult struct {
+	// Content type description.
+	Description *string `pulumi:"description"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the content type.
-	Properties ContentTypeContractPropertiesResponse `pulumi:"properties"`
+	// Content type schema.
+	Schema map[string]interface{} `pulumi:"schema"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// Content type version.
+	Version *string `pulumi:"version"`
 }

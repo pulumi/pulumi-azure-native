@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
     }
 
     /**
+     * A description for this rule. Restricted to 140 chars.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -45,9 +47,17 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the service endpoint policy definition.
+     * The provisioning state of the service endpoint policy definition resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191201.ServiceEndpointPolicyDefinitionPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Service endpoint name.
+     */
+    public readonly service!: pulumi.Output<string | undefined>;
+    /**
+     * A list of service resources.
+     */
+    public readonly serviceResources!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ServiceEndpointPolicyDefinition resource with the given unique name, arguments, and options.
@@ -79,7 +89,7 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
             inputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
             inputs["serviceResources"] = args ? args.serviceResources : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

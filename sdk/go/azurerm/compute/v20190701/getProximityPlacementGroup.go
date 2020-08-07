@@ -27,14 +27,22 @@ type LookupProximityPlacementGroupArgs struct {
 
 // Specifies information about the proximity placement group.
 type LookupProximityPlacementGroupResult struct {
+	// A list of references to all availability sets in the proximity placement group.
+	AvailabilitySets []SubResourceWithColocationStatusResponse `pulumi:"availabilitySets"`
+	// Describes colocation status of the Proximity Placement Group.
+	ColocationStatus *InstanceViewStatusResponse `pulumi:"colocationStatus"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Describes the properties of a Proximity Placement Group.
-	Properties ProximityPlacementGroupPropertiesResponse `pulumi:"properties"`
+	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+	ProximityPlacementGroupType *string `pulumi:"proximityPlacementGroupType"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// A list of references to all virtual machine scale sets in the proximity placement group.
+	VirtualMachineScaleSets []SubResourceWithColocationStatusResponse `pulumi:"virtualMachineScaleSets"`
+	// A list of references to all virtual machines in the proximity placement group.
+	VirtualMachines []SubResourceWithColocationStatusResponse `pulumi:"virtualMachines"`
 }

@@ -31,10 +31,14 @@ type LookupDdosProtectionPlanResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the DDoS protection plan.
-	Properties DdosProtectionPlanPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+	VirtualNetworks []SubResourceResponse `pulumi:"virtualNetworks"`
 }

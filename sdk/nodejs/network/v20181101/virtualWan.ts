@@ -37,6 +37,18 @@ export class VirtualWan extends pulumi.CustomResource {
     }
 
     /**
+     * True if branch to branch traffic is allowed.
+     */
+    public readonly allowBranchToBranchTraffic!: pulumi.Output<boolean | undefined>;
+    /**
+     * True if Vnet to Vnet traffic is allowed.
+     */
+    public readonly allowVnetToVnetTraffic!: pulumi.Output<boolean | undefined>;
+    /**
+     * Vpn encryption to be disabled or not.
+     */
+    public readonly disableVpnEncryption!: pulumi.Output<boolean | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +61,21 @@ export class VirtualWan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for VirtualWAN
+     * The office local breakout category.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181101.VirtualWanPropertiesResponse>;
+    public readonly office365LocalBreakoutCategory!: pulumi.Output<string | undefined>;
+    /**
+     * list of all P2SVpnServerConfigurations associated with the virtual wan.
+     */
+    public readonly p2SVpnServerConfigurations!: pulumi.Output<outputs.network.v20181101.P2SVpnServerConfigurationResponse[] | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The Security Provider name.
+     */
+    public readonly securityProviderName!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +84,11 @@ export class VirtualWan extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * List of VirtualHubs in the VirtualWAN.
+     */
+    public /*out*/ readonly virtualHubs!: pulumi.Output<outputs.network.v20181101.SubResourceResponse[]>;
+    public /*out*/ readonly vpnSites!: pulumi.Output<outputs.network.v20181101.SubResourceResponse[]>;
 
     /**
      * Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -96,8 +125,9 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["securityProviderName"] = args ? args.securityProviderName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualHubs"] = undefined /*out*/;
+            inputs["vpnSites"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

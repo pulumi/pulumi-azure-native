@@ -13,12 +13,24 @@ class GetAzureFirewallResult:
     """
     Azure Firewall resource
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, application_rule_collections=None, etag=None, ip_configurations=None, location=None, name=None, nat_rule_collections=None, network_rule_collections=None, provisioning_state=None, tags=None, type=None):
+        if application_rule_collections and not isinstance(application_rule_collections, list):
+            raise TypeError("Expected argument 'application_rule_collections' to be a list")
+        __self__.application_rule_collections = application_rule_collections
+        """
+        Collection of application rule collections used by Azure Firewall.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        __self__.ip_configurations = ip_configurations
+        """
+        IP configuration of the Azure Firewall resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +44,23 @@ class GetAzureFirewallResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if nat_rule_collections and not isinstance(nat_rule_collections, list):
+            raise TypeError("Expected argument 'nat_rule_collections' to be a list")
+        __self__.nat_rule_collections = nat_rule_collections
         """
-        Properties of the Azure Firewall.
+        Collection of NAT rule collections used by Azure Firewall.
+        """
+        if network_rule_collections and not isinstance(network_rule_collections, list):
+            raise TypeError("Expected argument 'network_rule_collections' to be a list")
+        __self__.network_rule_collections = network_rule_collections
+        """
+        Collection of network rule collections used by Azure Firewall.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +82,14 @@ class AwaitableGetAzureFirewallResult(GetAzureFirewallResult):
         if False:
             yield self
         return GetAzureFirewallResult(
+            application_rule_collections=self.application_rule_collections,
             etag=self.etag,
+            ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            nat_rule_collections=self.nat_rule_collections,
+            network_rule_collections=self.network_rule_collections,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +111,13 @@ def get_azure_firewall(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20181001:getAzureFirewall', __args__, opts=opts).value
 
     return AwaitableGetAzureFirewallResult(
+        application_rule_collections=__ret__.get('applicationRuleCollections'),
         etag=__ret__.get('etag'),
+        ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        nat_rule_collections=__ret__.get('natRuleCollections'),
+        network_rule_collections=__ret__.get('networkRuleCollections'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

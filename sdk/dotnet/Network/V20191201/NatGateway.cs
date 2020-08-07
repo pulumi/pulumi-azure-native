@@ -21,6 +21,12 @@ namespace Pulumi.AzureRM.Network.V20191201
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The idle timeout of the nat gateway.
+        /// </summary>
+        [Output("idleTimeoutInMinutes")]
+        public Output<int?> IdleTimeoutInMinutes { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -33,16 +39,40 @@ namespace Pulumi.AzureRM.Network.V20191201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Nat Gateway properties.
+        /// The provisioning state of the NAT gateway resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NatGatewayPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of public ip addresses associated with the nat gateway resource.
+        /// </summary>
+        [Output("publicIpAddresses")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> PublicIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of public ip prefixes associated with the nat gateway resource.
+        /// </summary>
+        [Output("publicIpPrefixes")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> PublicIpPrefixes { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the NAT gateway resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The nat gateway SKU.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.NatGatewaySkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of references to the subnets using this nat gateway resource.
+        /// </summary>
+        [Output("subnets")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

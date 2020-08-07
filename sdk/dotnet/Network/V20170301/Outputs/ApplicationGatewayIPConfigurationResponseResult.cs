@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20170301.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of IP configuration of an application gateway.
+        /// Provisioning state of the application gateway subnet resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Reference of the subnet resource. A subnet from where application gateway gets its private address.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Subnet;
 
         [OutputConstructor]
         private ApplicationGatewayIPConfigurationResponseResult(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureRM.Network.V20170301.Outputs
 
             string? name,
 
-            Outputs.ApplicationGatewayIPConfigurationPropertiesFormatResponseResult? properties)
+            string? provisioningState,
+
+            Outputs.SubResourceResponseResult? subnet)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Subnet = subnet;
         }
     }
 }

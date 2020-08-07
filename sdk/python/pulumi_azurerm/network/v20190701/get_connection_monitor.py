@@ -13,7 +13,19 @@ class GetConnectionMonitorResult:
     """
     Information about the connection monitor.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, auto_start=None, destination=None, etag=None, location=None, monitoring_interval_in_seconds=None, monitoring_status=None, name=None, provisioning_state=None, source=None, start_time=None, tags=None, type=None):
+        if auto_start and not isinstance(auto_start, bool):
+            raise TypeError("Expected argument 'auto_start' to be a bool")
+        __self__.auto_start = auto_start
+        """
+        Determines if the connection monitor will start automatically once created.
+        """
+        if destination and not isinstance(destination, dict):
+            raise TypeError("Expected argument 'destination' to be a dict")
+        __self__.destination = destination
+        """
+        Describes the destination of connection monitor.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,17 +38,41 @@ class GetConnectionMonitorResult:
         """
         Connection monitor location.
         """
+        if monitoring_interval_in_seconds and not isinstance(monitoring_interval_in_seconds, float):
+            raise TypeError("Expected argument 'monitoring_interval_in_seconds' to be a float")
+        __self__.monitoring_interval_in_seconds = monitoring_interval_in_seconds
+        """
+        Monitoring interval in seconds.
+        """
+        if monitoring_status and not isinstance(monitoring_status, str):
+            raise TypeError("Expected argument 'monitoring_status' to be a str")
+        __self__.monitoring_status = monitoring_status
+        """
+        The monitoring status of the connection monitor.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the connection monitor.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the connection monitor result.
+        The provisioning state of the connection monitor.
+        """
+        if source and not isinstance(source, dict):
+            raise TypeError("Expected argument 'source' to be a dict")
+        __self__.source = source
+        """
+        Describes the source of connection monitor.
+        """
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        __self__.start_time = start_time
+        """
+        The date and time when the connection monitor was started.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +94,16 @@ class AwaitableGetConnectionMonitorResult(GetConnectionMonitorResult):
         if False:
             yield self
         return GetConnectionMonitorResult(
+            auto_start=self.auto_start,
+            destination=self.destination,
             etag=self.etag,
             location=self.location,
+            monitoring_interval_in_seconds=self.monitoring_interval_in_seconds,
+            monitoring_status=self.monitoring_status,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            source=self.source,
+            start_time=self.start_time,
             tags=self.tags,
             type=self.type)
 
@@ -85,9 +127,15 @@ def get_connection_monitor(name=None, network_watcher_name=None, resource_group_
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getConnectionMonitor', __args__, opts=opts).value
 
     return AwaitableGetConnectionMonitorResult(
+        auto_start=__ret__.get('autoStart'),
+        destination=__ret__.get('destination'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
+        monitoring_interval_in_seconds=__ret__.get('monitoringIntervalInSeconds'),
+        monitoring_status=__ret__.get('monitoringStatus'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        source=__ret__.get('source'),
+        start_time=__ret__.get('startTime'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

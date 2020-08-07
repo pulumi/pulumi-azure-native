@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetServerFarmResult
     {
         /// <summary>
+        /// App Service Plan administration site
+        /// </summary>
+        public readonly string? AdminSiteName;
+        /// <summary>
+        /// Geographical location for the App Service Plan
+        /// </summary>
+        public readonly string GeoRegion;
+        /// <summary>
+        /// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+        /// </summary>
+        public readonly Outputs.HostingEnvironmentProfileResponseResult? HostingEnvironmentProfile;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -48,14 +60,42 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Maximum number of instances that can be assigned to this App Service Plan
+        /// </summary>
+        public readonly int? MaximumNumberOfWorkers;
+        /// <summary>
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.ServerFarmWithRichSkuResponsePropertiesResult Properties;
+        /// <summary>
+        /// Number of web apps assigned to this App Service Plan
+        /// </summary>
+        public readonly int NumberOfSites;
+        /// <summary>
+        /// If True apps assigned to this App Service Plan can be scaled independently
+        ///             If False apps assigned to this App Service Plan will scale to all instances of the plan
+        /// </summary>
+        public readonly bool? PerSiteScaling;
+        /// <summary>
+        /// Enables creation of a Linux App Service Plan
+        /// </summary>
+        public readonly bool? Reserved;
+        /// <summary>
+        /// Resource group of the server farm
+        /// </summary>
+        public readonly string ResourceGroup;
         /// <summary>
         /// Describes a sku for a scalable resource
         /// </summary>
         public readonly Outputs.SkuDescriptionResponseResult? Sku;
+        /// <summary>
+        /// App Service Plan Status
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// App Service Plan Subscription
+        /// </summary>
+        public readonly string Subscription;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -64,30 +104,64 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Resource type
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Target worker tier assigned to the App Service Plan
+        /// </summary>
+        public readonly string? WorkerTierName;
 
         [OutputConstructor]
         private GetServerFarmResult(
+            string? adminSiteName,
+
+            string geoRegion,
+
+            Outputs.HostingEnvironmentProfileResponseResult? hostingEnvironmentProfile,
+
             string? kind,
 
             string location,
 
+            int? maximumNumberOfWorkers,
+
             string? name,
 
-            Outputs.ServerFarmWithRichSkuResponsePropertiesResult properties,
+            int numberOfSites,
+
+            bool? perSiteScaling,
+
+            bool? reserved,
+
+            string resourceGroup,
 
             Outputs.SkuDescriptionResponseResult? sku,
 
+            string status,
+
+            string subscription,
+
             ImmutableDictionary<string, string>? tags,
 
-            string? type)
+            string? type,
+
+            string? workerTierName)
         {
+            AdminSiteName = adminSiteName;
+            GeoRegion = geoRegion;
+            HostingEnvironmentProfile = hostingEnvironmentProfile;
             Kind = kind;
             Location = location;
+            MaximumNumberOfWorkers = maximumNumberOfWorkers;
             Name = name;
-            Properties = properties;
+            NumberOfSites = numberOfSites;
+            PerSiteScaling = perSiteScaling;
+            Reserved = reserved;
+            ResourceGroup = resourceGroup;
             Sku = sku;
+            Status = status;
+            Subscription = subscription;
             Tags = tags;
             Type = type;
+            WorkerTierName = workerTierName;
         }
     }
 }

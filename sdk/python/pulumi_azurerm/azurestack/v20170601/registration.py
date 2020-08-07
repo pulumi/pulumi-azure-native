@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class Registration(pulumi.CustomResource):
+    billing_model: pulumi.Output[str]
+    """
+    Specifies the billing mode for the Azure Stack registration.
+    """
+    cloud_id: pulumi.Output[str]
+    """
+    The identifier of the registered Azure Stack.
+    """
     etag: pulumi.Output[str]
     """
     The entity tag used for optimistic concurrency when modifying the resource.
@@ -22,12 +30,9 @@ class Registration(pulumi.CustomResource):
     """
     Name of the resource.
     """
-    properties: pulumi.Output[dict]
+    object_id: pulumi.Output[str]
     """
-    Registration resource.
-      * `billing_model` (`str`) - Specifies the billing mode for the Azure Stack registration.
-      * `cloud_id` (`str`) - The identifier of the registered Azure Stack.
-      * `object_id` (`str`) - The object identifier associated with the Azure Stack connecting to Azure.
+    The object identifier associated with the Azure Stack connecting to Azure.
     """
     tags: pulumi.Output[dict]
     """
@@ -77,8 +82,10 @@ class Registration(pulumi.CustomResource):
             if resource_group is None:
                 raise TypeError("Missing required property 'resource_group'")
             __props__['resource_group'] = resource_group
+            __props__['billing_model'] = None
+            __props__['cloud_id'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['object_id'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(Registration, __self__).__init__(

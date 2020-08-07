@@ -46,6 +46,22 @@ namespace Pulumi.AzureRM.Kusto.V20200614
     public sealed class GetAttachedDatabaseConfigurationResult
     {
         /// <summary>
+        /// The list of databases from the clusterResourceId which are currently attached to the cluster.
+        /// </summary>
+        public readonly ImmutableArray<string> AttachedDatabaseNames;
+        /// <summary>
+        /// The resource id of the cluster where the databases you would like to attach reside.
+        /// </summary>
+        public readonly string ClusterResourceId;
+        /// <summary>
+        /// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        /// </summary>
+        public readonly string DatabaseName;
+        /// <summary>
+        /// The default principals modification kind
+        /// </summary>
+        public readonly string DefaultPrincipalsModificationKind;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -54,9 +70,9 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the attached database configuration.
+        /// The provisioned state of the resource.
         /// </summary>
-        public readonly Outputs.AttachedDatabaseConfigurationPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -64,17 +80,29 @@ namespace Pulumi.AzureRM.Kusto.V20200614
 
         [OutputConstructor]
         private GetAttachedDatabaseConfigurationResult(
+            ImmutableArray<string> attachedDatabaseNames,
+
+            string clusterResourceId,
+
+            string databaseName,
+
+            string defaultPrincipalsModificationKind,
+
             string? location,
 
             string name,
 
-            Outputs.AttachedDatabaseConfigurationPropertiesResponseResult properties,
+            string provisioningState,
 
             string type)
         {
+            AttachedDatabaseNames = attachedDatabaseNames;
+            ClusterResourceId = clusterResourceId;
+            DatabaseName = databaseName;
+            DefaultPrincipalsModificationKind = defaultPrincipalsModificationKind;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

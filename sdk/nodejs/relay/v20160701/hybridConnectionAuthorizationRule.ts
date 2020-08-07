@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -41,9 +39,9 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Authorization Rule properties
+     * The rights associated with the rule.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.relay.v20160701.AuthorizationRulePropertiesResponse>;
+    public readonly rights!: pulumi.Output<string[]>;
     /**
      * Resource type
      */
@@ -82,7 +80,6 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rights"] = args ? args.rights : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

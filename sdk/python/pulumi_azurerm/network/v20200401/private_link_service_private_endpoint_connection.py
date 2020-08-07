@@ -14,424 +14,390 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
     """
     A unique read-only string that changes whenever the resource is updated.
     """
+    link_identifier: pulumi.Output[str]
+    """
+    The consumer link id.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint: pulumi.Output[dict]
     """
-    Properties of the private end point connection.
-      * `link_identifier` (`str`) - The consumer link id.
-      * `private_endpoint` (`dict`) - The resource of private end point.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `location` (`str`) - Resource location.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Properties of the private endpoint.
-          * `custom_dns_configs` (`list`) - An array of custom dns configurations.
-            * `fqdn` (`str`) - Fqdn that resolves to private endpoint ip address.
-            * `ip_addresses` (`list`) - A list of private ip addresses of the private endpoint.
+    The resource of private end point.
+      * `custom_dns_configs` (`list`) - An array of custom dns configurations.
+        * `fqdn` (`str`) - Fqdn that resolves to private endpoint ip address.
+        * `ip_addresses` (`list`) - A list of private ip addresses of the private endpoint.
 
-          * `manual_private_link_service_connections` (`list`) - A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `location` (`str`) - Resource location.
+      * `manual_private_link_service_connections` (`list`) - A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `group_ids` (`list`) - The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.
+        * `id` (`str`) - Resource ID.
+        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `private_link_service_connection_state` (`dict`) - A collection of read-only information about the state of the connection to the remote resource.
+          * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+          * `description` (`str`) - The reason for approval/rejection of the connection.
+          * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+
+        * `private_link_service_id` (`str`) - The resource id of private link service.
+        * `provisioning_state` (`str`) - The provisioning state of the private link service connection resource.
+        * `request_message` (`str`) - A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+        * `type` (`str`) - The resource type.
+
+      * `name` (`str`) - Resource name.
+      * `network_interfaces` (`list`) - An array of references to the network interfaces created for this private endpoint.
+        * `dns_settings` (`dict`) - The DNS settings in network interface.
+          * `applied_dns_servers` (`list`) - If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
+          * `dns_servers` (`list`) - List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
+          * `internal_dns_name_label` (`str`) - Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
+          * `internal_domain_name_suffix` (`str`) - Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.
+          * `internal_fqdn` (`str`) - Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
+
+        * `enable_accelerated_networking` (`bool`) - If the network interface is accelerated networking enabled.
+        * `enable_ip_forwarding` (`bool`) - Indicates whether IP forwarding is enabled on this network interface.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `hosted_workloads` (`list`) - A list of references to linked BareMetal resources.
+        * `id` (`str`) - Resource ID.
+        * `ip_configurations` (`list`) - A list of IPConfigurations of the network interface.
+          * `application_gateway_backend_address_pools` (`list`) - The reference to ApplicationGatewayBackendAddressPool resource.
+            * `backend_addresses` (`list`) - Backend addresses.
+              * `fqdn` (`str`) - Fully qualified domain name (FQDN).
+              * `ip_address` (`str`) - IP address.
+
+            * `backend_ip_configurations` (`list`) - Collection of references to IPs defined in network interfaces.
             * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
             * `id` (`str`) - Resource ID.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`dict`) - Properties of the private link service connection.
-              * `group_ids` (`list`) - The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.
-              * `private_link_service_connection_state` (`dict`) - A collection of read-only information about the state of the connection to the remote resource.
-                * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-                * `description` (`str`) - The reason for approval/rejection of the connection.
-                * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+            * `name` (`str`) - Name of the backend address pool that is unique within an Application Gateway.
+            * `provisioning_state` (`str`) - The provisioning state of the backend address pool resource.
+            * `type` (`str`) - Type of the resource.
 
-              * `private_link_service_id` (`str`) - The resource id of private link service.
-              * `provisioning_state` (`str`) - The provisioning state of the private link service connection resource.
-              * `request_message` (`str`) - A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
-
-            * `type` (`str`) - The resource type.
-
-          * `network_interfaces` (`list`) - An array of references to the network interfaces created for this private endpoint.
+          * `application_security_groups` (`list`) - Application security groups in which the IP configuration is included.
             * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
             * `id` (`str`) - Resource ID.
             * `location` (`str`) - Resource location.
             * `name` (`str`) - Resource name.
-            * `properties` (`dict`) - Properties of the network interface.
-              * `dns_settings` (`dict`) - The DNS settings in network interface.
-                * `applied_dns_servers` (`list`) - If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
-                * `dns_servers` (`list`) - List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
-                * `internal_dns_name_label` (`str`) - Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
-                * `internal_domain_name_suffix` (`str`) - Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.
-                * `internal_fqdn` (`str`) - Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
-
-              * `enable_accelerated_networking` (`bool`) - If the network interface is accelerated networking enabled.
-              * `enable_ip_forwarding` (`bool`) - Indicates whether IP forwarding is enabled on this network interface.
-              * `hosted_workloads` (`list`) - A list of references to linked BareMetal resources.
-              * `ip_configurations` (`list`) - A list of IPConfigurations of the network interface.
-                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource ID.
-                * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`dict`) - Network interface IP configuration properties.
-                  * `application_gateway_backend_address_pools` (`list`) - The reference to ApplicationGatewayBackendAddressPool resource.
-                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                    * `id` (`str`) - Resource ID.
-                    * `name` (`str`) - Name of the backend address pool that is unique within an Application Gateway.
-                    * `properties` (`dict`) - Properties of the application gateway backend address pool.
-                      * `backend_addresses` (`list`) - Backend addresses.
-                        * `fqdn` (`str`) - Fully qualified domain name (FQDN).
-                        * `ip_address` (`str`) - IP address.
-
-                      * `backend_ip_configurations` (`list`) - Collection of references to IPs defined in network interfaces.
-                      * `provisioning_state` (`str`) - The provisioning state of the backend address pool resource.
-
-                    * `type` (`str`) - Type of the resource.
-
-                  * `application_security_groups` (`list`) - Application security groups in which the IP configuration is included.
-                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                    * `id` (`str`) - Resource ID.
-                    * `location` (`str`) - Resource location.
-                    * `name` (`str`) - Resource name.
-                    * `properties` (`dict`) - Properties of the application security group.
-                      * `provisioning_state` (`str`) - The provisioning state of the application security group resource.
-                      * `resource_guid` (`str`) - The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-
-                    * `tags` (`dict`) - Resource tags.
-                    * `type` (`str`) - Resource type.
-
-                  * `load_balancer_backend_address_pools` (`list`) - The reference to LoadBalancerBackendAddressPool resource.
-                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                    * `id` (`str`) - Resource ID.
-                    * `name` (`str`) - The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
-                    * `properties` (`dict`) - Properties of load balancer backend address pool.
-                      * `backend_ip_configurations` (`list`) - An array of references to IP addresses defined in network interfaces.
-                      * `load_balancer_backend_addresses` (`list`) - An array of backend addresses.
-                        * `name` (`str`) - Name of the backend address.
-                        * `properties` (`dict`) - Properties of load balancer backend address pool.
-                          * `ip_address` (`str`) - IP Address belonging to the referenced virtual network.
-                          * `network_interface_ip_configuration` (`dict`) - Reference to IP address defined in network interfaces.
-                            * `id` (`str`) - Resource ID.
-
-                          * `virtual_network` (`dict`) - Reference to an existing virtual network.
-
-                      * `load_balancing_rules` (`list`) - An array of references to load balancing rules that use this backend address pool.
-                      * `outbound_rule` (`dict`) - A reference to an outbound rule that uses this backend address pool.
-                      * `outbound_rules` (`list`) - An array of references to outbound rules that use this backend address pool.
-                      * `provisioning_state` (`str`) - The provisioning state of the backend address pool resource.
-
-                    * `type` (`str`) - Type of the resource.
-
-                  * `load_balancer_inbound_nat_rules` (`list`) - A list of references of LoadBalancerInboundNatRules.
-                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                    * `id` (`str`) - Resource ID.
-                    * `name` (`str`) - The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
-                    * `properties` (`dict`) - Properties of load balancer inbound nat rule.
-                      * `backend_ip_configuration` (`dict`) - A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
-                      * `backend_port` (`float`) - The port used for the internal endpoint. Acceptable values range from 1 to 65535.
-                      * `enable_floating_ip` (`bool`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
-                      * `enable_tcp_reset` (`bool`) - Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-                      * `frontend_ip_configuration` (`dict`) - A reference to frontend IP addresses.
-                      * `frontend_port` (`float`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
-                      * `idle_timeout_in_minutes` (`float`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-                      * `protocol` (`str`) - The reference to the transport protocol used by the load balancing rule.
-                      * `provisioning_state` (`str`) - The provisioning state of the inbound NAT rule resource.
-
-                    * `type` (`str`) - Type of the resource.
-
-                  * `primary` (`bool`) - Whether this is a primary customer address on the network interface.
-                  * `private_ip_address` (`str`) - Private IP address of the IP configuration.
-                  * `private_ip_address_version` (`str`) - Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
-                  * `private_ip_allocation_method` (`str`) - The private IP address allocation method.
-                  * `private_link_connection_properties` (`dict`) - PrivateLinkConnection properties for the network interface.
-                    * `fqdns` (`list`) - List of FQDNs for current private link connection.
-                    * `group_id` (`str`) - The group ID for current private link connection.
-                    * `required_member_name` (`str`) - The required member name for current private link connection.
-
-                  * `provisioning_state` (`str`) - The provisioning state of the network interface IP configuration.
-                  * `public_ip_address` (`dict`) - Public IP address bound to the IP configuration.
-                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                    * `id` (`str`) - Resource ID.
-                    * `location` (`str`) - Resource location.
-                    * `name` (`str`) - Resource name.
-                    * `properties` (`dict`) - Public IP address properties.
-                      * `ddos_settings` (`dict`) - The DDoS protection custom policy associated with the public IP address.
-                        * `ddos_custom_policy` (`dict`) - The DDoS custom policy associated with the public IP.
-                        * `protected_ip` (`bool`) - Enables DDoS protection on the public IP.
-                        * `protection_coverage` (`str`) - The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
-
-                      * `dns_settings` (`dict`) - The FQDN of the DNS record associated with the public IP address.
-                        * `domain_name_label` (`str`) - The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-                        * `fqdn` (`str`) - The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-                        * `reverse_fqdn` (`str`) - The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-
-                      * `idle_timeout_in_minutes` (`float`) - The idle timeout of the public IP address.
-                      * `ip_address` (`str`) - The IP address associated with the public IP address resource.
-                      * `ip_configuration` (`dict`) - The IP configuration associated with the public IP address.
-                        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                        * `id` (`str`) - Resource ID.
-                        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                        * `properties` (`dict`) - Properties of the IP configuration.
-                          * `private_ip_address` (`str`) - The private IP address of the IP configuration.
-                          * `private_ip_allocation_method` (`str`) - The private IP address allocation method.
-                          * `provisioning_state` (`str`) - The provisioning state of the IP configuration resource.
-                          * `public_ip_address` (`dict`) - The reference to the public IP resource.
-                          * `subnet` (`dict`) - The reference to the subnet resource.
-                            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                            * `id` (`str`) - Resource ID.
-                            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                            * `properties` (`dict`) - Properties of the subnet.
-                              * `address_prefix` (`str`) - The address prefix for the subnet.
-                              * `address_prefixes` (`list`) - List of address prefixes for the subnet.
-                              * `delegations` (`list`) - An array of references to the delegations on the subnet.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `name` (`str`) - The name of the resource that is unique within a subnet. This name can be used to access the resource.
-                                * `properties` (`dict`) - Properties of the subnet.
-                                  * `actions` (`list`) - The actions permitted to the service upon delegation.
-                                  * `provisioning_state` (`str`) - The provisioning state of the service delegation resource.
-                                  * `service_name` (`str`) - The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
-
-                              * `ip_allocations` (`list`) - Array of IpAllocation which reference this subnet.
-                              * `ip_configuration_profiles` (`list`) - Array of IP configuration profiles which reference this subnet.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `name` (`str`) - The name of the resource. This name can be used to access the resource.
-                                * `properties` (`dict`) - Properties of the IP configuration profile.
-                                  * `provisioning_state` (`str`) - The provisioning state of the IP configuration profile resource.
-                                  * `subnet` (`dict`) - The reference to the subnet resource to create a container network interface ip configuration.
-
-                                * `type` (`str`) - Sub Resource type.
-
-                              * `ip_configurations` (`list`) - An array of references to the network interface IP configurations using subnet.
-                              * `nat_gateway` (`dict`) - Nat gateway associated with this subnet.
-                              * `network_security_group` (`dict`) - The reference to the NetworkSecurityGroup resource.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `location` (`str`) - Resource location.
-                                * `name` (`str`) - Resource name.
-                                * `properties` (`dict`) - Properties of the network security group.
-                                  * `default_security_rules` (`list`) - The default security rules of network security group.
-                                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                    * `id` (`str`) - Resource ID.
-                                    * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                                    * `properties` (`dict`) - Properties of the security rule.
-                                      * `access` (`str`) - The network traffic is allowed or denied.
-                                      * `description` (`str`) - A description for this rule. Restricted to 140 chars.
-                                      * `destination_address_prefix` (`str`) - The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-                                      * `destination_address_prefixes` (`list`) - The destination address prefixes. CIDR or destination IP ranges.
-                                      * `destination_application_security_groups` (`list`) - The application security group specified as destination.
-                                      * `destination_port_range` (`str`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-                                      * `destination_port_ranges` (`list`) - The destination port ranges.
-                                      * `direction` (`str`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-                                      * `priority` (`float`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-                                      * `protocol` (`str`) - Network protocol this rule applies to.
-                                      * `provisioning_state` (`str`) - The provisioning state of the security rule resource.
-                                      * `source_address_prefix` (`str`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-                                      * `source_address_prefixes` (`list`) - The CIDR or source IP ranges.
-                                      * `source_application_security_groups` (`list`) - The application security group specified as source.
-                                      * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-                                      * `source_port_ranges` (`list`) - The source port ranges.
-
-                                  * `flow_logs` (`list`) - A collection of references to flow log resources.
-                                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                    * `id` (`str`) - Resource ID.
-                                    * `location` (`str`) - Resource location.
-                                    * `name` (`str`) - Resource name.
-                                    * `properties` (`dict`) - Properties of the flow log.
-                                      * `enabled` (`bool`) - Flag to enable/disable flow logging.
-                                      * `flow_analytics_configuration` (`dict`) - Parameters that define the configuration of traffic analytics.
-                                        * `network_watcher_flow_analytics_configuration` (`dict`) - Parameters that define the configuration of traffic analytics.
-                                          * `enabled` (`bool`) - Flag to enable/disable traffic analytics.
-                                          * `traffic_analytics_interval` (`float`) - The interval in minutes which would decide how frequently TA service should do flow analytics.
-                                          * `workspace_id` (`str`) - The resource guid of the attached workspace.
-                                          * `workspace_region` (`str`) - The location of the attached workspace.
-                                          * `workspace_resource_id` (`str`) - Resource Id of the attached workspace.
-
-                                      * `format` (`dict`) - Parameters that define the flow log format.
-                                        * `type` (`str`) - The file type of flow log.
-                                        * `version` (`float`) - The version (revision) of the flow log.
-
-                                      * `provisioning_state` (`str`) - The provisioning state of the flow log.
-                                      * `retention_policy` (`dict`) - Parameters that define the retention policy for flow log.
-                                        * `days` (`float`) - Number of days to retain flow log records.
-                                        * `enabled` (`bool`) - Flag to enable/disable retention.
-
-                                      * `storage_id` (`str`) - ID of the storage account which is used to store the flow log.
-                                      * `target_resource_guid` (`str`) - Guid of network security group to which flow log will be applied.
-                                      * `target_resource_id` (`str`) - ID of network security group to which flow log will be applied.
-
-                                    * `tags` (`dict`) - Resource tags.
-                                    * `type` (`str`) - Resource type.
-
-                                  * `network_interfaces` (`list`) - A collection of references to network interfaces.
-                                  * `provisioning_state` (`str`) - The provisioning state of the network security group resource.
-                                  * `resource_guid` (`str`) - The resource GUID property of the network security group resource.
-                                  * `security_rules` (`list`) - A collection of security rules of the network security group.
-                                  * `subnets` (`list`) - A collection of references to subnets.
-
-                                * `tags` (`dict`) - Resource tags.
-                                * `type` (`str`) - Resource type.
-
-                              * `private_endpoint_network_policies` (`str`) - Enable or Disable apply network policies on private end point in the subnet.
-                              * `private_endpoints` (`list`) - An array of references to private endpoints.
-                              * `private_link_service_network_policies` (`str`) - Enable or Disable apply network policies on private link service in the subnet.
-                              * `provisioning_state` (`str`) - The provisioning state of the subnet resource.
-                              * `purpose` (`str`) - A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
-                              * `resource_navigation_links` (`list`) - An array of references to the external resources using subnet.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-                                * `properties` (`dict`) - Resource navigation link properties format.
-                                  * `link` (`str`) - Link to the external resource.
-                                  * `linked_resource_type` (`str`) - Resource type of the linked resource.
-                                  * `provisioning_state` (`str`) - The provisioning state of the resource navigation link resource.
-
-                                * `type` (`str`) - Resource type.
-
-                              * `route_table` (`dict`) - The reference to the RouteTable resource.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `location` (`str`) - Resource location.
-                                * `name` (`str`) - Resource name.
-                                * `properties` (`dict`) - Properties of the route table.
-                                  * `disable_bgp_route_propagation` (`bool`) - Whether to disable the routes learned by BGP on that route table. True means disable.
-                                  * `provisioning_state` (`str`) - The provisioning state of the route table resource.
-                                  * `routes` (`list`) - Collection of routes contained within a route table.
-                                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                    * `id` (`str`) - Resource ID.
-                                    * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                                    * `properties` (`dict`) - Properties of the route.
-                                      * `address_prefix` (`str`) - The destination CIDR to which the route applies.
-                                      * `next_hop_ip_address` (`str`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-                                      * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to.
-                                      * `provisioning_state` (`str`) - The provisioning state of the route resource.
-
-                                  * `subnets` (`list`) - A collection of references to subnets.
-
-                                * `tags` (`dict`) - Resource tags.
-                                * `type` (`str`) - Resource type.
-
-                              * `service_association_links` (`list`) - An array of references to services injecting into this subnet.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-                                * `properties` (`dict`) - Resource navigation link properties format.
-                                  * `allow_delete` (`bool`) - If true, the resource can be deleted.
-                                  * `link` (`str`) - Link to the external resource.
-                                  * `linked_resource_type` (`str`) - Resource type of the linked resource.
-                                  * `locations` (`list`) - A list of locations.
-                                  * `provisioning_state` (`str`) - The provisioning state of the service association link resource.
-
-                                * `type` (`str`) - Resource type.
-
-                              * `service_endpoint_policies` (`list`) - An array of service endpoint policies.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `location` (`str`) - Resource location.
-                                * `name` (`str`) - Resource name.
-                                * `properties` (`dict`) - Properties of the service end point policy.
-                                  * `provisioning_state` (`str`) - The provisioning state of the service endpoint policy resource.
-                                  * `resource_guid` (`str`) - The resource GUID property of the service endpoint policy resource.
-                                  * `service_endpoint_policy_definitions` (`list`) - A collection of service endpoint policy definitions of the service endpoint policy.
-                                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                    * `id` (`str`) - Resource ID.
-                                    * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                                    * `properties` (`dict`) - Properties of the service endpoint policy definition.
-                                      * `description` (`str`) - A description for this rule. Restricted to 140 chars.
-                                      * `provisioning_state` (`str`) - The provisioning state of the service endpoint policy definition resource.
-                                      * `service` (`str`) - Service endpoint name.
-                                      * `service_resources` (`list`) - A list of service resources.
-
-                                  * `subnets` (`list`) - A collection of references to subnets.
-
-                                * `tags` (`dict`) - Resource tags.
-                                * `type` (`str`) - Resource type.
-
-                              * `service_endpoints` (`list`) - An array of service endpoints.
-                                * `locations` (`list`) - A list of locations.
-                                * `provisioning_state` (`str`) - The provisioning state of the service endpoint resource.
-                                * `service` (`str`) - The type of the endpoint service.
-
-                      * `ip_tags` (`list`) - The list of tags associated with the public IP address.
-                        * `ip_tag_type` (`str`) - The IP tag type. Example: FirstPartyUsage.
-                        * `tag` (`str`) - The value of the IP tag associated with the public IP. Example: SQL.
-
-                      * `provisioning_state` (`str`) - The provisioning state of the public IP address resource.
-                      * `public_ip_address_version` (`str`) - The public IP address version.
-                      * `public_ip_allocation_method` (`str`) - The public IP address allocation method.
-                      * `public_ip_prefix` (`dict`) - The Public IP Prefix this Public IP Address should be allocated from.
-                      * `resource_guid` (`str`) - The resource GUID property of the public IP address resource.
-
-                    * `sku` (`dict`) - The public IP address SKU.
-                      * `name` (`str`) - Name of a public IP address SKU.
-
-                    * `tags` (`dict`) - Resource tags.
-                    * `type` (`str`) - Resource type.
-                    * `zones` (`list`) - A list of availability zones denoting the IP allocated for the resource needs to come from.
-
-                  * `subnet` (`dict`) - Subnet bound to the IP configuration.
-                  * `virtual_network_taps` (`list`) - The reference to Virtual Network Taps.
-                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                    * `id` (`str`) - Resource ID.
-                    * `location` (`str`) - Resource location.
-                    * `name` (`str`) - Resource name.
-                    * `properties` (`dict`) - Virtual Network Tap Properties.
-                      * `destination_load_balancer_front_end_ip_configuration` (`dict`) - The reference to the private IP address on the internal Load Balancer that will receive the tap.
-                        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                        * `id` (`str`) - Resource ID.
-                        * `name` (`str`) - The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
-                        * `properties` (`dict`) - Properties of the load balancer probe.
-                          * `inbound_nat_pools` (`list`) - An array of references to inbound pools that use this frontend IP.
-                          * `inbound_nat_rules` (`list`) - An array of references to inbound rules that use this frontend IP.
-                          * `load_balancing_rules` (`list`) - An array of references to load balancing rules that use this frontend IP.
-                          * `outbound_rules` (`list`) - An array of references to outbound rules that use this frontend IP.
-                          * `private_ip_address` (`str`) - The private IP address of the IP configuration.
-                          * `private_ip_address_version` (`str`) - Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
-                          * `private_ip_allocation_method` (`str`) - The Private IP allocation method.
-                          * `provisioning_state` (`str`) - The provisioning state of the frontend IP configuration resource.
-                          * `public_ip_address` (`dict`) - The reference to the Public IP resource.
-                          * `public_ip_prefix` (`dict`) - The reference to the Public IP Prefix resource.
-                          * `subnet` (`dict`) - The reference to the subnet resource.
-
-                        * `type` (`str`) - Type of the resource.
-                        * `zones` (`list`) - A list of availability zones denoting the IP allocated for the resource needs to come from.
-
-                      * `destination_network_interface_ip_configuration` (`dict`) - The reference to the private IP Address of the collector nic that will receive the tap.
-                      * `destination_port` (`float`) - The VXLAN destination port that will receive the tapped traffic.
-                      * `network_interface_tap_configurations` (`list`) - Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
-                        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                        * `id` (`str`) - Resource ID.
-                        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                        * `properties` (`dict`) - Properties of the Virtual Network Tap configuration.
-                          * `provisioning_state` (`str`) - The provisioning state of the network interface tap configuration resource.
-                          * `virtual_network_tap` (`dict`) - The reference to the Virtual Network Tap resource.
-
-                        * `type` (`str`) - Sub Resource type.
-
-                      * `provisioning_state` (`str`) - The provisioning state of the virtual network tap resource.
-                      * `resource_guid` (`str`) - The resource GUID property of the virtual network tap resource.
-
-                    * `tags` (`dict`) - Resource tags.
-                    * `type` (`str`) - Resource type.
-
-              * `mac_address` (`str`) - The MAC address of the network interface.
-              * `network_security_group` (`dict`) - The reference to the NetworkSecurityGroup resource.
-              * `primary` (`bool`) - Whether this is a primary network interface on a virtual machine.
-              * `private_endpoint` (`dict`) - A reference to the private endpoint to which the network interface is linked.
-              * `provisioning_state` (`str`) - The provisioning state of the network interface resource.
-              * `resource_guid` (`str`) - The resource GUID property of the network interface resource.
-              * `tap_configurations` (`list`) - A list of TapConfigurations of the network interface.
-              * `virtual_machine` (`dict`) - The reference to a virtual machine.
-
+            * `provisioning_state` (`str`) - The provisioning state of the application security group resource.
+            * `resource_guid` (`str`) - The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
             * `tags` (`dict`) - Resource tags.
             * `type` (`str`) - Resource type.
 
-          * `private_link_service_connections` (`list`) - A grouping of information about the connection to the remote resource.
-          * `provisioning_state` (`str`) - The provisioning state of the private endpoint resource.
-          * `subnet` (`dict`) - The ID of the subnet from which the private IP will be allocated.
+          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+          * `id` (`str`) - Resource ID.
+          * `load_balancer_backend_address_pools` (`list`) - The reference to LoadBalancerBackendAddressPool resource.
+            * `backend_ip_configurations` (`list`) - An array of references to IP addresses defined in network interfaces.
+            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+            * `id` (`str`) - Resource ID.
+            * `load_balancer_backend_addresses` (`list`) - An array of backend addresses.
+              * `ip_address` (`str`) - IP Address belonging to the referenced virtual network.
+              * `name` (`str`) - Name of the backend address.
+              * `network_interface_ip_configuration` (`dict`) - Reference to IP address defined in network interfaces.
+                * `id` (`str`) - Resource ID.
 
+              * `virtual_network` (`dict`) - Reference to an existing virtual network.
+
+            * `load_balancing_rules` (`list`) - An array of references to load balancing rules that use this backend address pool.
+            * `name` (`str`) - The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+            * `outbound_rule` (`dict`) - A reference to an outbound rule that uses this backend address pool.
+            * `outbound_rules` (`list`) - An array of references to outbound rules that use this backend address pool.
+            * `provisioning_state` (`str`) - The provisioning state of the backend address pool resource.
+            * `type` (`str`) - Type of the resource.
+
+          * `load_balancer_inbound_nat_rules` (`list`) - A list of references of LoadBalancerInboundNatRules.
+            * `backend_ip_configuration` (`dict`) - A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+            * `backend_port` (`float`) - The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+            * `enable_floating_ip` (`bool`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+            * `enable_tcp_reset` (`bool`) - Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+            * `frontend_ip_configuration` (`dict`) - A reference to frontend IP addresses.
+            * `frontend_port` (`float`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+            * `id` (`str`) - Resource ID.
+            * `idle_timeout_in_minutes` (`float`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+            * `name` (`str`) - The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
+            * `protocol` (`str`) - The reference to the transport protocol used by the load balancing rule.
+            * `provisioning_state` (`str`) - The provisioning state of the inbound NAT rule resource.
+            * `type` (`str`) - Type of the resource.
+
+          * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `primary` (`bool`) - Whether this is a primary customer address on the network interface.
+          * `private_ip_address` (`str`) - Private IP address of the IP configuration.
+          * `private_ip_address_version` (`str`) - Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+          * `private_ip_allocation_method` (`str`) - The private IP address allocation method.
+          * `private_link_connection_properties` (`dict`) - PrivateLinkConnection properties for the network interface.
+            * `fqdns` (`list`) - List of FQDNs for current private link connection.
+            * `group_id` (`str`) - The group ID for current private link connection.
+            * `required_member_name` (`str`) - The required member name for current private link connection.
+
+          * `provisioning_state` (`str`) - The provisioning state of the network interface IP configuration.
+          * `public_ip_address` (`dict`) - Public IP address bound to the IP configuration.
+            * `ddos_settings` (`dict`) - The DDoS protection custom policy associated with the public IP address.
+              * `ddos_custom_policy` (`dict`) - The DDoS custom policy associated with the public IP.
+              * `protected_ip` (`bool`) - Enables DDoS protection on the public IP.
+              * `protection_coverage` (`str`) - The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
+
+            * `dns_settings` (`dict`) - The FQDN of the DNS record associated with the public IP address.
+              * `domain_name_label` (`str`) - The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+              * `fqdn` (`str`) - The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+              * `reverse_fqdn` (`str`) - The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
+
+            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+            * `id` (`str`) - Resource ID.
+            * `idle_timeout_in_minutes` (`float`) - The idle timeout of the public IP address.
+            * `ip_address` (`str`) - The IP address associated with the public IP address resource.
+            * `ip_configuration` (`dict`) - The IP configuration associated with the public IP address.
+              * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+              * `id` (`str`) - Resource ID.
+              * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+              * `private_ip_address` (`str`) - The private IP address of the IP configuration.
+              * `private_ip_allocation_method` (`str`) - The private IP address allocation method.
+              * `provisioning_state` (`str`) - The provisioning state of the IP configuration resource.
+              * `public_ip_address` (`dict`) - The reference to the public IP resource.
+              * `subnet` (`dict`) - The reference to the subnet resource.
+                * `address_prefix` (`str`) - The address prefix for the subnet.
+                * `address_prefixes` (`list`) - List of address prefixes for the subnet.
+                * `delegations` (`list`) - An array of references to the delegations on the subnet.
+                  * `actions` (`list`) - The actions permitted to the service upon delegation.
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `id` (`str`) - Resource ID.
+                  * `name` (`str`) - The name of the resource that is unique within a subnet. This name can be used to access the resource.
+                  * `provisioning_state` (`str`) - The provisioning state of the service delegation resource.
+                  * `service_name` (`str`) - The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+
+                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                * `id` (`str`) - Resource ID.
+                * `ip_allocations` (`list`) - Array of IpAllocation which reference this subnet.
+                * `ip_configuration_profiles` (`list`) - Array of IP configuration profiles which reference this subnet.
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `id` (`str`) - Resource ID.
+                  * `name` (`str`) - The name of the resource. This name can be used to access the resource.
+                  * `provisioning_state` (`str`) - The provisioning state of the IP configuration profile resource.
+                  * `subnet` (`dict`) - The reference to the subnet resource to create a container network interface ip configuration.
+                  * `type` (`str`) - Sub Resource type.
+
+                * `ip_configurations` (`list`) - An array of references to the network interface IP configurations using subnet.
+                * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+                * `nat_gateway` (`dict`) - Nat gateway associated with this subnet.
+                * `network_security_group` (`dict`) - The reference to the NetworkSecurityGroup resource.
+                  * `default_security_rules` (`list`) - The default security rules of network security group.
+                    * `access` (`str`) - The network traffic is allowed or denied.
+                    * `description` (`str`) - A description for this rule. Restricted to 140 chars.
+                    * `destination_address_prefix` (`str`) - The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+                    * `destination_address_prefixes` (`list`) - The destination address prefixes. CIDR or destination IP ranges.
+                    * `destination_application_security_groups` (`list`) - The application security group specified as destination.
+                    * `destination_port_range` (`str`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+                    * `destination_port_ranges` (`list`) - The destination port ranges.
+                    * `direction` (`str`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                    * `id` (`str`) - Resource ID.
+                    * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+                    * `priority` (`float`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+                    * `protocol` (`str`) - Network protocol this rule applies to.
+                    * `provisioning_state` (`str`) - The provisioning state of the security rule resource.
+                    * `source_address_prefix` (`str`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+                    * `source_address_prefixes` (`list`) - The CIDR or source IP ranges.
+                    * `source_application_security_groups` (`list`) - The application security group specified as source.
+                    * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+                    * `source_port_ranges` (`list`) - The source port ranges.
+
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `flow_logs` (`list`) - A collection of references to flow log resources.
+                    * `enabled` (`bool`) - Flag to enable/disable flow logging.
+                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                    * `flow_analytics_configuration` (`dict`) - Parameters that define the configuration of traffic analytics.
+                      * `network_watcher_flow_analytics_configuration` (`dict`) - Parameters that define the configuration of traffic analytics.
+                        * `enabled` (`bool`) - Flag to enable/disable traffic analytics.
+                        * `traffic_analytics_interval` (`float`) - The interval in minutes which would decide how frequently TA service should do flow analytics.
+                        * `workspace_id` (`str`) - The resource guid of the attached workspace.
+                        * `workspace_region` (`str`) - The location of the attached workspace.
+                        * `workspace_resource_id` (`str`) - Resource Id of the attached workspace.
+
+                    * `format` (`dict`) - Parameters that define the flow log format.
+                      * `type` (`str`) - The file type of flow log.
+                      * `version` (`float`) - The version (revision) of the flow log.
+
+                    * `id` (`str`) - Resource ID.
+                    * `location` (`str`) - Resource location.
+                    * `name` (`str`) - Resource name.
+                    * `provisioning_state` (`str`) - The provisioning state of the flow log.
+                    * `retention_policy` (`dict`) - Parameters that define the retention policy for flow log.
+                      * `days` (`float`) - Number of days to retain flow log records.
+                      * `enabled` (`bool`) - Flag to enable/disable retention.
+
+                    * `storage_id` (`str`) - ID of the storage account which is used to store the flow log.
+                    * `tags` (`dict`) - Resource tags.
+                    * `target_resource_guid` (`str`) - Guid of network security group to which flow log will be applied.
+                    * `target_resource_id` (`str`) - ID of network security group to which flow log will be applied.
+                    * `type` (`str`) - Resource type.
+
+                  * `id` (`str`) - Resource ID.
+                  * `location` (`str`) - Resource location.
+                  * `name` (`str`) - Resource name.
+                  * `network_interfaces` (`list`) - A collection of references to network interfaces.
+                  * `provisioning_state` (`str`) - The provisioning state of the network security group resource.
+                  * `resource_guid` (`str`) - The resource GUID property of the network security group resource.
+                  * `security_rules` (`list`) - A collection of security rules of the network security group.
+                  * `subnets` (`list`) - A collection of references to subnets.
+                  * `tags` (`dict`) - Resource tags.
+                  * `type` (`str`) - Resource type.
+
+                * `private_endpoint_network_policies` (`str`) - Enable or Disable apply network policies on private end point in the subnet.
+                * `private_endpoints` (`list`) - An array of references to private endpoints.
+                * `private_link_service_network_policies` (`str`) - Enable or Disable apply network policies on private link service in the subnet.
+                * `provisioning_state` (`str`) - The provisioning state of the subnet resource.
+                * `purpose` (`str`) - A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+                * `resource_navigation_links` (`list`) - An array of references to the external resources using subnet.
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `id` (`str`) - Resource ID.
+                  * `link` (`str`) - Link to the external resource.
+                  * `linked_resource_type` (`str`) - Resource type of the linked resource.
+                  * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+                  * `provisioning_state` (`str`) - The provisioning state of the resource navigation link resource.
+                  * `type` (`str`) - Resource type.
+
+                * `route_table` (`dict`) - The reference to the RouteTable resource.
+                  * `disable_bgp_route_propagation` (`bool`) - Whether to disable the routes learned by BGP on that route table. True means disable.
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `id` (`str`) - Resource ID.
+                  * `location` (`str`) - Resource location.
+                  * `name` (`str`) - Resource name.
+                  * `provisioning_state` (`str`) - The provisioning state of the route table resource.
+                  * `routes` (`list`) - Collection of routes contained within a route table.
+                    * `address_prefix` (`str`) - The destination CIDR to which the route applies.
+                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                    * `id` (`str`) - Resource ID.
+                    * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+                    * `next_hop_ip_address` (`str`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+                    * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to.
+                    * `provisioning_state` (`str`) - The provisioning state of the route resource.
+
+                  * `subnets` (`list`) - A collection of references to subnets.
+                  * `tags` (`dict`) - Resource tags.
+                  * `type` (`str`) - Resource type.
+
+                * `service_association_links` (`list`) - An array of references to services injecting into this subnet.
+                  * `allow_delete` (`bool`) - If true, the resource can be deleted.
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `id` (`str`) - Resource ID.
+                  * `link` (`str`) - Link to the external resource.
+                  * `linked_resource_type` (`str`) - Resource type of the linked resource.
+                  * `locations` (`list`) - A list of locations.
+                  * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+                  * `provisioning_state` (`str`) - The provisioning state of the service association link resource.
+                  * `type` (`str`) - Resource type.
+
+                * `service_endpoint_policies` (`list`) - An array of service endpoint policies.
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `id` (`str`) - Resource ID.
+                  * `location` (`str`) - Resource location.
+                  * `name` (`str`) - Resource name.
+                  * `provisioning_state` (`str`) - The provisioning state of the service endpoint policy resource.
+                  * `resource_guid` (`str`) - The resource GUID property of the service endpoint policy resource.
+                  * `service_endpoint_policy_definitions` (`list`) - A collection of service endpoint policy definitions of the service endpoint policy.
+                    * `description` (`str`) - A description for this rule. Restricted to 140 chars.
+                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                    * `id` (`str`) - Resource ID.
+                    * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+                    * `provisioning_state` (`str`) - The provisioning state of the service endpoint policy definition resource.
+                    * `service` (`str`) - Service endpoint name.
+                    * `service_resources` (`list`) - A list of service resources.
+
+                  * `subnets` (`list`) - A collection of references to subnets.
+                  * `tags` (`dict`) - Resource tags.
+                  * `type` (`str`) - Resource type.
+
+                * `service_endpoints` (`list`) - An array of service endpoints.
+                  * `locations` (`list`) - A list of locations.
+                  * `provisioning_state` (`str`) - The provisioning state of the service endpoint resource.
+                  * `service` (`str`) - The type of the endpoint service.
+
+            * `ip_tags` (`list`) - The list of tags associated with the public IP address.
+              * `ip_tag_type` (`str`) - The IP tag type. Example: FirstPartyUsage.
+              * `tag` (`str`) - The value of the IP tag associated with the public IP. Example: SQL.
+
+            * `location` (`str`) - Resource location.
+            * `name` (`str`) - Resource name.
+            * `provisioning_state` (`str`) - The provisioning state of the public IP address resource.
+            * `public_ip_address_version` (`str`) - The public IP address version.
+            * `public_ip_allocation_method` (`str`) - The public IP address allocation method.
+            * `public_ip_prefix` (`dict`) - The Public IP Prefix this Public IP Address should be allocated from.
+            * `resource_guid` (`str`) - The resource GUID property of the public IP address resource.
+            * `sku` (`dict`) - The public IP address SKU.
+              * `name` (`str`) - Name of a public IP address SKU.
+
+            * `tags` (`dict`) - Resource tags.
+            * `type` (`str`) - Resource type.
+            * `zones` (`list`) - A list of availability zones denoting the IP allocated for the resource needs to come from.
+
+          * `subnet` (`dict`) - Subnet bound to the IP configuration.
+          * `virtual_network_taps` (`list`) - The reference to Virtual Network Taps.
+            * `destination_load_balancer_front_end_ip_configuration` (`dict`) - The reference to the private IP address on the internal Load Balancer that will receive the tap.
+              * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+              * `id` (`str`) - Resource ID.
+              * `inbound_nat_pools` (`list`) - An array of references to inbound pools that use this frontend IP.
+              * `inbound_nat_rules` (`list`) - An array of references to inbound rules that use this frontend IP.
+              * `load_balancing_rules` (`list`) - An array of references to load balancing rules that use this frontend IP.
+              * `name` (`str`) - The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+              * `outbound_rules` (`list`) - An array of references to outbound rules that use this frontend IP.
+              * `private_ip_address` (`str`) - The private IP address of the IP configuration.
+              * `private_ip_address_version` (`str`) - Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+              * `private_ip_allocation_method` (`str`) - The Private IP allocation method.
+              * `provisioning_state` (`str`) - The provisioning state of the frontend IP configuration resource.
+              * `public_ip_address` (`dict`) - The reference to the Public IP resource.
+              * `public_ip_prefix` (`dict`) - The reference to the Public IP Prefix resource.
+              * `subnet` (`dict`) - The reference to the subnet resource.
+              * `type` (`str`) - Type of the resource.
+              * `zones` (`list`) - A list of availability zones denoting the IP allocated for the resource needs to come from.
+
+            * `destination_network_interface_ip_configuration` (`dict`) - The reference to the private IP Address of the collector nic that will receive the tap.
+            * `destination_port` (`float`) - The VXLAN destination port that will receive the tapped traffic.
+            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+            * `id` (`str`) - Resource ID.
+            * `location` (`str`) - Resource location.
+            * `name` (`str`) - Resource name.
+            * `network_interface_tap_configurations` (`list`) - Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+              * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+              * `id` (`str`) - Resource ID.
+              * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+              * `provisioning_state` (`str`) - The provisioning state of the network interface tap configuration resource.
+              * `type` (`str`) - Sub Resource type.
+              * `virtual_network_tap` (`dict`) - The reference to the Virtual Network Tap resource.
+
+            * `provisioning_state` (`str`) - The provisioning state of the virtual network tap resource.
+            * `resource_guid` (`str`) - The resource GUID property of the virtual network tap resource.
+            * `tags` (`dict`) - Resource tags.
+            * `type` (`str`) - Resource type.
+
+        * `location` (`str`) - Resource location.
+        * `mac_address` (`str`) - The MAC address of the network interface.
+        * `name` (`str`) - Resource name.
+        * `network_security_group` (`dict`) - The reference to the NetworkSecurityGroup resource.
+        * `primary` (`bool`) - Whether this is a primary network interface on a virtual machine.
+        * `private_endpoint` (`dict`) - A reference to the private endpoint to which the network interface is linked.
+        * `provisioning_state` (`str`) - The provisioning state of the network interface resource.
+        * `resource_guid` (`str`) - The resource GUID property of the network interface resource.
         * `tags` (`dict`) - Resource tags.
+        * `tap_configurations` (`list`) - A list of TapConfigurations of the network interface.
         * `type` (`str`) - Resource type.
+        * `virtual_machine` (`dict`) - The reference to a virtual machine.
 
-      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
-      * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
+      * `private_link_service_connections` (`list`) - A grouping of information about the connection to the remote resource.
+      * `provisioning_state` (`str`) - The provisioning state of the private endpoint resource.
+      * `subnet` (`dict`) - The ID of the subnet from which the private IP will be allocated.
+      * `tags` (`dict`) - Resource tags.
+      * `type` (`str`) - Resource type.
+    """
+    private_link_service_connection_state: pulumi.Output[dict]
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+      * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+      * `description` (`str`) - The reason for approval/rejection of the connection.
+      * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the private endpoint connection resource.
     """
     type: pulumi.Output[str]
     """
@@ -484,7 +450,9 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['link_identifier'] = None
+            __props__['private_endpoint'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(PrivateLinkServicePrivateEndpointConnection, __self__).__init__(
             'azurerm:network/v20200401:PrivateLinkServicePrivateEndpointConnection',

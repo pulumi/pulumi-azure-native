@@ -40,17 +40,29 @@ namespace Pulumi.AzureRM.Relay.V20160701
     public sealed class GetNamespaceResult
     {
         /// <summary>
+        /// The time the namespace was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Identifier for Azure Insights metrics
+        /// </summary>
+        public readonly string MetricId;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Description of Relay Namespace
+        /// Provisioning state of the namespace.
         /// </summary>
-        public readonly Outputs.RelayNamespacePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Endpoint you can use to perform Service Bus operations.
+        /// </summary>
+        public readonly string ServiceBusEndpoint;
         /// <summary>
         /// Sku of the Namespace.
         /// </summary>
@@ -63,27 +75,43 @@ namespace Pulumi.AzureRM.Relay.V20160701
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string createdAt,
+
             string location,
+
+            string metricId,
 
             string name,
 
-            Outputs.RelayNamespacePropertiesResponseResult properties,
+            string provisioningState,
+
+            string serviceBusEndpoint,
 
             Outputs.SkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string updatedAt)
         {
+            CreatedAt = createdAt;
             Location = location;
+            MetricId = metricId;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
             Tags = tags;
             Type = type;
+            UpdatedAt = updatedAt;
         }
     }
 }

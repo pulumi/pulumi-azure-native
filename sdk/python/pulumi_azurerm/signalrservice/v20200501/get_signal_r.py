@@ -13,7 +13,43 @@ class GetSignalRResult:
     """
     A class represent a SignalR service resource.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, cors=None, external_ip=None, features=None, host_name=None, host_name_prefix=None, kind=None, location=None, name=None, network_ac_ls=None, private_endpoint_connections=None, provisioning_state=None, public_port=None, server_port=None, sku=None, tags=None, type=None, upstream=None, version=None):
+        if cors and not isinstance(cors, dict):
+            raise TypeError("Expected argument 'cors' to be a dict")
+        __self__.cors = cors
+        """
+        Cross-Origin Resource Sharing (CORS) settings.
+        """
+        if external_ip and not isinstance(external_ip, str):
+            raise TypeError("Expected argument 'external_ip' to be a str")
+        __self__.external_ip = external_ip
+        """
+        The publicly accessible IP of the SignalR service.
+        """
+        if features and not isinstance(features, list):
+            raise TypeError("Expected argument 'features' to be a list")
+        __self__.features = features
+        """
+        List of SignalR featureFlags. e.g. ServiceMode.
+        
+        FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        And the response will only include featureFlags that are explicitly set. 
+        When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        """
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        """
+        if host_name_prefix and not isinstance(host_name_prefix, str):
+            raise TypeError("Expected argument 'host_name_prefix' to be a str")
+        __self__.host_name_prefix = host_name_prefix
+        """
+        Prefix for the hostName of the SignalR service. Retained for future use.
+        The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,11 +68,35 @@ class GetSignalRResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_ac_ls and not isinstance(network_ac_ls, dict):
+            raise TypeError("Expected argument 'network_ac_ls' to be a dict")
+        __self__.network_ac_ls = network_ac_ls
         """
-        Settings used to provision or configure the resource
+        Network ACLs
+        """
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
+        """
+        Private endpoint connections to the SignalR resource.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the resource.
+        """
+        if public_port and not isinstance(public_port, float):
+            raise TypeError("Expected argument 'public_port' to be a float")
+        __self__.public_port = public_port
+        """
+        The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        """
+        if server_port and not isinstance(server_port, float):
+            raise TypeError("Expected argument 'server_port' to be a float")
+        __self__.server_port = server_port
+        """
+        The publicly accessible port of the SignalR service which is designed for customer server side usage.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -56,6 +116,18 @@ class GetSignalRResult:
         """
         The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
         """
+        if upstream and not isinstance(upstream, dict):
+            raise TypeError("Expected argument 'upstream' to be a dict")
+        __self__.upstream = upstream
+        """
+        Upstream settings when the Azure SignalR is in server-less mode.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        """
 
 
 class AwaitableGetSignalRResult(GetSignalRResult):
@@ -64,13 +136,24 @@ class AwaitableGetSignalRResult(GetSignalRResult):
         if False:
             yield self
         return GetSignalRResult(
+            cors=self.cors,
+            external_ip=self.external_ip,
+            features=self.features,
+            host_name=self.host_name,
+            host_name_prefix=self.host_name_prefix,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_ac_ls=self.network_ac_ls,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            public_port=self.public_port,
+            server_port=self.server_port,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            upstream=self.upstream,
+            version=self.version)
 
 
 def get_signal_r(name=None, resource_group_name=None, opts=None):
@@ -90,10 +173,21 @@ def get_signal_r(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:signalrservice/v20200501:getSignalR', __args__, opts=opts).value
 
     return AwaitableGetSignalRResult(
+        cors=__ret__.get('cors'),
+        external_ip=__ret__.get('externalIP'),
+        features=__ret__.get('features'),
+        host_name=__ret__.get('hostName'),
+        host_name_prefix=__ret__.get('hostNamePrefix'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_ac_ls=__ret__.get('networkACLs'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_port=__ret__.get('publicPort'),
+        server_port=__ret__.get('serverPort'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        upstream=__ret__.get('upstream'),
+        version=__ret__.get('version'))

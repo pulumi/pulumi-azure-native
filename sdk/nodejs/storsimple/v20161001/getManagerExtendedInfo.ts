@@ -36,19 +36,39 @@ export interface GetManagerExtendedInfoArgs {
  */
 export interface GetManagerExtendedInfoResult {
     /**
+     * Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+     */
+    readonly algorithm: string;
+    /**
+     * Represents the CEK of the resource
+     */
+    readonly encryptionKey?: string;
+    /**
+     * Represents the Cert thumbprint that was used to encrypt the CEK
+     */
+    readonly encryptionKeyThumbprint?: string;
+    /**
      * ETag of the Resource
      */
     readonly etag?: string;
+    /**
+     * Represents the CIK of the resource
+     */
+    readonly integrityKey: string;
     /**
      * The name.
      */
     readonly name: string;
     /**
-     * The extended info properties.
+     * Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
      */
-    readonly properties: outputs.storsimple.v20161001.ManagerExtendedInfoPropertiesResponse;
+    readonly portalCertificateThumbprint?: string;
     /**
      * The type.
      */
     readonly type: string;
+    /**
+     * Represents the version of the ExtendedInfo object being persisted
+     */
+    readonly version?: string;
 }

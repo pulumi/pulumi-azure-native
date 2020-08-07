@@ -16,16 +16,26 @@ type VirtualRouter struct {
 
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The Gateway on which VirtualRouter is hosted.
+	HostedGateway SubResourceResponsePtrOutput `pulumi:"hostedGateway"`
+	// The Subnet on which VirtualRouter is hosted.
+	HostedSubnet SubResourceResponsePtrOutput `pulumi:"hostedSubnet"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Virtual Router.
-	Properties VirtualRouterPropertiesFormatResponseOutput `pulumi:"properties"`
+	// List of references to VirtualRouterPeerings.
+	Peerings SubResourceResponseArrayOutput `pulumi:"peerings"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// VirtualRouter ASN.
+	VirtualRouterAsn pulumi.IntPtrOutput `pulumi:"virtualRouterAsn"`
+	// VirtualRouter IPs.
+	VirtualRouterIps pulumi.StringArrayOutput `pulumi:"virtualRouterIps"`
 }
 
 // NewVirtualRouter registers a new resource with the given unique name, arguments, and options.
@@ -64,31 +74,51 @@ func GetVirtualRouter(ctx *pulumi.Context,
 type virtualRouterState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The Gateway on which VirtualRouter is hosted.
+	HostedGateway *SubResourceResponse `pulumi:"hostedGateway"`
+	// The Subnet on which VirtualRouter is hosted.
+	HostedSubnet *SubResourceResponse `pulumi:"hostedSubnet"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Virtual Router.
-	Properties *VirtualRouterPropertiesFormatResponse `pulumi:"properties"`
+	// List of references to VirtualRouterPeerings.
+	Peerings []SubResourceResponse `pulumi:"peerings"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// VirtualRouter ASN.
+	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	// VirtualRouter IPs.
+	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 }
 
 type VirtualRouterState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The Gateway on which VirtualRouter is hosted.
+	HostedGateway SubResourceResponsePtrInput
+	// The Subnet on which VirtualRouter is hosted.
+	HostedSubnet SubResourceResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Virtual Router.
-	Properties VirtualRouterPropertiesFormatResponsePtrInput
+	// List of references to VirtualRouterPeerings.
+	Peerings SubResourceResponseArrayInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// VirtualRouter ASN.
+	VirtualRouterAsn pulumi.IntPtrInput
+	// VirtualRouter IPs.
+	VirtualRouterIps pulumi.StringArrayInput
 }
 
 func (VirtualRouterState) ElementType() reflect.Type {

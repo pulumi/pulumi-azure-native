@@ -37,6 +37,18 @@ export class Disk extends pulumi.CustomResource {
     }
 
     /**
+     * Disk source information. CreationData information cannot be changed after the disk has been created.
+     */
+    public readonly creationData!: pulumi.Output<outputs.compute.v20180401.CreationDataResponse>;
+    /**
+     * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+     */
+    public readonly diskSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * Encryption settings for disk or snapshot
+     */
+    public readonly encryptionSettings!: pulumi.Output<outputs.compute.v20180401.EncryptionSettingsResponse | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -49,9 +61,13 @@ export class Disk extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Disk resource properties.
+     * The Operating System type.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180401.DiskPropertiesResponse>;
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * The disk provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
      */
@@ -60,6 +76,10 @@ export class Disk extends pulumi.CustomResource {
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The time when the disk was created.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -105,7 +125,8 @@ export class Disk extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["managedBy"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

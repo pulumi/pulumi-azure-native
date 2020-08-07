@@ -46,13 +46,13 @@ export interface GetTagByApiArgs {
  */
 export interface GetTagByApiResult {
     /**
+     * Tag name.
+     */
+    readonly displayName: string;
+    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * Tag entity contract properties.
-     */
-    readonly properties: outputs.apimanagement.v20191201.TagContractPropertiesResponse;
     /**
      * Resource type for API Management resource.
      */

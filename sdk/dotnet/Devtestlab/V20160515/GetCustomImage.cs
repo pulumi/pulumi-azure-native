@@ -46,17 +46,33 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class GetCustomImageResult
     {
         /// <summary>
+        /// The author of the custom image.
+        /// </summary>
+        public readonly string? Author;
+        /// <summary>
+        /// The creation date of the custom image.
+        /// </summary>
+        public readonly string CreationDate;
+        /// <summary>
+        /// The description of the custom image.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The Managed Image Id backing the custom image.
+        /// </summary>
+        public readonly string? ManagedImageId;
         /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -65,24 +81,57 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
+        /// <summary>
+        /// The VHD from which the image is to be created.
+        /// </summary>
+        public readonly Outputs.CustomImagePropertiesCustomResponseResult? Vhd;
+        /// <summary>
+        /// The virtual machine from which the image is to be created.
+        /// </summary>
+        public readonly Outputs.CustomImagePropertiesFromVmResponseResult? Vm;
 
         [OutputConstructor]
         private GetCustomImageResult(
+            string? author,
+
+            string creationDate,
+
+            string? description,
+
             string? location,
+
+            string? managedImageId,
 
             string name,
 
-            Outputs.CustomImagePropertiesResponseResult properties,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? uniqueIdentifier,
+
+            Outputs.CustomImagePropertiesCustomResponseResult? vhd,
+
+            Outputs.CustomImagePropertiesFromVmResponseResult? vm)
         {
+            Author = author;
+            CreationDate = creationDate;
+            Description = description;
             Location = location;
+            ManagedImageId = managedImageId;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
+            Vhd = vhd;
+            Vm = vm;
         }
     }
 }

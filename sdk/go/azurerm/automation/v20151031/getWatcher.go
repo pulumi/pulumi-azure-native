@@ -27,14 +27,30 @@ type LookupWatcherArgs struct {
 
 // Definition of the watcher type.
 type LookupWatcherResult struct {
+	// Gets or sets the creation time.
+	CreationTime string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Gets or sets the frequency at which the watcher is invoked.
+	ExecutionFrequencyInSeconds *int `pulumi:"executionFrequencyInSeconds"`
+	// Details of the user who last modified the watcher.
+	LastModifiedBy string `pulumi:"lastModifiedBy"`
+	// Gets or sets the last modified time.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets the watcher properties.
-	Properties WatcherPropertiesResponse `pulumi:"properties"`
+	// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+	ScriptName *string `pulumi:"scriptName"`
+	// Gets or sets the parameters of the script.
+	ScriptParameters map[string]string `pulumi:"scriptParameters"`
+	// Gets or sets the name of the hybrid worker group the watcher will run on.
+	ScriptRunOn *string `pulumi:"scriptRunOn"`
+	// Gets the current status of the watcher.
+	Status string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.MixedReality.V20200501
     public sealed class GetSpatialAnchorsAccountResult
     {
         /// <summary>
+        /// Correspond domain name of certain Spatial Anchors Account
+        /// </summary>
+        public readonly string AccountDomain;
+        /// <summary>
+        /// unique id of certain account.
+        /// </summary>
+        public readonly string AccountId;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -47,10 +55,6 @@ namespace Pulumi.AzureRM.MixedReality.V20200501
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Property bag.
-        /// </summary>
-        public readonly Outputs.MixedRealityAccountPropertiesResponseResult Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -62,19 +66,22 @@ namespace Pulumi.AzureRM.MixedReality.V20200501
 
         [OutputConstructor]
         private GetSpatialAnchorsAccountResult(
+            string accountDomain,
+
+            string accountId,
+
             string location,
 
             string name,
-
-            Outputs.MixedRealityAccountPropertiesResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AccountDomain = accountDomain;
+            AccountId = accountId;
             Location = location;
             Name = name;
-            Properties = properties;
             Tags = tags;
             Type = type;
         }

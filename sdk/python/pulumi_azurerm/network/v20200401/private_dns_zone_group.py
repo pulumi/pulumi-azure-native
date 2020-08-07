@@ -18,22 +18,22 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
     """
     Name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    private_dns_zone_configs: pulumi.Output[list]
     """
-    Properties of the private dns zone group.
-      * `private_dns_zone_configs` (`list`) - A collection of private dns zone configurations of the private dns zone group.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the private dns zone configuration.
-          * `private_dns_zone_id` (`str`) - The resource id of the private dns zone.
-          * `record_sets` (`list`) - A collection of information regarding a recordSet, holding information to identify private resources.
-            * `fqdn` (`str`) - Fqdn that resolves to private endpoint ip address.
-            * `ip_addresses` (`list`) - The private ip address of the private endpoint.
-            * `provisioning_state` (`str`) - The provisioning state of the recordset.
-            * `record_set_name` (`str`) - Recordset name.
-            * `record_type` (`str`) - Resource record type.
-            * `ttl` (`float`) - Recordset time to live.
-
-      * `provisioning_state` (`str`) - The provisioning state of the private dns zone group resource.
+    A collection of private dns zone configurations of the private dns zone group.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `private_dns_zone_id` (`str`) - The resource id of the private dns zone.
+      * `record_sets` (`list`) - A collection of information regarding a recordSet, holding information to identify private resources.
+        * `fqdn` (`str`) - Fqdn that resolves to private endpoint ip address.
+        * `ip_addresses` (`list`) - The private ip address of the private endpoint.
+        * `provisioning_state` (`str`) - The provisioning state of the recordset.
+        * `record_set_name` (`str`) - Recordset name.
+        * `record_type` (`str`) - Resource record type.
+        * `ttl` (`float`) - Recordset time to live.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the private dns zone group resource.
     """
     def __init__(__self__, resource_name, opts=None, id=None, name=None, private_dns_zone_configs=None, private_endpoint_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -81,7 +81,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(PrivateDnsZoneGroup, __self__).__init__(
             'azurerm:network/v20200401:PrivateDnsZoneGroup',
             resource_name,

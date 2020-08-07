@@ -14,44 +14,66 @@ class BlobContainer(pulumi.CustomResource):
     """
     Resource Etag.
     """
+    has_immutability_policy: pulumi.Output[bool]
+    """
+    The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+    """
+    has_legal_hold: pulumi.Output[bool]
+    """
+    The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+    """
+    immutability_policy: pulumi.Output[dict]
+    """
+    The ImmutabilityPolicy property of the container.
+      * `etag` (`str`) - ImmutabilityPolicy Etag.
+      * `immutability_period_since_creation_in_days` (`float`) - The immutability period for the blobs in the container since the policy creation, in days.
+      * `state` (`str`) - The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+      * `update_history` (`list`) - The ImmutabilityPolicy update history of the blob container.
+        * `immutability_period_since_creation_in_days` (`float`) - The immutability period for the blobs in the container since the policy creation, in days.
+        * `object_identifier` (`str`) - Returns the Object ID of the user who updated the ImmutabilityPolicy.
+        * `tenant_id` (`str`) - Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
+        * `timestamp` (`str`) - Returns the date and time the ImmutabilityPolicy was updated.
+        * `update` (`str`) - The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
+        * `upn` (`str`) - Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Returns the date and time the container was last modified.
+    """
+    lease_duration: pulumi.Output[str]
+    """
+    Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+    """
+    lease_state: pulumi.Output[str]
+    """
+    Lease state of the container.
+    """
+    lease_status: pulumi.Output[str]
+    """
+    The lease status of the container.
+    """
+    legal_hold: pulumi.Output[dict]
+    """
+    The LegalHold property of the container.
+      * `has_legal_hold` (`bool`) - The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+      * `tags` (`list`) - The list of LegalHold tags of a blob container.
+        * `object_identifier` (`str`) - Returns the Object ID of the user who added the tag.
+        * `tag` (`str`) - The tag value.
+        * `tenant_id` (`str`) - Returns the Tenant ID that issued the token for the user who added the tag.
+        * `timestamp` (`str`) - Returns the date and time the tag was added.
+        * `upn` (`str`) - Returns the User Principal Name of the user who added the tag.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    A name-value pair to associate with the container as metadata.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    public_access: pulumi.Output[str]
     """
-    Properties of the blob container.
-      * `has_immutability_policy` (`bool`) - The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-      * `has_legal_hold` (`bool`) - The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-      * `immutability_policy` (`dict`) - The ImmutabilityPolicy property of the container.
-        * `etag` (`str`) - ImmutabilityPolicy Etag.
-        * `properties` (`dict`) - The properties of an ImmutabilityPolicy of a blob container.
-          * `immutability_period_since_creation_in_days` (`float`) - The immutability period for the blobs in the container since the policy creation, in days.
-          * `state` (`str`) - The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-
-        * `update_history` (`list`) - The ImmutabilityPolicy update history of the blob container.
-          * `immutability_period_since_creation_in_days` (`float`) - The immutability period for the blobs in the container since the policy creation, in days.
-          * `object_identifier` (`str`) - Returns the Object ID of the user who updated the ImmutabilityPolicy.
-          * `tenant_id` (`str`) - Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
-          * `timestamp` (`str`) - Returns the date and time the ImmutabilityPolicy was updated.
-          * `update` (`str`) - The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
-          * `upn` (`str`) - Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
-
-      * `last_modified_time` (`str`) - Returns the date and time the container was last modified.
-      * `lease_duration` (`str`) - Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-      * `lease_state` (`str`) - Lease state of the container.
-      * `lease_status` (`str`) - The lease status of the container.
-      * `legal_hold` (`dict`) - The LegalHold property of the container.
-        * `has_legal_hold` (`bool`) - The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-        * `tags` (`list`) - The list of LegalHold tags of a blob container.
-          * `object_identifier` (`str`) - Returns the Object ID of the user who added the tag.
-          * `tag` (`str`) - The tag value.
-          * `tenant_id` (`str`) - Returns the Tenant ID that issued the token for the user who added the tag.
-          * `timestamp` (`str`) - Returns the date and time the tag was added.
-          * `upn` (`str`) - Returns the User Principal Name of the user who added the tag.
-
-      * `metadata` (`dict`) - A name-value pair to associate with the container as metadata.
-      * `public_access` (`str`) - Specifies whether data in the container may be accessed publicly and the level of access.
+    Specifies whether data in the container may be accessed publicly and the level of access.
     """
     type: pulumi.Output[str]
     """
@@ -98,7 +120,14 @@ class BlobContainer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['has_immutability_policy'] = None
+            __props__['has_legal_hold'] = None
+            __props__['immutability_policy'] = None
+            __props__['last_modified_time'] = None
+            __props__['lease_duration'] = None
+            __props__['lease_state'] = None
+            __props__['lease_status'] = None
+            __props__['legal_hold'] = None
             __props__['type'] = None
         super(BlobContainer, __self__).__init__(
             'azurerm:storage/v20190401:BlobContainer',

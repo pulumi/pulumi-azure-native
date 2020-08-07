@@ -13,7 +13,13 @@ class GetServiceResult:
     """
     Describes an Azure Cognitive Search service and its current state.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, hosting_mode=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, shared_private_link_resources=None, sku=None, status=None, status_details=None, tags=None, type=None):
+        if hosting_mode and not isinstance(hosting_mode, str):
+            raise TypeError("Expected argument 'hosting_mode' to be a str")
+        __self__.hosting_mode = hosting_mode
+        """
+        Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -32,17 +38,65 @@ class GetServiceResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_rule_set and not isinstance(network_rule_set, dict):
+            raise TypeError("Expected argument 'network_rule_set' to be a dict")
+        __self__.network_rule_set = network_rule_set
         """
-        Properties of the Search service.
+        Network specific rules that determine how the Azure Cognitive Search service may be reached.
+        """
+        if partition_count and not isinstance(partition_count, float):
+            raise TypeError("Expected argument 'partition_count' to be a float")
+        __self__.partition_count = partition_count
+        """
+        The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+        """
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
+        """
+        The list of private endpoint connections to the Azure Cognitive Search service.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The state of the last provisioning operation performed on the Search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create Search service. This is because the free service uses capacity that is already set up.
+        """
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        __self__.public_network_access = public_network_access
+        """
+        This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        """
+        if replica_count and not isinstance(replica_count, float):
+            raise TypeError("Expected argument 'replica_count' to be a float")
+        __self__.replica_count = replica_count
+        """
+        The number of replicas in the Search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        """
+        if shared_private_link_resources and not isinstance(shared_private_link_resources, list):
+            raise TypeError("Expected argument 'shared_private_link_resources' to be a list")
+        __self__.shared_private_link_resources = shared_private_link_resources
+        """
+        The list of shared private link resources managed by the Azure Cognitive Search service.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of the Search service. Possible values include: 'running': The Search service is running and no provisioning operations are underway. 'provisioning': The Search service is being provisioned or scaled up or down. 'deleting': The Search service is being deleted. 'degraded': The Search service is degraded. This can occur when the underlying search units are not healthy. The Search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The Search service is disabled. In this state, the service will reject all API requests. 'error': The Search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+        """
+        if status_details and not isinstance(status_details, str):
+            raise TypeError("Expected argument 'status_details' to be a str")
+        __self__.status_details = status_details
+        """
+        The details of the Search service status.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -64,11 +118,20 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            hosting_mode=self.hosting_mode,
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_rule_set=self.network_rule_set,
+            partition_count=self.partition_count,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
+            replica_count=self.replica_count,
+            shared_private_link_resources=self.shared_private_link_resources,
             sku=self.sku,
+            status=self.status,
+            status_details=self.status_details,
             tags=self.tags,
             type=self.type)
 
@@ -90,10 +153,19 @@ def get_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:search/v20200313:getService', __args__, opts=opts).value
 
     return AwaitableGetServiceResult(
+        hosting_mode=__ret__.get('hostingMode'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_rule_set=__ret__.get('networkRuleSet'),
+        partition_count=__ret__.get('partitionCount'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_network_access=__ret__.get('publicNetworkAccess'),
+        replica_count=__ret__.get('replicaCount'),
+        shared_private_link_resources=__ret__.get('sharedPrivateLinkResources'),
         sku=__ret__.get('sku'),
+        status=__ret__.get('status'),
+        status_details=__ret__.get('statusDetails'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -25,12 +25,28 @@ type LookupWebAppHostNameBindingArgs struct {
 
 // A hostname binding object.
 type LookupWebAppHostNameBindingResult struct {
+	// Azure resource name.
+	AzureResourceName *string `pulumi:"azureResourceName"`
+	// Azure resource type.
+	AzureResourceType *string `pulumi:"azureResourceType"`
+	// Custom DNS record type.
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
+	// Fully qualified ARM domain resource URI.
+	DomainId *string `pulumi:"domainId"`
+	// Hostname type.
+	HostNameType *string `pulumi:"hostNameType"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// HostNameBinding resource specific properties
-	Properties HostNameBindingResponseProperties `pulumi:"properties"`
+	// App Service app name.
+	SiteName *string `pulumi:"siteName"`
+	// SSL type
+	SslState *string `pulumi:"sslState"`
+	// SSL certificate thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
+	VirtualIP string `pulumi:"virtualIP"`
 }

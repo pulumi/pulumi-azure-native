@@ -52,6 +52,14 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// A list that describes the correlation of the service with other services.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceCorrelationDescriptionResponseResult> CorrelationScheme;
+        /// <summary>
+        /// Specifies the move cost for the service.
+        /// </summary>
+        public readonly string? DefaultMoveCost;
+        /// <summary>
         /// Azure resource etag.
         /// </summary>
         public readonly string Etag;
@@ -64,9 +72,37 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The service resource properties.
+        /// Describes how the service is partitioned.
         /// </summary>
-        public readonly Outputs.ServiceResourcePropertiesResponseResult Properties;
+        public readonly Outputs.PartitionSchemeDescriptionResponseResult? PartitionDescription;
+        /// <summary>
+        /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+        /// </summary>
+        public readonly string? PlacementConstraints;
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The kind of service (Stateless or Stateful).
+        /// </summary>
+        public readonly string ServiceKind;
+        /// <summary>
+        /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponseResult> ServiceLoadMetrics;
+        /// <summary>
+        /// The activation Mode of the service package
+        /// </summary>
+        public readonly string? ServicePackageActivationMode;
+        /// <summary>
+        /// A list that describes the correlation of the service with other services.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponseResult> ServicePlacementPolicies;
+        /// <summary>
+        /// The name of the service type
+        /// </summary>
+        public readonly string? ServiceTypeName;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -78,22 +114,49 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
 
         [OutputConstructor]
         private GetServiceResult(
+            ImmutableArray<Outputs.ServiceCorrelationDescriptionResponseResult> correlationScheme,
+
+            string? defaultMoveCost,
+
             string etag,
 
             string? location,
 
             string name,
 
-            Outputs.ServiceResourcePropertiesResponseResult properties,
+            Outputs.PartitionSchemeDescriptionResponseResult? partitionDescription,
+
+            string? placementConstraints,
+
+            string provisioningState,
+
+            string serviceKind,
+
+            ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponseResult> serviceLoadMetrics,
+
+            string? servicePackageActivationMode,
+
+            ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponseResult> servicePlacementPolicies,
+
+            string? serviceTypeName,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            CorrelationScheme = correlationScheme;
+            DefaultMoveCost = defaultMoveCost;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            PartitionDescription = partitionDescription;
+            PlacementConstraints = placementConstraints;
+            ProvisioningState = provisioningState;
+            ServiceKind = serviceKind;
+            ServiceLoadMetrics = serviceLoadMetrics;
+            ServicePackageActivationMode = servicePackageActivationMode;
+            ServicePlacementPolicies = servicePlacementPolicies;
+            ServiceTypeName = serviceTypeName;
             Tags = tags;
             Type = type;
         }

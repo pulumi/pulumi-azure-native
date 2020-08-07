@@ -37,6 +37,14 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     }
 
     /**
+     * The key vault key which is currently used by this disk encryption set.
+     */
+    public readonly activeKey!: pulumi.Output<outputs.compute.v20200501.KeyVaultAndKeyReferenceResponse | undefined>;
+    /**
+     * The type of key used to encrypt the data of the disk.
+     */
+    public readonly encryptionType!: pulumi.Output<string | undefined>;
+    /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */
     public readonly identity!: pulumi.Output<outputs.compute.v20200501.EncryptionSetIdentityResponse | undefined>;
@@ -48,7 +56,14 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20200501.EncryptionSetPropertiesResponse>;
+    /**
+     * A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
+     */
+    public /*out*/ readonly previousKeys!: pulumi.Output<outputs.compute.v20200501.KeyVaultAndKeyReferenceResponse[]>;
+    /**
+     * The disk encryption set provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -87,7 +102,8 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["previousKeys"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

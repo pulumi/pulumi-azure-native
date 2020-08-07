@@ -15,10 +15,82 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>
+        /// AHUB discount on windows virtual machines.
+        /// </summary>
+        [Output("azureHybridUseBenefit")]
+        public Output<string> AzureHybridUseBenefit { get; private set; } = null!;
+
+        /// <summary>
+        /// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+        /// </summary>
+        [Output("azureLocation")]
+        public Output<string> AzureLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Offer code according to which cost estimation is done.
+        /// </summary>
+        [Output("azureOfferCode")]
+        public Output<string> AzureOfferCode { get; private set; } = null!;
+
+        /// <summary>
+        /// Pricing tier for Size evaluation.
+        /// </summary>
+        [Output("azurePricingTier")]
+        public Output<string> AzurePricingTier { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage Redundancy type offered by Azure.
+        /// </summary>
+        [Output("azureStorageRedundancy")]
+        public Output<string> AzureStorageRedundancy { get; private set; } = null!;
+
+        /// <summary>
+        /// Confidence rating percentage for assessment. Can be in the range [0, 100].
+        /// </summary>
+        [Output("confidenceRatingInPercentage")]
+        public Output<double> ConfidenceRatingInPercentage { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when this project was created. Date-Time represented in ISO-8601 format.
+        /// </summary>
+        [Output("createdTimestamp")]
+        public Output<string> CreatedTimestamp { get; private set; } = null!;
+
+        /// <summary>
+        /// Currency to report prices in.
+        /// </summary>
+        [Output("currency")]
+        public Output<string> Currency { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+        /// </summary>
+        [Output("discountPercentage")]
+        public Output<double> DiscountPercentage { get; private set; } = null!;
+
+        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+        /// </summary>
+        [Output("monthlyBandwidthCost")]
+        public Output<double> MonthlyBandwidthCost { get; private set; } = null!;
+
+        /// <summary>
+        /// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+        /// </summary>
+        [Output("monthlyComputeCost")]
+        public Output<double> MonthlyComputeCost { get; private set; } = null!;
+
+        /// <summary>
+        /// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+        /// </summary>
+        [Output("monthlyStorageCost")]
+        public Output<double> MonthlyStorageCost { get; private set; } = null!;
 
         /// <summary>
         /// Unique name of an assessment.
@@ -27,16 +99,64 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the assessment.
+        /// Number of assessed machines part of this assessment.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AssessmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("numberOfMachines")]
+        public Output<int> NumberOfMachines { get; private set; } = null!;
+
+        /// <summary>
+        /// Percentile of performance data used to recommend Azure size.
+        /// </summary>
+        [Output("percentile")]
+        public Output<string> Percentile { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+        /// </summary>
+        [Output("pricesTimestamp")]
+        public Output<string> PricesTimestamp { get; private set; } = null!;
+
+        /// <summary>
+        /// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+        /// </summary>
+        [Output("scalingFactor")]
+        public Output<double> ScalingFactor { get; private set; } = null!;
+
+        /// <summary>
+        /// Assessment sizing criterion.
+        /// </summary>
+        [Output("sizingCriterion")]
+        public Output<string> SizingCriterion { get; private set; } = null!;
+
+        /// <summary>
+        /// User configurable setting that describes the status of the assessment.
+        /// </summary>
+        [Output("stage")]
+        public Output<string> Stage { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the assessment has been created and is valid.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Time range of performance data used to recommend a size.
+        /// </summary>
+        [Output("timeRange")]
+        public Output<string> TimeRange { get; private set; } = null!;
 
         /// <summary>
         /// Type of the object = [Microsoft.Migrate/projects/groups/assessments].
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+        /// </summary>
+        [Output("updatedTimestamp")]
+        public Output<string> UpdatedTimestamp { get; private set; } = null!;
 
 
         /// <summary>

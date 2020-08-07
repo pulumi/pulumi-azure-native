@@ -13,7 +13,7 @@ class ListSitePublishingCredentialsResult:
     """
     Represents user credentials used for publishing activity
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, kind=None, location=None, name=None, publishing_password=None, publishing_user_name=None, scm_uri=None, tags=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,9 +32,24 @@ class ListSitePublishingCredentialsResult:
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if publishing_password and not isinstance(publishing_password, str):
+            raise TypeError("Expected argument 'publishing_password' to be a str")
+        __self__.publishing_password = publishing_password
+        """
+        Password used for publishing
+        """
+        if publishing_user_name and not isinstance(publishing_user_name, str):
+            raise TypeError("Expected argument 'publishing_user_name' to be a str")
+        __self__.publishing_user_name = publishing_user_name
+        """
+        Username used for publishing
+        """
+        if scm_uri and not isinstance(scm_uri, str):
+            raise TypeError("Expected argument 'scm_uri' to be a str")
+        __self__.scm_uri = scm_uri
+        """
+        Service Control Manager URI, including username and password
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -58,7 +73,9 @@ class AwaitableListSitePublishingCredentialsResult(ListSitePublishingCredentials
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            publishing_password=self.publishing_password,
+            publishing_user_name=self.publishing_user_name,
+            scm_uri=self.scm_uri,
             tags=self.tags,
             type=self.type)
 
@@ -83,6 +100,8 @@ def list_site_publishing_credentials(name=None, resource_group_name=None, opts=N
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        publishing_password=__ret__.get('publishingPassword'),
+        publishing_user_name=__ret__.get('publishingUserName'),
+        scm_uri=__ret__.get('scmUri'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

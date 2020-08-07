@@ -10,9 +10,62 @@ from ... import _utilities, _tables
 
 
 class DomainService(pulumi.CustomResource):
+    domain_controller_ip_address: pulumi.Output[list]
+    """
+    List of Domain Controller IP Address
+    """
+    domain_name: pulumi.Output[str]
+    """
+    The name of the Azure domain that the user would like to deploy Domain Services to.
+    """
+    domain_security_settings: pulumi.Output[dict]
+    """
+    DomainSecurity Settings
+      * `ntlm_v1` (`str`) - A flag to determine whether or not NtlmV1 is enabled or disabled.
+      * `sync_ntlm_passwords` (`str`) - A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+      * `tls_v1` (`str`) - A flag to determine whether or not TlsV1 is enabled or disabled.
+    """
     etag: pulumi.Output[str]
     """
     Resource etag
+    """
+    filtered_sync: pulumi.Output[str]
+    """
+    Enabled or Disabled flag to turn on Group-based filtered sync
+    """
+    health_alerts: pulumi.Output[list]
+    """
+    List of Domain Health Alerts
+      * `id` (`str`) - Health Alert Id
+      * `issue` (`str`) - Health Alert Issue
+      * `last_detected` (`str`) - Health Alert Last Detected DateTime
+      * `name` (`str`) - Health Alert Name
+      * `raised` (`str`) - Health Alert Raised DateTime
+      * `resolution_uri` (`str`) - Health Alert TSG Link
+      * `severity` (`str`) - Health Alert Severity
+    """
+    health_last_evaluated: pulumi.Output[str]
+    """
+    Last domain evaluation run DateTime
+    """
+    health_monitors: pulumi.Output[list]
+    """
+    List of Domain Health Monitors
+      * `details` (`str`) - Health Monitor Details
+      * `id` (`str`) - Health Monitor Id
+      * `name` (`str`) - Health Monitor Name
+    """
+    ldaps_settings: pulumi.Output[dict]
+    """
+    Secure LDAP Settings
+      * `certificate_not_after` (`str`) - NotAfter DateTime of configure ldaps certificate.
+      * `certificate_thumbprint` (`str`) - Thumbprint of configure ldaps certificate.
+      * `external_access` (`str`) - A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
+      * `external_access_ip_address` (`str`) - External access ip address.
+      * `ldaps` (`str`) - A flag to determine whether or not Secure LDAP is enabled or disabled.
+      * `pfx_certificate` (`str`) - The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
+      * `pfx_certificate_password` (`str`) - The password to decrypt the provided Secure LDAP certificate pfx file.
+      * `public_certificate` (`str`) - Public certificate used to configure secure ldap.
     """
     location: pulumi.Output[str]
     """
@@ -22,60 +75,40 @@ class DomainService(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    notification_settings: pulumi.Output[dict]
     """
-    Domain service properties
-      * `domain_controller_ip_address` (`list`) - List of Domain Controller IP Address
-      * `domain_name` (`str`) - The name of the Azure domain that the user would like to deploy Domain Services to.
-      * `domain_security_settings` (`dict`) - DomainSecurity Settings
-        * `ntlm_v1` (`str`) - A flag to determine whether or not NtlmV1 is enabled or disabled.
-        * `sync_ntlm_passwords` (`str`) - A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
-        * `tls_v1` (`str`) - A flag to determine whether or not TlsV1 is enabled or disabled.
-
-      * `filtered_sync` (`str`) - Enabled or Disabled flag to turn on Group-based filtered sync
-      * `health_alerts` (`list`) - List of Domain Health Alerts
-        * `id` (`str`) - Health Alert Id
-        * `issue` (`str`) - Health Alert Issue
-        * `last_detected` (`str`) - Health Alert Last Detected DateTime
-        * `name` (`str`) - Health Alert Name
-        * `raised` (`str`) - Health Alert Raised DateTime
-        * `resolution_uri` (`str`) - Health Alert TSG Link
-        * `severity` (`str`) - Health Alert Severity
-
-      * `health_last_evaluated` (`str`) - Last domain evaluation run DateTime
-      * `health_monitors` (`list`) - List of Domain Health Monitors
-        * `details` (`str`) - Health Monitor Details
-        * `id` (`str`) - Health Monitor Id
-        * `name` (`str`) - Health Monitor Name
-
-      * `ldaps_settings` (`dict`) - Secure LDAP Settings
-        * `certificate_not_after` (`str`) - NotAfter DateTime of configure ldaps certificate.
-        * `certificate_thumbprint` (`str`) - Thumbprint of configure ldaps certificate.
-        * `external_access` (`str`) - A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-        * `external_access_ip_address` (`str`) - External access ip address.
-        * `ldaps` (`str`) - A flag to determine whether or not Secure LDAP is enabled or disabled.
-        * `pfx_certificate` (`str`) - The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-        * `pfx_certificate_password` (`str`) - The password to decrypt the provided Secure LDAP certificate pfx file.
-        * `public_certificate` (`str`) - Public certificate used to configure secure ldap.
-
-      * `notification_settings` (`dict`) - Notification Settings
-        * `additional_recipients` (`list`) - The list of additional recipients
-        * `notify_dc_admins` (`str`) - Should domain controller admins be notified
-        * `notify_global_admins` (`str`) - Should global admins be notified
-
-      * `provisioning_state` (`str`) - the current deployment or provisioning state, which only appears in the response.
-      * `service_status` (`str`) - Status of Domain Service instance
-      * `subnet_id` (`str`) - The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
-      * `tenant_id` (`str`) - Azure Active Directory tenant id
-      * `vnet_site_id` (`str`) - Virtual network site id
+    Notification Settings
+      * `additional_recipients` (`list`) - The list of additional recipients
+      * `notify_dc_admins` (`str`) - Should domain controller admins be notified
+      * `notify_global_admins` (`str`) - Should global admins be notified
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    the current deployment or provisioning state, which only appears in the response.
+    """
+    service_status: pulumi.Output[str]
+    """
+    Status of Domain Service instance
+    """
+    subnet_id: pulumi.Output[str]
+    """
+    The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags
     """
+    tenant_id: pulumi.Output[str]
+    """
+    Azure Active Directory tenant id
+    """
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    vnet_site_id: pulumi.Output[str]
+    """
+    Virtual network site id
     """
     def __init__(__self__, resource_name, opts=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, ldaps_settings=None, location=None, name=None, notification_settings=None, resource_group_name=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -146,8 +179,15 @@ class DomainService(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['domain_controller_ip_address'] = None
+            __props__['health_alerts'] = None
+            __props__['health_last_evaluated'] = None
+            __props__['health_monitors'] = None
+            __props__['provisioning_state'] = None
+            __props__['service_status'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
+            __props__['vnet_site_id'] = None
         super(DomainService, __self__).__init__(
             'azurerm:aad/v20170601:DomainService',
             resource_name,

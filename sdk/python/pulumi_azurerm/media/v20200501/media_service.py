@@ -10,6 +10,15 @@ from ... import _utilities, _tables
 
 
 class MediaService(pulumi.CustomResource):
+    encryption: pulumi.Output[dict]
+    """
+    The account encryption properties.
+      * `key_vault_properties` (`dict`) - The properties of the key used to encrypt the account.
+        * `current_key_identifier` (`str`) - The current key used to encrypt the Media Services account, including the key version.
+        * `key_identifier` (`str`) - The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+
+      * `type` (`str`) - The type of key used to encrypt the Account Key.
+    """
     identity: pulumi.Output[dict]
     """
     The Managed Identity for the Media Services account.
@@ -21,27 +30,21 @@ class MediaService(pulumi.CustomResource):
     """
     The geo-location where the resource lives
     """
+    media_service_id: pulumi.Output[str]
+    """
+    The Media Services account ID.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    storage_accounts: pulumi.Output[list]
     """
-    The resource properties.
-      * `encryption` (`dict`) - The account encryption properties.
-        * `key_vault_properties` (`dict`) - The properties of the key used to encrypt the account.
-          * `current_key_identifier` (`str`) - The current key used to encrypt the Media Services account, including the key version.
-          * `key_identifier` (`str`) - The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-
-        * `type` (`str`) - The type of key used to encrypt the Account Key.
-
-      * `media_service_id` (`str`) - The Media Services account ID.
-      * `storage_accounts` (`list`) - The storage accounts for this resource.
-        * `id` (`str`) - The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-        * `type` (`str`) - The type of the storage account.
-
-      * `storage_authentication` (`str`)
+    The storage accounts for this resource.
+      * `id` (`str`) - The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+      * `type` (`str`) - The type of the storage account.
     """
+    storage_authentication: pulumi.Output[str]
     tags: pulumi.Output[dict]
     """
     Resource tags.
@@ -111,7 +114,7 @@ class MediaService(pulumi.CustomResource):
             __props__['storage_accounts'] = storage_accounts
             __props__['storage_authentication'] = storage_authentication
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['media_service_id'] = None
             __props__['type'] = None
         super(MediaService, __self__).__init__(
             'azurerm:media/v20200501:MediaService',

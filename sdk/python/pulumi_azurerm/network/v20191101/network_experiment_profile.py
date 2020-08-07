@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class NetworkExperimentProfile(pulumi.CustomResource):
+    enabled_state: pulumi.Output[str]
+    """
+    The state of the Experiment
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
@@ -22,11 +26,9 @@ class NetworkExperimentProfile(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    resource_state: pulumi.Output[str]
     """
-    The properties of a Profile
-      * `enabled_state` (`str`) - The state of the Experiment
-      * `resource_state` (`str`) - Resource status.
+    Resource status.
     """
     tags: pulumi.Output[dict]
     """
@@ -78,7 +80,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_state'] = resource_state
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(NetworkExperimentProfile, __self__).__init__(
             'azurerm:network/v20191101:NetworkExperimentProfile',

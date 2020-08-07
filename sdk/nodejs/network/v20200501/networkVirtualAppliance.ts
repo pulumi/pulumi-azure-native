@@ -37,6 +37,18 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
     }
 
     /**
+     * BootStrapConfigurationBlobs storage URLs.
+     */
+    public readonly bootStrapConfigurationBlobs!: pulumi.Output<string[] | undefined>;
+    /**
+     * CloudInitConfiguration string in plain text.
+     */
+    public readonly cloudInitConfiguration!: pulumi.Output<string | undefined>;
+    /**
+     * CloudInitConfigurationBlob storage URLs.
+     */
+    public readonly cloudInitConfigurationBlobs!: pulumi.Output<string[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -53,9 +65,13 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Network Virtual Appliance.
+     * Network Virtual Appliance SKU.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.NetworkVirtualAppliancePropertiesFormatResponse>;
+    public readonly nvaSku!: pulumi.Output<outputs.network.v20200501.VirtualApplianceSkuPropertiesResponse | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -64,6 +80,22 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * VirtualAppliance ASN.
+     */
+    public readonly virtualApplianceAsn!: pulumi.Output<number | undefined>;
+    /**
+     * List of Virtual Appliance Network Interfaces.
+     */
+    public /*out*/ readonly virtualApplianceNics!: pulumi.Output<outputs.network.v20200501.VirtualApplianceNicPropertiesResponse[]>;
+    /**
+     * List of references to VirtualApplianceSite.
+     */
+    public /*out*/ readonly virtualApplianceSites!: pulumi.Output<outputs.network.v20200501.SubResourceResponse[]>;
+    /**
+     * The Virtual Hub where Network Virtual Appliance is being deployed.
+     */
+    public readonly virtualHub!: pulumi.Output<outputs.network.v20200501.SubResourceResponse | undefined>;
 
     /**
      * Create a NetworkVirtualAppliance resource with the given unique name, arguments, and options.
@@ -97,8 +129,10 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             inputs["virtualApplianceAsn"] = args ? args.virtualApplianceAsn : undefined;
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualApplianceNics"] = undefined /*out*/;
+            inputs["virtualApplianceSites"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

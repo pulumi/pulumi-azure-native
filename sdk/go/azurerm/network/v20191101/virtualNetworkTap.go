@@ -14,14 +14,24 @@ import (
 type VirtualNetworkTap struct {
 	pulumi.CustomResourceState
 
+	// The reference to the private IP address on the internal Load Balancer that will receive the tap.
+	DestinationLoadBalancerFrontEndIPConfiguration FrontendIPConfigurationResponsePtrOutput `pulumi:"destinationLoadBalancerFrontEndIPConfiguration"`
+	// The reference to the private IP Address of the collector nic that will receive the tap.
+	DestinationNetworkInterfaceIPConfiguration NetworkInterfaceIPConfigurationResponsePtrOutput `pulumi:"destinationNetworkInterfaceIPConfiguration"`
+	// The VXLAN destination port that will receive the tapped traffic.
+	DestinationPort pulumi.IntPtrOutput `pulumi:"destinationPort"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Virtual Network Tap Properties.
-	Properties VirtualNetworkTapPropertiesFormatResponseOutput `pulumi:"properties"`
+	// Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+	NetworkInterfaceTapConfigurations NetworkInterfaceTapConfigurationResponseArrayOutput `pulumi:"networkInterfaceTapConfigurations"`
+	// The provisioning state of the virtual network tap resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the virtual network tap resource.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,14 +72,24 @@ func GetVirtualNetworkTap(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkTap resources.
 type virtualNetworkTapState struct {
+	// The reference to the private IP address on the internal Load Balancer that will receive the tap.
+	DestinationLoadBalancerFrontEndIPConfiguration *FrontendIPConfigurationResponse `pulumi:"destinationLoadBalancerFrontEndIPConfiguration"`
+	// The reference to the private IP Address of the collector nic that will receive the tap.
+	DestinationNetworkInterfaceIPConfiguration *NetworkInterfaceIPConfigurationResponse `pulumi:"destinationNetworkInterfaceIPConfiguration"`
+	// The VXLAN destination port that will receive the tapped traffic.
+	DestinationPort *int `pulumi:"destinationPort"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Virtual Network Tap Properties.
-	Properties *VirtualNetworkTapPropertiesFormatResponse `pulumi:"properties"`
+	// Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+	NetworkInterfaceTapConfigurations []NetworkInterfaceTapConfigurationResponse `pulumi:"networkInterfaceTapConfigurations"`
+	// The provisioning state of the virtual network tap resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the virtual network tap resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -77,14 +97,24 @@ type virtualNetworkTapState struct {
 }
 
 type VirtualNetworkTapState struct {
+	// The reference to the private IP address on the internal Load Balancer that will receive the tap.
+	DestinationLoadBalancerFrontEndIPConfiguration FrontendIPConfigurationResponsePtrInput
+	// The reference to the private IP Address of the collector nic that will receive the tap.
+	DestinationNetworkInterfaceIPConfiguration NetworkInterfaceIPConfigurationResponsePtrInput
+	// The VXLAN destination port that will receive the tapped traffic.
+	DestinationPort pulumi.IntPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Virtual Network Tap Properties.
-	Properties VirtualNetworkTapPropertiesFormatResponsePtrInput
+	// Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+	NetworkInterfaceTapConfigurations NetworkInterfaceTapConfigurationResponseArrayInput
+	// The provisioning state of the virtual network tap resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the virtual network tap resource.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

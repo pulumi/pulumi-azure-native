@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class ServerKey extends pulumi.CustomResource {
     }
 
     /**
+     * The key creation date.
+     */
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
      * Kind of encryption protector used to protect the key.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
@@ -45,13 +47,17 @@ export class ServerKey extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the ServerKey Resource.
+     * The key type like 'AzureKeyVault'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.dbformysql.v20200101.ServerKeyPropertiesResponse>;
+    public readonly serverKeyType!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The URI of the key.
+     */
+    public readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerKey resource with the given unique name, arguments, and options.
@@ -83,8 +89,8 @@ export class ServerKey extends pulumi.CustomResource {
             inputs["serverKeyType"] = args ? args.serverKeyType : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["uri"] = args ? args.uri : undefined;
+            inputs["creationDate"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

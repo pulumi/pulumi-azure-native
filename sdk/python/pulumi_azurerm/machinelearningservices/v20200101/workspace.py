@@ -10,12 +10,54 @@ from ... import _utilities, _tables
 
 
 class Workspace(pulumi.CustomResource):
+    application_insights: pulumi.Output[str]
+    """
+    ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+    """
+    container_registry: pulumi.Output[str]
+    """
+    ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+    """
+    creation_time: pulumi.Output[str]
+    """
+    The creation time of the machine learning workspace in ISO8601 format.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of this workspace.
+    """
+    discovery_url: pulumi.Output[str]
+    """
+    Url for the discovery service to identify regional endpoints for machine learning experimentation services
+    """
+    encryption: pulumi.Output[dict]
+    """
+    The encryption settings of Azure ML workspace.
+      * `key_vault_properties` (`dict`) - Customer Key vault properties.
+        * `identity_client_id` (`str`) - For future use - The client id of the identity which will be used to access key vault.
+        * `key_identifier` (`str`) - Key vault uri to access the encryption key.
+        * `key_vault_arm_id` (`str`) - The ArmId of the keyVault where the customer owned encryption key is present.
+
+      * `status` (`str`) - Indicates whether or not the encryption is enabled for the workspace.
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    The friendly name for this workspace. This name in mutable
+    """
+    hbi_workspace: pulumi.Output[bool]
+    """
+    The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the resource.
       * `principal_id` (`str`) - The principal ID of resource identity.
       * `tenant_id` (`str`) - The tenant ID of resource.
       * `type` (`str`) - The identity type.
+    """
+    key_vault: pulumi.Output[str]
+    """
+    ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
     """
     location: pulumi.Output[str]
     """
@@ -25,35 +67,23 @@ class Workspace(pulumi.CustomResource):
     """
     Specifies the name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the machine learning workspace.
-      * `application_insights` (`str`) - ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-      * `container_registry` (`str`) - ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-      * `creation_time` (`str`) - The creation time of the machine learning workspace in ISO8601 format.
-      * `description` (`str`) - The description of this workspace.
-      * `discovery_url` (`str`) - Url for the discovery service to identify regional endpoints for machine learning experimentation services
-      * `encryption` (`dict`) - The encryption settings of Azure ML workspace.
-        * `key_vault_properties` (`dict`) - Customer Key vault properties.
-          * `identity_client_id` (`str`) - For future use - The client id of the identity which will be used to access key vault.
-          * `key_identifier` (`str`) - Key vault uri to access the encryption key.
-          * `key_vault_arm_id` (`str`) - The ArmId of the keyVault where the customer owned encryption key is present.
-
-        * `status` (`str`) - Indicates whether or not the encryption is enabled for the workspace.
-
-      * `friendly_name` (`str`) - The friendly name for this workspace. This name in mutable
-      * `hbi_workspace` (`bool`) - The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-      * `key_vault` (`str`) - ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-      * `provisioning_state` (`str`) - The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
-      * `service_provisioned_resource_group` (`str`) - The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
-      * `storage_account` (`str`) - ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-      * `workspace_id` (`str`) - The immutable id associated with this workspace.
+    The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+    """
+    service_provisioned_resource_group: pulumi.Output[str]
+    """
+    The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
     """
     sku: pulumi.Output[dict]
     """
     The sku of the workspace.
       * `name` (`str`) - Name of the sku
       * `tier` (`str`) - Tier of the sku like Basic or Enterprise
+    """
+    storage_account: pulumi.Output[str]
+    """
+    ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
     """
     tags: pulumi.Output[dict]
     """
@@ -62,6 +92,10 @@ class Workspace(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Specifies the type of the resource.
+    """
+    workspace_id: pulumi.Output[str]
+    """
+    The immutable id associated with this workspace.
     """
     def __init__(__self__, resource_name, opts=None, application_insights=None, container_registry=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, identity=None, key_vault=None, location=None, name=None, resource_group_name=None, sku=None, storage_account=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -139,8 +173,11 @@ class Workspace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['storage_account'] = storage_account
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['provisioning_state'] = None
+            __props__['service_provisioned_resource_group'] = None
             __props__['type'] = None
+            __props__['workspace_id'] = None
         super(Workspace, __self__).__init__(
             'azurerm:machinelearningservices/v20200101:Workspace',
             resource_name,

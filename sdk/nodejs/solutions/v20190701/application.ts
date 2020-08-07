@@ -37,9 +37,37 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
+     * The fully qualified path of managed application definition Id.
+     */
+    public readonly applicationDefinitionId!: pulumi.Output<string | undefined>;
+    /**
+     * The collection of managed application artifacts.
+     */
+    public /*out*/ readonly artifacts!: pulumi.Output<outputs.solutions.v20190701.ApplicationArtifactResponse[]>;
+    /**
+     * The  read-only authorizations property that is retrieved from the application package.
+     */
+    public /*out*/ readonly authorizations!: pulumi.Output<outputs.solutions.v20190701.ApplicationAuthorizationResponse[]>;
+    /**
+     * The managed application billing details.
+     */
+    public /*out*/ readonly billingDetails!: pulumi.Output<outputs.solutions.v20190701.ApplicationBillingDetailsDefinitionResponse>;
+    /**
+     * The client entity that created the JIT request.
+     */
+    public /*out*/ readonly createdBy!: pulumi.Output<outputs.solutions.v20190701.ApplicationClientDetailsResponse>;
+    /**
+     * The read-only customer support property that is retrieved from the application package.
+     */
+    public /*out*/ readonly customerSupport!: pulumi.Output<outputs.solutions.v20190701.ApplicationPackageContactResponse>;
+    /**
      * The identity of the resource.
      */
     public readonly identity!: pulumi.Output<outputs.solutions.v20190701.IdentityResponse | undefined>;
+    /**
+     * The managed application Jit access policy.
+     */
+    public readonly jitAccessPolicy!: pulumi.Output<outputs.solutions.v20190701.ApplicationJitAccessPolicyResponse | undefined>;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -53,21 +81,45 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
+     * The managed resource group Id.
+     */
+    public readonly managedResourceGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * The managed application management mode.
+     */
+    public /*out*/ readonly managementMode!: pulumi.Output<string>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Name and value pairs that define the managed application outputs.
+     */
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: any}>;
+    /**
+     * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+     */
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The plan information.
      */
     public readonly plan!: pulumi.Output<outputs.solutions.v20190701.PlanResponse | undefined>;
     /**
-     * The managed application properties.
+     * The managed application provisioning state.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.solutions.v20190701.ApplicationPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The publisher tenant Id.
+     */
+    public /*out*/ readonly publisherTenantId!: pulumi.Output<string>;
     /**
      * The SKU of the resource.
      */
     public readonly sku!: pulumi.Output<outputs.solutions.v20190701.SkuResponse | undefined>;
+    /**
+     * The read-only support URLs property that is retrieved from the application package.
+     */
+    public /*out*/ readonly supportUrls!: pulumi.Output<outputs.solutions.v20190701.ApplicationPackageSupportUrlsResponse>;
     /**
      * Resource tags
      */
@@ -76,6 +128,10 @@ export class Application extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The client entity that last updated the JIT request.
+     */
+    public /*out*/ readonly updatedBy!: pulumi.Output<outputs.solutions.v20190701.ApplicationClientDetailsResponse>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -112,8 +168,18 @@ export class Application extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["artifacts"] = undefined /*out*/;
+            inputs["authorizations"] = undefined /*out*/;
+            inputs["billingDetails"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["customerSupport"] = undefined /*out*/;
+            inputs["managementMode"] = undefined /*out*/;
+            inputs["outputs"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publisherTenantId"] = undefined /*out*/;
+            inputs["supportUrls"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

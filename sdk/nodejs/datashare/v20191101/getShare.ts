@@ -41,15 +41,39 @@ export interface GetShareArgs {
  */
 export interface GetShareResult {
     /**
+     * Time at which the share was created.
+     */
+    readonly createdAt: string;
+    /**
+     * Share description.
+     */
+    readonly description?: string;
+    /**
      * Name of the azure resource
      */
     readonly name: string;
     /**
-     * Properties on the share
+     * Gets or sets the provisioning state
      */
-    readonly properties: outputs.datashare.v20191101.SharePropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Share kind.
+     */
+    readonly shareKind?: string;
+    /**
+     * Share terms.
+     */
+    readonly terms?: string;
     /**
      * Type of the azure resource
      */
     readonly type: string;
+    /**
+     * Email of the user who created the resource
+     */
+    readonly userEmail: string;
+    /**
+     * Name of the user who created the resource
+     */
+    readonly userName: string;
 }

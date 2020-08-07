@@ -15,6 +15,42 @@ namespace Pulumi.AzureRM.Media.V20200501
     public partial class LiveEvent : Pulumi.CustomResource
     {
         /// <summary>
+        /// The exact time the Live Event was created.
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// The Live Event access policies.
+        /// </summary>
+        [Output("crossSiteAccessPolicies")]
+        public Output<Outputs.CrossSiteAccessPoliciesResponseResult?> CrossSiteAccessPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// The Live Event description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The Live Event encoding.
+        /// </summary>
+        [Output("encoding")]
+        public Output<Outputs.LiveEventEncodingResponseResult?> Encoding { get; private set; } = null!;
+
+        /// <summary>
+        /// The Live Event input.
+        /// </summary>
+        [Output("input")]
+        public Output<Outputs.LiveEventInputResponseResult> Input { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the Live Event was last modified.
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -27,10 +63,28 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Live Event properties.
+        /// The Live Event preview.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LiveEventPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("preview")]
+        public Output<Outputs.LiveEventPreviewResponseResult?> Preview { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the Live Event.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource state of the Live Event.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
+
+        /// <summary>
+        /// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+        /// </summary>
+        [Output("streamOptions")]
+        public Output<ImmutableArray<string>> StreamOptions { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -43,6 +97,12 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+        /// </summary>
+        [Output("useStaticHostname")]
+        public Output<bool?> UseStaticHostname { get; private set; } = null!;
 
 
         /// <summary>

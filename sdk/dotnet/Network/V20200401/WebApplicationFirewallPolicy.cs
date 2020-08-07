@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.Network.V20200401
     public partial class WebApplicationFirewallPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// A collection of references to application gateways.
+        /// </summary>
+        [Output("applicationGateways")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayResponseResult>> ApplicationGateways { get; private set; } = null!;
+
+        /// <summary>
+        /// The custom rules inside the policy.
+        /// </summary>
+        [Output("customRules")]
+        public Output<ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult>> CustomRules { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of references to application gateway http listeners.
+        /// </summary>
+        [Output("httpListeners")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> HttpListeners { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -27,16 +45,40 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Describes the managedRules structure.
+        /// </summary>
+        [Output("managedRules")]
+        public Output<Outputs.ManagedRulesDefinitionResponseResult> ManagedRules { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// A collection of references to application gateway path rules.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WebApplicationFirewallPolicyPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("pathBasedRules")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> PathBasedRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The PolicySettings for policy.
+        /// </summary>
+        [Output("policySettings")]
+        public Output<Outputs.PolicySettingsResponseResult?> PolicySettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the web application firewall policy resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the policy.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

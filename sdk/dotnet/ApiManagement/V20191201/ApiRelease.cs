@@ -15,22 +15,40 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class ApiRelease : Pulumi.CustomResource
     {
         /// <summary>
+        /// Identifier of the API the release belongs to.
+        /// </summary>
+        [Output("apiId")]
+        public Output<string?> ApiId { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+        /// </summary>
+        [Output("createdDateTime")]
+        public Output<string> CreatedDateTime { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// ApiRelease entity contract properties.
+        /// Release Notes
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApiReleaseContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notes")]
+        public Output<string?> Notes { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the API release was updated.
+        /// </summary>
+        [Output("updatedDateTime")]
+        public Output<string> UpdatedDateTime { get; private set; } = null!;
 
 
         /// <summary>

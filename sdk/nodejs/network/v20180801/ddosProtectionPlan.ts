@@ -49,9 +49,13 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the DDoS protection plan.
+     * The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180801.DdosProtectionPlanPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -60,6 +64,10 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+     */
+    public /*out*/ readonly virtualNetworks!: pulumi.Output<outputs.network.v20180801.SubResourceResponse[]>;
 
     /**
      * Create a DdosProtectionPlan resource with the given unique name, arguments, and options.
@@ -85,8 +93,10 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualNetworks"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

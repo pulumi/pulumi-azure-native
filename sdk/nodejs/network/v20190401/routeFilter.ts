@@ -41,6 +41,10 @@ export class RouteFilter extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * A collection of references to express route circuit ipv6 peerings.
+     */
+    public readonly ipv6Peerings!: pulumi.Output<outputs.network.v20190401.ExpressRouteCircuitPeeringResponse[] | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -49,9 +53,17 @@ export class RouteFilter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the route filter.
+     * A collection of references to express route circuit peerings.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190401.RouteFilterPropertiesFormatResponse>;
+    public readonly peerings!: pulumi.Output<outputs.network.v20190401.ExpressRouteCircuitPeeringResponse[] | undefined>;
+    /**
+     * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Collection of RouteFilterRules contained within a route filter.
+     */
+    public readonly rules!: pulumi.Output<outputs.network.v20190401.RouteFilterRuleResponse[] | undefined>;
     /**
      * Resource tags.
      */
@@ -92,7 +104,7 @@ export class RouteFilter extends pulumi.CustomResource {
             inputs["rules"] = args ? args.rules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

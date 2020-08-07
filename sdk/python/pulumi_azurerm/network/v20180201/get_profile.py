@@ -13,12 +13,30 @@ class GetProfileResult:
     """
     Class representing a Traffic Manager profile.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, dns_config=None, endpoints=None, location=None, monitor_config=None, name=None, profile_status=None, tags=None, traffic_routing_method=None, traffic_view_enrollment_status=None, type=None):
+        if dns_config and not isinstance(dns_config, dict):
+            raise TypeError("Expected argument 'dns_config' to be a dict")
+        __self__.dns_config = dns_config
+        """
+        The DNS settings of the Traffic Manager profile.
+        """
+        if endpoints and not isinstance(endpoints, list):
+            raise TypeError("Expected argument 'endpoints' to be a list")
+        __self__.endpoints = endpoints
+        """
+        The list of endpoints in the Traffic Manager profile.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The Azure Region where the resource lives
+        """
+        if monitor_config and not isinstance(monitor_config, dict):
+            raise TypeError("Expected argument 'monitor_config' to be a dict")
+        __self__.monitor_config = monitor_config
+        """
+        The endpoint monitoring settings of the Traffic Manager profile.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +44,29 @@ class GetProfileResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if profile_status and not isinstance(profile_status, str):
+            raise TypeError("Expected argument 'profile_status' to be a str")
+        __self__.profile_status = profile_status
         """
-        The properties of the Traffic Manager profile.
+        The status of the Traffic Manager profile.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags.
+        """
+        if traffic_routing_method and not isinstance(traffic_routing_method, str):
+            raise TypeError("Expected argument 'traffic_routing_method' to be a str")
+        __self__.traffic_routing_method = traffic_routing_method
+        """
+        The traffic routing method of the Traffic Manager profile.
+        """
+        if traffic_view_enrollment_status and not isinstance(traffic_view_enrollment_status, str):
+            raise TypeError("Expected argument 'traffic_view_enrollment_status' to be a str")
+        __self__.traffic_view_enrollment_status = traffic_view_enrollment_status
+        """
+        Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -52,10 +82,15 @@ class AwaitableGetProfileResult(GetProfileResult):
         if False:
             yield self
         return GetProfileResult(
+            dns_config=self.dns_config,
+            endpoints=self.endpoints,
             location=self.location,
+            monitor_config=self.monitor_config,
             name=self.name,
-            properties=self.properties,
+            profile_status=self.profile_status,
             tags=self.tags,
+            traffic_routing_method=self.traffic_routing_method,
+            traffic_view_enrollment_status=self.traffic_view_enrollment_status,
             type=self.type)
 
 
@@ -76,8 +111,13 @@ def get_profile(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20180201:getProfile', __args__, opts=opts).value
 
     return AwaitableGetProfileResult(
+        dns_config=__ret__.get('dnsConfig'),
+        endpoints=__ret__.get('endpoints'),
         location=__ret__.get('location'),
+        monitor_config=__ret__.get('monitorConfig'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        profile_status=__ret__.get('profileStatus'),
         tags=__ret__.get('tags'),
+        traffic_routing_method=__ret__.get('trafficRoutingMethod'),
+        traffic_view_enrollment_status=__ret__.get('trafficViewEnrollmentStatus'),
         type=__ret__.get('type'))

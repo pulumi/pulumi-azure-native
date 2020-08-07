@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.Network.V20190701
     public sealed class GetVirtualWanResult
     {
         /// <summary>
+        /// True if branch to branch traffic is allowed.
+        /// </summary>
+        public readonly bool? AllowBranchToBranchTraffic;
+        /// <summary>
+        /// True if Vnet to Vnet traffic is allowed.
+        /// </summary>
+        public readonly bool? AllowVnetToVnetTraffic;
+        /// <summary>
+        /// Vpn encryption to be disabled or not.
+        /// </summary>
+        public readonly bool? DisableVpnEncryption;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -52,9 +64,21 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the virtual WAN.
+        /// The office local breakout category.
         /// </summary>
-        public readonly Outputs.VirtualWanPropertiesResponseResult Properties;
+        public readonly string? Office365LocalBreakoutCategory;
+        /// <summary>
+        /// List of all P2SVpnServerConfigurations associated with the virtual wan.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigurationResponseResult> P2SVpnServerConfigurations;
+        /// <summary>
+        /// The provisioning state of the virtual WAN resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The Security Provider name.
+        /// </summary>
+        public readonly string? SecurityProviderName;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +87,59 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// List of VirtualHubs in the VirtualWAN.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualHubs;
+        /// <summary>
+        /// List of VpnSites in the VirtualWAN.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VpnSites;
 
         [OutputConstructor]
         private GetVirtualWanResult(
+            bool? allowBranchToBranchTraffic,
+
+            bool? allowVnetToVnetTraffic,
+
+            bool? disableVpnEncryption,
+
             string etag,
 
             string location,
 
             string name,
 
-            Outputs.VirtualWanPropertiesResponseResult properties,
+            string? office365LocalBreakoutCategory,
+
+            ImmutableArray<Outputs.P2SVpnServerConfigurationResponseResult> p2SVpnServerConfigurations,
+
+            string? provisioningState,
+
+            string? securityProviderName,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> virtualHubs,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> vpnSites)
         {
+            AllowBranchToBranchTraffic = allowBranchToBranchTraffic;
+            AllowVnetToVnetTraffic = allowVnetToVnetTraffic;
+            DisableVpnEncryption = disableVpnEncryption;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            Office365LocalBreakoutCategory = office365LocalBreakoutCategory;
+            P2SVpnServerConfigurations = p2SVpnServerConfigurations;
+            ProvisioningState = provisioningState;
+            SecurityProviderName = securityProviderName;
             Tags = tags;
             Type = type;
+            VirtualHubs = virtualHubs;
+            VpnSites = vpnSites;
         }
     }
 }

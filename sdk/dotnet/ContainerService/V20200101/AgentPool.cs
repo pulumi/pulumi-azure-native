@@ -15,22 +15,124 @@ namespace Pulumi.AzureRM.ContainerService.V20200101
     public partial class AgentPool : Pulumi.CustomResource
     {
         /// <summary>
+        /// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        /// </summary>
+        [Output("availabilityZones")]
+        public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        /// </summary>
+        [Output("count")]
+        public Output<int?> Count { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enable auto-scaler
+        /// </summary>
+        [Output("enableAutoScaling")]
+        public Output<bool?> EnableAutoScaling { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable public IP for nodes
+        /// </summary>
+        [Output("enableNodePublicIP")]
+        public Output<bool?> EnableNodePublicIP { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum number of nodes for auto-scaling
+        /// </summary>
+        [Output("maxCount")]
+        public Output<int?> MaxCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum number of pods that can run on a node.
+        /// </summary>
+        [Output("maxPods")]
+        public Output<int?> MaxPods { get; private set; } = null!;
+
+        /// <summary>
+        /// Minimum number of nodes for auto-scaling
+        /// </summary>
+        [Output("minCount")]
+        public Output<int?> MinCount { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of an agent pool.
+        /// Agent pool node labels to be persisted across all nodes in agent pool.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ManagedClusterAgentPoolProfilePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nodeLabels")]
+        public Output<ImmutableDictionary<string, string>?> NodeLabels { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        /// </summary>
+        [Output("nodeTaints")]
+        public Output<ImmutableArray<string>> NodeTaints { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of orchestrator specified when creating the managed cluster.
+        /// </summary>
+        [Output("orchestratorVersion")]
+        public Output<string?> OrchestratorVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        /// </summary>
+        [Output("osDiskSizeGB")]
+        public Output<int?> OsDiskSizeGB { get; private set; } = null!;
+
+        /// <summary>
+        /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        /// </summary>
+        [Output("osType")]
+        public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
+        /// </summary>
+        [Output("scaleSetEvictionPolicy")]
+        public Output<string?> ScaleSetEvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+        /// </summary>
+        [Output("scaleSetPriority")]
+        public Output<string?> ScaleSetPriority { get; private set; } = null!;
+
+        /// <summary>
+        /// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// AgentPoolType represents types of an agent pool
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Size of agent VMs.
+        /// </summary>
+        [Output("vmSize")]
+        public Output<string?> VmSize { get; private set; } = null!;
+
+        /// <summary>
+        /// VNet SubnetID specifies the VNet's subnet identifier.
+        /// </summary>
+        [Output("vnetSubnetID")]
+        public Output<string?> VnetSubnetID { get; private set; } = null!;
 
 
         /// <summary>

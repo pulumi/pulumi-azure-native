@@ -13,18 +13,30 @@ class GetApiIssueAttachmentResult:
     """
     Issue Attachment Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, content=None, content_format=None, name=None, title=None, type=None):
+        if content and not isinstance(content, str):
+            raise TypeError("Expected argument 'content' to be a str")
+        __self__.content = content
+        """
+        An HTTP link or Base64-encoded binary data.
+        """
+        if content_format and not isinstance(content_format, str):
+            raise TypeError("Expected argument 'content_format' to be a str")
+        __self__.content_format = content_format
+        """
+        Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        __self__.title = title
         """
-        Properties of the Issue Attachment.
+        Filename by which the binary data will be saved.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetApiIssueAttachmentResult(GetApiIssueAttachmentResult):
         if False:
             yield self
         return GetApiIssueAttachmentResult(
+            content=self.content,
+            content_format=self.content_format,
             name=self.name,
-            properties=self.properties,
+            title=self.title,
             type=self.type)
 
 
@@ -68,6 +82,8 @@ def get_api_issue_attachment(api_id=None, issue_id=None, name=None, resource_gro
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getApiIssueAttachment', __args__, opts=opts).value
 
     return AwaitableGetApiIssueAttachmentResult(
+        content=__ret__.get('content'),
+        content_format=__ret__.get('contentFormat'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        title=__ret__.get('title'),
         type=__ret__.get('type'))

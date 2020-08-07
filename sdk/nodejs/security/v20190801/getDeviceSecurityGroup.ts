@@ -36,13 +36,25 @@ export interface GetDeviceSecurityGroupArgs {
  */
 export interface GetDeviceSecurityGroupResult {
     /**
+     * The allow-list custom alert rules.
+     */
+    readonly allowlistRules?: outputs.security.v20190801.AllowlistCustomAlertRuleResponse[];
+    /**
+     * The deny-list custom alert rules.
+     */
+    readonly denylistRules?: outputs.security.v20190801.DenylistCustomAlertRuleResponse[];
+    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Device Security group data
+     * The list of custom alert threshold rules.
      */
-    readonly properties: outputs.security.v20190801.DeviceSecurityGroupPropertiesResponse;
+    readonly thresholdRules?: outputs.security.v20190801.ThresholdCustomAlertRuleResponse[];
+    /**
+     * The list of custom alert time-window rules.
+     */
+    readonly timeWindowRules?: outputs.security.v20190801.TimeWindowCustomAlertRuleResponse[];
     /**
      * Resource type
      */

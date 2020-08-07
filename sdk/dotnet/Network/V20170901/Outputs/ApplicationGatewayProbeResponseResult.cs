@@ -18,39 +18,102 @@ namespace Pulumi.AzureRM.Network.V20170901.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Host name to send the probe to.
+        /// </summary>
+        public readonly string? Host;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
+        /// </summary>
+        public readonly int? Interval;
+        /// <summary>
+        /// Criterion for classifying a healthy probe response.
+        /// </summary>
+        public readonly Outputs.ApplicationGatewayProbeHealthResponseMatchResponseResult? Match;
+        /// <summary>
+        /// Minimum number of servers that are always marked healthy. Default value is 0.
+        /// </summary>
+        public readonly int? MinServers;
         /// <summary>
         /// Name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of probe of an application gateway.
+        /// Relative path of probe. Valid path starts from '/'. Probe is sent to &lt;Protocol&gt;://&lt;host&gt;:&lt;port&gt;&lt;path&gt;
         /// </summary>
-        public readonly Outputs.ApplicationGatewayProbePropertiesFormatResponseResult? Properties;
+        public readonly string? Path;
+        /// <summary>
+        /// Whether the host header should be picked from the backend http settings. Default value is false.
+        /// </summary>
+        public readonly bool? PickHostNameFromBackendHttpSettings;
+        /// <summary>
+        /// Protocol.
+        /// </summary>
+        public readonly string? Protocol;
+        /// <summary>
+        /// Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// the probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
+        /// </summary>
+        public readonly int? Timeout;
         /// <summary>
         /// Type of the resource.
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.
+        /// </summary>
+        public readonly int? UnhealthyThreshold;
 
         [OutputConstructor]
         private ApplicationGatewayProbeResponseResult(
             string? etag,
 
+            string? host,
+
             string? id,
+
+            int? interval,
+
+            Outputs.ApplicationGatewayProbeHealthResponseMatchResponseResult? match,
+
+            int? minServers,
 
             string? name,
 
-            Outputs.ApplicationGatewayProbePropertiesFormatResponseResult? properties,
+            string? path,
 
-            string? type)
+            bool? pickHostNameFromBackendHttpSettings,
+
+            string? protocol,
+
+            string? provisioningState,
+
+            int? timeout,
+
+            string? type,
+
+            int? unhealthyThreshold)
         {
             Etag = etag;
+            Host = host;
             Id = id;
+            Interval = interval;
+            Match = match;
+            MinServers = minServers;
             Name = name;
-            Properties = properties;
+            Path = path;
+            PickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            Timeout = timeout;
             Type = type;
+            UnhealthyThreshold = unhealthyThreshold;
         }
     }
 }

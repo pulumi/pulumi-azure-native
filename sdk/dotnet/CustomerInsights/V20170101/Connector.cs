@@ -15,16 +15,76 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public partial class Connector : Pulumi.CustomResource
     {
         /// <summary>
+        /// ID of the connector.
+        /// </summary>
+        [Output("connectorId")]
+        public Output<int> ConnectorId { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the connector.
+        /// </summary>
+        [Output("connectorName")]
+        public Output<string?> ConnectorName { get; private set; } = null!;
+
+        /// <summary>
+        /// The connector properties.
+        /// </summary>
+        [Output("connectorProperties")]
+        public Output<ImmutableDictionary<string, ImmutableDictionary<string, object>>> ConnectorProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of connector.
+        /// </summary>
+        [Output("connectorType")]
+        public Output<string> ConnectorType { get; private set; } = null!;
+
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the connector.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Display name of the connector.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// If this is an internal connector.
+        /// </summary>
+        [Output("isInternal")]
+        public Output<bool?> IsInternal { get; private set; } = null!;
+
+        /// <summary>
+        /// The last modified time.
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of connector.
+        /// State of connector.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConnectorResponseResult> Properties { get; private set; } = null!;
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

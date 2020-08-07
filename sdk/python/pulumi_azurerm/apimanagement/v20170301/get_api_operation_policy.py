@@ -13,18 +13,18 @@ class GetApiOperationPolicyResult:
     """
     Policy Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, policy_content=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if policy_content and not isinstance(policy_content, str):
+            raise TypeError("Expected argument 'policy_content' to be a str")
+        __self__.policy_content = policy_content
         """
-        Properties of the Policy.
+        Json escaped Xml Encoded contents of the Policy.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +41,7 @@ class AwaitableGetApiOperationPolicyResult(GetApiOperationPolicyResult):
             yield self
         return GetApiOperationPolicyResult(
             name=self.name,
-            properties=self.properties,
+            policy_content=self.policy_content,
             type=self.type)
 
 
@@ -69,5 +69,5 @@ def get_api_operation_policy(api_id=None, name=None, operation_id=None, resource
 
     return AwaitableGetApiOperationPolicyResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        policy_content=__ret__.get('policyContent'),
         type=__ret__.get('type'))

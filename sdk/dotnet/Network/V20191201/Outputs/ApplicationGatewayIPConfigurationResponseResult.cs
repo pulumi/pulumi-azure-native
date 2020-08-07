@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway IP configuration.
+        /// The provisioning state of the application gateway IP configuration resource.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Reference to the subnet resource. A subnet from where application gateway gets its private address.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Subnet;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -42,14 +46,17 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
 
             string? name,
 
-            Outputs.ApplicationGatewayIPConfigurationPropertiesFormatResponseResult? properties,
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? subnet,
 
             string type)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Subnet = subnet;
             Type = type;
         }
     }

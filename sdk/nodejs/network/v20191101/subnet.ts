@@ -37,17 +37,81 @@ export class Subnet extends pulumi.CustomResource {
     }
 
     /**
+     * The address prefix for the subnet.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * List of address prefixes for the subnet.
+     */
+    public readonly addressPrefixes!: pulumi.Output<string[] | undefined>;
+    /**
+     * An array of references to the delegations on the subnet.
+     */
+    public readonly delegations!: pulumi.Output<outputs.network.v20191101.DelegationResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Array of IP configuration profiles which reference this subnet.
+     */
+    public /*out*/ readonly ipConfigurationProfiles!: pulumi.Output<outputs.network.v20191101.IPConfigurationProfileResponse[]>;
+    /**
+     * An array of references to the network interface IP configurations using subnet.
+     */
+    public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.v20191101.IPConfigurationResponse[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the subnet.
+     * Nat gateway associated with this subnet.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.SubnetPropertiesFormatResponse>;
+    public readonly natGateway!: pulumi.Output<outputs.network.v20191101.SubResourceResponse | undefined>;
+    /**
+     * The reference to the NetworkSecurityGroup resource.
+     */
+    public readonly networkSecurityGroup!: pulumi.Output<outputs.network.v20191101.NetworkSecurityGroupResponse | undefined>;
+    /**
+     * Enable or Disable apply network policies on private end point in the subnet.
+     */
+    public readonly privateEndpointNetworkPolicies!: pulumi.Output<string | undefined>;
+    /**
+     * An array of references to private endpoints.
+     */
+    public /*out*/ readonly privateEndpoints!: pulumi.Output<outputs.network.v20191101.PrivateEndpointResponse[]>;
+    /**
+     * Enable or Disable apply network policies on private link service in the subnet.
+     */
+    public readonly privateLinkServiceNetworkPolicies!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning state of the subnet resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+     */
+    public /*out*/ readonly purpose!: pulumi.Output<string>;
+    /**
+     * An array of references to the external resources using subnet.
+     */
+    public /*out*/ readonly resourceNavigationLinks!: pulumi.Output<outputs.network.v20191101.ResourceNavigationLinkResponse[]>;
+    /**
+     * The reference to the RouteTable resource.
+     */
+    public readonly routeTable!: pulumi.Output<outputs.network.v20191101.RouteTableResponse | undefined>;
+    /**
+     * An array of references to services injecting into this subnet.
+     */
+    public /*out*/ readonly serviceAssociationLinks!: pulumi.Output<outputs.network.v20191101.ServiceAssociationLinkResponse[]>;
+    /**
+     * An array of service endpoint policies.
+     */
+    public readonly serviceEndpointPolicies!: pulumi.Output<outputs.network.v20191101.ServiceEndpointPolicyResponse[] | undefined>;
+    /**
+     * An array of service endpoints.
+     */
+    public readonly serviceEndpoints!: pulumi.Output<outputs.network.v20191101.ServiceEndpointPropertiesFormatResponse[] | undefined>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -86,7 +150,13 @@ export class Subnet extends pulumi.CustomResource {
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ipConfigurationProfiles"] = undefined /*out*/;
+            inputs["ipConfigurations"] = undefined /*out*/;
+            inputs["privateEndpoints"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["purpose"] = undefined /*out*/;
+            inputs["resourceNavigationLinks"] = undefined /*out*/;
+            inputs["serviceAssociationLinks"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

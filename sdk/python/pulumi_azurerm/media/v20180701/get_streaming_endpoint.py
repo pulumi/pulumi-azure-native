@@ -13,12 +13,90 @@ class GetStreamingEndpointResult:
     """
     The StreamingEndpoint.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, access_control=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, created=None, cross_site_access_policies=None, custom_host_names=None, description=None, free_trial_end_time=None, host_name=None, last_modified=None, location=None, max_cache_age=None, name=None, provisioning_state=None, resource_state=None, scale_units=None, tags=None, type=None):
+        if access_control and not isinstance(access_control, dict):
+            raise TypeError("Expected argument 'access_control' to be a dict")
+        __self__.access_control = access_control
+        """
+        The access control definition of the StreamingEndpoint.
+        """
+        if availability_set_name and not isinstance(availability_set_name, str):
+            raise TypeError("Expected argument 'availability_set_name' to be a str")
+        __self__.availability_set_name = availability_set_name
+        """
+        The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+        """
+        if cdn_enabled and not isinstance(cdn_enabled, bool):
+            raise TypeError("Expected argument 'cdn_enabled' to be a bool")
+        __self__.cdn_enabled = cdn_enabled
+        """
+        The CDN enabled flag.
+        """
+        if cdn_profile and not isinstance(cdn_profile, str):
+            raise TypeError("Expected argument 'cdn_profile' to be a str")
+        __self__.cdn_profile = cdn_profile
+        """
+        The CDN profile name.
+        """
+        if cdn_provider and not isinstance(cdn_provider, str):
+            raise TypeError("Expected argument 'cdn_provider' to be a str")
+        __self__.cdn_provider = cdn_provider
+        """
+        The CDN provider name.
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The exact time the StreamingEndpoint was created.
+        """
+        if cross_site_access_policies and not isinstance(cross_site_access_policies, dict):
+            raise TypeError("Expected argument 'cross_site_access_policies' to be a dict")
+        __self__.cross_site_access_policies = cross_site_access_policies
+        """
+        The StreamingEndpoint access policies.
+        """
+        if custom_host_names and not isinstance(custom_host_names, list):
+            raise TypeError("Expected argument 'custom_host_names' to be a list")
+        __self__.custom_host_names = custom_host_names
+        """
+        The custom host names of the StreamingEndpoint
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The StreamingEndpoint description.
+        """
+        if free_trial_end_time and not isinstance(free_trial_end_time, str):
+            raise TypeError("Expected argument 'free_trial_end_time' to be a str")
+        __self__.free_trial_end_time = free_trial_end_time
+        """
+        The free trial expiration time.
+        """
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        The StreamingEndpoint host name.
+        """
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        __self__.last_modified = last_modified
+        """
+        The exact time the StreamingEndpoint was last modified.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The Azure Region of the resource.
+        """
+        if max_cache_age and not isinstance(max_cache_age, float):
+            raise TypeError("Expected argument 'max_cache_age' to be a float")
+        __self__.max_cache_age = max_cache_age
+        """
+        Max cache age
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +104,23 @@ class GetStreamingEndpointResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The StreamingEndpoint properties.
+        The provisioning state of the StreamingEndpoint.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        The resource state of the StreamingEndpoint.
+        """
+        if scale_units and not isinstance(scale_units, float):
+            raise TypeError("Expected argument 'scale_units' to be a float")
+        __self__.scale_units = scale_units
+        """
+        The number of scale units.  Use the Scale operation to adjust this value.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +142,24 @@ class AwaitableGetStreamingEndpointResult(GetStreamingEndpointResult):
         if False:
             yield self
         return GetStreamingEndpointResult(
+            access_control=self.access_control,
+            availability_set_name=self.availability_set_name,
+            cdn_enabled=self.cdn_enabled,
+            cdn_profile=self.cdn_profile,
+            cdn_provider=self.cdn_provider,
+            created=self.created,
+            cross_site_access_policies=self.cross_site_access_policies,
+            custom_host_names=self.custom_host_names,
+            description=self.description,
+            free_trial_end_time=self.free_trial_end_time,
+            host_name=self.host_name,
+            last_modified=self.last_modified,
             location=self.location,
+            max_cache_age=self.max_cache_age,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
+            scale_units=self.scale_units,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +183,23 @@ def get_streaming_endpoint(account_name=None, name=None, resource_group_name=Non
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getStreamingEndpoint', __args__, opts=opts).value
 
     return AwaitableGetStreamingEndpointResult(
+        access_control=__ret__.get('accessControl'),
+        availability_set_name=__ret__.get('availabilitySetName'),
+        cdn_enabled=__ret__.get('cdnEnabled'),
+        cdn_profile=__ret__.get('cdnProfile'),
+        cdn_provider=__ret__.get('cdnProvider'),
+        created=__ret__.get('created'),
+        cross_site_access_policies=__ret__.get('crossSiteAccessPolicies'),
+        custom_host_names=__ret__.get('customHostNames'),
+        description=__ret__.get('description'),
+        free_trial_end_time=__ret__.get('freeTrialEndTime'),
+        host_name=__ret__.get('hostName'),
+        last_modified=__ret__.get('lastModified'),
         location=__ret__.get('location'),
+        max_cache_age=__ret__.get('maxCacheAge'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
+        scale_units=__ret__.get('scaleUnits'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

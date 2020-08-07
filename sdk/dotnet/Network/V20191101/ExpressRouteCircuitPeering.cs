@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Network.V20191101
     public partial class ExpressRouteCircuitPeering : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure ASN.
+        /// </summary>
+        [Output("azureASN")]
+        public Output<int?> AzureASN { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of circuit connections associated with Azure Private Peering for this circuit.
+        /// </summary>
+        [Output("connections")]
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitConnectionResponseResult>> Connections { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The ExpressRoute connection.
+        /// </summary>
+        [Output("expressRouteConnection")]
+        public Output<Outputs.ExpressRouteConnectionIdResponseResult?> ExpressRouteConnection { get; private set; } = null!;
+
+        /// <summary>
+        /// The GatewayManager Etag.
+        /// </summary>
+        [Output("gatewayManagerEtag")]
+        public Output<string?> GatewayManagerEtag { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv6 peering configuration.
+        /// </summary>
+        [Output("ipv6PeeringConfig")]
+        public Output<Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponseResult?> Ipv6PeeringConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Who was the last to modify the peering.
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The Microsoft peering configuration.
+        /// </summary>
+        [Output("microsoftPeeringConfig")]
+        public Output<Outputs.ExpressRouteCircuitPeeringConfigResponseResult?> MicrosoftPeeringConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -27,16 +69,88 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the express route circuit peering.
+        /// The peer ASN.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitPeeringPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peerASN")]
+        public Output<int?> PeerASN { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of peered circuit connections associated with Azure Private Peering for this circuit.
+        /// </summary>
+        [Output("peeredConnections")]
+        public Output<ImmutableArray<Outputs.PeerExpressRouteCircuitConnectionResponseResult>> PeeredConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// The peering type.
+        /// </summary>
+        [Output("peeringType")]
+        public Output<string?> PeeringType { get; private set; } = null!;
+
+        /// <summary>
+        /// The primary port.
+        /// </summary>
+        [Output("primaryAzurePort")]
+        public Output<string?> PrimaryAzurePort { get; private set; } = null!;
+
+        /// <summary>
+        /// The primary address prefix.
+        /// </summary>
+        [Output("primaryPeerAddressPrefix")]
+        public Output<string?> PrimaryPeerAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the express route circuit peering resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the RouteFilter resource.
+        /// </summary>
+        [Output("routeFilter")]
+        public Output<Outputs.SubResourceResponseResult?> RouteFilter { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary port.
+        /// </summary>
+        [Output("secondaryAzurePort")]
+        public Output<string?> SecondaryAzurePort { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary address prefix.
+        /// </summary>
+        [Output("secondaryPeerAddressPrefix")]
+        public Output<string?> SecondaryPeerAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The shared key.
+        /// </summary>
+        [Output("sharedKey")]
+        public Output<string?> SharedKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The peering state.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The peering stats of express route circuit.
+        /// </summary>
+        [Output("stats")]
+        public Output<Outputs.ExpressRouteCircuitStatsResponseResult?> Stats { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The VLAN ID.
+        /// </summary>
+        [Output("vlanId")]
+        public Output<int?> VlanId { get; private set; } = null!;
 
 
         /// <summary>

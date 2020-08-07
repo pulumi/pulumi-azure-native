@@ -13,7 +13,37 @@ class GetVirtualNetworkResult:
     """
     A virtual network.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, allowed_subnets=None, created_date=None, description=None, external_provider_resource_id=None, external_subnets=None, location=None, name=None, provisioning_state=None, subnet_overrides=None, tags=None, type=None, unique_identifier=None):
+        if allowed_subnets and not isinstance(allowed_subnets, list):
+            raise TypeError("Expected argument 'allowed_subnets' to be a list")
+        __self__.allowed_subnets = allowed_subnets
+        """
+        The allowed subnets of the virtual network.
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The creation date of the virtual network.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the virtual network.
+        """
+        if external_provider_resource_id and not isinstance(external_provider_resource_id, str):
+            raise TypeError("Expected argument 'external_provider_resource_id' to be a str")
+        __self__.external_provider_resource_id = external_provider_resource_id
+        """
+        The Microsoft.Network resource identifier of the virtual network.
+        """
+        if external_subnets and not isinstance(external_subnets, list):
+            raise TypeError("Expected argument 'external_subnets' to be a list")
+        __self__.external_subnets = external_subnets
+        """
+        The external subnet properties.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,17 @@ class GetVirtualNetworkResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
+        """
+        if subnet_overrides and not isinstance(subnet_overrides, list):
+            raise TypeError("Expected argument 'subnet_overrides' to be a list")
+        __self__.subnet_overrides = subnet_overrides
+        """
+        The subnet overrides of the virtual network.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +80,12 @@ class GetVirtualNetworkResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
 
 
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
@@ -52,11 +94,18 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
         if False:
             yield self
         return GetVirtualNetworkResult(
+            allowed_subnets=self.allowed_subnets,
+            created_date=self.created_date,
+            description=self.description,
+            external_provider_resource_id=self.external_provider_resource_id,
+            external_subnets=self.external_subnets,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            subnet_overrides=self.subnet_overrides,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_virtual_network(lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +127,15 @@ def get_virtual_network(lab_name=None, name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getVirtualNetwork', __args__, opts=opts).value
 
     return AwaitableGetVirtualNetworkResult(
+        allowed_subnets=__ret__.get('allowedSubnets'),
+        created_date=__ret__.get('createdDate'),
+        description=__ret__.get('description'),
+        external_provider_resource_id=__ret__.get('externalProviderResourceId'),
+        external_subnets=__ret__.get('externalSubnets'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        subnet_overrides=__ret__.get('subnetOverrides'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,22 @@ export class WebAppSourceControl extends pulumi.CustomResource {
     }
 
     /**
+     * Name of branch to use for deployment.
+     */
+    public readonly branch!: pulumi.Output<string | undefined>;
+    /**
+     * <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+     */
+    public readonly deploymentRollbackEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+     */
+    public readonly isManualIntegration!: pulumi.Output<boolean | undefined>;
+    /**
+     * <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+     */
+    public readonly isMercurial!: pulumi.Output<boolean | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,9 +59,9 @@ export class WebAppSourceControl extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * SiteSourceControl resource specific properties
+     * Repository or source control URL.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.SiteSourceControlResponseProperties>;
+    public readonly repoUrl!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -80,7 +94,6 @@ export class WebAppSourceControl extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["repoUrl"] = args ? args.repoUrl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

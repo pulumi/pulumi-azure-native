@@ -13,7 +13,19 @@ class ListVirtualMachineApplicableSchedulesResult:
     """
     Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, lab_vms_shutdown=None, lab_vms_startup=None, location=None, name=None, tags=None, type=None):
+        if lab_vms_shutdown and not isinstance(lab_vms_shutdown, dict):
+            raise TypeError("Expected argument 'lab_vms_shutdown' to be a dict")
+        __self__.lab_vms_shutdown = lab_vms_shutdown
+        """
+        The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+        """
+        if lab_vms_startup and not isinstance(lab_vms_startup, dict):
+            raise TypeError("Expected argument 'lab_vms_startup' to be a dict")
+        __self__.lab_vms_startup = lab_vms_startup
+        """
+        The auto-startup schedule, if one has been set at the lab or lab resource level.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -25,12 +37,6 @@ class ListVirtualMachineApplicableSchedulesResult:
         __self__.name = name
         """
         The name of the resource.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The properties of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +58,10 @@ class AwaitableListVirtualMachineApplicableSchedulesResult(ListVirtualMachineApp
         if False:
             yield self
         return ListVirtualMachineApplicableSchedulesResult(
+            lab_vms_shutdown=self.lab_vms_shutdown,
+            lab_vms_startup=self.lab_vms_startup,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +85,9 @@ def list_virtual_machine_applicable_schedules(lab_name=None, name=None, resource
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:listVirtualMachineApplicableSchedules', __args__, opts=opts).value
 
     return AwaitableListVirtualMachineApplicableSchedulesResult(
+        lab_vms_shutdown=__ret__.get('labVmsShutdown'),
+        lab_vms_startup=__ret__.get('labVmsStartup'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

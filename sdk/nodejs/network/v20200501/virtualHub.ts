@@ -37,9 +37,29 @@ export class VirtualHub extends pulumi.CustomResource {
     }
 
     /**
+     * Address-prefix for this VirtualHub.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The azureFirewall associated with this VirtualHub.
+     */
+    public readonly azureFirewall!: pulumi.Output<outputs.network.v20200501.SubResourceResponse | undefined>;
+    /**
+     * List of references to Bgp Connections.
+     */
+    public /*out*/ readonly bgpConnections!: pulumi.Output<outputs.network.v20200501.SubResourceResponse[]>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The expressRouteGateway associated with this VirtualHub.
+     */
+    public readonly expressRouteGateway!: pulumi.Output<outputs.network.v20200501.SubResourceResponse | undefined>;
+    /**
+     * List of references to IpConfigurations.
+     */
+    public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.v20200501.SubResourceResponse[]>;
     /**
      * Resource location.
      */
@@ -49,9 +69,33 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the virtual hub.
+     * The P2SVpnGateway associated with this VirtualHub.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.VirtualHubPropertiesResponse>;
+    public readonly p2SVpnGateway!: pulumi.Output<outputs.network.v20200501.SubResourceResponse | undefined>;
+    /**
+     * The provisioning state of the virtual hub resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The routeTable associated with this virtual hub.
+     */
+    public readonly routeTable!: pulumi.Output<outputs.network.v20200501.VirtualHubRouteTableResponse | undefined>;
+    /**
+     * The routing state.
+     */
+    public readonly routingState!: pulumi.Output<string | undefined>;
+    /**
+     * The securityPartnerProvider associated with this VirtualHub.
+     */
+    public readonly securityPartnerProvider!: pulumi.Output<outputs.network.v20200501.SubResourceResponse | undefined>;
+    /**
+     * The Security Provider name.
+     */
+    public readonly securityProviderName!: pulumi.Output<string | undefined>;
+    /**
+     * The sku of this VirtualHub.
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +104,26 @@ export class VirtualHub extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * List of all virtual hub route table v2s associated with this VirtualHub.
+     */
+    public readonly virtualHubRouteTableV2s!: pulumi.Output<outputs.network.v20200501.VirtualHubRouteTableV2Response[] | undefined>;
+    /**
+     * VirtualRouter ASN.
+     */
+    public readonly virtualRouterAsn!: pulumi.Output<number | undefined>;
+    /**
+     * VirtualRouter IPs.
+     */
+    public readonly virtualRouterIps!: pulumi.Output<string[] | undefined>;
+    /**
+     * The VirtualWAN to which the VirtualHub belongs.
+     */
+    public readonly virtualWan!: pulumi.Output<outputs.network.v20200501.SubResourceResponse | undefined>;
+    /**
+     * The VpnGateway associated with this VirtualHub.
+     */
+    public readonly vpnGateway!: pulumi.Output<outputs.network.v20200501.SubResourceResponse | undefined>;
 
     /**
      * Create a VirtualHub resource with the given unique name, arguments, and options.
@@ -102,8 +166,10 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["virtualRouterIps"] = args ? args.virtualRouterIps : undefined;
             inputs["virtualWan"] = args ? args.virtualWan : undefined;
             inputs["vpnGateway"] = args ? args.vpnGateway : undefined;
+            inputs["bgpConnections"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ipConfigurations"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

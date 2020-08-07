@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Insights.V20150401
     public sealed class GetAutoscaleSettingResult
     {
         /// <summary>
+        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,13 +52,21 @@ namespace Pulumi.AzureRM.Insights.V20150401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The autoscale setting of the resource.
+        /// the collection of notifications.
         /// </summary>
-        public readonly Outputs.AutoscaleSettingResponseResult Properties;
+        public readonly ImmutableArray<Outputs.AutoscaleNotificationResponseResult> Notifications;
+        /// <summary>
+        /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AutoscaleProfileResponseResult> Profiles;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// the resource identifier of the resource that the autoscale setting should be added to.
+        /// </summary>
+        public readonly string? TargetResourceUri;
         /// <summary>
         /// Azure resource type
         /// </summary>
@@ -62,20 +74,29 @@ namespace Pulumi.AzureRM.Insights.V20150401
 
         [OutputConstructor]
         private GetAutoscaleSettingResult(
+            bool? enabled,
+
             string location,
 
             string name,
 
-            Outputs.AutoscaleSettingResponseResult properties,
+            ImmutableArray<Outputs.AutoscaleNotificationResponseResult> notifications,
+
+            ImmutableArray<Outputs.AutoscaleProfileResponseResult> profiles,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? targetResourceUri,
+
             string type)
         {
+            Enabled = enabled;
             Location = location;
             Name = name;
-            Properties = properties;
+            Notifications = notifications;
+            Profiles = profiles;
             Tags = tags;
+            TargetResourceUri = targetResourceUri;
             Type = type;
         }
     }

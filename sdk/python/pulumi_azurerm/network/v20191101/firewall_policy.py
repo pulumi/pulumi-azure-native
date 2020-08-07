@@ -10,9 +10,24 @@ from ... import _utilities, _tables
 
 
 class FirewallPolicy(pulumi.CustomResource):
+    base_policy: pulumi.Output[dict]
+    """
+    The parent firewall policy from which rules are inherited.
+      * `id` (`str`) - Resource ID.
+    """
+    child_policies: pulumi.Output[list]
+    """
+    List of references to Child Firewall Policies.
+      * `id` (`str`) - Resource ID.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    firewalls: pulumi.Output[list]
+    """
+    List of references to Azure Firewalls that this Firewall Policy is associated with.
+      * `id` (`str`) - Resource ID.
     """
     location: pulumi.Output[str]
     """
@@ -22,21 +37,22 @@ class FirewallPolicy(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the firewall policy.
-      * `base_policy` (`dict`) - The parent firewall policy from which rules are inherited.
-        * `id` (`str`) - Resource ID.
-
-      * `child_policies` (`list`) - List of references to Child Firewall Policies.
-      * `firewalls` (`list`) - List of references to Azure Firewalls that this Firewall Policy is associated with.
-      * `provisioning_state` (`str`) - The provisioning state of the firewall policy resource.
-      * `rule_groups` (`list`) - List of references to FirewallPolicyRuleGroups.
-      * `threat_intel_mode` (`str`) - The operation mode for Threat Intelligence.
+    The provisioning state of the firewall policy resource.
+    """
+    rule_groups: pulumi.Output[list]
+    """
+    List of references to FirewallPolicyRuleGroups.
+      * `id` (`str`) - Resource ID.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags.
+    """
+    threat_intel_mode: pulumi.Output[str]
+    """
+    The operation mode for Threat Intelligence.
     """
     type: pulumi.Output[str]
     """
@@ -88,8 +104,11 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['threat_intel_mode'] = threat_intel_mode
+            __props__['child_policies'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['firewalls'] = None
+            __props__['provisioning_state'] = None
+            __props__['rule_groups'] = None
             __props__['type'] = None
         super(FirewallPolicy, __self__).__init__(
             'azurerm:network/v20191101:FirewallPolicy',

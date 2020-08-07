@@ -27,16 +27,28 @@ namespace Pulumi.AzureRM.Compute.V20170330
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The instance view of a resource.
+        /// Fault Domain count.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AvailabilitySetPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("platformFaultDomainCount")]
+        public Output<int?> PlatformFaultDomainCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Update Domain count.
+        /// </summary>
+        [Output("platformUpdateDomainCount")]
+        public Output<int?> PlatformUpdateDomainCount { get; private set; } = null!;
 
         /// <summary>
         /// Sku of the availability set
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource status information.
+        /// </summary>
+        [Output("statuses")]
+        public Output<ImmutableArray<Outputs.InstanceViewStatusResponseResult>> Statuses { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -49,6 +61,12 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of references to all virtual machines in the availability set.
+        /// </summary>
+        [Output("virtualMachines")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>

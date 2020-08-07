@@ -25,12 +25,14 @@ type LookupDomainArgs struct {
 
 // EventGrid Domain.
 type LookupDomainResult struct {
+	// Endpoint for the domain.
+	Endpoint string `pulumi:"endpoint"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
-	// Properties of the domain.
-	Properties DomainPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the domain.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.

@@ -10,35 +10,47 @@ from ... import _utilities, _tables
 
 
 class Lab(pulumi.CustomResource):
+    created_by_object_id: pulumi.Output[str]
+    """
+    Object id of the user that created the lab.
+    """
+    created_by_user_principal_name: pulumi.Output[str]
+    """
+    Lab creator name
+    """
+    created_date: pulumi.Output[str]
+    """
+    Creation date for the lab
+    """
+    invitation_code: pulumi.Output[str]
+    """
+    Invitation code that users can use to join a lab.
+    """
+    latest_operation_result: pulumi.Output[dict]
+    """
+    The details of the latest operation. ex: status, error
+      * `error_code` (`str`) - Error code on failure.
+      * `error_message` (`str`) - The error message.
+      * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
+      * `operation_url` (`str`) - The URL to use to check long-running operation status
+      * `request_uri` (`str`) - Request URI of the operation.
+      * `status` (`str`) - The current status of the operation.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
+    """
+    max_users_in_lab: pulumi.Output[float]
+    """
+    Maximum number of users allowed in the lab.
     """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `created_by_object_id` (`str`) - Object id of the user that created the lab.
-      * `created_by_user_principal_name` (`str`) - Lab creator name
-      * `created_date` (`str`) - Creation date for the lab
-      * `invitation_code` (`str`) - Invitation code that users can use to join a lab.
-      * `latest_operation_result` (`dict`) - The details of the latest operation. ex: status, error
-        * `error_code` (`str`) - Error code on failure.
-        * `error_message` (`str`) - The error message.
-        * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
-        * `operation_url` (`str`) - The URL to use to check long-running operation status
-        * `request_uri` (`str`) - Request URI of the operation.
-        * `status` (`str`) - The current status of the operation.
-
-      * `max_users_in_lab` (`float`) - Maximum number of users allowed in the lab.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-      * `usage_quota` (`str`) - Maximum duration a user can use an environment for in the lab.
-      * `user_access_mode` (`str`) - Lab user access mode (open to all vs. restricted to those listed on the lab).
-      * `user_quota` (`float`) - Maximum value MaxUsersInLab can be set to, as specified by the service
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -47,6 +59,22 @@ class Lab(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
+    """
+    usage_quota: pulumi.Output[str]
+    """
+    Maximum duration a user can use an environment for in the lab.
+    """
+    user_access_mode: pulumi.Output[str]
+    """
+    Lab user access mode (open to all vs. restricted to those listed on the lab).
+    """
+    user_quota: pulumi.Output[float]
+    """
+    Maximum value MaxUsersInLab can be set to, as specified by the service
     """
     def __init__(__self__, resource_name, opts=None, lab_account_name=None, location=None, max_users_in_lab=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, usage_quota=None, user_access_mode=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -98,8 +126,13 @@ class Lab(pulumi.CustomResource):
             __props__['unique_identifier'] = unique_identifier
             __props__['usage_quota'] = usage_quota
             __props__['user_access_mode'] = user_access_mode
-            __props__['properties'] = None
+            __props__['created_by_object_id'] = None
+            __props__['created_by_user_principal_name'] = None
+            __props__['created_date'] = None
+            __props__['invitation_code'] = None
+            __props__['latest_operation_result'] = None
             __props__['type'] = None
+            __props__['user_quota'] = None
         super(Lab, __self__).__init__(
             'azurerm:labservices/v20181015:Lab',
             resource_name,

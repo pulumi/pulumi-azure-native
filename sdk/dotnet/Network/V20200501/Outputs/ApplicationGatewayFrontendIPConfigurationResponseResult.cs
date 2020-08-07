@@ -26,9 +26,29 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway frontend IP configuration.
+        /// PrivateIPAddress of the network interface IP Configuration.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayFrontendIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// Reference to the application gateway private link configuration.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PrivateLinkConfiguration;
+        /// <summary>
+        /// The provisioning state of the frontend IP configuration resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Reference to the PublicIP resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Reference to the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Subnet;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -42,14 +62,29 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
 
             string? name,
 
-            Outputs.ApplicationGatewayFrontendIPConfigurationPropertiesFormatResponseResult? properties,
+            string? privateIPAddress,
+
+            string? privateIPAllocationMethod,
+
+            Outputs.SubResourceResponseResult? privateLinkConfiguration,
+
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? publicIPAddress,
+
+            Outputs.SubResourceResponseResult? subnet,
 
             string type)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            PrivateLinkConfiguration = privateLinkConfiguration;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
             Type = type;
         }
     }

@@ -10,9 +10,32 @@ from ... import _utilities, _tables
 
 
 class VpnSite(pulumi.CustomResource):
+    address_space: pulumi.Output[dict]
+    """
+    The AddressSpace that contains an array of IP address ranges.
+      * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
+    """
+    bgp_properties: pulumi.Output[dict]
+    """
+    The set of bgp properties.
+      * `asn` (`float`) - The BGP speaker's ASN.
+      * `bgp_peering_address` (`str`) - The BGP peering address and BGP identifier of this BGP speaker.
+      * `peer_weight` (`float`) - The weight added to routes learned from this BGP speaker.
+    """
+    device_properties: pulumi.Output[dict]
+    """
+    The device properties
+      * `device_model` (`str`) - Model of the device.
+      * `device_vendor` (`str`) - Name of the device Vendor.
+      * `link_speed_in_mbps` (`float`) - Link speed.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
+    """
+    ip_address: pulumi.Output[str]
+    """
+    The ip-address for the vpn-site.
     """
     location: pulumi.Output[str]
     """
@@ -22,27 +45,13 @@ class VpnSite(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Parameters for VpnSite
-      * `address_space` (`dict`) - The AddressSpace that contains an array of IP address ranges.
-        * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
-
-      * `bgp_properties` (`dict`) - The set of bgp properties.
-        * `asn` (`float`) - The BGP speaker's ASN.
-        * `bgp_peering_address` (`str`) - The BGP peering address and BGP identifier of this BGP speaker.
-        * `peer_weight` (`float`) - The weight added to routes learned from this BGP speaker.
-
-      * `device_properties` (`dict`) - The device properties
-        * `device_model` (`str`) - Model of the device.
-        * `device_vendor` (`str`) - Name of the device Vendor.
-        * `link_speed_in_mbps` (`float`) - Link speed.
-
-      * `ip_address` (`str`) - The ip-address for the vpn-site.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `site_key` (`str`) - The key for vpn-site that can be used for connections.
-      * `virtual_wan` (`dict`) - The VirtualWAN to which the vpnSite belongs
-        * `id` (`str`) - Resource ID.
+    The provisioning state of the resource.
+    """
+    site_key: pulumi.Output[str]
+    """
+    The key for vpn-site that can be used for connections.
     """
     tags: pulumi.Output[dict]
     """
@@ -51,6 +60,11 @@ class VpnSite(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_wan: pulumi.Output[dict]
+    """
+    The VirtualWAN to which the vpnSite belongs
+      * `id` (`str`) - Resource ID.
     """
     def __init__(__self__, resource_name, opts=None, address_space=None, bgp_properties=None, device_properties=None, id=None, ip_address=None, location=None, name=None, provisioning_state=None, resource_group_name=None, site_key=None, tags=None, virtual_wan=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -127,7 +141,6 @@ class VpnSite(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtual_wan'] = virtual_wan
             __props__['etag'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(VpnSite, __self__).__init__(
             'azurerm:network/v20180601:VpnSite',

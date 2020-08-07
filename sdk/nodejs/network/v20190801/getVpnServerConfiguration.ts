@@ -36,7 +36,11 @@ export interface GetVpnServerConfigurationArgs {
  */
 export interface GetVpnServerConfigurationResult {
     /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
+     * The set of aad vpn authentication parameters.
+     */
+    readonly aadAuthenticationParameters?: outputs.network.v20190801.AadAuthenticationParametersResponse;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
     /**
@@ -48,9 +52,29 @@ export interface GetVpnServerConfigurationResult {
      */
     readonly name: string;
     /**
-     * Properties of the P2SVpnServer configuration.
+     * List of references to P2SVpnGateways.
      */
-    readonly properties: outputs.network.v20190801.VpnServerConfigurationPropertiesResponse;
+    readonly p2SVpnGateways: outputs.network.v20190801.P2SVpnGatewayResponse[];
+    /**
+     * The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState: string;
+    /**
+     * Radius client root certificate of VpnServerConfiguration.
+     */
+    readonly radiusClientRootCertificates?: outputs.network.v20190801.VpnServerConfigRadiusClientRootCertificateResponse[];
+    /**
+     * The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+     */
+    readonly radiusServerAddress?: string;
+    /**
+     * Radius Server root certificate of VpnServerConfiguration.
+     */
+    readonly radiusServerRootCertificates?: outputs.network.v20190801.VpnServerConfigRadiusServerRootCertificateResponse[];
+    /**
+     * The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+     */
+    readonly radiusServerSecret?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +83,24 @@ export interface GetVpnServerConfigurationResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * VPN authentication types for the VpnServerConfiguration.
+     */
+    readonly vpnAuthenticationTypes?: string[];
+    /**
+     * VpnClientIpsecPolicies for VpnServerConfiguration.
+     */
+    readonly vpnClientIpsecPolicies?: outputs.network.v20190801.IpsecPolicyResponse[];
+    /**
+     * VPN client revoked certificate of VpnServerConfiguration.
+     */
+    readonly vpnClientRevokedCertificates?: outputs.network.v20190801.VpnServerConfigVpnClientRevokedCertificateResponse[];
+    /**
+     * VPN client root certificate of VpnServerConfiguration.
+     */
+    readonly vpnClientRootCertificates?: outputs.network.v20190801.VpnServerConfigVpnClientRootCertificateResponse[];
+    /**
+     * VPN protocols for the VpnServerConfiguration.
+     */
+    readonly vpnProtocols?: string[];
 }

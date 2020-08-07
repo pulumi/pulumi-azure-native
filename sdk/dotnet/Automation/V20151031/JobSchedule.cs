@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class JobSchedule : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the id of job schedule.
+        /// </summary>
+        [Output("jobScheduleId")]
+        public Output<string?> JobScheduleId { get; private set; } = null!;
+
+        /// <summary>
         /// Gets the name of the variable.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the properties of the job schedule.
+        /// Gets or sets the parameters of the job schedule.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.JobSchedulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the hybrid worker group that the scheduled job should run on.
+        /// </summary>
+        [Output("runOn")]
+        public Output<string?> RunOn { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the runbook.
+        /// </summary>
+        [Output("runbook")]
+        public Output<Outputs.RunbookAssociationPropertyResponseResult?> Runbook { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the schedule.
+        /// </summary>
+        [Output("schedule")]
+        public Output<Outputs.ScheduleAssociationPropertyResponseResult?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

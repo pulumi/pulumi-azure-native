@@ -13,18 +13,30 @@ class GetCertificateResult:
     """
     Certificate details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, expiration_date=None, name=None, subject=None, thumbprint=None, type=None):
+        if expiration_date and not isinstance(expiration_date, str):
+            raise TypeError("Expected argument 'expiration_date' to be a str")
+        __self__.expiration_date = expiration_date
+        """
+        Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if subject and not isinstance(subject, str):
+            raise TypeError("Expected argument 'subject' to be a str")
+        __self__.subject = subject
         """
-        Certificate properties details.
+        Subject attribute of the certificate.
+        """
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        __self__.thumbprint = thumbprint
+        """
+        Thumbprint of the certificate.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         if False:
             yield self
         return GetCertificateResult(
+            expiration_date=self.expiration_date,
             name=self.name,
-            properties=self.properties,
+            subject=self.subject,
+            thumbprint=self.thumbprint,
             type=self.type)
 
 
@@ -64,6 +78,8 @@ def get_certificate(name=None, resource_group_name=None, service_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getCertificate', __args__, opts=opts).value
 
     return AwaitableGetCertificateResult(
+        expiration_date=__ret__.get('expirationDate'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        subject=__ret__.get('subject'),
+        thumbprint=__ret__.get('thumbprint'),
         type=__ret__.get('type'))

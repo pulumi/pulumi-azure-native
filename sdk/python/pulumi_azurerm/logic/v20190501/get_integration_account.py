@@ -13,7 +13,13 @@ class GetIntegrationAccountResult:
     """
     The integration account.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, integration_service_environment=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+        if integration_service_environment and not isinstance(integration_service_environment, dict):
+            raise TypeError("Expected argument 'integration_service_environment' to be a dict")
+        __self__.integration_service_environment = integration_service_environment
+        """
+        The integration service environment.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +32,17 @@ class GetIntegrationAccountResult:
         """
         Gets the resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The integration account properties.
-        """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The sku.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The workflow state.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +64,11 @@ class AwaitableGetIntegrationAccountResult(GetIntegrationAccountResult):
         if False:
             yield self
         return GetIntegrationAccountResult(
+            integration_service_environment=self.integration_service_environment,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             sku=self.sku,
+            state=self.state,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +90,10 @@ def get_integration_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:logic/v20190501:getIntegrationAccount', __args__, opts=opts).value
 
     return AwaitableGetIntegrationAccountResult(
+        integration_service_environment=__ret__.get('integrationServiceEnvironment'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         sku=__ret__.get('sku'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

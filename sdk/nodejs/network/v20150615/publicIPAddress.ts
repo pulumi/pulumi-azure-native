@@ -37,9 +37,22 @@ export class PublicIPAddress extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN of the DNS record associated with the public IP address.
+     */
+    public readonly dnsSettings!: pulumi.Output<outputs.network.v20150615.PublicIPAddressDnsSettingsResponse | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * The idle timeout of the public IP address.
+     */
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
+    /**
+     * IPConfiguration
+     */
+    public readonly ipConfiguration!: pulumi.Output<outputs.network.v20150615.IPConfigurationResponse | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +62,17 @@ export class PublicIPAddress extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Public IP address properties.
+     * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20150615.PublicIPAddressPropertiesFormatResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+     */
+    public readonly publicIPAllocationMethod!: pulumi.Output<string | undefined>;
+    /**
+     * The resource GUID property of the public IP resource.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -93,7 +114,6 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

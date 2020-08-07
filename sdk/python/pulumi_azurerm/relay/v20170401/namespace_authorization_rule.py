@@ -14,10 +14,9 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    rights: pulumi.Output[list]
     """
-    Authorization rule properties.
-      * `rights` (`list`) - The rights associated with the rule.
+    The rights associated with the rule.
     """
     type: pulumi.Output[str]
     """
@@ -63,7 +62,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             if rights is None:
                 raise TypeError("Missing required property 'rights'")
             __props__['rights'] = rights
-            __props__['properties'] = None
             __props__['type'] = None
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azurerm:relay/v20170401:NamespaceAuthorizationRule',

@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class VirtualNetworkPeering(pulumi.CustomResource):
+    allow_forwarded_traffic: pulumi.Output[bool]
+    """
+    Whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed.
+    """
+    allow_gateway_transit: pulumi.Output[bool]
+    """
+    If gateway links can be used in remote virtual networking to link to this virtual network.
+    """
+    allow_virtual_network_access: pulumi.Output[bool]
+    """
+    Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -18,18 +30,22 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    peering_state: pulumi.Output[str]
     """
-    Properties of the virtual network peering.
-      * `allow_forwarded_traffic` (`bool`) - Whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed.
-      * `allow_gateway_transit` (`bool`) - If gateway links can be used in remote virtual networking to link to this virtual network.
-      * `allow_virtual_network_access` (`bool`) - Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.
-      * `peering_state` (`str`) - The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `remote_virtual_network` (`dict`) - The reference of the remote virtual network.
-        * `id` (`str`) - Resource ID.
-
-      * `use_remote_gateways` (`bool`) - If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+    The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
+    """
+    remote_virtual_network: pulumi.Output[dict]
+    """
+    The reference of the remote virtual network.
+      * `id` (`str`) - Resource ID.
+    """
+    use_remote_gateways: pulumi.Output[bool]
+    """
+    If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
     """
     def __init__(__self__, resource_name, opts=None, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, etag=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_virtual_network=None, resource_group_name=None, use_remote_gateways=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -89,7 +105,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             if virtual_network_name is None:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name
-            __props__['properties'] = None
         super(VirtualNetworkPeering, __self__).__init__(
             'azurerm:network/v20170601:VirtualNetworkPeering',
             resource_name,

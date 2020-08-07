@@ -26,9 +26,9 @@ namespace Pulumi.AzureRM.Sql.V20140401.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Represents the properties of the resource.
+        /// The status of the database transparent data encryption.
         /// </summary>
-        public readonly Outputs.TransparentDataEncryptionPropertiesResponseResult? Properties;
+        public readonly string? Status;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -42,14 +42,14 @@ namespace Pulumi.AzureRM.Sql.V20140401.Outputs
 
             string name,
 
-            Outputs.TransparentDataEncryptionPropertiesResponseResult? properties,
+            string? status,
 
             string type)
         {
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            Status = status;
             Type = type;
         }
     }

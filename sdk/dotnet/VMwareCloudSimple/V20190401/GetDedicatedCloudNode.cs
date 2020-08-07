@@ -40,21 +40,65 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
     public sealed class GetDedicatedCloudNodeResult
     {
         /// <summary>
+        /// Availability Zone id, e.g. "az1"
+        /// </summary>
+        public readonly string AvailabilityZoneId;
+        /// <summary>
+        /// Availability Zone name, e.g. "Availability Zone 1"
+        /// </summary>
+        public readonly string AvailabilityZoneName;
+        /// <summary>
+        /// VMWare Cloud Rack Name
+        /// </summary>
+        public readonly string CloudRackName;
+        /// <summary>
+        /// date time the resource was created
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Created;
+        /// <summary>
         /// Azure region
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// {dedicatedCloudNodeName}
+        /// SKU's name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Dedicated Cloud Nodes properties
+        /// count of nodes to create
         /// </summary>
-        public readonly Outputs.DedicatedCloudNodePropertiesResponseResult Properties;
+        public readonly int NodesCount;
+        /// <summary>
+        /// Placement Group id, e.g. "n1"
+        /// </summary>
+        public readonly string PlacementGroupId;
+        /// <summary>
+        /// Placement Name, e.g. "Placement Group 1"
+        /// </summary>
+        public readonly string PlacementGroupName;
+        /// <summary>
+        /// Private Cloud Id
+        /// </summary>
+        public readonly string PrivateCloudId;
+        /// <summary>
+        /// Resource Pool Name
+        /// </summary>
+        public readonly string PrivateCloudName;
+        /// <summary>
+        /// The provisioning status of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// purchase id
+        /// </summary>
+        public readonly string PurchaseId;
         /// <summary>
         /// Dedicated Cloud Nodes SKU
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// Node status, indicates is private cloud set up on this node or not
+        /// </summary>
+        public readonly string Status;
         /// <summary>
         /// Dedicated Cloud Nodes tags
         /// </summary>
@@ -63,27 +107,67 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// {resourceProviderNamespace}/{resourceType}
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// VMWare Cluster Name
+        /// </summary>
+        public readonly string VmwareClusterName;
 
         [OutputConstructor]
         private GetDedicatedCloudNodeResult(
+            string availabilityZoneId,
+
+            string availabilityZoneName,
+
+            string cloudRackName,
+
+            ImmutableDictionary<string, object> created,
+
             string location,
 
             string name,
 
-            Outputs.DedicatedCloudNodePropertiesResponseResult properties,
+            int nodesCount,
+
+            string placementGroupId,
+
+            string placementGroupName,
+
+            string privateCloudId,
+
+            string privateCloudName,
+
+            string provisioningState,
+
+            string purchaseId,
 
             Outputs.SkuResponseResult? sku,
 
+            string status,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string vmwareClusterName)
         {
+            AvailabilityZoneId = availabilityZoneId;
+            AvailabilityZoneName = availabilityZoneName;
+            CloudRackName = cloudRackName;
+            Created = created;
             Location = location;
             Name = name;
-            Properties = properties;
+            NodesCount = nodesCount;
+            PlacementGroupId = placementGroupId;
+            PlacementGroupName = placementGroupName;
+            PrivateCloudId = privateCloudId;
+            PrivateCloudName = privateCloudName;
+            ProvisioningState = provisioningState;
+            PurchaseId = purchaseId;
             Sku = sku;
+            Status = status;
             Tags = tags;
             Type = type;
+            VmwareClusterName = vmwareClusterName;
         }
     }
 }

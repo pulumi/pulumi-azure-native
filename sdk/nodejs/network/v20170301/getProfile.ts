@@ -36,21 +36,37 @@ export interface GetProfileArgs {
  */
 export interface GetProfileResult {
     /**
+     * Gets or sets the DNS settings of the Traffic Manager profile.
+     */
+    readonly dnsConfig?: outputs.network.v20170301.DnsConfigResponse;
+    /**
+     * Gets or sets the list of endpoints in the Traffic Manager profile.
+     */
+    readonly endpoints?: outputs.network.v20170301.EndpointResponse[];
+    /**
      * Resource location
      */
     readonly location?: string;
+    /**
+     * Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+     */
+    readonly monitorConfig?: outputs.network.v20170301.MonitorConfigResponse;
     /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Class representing the Traffic Manager profile properties.
+     * Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
      */
-    readonly properties: outputs.network.v20170301.ProfilePropertiesResponse;
+    readonly profileStatus?: string;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', 'Priority' or 'Geographic'.
+     */
+    readonly trafficRoutingMethod?: string;
     /**
      * Resource type
      */

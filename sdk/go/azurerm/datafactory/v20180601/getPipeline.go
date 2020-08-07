@@ -27,12 +27,26 @@ type LookupPipelineArgs struct {
 
 // Pipeline resource type.
 type LookupPipelineResult struct {
+	// List of activities in pipeline.
+	Activities []ActivityResponse `pulumi:"activities"`
+	// List of tags that can be used for describing the Pipeline.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The max number of concurrent runs for the pipeline.
+	Concurrency *int `pulumi:"concurrency"`
+	// The description of the pipeline.
+	Description *string `pulumi:"description"`
 	// Etag identifies change in the resource.
 	Etag string `pulumi:"etag"`
+	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+	Folder *PipelineResponseFolder `pulumi:"folder"`
 	// The resource name.
 	Name string `pulumi:"name"`
-	// Properties of the pipeline.
-	Properties PipelineResponse `pulumi:"properties"`
+	// List of parameters for pipeline.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Dimensions emitted by Pipeline.
+	RunDimensions map[string]map[string]interface{} `pulumi:"runDimensions"`
 	// The resource type.
 	Type string `pulumi:"type"`
+	// List of variables for pipeline.
+	Variables map[string]VariableSpecificationResponse `pulumi:"variables"`
 }

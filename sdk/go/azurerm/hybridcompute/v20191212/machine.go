@@ -14,17 +14,43 @@ import (
 type Machine struct {
 	pulumi.CustomResourceState
 
-	Identity MachineResponseIdentityPtrOutput `pulumi:"identity"`
+	// The hybrid machine agent full version.
+	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
+	// Public Key that the client provides to be used during initial resource onboarding
+	ClientPublicKey pulumi.StringPtrOutput `pulumi:"clientPublicKey"`
+	// Specifies the hybrid machine display name.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// Details about the error state.
+	ErrorDetails ErrorDetailResponseArrayOutput `pulumi:"errorDetails"`
+	// Machine Extensions information
+	Extensions MachineExtensionInstanceViewResponseArrayOutput `pulumi:"extensions"`
+	Identity   MachineResponseIdentityPtrOutput                `pulumi:"identity"`
+	// The time of the last status change.
+	LastStatusChange pulumi.StringOutput `pulumi:"lastStatusChange"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Metadata pertaining to the geographic location of the resource.
+	LocationData LocationDataResponsePtrOutput `pulumi:"locationData"`
+	// Specifies the hybrid machine FQDN.
+	MachineFqdn pulumi.StringOutput `pulumi:"machineFqdn"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Hybrid Compute Machine properties
-	Properties MachineResponsePropertiesOutput `pulumi:"properties"`
+	// The Operating System running on the hybrid machine.
+	OsName pulumi.StringOutput `pulumi:"osName"`
+	// Specifies the operating system settings for the hybrid machine.
+	OsProfile MachinePropertiesResponseOsProfilePtrOutput `pulumi:"osProfile"`
+	// The version of Operating System running on the hybrid machine.
+	OsVersion pulumi.StringOutput `pulumi:"osVersion"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The status of the hybrid machine agent.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Specifies the hybrid machine unique ID.
+	VmId pulumi.StringPtrOutput `pulumi:"vmId"`
 }
 
 // NewMachine registers a new resource with the given unique name, arguments, and options.
@@ -64,31 +90,83 @@ func GetMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Machine resources.
 type machineState struct {
-	Identity *MachineResponseIdentity `pulumi:"identity"`
+	// The hybrid machine agent full version.
+	AgentVersion *string `pulumi:"agentVersion"`
+	// Public Key that the client provides to be used during initial resource onboarding
+	ClientPublicKey *string `pulumi:"clientPublicKey"`
+	// Specifies the hybrid machine display name.
+	DisplayName *string `pulumi:"displayName"`
+	// Details about the error state.
+	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
+	// Machine Extensions information
+	Extensions []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
+	Identity   *MachineResponseIdentity               `pulumi:"identity"`
+	// The time of the last status change.
+	LastStatusChange *string `pulumi:"lastStatusChange"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// Metadata pertaining to the geographic location of the resource.
+	LocationData *LocationDataResponse `pulumi:"locationData"`
+	// Specifies the hybrid machine FQDN.
+	MachineFqdn *string `pulumi:"machineFqdn"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Hybrid Compute Machine properties
-	Properties *MachineResponseProperties `pulumi:"properties"`
+	// The Operating System running on the hybrid machine.
+	OsName *string `pulumi:"osName"`
+	// Specifies the operating system settings for the hybrid machine.
+	OsProfile *MachinePropertiesResponseOsProfile `pulumi:"osProfile"`
+	// The version of Operating System running on the hybrid machine.
+	OsVersion *string `pulumi:"osVersion"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The status of the hybrid machine agent.
+	Status *string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// Specifies the hybrid machine unique ID.
+	VmId *string `pulumi:"vmId"`
 }
 
 type MachineState struct {
-	Identity MachineResponseIdentityPtrInput
+	// The hybrid machine agent full version.
+	AgentVersion pulumi.StringPtrInput
+	// Public Key that the client provides to be used during initial resource onboarding
+	ClientPublicKey pulumi.StringPtrInput
+	// Specifies the hybrid machine display name.
+	DisplayName pulumi.StringPtrInput
+	// Details about the error state.
+	ErrorDetails ErrorDetailResponseArrayInput
+	// Machine Extensions information
+	Extensions MachineExtensionInstanceViewResponseArrayInput
+	Identity   MachineResponseIdentityPtrInput
+	// The time of the last status change.
+	LastStatusChange pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// Metadata pertaining to the geographic location of the resource.
+	LocationData LocationDataResponsePtrInput
+	// Specifies the hybrid machine FQDN.
+	MachineFqdn pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Hybrid Compute Machine properties
-	Properties MachineResponsePropertiesPtrInput
+	// The Operating System running on the hybrid machine.
+	OsName pulumi.StringPtrInput
+	// Specifies the operating system settings for the hybrid machine.
+	OsProfile MachinePropertiesResponseOsProfilePtrInput
+	// The version of Operating System running on the hybrid machine.
+	OsVersion pulumi.StringPtrInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// The status of the hybrid machine agent.
+	Status pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// Specifies the hybrid machine unique ID.
+	VmId pulumi.StringPtrInput
 }
 
 func (MachineState) ElementType() reflect.Type {

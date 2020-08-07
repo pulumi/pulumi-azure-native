@@ -41,6 +41,26 @@ export interface GetGalleryImageArgs {
  */
 export interface GetGalleryImageResult {
     /**
+     * The description of this gallery Image Definition resource. This property is updatable.
+     */
+    readonly description?: string;
+    /**
+     * Describes the disallowed disk types.
+     */
+    readonly disallowed?: outputs.compute.v20190301.DisallowedResponse;
+    /**
+     * The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+     */
+    readonly endOfLifeDate?: string;
+    /**
+     * The Eula agreement for the gallery Image Definition.
+     */
+    readonly eula?: string;
+    /**
+     * This is the gallery Image Definition identifier.
+     */
+    readonly identifier: outputs.compute.v20190301.GalleryImageIdentifierResponse;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -49,9 +69,33 @@ export interface GetGalleryImageResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of a gallery Image Definition.
+     * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
-    readonly properties: outputs.compute.v20190301.GalleryImagePropertiesResponse;
+    readonly osState: string;
+    /**
+     * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     */
+    readonly osType: string;
+    /**
+     * The privacy statement uri.
+     */
+    readonly privacyStatementUri?: string;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+     */
+    readonly purchasePlan?: outputs.compute.v20190301.ImagePurchasePlanResponse;
+    /**
+     * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+     */
+    readonly recommended?: outputs.compute.v20190301.RecommendedMachineConfigurationResponse;
+    /**
+     * The release note uri.
+     */
+    readonly releaseNoteUri?: string;
     /**
      * Resource tags
      */

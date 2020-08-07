@@ -49,9 +49,9 @@ namespace Pulumi.AzureRM.Network.V20180101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The network watcher properties.
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.NetworkWatcherPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.Network.V20180101
 
             string name,
 
-            Outputs.NetworkWatcherPropertiesFormatResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20180101
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

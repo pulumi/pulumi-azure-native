@@ -13,7 +13,7 @@ class GetWebAppDomainOwnershipIdentifierResult:
     """
     A domain specific resource identifier.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, name=None, type=None, value=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +26,17 @@ class GetWebAppDomainOwnershipIdentifierResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Identifier resource specific properties
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        __self__.value = value
+        """
+        String representation of the identity.
         """
 
 
@@ -48,8 +48,8 @@ class AwaitableGetWebAppDomainOwnershipIdentifierResult(GetWebAppDomainOwnership
         return GetWebAppDomainOwnershipIdentifierResult(
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            value=self.value)
 
 
 def get_web_app_domain_ownership_identifier(name=None, resource_group_name=None, opts=None):
@@ -71,5 +71,5 @@ def get_web_app_domain_ownership_identifier(name=None, resource_group_name=None,
     return AwaitableGetWebAppDomainOwnershipIdentifierResult(
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        value=__ret__.get('value'))

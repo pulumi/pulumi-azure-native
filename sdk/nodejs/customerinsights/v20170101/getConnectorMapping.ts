@@ -46,13 +46,69 @@ export interface GetConnectorMappingArgs {
  */
 export interface GetConnectorMappingResult {
     /**
+     * The connector mapping name
+     */
+    readonly connectorMappingName: string;
+    /**
+     * The connector name.
+     */
+    readonly connectorName: string;
+    /**
+     * Type of connector.
+     */
+    readonly connectorType?: string;
+    /**
+     * The created time.
+     */
+    readonly created: string;
+    /**
+     * The DataFormat ID.
+     */
+    readonly dataFormatId: string;
+    /**
+     * The description of the connector mapping.
+     */
+    readonly description?: string;
+    /**
+     * Display name for the connector mapping.
+     */
+    readonly displayName?: string;
+    /**
+     * Defines which entity type the file should map to.
+     */
+    readonly entityType: string;
+    /**
+     * The mapping entity name.
+     */
+    readonly entityTypeName: string;
+    /**
+     * The last modified time.
+     */
+    readonly lastModified: string;
+    /**
+     * The properties of the mapping.
+     */
+    readonly mappingProperties: outputs.customerinsights.v20170101.ConnectorMappingPropertiesResponse;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The connector mapping definition.
+     * The next run time based on customer's settings.
      */
-    readonly properties: outputs.customerinsights.v20170101.ConnectorMappingResponse;
+    readonly nextRunTime: string;
+    /**
+     * The RunId.
+     */
+    readonly runId: string;
+    /**
+     * State of connector mapping.
+     */
+    readonly state: string;
+    /**
+     * The hub name.
+     */
+    readonly tenantId: string;
     /**
      * Resource type.
      */

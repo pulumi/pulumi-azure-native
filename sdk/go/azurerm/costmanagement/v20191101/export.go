@@ -14,10 +14,16 @@ import (
 type Export struct {
 	pulumi.CustomResourceState
 
+	// Has definition for the export.
+	Definition QueryDefinitionResponseOutput `pulumi:"definition"`
+	// Has delivery information for the export.
+	DeliveryInfo ExportDeliveryInfoResponseOutput `pulumi:"deliveryInfo"`
+	// The format of the export being delivered.
+	Format pulumi.StringPtrOutput `pulumi:"format"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the export.
-	Properties ExportPropertiesResponseOutput `pulumi:"properties"`
+	// Has schedule information for the export.
+	Schedule ExportScheduleResponsePtrOutput `pulumi:"schedule"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -64,10 +70,16 @@ func GetExport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Export resources.
 type exportState struct {
+	// Has definition for the export.
+	Definition *QueryDefinitionResponse `pulumi:"definition"`
+	// Has delivery information for the export.
+	DeliveryInfo *ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
+	// The format of the export being delivered.
+	Format *string `pulumi:"format"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of the export.
-	Properties *ExportPropertiesResponse `pulumi:"properties"`
+	// Has schedule information for the export.
+	Schedule *ExportScheduleResponse `pulumi:"schedule"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -75,10 +87,16 @@ type exportState struct {
 }
 
 type ExportState struct {
+	// Has definition for the export.
+	Definition QueryDefinitionResponsePtrInput
+	// Has delivery information for the export.
+	DeliveryInfo ExportDeliveryInfoResponsePtrInput
+	// The format of the export being delivered.
+	Format pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of the export.
-	Properties ExportPropertiesResponsePtrInput
+	// Has schedule information for the export.
+	Schedule ExportScheduleResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

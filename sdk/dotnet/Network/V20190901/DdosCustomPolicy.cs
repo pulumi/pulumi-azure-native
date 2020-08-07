@@ -33,10 +33,28 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the DDoS custom policy.
+        /// The protocol-specific DDoS policy customization parameters.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DdosCustomPolicyPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("protocolCustomSettings")]
+        public Output<ImmutableArray<Outputs.ProtocolCustomSettingsFormatResponseResult>> ProtocolCustomSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the DDoS custom policy resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
+        /// </summary>
+        [Output("publicIPAddresses")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> PublicIPAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

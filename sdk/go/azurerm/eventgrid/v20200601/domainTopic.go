@@ -16,8 +16,8 @@ type DomainTopic struct {
 
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Domain Topic.
-	Properties DomainTopicPropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the domain topic.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,8 +61,8 @@ func GetDomainTopic(ctx *pulumi.Context,
 type domainTopicState struct {
 	// Name of the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the Domain Topic.
-	Properties *DomainTopicPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the domain topic.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -70,8 +70,8 @@ type domainTopicState struct {
 type DomainTopicState struct {
 	// Name of the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the Domain Topic.
-	Properties DomainTopicPropertiesResponsePtrInput
+	// Provisioning state of the domain topic.
+	ProvisioningState pulumi.StringPtrInput
 	// Type of the resource.
 	Type pulumi.StringPtrInput
 }

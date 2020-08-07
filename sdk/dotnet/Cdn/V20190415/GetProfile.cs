@@ -48,9 +48,13 @@ namespace Pulumi.AzureRM.Cdn.V20190415
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The JSON object that contains the properties required to create a profile.
+        /// Provisioning status of the profile.
         /// </summary>
-        public readonly Outputs.ProfilePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource status of the profile.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         /// </summary>
@@ -70,7 +74,9 @@ namespace Pulumi.AzureRM.Cdn.V20190415
 
             string name,
 
-            Outputs.ProfilePropertiesResponseResult properties,
+            string provisioningState,
+
+            string resourceState,
 
             Outputs.SkuResponseResult sku,
 
@@ -80,7 +86,8 @@ namespace Pulumi.AzureRM.Cdn.V20190415
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
             Sku = sku;
             Tags = tags;
             Type = type;

@@ -40,6 +40,26 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class GetWebAppFunctionResult
     {
         /// <summary>
+        /// Config information.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Config;
+        /// <summary>
+        /// Config URI.
+        /// </summary>
+        public readonly string? ConfigHref;
+        /// <summary>
+        /// File list.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Files;
+        /// <summary>
+        /// Function App ID.
+        /// </summary>
+        public readonly string FunctionAppId;
+        /// <summary>
+        /// Function URI.
+        /// </summary>
+        public readonly string? Href;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -48,9 +68,21 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// FunctionEnvelope resource specific properties
+        /// Script URI.
         /// </summary>
-        public readonly Outputs.FunctionEnvelopeResponsePropertiesResult Properties;
+        public readonly string? ScriptHref;
+        /// <summary>
+        /// Script root path URI.
+        /// </summary>
+        public readonly string? ScriptRootPathHref;
+        /// <summary>
+        /// Secrets file URI.
+        /// </summary>
+        public readonly string? SecretsFileHref;
+        /// <summary>
+        /// Test data used when testing via the Azure Portal.
+        /// </summary>
+        public readonly string? TestData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -58,17 +90,41 @@ namespace Pulumi.AzureRM.Web.V20160801
 
         [OutputConstructor]
         private GetWebAppFunctionResult(
+            ImmutableDictionary<string, object>? config,
+
+            string? configHref,
+
+            ImmutableDictionary<string, string>? files,
+
+            string functionAppId,
+
+            string? href,
+
             string? kind,
 
             string name,
 
-            Outputs.FunctionEnvelopeResponsePropertiesResult properties,
+            string? scriptHref,
+
+            string? scriptRootPathHref,
+
+            string? secretsFileHref,
+
+            string? testData,
 
             string type)
         {
+            Config = config;
+            ConfigHref = configHref;
+            Files = files;
+            FunctionAppId = functionAppId;
+            Href = href;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            ScriptHref = scriptHref;
+            ScriptRootPathHref = scriptRootPathHref;
+            SecretsFileHref = secretsFileHref;
+            TestData = testData;
             Type = type;
         }
     }

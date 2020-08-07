@@ -52,13 +52,29 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetApiTagDescriptionResult
     {
         /// <summary>
+        /// Description of the Tag.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Tag name.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Description of the external resources describing the tag.
+        /// </summary>
+        public readonly string? ExternalDocsDescription;
+        /// <summary>
+        /// Absolute URL of external resources describing the tag.
+        /// </summary>
+        public readonly string? ExternalDocsUrl;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// TagDescription entity contract properties.
+        /// Identifier of the tag in the form of /tags/{tagId}
         /// </summary>
-        public readonly Outputs.TagDescriptionContractPropertiesResponseResult Properties;
+        public readonly string? TagId;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -66,14 +82,26 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
 
         [OutputConstructor]
         private GetApiTagDescriptionResult(
+            string? description,
+
+            string? displayName,
+
+            string? externalDocsDescription,
+
+            string? externalDocsUrl,
+
             string name,
 
-            Outputs.TagDescriptionContractPropertiesResponseResult properties,
+            string? tagId,
 
             string type)
         {
+            Description = description;
+            DisplayName = displayName;
+            ExternalDocsDescription = externalDocsDescription;
+            ExternalDocsUrl = externalDocsUrl;
             Name = name;
-            Properties = properties;
+            TagId = tagId;
             Type = type;
         }
     }

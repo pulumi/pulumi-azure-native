@@ -39,6 +39,10 @@ namespace Pulumi.AzureRM.Web.V20150801
     [OutputType]
     public sealed class GetSiteRelayServiceConnectionResult
     {
+        public readonly string? BiztalkUri;
+        public readonly string? EntityConnectionString;
+        public readonly string? EntityName;
+        public readonly string? Hostname;
         /// <summary>
         /// Kind of resource
         /// </summary>
@@ -51,7 +55,9 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.RelayServiceConnectionEntityResponsePropertiesResult Properties;
+        public readonly int? Port;
+        public readonly string? ResourceConnectionString;
+        public readonly string? ResourceType;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,22 +69,40 @@ namespace Pulumi.AzureRM.Web.V20150801
 
         [OutputConstructor]
         private GetSiteRelayServiceConnectionResult(
+            string? biztalkUri,
+
+            string? entityConnectionString,
+
+            string? entityName,
+
+            string? hostname,
+
             string? kind,
 
             string location,
 
             string? name,
 
-            Outputs.RelayServiceConnectionEntityResponsePropertiesResult properties,
+            int? port,
+
+            string? resourceConnectionString,
+
+            string? resourceType,
 
             ImmutableDictionary<string, string>? tags,
 
             string? type)
         {
+            BiztalkUri = biztalkUri;
+            EntityConnectionString = entityConnectionString;
+            EntityName = entityName;
+            Hostname = hostname;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            Port = port;
+            ResourceConnectionString = resourceConnectionString;
+            ResourceType = resourceType;
             Tags = tags;
             Type = type;
         }

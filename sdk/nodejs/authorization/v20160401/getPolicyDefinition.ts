@@ -31,11 +31,23 @@ export interface GetPolicyDefinitionArgs {
  */
 export interface GetPolicyDefinitionResult {
     /**
+     * The policy definition description.
+     */
+    readonly description?: string;
+    /**
+     * The display name of the policy definition.
+     */
+    readonly displayName?: string;
+    /**
      * The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
      */
     readonly name?: string;
     /**
-     * The policy definition properties.
+     * The policy rule.
      */
-    readonly properties: outputs.authorization.v20160401.PolicyDefinitionPropertiesResponse;
+    readonly policyRule?: {[key: string]: any};
+    /**
+     * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+     */
+    readonly policyType?: string;
 }

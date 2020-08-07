@@ -10,6 +10,13 @@ from ... import _utilities, _tables
 
 
 class DiskEncryptionSet(pulumi.CustomResource):
+    active_key: pulumi.Output[dict]
+    """
+    The key vault key which is currently used by this disk encryption set.
+      * `key_url` (`str`) - Url pointing to a key or secret in KeyVault
+      * `source_vault` (`dict`) - Resource id of the KeyVault containing the key or secret
+        * `id` (`str`) - Resource Id
+    """
     identity: pulumi.Output[dict]
     """
     The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
@@ -25,7 +32,17 @@ class DiskEncryptionSet(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    previous_keys: pulumi.Output[list]
+    """
+    A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
+      * `key_url` (`str`) - Url pointing to a key or secret in KeyVault
+      * `source_vault` (`dict`) - Resource id of the KeyVault containing the key or secret
+        * `id` (`str`) - Resource Id
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The disk encryption set provisioning state.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -86,7 +103,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['previous_keys'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(DiskEncryptionSet, __self__).__init__(
             'azurerm:compute/v20191101:DiskEncryptionSet',

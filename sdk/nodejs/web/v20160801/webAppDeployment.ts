@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,49 @@ export class WebAppDeployment extends pulumi.CustomResource {
     }
 
     /**
+     * True if deployment is currently active, false if completed and null if not started.
+     */
+    public readonly active!: pulumi.Output<boolean | undefined>;
+    /**
+     * Who authored the deployment.
+     */
+    public readonly author!: pulumi.Output<string | undefined>;
+    /**
+     * Author email.
+     */
+    public readonly authorEmail!: pulumi.Output<string | undefined>;
+    /**
+     * Who performed the deployment.
+     */
+    public readonly deployer!: pulumi.Output<string | undefined>;
+    /**
+     * Details on deployment.
+     */
+    public readonly details!: pulumi.Output<string | undefined>;
+    /**
+     * End time.
+     */
+    public readonly endTime!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * Details about deployment status.
+     */
+    public readonly message!: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Deployment resource specific properties
+     * Start time.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.DeploymentResponseProperties>;
+    public readonly startTime!: pulumi.Output<string | undefined>;
+    /**
+     * Deployment status.
+     */
+    public readonly status!: pulumi.Output<number | undefined>;
     /**
      * Resource type.
      */
@@ -84,7 +114,6 @@ export class WebAppDeployment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["status"] = args ? args.status : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

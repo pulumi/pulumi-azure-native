@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Compute.V20190701
     public partial class GalleryApplication : Pulumi.CustomResource
     {
         /// <summary>
+        /// The description of this gallery Application Definition resource. This property is updatable.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+        /// </summary>
+        [Output("endOfLifeDate")]
+        public Output<string?> EndOfLifeDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The Eula agreement for the gallery Application Definition.
+        /// </summary>
+        [Output("eula")]
+        public Output<string?> Eula { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +45,22 @@ namespace Pulumi.AzureRM.Compute.V20190701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a gallery Application Definition.
+        /// The privacy statement uri.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GalleryApplicationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privacyStatementUri")]
+        public Output<string?> PrivacyStatementUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The release note uri.
+        /// </summary>
+        [Output("releaseNoteUri")]
+        public Output<string?> ReleaseNoteUri { get; private set; } = null!;
+
+        /// <summary>
+        /// This property allows you to specify the supported type of the OS that application is built for. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// </summary>
+        [Output("supportedOSType")]
+        public Output<string> SupportedOSType { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

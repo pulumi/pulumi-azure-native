@@ -37,6 +37,18 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
     }
 
     /**
+     * A system generated property representing the resource etag required for optimistic concurrency control.
+     */
+    public /*out*/ readonly _etag!: pulumi.Output<string | undefined>;
+    /**
+     * A system generated property. A unique identifier.
+     */
+    public /*out*/ readonly _rid!: pulumi.Output<string | undefined>;
+    /**
+     * A system generated property that denotes the last updated timestamp of the resource.
+     */
+    public /*out*/ readonly _ts!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     public /*out*/ readonly location!: pulumi.Output<string | undefined>;
@@ -44,10 +56,6 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
      * The name of the database account.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The properties of an Azure Cosmos DB SQL database
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20151106.GremlinDatabasePropertiesResponse>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -90,8 +98,10 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["_etag"] = undefined /*out*/;
+            inputs["_rid"] = undefined /*out*/;
+            inputs["_ts"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

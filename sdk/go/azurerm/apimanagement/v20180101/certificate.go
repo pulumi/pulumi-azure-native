@@ -14,10 +14,14 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Certificate properties details.
-	Properties CertificateContractPropertiesResponseOutput `pulumi:"properties"`
+	// Subject attribute of the certificate.
+	Subject pulumi.StringOutput `pulumi:"subject"`
+	// Thumbprint of the certificate.
+	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +69,27 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
+	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	ExpirationDate *string `pulumi:"expirationDate"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Certificate properties details.
-	Properties *CertificateContractPropertiesResponse `pulumi:"properties"`
+	// Subject attribute of the certificate.
+	Subject *string `pulumi:"subject"`
+	// Thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type CertificateState struct {
+	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	ExpirationDate pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Certificate properties details.
-	Properties CertificateContractPropertiesResponsePtrInput
+	// Subject attribute of the certificate.
+	Subject pulumi.StringPtrInput
+	// Thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

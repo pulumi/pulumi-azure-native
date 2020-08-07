@@ -10,6 +10,34 @@ from ... import _utilities, _tables
 
 
 class JitRequest(pulumi.CustomResource):
+    application_resource_id: pulumi.Output[str]
+    """
+    The parent application id.
+    """
+    created_by: pulumi.Output[dict]
+    """
+    The client entity that created the JIT request.
+      * `application_id` (`str`) - The client application Id.
+      * `oid` (`str`) - The client Oid.
+      * `puid` (`str`) - The client Puid
+    """
+    jit_authorization_policies: pulumi.Output[list]
+    """
+    The JIT authorization policies.
+      * `principal_id` (`str`) - The the principal id that will be granted JIT access.
+      * `role_definition_id` (`str`) - The role definition id that will be granted to the Principal.
+    """
+    jit_request_state: pulumi.Output[str]
+    """
+    The JIT request state.
+    """
+    jit_scheduling_policy: pulumi.Output[dict]
+    """
+    The JIT request properties.
+      * `duration` (`str`)
+      * `start_time` (`str`) - The start time of the request.
+      * `type` (`str`) - The type of JIT schedule.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,28 +46,13 @@ class JitRequest(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The JIT request properties.
-      * `application_resource_id` (`str`) - The parent application id.
-      * `created_by` (`dict`) - The client entity that created the JIT request.
-        * `application_id` (`str`) - The client application Id.
-        * `oid` (`str`) - The client Oid.
-        * `puid` (`str`) - The client Puid
-
-      * `jit_authorization_policies` (`list`) - The JIT authorization policies.
-        * `principal_id` (`str`) - The the principal id that will be granted JIT access.
-        * `role_definition_id` (`str`) - The role definition id that will be granted to the Principal.
-
-      * `jit_request_state` (`str`) - The JIT request state.
-      * `jit_scheduling_policy` (`dict`) - The JIT request properties.
-        * `duration` (`str`)
-        * `start_time` (`str`) - The start time of the request.
-        * `type` (`str`) - The type of JIT schedule.
-
-      * `provisioning_state` (`str`) - The JIT request provisioning state.
-      * `publisher_tenant_id` (`str`) - The publisher tenant id.
-      * `updated_by` (`dict`) - The client entity that last updated the JIT request.
+    The JIT request provisioning state.
+    """
+    publisher_tenant_id: pulumi.Output[str]
+    """
+    The publisher tenant id.
     """
     tags: pulumi.Output[dict]
     """
@@ -48,6 +61,13 @@ class JitRequest(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_by: pulumi.Output[dict]
+    """
+    The client entity that last updated the JIT request.
+      * `application_id` (`str`) - The client application Id.
+      * `oid` (`str`) - The client Oid.
+      * `puid` (`str`) - The client Puid
     """
     def __init__(__self__, resource_name, opts=None, application_resource_id=None, jit_authorization_policies=None, jit_scheduling_policy=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -108,8 +128,12 @@ class JitRequest(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['created_by'] = None
+            __props__['jit_request_state'] = None
+            __props__['provisioning_state'] = None
+            __props__['publisher_tenant_id'] = None
             __props__['type'] = None
+            __props__['updated_by'] = None
         super(JitRequest, __self__).__init__(
             'azurerm:solutions/v20190701:JitRequest',
             resource_name,

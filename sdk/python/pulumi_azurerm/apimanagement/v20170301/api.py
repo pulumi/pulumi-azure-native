@@ -10,45 +10,78 @@ from ... import _utilities, _tables
 
 
 class Api(pulumi.CustomResource):
+    api_revision: pulumi.Output[str]
+    """
+    Describes the Revision of the Api. If no value is provided, default revision 1 is created
+    """
+    api_type: pulumi.Output[str]
+    """
+    Type of API.
+    """
+    api_version: pulumi.Output[str]
+    """
+    Indicates the Version identifier of the API if the API is versioned
+    """
+    api_version_set: pulumi.Output[dict]
+    """
+    Api Version Set Contract details.
+      * `description` (`str`) - Description of API Version Set.
+      * `display_name` (`str`) - Name of API Version Set
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Resource name.
+      * `type` (`str`) - Resource type for API Management resource.
+      * `version_header_name` (`str`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+      * `version_query_name` (`str`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+      * `versioning_scheme` (`str`) - An value that determines where the API Version identifer will be located in a HTTP request.
+    """
+    api_version_set_id: pulumi.Output[str]
+    """
+    A resource identifier for the related ApiVersionSet.
+    """
+    authentication_settings: pulumi.Output[dict]
+    """
+    Collection of authentication settings included into this API.
+      * `o_auth2` (`dict`) - OAuth2 Authentication settings
+        * `authorization_server_id` (`str`) - OAuth authorization server identifier.
+        * `scope` (`str`) - operations scope.
+    """
+    description: pulumi.Output[str]
+    """
+    Description of the API. May include HTML formatting tags.
+    """
+    display_name: pulumi.Output[str]
+    """
+    API name.
+    """
+    is_current: pulumi.Output[bool]
+    """
+    Indicates if API revision is current api revision.
+    """
+    is_online: pulumi.Output[bool]
+    """
+    Indicates if API revision is accessible via the gateway.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    path: pulumi.Output[str]
     """
-    Api entity contract properties.
-      * `api_revision` (`str`) - Describes the Revision of the Api. If no value is provided, default revision 1 is created
-      * `api_version` (`str`) - Indicates the Version identifier of the API if the API is versioned
-      * `api_version_set` (`dict`) - Api Version Set Contract details.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Properties of an API Version Set.
-          * `description` (`str`) - Description of API Version Set.
-          * `display_name` (`str`) - Name of API Version Set
-          * `version_header_name` (`str`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
-          * `version_query_name` (`str`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-          * `versioning_scheme` (`str`) - An value that determines where the API Version identifer will be located in a HTTP request.
-
-        * `type` (`str`) - Resource type for API Management resource.
-
-      * `api_version_set_id` (`str`) - A resource identifier for the related ApiVersionSet.
-      * `authentication_settings` (`dict`) - Collection of authentication settings included into this API.
-        * `o_auth2` (`dict`) - OAuth2 Authentication settings
-          * `authorization_server_id` (`str`) - OAuth authorization server identifier.
-          * `scope` (`str`) - operations scope.
-
-      * `description` (`str`) - Description of the API. May include HTML formatting tags.
-      * `display_name` (`str`) - API name.
-      * `is_current` (`bool`) - Indicates if API revision is current api revision.
-      * `is_online` (`bool`) - Indicates if API revision is accessible via the gateway.
-      * `path` (`str`) - Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-      * `protocols` (`list`) - Describes on which protocols the operations in this API can be invoked.
-      * `service_url` (`str`) - Absolute URL of the backend service implementing this API.
-      * `subscription_key_parameter_names` (`dict`) - Protocols over which API is made available.
-        * `header` (`str`) - Subscription key header name.
-        * `query` (`str`) - Subscription key query string parameter name.
-
-      * `type` (`str`) - Type of API.
+    Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+    """
+    protocols: pulumi.Output[list]
+    """
+    Describes on which protocols the operations in this API can be invoked.
+    """
+    service_url: pulumi.Output[str]
+    """
+    Absolute URL of the backend service implementing this API.
+    """
+    subscription_key_parameter_names: pulumi.Output[dict]
+    """
+    Protocols over which API is made available.
+      * `header` (`str`) - Subscription key header name.
+      * `query` (`str`) - Subscription key query string parameter name.
     """
     type: pulumi.Output[str]
     """
@@ -146,7 +179,8 @@ class Api(pulumi.CustomResource):
             __props__['service_url'] = service_url
             __props__['subscription_key_parameter_names'] = subscription_key_parameter_names
             __props__['wsdl_selector'] = wsdl_selector
-            __props__['properties'] = None
+            __props__['is_current'] = None
+            __props__['is_online'] = None
             __props__['type'] = None
         super(Api, __self__).__init__(
             'azurerm:apimanagement/v20170301:Api',

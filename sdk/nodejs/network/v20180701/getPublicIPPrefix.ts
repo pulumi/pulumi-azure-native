@@ -40,6 +40,18 @@ export interface GetPublicIPPrefixResult {
      */
     readonly etag?: string;
     /**
+     * The allocated Prefix
+     */
+    readonly ipPrefix?: string;
+    /**
+     * The list of tags associated with the public IP prefix.
+     */
+    readonly ipTags?: outputs.network.v20180701.IpTagResponse[];
+    /**
+     * The reference to load balancer frontend IP configuration associated with the public IP prefix.
+     */
+    readonly loadBalancerFrontendIpConfiguration: outputs.network.v20180701.SubResourceResponse;
+    /**
      * Resource location.
      */
     readonly location?: string;
@@ -48,9 +60,25 @@ export interface GetPublicIPPrefixResult {
      */
     readonly name: string;
     /**
-     * Public IP prefix properties.
+     * The Length of the Public IP Prefix.
      */
-    readonly properties: outputs.network.v20180701.PublicIPPrefixPropertiesFormatResponse;
+    readonly prefixLength?: number;
+    /**
+     * The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState?: string;
+    /**
+     * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+     */
+    readonly publicIPAddressVersion?: string;
+    /**
+     * The list of all referenced PublicIPAddresses
+     */
+    readonly publicIPAddresses?: outputs.network.v20180701.ReferencedPublicIpAddressResponse[];
+    /**
+     * The resource GUID property of the public IP prefix resource.
+     */
+    readonly resourceGuid?: string;
     /**
      * The public IP prefix SKU.
      */

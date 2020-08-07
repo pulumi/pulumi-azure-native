@@ -16,8 +16,8 @@ type Table struct {
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Table resource properties.
-	Properties TablePropertiesResponseOutput `pulumi:"properties"`
+	// Table name under the specified account
+	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,8 +61,8 @@ func GetTable(ctx *pulumi.Context,
 type tableState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Table resource properties.
-	Properties *TablePropertiesResponse `pulumi:"properties"`
+	// Table name under the specified account
+	TableName *string `pulumi:"tableName"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
@@ -70,8 +70,8 @@ type tableState struct {
 type TableState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Table resource properties.
-	Properties TablePropertiesResponsePtrInput
+	// Table name under the specified account
+	TableName pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

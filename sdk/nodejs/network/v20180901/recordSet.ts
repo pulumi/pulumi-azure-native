@@ -37,17 +37,61 @@ export class RecordSet extends pulumi.CustomResource {
     }
 
     /**
+     * The list of A records in the record set.
+     */
+    public readonly aRecords!: pulumi.Output<outputs.network.v20180901.ARecordResponse[] | undefined>;
+    /**
+     * The list of AAAA records in the record set.
+     */
+    public readonly aaaaRecords!: pulumi.Output<outputs.network.v20180901.AaaaRecordResponse[] | undefined>;
+    /**
+     * The CNAME record in the record set.
+     */
+    public readonly cnameRecord!: pulumi.Output<outputs.network.v20180901.CnameRecordResponse | undefined>;
+    /**
      * The ETag of the record set.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Fully qualified domain name of the record set.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
+     * Is the record set auto-registered in the Private DNS zone through a virtual network link?
+     */
+    public /*out*/ readonly isAutoRegistered!: pulumi.Output<boolean>;
+    /**
+     * The metadata attached to the record set.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The list of MX records in the record set.
+     */
+    public readonly mxRecords!: pulumi.Output<outputs.network.v20180901.MxRecordResponse[] | undefined>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the record set.
+     * The list of PTR records in the record set.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180901.RecordSetPropertiesResponse>;
+    public readonly ptrRecords!: pulumi.Output<outputs.network.v20180901.PtrRecordResponse[] | undefined>;
+    /**
+     * The SOA record in the record set.
+     */
+    public readonly soaRecord!: pulumi.Output<outputs.network.v20180901.SoaRecordResponse | undefined>;
+    /**
+     * The list of SRV records in the record set.
+     */
+    public readonly srvRecords!: pulumi.Output<outputs.network.v20180901.SrvRecordResponse[] | undefined>;
+    /**
+     * The TTL (time-to-live) of the records in the record set.
+     */
+    public readonly ttl!: pulumi.Output<number | undefined>;
+    /**
+     * The list of TXT records in the record set.
+     */
+    public readonly txtRecords!: pulumi.Output<outputs.network.v20180901.TxtRecordResponse[] | undefined>;
     /**
      * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
      */
@@ -93,7 +137,8 @@ export class RecordSet extends pulumi.CustomResource {
             inputs["srvRecords"] = args ? args.srvRecords : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["txtRecords"] = args ? args.txtRecords : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["isAutoRegistered"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

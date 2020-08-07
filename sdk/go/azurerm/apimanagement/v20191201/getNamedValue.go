@@ -27,10 +27,16 @@ type LookupNamedValueArgs struct {
 
 // NamedValue details.
 type LookupNamedValueResult struct {
+	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+	DisplayName string `pulumi:"displayName"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// NamedValue entity contract properties.
-	Properties NamedValueContractPropertiesResponse `pulumi:"properties"`
+	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+	Secret *bool `pulumi:"secret"`
+	// Optional tags that when provided can be used to filter the NamedValue list.
+	Tags []string `pulumi:"tags"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+	Value *string `pulumi:"value"`
 }

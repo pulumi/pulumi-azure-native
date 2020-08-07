@@ -29,8 +29,10 @@ type LookupSyncGroupArgs struct {
 type LookupSyncGroupResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// SyncGroup properties.
-	Properties SyncGroupPropertiesResponse `pulumi:"properties"`
+	// Sync group status
+	SyncGroupStatus string `pulumi:"syncGroupStatus"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+	// Unique Id
+	UniqueId string `pulumi:"uniqueId"`
 }

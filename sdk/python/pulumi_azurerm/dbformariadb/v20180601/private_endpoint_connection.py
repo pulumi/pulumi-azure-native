@@ -14,18 +14,21 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    private_endpoint: pulumi.Output[dict]
     """
-    Resource properties.
-      * `private_endpoint` (`dict`) - Private endpoint which the connection belongs to.
-        * `id` (`str`) - Resource id of the private endpoint.
-
-      * `private_link_service_connection_state` (`dict`) - Connection state of the private endpoint connection.
-        * `actions_required` (`str`) - The actions required for private link service connection.
-        * `description` (`str`) - The private link service connection description.
-        * `status` (`str`) - The private link service connection status.
-
-      * `provisioning_state` (`str`) - State of the private endpoint connection.
+    Private endpoint which the connection belongs to.
+      * `id` (`str`) - Resource id of the private endpoint.
+    """
+    private_link_service_connection_state: pulumi.Output[dict]
+    """
+    Connection state of the private endpoint connection.
+      * `actions_required` (`str`) - The actions required for private link service connection.
+      * `description` (`str`) - The private link service connection description.
+      * `status` (`str`) - The private link service connection status.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    State of the private endpoint connection.
     """
     type: pulumi.Output[str]
     """
@@ -79,7 +82,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:dbformariadb/v20180601:PrivateEndpointConnection',

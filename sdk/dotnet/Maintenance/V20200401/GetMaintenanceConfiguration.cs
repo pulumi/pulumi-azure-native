@@ -40,17 +40,25 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
     public sealed class GetMaintenanceConfigurationResult
     {
         /// <summary>
+        /// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ExtensionProperties;
+        /// <summary>
         /// Gets or sets location of the resource
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+        /// </summary>
+        public readonly string? MaintenanceScope;
         /// <summary>
         /// Name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets properties of the resource
+        /// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         /// </summary>
-        public readonly Outputs.MaintenanceConfigurationPropertiesResponseResult Properties;
+        public readonly string? Namespace;
         /// <summary>
         /// Gets or sets tags of the resource
         /// </summary>
@@ -62,19 +70,25 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
 
         [OutputConstructor]
         private GetMaintenanceConfigurationResult(
+            ImmutableDictionary<string, string>? extensionProperties,
+
             string? location,
+
+            string? maintenanceScope,
 
             string name,
 
-            Outputs.MaintenanceConfigurationPropertiesResponseResult properties,
+            string? @namespace,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ExtensionProperties = extensionProperties;
             Location = location;
+            MaintenanceScope = maintenanceScope;
             Name = name;
-            Properties = properties;
+            Namespace = @namespace;
             Tags = tags;
             Type = type;
         }

@@ -37,6 +37,38 @@ export class WebTest extends pulumi.CustomResource {
     }
 
     /**
+     * An XML configuration specification for a WebTest.
+     */
+    public readonly Configuration!: pulumi.Output<outputs.insights.v20150501.WebTestPropertiesResponseConfiguration | undefined>;
+    /**
+     * Purpose/user defined descriptive test for this WebTest.
+     */
+    public readonly Description!: pulumi.Output<string | undefined>;
+    /**
+     * Is the test actively being monitored.
+     */
+    public readonly Enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Interval in seconds between test runs for this WebTest. Default value is 300.
+     */
+    public readonly Frequency!: pulumi.Output<number | undefined>;
+    /**
+     * A list of where to physically run the tests from to give global coverage for accessibility of your application.
+     */
+    public readonly Locations!: pulumi.Output<outputs.insights.v20150501.WebTestGeolocationResponse[]>;
+    /**
+     * Allow for retries should this WebTest fail.
+     */
+    public readonly RetryEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Unique ID of this WebTest. This is typically the same value as the Name field.
+     */
+    public readonly SyntheticMonitorId!: pulumi.Output<string>;
+    /**
+     * Seconds until this WebTest will timeout and fail. Default value is 30.
+     */
+    public readonly Timeout!: pulumi.Output<number | undefined>;
+    /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -49,9 +81,9 @@ export class WebTest extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Metadata describing a web test for an Azure resource.
+     * Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20150501.WebTestPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -60,6 +92,14 @@ export class WebTest extends pulumi.CustomResource {
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The kind of web test this is, valid choices are ping and multistep.
+     */
+    public readonly webTestKind!: pulumi.Output<string>;
+    /**
+     * User defined name if this WebTest.
+     */
+    public /*out*/ readonly webTestName!: pulumi.Output<string>;
 
     /**
      * Create a WebTest resource with the given unique name, arguments, and options.
@@ -106,8 +146,9 @@ export class WebTest extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["webTestKind"] = args ? args.webTestKind : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["webTestName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -37,13 +37,61 @@ export class Link extends pulumi.CustomResource {
     }
 
     /**
+     * Localized descriptions for the Link.
+     */
+    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Localized display name for the Link.
+     */
+    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The link name.
+     */
+    public /*out*/ readonly linkName!: pulumi.Output<string>;
+    /**
+     * The set of properties mappings between the source and target Types.
+     */
+    public readonly mappings!: pulumi.Output<outputs.customerinsights.v20170426.TypePropertiesMappingResponse[] | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The definition of Link.
+     * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.LinkDefinitionResponse>;
+    public readonly operationType!: pulumi.Output<string | undefined>;
+    /**
+     * The properties that represent the participating profile.
+     */
+    public readonly participantPropertyReferences!: pulumi.Output<outputs.customerinsights.v20170426.ParticipantPropertyReferenceResponse[]>;
+    /**
+     * Provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+     */
+    public readonly referenceOnly!: pulumi.Output<boolean | undefined>;
+    /**
+     * Type of source entity.
+     */
+    public readonly sourceEntityType!: pulumi.Output<string>;
+    /**
+     * Name of the source Entity Type.
+     */
+    public readonly sourceEntityTypeName!: pulumi.Output<string>;
+    /**
+     * Type of target entity.
+     */
+    public readonly targetEntityType!: pulumi.Output<string>;
+    /**
+     * Name of the target Entity Type.
+     */
+    public readonly targetEntityTypeName!: pulumi.Output<string>;
+    /**
+     * The hub name.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -99,7 +147,9 @@ export class Link extends pulumi.CustomResource {
             inputs["sourceEntityTypeName"] = args ? args.sourceEntityTypeName : undefined;
             inputs["targetEntityType"] = args ? args.targetEntityType : undefined;
             inputs["targetEntityTypeName"] = args ? args.targetEntityTypeName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["linkName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

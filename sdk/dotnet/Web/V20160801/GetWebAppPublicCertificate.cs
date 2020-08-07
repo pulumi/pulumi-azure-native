@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class GetWebAppPublicCertificateResult
     {
         /// <summary>
+        /// Public Certificate byte array
+        /// </summary>
+        public readonly string? Blob;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -48,9 +52,13 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// PublicCertificate resource specific properties
+        /// Public Certificate Location
         /// </summary>
-        public readonly Outputs.PublicCertificateResponsePropertiesResult Properties;
+        public readonly string? PublicCertificateLocation;
+        /// <summary>
+        /// Certificate Thumbprint
+        /// </summary>
+        public readonly string Thumbprint;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -58,17 +66,23 @@ namespace Pulumi.AzureRM.Web.V20160801
 
         [OutputConstructor]
         private GetWebAppPublicCertificateResult(
+            string? blob,
+
             string? kind,
 
             string name,
 
-            Outputs.PublicCertificateResponsePropertiesResult properties,
+            string? publicCertificateLocation,
+
+            string thumbprint,
 
             string type)
         {
+            Blob = blob;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            PublicCertificateLocation = publicCertificateLocation;
+            Thumbprint = thumbprint;
             Type = type;
         }
     }

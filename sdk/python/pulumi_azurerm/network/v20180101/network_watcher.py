@@ -19,10 +19,9 @@ class NetworkWatcher(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The network watcher properties.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    The provisioning state of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -73,7 +72,7 @@ class NetworkWatcher(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(NetworkWatcher, __self__).__init__(
             'azurerm:network/v20180101:NetworkWatcher',

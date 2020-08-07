@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20160901.Outputs
     public sealed class ApplicationGatewaySslCertificateResponseResult
     {
         /// <summary>
+        /// Base-64 encoded pfx certificate. Only applicable in PUT Request.
+        /// </summary>
+        public readonly string? Data;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -26,24 +30,41 @@ namespace Pulumi.AzureRM.Network.V20160901.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of SSL certificates of an application gateway.
+        /// Password for the pfx file specified in data. Only applicable in PUT request.
         /// </summary>
-        public readonly Outputs.ApplicationGatewaySslCertificatePropertiesFormatResponseResult? Properties;
+        public readonly string? Password;
+        /// <summary>
+        /// Provisioning state of the SSL certificate resource Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
+        /// </summary>
+        public readonly string? PublicCertData;
 
         [OutputConstructor]
         private ApplicationGatewaySslCertificateResponseResult(
+            string? data,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewaySslCertificatePropertiesFormatResponseResult? properties)
+            string? password,
+
+            string? provisioningState,
+
+            string? publicCertData)
         {
+            Data = data;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Password = password;
+            ProvisioningState = provisioningState;
+            PublicCertData = publicCertData;
         }
     }
 }

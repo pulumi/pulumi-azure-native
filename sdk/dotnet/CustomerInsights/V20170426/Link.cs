@@ -15,16 +15,88 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public partial class Link : Pulumi.CustomResource
     {
         /// <summary>
+        /// Localized descriptions for the Link.
+        /// </summary>
+        [Output("description")]
+        public Output<ImmutableDictionary<string, string>?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized display name for the Link.
+        /// </summary>
+        [Output("displayName")]
+        public Output<ImmutableDictionary<string, string>?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The link name.
+        /// </summary>
+        [Output("linkName")]
+        public Output<string> LinkName { get; private set; } = null!;
+
+        /// <summary>
+        /// The set of properties mappings between the source and target Types.
+        /// </summary>
+        [Output("mappings")]
+        public Output<ImmutableArray<Outputs.TypePropertiesMappingResponseResult>> Mappings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The definition of Link.
+        /// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LinkDefinitionResponseResult> Properties { get; private set; } = null!;
+        [Output("operationType")]
+        public Output<string?> OperationType { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties that represent the participating profile.
+        /// </summary>
+        [Output("participantPropertyReferences")]
+        public Output<ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult>> ParticipantPropertyReferences { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+        /// </summary>
+        [Output("referenceOnly")]
+        public Output<bool?> ReferenceOnly { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of source entity.
+        /// </summary>
+        [Output("sourceEntityType")]
+        public Output<string> SourceEntityType { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the source Entity Type.
+        /// </summary>
+        [Output("sourceEntityTypeName")]
+        public Output<string> SourceEntityTypeName { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of target entity.
+        /// </summary>
+        [Output("targetEntityType")]
+        public Output<string> TargetEntityType { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the target Entity Type.
+        /// </summary>
+        [Output("targetEntityTypeName")]
+        public Output<string> TargetEntityTypeName { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

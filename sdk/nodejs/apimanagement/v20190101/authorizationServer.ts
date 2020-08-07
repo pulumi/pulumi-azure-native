@@ -37,13 +37,73 @@ export class AuthorizationServer extends pulumi.CustomResource {
     }
 
     /**
+     * OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
+     */
+    public readonly authorizationEndpoint!: pulumi.Output<string>;
+    /**
+     * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+     */
+    public readonly authorizationMethods!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies the mechanism by which access token is passed to the API. 
+     */
+    public readonly bearerTokenSendingMethods!: pulumi.Output<string[] | undefined>;
+    /**
+     * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
+     */
+    public readonly clientAuthenticationMethod!: pulumi.Output<string[] | undefined>;
+    /**
+     * Client or app id registered with this authorization server.
+     */
+    public readonly clientId!: pulumi.Output<string>;
+    /**
+     * Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
+     */
+    public readonly clientRegistrationEndpoint!: pulumi.Output<string>;
+    /**
+     * Client or app secret registered with this authorization server.
+     */
+    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    /**
+     * Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
+     */
+    public readonly defaultScope!: pulumi.Output<string | undefined>;
+    /**
+     * Description of the authorization server. Can contain HTML formatting tags.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * User-friendly authorization server name.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Form of an authorization grant, which the client uses to request the access token.
+     */
+    public readonly grantTypes!: pulumi.Output<string[]>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the External OAuth authorization server Contract.
+     * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.AuthorizationServerContractPropertiesResponse>;
+    public readonly resourceOwnerPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
+     */
+    public readonly resourceOwnerUsername!: pulumi.Output<string | undefined>;
+    /**
+     * If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
+     */
+    public readonly supportState!: pulumi.Output<boolean | undefined>;
+    /**
+     * Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
+     */
+    public readonly tokenBodyParameters!: pulumi.Output<outputs.apimanagement.v20190101.TokenBodyParameterContractResponse[] | undefined>;
+    /**
+     * OAuth token endpoint. Contains absolute URI to entity being referenced.
+     */
+    public readonly tokenEndpoint!: pulumi.Output<string | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -105,7 +165,6 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["supportState"] = args ? args.supportState : undefined;
             inputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
             inputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

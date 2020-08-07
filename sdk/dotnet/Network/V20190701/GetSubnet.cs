@@ -46,29 +46,141 @@ namespace Pulumi.AzureRM.Network.V20190701
     public sealed class GetSubnetResult
     {
         /// <summary>
+        /// The address prefix for the subnet.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
+        /// List of address prefixes for the subnet.
+        /// </summary>
+        public readonly ImmutableArray<string> AddressPrefixes;
+        /// <summary>
+        /// An array of references to the delegations on the subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DelegationResponseResult> Delegations;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Array of IP configuration profiles which reference this subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IPConfigurationProfileResponseResult> IpConfigurationProfiles;
+        /// <summary>
+        /// An array of references to the network interface IP configurations using subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IPConfigurationResponseResult> IpConfigurations;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the subnet.
+        /// Nat gateway associated with this subnet.
         /// </summary>
-        public readonly Outputs.SubnetPropertiesFormatResponseResult Properties;
+        public readonly Outputs.SubResourceResponseResult? NatGateway;
+        /// <summary>
+        /// The reference of the NetworkSecurityGroup resource.
+        /// </summary>
+        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        /// <summary>
+        /// Enable or Disable apply network policies on private end point in the subnet.
+        /// </summary>
+        public readonly string? PrivateEndpointNetworkPolicies;
+        /// <summary>
+        /// An array of references to private endpoints.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointResponseResult> PrivateEndpoints;
+        /// <summary>
+        /// Enable or Disable apply network policies on private link service in the subnet.
+        /// </summary>
+        public readonly string? PrivateLinkServiceNetworkPolicies;
+        /// <summary>
+        /// The provisioning state of the subnet resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+        /// </summary>
+        public readonly string Purpose;
+        /// <summary>
+        /// An array of references to the external resources using subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> ResourceNavigationLinks;
+        /// <summary>
+        /// The reference of the RouteTable resource.
+        /// </summary>
+        public readonly Outputs.RouteTableResponseResult? RouteTable;
+        /// <summary>
+        /// An array of references to services injecting into this subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceAssociationLinkResponseResult> ServiceAssociationLinks;
+        /// <summary>
+        /// An array of service endpoint policies.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyResponseResult> ServiceEndpointPolicies;
+        /// <summary>
+        /// An array of service endpoints.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> ServiceEndpoints;
 
         [OutputConstructor]
         private GetSubnetResult(
+            string? addressPrefix,
+
+            ImmutableArray<string> addressPrefixes,
+
+            ImmutableArray<Outputs.DelegationResponseResult> delegations,
+
             string? etag,
+
+            ImmutableArray<Outputs.IPConfigurationProfileResponseResult> ipConfigurationProfiles,
+
+            ImmutableArray<Outputs.IPConfigurationResponseResult> ipConfigurations,
 
             string? name,
 
-            Outputs.SubnetPropertiesFormatResponseResult properties)
+            Outputs.SubResourceResponseResult? natGateway,
+
+            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+
+            string? privateEndpointNetworkPolicies,
+
+            ImmutableArray<Outputs.PrivateEndpointResponseResult> privateEndpoints,
+
+            string? privateLinkServiceNetworkPolicies,
+
+            string? provisioningState,
+
+            string purpose,
+
+            ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> resourceNavigationLinks,
+
+            Outputs.RouteTableResponseResult? routeTable,
+
+            ImmutableArray<Outputs.ServiceAssociationLinkResponseResult> serviceAssociationLinks,
+
+            ImmutableArray<Outputs.ServiceEndpointPolicyResponseResult> serviceEndpointPolicies,
+
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> serviceEndpoints)
         {
+            AddressPrefix = addressPrefix;
+            AddressPrefixes = addressPrefixes;
+            Delegations = delegations;
             Etag = etag;
+            IpConfigurationProfiles = ipConfigurationProfiles;
+            IpConfigurations = ipConfigurations;
             Name = name;
-            Properties = properties;
+            NatGateway = natGateway;
+            NetworkSecurityGroup = networkSecurityGroup;
+            PrivateEndpointNetworkPolicies = privateEndpointNetworkPolicies;
+            PrivateEndpoints = privateEndpoints;
+            PrivateLinkServiceNetworkPolicies = privateLinkServiceNetworkPolicies;
+            ProvisioningState = provisioningState;
+            Purpose = purpose;
+            ResourceNavigationLinks = resourceNavigationLinks;
+            RouteTable = routeTable;
+            ServiceAssociationLinks = serviceAssociationLinks;
+            ServiceEndpointPolicies = serviceEndpointPolicies;
+            ServiceEndpoints = serviceEndpoints;
         }
     }
 }

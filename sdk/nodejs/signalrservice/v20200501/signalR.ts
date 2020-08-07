@@ -37,6 +37,32 @@ export class SignalR extends pulumi.CustomResource {
     }
 
     /**
+     * Cross-Origin Resource Sharing (CORS) settings.
+     */
+    public readonly cors!: pulumi.Output<outputs.signalrservice.v20200501.SignalRCorsSettingsResponse | undefined>;
+    /**
+     * The publicly accessible IP of the SignalR service.
+     */
+    public /*out*/ readonly externalIP!: pulumi.Output<string>;
+    /**
+     * List of SignalR featureFlags. e.g. ServiceMode.
+     * 
+     * FeatureFlags that are not included in the parameters for the update operation will not be modified.
+     * And the response will only include featureFlags that are explicitly set. 
+     * When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+     * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+     */
+    public readonly features!: pulumi.Output<outputs.signalrservice.v20200501.SignalRFeatureResponse[] | undefined>;
+    /**
+     * FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+     */
+    public /*out*/ readonly hostName!: pulumi.Output<string>;
+    /**
+     * Prefix for the hostName of the SignalR service. Retained for future use.
+     * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+     */
+    public readonly hostNamePrefix!: pulumi.Output<string | undefined>;
+    /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -49,9 +75,25 @@ export class SignalR extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Settings used to provision or configure the resource
+     * Network ACLs
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.signalrservice.v20200501.SignalRPropertiesResponse>;
+    public readonly networkACLs!: pulumi.Output<outputs.signalrservice.v20200501.SignalRNetworkACLsResponse | undefined>;
+    /**
+     * Private endpoint connections to the SignalR resource.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.signalrservice.v20200501.PrivateEndpointConnectionResponse[]>;
+    /**
+     * Provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+     */
+    public /*out*/ readonly publicPort!: pulumi.Output<number>;
+    /**
+     * The publicly accessible port of the SignalR service which is designed for customer server side usage.
+     */
+    public /*out*/ readonly serverPort!: pulumi.Output<number>;
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */
@@ -64,6 +106,14 @@ export class SignalR extends pulumi.CustomResource {
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Upstream settings when the Azure SignalR is in server-less mode.
+     */
+    public readonly upstream!: pulumi.Output<outputs.signalrservice.v20200501.ServerlessUpstreamSettingsResponse | undefined>;
+    /**
+     * Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+     */
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a SignalR resource with the given unique name, arguments, and options.
@@ -95,8 +145,14 @@ export class SignalR extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upstream"] = args ? args.upstream : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["externalIP"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicPort"] = undefined /*out*/;
+            inputs["serverPort"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

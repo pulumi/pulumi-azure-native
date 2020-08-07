@@ -14,12 +14,20 @@ import (
 type WebAppSourceControl struct {
 	pulumi.CustomResourceState
 
+	// Name of branch to use for deployment.
+	Branch pulumi.StringPtrOutput `pulumi:"branch"`
+	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+	DeploymentRollbackEnabled pulumi.BoolPtrOutput `pulumi:"deploymentRollbackEnabled"`
+	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+	IsManualIntegration pulumi.BoolPtrOutput `pulumi:"isManualIntegration"`
+	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+	IsMercurial pulumi.BoolPtrOutput `pulumi:"isMercurial"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// SiteSourceControl resource specific properties
-	Properties SiteSourceControlResponsePropertiesOutput `pulumi:"properties"`
+	// Repository or source control URL.
+	RepoUrl pulumi.StringPtrOutput `pulumi:"repoUrl"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -58,23 +66,39 @@ func GetWebAppSourceControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppSourceControl resources.
 type webAppSourceControlState struct {
+	// Name of branch to use for deployment.
+	Branch *string `pulumi:"branch"`
+	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+	IsManualIntegration *bool `pulumi:"isManualIntegration"`
+	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+	IsMercurial *bool `pulumi:"isMercurial"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// SiteSourceControl resource specific properties
-	Properties *SiteSourceControlResponseProperties `pulumi:"properties"`
+	// Repository or source control URL.
+	RepoUrl *string `pulumi:"repoUrl"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type WebAppSourceControlState struct {
+	// Name of branch to use for deployment.
+	Branch pulumi.StringPtrInput
+	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+	DeploymentRollbackEnabled pulumi.BoolPtrInput
+	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+	IsManualIntegration pulumi.BoolPtrInput
+	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+	IsMercurial pulumi.BoolPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// SiteSourceControl resource specific properties
-	Properties SiteSourceControlResponsePropertiesPtrInput
+	// Repository or source control URL.
+	RepoUrl pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

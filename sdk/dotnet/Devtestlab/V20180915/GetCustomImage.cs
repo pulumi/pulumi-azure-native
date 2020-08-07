@@ -46,17 +46,49 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class GetCustomImageResult
     {
         /// <summary>
+        /// The author of the custom image.
+        /// </summary>
+        public readonly string? Author;
+        /// <summary>
+        /// The creation date of the custom image.
+        /// </summary>
+        public readonly string CreationDate;
+        /// <summary>
+        /// Storage information about the plan related to this custom image
+        /// </summary>
+        public readonly Outputs.CustomImagePropertiesFromPlanResponseResult? CustomImagePlan;
+        /// <summary>
+        /// Storage information about the data disks present in the custom image
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataDiskStorageTypeInfoResponseResult> DataDiskStorageInfo;
+        /// <summary>
+        /// The description of the custom image.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+        /// </summary>
+        public readonly bool? IsPlanAuthorized;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The Managed Image Id backing the custom image.
+        /// </summary>
+        public readonly string? ManagedImageId;
+        /// <summary>
+        /// The Managed Snapshot Id backing the custom image.
+        /// </summary>
+        public readonly string? ManagedSnapshotId;
         /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -65,24 +97,69 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string UniqueIdentifier;
+        /// <summary>
+        /// The VHD from which the image is to be created.
+        /// </summary>
+        public readonly Outputs.CustomImagePropertiesCustomResponseResult? Vhd;
+        /// <summary>
+        /// The virtual machine from which the image is to be created.
+        /// </summary>
+        public readonly Outputs.CustomImagePropertiesFromVmResponseResult? Vm;
 
         [OutputConstructor]
         private GetCustomImageResult(
+            string? author,
+
+            string creationDate,
+
+            Outputs.CustomImagePropertiesFromPlanResponseResult? customImagePlan,
+
+            ImmutableArray<Outputs.DataDiskStorageTypeInfoResponseResult> dataDiskStorageInfo,
+
+            string? description,
+
+            bool? isPlanAuthorized,
+
             string? location,
+
+            string? managedImageId,
+
+            string? managedSnapshotId,
 
             string name,
 
-            Outputs.CustomImagePropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string uniqueIdentifier,
+
+            Outputs.CustomImagePropertiesCustomResponseResult? vhd,
+
+            Outputs.CustomImagePropertiesFromVmResponseResult? vm)
         {
+            Author = author;
+            CreationDate = creationDate;
+            CustomImagePlan = customImagePlan;
+            DataDiskStorageInfo = dataDiskStorageInfo;
+            Description = description;
+            IsPlanAuthorized = isPlanAuthorized;
             Location = location;
+            ManagedImageId = managedImageId;
+            ManagedSnapshotId = managedSnapshotId;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
+            Vhd = vhd;
+            Vm = vm;
         }
     }
 }

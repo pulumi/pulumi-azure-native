@@ -26,9 +26,25 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway frontend IP configuration.
+        /// PrivateIPAddress of the network interface IP Configuration.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayFrontendIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// Provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Reference of the PublicIP resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Reference of the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Subnet;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -42,14 +58,26 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
 
             string? name,
 
-            Outputs.ApplicationGatewayFrontendIPConfigurationPropertiesFormatResponseResult? properties,
+            string? privateIPAddress,
+
+            string? privateIPAllocationMethod,
+
+            string? provisioningState,
+
+            Outputs.SubResourceResponseResult? publicIPAddress,
+
+            Outputs.SubResourceResponseResult? subnet,
 
             string? type)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
             Type = type;
         }
     }

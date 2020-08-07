@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.CostManagement.V20180531
     public partial class ReportConfigByResourceGroupName : Pulumi.CustomResource
     {
         /// <summary>
+        /// Has definition for the report config.
+        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.ReportConfigDefinitionResponseResult> Definition { get; private set; } = null!;
+
+        /// <summary>
+        /// Has delivery information for the report config.
+        /// </summary>
+        [Output("deliveryInfo")]
+        public Output<Outputs.ReportConfigDeliveryInfoResponseResult> DeliveryInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// The format of the report being delivered.
+        /// </summary>
+        [Output("format")]
+        public Output<string?> Format { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the report config.
+        /// Has schedule information for the report config.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ReportConfigPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("schedule")]
+        public Output<Outputs.ReportConfigScheduleResponseResult?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

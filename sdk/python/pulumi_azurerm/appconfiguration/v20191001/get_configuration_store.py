@@ -13,7 +13,19 @@ class GetConfigurationStoreResult:
     """
     The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, creation_date=None, endpoint=None, identity=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The creation date of configuration store.
+        """
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        __self__.endpoint = endpoint
+        """
+        The DNS endpoint where the configuration store API will be available.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -32,11 +44,11 @@ class GetConfigurationStoreResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of a configuration store.
+        The provisioning state of the configuration store.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -64,10 +76,12 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
         if False:
             yield self
         return GetConfigurationStoreResult(
+            creation_date=self.creation_date,
+            endpoint=self.endpoint,
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -90,10 +104,12 @@ def get_configuration_store(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:appconfiguration/v20191001:getConfigurationStore', __args__, opts=opts).value
 
     return AwaitableGetConfigurationStoreResult(
+        creation_date=__ret__.get('creationDate'),
+        endpoint=__ret__.get('endpoint'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

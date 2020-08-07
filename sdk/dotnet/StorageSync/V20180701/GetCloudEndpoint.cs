@@ -52,13 +52,45 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
     public sealed class GetCloudEndpointResult
     {
         /// <summary>
+        /// Backup Enabled
+        /// </summary>
+        public readonly bool BackupEnabled;
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        public readonly string? FriendlyName;
+        /// <summary>
+        /// Resource Last Operation Name
+        /// </summary>
+        public readonly string? LastOperationName;
+        /// <summary>
+        /// CloudEndpoint lastWorkflowId
+        /// </summary>
+        public readonly string? LastWorkflowId;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Cloud Endpoint properties.
+        /// Partnership Id
         /// </summary>
-        public readonly Outputs.CloudEndpointPropertiesResponseResult Properties;
+        public readonly string? PartnershipId;
+        /// <summary>
+        /// CloudEndpoint Provisioning State
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Storage Account Resource Id
+        /// </summary>
+        public readonly string? StorageAccountResourceId;
+        /// <summary>
+        /// Storage Account Share name
+        /// </summary>
+        public readonly string? StorageAccountShareName;
+        /// <summary>
+        /// Storage Account Tenant Id
+        /// </summary>
+        public readonly string? StorageAccountTenantId;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -66,14 +98,38 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
 
         [OutputConstructor]
         private GetCloudEndpointResult(
+            bool backupEnabled,
+
+            string? friendlyName,
+
+            string? lastOperationName,
+
+            string? lastWorkflowId,
+
             string name,
 
-            Outputs.CloudEndpointPropertiesResponseResult properties,
+            string? partnershipId,
+
+            string? provisioningState,
+
+            string? storageAccountResourceId,
+
+            string? storageAccountShareName,
+
+            string? storageAccountTenantId,
 
             string type)
         {
+            BackupEnabled = backupEnabled;
+            FriendlyName = friendlyName;
+            LastOperationName = lastOperationName;
+            LastWorkflowId = lastWorkflowId;
             Name = name;
-            Properties = properties;
+            PartnershipId = partnershipId;
+            ProvisioningState = provisioningState;
+            StorageAccountResourceId = storageAccountResourceId;
+            StorageAccountShareName = storageAccountShareName;
+            StorageAccountTenantId = storageAccountTenantId;
             Type = type;
         }
     }

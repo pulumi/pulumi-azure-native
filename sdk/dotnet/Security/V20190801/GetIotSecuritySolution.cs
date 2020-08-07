@@ -40,6 +40,26 @@ namespace Pulumi.AzureRM.Security.V20190801
     public sealed class GetIotSecuritySolutionResult
     {
         /// <summary>
+        /// List of resources that were automatically discovered as relevant to the security solution.
+        /// </summary>
+        public readonly ImmutableArray<string> AutoDiscoveredResources;
+        /// <summary>
+        /// Disabled data sources. Disabling these data sources compromises the system.
+        /// </summary>
+        public readonly ImmutableArray<string> DisabledDataSources;
+        /// <summary>
+        /// Resource display name.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// List of additional options for exporting to workspace data.
+        /// </summary>
+        public readonly ImmutableArray<string> Export;
+        /// <summary>
+        /// IoT Hub resource IDs
+        /// </summary>
+        public readonly ImmutableArray<string> IotHubs;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -48,9 +68,13 @@ namespace Pulumi.AzureRM.Security.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Security Solution data
+        /// List of the configuration status for each recommendation type.
         /// </summary>
-        public readonly Outputs.IoTSecuritySolutionPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult> RecommendationsConfiguration;
+        /// <summary>
+        /// Status of the IoT Security solution.
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -59,24 +83,63 @@ namespace Pulumi.AzureRM.Security.V20190801
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Unmasked IP address logging status
+        /// </summary>
+        public readonly string? UnmaskedIpLoggingStatus;
+        /// <summary>
+        /// Properties of the IoT Security solution's user defined resources.
+        /// </summary>
+        public readonly Outputs.UserDefinedResourcesPropertiesResponseResult? UserDefinedResources;
+        /// <summary>
+        /// Workspace resource ID
+        /// </summary>
+        public readonly string? Workspace;
 
         [OutputConstructor]
         private GetIotSecuritySolutionResult(
+            ImmutableArray<string> autoDiscoveredResources,
+
+            ImmutableArray<string> disabledDataSources,
+
+            string displayName,
+
+            ImmutableArray<string> export,
+
+            ImmutableArray<string> iotHubs,
+
             string? location,
 
             string name,
 
-            Outputs.IoTSecuritySolutionPropertiesResponseResult properties,
+            ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult> recommendationsConfiguration,
+
+            string? status,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? unmaskedIpLoggingStatus,
+
+            Outputs.UserDefinedResourcesPropertiesResponseResult? userDefinedResources,
+
+            string? workspace)
         {
+            AutoDiscoveredResources = autoDiscoveredResources;
+            DisabledDataSources = disabledDataSources;
+            DisplayName = displayName;
+            Export = export;
+            IotHubs = iotHubs;
             Location = location;
             Name = name;
-            Properties = properties;
+            RecommendationsConfiguration = recommendationsConfiguration;
+            Status = status;
             Tags = tags;
             Type = type;
+            UnmaskedIpLoggingStatus = unmaskedIpLoggingStatus;
+            UserDefinedResources = userDefinedResources;
+            Workspace = workspace;
         }
     }
 }

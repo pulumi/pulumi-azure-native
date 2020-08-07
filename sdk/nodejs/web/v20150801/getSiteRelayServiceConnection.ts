@@ -35,6 +35,10 @@ export interface GetSiteRelayServiceConnectionArgs {
  * Class that represents a BizTalk Hybrid Connection
  */
 export interface GetSiteRelayServiceConnectionResult {
+    readonly biztalkUri?: string;
+    readonly entityConnectionString?: string;
+    readonly entityName?: string;
+    readonly hostname?: string;
     /**
      * Kind of resource
      */
@@ -47,7 +51,9 @@ export interface GetSiteRelayServiceConnectionResult {
      * Resource Name
      */
     readonly name?: string;
-    readonly properties: outputs.web.v20150801.RelayServiceConnectionEntityResponseProperties;
+    readonly port?: number;
+    readonly resourceConnectionString?: string;
+    readonly resourceType?: string;
     /**
      * Resource tags
      */

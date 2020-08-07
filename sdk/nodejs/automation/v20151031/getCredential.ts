@@ -41,15 +41,27 @@ export interface GetCredentialArgs {
  */
 export interface GetCredentialResult {
     /**
+     * Gets the creation time.
+     */
+    readonly creationTime: string;
+    /**
+     * Gets or sets the description.
+     */
+    readonly description?: string;
+    /**
+     * Gets the last modified time.
+     */
+    readonly lastModifiedTime: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets or sets the properties of the credential.
-     */
-    readonly properties: outputs.automation.v20151031.CredentialPropertiesResponse;
-    /**
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * Gets the user name of the credential.
+     */
+    readonly userName: string;
 }

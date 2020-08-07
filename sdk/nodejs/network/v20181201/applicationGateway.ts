@@ -37,9 +37,57 @@ export class ApplicationGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly authenticationCertificates!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayAuthenticationCertificateResponse[] | undefined>;
+    /**
+     * Autoscale Configuration.
+     */
+    public readonly autoscaleConfiguration!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayAutoscaleConfigurationResponse | undefined>;
+    /**
+     * Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly backendAddressPools!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayBackendAddressPoolResponse[] | undefined>;
+    /**
+     * Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly backendHttpSettingsCollection!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayBackendHttpSettingsResponse[] | undefined>;
+    /**
+     * Custom error configurations of the application gateway resource.
+     */
+    public readonly customErrorConfigurations!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayCustomErrorResponse[] | undefined>;
+    /**
+     * Whether FIPS is enabled on the application gateway resource.
+     */
+    public readonly enableFips!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether HTTP2 is enabled on the application gateway resource.
+     */
+    public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Reference of the FirewallPolicy resource.
+     */
+    public readonly firewallPolicy!: pulumi.Output<outputs.network.v20181201.SubResourceResponse | undefined>;
+    /**
+     * Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly frontendIPConfigurations!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayFrontendIPConfigurationResponse[] | undefined>;
+    /**
+     * Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly frontendPorts!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayFrontendPortResponse[] | undefined>;
+    /**
+     * Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly gatewayIPConfigurations!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayIPConfigurationResponse[] | undefined>;
+    /**
+     * Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly httpListeners!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayHttpListenerResponse[] | undefined>;
     /**
      * The identity of the application gateway, if configured.
      */
@@ -53,17 +101,65 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the application gateway.
+     * Operational state of the application gateway resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayPropertiesFormatResponse>;
+    public /*out*/ readonly operationalState!: pulumi.Output<string>;
+    /**
+     * Probes of the application gateway resource.
+     */
+    public readonly probes!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayProbeResponse[] | undefined>;
+    /**
+     * Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly redirectConfigurations!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayRedirectConfigurationResponse[] | undefined>;
+    /**
+     * Request routing rules of the application gateway resource.
+     */
+    public readonly requestRoutingRules!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayRequestRoutingRuleResponse[] | undefined>;
+    /**
+     * Resource GUID property of the application gateway resource.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * Rewrite rules for the application gateway resource.
+     */
+    public readonly rewriteRuleSets!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayRewriteRuleSetResponse[] | undefined>;
+    /**
+     * SKU of the application gateway resource.
+     */
+    public readonly sku!: pulumi.Output<outputs.network.v20181201.ApplicationGatewaySkuResponse | undefined>;
+    /**
+     * SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly sslCertificates!: pulumi.Output<outputs.network.v20181201.ApplicationGatewaySslCertificateResponse[] | undefined>;
+    /**
+     * SSL policy of the application gateway resource.
+     */
+    public readonly sslPolicy!: pulumi.Output<outputs.network.v20181201.ApplicationGatewaySslPolicyResponse | undefined>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly trustedRootCertificates!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayTrustedRootCertificateResponse[] | undefined>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly urlPathMaps!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayUrlPathMapResponse[] | undefined>;
+    /**
+     * Web application firewall configuration.
+     */
+    public readonly webApplicationFirewallConfiguration!: pulumi.Output<outputs.network.v20181201.ApplicationGatewayWebApplicationFirewallConfigurationResponse | undefined>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
@@ -120,7 +216,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             inputs["webApplicationFirewallConfiguration"] = args ? args.webApplicationFirewallConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["operationalState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

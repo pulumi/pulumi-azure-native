@@ -25,14 +25,18 @@ type LookupConfigurationStoreArgs struct {
 
 // The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 type LookupConfigurationStoreResult struct {
+	// The creation date of configuration store.
+	CreationDate string `pulumi:"creationDate"`
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint string `pulumi:"endpoint"`
 	// The managed identity information, if configured.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of a configuration store.
-	Properties ConfigurationStorePropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the configuration store.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku of the configuration store.
 	Sku SkuResponse `pulumi:"sku"`
 	// The tags of the resource.

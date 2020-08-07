@@ -14,14 +14,28 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
+	// List of activities in pipeline.
+	Activities ActivityResponseArrayOutput `pulumi:"activities"`
+	// List of tags that can be used for describing the Pipeline.
+	Annotations pulumi.MapArrayOutput `pulumi:"annotations"`
+	// The max number of concurrent runs for the pipeline.
+	Concurrency pulumi.IntPtrOutput `pulumi:"concurrency"`
+	// The description of the pipeline.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Etag identifies change in the resource.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+	Folder PipelineResponseFolderPtrOutput `pulumi:"folder"`
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the pipeline.
-	Properties PipelineResponseOutput `pulumi:"properties"`
+	// List of parameters for pipeline.
+	Parameters ParameterSpecificationResponseMapOutput `pulumi:"parameters"`
+	// Dimensions emitted by Pipeline.
+	RunDimensions pulumi.MapMapOutput `pulumi:"runDimensions"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// List of variables for pipeline.
+	Variables VariableSpecificationResponseMapOutput `pulumi:"variables"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -61,25 +75,53 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
+	// List of activities in pipeline.
+	Activities []ActivityResponse `pulumi:"activities"`
+	// List of tags that can be used for describing the Pipeline.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The max number of concurrent runs for the pipeline.
+	Concurrency *int `pulumi:"concurrency"`
+	// The description of the pipeline.
+	Description *string `pulumi:"description"`
 	// Etag identifies change in the resource.
 	Etag *string `pulumi:"etag"`
+	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+	Folder *PipelineResponseFolder `pulumi:"folder"`
 	// The resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the pipeline.
-	Properties *PipelineResponse `pulumi:"properties"`
+	// List of parameters for pipeline.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Dimensions emitted by Pipeline.
+	RunDimensions map[string]map[string]interface{} `pulumi:"runDimensions"`
 	// The resource type.
 	Type *string `pulumi:"type"`
+	// List of variables for pipeline.
+	Variables map[string]VariableSpecificationResponse `pulumi:"variables"`
 }
 
 type PipelineState struct {
+	// List of activities in pipeline.
+	Activities ActivityResponseArrayInput
+	// List of tags that can be used for describing the Pipeline.
+	Annotations pulumi.MapArrayInput
+	// The max number of concurrent runs for the pipeline.
+	Concurrency pulumi.IntPtrInput
+	// The description of the pipeline.
+	Description pulumi.StringPtrInput
 	// Etag identifies change in the resource.
 	Etag pulumi.StringPtrInput
+	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+	Folder PipelineResponseFolderPtrInput
 	// The resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the pipeline.
-	Properties PipelineResponsePtrInput
+	// List of parameters for pipeline.
+	Parameters ParameterSpecificationResponseMapInput
+	// Dimensions emitted by Pipeline.
+	RunDimensions pulumi.MapMapInput
 	// The resource type.
 	Type pulumi.StringPtrInput
+	// List of variables for pipeline.
+	Variables VariableSpecificationResponseMapInput
 }
 
 func (PipelineState) ElementType() reflect.Type {

@@ -37,6 +37,22 @@ export class VolumeContainer extends pulumi.CustomResource {
     }
 
     /**
+     * The bandwidth-rate set on the volume container.
+     */
+    public readonly bandWidthRateInMbps!: pulumi.Output<number | undefined>;
+    /**
+     * The ID of the bandwidth setting associated with the volume container.
+     */
+    public readonly bandwidthSettingId!: pulumi.Output<string | undefined>;
+    /**
+     * The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+     */
+    public readonly encryptionKey!: pulumi.Output<outputs.storsimple.v20170601.AsymmetricEncryptedSecretResponse | undefined>;
+    /**
+     * The flag to denote whether encryption is enabled or not.
+     */
+    public /*out*/ readonly encryptionStatus!: pulumi.Output<string>;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,13 +61,25 @@ export class VolumeContainer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The volume container properties.
+     * The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.VolumeContainerPropertiesResponse>;
+    public /*out*/ readonly ownerShipStatus!: pulumi.Output<string>;
+    /**
+     * The path ID of storage account associated with the volume container.
+     */
+    public readonly storageAccountCredentialId!: pulumi.Output<string>;
+    /**
+     * The total cloud storage for the volume container.
+     */
+    public /*out*/ readonly totalCloudStorageUsageInBytes!: pulumi.Output<number>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The number of volumes in the volume Container.
+     */
+    public /*out*/ readonly volumeCount!: pulumi.Output<number>;
 
     /**
      * Create a VolumeContainer resource with the given unique name, arguments, and options.
@@ -90,8 +118,11 @@ export class VolumeContainer extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["encryptionStatus"] = undefined /*out*/;
+            inputs["ownerShipStatus"] = undefined /*out*/;
+            inputs["totalCloudStorageUsageInBytes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["volumeCount"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

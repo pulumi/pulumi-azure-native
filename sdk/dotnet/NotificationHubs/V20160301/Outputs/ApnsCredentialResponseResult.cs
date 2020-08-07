@@ -14,14 +14,36 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301.Outputs
     public sealed class ApnsCredentialResponseResult
     {
         /// <summary>
-        /// Properties of NotificationHub ApnsCredential.
+        /// The APNS certificate.
         /// </summary>
-        public readonly Outputs.ApnsCredentialPropertiesResponseResult? Properties;
+        public readonly string? ApnsCertificate;
+        /// <summary>
+        /// The certificate key.
+        /// </summary>
+        public readonly string? CertificateKey;
+        /// <summary>
+        /// The endpoint of this credential.
+        /// </summary>
+        public readonly string? Endpoint;
+        /// <summary>
+        /// The APNS certificate Thumbprint
+        /// </summary>
+        public readonly string? Thumbprint;
 
         [OutputConstructor]
-        private ApnsCredentialResponseResult(Outputs.ApnsCredentialPropertiesResponseResult? properties)
+        private ApnsCredentialResponseResult(
+            string? apnsCertificate,
+
+            string? certificateKey,
+
+            string? endpoint,
+
+            string? thumbprint)
         {
-            Properties = properties;
+            ApnsCertificate = apnsCertificate;
+            CertificateKey = certificateKey;
+            Endpoint = endpoint;
+            Thumbprint = thumbprint;
         }
     }
 }

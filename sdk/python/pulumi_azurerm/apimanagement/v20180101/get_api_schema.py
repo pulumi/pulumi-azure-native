@@ -13,24 +13,30 @@ class GetApiSchemaResult:
     """
     Schema Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, content_type=None, name=None, type=None, value=None):
+        if content_type and not isinstance(content_type, str):
+            raise TypeError("Expected argument 'content_type' to be a str")
+        __self__.content_type = content_type
+        """
+        Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Properties of the Schema.
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        __self__.value = value
+        """
+        Json escaped string defining the document representing the Schema.
         """
 
 
@@ -40,9 +46,10 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
         if False:
             yield self
         return GetApiSchemaResult(
+            content_type=self.content_type,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            value=self.value)
 
 
 def get_api_schema(api_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
@@ -66,6 +73,7 @@ def get_api_schema(api_id=None, name=None, resource_group_name=None, service_nam
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getApiSchema', __args__, opts=opts).value
 
     return AwaitableGetApiSchemaResult(
+        content_type=__ret__.get('contentType'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        value=__ret__.get('value'))

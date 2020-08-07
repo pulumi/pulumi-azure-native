@@ -29,10 +29,16 @@ type LookupContainerArgs struct {
 
 // Represents a container on the  Data Box Edge/Gateway device.
 type LookupContainerResult struct {
+	// Current status of the container.
+	ContainerStatus string `pulumi:"containerStatus"`
+	// The UTC time when container got created.
+	CreatedDateTime string `pulumi:"createdDateTime"`
+	// DataFormat for Container
+	DataFormat string `pulumi:"dataFormat"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// The container properties.
-	Properties ContainerPropertiesResponse `pulumi:"properties"`
+	// Details of the refresh job on this container.
+	RefreshDetails RefreshDetailsResponse `pulumi:"refreshDetails"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

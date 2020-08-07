@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class AppServicePlanRouteForVnet(pulumi.CustomResource):
+    end_address: pulumi.Output[str]
+    """
+    The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,17 +22,18 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    route_type: pulumi.Output[str]
     """
-    VnetRoute resource specific properties
-      * `end_address` (`str`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-      * `route_type` (`str`) - The type of route this is:
-        DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-        INHERITED - Routes inherited from the real Virtual Network routes
-        STATIC - Static route set on the app only
-        
-        These values will be used for syncing an app's routes with those from a Virtual Network.
-      * `start_address` (`str`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+    The type of route this is:
+    DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+    INHERITED - Routes inherited from the real Virtual Network routes
+    STATIC - Static route set on the app only
+
+    These values will be used for syncing an app's routes with those from a Virtual Network.
+    """
+    start_address: pulumi.Output[str]
+    """
+    The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
     """
     type: pulumi.Output[str]
     """
@@ -83,7 +88,6 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
             if vnet_name is None:
                 raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(AppServicePlanRouteForVnet, __self__).__init__(
             'azurerm:web/v20190801:AppServicePlanRouteForVnet',

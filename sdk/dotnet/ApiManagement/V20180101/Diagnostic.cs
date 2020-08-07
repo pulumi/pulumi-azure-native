@@ -15,16 +15,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public partial class Diagnostic : Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates whether a diagnostic should receive data or not.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Diagnostic entity contract properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DiagnosticContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

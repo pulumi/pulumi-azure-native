@@ -37,14 +37,73 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure ASN.
+     */
+    public /*out*/ readonly azureASN!: pulumi.Output<number>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The GatewayManager Etag.
+     */
+    public readonly gatewayManagerEtag!: pulumi.Output<string | undefined>;
+    /**
+     * The IPv6 peering configuration.
+     */
+    public readonly ipv6PeeringConfig!: pulumi.Output<outputs.network.v20180801.Ipv6ExpressRouteCircuitPeeringConfigResponse | undefined>;
+    /**
+     * Gets whether the provider or the customer last modified the peering.
+     */
+    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
+    /**
+     * The Microsoft peering configuration.
+     */
+    public readonly microsoftPeeringConfig!: pulumi.Output<outputs.network.v20180801.ExpressRouteCircuitPeeringConfigResponse | undefined>;
+    /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180801.ExpressRouteCrossConnectionPeeringPropertiesResponse>;
+    /**
+     * The peer ASN.
+     */
+    public readonly peerASN!: pulumi.Output<number | undefined>;
+    /**
+     * The peering type.
+     */
+    public readonly peeringType!: pulumi.Output<string | undefined>;
+    /**
+     * The primary port.
+     */
+    public /*out*/ readonly primaryAzurePort!: pulumi.Output<string>;
+    /**
+     * The primary address prefix.
+     */
+    public readonly primaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The secondary port.
+     */
+    public /*out*/ readonly secondaryAzurePort!: pulumi.Output<string>;
+    /**
+     * The secondary address prefix.
+     */
+    public readonly secondaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The shared key.
+     */
+    public readonly sharedKey!: pulumi.Output<string | undefined>;
+    /**
+     * The peering state.
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * The VLAN ID.
+     */
+    public readonly vlanId!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ExpressRouteCrossConnectionPeering resource with the given unique name, arguments, and options.
@@ -83,8 +142,11 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
             inputs["sharedKey"] = args ? args.sharedKey : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["vlanId"] = args ? args.vlanId : undefined;
+            inputs["azureASN"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["primaryAzurePort"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["secondaryAzurePort"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

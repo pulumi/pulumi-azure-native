@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class SecurityRule(pulumi.CustomResource):
+    access: pulumi.Output[str]
+    """
+    Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets a description for this rule. Restricted to 140 chars.
+    """
+    destination_address_prefix: pulumi.Output[str]
+    """
+    Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. 
+    """
+    destination_port_range: pulumi.Output[str]
+    """
+    Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+    """
+    direction: pulumi.Output[str]
+    """
+    Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated
@@ -18,7 +38,26 @@ class SecurityRule(pulumi.CustomResource):
     """
     Gets name of the resource that is unique within a resource group. This name can be used to access the resource
     """
-    properties: pulumi.Output[dict]
+    priority: pulumi.Output[float]
+    """
+    Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+    """
+    protocol: pulumi.Output[str]
+    """
+    Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+    """
+    source_address_prefix: pulumi.Output[str]
+    """
+    Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+    """
+    source_port_range: pulumi.Output[str]
+    """
+    Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+    """
     def __init__(__self__, resource_name, opts=None, access=None, description=None, destination_address_prefix=None, destination_port_range=None, direction=None, etag=None, id=None, name=None, network_security_group_name=None, priority=None, protocol=None, provisioning_state=None, resource_group_name=None, source_address_prefix=None, source_port_range=None, __props__=None, __name__=None, __opts__=None):
         """
         Network security rule
@@ -89,7 +128,6 @@ class SecurityRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_address_prefix'")
             __props__['source_address_prefix'] = source_address_prefix
             __props__['source_port_range'] = source_port_range
-            __props__['properties'] = None
         super(SecurityRule, __self__).__init__(
             'azurerm:network/v20160601:SecurityRule',
             resource_name,

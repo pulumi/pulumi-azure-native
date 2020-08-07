@@ -46,6 +46,26 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetSiteHostNameBindingSlotResult
     {
         /// <summary>
+        /// Azure resource name
+        /// </summary>
+        public readonly string? AzureResourceName;
+        /// <summary>
+        /// Azure resource type
+        /// </summary>
+        public readonly string? AzureResourceType;
+        /// <summary>
+        /// Custom DNS record type
+        /// </summary>
+        public readonly string? CustomHostNameDnsRecordType;
+        /// <summary>
+        /// Fully qualified ARM domain resource URI
+        /// </summary>
+        public readonly string? DomainId;
+        /// <summary>
+        /// Host name type
+        /// </summary>
+        public readonly string? HostNameType;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -57,7 +77,10 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.HostNameBindingResponsePropertiesResult Properties;
+        /// <summary>
+        /// Web app name
+        /// </summary>
+        public readonly string? SiteName;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -69,22 +92,37 @@ namespace Pulumi.AzureRM.Web.V20150801
 
         [OutputConstructor]
         private GetSiteHostNameBindingSlotResult(
+            string? azureResourceName,
+
+            string? azureResourceType,
+
+            string? customHostNameDnsRecordType,
+
+            string? domainId,
+
+            string? hostNameType,
+
             string? kind,
 
             string location,
 
             string? name,
 
-            Outputs.HostNameBindingResponsePropertiesResult properties,
+            string? siteName,
 
             ImmutableDictionary<string, string>? tags,
 
             string? type)
         {
+            AzureResourceName = azureResourceName;
+            AzureResourceType = azureResourceType;
+            CustomHostNameDnsRecordType = customHostNameDnsRecordType;
+            DomainId = domainId;
+            HostNameType = hostNameType;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            SiteName = siteName;
             Tags = tags;
             Type = type;
         }

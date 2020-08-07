@@ -14,14 +14,32 @@ import (
 type Bookmark struct {
 	pulumi.CustomResourceState
 
+	// The time the bookmark was created
+	Created pulumi.StringPtrOutput `pulumi:"created"`
+	// Describes a user that created the bookmark
+	CreatedBy UserInfoResponsePtrOutput `pulumi:"createdBy"`
+	// The display name of the bookmark
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Describes an incident that relates to bookmark
+	IncidentInfo IncidentInfoResponsePtrOutput `pulumi:"incidentInfo"`
+	// List of labels relevant to this bookmark
+	Labels pulumi.StringArrayOutput `pulumi:"labels"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Bookmark properties
-	Properties BookmarkPropertiesResponseOutput `pulumi:"properties"`
+	// The notes of the bookmark
+	Notes pulumi.StringPtrOutput `pulumi:"notes"`
+	// The query of the bookmark.
+	Query pulumi.StringOutput `pulumi:"query"`
+	// The query result of the bookmark.
+	QueryResult pulumi.StringPtrOutput `pulumi:"queryResult"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The last time the bookmark was updated
+	Updated pulumi.StringPtrOutput `pulumi:"updated"`
+	// Describes a user that updated the bookmark
+	UpdatedBy UserInfoResponsePtrOutput `pulumi:"updatedBy"`
 }
 
 // NewBookmark registers a new resource with the given unique name, arguments, and options.
@@ -67,25 +85,61 @@ func GetBookmark(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bookmark resources.
 type bookmarkState struct {
+	// The time the bookmark was created
+	Created *string `pulumi:"created"`
+	// Describes a user that created the bookmark
+	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	// The display name of the bookmark
+	DisplayName *string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Describes an incident that relates to bookmark
+	IncidentInfo *IncidentInfoResponse `pulumi:"incidentInfo"`
+	// List of labels relevant to this bookmark
+	Labels []string `pulumi:"labels"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// Bookmark properties
-	Properties *BookmarkPropertiesResponse `pulumi:"properties"`
+	// The notes of the bookmark
+	Notes *string `pulumi:"notes"`
+	// The query of the bookmark.
+	Query *string `pulumi:"query"`
+	// The query result of the bookmark.
+	QueryResult *string `pulumi:"queryResult"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
+	// The last time the bookmark was updated
+	Updated *string `pulumi:"updated"`
+	// Describes a user that updated the bookmark
+	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
 }
 
 type BookmarkState struct {
+	// The time the bookmark was created
+	Created pulumi.StringPtrInput
+	// Describes a user that created the bookmark
+	CreatedBy UserInfoResponsePtrInput
+	// The display name of the bookmark
+	DisplayName pulumi.StringPtrInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
+	// Describes an incident that relates to bookmark
+	IncidentInfo IncidentInfoResponsePtrInput
+	// List of labels relevant to this bookmark
+	Labels pulumi.StringArrayInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// Bookmark properties
-	Properties BookmarkPropertiesResponsePtrInput
+	// The notes of the bookmark
+	Notes pulumi.StringPtrInput
+	// The query of the bookmark.
+	Query pulumi.StringPtrInput
+	// The query result of the bookmark.
+	QueryResult pulumi.StringPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
+	// The last time the bookmark was updated
+	Updated pulumi.StringPtrInput
+	// Describes a user that updated the bookmark
+	UpdatedBy UserInfoResponsePtrInput
 }
 
 func (BookmarkState) ElementType() reflect.Type {

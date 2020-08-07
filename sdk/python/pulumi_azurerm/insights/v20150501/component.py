@@ -10,6 +10,76 @@ from ... import _utilities, _tables
 
 
 class Component(pulumi.CustomResource):
+    app_id: pulumi.Output[str]
+    """
+    Application Insights Unique ID for your Application.
+    """
+    application_id: pulumi.Output[str]
+    """
+    The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
+    """
+    application__type: pulumi.Output[str]
+    """
+    Type of application being monitored.
+    """
+    connection_string: pulumi.Output[str]
+    """
+    Application Insights component connection string.
+    """
+    creation_date: pulumi.Output[str]
+    """
+    Creation Date for the Application Insights component, in ISO 8601 format.
+    """
+    disable_ip_masking: pulumi.Output[bool]
+    """
+    Disable IP masking.
+    """
+    flow__type: pulumi.Output[str]
+    """
+    Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+    """
+    hockey_app_id: pulumi.Output[str]
+    """
+    The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+    """
+    hockey_app_token: pulumi.Output[str]
+    """
+    Token used to authenticate communications with between Application Insights and HockeyApp.
+    """
+    immediate_purge_data_on30_days: pulumi.Output[bool]
+    """
+    Purge data immediately after 30 days.
+    """
+    ingestion_mode: pulumi.Output[str]
+    """
+    Indicates the flow of the ingestion.
+    """
+    instrumentation_key: pulumi.Output[str]
+    """
+    Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
+    """
+    private_link_scoped_resources: pulumi.Output[list]
+    """
+    List of linked private link scope resources.
+      * `resource_id` (`str`) - The full resource Id of the private link scope resource.
+      * `scope_id` (`str`) - The private link scope unique Identifier.
+    """
+    request__source: pulumi.Output[str]
+    """
+    Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+    """
+    retention_in_days: pulumi.Output[float]
+    """
+    Retention period in days.
+    """
+    sampling_percentage: pulumi.Output[float]
+    """
+    Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    Azure Tenant Id.
+    """
     kind: pulumi.Output[str]
     """
     The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
@@ -22,30 +92,9 @@ class Component(pulumi.CustomResource):
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties that define an Application Insights component resource.
-      * `app_id` (`str`) - Application Insights Unique ID for your Application.
-      * `application_id` (`str`) - The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
-      * `application__type` (`str`) - Type of application being monitored.
-      * `connection_string` (`str`) - Application Insights component connection string.
-      * `creation_date` (`str`) - Creation Date for the Application Insights component, in ISO 8601 format.
-      * `disable_ip_masking` (`bool`) - Disable IP masking.
-      * `flow__type` (`str`) - Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-      * `hockey_app_id` (`str`) - The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
-      * `hockey_app_token` (`str`) - Token used to authenticate communications with between Application Insights and HockeyApp.
-      * `immediate_purge_data_on30_days` (`bool`) - Purge data immediately after 30 days.
-      * `ingestion_mode` (`str`) - Indicates the flow of the ingestion.
-      * `instrumentation_key` (`str`) - Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
-      * `private_link_scoped_resources` (`list`) - List of linked private link scope resources.
-        * `resource_id` (`str`) - The full resource Id of the private link scope resource.
-        * `scope_id` (`str`) - The private link scope unique Identifier.
-
-      * `request__source` (`str`) - Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-      * `retention_in_days` (`float`) - Retention period in days.
-      * `sampling_percentage` (`float`) - Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-      * `tenant_id` (`str`) - Azure Tenant Id.
-      * `provisioning_state` (`str`) - Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+    Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
     """
     tags: pulumi.Output[dict]
     """
@@ -117,7 +166,15 @@ class Component(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['app_id'] = None
+            __props__['application_id'] = None
+            __props__['connection_string'] = None
+            __props__['creation_date'] = None
+            __props__['hockey_app_token'] = None
+            __props__['instrumentation_key'] = None
+            __props__['private_link_scoped_resources'] = None
+            __props__['tenant_id'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Component, __self__).__init__(
             'azurerm:insights/v20150501:Component',

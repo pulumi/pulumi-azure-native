@@ -36,6 +36,18 @@ export interface GetPolicyAssignmentArgs {
  */
 export interface GetPolicyAssignmentResult {
     /**
+     * This message will be part of response in case of policy violation.
+     */
+    readonly description?: string;
+    /**
+     * The display name of the policy assignment.
+     */
+    readonly displayName?: string;
+    /**
+     * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+     */
+    readonly enforcementMode?: string;
+    /**
      * The managed identity associated with the policy assignment.
      */
     readonly identity?: outputs.authorization.v20190901.IdentityResponse;
@@ -44,13 +56,29 @@ export interface GetPolicyAssignmentResult {
      */
     readonly location?: string;
     /**
+     * The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+     */
+    readonly metadata?: {[key: string]: any};
+    /**
      * The name of the policy assignment.
      */
     readonly name: string;
     /**
-     * Properties for the policy assignment.
+     * The policy's excluded scopes.
      */
-    readonly properties: outputs.authorization.v20190901.PolicyAssignmentPropertiesResponse;
+    readonly notScopes?: string[];
+    /**
+     * The parameter values for the assigned policy rule. The keys are the parameter names.
+     */
+    readonly parameters?: {[key: string]: outputs.authorization.v20190901.ParameterValuesValueResponse};
+    /**
+     * The ID of the policy definition or policy set definition being assigned.
+     */
+    readonly policyDefinitionId?: string;
+    /**
+     * The scope for the policy assignment.
+     */
+    readonly scope?: string;
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */

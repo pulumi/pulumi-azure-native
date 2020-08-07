@@ -41,19 +41,67 @@ export interface GetFileShareArgs {
  */
 export interface GetFileShareResult {
     /**
+     * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+     */
+    readonly accessTier?: string;
+    /**
+     * Indicates the last modification time for share access tier.
+     */
+    readonly accessTierChangeTime: string;
+    /**
+     * Indicates if there is a pending transition for access tier.
+     */
+    readonly accessTierStatus: string;
+    /**
+     * Indicates whether the share was deleted.
+     */
+    readonly deleted: boolean;
+    /**
+     * The deleted time if the share was deleted.
+     */
+    readonly deletedTime: string;
+    /**
+     * The authentication protocol that is used for the file share. Can only be specified when creating a share.
+     */
+    readonly enabledProtocols?: string;
+    /**
      * Resource Etag.
      */
     readonly etag: string;
+    /**
+     * Returns the date and time the share was last modified.
+     */
+    readonly lastModifiedTime: string;
+    /**
+     * A name-value pair to associate with the share as metadata.
+     */
+    readonly metadata?: {[key: string]: string};
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Properties of the file share.
+     * Remaining retention days for share that was soft deleted.
      */
-    readonly properties: outputs.storage.v20190601.FileSharePropertiesResponse;
+    readonly remainingRetentionDays: number;
+    /**
+     * The property is for NFS share only. The default is NoRootSquash.
+     */
+    readonly rootSquash?: string;
+    /**
+     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+     */
+    readonly shareQuota?: number;
+    /**
+     * The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
+     */
+    readonly shareUsageBytes: number;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * The version of the share.
+     */
+    readonly version: string;
 }

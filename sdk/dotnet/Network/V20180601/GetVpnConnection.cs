@@ -46,29 +46,92 @@ namespace Pulumi.AzureRM.Network.V20180601
     public sealed class GetVpnConnectionResult
     {
         /// <summary>
+        /// Expected bandwidth in MBPS.
+        /// </summary>
+        public readonly int ConnectionBandwidthInMbps;
+        /// <summary>
+        /// The connection status.
+        /// </summary>
+        public readonly string? ConnectionStatus;
+        /// <summary>
+        /// Egress bytes transferred.
+        /// </summary>
+        public readonly int EgressBytesTransferred;
+        /// <summary>
+        /// EnableBgp flag
+        /// </summary>
+        public readonly bool? EnableBgp;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Ingress bytes transferred.
+        /// </summary>
+        public readonly int IngressBytesTransferred;
+        /// <summary>
+        /// The IPSec Policies to be considered by this connection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpsecPolicyResponseResult> IpsecPolicies;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Parameters for VpnConnection
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.VpnConnectionPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Id of the connected vpn site.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RemoteVpnSite;
+        /// <summary>
+        /// routing weight for vpn connection.
+        /// </summary>
+        public readonly int? RoutingWeight;
+        /// <summary>
+        /// SharedKey for the vpn connection.
+        /// </summary>
+        public readonly string? SharedKey;
 
         [OutputConstructor]
         private GetVpnConnectionResult(
+            int connectionBandwidthInMbps,
+
+            string? connectionStatus,
+
+            int egressBytesTransferred,
+
+            bool? enableBgp,
+
             string etag,
+
+            int ingressBytesTransferred,
+
+            ImmutableArray<Outputs.IpsecPolicyResponseResult> ipsecPolicies,
 
             string? name,
 
-            Outputs.VpnConnectionPropertiesResponseResult properties)
+            string? provisioningState,
+
+            Outputs.SubResourceResponseResult? remoteVpnSite,
+
+            int? routingWeight,
+
+            string? sharedKey)
         {
+            ConnectionBandwidthInMbps = connectionBandwidthInMbps;
+            ConnectionStatus = connectionStatus;
+            EgressBytesTransferred = egressBytesTransferred;
+            EnableBgp = enableBgp;
             Etag = etag;
+            IngressBytesTransferred = ingressBytesTransferred;
+            IpsecPolicies = ipsecPolicies;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RemoteVpnSite = remoteVpnSite;
+            RoutingWeight = routingWeight;
+            SharedKey = sharedKey;
         }
     }
 }

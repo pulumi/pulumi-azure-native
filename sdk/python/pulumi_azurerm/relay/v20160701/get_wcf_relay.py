@@ -13,24 +13,66 @@ class GetWCFRelayResult:
     """
     Description of WcfRelays Resource.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, created_at=None, is_dynamic=None, listener_count=None, name=None, relay_type=None, requires_client_authorization=None, requires_transport_security=None, type=None, updated_at=None, user_metadata=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        The time the WCFRelay was created.
+        """
+        if is_dynamic and not isinstance(is_dynamic, bool):
+            raise TypeError("Expected argument 'is_dynamic' to be a bool")
+        __self__.is_dynamic = is_dynamic
+        """
+        true if the relay is dynamic; otherwise, false.
+        """
+        if listener_count and not isinstance(listener_count, float):
+            raise TypeError("Expected argument 'listener_count' to be a float")
+        __self__.listener_count = listener_count
+        """
+        The number of listeners for this relay. min : 1 and max:25 supported
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if relay_type and not isinstance(relay_type, str):
+            raise TypeError("Expected argument 'relay_type' to be a str")
+        __self__.relay_type = relay_type
         """
-        Properties of WcfRelay
+        WCFRelay Type.
+        """
+        if requires_client_authorization and not isinstance(requires_client_authorization, bool):
+            raise TypeError("Expected argument 'requires_client_authorization' to be a bool")
+        __self__.requires_client_authorization = requires_client_authorization
+        """
+        true if client authorization is needed for this relay; otherwise, false.
+        """
+        if requires_transport_security and not isinstance(requires_transport_security, bool):
+            raise TypeError("Expected argument 'requires_transport_security' to be a bool")
+        __self__.requires_transport_security = requires_transport_security
+        """
+        true if transport security is needed for this relay; otherwise, false.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The time the namespace was updated.
+        """
+        if user_metadata and not isinstance(user_metadata, str):
+            raise TypeError("Expected argument 'user_metadata' to be a str")
+        __self__.user_metadata = user_metadata
+        """
+        usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
 
 
@@ -40,9 +82,16 @@ class AwaitableGetWCFRelayResult(GetWCFRelayResult):
         if False:
             yield self
         return GetWCFRelayResult(
+            created_at=self.created_at,
+            is_dynamic=self.is_dynamic,
+            listener_count=self.listener_count,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            relay_type=self.relay_type,
+            requires_client_authorization=self.requires_client_authorization,
+            requires_transport_security=self.requires_transport_security,
+            type=self.type,
+            updated_at=self.updated_at,
+            user_metadata=self.user_metadata)
 
 
 def get_wcf_relay(name=None, namespace_name=None, resource_group_name=None, opts=None):
@@ -64,6 +113,13 @@ def get_wcf_relay(name=None, namespace_name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:relay/v20160701:getWCFRelay', __args__, opts=opts).value
 
     return AwaitableGetWCFRelayResult(
+        created_at=__ret__.get('createdAt'),
+        is_dynamic=__ret__.get('isDynamic'),
+        listener_count=__ret__.get('listenerCount'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        relay_type=__ret__.get('relayType'),
+        requires_client_authorization=__ret__.get('requiresClientAuthorization'),
+        requires_transport_security=__ret__.get('requiresTransportSecurity'),
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'),
+        user_metadata=__ret__.get('userMetadata'))

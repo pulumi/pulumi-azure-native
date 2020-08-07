@@ -37,9 +37,17 @@ export class VirtualHub extends pulumi.CustomResource {
     }
 
     /**
+     * Address-prefix for this VirtualHub.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * list of all vnet connections with this VirtualHub.
+     */
+    public readonly hubVirtualNetworkConnections!: pulumi.Output<outputs.network.v20180401.HubVirtualNetworkConnectionResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +57,9 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for VirtualHub
+     * The provisioning state of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180401.VirtualHubPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +68,10 @@ export class VirtualHub extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The VirtualWAN to which the VirtualHub belongs
+     */
+    public readonly virtualWan!: pulumi.Output<outputs.network.v20180401.SubResourceResponse | undefined>;
 
     /**
      * Create a VirtualHub resource with the given unique name, arguments, and options.
@@ -93,7 +105,6 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualWan"] = args ? args.virtualWan : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

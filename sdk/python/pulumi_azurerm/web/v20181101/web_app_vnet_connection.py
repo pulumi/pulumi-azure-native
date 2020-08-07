@@ -10,6 +10,23 @@ from ... import _utilities, _tables
 
 
 class WebAppVnetConnection(pulumi.CustomResource):
+    cert_blob: pulumi.Output[str]
+    """
+    A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+    Point-To-Site VPN connection.
+    """
+    cert_thumbprint: pulumi.Output[str]
+    """
+    The client certificate thumbprint.
+    """
+    dns_servers: pulumi.Output[str]
+    """
+    DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+    """
+    is_swift: pulumi.Output[bool]
+    """
+    Flag that is used to denote if this is VNET injection
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,36 +35,33 @@ class WebAppVnetConnection(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    resync_required: pulumi.Output[bool]
     """
-    VnetInfo resource specific properties
-      * `cert_blob` (`str`) - A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-        Point-To-Site VPN connection.
-      * `cert_thumbprint` (`str`) - The client certificate thumbprint.
-      * `dns_servers` (`str`) - DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-      * `is_swift` (`bool`) - Flag that is used to denote if this is VNET injection
-      * `resync_required` (`bool`) - <code>true</code> if a resync is required; otherwise, <code>false</code>.
-      * `routes` (`list`) - The routes that this Virtual Network connection uses.
-        * `id` (`str`) - Resource Id.
-        * `kind` (`str`) - Kind of resource.
-        * `name` (`str`) - Resource Name.
-        * `properties` (`dict`) - VnetRoute resource specific properties
-          * `end_address` (`str`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-          * `route_type` (`str`) - The type of route this is:
-            DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-            INHERITED - Routes inherited from the real Virtual Network routes
-            STATIC - Static route set on the app only
-            
-            These values will be used for syncing an app's routes with those from a Virtual Network.
-          * `start_address` (`str`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-
-        * `type` (`str`) - Resource type.
-
-      * `vnet_resource_id` (`str`) - The Virtual Network's resource ID.
+    <code>true</code> if a resync is required; otherwise, <code>false</code>.
+    """
+    routes: pulumi.Output[list]
+    """
+    The routes that this Virtual Network connection uses.
+      * `end_address` (`str`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+      * `id` (`str`) - Resource Id.
+      * `kind` (`str`) - Kind of resource.
+      * `name` (`str`) - Resource Name.
+      * `route_type` (`str`) - The type of route this is:
+        DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+        INHERITED - Routes inherited from the real Virtual Network routes
+        STATIC - Static route set on the app only
+        
+        These values will be used for syncing an app's routes with those from a Virtual Network.
+      * `start_address` (`str`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+      * `type` (`str`) - Resource type.
     """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    vnet_resource_id: pulumi.Output[str]
+    """
+    The Virtual Network's resource ID.
     """
     def __init__(__self__, resource_name, opts=None, cert_blob=None, dns_servers=None, is_swift=None, kind=None, name=None, resource_group_name=None, vnet_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -92,7 +106,9 @@ class WebAppVnetConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['vnet_resource_id'] = vnet_resource_id
-            __props__['properties'] = None
+            __props__['cert_thumbprint'] = None
+            __props__['resync_required'] = None
+            __props__['routes'] = None
             __props__['type'] = None
         super(WebAppVnetConnection, __self__).__init__(
             'azurerm:web/v20181101:WebAppVnetConnection',

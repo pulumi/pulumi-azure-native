@@ -13,12 +13,42 @@ class GetPipelineResult:
     """
     Pipeline resource type.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, activities=None, annotations=None, concurrency=None, description=None, etag=None, folder=None, name=None, parameters=None, run_dimensions=None, type=None, variables=None):
+        if activities and not isinstance(activities, list):
+            raise TypeError("Expected argument 'activities' to be a list")
+        __self__.activities = activities
+        """
+        List of activities in pipeline.
+        """
+        if annotations and not isinstance(annotations, list):
+            raise TypeError("Expected argument 'annotations' to be a list")
+        __self__.annotations = annotations
+        """
+        List of tags that can be used for describing the Pipeline.
+        """
+        if concurrency and not isinstance(concurrency, float):
+            raise TypeError("Expected argument 'concurrency' to be a float")
+        __self__.concurrency = concurrency
+        """
+        The max number of concurrent runs for the pipeline.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the pipeline.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Etag identifies change in the resource.
+        """
+        if folder and not isinstance(folder, dict):
+            raise TypeError("Expected argument 'folder' to be a dict")
+        __self__.folder = folder
+        """
+        The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +56,29 @@ class GetPipelineResult:
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
         """
-        Properties of the pipeline.
+        List of parameters for pipeline.
+        """
+        if run_dimensions and not isinstance(run_dimensions, dict):
+            raise TypeError("Expected argument 'run_dimensions' to be a dict")
+        __self__.run_dimensions = run_dimensions
+        """
+        Dimensions emitted by Pipeline.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The resource type.
+        """
+        if variables and not isinstance(variables, dict):
+            raise TypeError("Expected argument 'variables' to be a dict")
+        __self__.variables = variables
+        """
+        List of variables for pipeline.
         """
 
 
@@ -46,10 +88,17 @@ class AwaitableGetPipelineResult(GetPipelineResult):
         if False:
             yield self
         return GetPipelineResult(
+            activities=self.activities,
+            annotations=self.annotations,
+            concurrency=self.concurrency,
+            description=self.description,
             etag=self.etag,
+            folder=self.folder,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            parameters=self.parameters,
+            run_dimensions=self.run_dimensions,
+            type=self.type,
+            variables=self.variables)
 
 
 def get_pipeline(factory_name=None, name=None, resource_group_name=None, opts=None):
@@ -71,7 +120,14 @@ def get_pipeline(factory_name=None, name=None, resource_group_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:datafactory/v20180601:getPipeline', __args__, opts=opts).value
 
     return AwaitableGetPipelineResult(
+        activities=__ret__.get('activities'),
+        annotations=__ret__.get('annotations'),
+        concurrency=__ret__.get('concurrency'),
+        description=__ret__.get('description'),
         etag=__ret__.get('etag'),
+        folder=__ret__.get('folder'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        parameters=__ret__.get('parameters'),
+        run_dimensions=__ret__.get('runDimensions'),
+        type=__ret__.get('type'),
+        variables=__ret__.get('variables'))

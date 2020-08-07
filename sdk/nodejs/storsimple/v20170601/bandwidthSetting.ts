@@ -45,13 +45,17 @@ export class BandwidthSetting extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the bandwidth setting.
+     * The schedules.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.BandwidthRateSettingPropertiesResponse>;
+    public readonly schedules!: pulumi.Output<outputs.storsimple.v20170601.BandwidthScheduleResponse[]>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The number of volumes that uses the bandwidth setting.
+     */
+    public /*out*/ readonly volumeCount!: pulumi.Output<number>;
 
     /**
      * Create a BandwidthSetting resource with the given unique name, arguments, and options.
@@ -83,8 +87,8 @@ export class BandwidthSetting extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["schedules"] = args ? args.schedules : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["volumeCount"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

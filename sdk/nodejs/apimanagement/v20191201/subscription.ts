@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,61 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /**
+     * Determines whether tracing is enabled
+     */
+    public readonly allowTracing!: pulumi.Output<boolean | undefined>;
+    /**
+     * Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The name of the subscription, or null if the subscription has no name.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+     */
+    public /*out*/ readonly endDate!: pulumi.Output<string | undefined>;
+    /**
+     * Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+     */
+    public /*out*/ readonly expirationDate!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Subscription contract properties.
+     * Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.SubscriptionContractPropertiesResponse>;
+    public /*out*/ readonly notificationDate!: pulumi.Output<string | undefined>;
+    /**
+     * The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
+     */
+    public readonly ownerId!: pulumi.Output<string | undefined>;
+    /**
+     * Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+     */
+    public readonly primaryKey!: pulumi.Output<string | undefined>;
+    /**
+     * Scope like /products/{productId} or /apis or /apis/{apiId}.
+     */
+    public readonly scope!: pulumi.Output<string>;
+    /**
+     * Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+     */
+    public readonly secondaryKey!: pulumi.Output<string | undefined>;
+    /**
+     * Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+     */
+    public /*out*/ readonly startDate!: pulumi.Output<string | undefined>;
+    /**
+     * Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+     */
+    public readonly state!: pulumi.Output<string>;
+    /**
+     * Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+     */
+    public /*out*/ readonly stateComment!: pulumi.Output<string | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -89,7 +135,12 @@ export class Subscription extends pulumi.CustomResource {
             inputs["secondaryKey"] = args ? args.secondaryKey : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["state"] = args ? args.state : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["endDate"] = undefined /*out*/;
+            inputs["expirationDate"] = undefined /*out*/;
+            inputs["notificationDate"] = undefined /*out*/;
+            inputs["startDate"] = undefined /*out*/;
+            inputs["stateComment"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

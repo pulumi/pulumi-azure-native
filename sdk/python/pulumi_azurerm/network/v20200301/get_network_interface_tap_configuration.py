@@ -13,7 +13,7 @@ class GetNetworkInterfaceTapConfigurationResult:
     """
     Tap configuration in a Network Interface.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, name=None, provisioning_state=None, type=None, virtual_network_tap=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,17 +26,23 @@ class GetNetworkInterfaceTapConfigurationResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the Virtual Network Tap configuration.
+        The provisioning state of the network interface tap configuration resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Sub Resource type.
+        """
+        if virtual_network_tap and not isinstance(virtual_network_tap, dict):
+            raise TypeError("Expected argument 'virtual_network_tap' to be a dict")
+        __self__.virtual_network_tap = virtual_network_tap
+        """
+        The reference to the Virtual Network Tap resource.
         """
 
 
@@ -48,8 +54,9 @@ class AwaitableGetNetworkInterfaceTapConfigurationResult(GetNetworkInterfaceTapC
         return GetNetworkInterfaceTapConfigurationResult(
             etag=self.etag,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provisioning_state=self.provisioning_state,
+            type=self.type,
+            virtual_network_tap=self.virtual_network_tap)
 
 
 def get_network_interface_tap_configuration(name=None, network_interface_name=None, resource_group_name=None, opts=None):
@@ -73,5 +80,6 @@ def get_network_interface_tap_configuration(name=None, network_interface_name=No
     return AwaitableGetNetworkInterfaceTapConfigurationResult(
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provisioning_state=__ret__.get('provisioningState'),
+        type=__ret__.get('type'),
+        virtual_network_tap=__ret__.get('virtualNetworkTap'))

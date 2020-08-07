@@ -13,12 +13,36 @@ class GetAutomationAccountResult:
     """
     Definition of the automation account type.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, etag=None, last_modified_by=None, last_modified_time=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets or sets the etag of the resource.
+        """
+        if last_modified_by and not isinstance(last_modified_by, str):
+            raise TypeError("Expected argument 'last_modified_by' to be a str")
+        __self__.last_modified_by = last_modified_by
+        """
+        Gets or sets the last modified by.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets the last modified time.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +56,17 @@ class GetAutomationAccountResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        __self__.sku = sku
         """
-        Gets or sets the automation account properties.
+        Gets or sets the SKU of account.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        Gets status of account.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +88,15 @@ class AwaitableGetAutomationAccountResult(GetAutomationAccountResult):
         if False:
             yield self
         return GetAutomationAccountResult(
+            creation_time=self.creation_time,
+            description=self.description,
             etag=self.etag,
+            last_modified_by=self.last_modified_by,
+            last_modified_time=self.last_modified_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            sku=self.sku,
+            state=self.state,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +118,14 @@ def get_automation_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getAutomationAccount', __args__, opts=opts).value
 
     return AwaitableGetAutomationAccountResult(
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
         etag=__ret__.get('etag'),
+        last_modified_by=__ret__.get('lastModifiedBy'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        sku=__ret__.get('sku'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

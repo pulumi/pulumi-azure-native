@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.ManagedIdentity.V20181130
     public sealed class GetUserAssignedIdentityResult
     {
         /// <summary>
+        /// The id of the app associated with the identity. This is a random generated UUID by MSI.
+        /// </summary>
+        public readonly string ClientId;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -48,13 +52,17 @@ namespace Pulumi.AzureRM.ManagedIdentity.V20181130
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the identity.
+        /// The id of the service principal object associated with the created identity.
         /// </summary>
-        public readonly Outputs.UserAssignedIdentityPropertiesResponseResult Properties;
+        public readonly string PrincipalId;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The id of the tenant which the identity belongs to.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -62,20 +70,26 @@ namespace Pulumi.AzureRM.ManagedIdentity.V20181130
 
         [OutputConstructor]
         private GetUserAssignedIdentityResult(
+            string clientId,
+
             string location,
 
             string name,
 
-            Outputs.UserAssignedIdentityPropertiesResponseResult properties,
+            string principalId,
 
             ImmutableDictionary<string, string>? tags,
 
+            string tenantId,
+
             string type)
         {
+            ClientId = clientId;
             Location = location;
             Name = name;
-            Properties = properties;
+            PrincipalId = principalId;
             Tags = tags;
+            TenantId = tenantId;
             Type = type;
         }
     }

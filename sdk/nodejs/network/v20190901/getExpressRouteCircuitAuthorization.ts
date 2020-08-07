@@ -41,6 +41,14 @@ export interface GetExpressRouteCircuitAuthorizationArgs {
  */
 export interface GetExpressRouteCircuitAuthorizationResult {
     /**
+     * The authorization key.
+     */
+    readonly authorizationKey?: string;
+    /**
+     * The authorization use status.
+     */
+    readonly authorizationUseStatus?: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -49,9 +57,9 @@ export interface GetExpressRouteCircuitAuthorizationResult {
      */
     readonly name?: string;
     /**
-     * Properties of the express route circuit authorization.
+     * The provisioning state of the authorization resource.
      */
-    readonly properties: outputs.network.v20190901.AuthorizationPropertiesFormatResponse;
+    readonly provisioningState: string;
     /**
      * Type of the resource.
      */

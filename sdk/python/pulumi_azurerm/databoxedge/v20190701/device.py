@@ -10,35 +10,69 @@ from ... import _utilities, _tables
 
 
 class Device(pulumi.CustomResource):
+    configured_role_types: pulumi.Output[list]
+    """
+    Type of compute roles configured.
+    """
+    culture: pulumi.Output[str]
+    """
+    The Data Box Edge/Gateway device culture.
+    """
+    data_box_edge_device_status: pulumi.Output[str]
+    """
+    The status of the Data Box Edge/Gateway device.
+    """
+    description: pulumi.Output[str]
+    """
+    The Description of the Data Box Edge/Gateway device.
+    """
+    device_hcs_version: pulumi.Output[str]
+    """
+    The device software version number of the device (eg: 1.2.18105.6).
+    """
+    device_local_capacity: pulumi.Output[float]
+    """
+    The Data Box Edge/Gateway device local capacity in MB.
+    """
+    device_model: pulumi.Output[str]
+    """
+    The Data Box Edge/Gateway device model.
+    """
+    device_software_version: pulumi.Output[str]
+    """
+    The Data Box Edge/Gateway device software version.
+    """
+    device_type: pulumi.Output[str]
+    """
+    The type of the Data Box Edge/Gateway device.
+    """
     etag: pulumi.Output[str]
     """
     The etag for the devices.
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    The Data Box Edge/Gateway device name.
     """
     location: pulumi.Output[str]
     """
     The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
     """
+    model_description: pulumi.Output[str]
+    """
+    The description of the Data Box Edge/Gateway device model.
+    """
     name: pulumi.Output[str]
     """
     The object name.
     """
-    properties: pulumi.Output[dict]
+    node_count: pulumi.Output[float]
     """
-    The properties of the Data Box Edge/Gateway device.
-      * `configured_role_types` (`list`) - Type of compute roles configured.
-      * `culture` (`str`) - The Data Box Edge/Gateway device culture.
-      * `data_box_edge_device_status` (`str`) - The status of the Data Box Edge/Gateway device.
-      * `description` (`str`) - The Description of the Data Box Edge/Gateway device.
-      * `device_hcs_version` (`str`) - The device software version number of the device (eg: 1.2.18105.6).
-      * `device_local_capacity` (`float`) - The Data Box Edge/Gateway device local capacity in MB.
-      * `device_model` (`str`) - The Data Box Edge/Gateway device model.
-      * `device_software_version` (`str`) - The Data Box Edge/Gateway device software version.
-      * `device_type` (`str`) - The type of the Data Box Edge/Gateway device.
-      * `friendly_name` (`str`) - The Data Box Edge/Gateway device name.
-      * `model_description` (`str`) - The description of the Data Box Edge/Gateway device model.
-      * `node_count` (`float`) - The number of nodes in the cluster.
-      * `serial_number` (`str`) - The Serial Number of Data Box Edge/Gateway device.
-      * `time_zone` (`str`) - The Data Box Edge/Gateway device timezone.
+    The number of nodes in the cluster.
+    """
+    serial_number: pulumi.Output[str]
+    """
+    The Serial Number of Data Box Edge/Gateway device.
     """
     sku: pulumi.Output[dict]
     """
@@ -49,6 +83,10 @@ class Device(pulumi.CustomResource):
     tags: pulumi.Output[dict]
     """
     The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
+    """
+    time_zone: pulumi.Output[str]
+    """
+    The Data Box Edge/Gateway device timezone.
     """
     type: pulumi.Output[str]
     """
@@ -109,7 +147,16 @@ class Device(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['configured_role_types'] = None
+            __props__['culture'] = None
+            __props__['device_hcs_version'] = None
+            __props__['device_local_capacity'] = None
+            __props__['device_model'] = None
+            __props__['device_software_version'] = None
+            __props__['device_type'] = None
+            __props__['node_count'] = None
+            __props__['serial_number'] = None
+            __props__['time_zone'] = None
             __props__['type'] = None
         super(Device, __self__).__init__(
             'azurerm:databoxedge/v20190701:Device',

@@ -14,14 +14,22 @@ import (
 type SavedSearch struct {
 	pulumi.CustomResourceState
 
+	// The category of the saved search. This helps the user to find a saved search faster.
+	Category pulumi.StringOutput `pulumi:"category"`
+	// Saved search display name.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The ETag of the saved search.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
 	// The name of the saved search.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the saved search.
-	Properties SavedSearchPropertiesResponseOutput `pulumi:"properties"`
+	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+	Query pulumi.StringOutput `pulumi:"query"`
+	// The tags attached to the saved search.
+	Tags TagResponseArrayOutput `pulumi:"tags"`
 	// The type of the saved search.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The version number of the query language. The current version is 2 and is the default.
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewSavedSearch registers a new resource with the given unique name, arguments, and options.
@@ -70,25 +78,41 @@ func GetSavedSearch(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SavedSearch resources.
 type savedSearchState struct {
+	// The category of the saved search. This helps the user to find a saved search faster.
+	Category *string `pulumi:"category"`
+	// Saved search display name.
+	DisplayName *string `pulumi:"displayName"`
 	// The ETag of the saved search.
 	ETag *string `pulumi:"eTag"`
 	// The name of the saved search.
 	Name *string `pulumi:"name"`
-	// The properties of the saved search.
-	Properties *SavedSearchPropertiesResponse `pulumi:"properties"`
+	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+	Query *string `pulumi:"query"`
+	// The tags attached to the saved search.
+	Tags []TagResponse `pulumi:"tags"`
 	// The type of the saved search.
 	Type *string `pulumi:"type"`
+	// The version number of the query language. The current version is 2 and is the default.
+	Version *int `pulumi:"version"`
 }
 
 type SavedSearchState struct {
+	// The category of the saved search. This helps the user to find a saved search faster.
+	Category pulumi.StringPtrInput
+	// Saved search display name.
+	DisplayName pulumi.StringPtrInput
 	// The ETag of the saved search.
 	ETag pulumi.StringPtrInput
 	// The name of the saved search.
 	Name pulumi.StringPtrInput
-	// The properties of the saved search.
-	Properties SavedSearchPropertiesResponsePtrInput
+	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+	Query pulumi.StringPtrInput
+	// The tags attached to the saved search.
+	Tags TagResponseArrayInput
 	// The type of the saved search.
 	Type pulumi.StringPtrInput
+	// The version number of the query language. The current version is 2 and is the default.
+	Version pulumi.IntPtrInput
 }
 
 func (SavedSearchState) ElementType() reflect.Type {

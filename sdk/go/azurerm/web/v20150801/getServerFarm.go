@@ -25,17 +25,39 @@ type LookupServerFarmArgs struct {
 
 // App Service Plan Model
 type LookupServerFarmResult struct {
+	// App Service Plan administration site
+	AdminSiteName *string `pulumi:"adminSiteName"`
+	// Geographical location for the App Service Plan
+	GeoRegion string `pulumi:"geoRegion"`
+	// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
+	// Maximum number of instances that can be assigned to this App Service Plan
+	MaximumNumberOfWorkers *int `pulumi:"maximumNumberOfWorkers"`
 	// Resource Name
-	Name       *string                                 `pulumi:"name"`
-	Properties ServerFarmWithRichSkuResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Number of web apps assigned to this App Service Plan
+	NumberOfSites int `pulumi:"numberOfSites"`
+	// If True apps assigned to this App Service Plan can be scaled independently
+	//             If False apps assigned to this App Service Plan will scale to all instances of the plan
+	PerSiteScaling *bool `pulumi:"perSiteScaling"`
+	// Enables creation of a Linux App Service Plan
+	Reserved *bool `pulumi:"reserved"`
+	// Resource group of the server farm
+	ResourceGroup string `pulumi:"resourceGroup"`
 	// Describes a sku for a scalable resource
 	Sku *SkuDescriptionResponse `pulumi:"sku"`
+	// App Service Plan Status
+	Status string `pulumi:"status"`
+	// App Service Plan Subscription
+	Subscription string `pulumi:"subscription"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Target worker tier assigned to the App Service Plan
+	WorkerTierName *string `pulumi:"workerTierName"`
 }

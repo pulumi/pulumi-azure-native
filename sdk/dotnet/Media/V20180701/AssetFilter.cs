@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.Media.V20180701
     public partial class AssetFilter : Pulumi.CustomResource
     {
         /// <summary>
+        /// The first quality.
+        /// </summary>
+        [Output("firstQuality")]
+        public Output<Outputs.FirstQualityResponseResult?> FirstQuality { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Media Filter properties.
+        /// The presentation time range.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.MediaFilterPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("presentationTimeRange")]
+        public Output<Outputs.PresentationTimeRangeResponseResult?> PresentationTimeRange { get; private set; } = null!;
+
+        /// <summary>
+        /// The tracks selection conditions.
+        /// </summary>
+        [Output("tracks")]
+        public Output<ImmutableArray<Outputs.FilterTrackSelectionResponseResult>> Tracks { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

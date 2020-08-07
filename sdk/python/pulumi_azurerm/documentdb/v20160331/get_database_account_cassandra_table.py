@@ -13,7 +13,13 @@ class GetDatabaseAccountCassandraTableResult:
     """
     An Azure Cosmos DB Cassandra table.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, default_ttl=None, location=None, name=None, schema=None, tags=None, type=None):
+        if default_ttl and not isinstance(default_ttl, float):
+            raise TypeError("Expected argument 'default_ttl' to be a float")
+        __self__.default_ttl = default_ttl
+        """
+        Time to live of the Cosmos DB Cassandra table
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,11 @@ class GetDatabaseAccountCassandraTableResult:
         """
         The name of the database account.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if schema and not isinstance(schema, dict):
+            raise TypeError("Expected argument 'schema' to be a dict")
+        __self__.schema = schema
         """
-        The properties of an Azure Cosmos DB Cassandra table
+        Schema of the Cosmos DB Cassandra table
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +58,10 @@ class AwaitableGetDatabaseAccountCassandraTableResult(GetDatabaseAccountCassandr
         if False:
             yield self
         return GetDatabaseAccountCassandraTableResult(
+            default_ttl=self.default_ttl,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            schema=self.schema,
             tags=self.tags,
             type=self.type)
 
@@ -80,8 +87,9 @@ def get_database_account_cassandra_table(account_name=None, keyspace_name=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20160331:getDatabaseAccountCassandraTable', __args__, opts=opts).value
 
     return AwaitableGetDatabaseAccountCassandraTableResult(
+        default_ttl=__ret__.get('defaultTtl'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        schema=__ret__.get('schema'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

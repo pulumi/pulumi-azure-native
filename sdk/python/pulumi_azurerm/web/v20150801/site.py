@@ -10,26 +10,279 @@ from ... import _utilities, _tables
 
 
 class Site(pulumi.CustomResource):
+    availability_state: pulumi.Output[str]
+    """
+    Management information availability state for the web app. Possible values are Normal or Limited. 
+                Normal means that the site is running correctly and that management information for the site is available. 
+                Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+    """
+    client_affinity_enabled: pulumi.Output[bool]
+    """
+    Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+    """
+    client_cert_enabled: pulumi.Output[bool]
+    """
+    Specifies if the client certificate is enabled for the web app
+    """
+    cloning_info: pulumi.Output[dict]
+    """
+    This is only valid for web app creation. If specified, web app is cloned from 
+                a source web app
+      * `app_settings_overrides` (`dict`) - Application settings overrides for cloned web app. If specified these settings will override the settings cloned 
+                    from source web app. If not specified, application settings from source web app are retained.
+      * `clone_custom_host_names` (`bool`) - If true, clone custom hostnames from source web app
+      * `clone_source_control` (`bool`) - Clone source control from source web app
+      * `configure_load_balancing` (`bool`) - If specified configure load balancing for source and clone site
+      * `correlation_id` (`str`) - Correlation Id of cloning operation. This id ties multiple cloning operations
+                    together to use the same snapshot
+      * `hosting_environment` (`str`) - Hosting environment
+      * `overwrite` (`bool`) - Overwrite destination web app
+      * `source_web_app_id` (`str`) - ARM resource id of the source web app. Web app resource id is of the form 
+                    /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+                    /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
+      * `traffic_manager_profile_id` (`str`) - ARM resource id of the traffic manager profile to use if it exists. Traffic manager resource id is of the form 
+                    /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
+      * `traffic_manager_profile_name` (`str`) - Name of traffic manager profile to create. This is only needed if traffic manager profile does not already exist
+    """
+    container_size: pulumi.Output[float]
+    """
+    Size of a function container
+    """
+    default_host_name: pulumi.Output[str]
+    """
+    Default hostname of the web app
+    """
+    enabled: pulumi.Output[bool]
+    """
+    True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+    """
+    enabled_host_names: pulumi.Output[list]
+    """
+    Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
+                the app is not served on those hostnames
+    """
+    gateway_site_name: pulumi.Output[str]
+    """
+    Name of gateway app associated with web app
+    """
+    host_name_ssl_states: pulumi.Output[list]
+    """
+    Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+      * `name` (`str`) - Host name
+      * `ssl_state` (`str`) - SSL type
+      * `thumbprint` (`str`) - SSL cert thumbprint
+      * `to_update` (`bool`) - Set this flag to update existing host name
+      * `virtual_ip` (`str`) - Virtual IP address assigned to the host name if IP based SSL is enabled
+    """
+    host_names: pulumi.Output[list]
+    """
+    Hostnames associated with web app
+    """
+    host_names_disabled: pulumi.Output[bool]
+    """
+    Specifies if the public hostnames are disabled the web app.
+                If set to true the app is only accessible via API Management process
+    """
+    hosting_environment_profile: pulumi.Output[dict]
+    """
+    Specification for the hosting environment (App Service Environment) to use for the web app
+      * `id` (`str`) - Resource id of the hostingEnvironment (App Service Environment)
+      * `name` (`str`) - Name of the hostingEnvironment (App Service Environment) (read only)
+      * `type` (`str`) - Resource type of the hostingEnvironment (App Service Environment) (read only)
+    """
+    is_default_container: pulumi.Output[bool]
+    """
+    Site is a default container
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
+    """
+    last_modified_time_utc: pulumi.Output[str]
+    """
+    Last time web app was modified in UTC
     """
     location: pulumi.Output[str]
     """
     Resource Location
     """
+    max_number_of_workers: pulumi.Output[float]
+    """
+    Maximum number of workers
+                This only applies to function container
+    """
+    micro_service: pulumi.Output[str]
     name: pulumi.Output[str]
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    outbound_ip_addresses: pulumi.Output[str]
+    """
+    List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+    """
+    premium_app_deployed: pulumi.Output[bool]
+    """
+    If set indicates whether web app is deployed as a premium app
+    """
+    repository_site_name: pulumi.Output[str]
+    """
+    Name of repository site
+    """
+    resource_group: pulumi.Output[str]
+    """
+    Resource group web app belongs to
+    """
+    scm_site_also_stopped: pulumi.Output[bool]
+    """
+    If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+    """
+    server_farm_id: pulumi.Output[str]
+    site_config: pulumi.Output[dict]
+    """
+    Configuration of web app
+      * `always_on` (`bool`) - Always On
+      * `api_definition` (`dict`) - Information about the formal API definition for the web app.
+        * `url` (`str`) - The URL of the API definition.
+
+      * `app_command_line` (`str`) - App Command Line to launch
+      * `app_settings` (`list`) - Application Settings
+        * `name` (`str`) - Pair name
+        * `value` (`str`) - Pair value
+
+      * `auto_heal_enabled` (`bool`) - Auto heal enabled
+      * `auto_heal_rules` (`dict`) - Auto heal rules
+        * `actions` (`dict`) - Actions - Actions to be executed when a rule is triggered
+          * `action_type` (`str`) - ActionType - predefined action to be taken
+          * `custom_action` (`dict`) - CustomAction - custom action to be taken
+            * `exe` (`str`) - Executable to be run
+            * `parameters` (`str`) - Parameters for the executable
+
+          * `min_process_execution_time` (`str`) - MinProcessExecutionTime - minimum time the process must execute
+                        before taking the action
+
+        * `triggers` (`dict`) - Triggers - Conditions that describe when to execute the auto-heal actions
+          * `private_bytes_in_kb` (`float`) - PrivateBytesInKB - Defines a rule based on private bytes
+          * `requests` (`dict`) - Requests - Defines a rule based on total requests
+            * `count` (`float`) - Count
+            * `time_interval` (`str`) - TimeInterval
+
+          * `slow_requests` (`dict`) - SlowRequests - Defines a rule based on request execution time
+            * `count` (`float`) - Count
+            * `time_interval` (`str`) - TimeInterval
+            * `time_taken` (`str`) - TimeTaken
+
+          * `status_codes` (`list`) - StatusCodes - Defines a rule based on status codes
+            * `count` (`float`) - Count
+            * `status` (`float`) - HTTP status code
+            * `sub_status` (`float`) - SubStatus
+            * `time_interval` (`str`) - TimeInterval
+            * `win32_status` (`float`) - Win32 error code
+
+      * `auto_swap_slot_name` (`str`) - Auto swap slot name
+      * `connection_strings` (`list`) - Connection strings
+        * `connection_string` (`str`) - Connection string value
+        * `name` (`str`) - Name of connection string
+        * `type` (`str`) - Type of database
+
+      * `cors` (`dict`) - Cross-Origin Resource Sharing (CORS) settings.
+        * `allowed_origins` (`list`) - Gets or sets the list of origins that should be allowed to make cross-origin
+                      calls (for example: http://example.com:12345). Use "*" to allow all.
+
+      * `default_documents` (`list`) - Default documents
+      * `detailed_error_logging_enabled` (`bool`) - Detailed error logging enabled
+      * `document_root` (`str`) - Document root
+      * `experiments` (`dict`) - This is work around for polymorphic types
+        * `ramp_up_rules` (`list`) - List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
+          * `action_host_name` (`str`) - Hostname of a slot to which the traffic will be redirected if decided to. E.g. mysite-stage.azurewebsites.net
+          * `change_decision_callback_url` (`str`) - Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.
+                        https://www.siteextensions.net/packages/TiPCallback/
+          * `change_interval_in_minutes` (`float`) - [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
+          * `change_step` (`float`) - [Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches 
+                        {Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
+                        Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
+          * `max_reroute_percentage` (`float`) - [Optional] Specifies upper boundary below which ReroutePercentage will stay.
+          * `min_reroute_percentage` (`float`) - [Optional] Specifies lower boundary above which ReroutePercentage will stay.
+          * `name` (`str`) - Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+          * `reroute_percentage` (`float`) - Percentage of the traffic which will be redirected to {Microsoft.Web.Hosting.Administration.RampUpRule.ActionHostName}
+
+      * `handler_mappings` (`list`) - Handler mappings
+        * `arguments` (`str`) - Command-line arguments to be passed to the script processor.
+        * `extension` (`str`) - Requests with this extension will be handled using the specified FastCGI application.
+        * `script_processor` (`str`) - The absolute path to the FastCGI application.
+
+      * `http_logging_enabled` (`bool`) - HTTP logging Enabled
+      * `id` (`str`) - Resource Id
+      * `ip_security_restrictions` (`list`) - Ip Security restrictions
+        * `ip_address` (`str`) - IP address the security restriction is valid for
+        * `subnet_mask` (`str`) - Subnet mask for the range of IP addresses the restriction is valid for
+
+      * `java_container` (`str`) - Java container
+      * `java_container_version` (`str`) - Java container version
+      * `java_version` (`str`) - Java version
+      * `kind` (`str`) - Kind of resource
+      * `limits` (`dict`) - Site limits
+        * `max_disk_size_in_mb` (`float`) - Maximum allowed disk size usage in MB
+        * `max_memory_in_mb` (`float`) - Maximum allowed memory usage in MB
+        * `max_percentage_cpu` (`float`) - Maximum allowed CPU usage percentage
+
+      * `load_balancing` (`str`) - Site load balancing
+      * `local_my_sql_enabled` (`bool`) - Local mysql enabled
+      * `location` (`str`) - Resource Location
+      * `logs_directory_size_limit` (`float`) - HTTP Logs Directory size limit
+      * `managed_pipeline_mode` (`str`) - Managed pipeline mode
+      * `metadata` (`list`) - Site Metadata
+      * `name` (`str`) - Resource Name
+      * `net_framework_version` (`str`) - Net Framework Version
+      * `node_version` (`str`) - Version of Node
+      * `number_of_workers` (`float`) - Number of workers
+      * `php_version` (`str`) - Version of PHP
+      * `publishing_password` (`str`) - Publishing password
+      * `publishing_username` (`str`) - Publishing user name
+      * `python_version` (`str`) - Version of Python
+      * `remote_debugging_enabled` (`bool`) - Remote Debugging Enabled
+      * `remote_debugging_version` (`str`) - Remote Debugging Version
+      * `request_tracing_enabled` (`bool`) - Enable request tracing
+      * `request_tracing_expiration_time` (`str`) - Request tracing expiration time
+      * `scm_type` (`str`) - SCM type
+      * `tags` (`dict`) - Resource tags
+      * `tracing_options` (`str`) - Tracing options
+      * `type` (`str`) - Resource type
+      * `use32_bit_worker_process` (`bool`) - Use 32 bit worker process
+      * `virtual_applications` (`list`) - Virtual applications
+        * `physical_path` (`str`)
+        * `preload_enabled` (`bool`)
+        * `virtual_directories` (`list`)
+          * `physical_path` (`str`)
+          * `virtual_path` (`str`)
+
+        * `virtual_path` (`str`)
+
+      * `vnet_name` (`str`) - Vnet name
+      * `web_sockets_enabled` (`bool`) - Web socket enabled.
+    """
+    state: pulumi.Output[str]
+    """
+    State of the web app
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
     """
+    target_swap_slot: pulumi.Output[str]
+    """
+    Read-only property that specifies which slot this app will swap into
+    """
+    traffic_manager_host_names: pulumi.Output[list]
+    """
+    Read-only list of Azure Traffic manager hostnames associated with web app
+    """
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    usage_state: pulumi.Output[str]
+    """
+    State indicating whether web app has exceeded its quota usage
     """
     def __init__(__self__, resource_name, opts=None, client_affinity_enabled=None, client_cert_enabled=None, cloning_info=None, container_size=None, enabled=None, force_dns_registration=None, gateway_site_name=None, host_name_ssl_states=None, host_names_disabled=None, hosting_environment_profile=None, id=None, kind=None, location=None, max_number_of_workers=None, micro_service=None, name=None, resource_group_name=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, skip_custom_domain_verification=None, skip_dns_registration=None, tags=None, ttl_in_seconds=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -267,7 +520,20 @@ class Site(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['ttl_in_seconds'] = ttl_in_seconds
             __props__['type'] = type
-            __props__['properties'] = None
+            __props__['availability_state'] = None
+            __props__['default_host_name'] = None
+            __props__['enabled_host_names'] = None
+            __props__['host_names'] = None
+            __props__['is_default_container'] = None
+            __props__['last_modified_time_utc'] = None
+            __props__['outbound_ip_addresses'] = None
+            __props__['premium_app_deployed'] = None
+            __props__['repository_site_name'] = None
+            __props__['resource_group'] = None
+            __props__['state'] = None
+            __props__['target_swap_slot'] = None
+            __props__['traffic_manager_host_names'] = None
+            __props__['usage_state'] = None
         super(Site, __self__).__init__(
             'azurerm:web/v20150801:Site',
             resource_name,

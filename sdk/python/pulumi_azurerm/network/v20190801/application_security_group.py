@@ -22,11 +22,13 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the application security group.
-      * `provisioning_state` (`str`) - The provisioning state of the application security group resource.
-      * `resource_guid` (`str`) - The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+    The provisioning state of the application security group resource.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
     """
     tags: pulumi.Output[dict]
     """
@@ -75,7 +77,8 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_guid'] = None
             __props__['type'] = None
         super(ApplicationSecurityGroup, __self__).__init__(
             'azurerm:network/v20190801:ApplicationSecurityGroup',

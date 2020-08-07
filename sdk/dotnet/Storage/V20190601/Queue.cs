@@ -12,16 +12,22 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>
+        /// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+        /// </summary>
+        [Output("approximateMessageCount")]
+        public Output<int> ApproximateMessageCount { get; private set; } = null!;
+
+        /// <summary>
+        /// A name-value pair that represents queue metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Queue resource properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.QueuePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

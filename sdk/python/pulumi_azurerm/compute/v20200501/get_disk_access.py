@@ -13,7 +13,7 @@ class GetDiskAccessResult:
     """
     disk access resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, tags=None, time_created=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,14 +26,29 @@ class GetDiskAccessResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
+        """
+        A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The disk access resource provisioning state.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags
+        """
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        __self__.time_created = time_created
+        """
+        The time when the disk access was created.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -51,8 +66,10 @@ class AwaitableGetDiskAccessResult(GetDiskAccessResult):
         return GetDiskAccessResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
+            time_created=self.time_created,
             type=self.type)
 
 
@@ -75,6 +92,8 @@ def get_disk_access(name=None, resource_group_name=None, opts=None):
     return AwaitableGetDiskAccessResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
+        time_created=__ret__.get('timeCreated'),
         type=__ret__.get('type'))

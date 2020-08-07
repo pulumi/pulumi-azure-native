@@ -25,12 +25,18 @@ type LookupAlertRuleArgs struct {
 
 // The alert rule resource.
 type LookupAlertRuleResult struct {
+	// the condition that results in the alert rule being activated.
+	Condition RuleConditionResponse `pulumi:"condition"`
+	// the description of the alert rule that will be included in the alert email.
+	Description *string `pulumi:"description"`
+	// the flag that indicates whether the alert rule is enabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Last time the rule was updated in ISO8601 format.
+	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name
 	Name string `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties AlertRuleResponse `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type

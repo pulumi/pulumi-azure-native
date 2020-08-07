@@ -13,24 +13,36 @@ class GetContentTypeResult:
     """
     Content type contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, name=None, schema=None, type=None, version=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Content type description.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if schema and not isinstance(schema, dict):
+            raise TypeError("Expected argument 'schema' to be a dict")
+        __self__.schema = schema
         """
-        Properties of the content type.
+        Content type schema.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        Content type version.
         """
 
 
@@ -40,9 +52,11 @@ class AwaitableGetContentTypeResult(GetContentTypeResult):
         if False:
             yield self
         return GetContentTypeResult(
+            description=self.description,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            schema=self.schema,
+            type=self.type,
+            version=self.version)
 
 
 def get_content_type(name=None, resource_group_name=None, service_name=None, opts=None):
@@ -64,6 +78,8 @@ def get_content_type(name=None, resource_group_name=None, service_name=None, opt
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getContentType', __args__, opts=opts).value
 
     return AwaitableGetContentTypeResult(
+        description=__ret__.get('description'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        schema=__ret__.get('schema'),
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

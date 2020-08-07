@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
+    _etag: pulumi.Output[str]
+    """
+    A system generated property representing the resource etag required for optimistic concurrency control.
+    """
+    _rid: pulumi.Output[str]
+    """
+    A system generated property. A unique identifier.
+    """
+    _ts: pulumi.Output[dict]
+    """
+    A system generated property that denotes the last updated timestamp of the resource.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource group to which the resource belongs.
@@ -17,14 +29,6 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     The name of the database account.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The properties of an Azure Cosmos DB SQL database
-      * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
-      * `_rid` (`str`) - A system generated property. A unique identifier.
-      * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
-      * `id` (`str`) - Name of the Cosmos DB Gremlin database
     """
     tags: pulumi.Output[dict]
     """
@@ -82,8 +86,10 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['_etag'] = None
+            __props__['_rid'] = None
+            __props__['_ts'] = None
             __props__['location'] = None
-            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(DatabaseAccountGremlinDatabase, __self__).__init__(

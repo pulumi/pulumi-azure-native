@@ -10,9 +10,29 @@ from ... import _utilities, _tables
 
 
 class FlowLog(pulumi.CustomResource):
+    enabled: pulumi.Output[bool]
+    """
+    Flag to enable/disable flow logging.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    flow_analytics_configuration: pulumi.Output[dict]
+    """
+    Parameters that define the configuration of traffic analytics.
+      * `network_watcher_flow_analytics_configuration` (`dict`) - Parameters that define the configuration of traffic analytics.
+        * `enabled` (`bool`) - Flag to enable/disable traffic analytics.
+        * `traffic_analytics_interval` (`float`) - The interval in minutes which would decide how frequently TA service should do flow analytics.
+        * `workspace_id` (`str`) - The resource guid of the attached workspace.
+        * `workspace_region` (`str`) - The location of the attached workspace.
+        * `workspace_resource_id` (`str`) - Resource Id of the attached workspace.
+    """
+    format: pulumi.Output[dict]
+    """
+    Parameters that define the flow log format.
+      * `type` (`str`) - The file type of flow log.
+      * `version` (`float`) - The version (revision) of the flow log.
     """
     location: pulumi.Output[str]
     """
@@ -22,34 +42,31 @@ class FlowLog(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the flow log.
-      * `enabled` (`bool`) - Flag to enable/disable flow logging.
-      * `flow_analytics_configuration` (`dict`) - Parameters that define the configuration of traffic analytics.
-        * `network_watcher_flow_analytics_configuration` (`dict`) - Parameters that define the configuration of traffic analytics.
-          * `enabled` (`bool`) - Flag to enable/disable traffic analytics.
-          * `traffic_analytics_interval` (`float`) - The interval in minutes which would decide how frequently TA service should do flow analytics.
-          * `workspace_id` (`str`) - The resource guid of the attached workspace.
-          * `workspace_region` (`str`) - The location of the attached workspace.
-          * `workspace_resource_id` (`str`) - Resource Id of the attached workspace.
-
-      * `format` (`dict`) - Parameters that define the flow log format.
-        * `type` (`str`) - The file type of flow log.
-        * `version` (`float`) - The version (revision) of the flow log.
-
-      * `provisioning_state` (`str`) - The provisioning state of the flow log.
-      * `retention_policy` (`dict`) - Parameters that define the retention policy for flow log.
-        * `days` (`float`) - Number of days to retain flow log records.
-        * `enabled` (`bool`) - Flag to enable/disable retention.
-
-      * `storage_id` (`str`) - ID of the storage account which is used to store the flow log.
-      * `target_resource_guid` (`str`) - Guid of network security group to which flow log will be applied.
-      * `target_resource_id` (`str`) - ID of network security group to which flow log will be applied.
+    The provisioning state of the flow log.
+    """
+    retention_policy: pulumi.Output[dict]
+    """
+    Parameters that define the retention policy for flow log.
+      * `days` (`float`) - Number of days to retain flow log records.
+      * `enabled` (`bool`) - Flag to enable/disable retention.
+    """
+    storage_id: pulumi.Output[str]
+    """
+    ID of the storage account which is used to store the flow log.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags.
+    """
+    target_resource_guid: pulumi.Output[str]
+    """
+    Guid of network security group to which flow log will be applied.
+    """
+    target_resource_id: pulumi.Output[str]
+    """
+    ID of network security group to which flow log will be applied.
     """
     type: pulumi.Output[str]
     """
@@ -133,7 +150,8 @@ class FlowLog(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_resource_id'")
             __props__['target_resource_id'] = target_resource_id
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['target_resource_guid'] = None
             __props__['type'] = None
         super(FlowLog, __self__).__init__(
             'azurerm:network/v20191101:FlowLog',

@@ -37,17 +37,57 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
+     * List of custom headers.
+     */
+    public readonly customHeaders!: pulumi.Output<outputs.network.v20180401.EndpointPropertiesResponseCustomHeaders[] | undefined>;
+    /**
+     * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+     */
+    public readonly endpointLocation!: pulumi.Output<string | undefined>;
+    /**
+     * The monitoring status of the endpoint.
+     */
+    public readonly endpointMonitorStatus!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+     */
+    public readonly endpointStatus!: pulumi.Output<string | undefined>;
+    /**
+     * The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+     */
+    public readonly geoMapping!: pulumi.Output<string[] | undefined>;
+    /**
+     * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    public readonly minChildEndpoints!: pulumi.Output<number | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The properties of the Traffic Manager endpoint.
+     * The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180401.EndpointPropertiesResponse>;
+    public readonly priority!: pulumi.Output<number | undefined>;
+    /**
+     * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+     */
+    public readonly subnets!: pulumi.Output<outputs.network.v20180401.EndpointPropertiesResponseSubnets[] | undefined>;
+    /**
+     * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+     */
+    public readonly target!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+     */
+    public readonly targetResourceId!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+     */
+    public readonly weight!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -91,7 +131,6 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["weight"] = args ? args.weight : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

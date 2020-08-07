@@ -14,10 +14,36 @@ import (
 type Api struct {
 	pulumi.CustomResourceState
 
+	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	ApiRevision pulumi.StringPtrOutput `pulumi:"apiRevision"`
+	// Type of API.
+	ApiType pulumi.StringPtrOutput `pulumi:"apiType"`
+	// Indicates the Version identifier of the API if the API is versioned
+	ApiVersion pulumi.StringPtrOutput `pulumi:"apiVersion"`
+	// Api Version Set Contract details.
+	ApiVersionSet ApiVersionSetContractResponsePtrOutput `pulumi:"apiVersionSet"`
+	// A resource identifier for the related ApiVersionSet.
+	ApiVersionSetId pulumi.StringPtrOutput `pulumi:"apiVersionSetId"`
+	// Collection of authentication settings included into this API.
+	AuthenticationSettings AuthenticationSettingsContractResponsePtrOutput `pulumi:"authenticationSettings"`
+	// Description of the API. May include HTML formatting tags.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// API name.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// Indicates if API revision is current api revision.
+	IsCurrent pulumi.BoolOutput `pulumi:"isCurrent"`
+	// Indicates if API revision is accessible via the gateway.
+	IsOnline pulumi.BoolOutput `pulumi:"isOnline"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Api entity contract properties.
-	Properties ApiContractPropertiesResponseOutput `pulumi:"properties"`
+	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+	Path pulumi.StringOutput `pulumi:"path"`
+	// Describes on which protocols the operations in this API can be invoked.
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+	// Absolute URL of the backend service implementing this API.
+	ServiceUrl pulumi.StringPtrOutput `pulumi:"serviceUrl"`
+	// Protocols over which API is made available.
+	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractResponsePtrOutput `pulumi:"subscriptionKeyParameterNames"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +88,71 @@ func GetApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Api resources.
 type apiState struct {
+	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	ApiRevision *string `pulumi:"apiRevision"`
+	// Type of API.
+	ApiType *string `pulumi:"apiType"`
+	// Indicates the Version identifier of the API if the API is versioned
+	ApiVersion *string `pulumi:"apiVersion"`
+	// Api Version Set Contract details.
+	ApiVersionSet *ApiVersionSetContractResponse `pulumi:"apiVersionSet"`
+	// A resource identifier for the related ApiVersionSet.
+	ApiVersionSetId *string `pulumi:"apiVersionSetId"`
+	// Collection of authentication settings included into this API.
+	AuthenticationSettings *AuthenticationSettingsContractResponse `pulumi:"authenticationSettings"`
+	// Description of the API. May include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	// API name.
+	DisplayName *string `pulumi:"displayName"`
+	// Indicates if API revision is current api revision.
+	IsCurrent *bool `pulumi:"isCurrent"`
+	// Indicates if API revision is accessible via the gateway.
+	IsOnline *bool `pulumi:"isOnline"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Api entity contract properties.
-	Properties *ApiContractPropertiesResponse `pulumi:"properties"`
+	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+	Path *string `pulumi:"path"`
+	// Describes on which protocols the operations in this API can be invoked.
+	Protocols []string `pulumi:"protocols"`
+	// Absolute URL of the backend service implementing this API.
+	ServiceUrl *string `pulumi:"serviceUrl"`
+	// Protocols over which API is made available.
+	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContractResponse `pulumi:"subscriptionKeyParameterNames"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type ApiState struct {
+	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	ApiRevision pulumi.StringPtrInput
+	// Type of API.
+	ApiType pulumi.StringPtrInput
+	// Indicates the Version identifier of the API if the API is versioned
+	ApiVersion pulumi.StringPtrInput
+	// Api Version Set Contract details.
+	ApiVersionSet ApiVersionSetContractResponsePtrInput
+	// A resource identifier for the related ApiVersionSet.
+	ApiVersionSetId pulumi.StringPtrInput
+	// Collection of authentication settings included into this API.
+	AuthenticationSettings AuthenticationSettingsContractResponsePtrInput
+	// Description of the API. May include HTML formatting tags.
+	Description pulumi.StringPtrInput
+	// API name.
+	DisplayName pulumi.StringPtrInput
+	// Indicates if API revision is current api revision.
+	IsCurrent pulumi.BoolPtrInput
+	// Indicates if API revision is accessible via the gateway.
+	IsOnline pulumi.BoolPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Api entity contract properties.
-	Properties ApiContractPropertiesResponsePtrInput
+	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+	Path pulumi.StringPtrInput
+	// Describes on which protocols the operations in this API can be invoked.
+	Protocols pulumi.StringArrayInput
+	// Absolute URL of the backend service implementing this API.
+	ServiceUrl pulumi.StringPtrInput
+	// Protocols over which API is made available.
+	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

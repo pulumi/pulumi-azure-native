@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,21 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /**
+     * Runtime connection string to cache
+     */
+    public readonly connectionString!: pulumi.Output<string>;
+    /**
+     * Cache description
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Cache properties details.
+     * Original uri of entity in external system cache points to
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.CacheContractPropertiesResponse>;
+    public readonly resourceId!: pulumi.Output<string | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -80,7 +86,6 @@ export class Cache extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

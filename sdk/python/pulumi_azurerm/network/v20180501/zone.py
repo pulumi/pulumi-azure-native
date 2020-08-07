@@ -18,21 +18,31 @@ class Zone(pulumi.CustomResource):
     """
     Resource location.
     """
+    max_number_of_record_sets: pulumi.Output[float]
+    """
+    The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    name_servers: pulumi.Output[list]
     """
-    The properties of the zone.
-      * `max_number_of_record_sets` (`float`) - The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-      * `name_servers` (`list`) - The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-      * `number_of_record_sets` (`float`) - The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-      * `registration_virtual_networks` (`list`) - A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-        * `id` (`str`) - Resource Id.
-
-      * `resolution_virtual_networks` (`list`) - A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
-      * `zone_type` (`str`) - The type of this DNS zone (Public or Private).
+    The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+    """
+    number_of_record_sets: pulumi.Output[float]
+    """
+    The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+    """
+    registration_virtual_networks: pulumi.Output[list]
+    """
+    A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+      * `id` (`str`) - Resource Id.
+    """
+    resolution_virtual_networks: pulumi.Output[list]
+    """
+    A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+      * `id` (`str`) - Resource Id.
     """
     tags: pulumi.Output[dict]
     """
@@ -41,6 +51,10 @@ class Zone(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    zone_type: pulumi.Output[str]
+    """
+    The type of this DNS zone (Public or Private).
     """
     def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, registration_virtual_networks=None, resolution_virtual_networks=None, resource_group_name=None, tags=None, zone_type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -92,7 +106,9 @@ class Zone(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['zone_type'] = zone_type
-            __props__['properties'] = None
+            __props__['max_number_of_record_sets'] = None
+            __props__['name_servers'] = None
+            __props__['number_of_record_sets'] = None
             __props__['type'] = None
         super(Zone, __self__).__init__(
             'azurerm:network/v20180501:Zone',

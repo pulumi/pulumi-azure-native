@@ -27,12 +27,24 @@ type LookupDisasterRecoveryConfigurationArgs struct {
 
 // Represents a disaster recovery configuration.
 type LookupDisasterRecoveryConfigurationResult struct {
+	// Whether or not failover can be done automatically.
+	AutoFailover string `pulumi:"autoFailover"`
+	// How aggressive the automatic failover should be.
+	FailoverPolicy string `pulumi:"failoverPolicy"`
 	// Location of the server that contains this disaster recovery configuration.
 	Location string `pulumi:"location"`
+	// Logical name of the server.
+	LogicalServerName string `pulumi:"logicalServerName"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties representing the resource.
-	Properties DisasterRecoveryConfigurationPropertiesResponse `pulumi:"properties"`
+	// Logical name of the partner server.
+	PartnerLogicalServerName string `pulumi:"partnerLogicalServerName"`
+	// Id of the partner server.
+	PartnerServerId string `pulumi:"partnerServerId"`
+	// The role of the current server in the disaster recovery configuration.
+	Role string `pulumi:"role"`
+	// The status of the disaster recovery configuration.
+	Status string `pulumi:"status"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

@@ -49,9 +49,9 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly name: string;
     /**
-     * Properties of the Namespace AuthorizationRule.
+     * The rights associated with the rule.
      */
-    readonly properties: outputs.notificationhubs.v20160301.SharedAccessAuthorizationRulePropertiesResponse;
+    readonly rights?: string[];
     /**
      * The sku of the created namespace
      */

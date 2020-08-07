@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,45 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+     */
+    public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
+    /**
+     * If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+     */
+    public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
+    /**
      * The name of the extension.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Describes the properties of a Virtual Machine Scale Set Extension.
+     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180601.VirtualMachineScaleSetExtensionPropertiesResponse>;
+    public readonly protectedSettings!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    public readonly provisionAfterExtensions!: pulumi.Output<string[] | undefined>;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The name of the extension handler publisher.
+     */
+    public readonly publisher!: pulumi.Output<string | undefined>;
+    /**
+     * Json formatted public settings for the extension.
+     */
+    public readonly settings!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Specifies the type of the extension; an example is "CustomScriptExtension".
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the version of the script handler.
+     */
+    public readonly typeHandlerVersion!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualMachineScaleSetExtension resource with the given unique name, arguments, and options.
@@ -78,7 +108,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

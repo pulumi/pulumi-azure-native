@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
     public partial class DedicatedCloudService : Pulumi.CustomResource
     {
         /// <summary>
+        /// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+        /// </summary>
+        [Output("gatewaySubnet")]
+        public Output<string> GatewaySubnet { get; private set; } = null!;
+
+        /// <summary>
+        /// indicates whether account onboarded or not in a given region
+        /// </summary>
+        [Output("isAccountOnboarded")]
+        public Output<string> IsAccountOnboarded { get; private set; } = null!;
+
+        /// <summary>
         /// Azure region
         /// </summary>
         [Output("location")]
@@ -27,10 +39,16 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of Dedicated Node Service
+        /// total nodes purchased
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DedicatedCloudServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nodes")]
+        public Output<int> Nodes { get; private set; } = null!;
+
+        /// <summary>
+        /// link to a service management web portal
+        /// </summary>
+        [Output("serviceURL")]
+        public Output<string> ServiceURL { get; private set; } = null!;
 
         /// <summary>
         /// The list of tags

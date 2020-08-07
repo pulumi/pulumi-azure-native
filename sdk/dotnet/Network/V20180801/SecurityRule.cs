@@ -15,6 +15,54 @@ namespace Pulumi.AzureRM.Network.V20180801
     public partial class SecurityRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+        /// </summary>
+        [Output("access")]
+        public Output<string> Access { get; private set; } = null!;
+
+        /// <summary>
+        /// A description for this rule. Restricted to 140 chars.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        /// </summary>
+        [Output("destinationAddressPrefix")]
+        public Output<string?> DestinationAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The destination address prefixes. CIDR or destination IP ranges.
+        /// </summary>
+        [Output("destinationAddressPrefixes")]
+        public Output<ImmutableArray<string>> DestinationAddressPrefixes { get; private set; } = null!;
+
+        /// <summary>
+        /// The application security group specified as destination.
+        /// </summary>
+        [Output("destinationApplicationSecurityGroups")]
+        public Output<ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult>> DestinationApplicationSecurityGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        /// </summary>
+        [Output("destinationPortRange")]
+        public Output<string?> DestinationPortRange { get; private set; } = null!;
+
+        /// <summary>
+        /// The destination port ranges.
+        /// </summary>
+        [Output("destinationPortRanges")]
+        public Output<ImmutableArray<string>> DestinationPortRanges { get; private set; } = null!;
+
+        /// <summary>
+        /// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
+        /// </summary>
+        [Output("direction")]
+        public Output<string> Direction { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -27,10 +75,52 @@ namespace Pulumi.AzureRM.Network.V20180801
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the security rule
+        /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SecurityRulePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("priority")]
+        public Output<int?> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+        /// </summary>
+        [Output("protocol")]
+        public Output<string> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        /// </summary>
+        [Output("sourceAddressPrefix")]
+        public Output<string?> SourceAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The CIDR or source IP ranges.
+        /// </summary>
+        [Output("sourceAddressPrefixes")]
+        public Output<ImmutableArray<string>> SourceAddressPrefixes { get; private set; } = null!;
+
+        /// <summary>
+        /// The application security group specified as source.
+        /// </summary>
+        [Output("sourceApplicationSecurityGroups")]
+        public Output<ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult>> SourceApplicationSecurityGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        /// </summary>
+        [Output("sourcePortRange")]
+        public Output<string?> SourcePortRange { get; private set; } = null!;
+
+        /// <summary>
+        /// The source port ranges.
+        /// </summary>
+        [Output("sourcePortRanges")]
+        public Output<ImmutableArray<string>> SourcePortRanges { get; private set; } = null!;
 
 
         /// <summary>

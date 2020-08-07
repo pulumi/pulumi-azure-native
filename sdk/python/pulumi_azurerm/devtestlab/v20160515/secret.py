@@ -18,12 +18,9 @@ class Secret(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-      * `value` (`str`) - The value of the secret for secret creation.
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -32,6 +29,14 @@ class Secret(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
+    """
+    value: pulumi.Output[str]
+    """
+    The value of the secret for secret creation.
     """
     def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, user_name=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -83,7 +88,6 @@ class Secret(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
             __props__['value'] = value
-            __props__['properties'] = None
             __props__['type'] = None
         super(Secret, __self__).__init__(
             'azurerm:devtestlab/v20160515:Secret',

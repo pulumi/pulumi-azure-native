@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Insights.V20150401
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {
         /// <summary>
+        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,16 +33,28 @@ namespace Pulumi.AzureRM.Insights.V20150401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The autoscale setting of the resource.
+        /// the collection of notifications.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AutoscaleSettingResponseResult> Properties { get; private set; } = null!;
+        [Output("notifications")]
+        public Output<ImmutableArray<Outputs.AutoscaleNotificationResponseResult>> Notifications { get; private set; } = null!;
+
+        /// <summary>
+        /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        /// </summary>
+        [Output("profiles")]
+        public Output<ImmutableArray<Outputs.AutoscaleProfileResponseResult>> Profiles { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// the resource identifier of the resource that the autoscale setting should be added to.
+        /// </summary>
+        [Output("targetResourceUri")]
+        public Output<string?> TargetResourceUri { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type

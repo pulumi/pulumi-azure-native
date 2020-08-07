@@ -36,17 +36,37 @@ export interface GetExportArgs {
  */
 export interface GetExportResult {
     /**
+     * Has the definition for the export.
+     */
+    readonly definition: outputs.costmanagement.v20200601.ExportDefinitionResponse;
+    /**
+     * Has delivery information for the export.
+     */
+    readonly deliveryInfo: outputs.costmanagement.v20200601.ExportDeliveryInfoResponse;
+    /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     readonly eTag?: string;
+    /**
+     * The format of the export being delivered. Currently only 'Csv' is supported.
+     */
+    readonly format?: string;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The properties of the export.
+     * If the export has an active schedule, provides an estimate of the next execution time.
      */
-    readonly properties: outputs.costmanagement.v20200601.ExportPropertiesResponse;
+    readonly nextRunTimeEstimate: string;
+    /**
+     * If requested, has the most recent execution history for the export.
+     */
+    readonly runHistory?: outputs.costmanagement.v20200601.ExportExecutionListResultResponse;
+    /**
+     * Has schedule information for the export.
+     */
+    readonly schedule?: outputs.costmanagement.v20200601.ExportScheduleResponse;
     /**
      * Resource type.
      */

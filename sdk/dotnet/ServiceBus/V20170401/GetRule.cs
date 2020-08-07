@@ -58,13 +58,25 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public sealed class GetRuleResult
     {
         /// <summary>
+        /// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+        /// </summary>
+        public readonly Outputs.ActionResponseResult? Action;
+        /// <summary>
+        /// Properties of correlationFilter
+        /// </summary>
+        public readonly Outputs.CorrelationFilterResponseResult? CorrelationFilter;
+        /// <summary>
+        /// Filter type that is evaluated against a BrokeredMessage.
+        /// </summary>
+        public readonly string? FilterType;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of Rule resource
+        /// Properties of sqlFilter
         /// </summary>
-        public readonly Outputs.RulepropertiesResponseResult Properties;
+        public readonly Outputs.SqlFilterResponseResult? SqlFilter;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -72,14 +84,23 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 
         [OutputConstructor]
         private GetRuleResult(
+            Outputs.ActionResponseResult? action,
+
+            Outputs.CorrelationFilterResponseResult? correlationFilter,
+
+            string? filterType,
+
             string name,
 
-            Outputs.RulepropertiesResponseResult properties,
+            Outputs.SqlFilterResponseResult? sqlFilter,
 
             string type)
         {
+            Action = action;
+            CorrelationFilter = correlationFilter;
+            FilterType = filterType;
             Name = name;
-            Properties = properties;
+            SqlFilter = sqlFilter;
             Type = type;
         }
     }

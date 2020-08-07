@@ -46,13 +46,49 @@ namespace Pulumi.AzureRM.Media.V20200501
     public sealed class GetStreamingLocatorResult
     {
         /// <summary>
+        /// Alternative Media ID of this Streaming Locator
+        /// </summary>
+        public readonly string? AlternativeMediaId;
+        /// <summary>
+        /// Asset Name
+        /// </summary>
+        public readonly string AssetName;
+        /// <summary>
+        /// The ContentKeys used by this Streaming Locator.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StreamingLocatorContentKeyResponseResult> ContentKeys;
+        /// <summary>
+        /// The creation time of the Streaming Locator.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// Name of the default ContentKeyPolicy used by this Streaming Locator.
+        /// </summary>
+        public readonly string? DefaultContentKeyPolicyName;
+        /// <summary>
+        /// The end time of the Streaming Locator.
+        /// </summary>
+        public readonly string? EndTime;
+        /// <summary>
+        /// A list of asset or account filters which apply to this streaming locator
+        /// </summary>
+        public readonly ImmutableArray<string> Filters;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Streaming Locator.
+        /// The start time of the Streaming Locator.
         /// </summary>
-        public readonly Outputs.StreamingLocatorPropertiesResponseResult Properties;
+        public readonly string? StartTime;
+        /// <summary>
+        /// The StreamingLocatorId of the Streaming Locator.
+        /// </summary>
+        public readonly string? StreamingLocatorId;
+        /// <summary>
+        /// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+        /// </summary>
+        public readonly string StreamingPolicyName;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -60,14 +96,41 @@ namespace Pulumi.AzureRM.Media.V20200501
 
         [OutputConstructor]
         private GetStreamingLocatorResult(
+            string? alternativeMediaId,
+
+            string assetName,
+
+            ImmutableArray<Outputs.StreamingLocatorContentKeyResponseResult> contentKeys,
+
+            string created,
+
+            string? defaultContentKeyPolicyName,
+
+            string? endTime,
+
+            ImmutableArray<string> filters,
+
             string name,
 
-            Outputs.StreamingLocatorPropertiesResponseResult properties,
+            string? startTime,
+
+            string? streamingLocatorId,
+
+            string streamingPolicyName,
 
             string type)
         {
+            AlternativeMediaId = alternativeMediaId;
+            AssetName = assetName;
+            ContentKeys = contentKeys;
+            Created = created;
+            DefaultContentKeyPolicyName = defaultContentKeyPolicyName;
+            EndTime = endTime;
+            Filters = filters;
             Name = name;
-            Properties = properties;
+            StartTime = startTime;
+            StreamingLocatorId = streamingLocatorId;
+            StreamingPolicyName = streamingPolicyName;
             Type = type;
         }
     }

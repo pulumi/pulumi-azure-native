@@ -10,6 +10,21 @@ from ... import _utilities, _tables
 
 
 class ConfigurationStore(pulumi.CustomResource):
+    creation_date: pulumi.Output[str]
+    """
+    The creation date of configuration store.
+    """
+    encryption: pulumi.Output[dict]
+    """
+    The encryption settings of the configuration store.
+      * `key_vault_properties` (`dict`) - Key vault properties.
+        * `identity_client_id` (`str`) - The client id of the identity which will be used to access key vault.
+        * `key_identifier` (`str`) - The URI of the key vault key used to encrypt data.
+    """
+    endpoint: pulumi.Output[str]
+    """
+    The DNS endpoint where the configuration store API will be available.
+    """
     identity: pulumi.Output[dict]
     """
     The managed identity information, if configured.
@@ -26,34 +41,29 @@ class ConfigurationStore(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint_connections: pulumi.Output[list]
     """
-    The properties of a configuration store.
-      * `creation_date` (`str`) - The creation date of configuration store.
-      * `encryption` (`dict`) - The encryption settings of the configuration store.
-        * `key_vault_properties` (`dict`) - Key vault properties.
-          * `identity_client_id` (`str`) - The client id of the identity which will be used to access key vault.
-          * `key_identifier` (`str`) - The URI of the key vault key used to encrypt data.
+    The list of private endpoint connections that are set up for this resource.
+      * `id` (`str`) - The resource ID.
+      * `name` (`str`) - The name of the resource.
+      * `private_endpoint` (`dict`) - The resource of private endpoint.
+        * `id` (`str`) - The resource Id for private endpoint
 
-      * `endpoint` (`str`) - The DNS endpoint where the configuration store API will be available.
-      * `private_endpoint_connections` (`list`) - The list of private endpoint connections that are set up for this resource.
-        * `id` (`str`) - The resource ID.
-        * `name` (`str`) - The name of the resource.
-        * `properties` (`dict`) - The properties of a private endpoint connection.
-          * `private_endpoint` (`dict`) - The resource of private endpoint.
-            * `id` (`str`) - The resource Id for private endpoint
+      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
+        * `actions_required` (`str`) - Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+        * `description` (`str`) - The private link service connection description.
+        * `status` (`str`) - The private link service connection status.
 
-          * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
-            * `actions_required` (`str`) - Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-            * `description` (`str`) - The private link service connection description.
-            * `status` (`str`) - The private link service connection status.
-
-          * `provisioning_state` (`str`) - The provisioning status of the private endpoint connection.
-
-        * `type` (`str`) - The type of the resource.
-
-      * `provisioning_state` (`str`) - The provisioning state of the configuration store.
-      * `public_network_access` (`str`) - Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+      * `provisioning_state` (`str`) - The provisioning status of the private endpoint connection.
+      * `type` (`str`) - The type of the resource.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the configuration store.
+    """
+    public_network_access: pulumi.Output[str]
+    """
+    Control permission for data plane traffic coming from public networks while private endpoint is enabled.
     """
     sku: pulumi.Output[dict]
     """
@@ -130,7 +140,10 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_date'] = None
+            __props__['endpoint'] = None
+            __props__['private_endpoint_connections'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ConfigurationStore, __self__).__init__(
             'azurerm:appconfiguration/v20200601:ConfigurationStore',

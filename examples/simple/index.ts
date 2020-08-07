@@ -136,7 +136,7 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
     enableHttpsTrafficOnly: true,
 });
 
-export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.properties.defaultHostname}`;
+export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
 
 export const existingRg = azurerm.resources.v20200601.getResourceGroup({ name: "Azure-Account-Cleanup" });
 

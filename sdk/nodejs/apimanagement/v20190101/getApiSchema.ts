@@ -46,13 +46,17 @@ export interface GetApiSchemaArgs {
  */
 export interface GetApiSchemaResult {
     /**
+     * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`. 
+     */
+    readonly contentType: string;
+    /**
+     * Properties of the Schema Document.
+     */
+    readonly document?: {[key: string]: any};
+    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * Properties of the Schema.
-     */
-    readonly properties: outputs.apimanagement.v20190101.SchemaContractPropertiesResponse;
     /**
      * Resource type for API Management resource.
      */

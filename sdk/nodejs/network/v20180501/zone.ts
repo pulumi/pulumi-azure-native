@@ -45,13 +45,29 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly maxNumberOfRecordSets!: pulumi.Output<number>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the zone.
+     * The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180501.ZonePropertiesResponse>;
+    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    /**
+     * The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly numberOfRecordSets!: pulumi.Output<number>;
+    /**
+     * A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+     */
+    public readonly registrationVirtualNetworks!: pulumi.Output<outputs.network.v20180501.SubResourceResponse[] | undefined>;
+    /**
+     * A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+     */
+    public readonly resolutionVirtualNetworks!: pulumi.Output<outputs.network.v20180501.SubResourceResponse[] | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +76,10 @@ export class Zone extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The type of this DNS zone (Public or Private).
+     */
+    public readonly zoneType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -91,7 +111,9 @@ export class Zone extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneType"] = args ? args.zoneType : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["maxNumberOfRecordSets"] = undefined /*out*/;
+            inputs["nameServers"] = undefined /*out*/;
+            inputs["numberOfRecordSets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

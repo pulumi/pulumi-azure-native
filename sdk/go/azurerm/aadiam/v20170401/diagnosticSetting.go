@@ -14,12 +14,22 @@ import (
 type DiagnosticSetting struct {
 	pulumi.CustomResourceState
 
+	// The resource Id for the event hub authorization rule.
+	EventHubAuthorizationRuleId pulumi.StringPtrOutput `pulumi:"eventHubAuthorizationRuleId"`
+	// The name of the event hub. If none is specified, the default event hub will be selected.
+	EventHubName pulumi.StringPtrOutput `pulumi:"eventHubName"`
+	// The list of logs settings.
+	Logs LogSettingsResponseArrayOutput `pulumi:"logs"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of a Diagnostic Settings Resource.
-	Properties DiagnosticSettingsResponseOutput `pulumi:"properties"`
+	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+	ServiceBusRuleId pulumi.StringPtrOutput `pulumi:"serviceBusRuleId"`
+	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+	WorkspaceId pulumi.StringPtrOutput `pulumi:"workspaceId"`
 }
 
 // NewDiagnosticSetting registers a new resource with the given unique name, arguments, and options.
@@ -53,21 +63,41 @@ func GetDiagnosticSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiagnosticSetting resources.
 type diagnosticSettingState struct {
+	// The resource Id for the event hub authorization rule.
+	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
+	// The name of the event hub. If none is specified, the default event hub will be selected.
+	EventHubName *string `pulumi:"eventHubName"`
+	// The list of logs settings.
+	Logs []LogSettingsResponse `pulumi:"logs"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// Properties of a Diagnostic Settings Resource.
-	Properties *DiagnosticSettingsResponse `pulumi:"properties"`
+	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
+	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
+	// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type DiagnosticSettingState struct {
+	// The resource Id for the event hub authorization rule.
+	EventHubAuthorizationRuleId pulumi.StringPtrInput
+	// The name of the event hub. If none is specified, the default event hub will be selected.
+	EventHubName pulumi.StringPtrInput
+	// The list of logs settings.
+	Logs LogSettingsResponseArrayInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// Properties of a Diagnostic Settings Resource.
-	Properties DiagnosticSettingsResponsePtrInput
+	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+	ServiceBusRuleId pulumi.StringPtrInput
+	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+	StorageAccountId pulumi.StringPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
+	// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+	WorkspaceId pulumi.StringPtrInput
 }
 
 func (DiagnosticSettingState) ElementType() reflect.Type {

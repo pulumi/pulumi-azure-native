@@ -10,34 +10,71 @@ from ... import _utilities, _tables
 
 
 class Schedule(pulumi.CustomResource):
+    advanced_schedule: pulumi.Output[dict]
+    """
+    Gets or sets the advanced schedule.
+      * `month_days` (`list`) - Days of the month that the job should execute on. Must be between 1 and 31.
+      * `monthly_occurrences` (`list`) - Occurrences of days within a month.
+        * `day` (`str`) - Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        * `occurrence` (`float`) - Occurrence of the week within the month. Must be between 1 and 5
+
+      * `week_days` (`list`) - Days of the week that the job should execute on.
+    """
+    creation_time: pulumi.Output[str]
+    """
+    Gets or sets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
+    expiry_time: pulumi.Output[str]
+    """
+    Gets or sets the end time of the schedule.
+    """
+    expiry_time_offset_minutes: pulumi.Output[float]
+    """
+    Gets or sets the expiry time's offset in minutes.
+    """
+    frequency: pulumi.Output[str]
+    """
+    Gets or sets the frequency of the schedule.
+    """
+    interval: pulumi.Output[dict]
+    """
+    Gets or sets the interval of the schedule.
+    """
+    is_enabled: pulumi.Output[bool]
+    """
+    Gets or sets a value indicating whether this schedule is enabled.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets or sets the last modified time.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    next_run: pulumi.Output[str]
     """
-    Gets or sets the properties of the schedule.
-      * `advanced_schedule` (`dict`) - Gets or sets the advanced schedule.
-        * `month_days` (`list`) - Days of the month that the job should execute on. Must be between 1 and 31.
-        * `monthly_occurrences` (`list`) - Occurrences of days within a month.
-          * `day` (`str`) - Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-          * `occurrence` (`float`) - Occurrence of the week within the month. Must be between 1 and 5
-
-        * `week_days` (`list`) - Days of the week that the job should execute on.
-
-      * `creation_time` (`str`) - Gets or sets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `expiry_time` (`str`) - Gets or sets the end time of the schedule.
-      * `expiry_time_offset_minutes` (`float`) - Gets or sets the expiry time's offset in minutes.
-      * `frequency` (`str`) - Gets or sets the frequency of the schedule.
-      * `interval` (`dict`) - Gets or sets the interval of the schedule.
-      * `is_enabled` (`bool`) - Gets or sets a value indicating whether this schedule is enabled.
-      * `last_modified_time` (`str`) - Gets or sets the last modified time.
-      * `next_run` (`str`) - Gets or sets the next run time of the schedule.
-      * `next_run_offset_minutes` (`float`) - Gets or sets the next run time's offset in minutes.
-      * `start_time` (`str`) - Gets or sets the start time of the schedule.
-      * `start_time_offset_minutes` (`float`) - Gets the start time's offset in minutes.
-      * `time_zone` (`str`) - Gets or sets the time zone of the schedule.
+    Gets or sets the next run time of the schedule.
+    """
+    next_run_offset_minutes: pulumi.Output[float]
+    """
+    Gets or sets the next run time's offset in minutes.
+    """
+    start_time: pulumi.Output[str]
+    """
+    Gets or sets the start time of the schedule.
+    """
+    start_time_offset_minutes: pulumi.Output[float]
+    """
+    Gets the start time's offset in minutes.
+    """
+    time_zone: pulumi.Output[str]
+    """
+    Gets or sets the time zone of the schedule.
     """
     type: pulumi.Output[str]
     """
@@ -106,7 +143,13 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time
             __props__['time_zone'] = time_zone
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['expiry_time_offset_minutes'] = None
+            __props__['is_enabled'] = None
+            __props__['last_modified_time'] = None
+            __props__['next_run'] = None
+            __props__['next_run_offset_minutes'] = None
+            __props__['start_time_offset_minutes'] = None
             __props__['type'] = None
         super(Schedule, __self__).__init__(
             'azurerm:automation/v20151031:Schedule',

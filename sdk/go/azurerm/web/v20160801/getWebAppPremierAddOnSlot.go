@@ -31,12 +31,22 @@ type LookupWebAppPremierAddOnSlotResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
+	// Premier add on Marketplace offer.
+	MarketplaceOffer *string `pulumi:"marketplaceOffer"`
+	// Premier add on Marketplace publisher.
+	MarketplacePublisher *string `pulumi:"marketplacePublisher"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// PremierAddOn resource specific properties
-	Properties PremierAddOnResponseProperties `pulumi:"properties"`
+	// Premier add on Name.
+	PremierAddOnName *string `pulumi:"premierAddOnName"`
+	// Premier add on Product.
+	Product *string `pulumi:"product"`
+	// Premier add on SKU.
+	Sku *string `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Premier add on Vendor.
+	Vendor *string `pulumi:"vendor"`
 }

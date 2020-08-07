@@ -13,7 +13,19 @@ class GetExpressRouteCircuitAuthorizationResult:
     """
     Authorization in an ExpressRouteCircuit resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, authorization_key=None, authorization_use_status=None, etag=None, name=None, provisioning_state=None, type=None):
+        if authorization_key and not isinstance(authorization_key, str):
+            raise TypeError("Expected argument 'authorization_key' to be a str")
+        __self__.authorization_key = authorization_key
+        """
+        The authorization key.
+        """
+        if authorization_use_status and not isinstance(authorization_use_status, str):
+            raise TypeError("Expected argument 'authorization_use_status' to be a str")
+        __self__.authorization_use_status = authorization_use_status
+        """
+        The authorization use status.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +38,11 @@ class GetExpressRouteCircuitAuthorizationResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the express route circuit authorization.
+        The provisioning state of the authorization resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +58,11 @@ class AwaitableGetExpressRouteCircuitAuthorizationResult(GetExpressRouteCircuitA
         if False:
             yield self
         return GetExpressRouteCircuitAuthorizationResult(
+            authorization_key=self.authorization_key,
+            authorization_use_status=self.authorization_use_status,
             etag=self.etag,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -71,7 +85,9 @@ def get_express_route_circuit_authorization(circuit_name=None, name=None, resour
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getExpressRouteCircuitAuthorization', __args__, opts=opts).value
 
     return AwaitableGetExpressRouteCircuitAuthorizationResult(
+        authorization_key=__ret__.get('authorizationKey'),
+        authorization_use_status=__ret__.get('authorizationUseStatus'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

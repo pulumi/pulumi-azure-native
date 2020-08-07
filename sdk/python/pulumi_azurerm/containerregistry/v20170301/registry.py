@@ -10,29 +10,40 @@ from ... import _utilities, _tables
 
 
 class Registry(pulumi.CustomResource):
+    admin_user_enabled: pulumi.Output[bool]
+    """
+    The value that indicates whether the admin user is enabled.
+    """
+    creation_date: pulumi.Output[str]
+    """
+    The creation date of the container registry in ISO8601 format.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource. This cannot be changed after the resource is created.
+    """
+    login_server: pulumi.Output[str]
+    """
+    The URL that can be used to log into the container registry.
     """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the container registry.
-      * `admin_user_enabled` (`bool`) - The value that indicates whether the admin user is enabled.
-      * `creation_date` (`str`) - The creation date of the container registry in ISO8601 format.
-      * `login_server` (`str`) - The URL that can be used to log into the container registry.
-      * `provisioning_state` (`str`) - The provisioning state of the container registry at the time the operation was called.
-      * `storage_account` (`dict`) - The properties of the storage account for the container registry.
-        * `name` (`str`) - The name of the storage account.
+    The provisioning state of the container registry at the time the operation was called.
     """
     sku: pulumi.Output[dict]
     """
     The SKU of the container registry.
       * `name` (`str`) - The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
       * `tier` (`str`) - The SKU tier based on the SKU name.
+    """
+    storage_account: pulumi.Output[dict]
+    """
+    The properties of the storage account for the container registry.
+      * `name` (`str`) - The name of the storage account.
     """
     tags: pulumi.Output[dict]
     """
@@ -99,7 +110,9 @@ class Registry(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account'")
             __props__['storage_account'] = storage_account
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_date'] = None
+            __props__['login_server'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Registry, __self__).__init__(
             'azurerm:containerregistry/v20170301:Registry',

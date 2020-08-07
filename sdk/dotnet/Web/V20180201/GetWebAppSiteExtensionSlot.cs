@@ -46,36 +46,166 @@ namespace Pulumi.AzureRM.Web.V20180201
     public sealed class GetWebAppSiteExtensionSlotResult
     {
         /// <summary>
+        /// List of authors.
+        /// </summary>
+        public readonly ImmutableArray<string> Authors;
+        /// <summary>
+        /// Site Extension comment.
+        /// </summary>
+        public readonly string? Comment;
+        /// <summary>
+        /// Detailed description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Count of downloads.
+        /// </summary>
+        public readonly int? Download_count;
+        /// <summary>
+        /// Site extension ID.
+        /// </summary>
+        public readonly string? Extension_id;
+        /// <summary>
+        /// Site extension type.
+        /// </summary>
+        public readonly string? Extension_type;
+        /// <summary>
+        /// Extension URL.
+        /// </summary>
+        public readonly string? Extension_url;
+        /// <summary>
+        /// Feed URL.
+        /// </summary>
+        public readonly string? Feed_url;
+        /// <summary>
+        /// Icon URL.
+        /// </summary>
+        public readonly string? Icon_url;
+        /// <summary>
+        /// Installed timestamp.
+        /// </summary>
+        public readonly string? Installed_date_time;
+        /// <summary>
+        /// Installer command line parameters.
+        /// </summary>
+        public readonly string? Installer_command_line_params;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// License URL.
+        /// </summary>
+        public readonly string? License_url;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the local version is the latest version; &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        public readonly bool? Local_is_latest_version;
+        /// <summary>
+        /// Local path.
+        /// </summary>
+        public readonly string? Local_path;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// SiteExtensionInfo resource specific properties
+        /// Project URL.
         /// </summary>
-        public readonly Outputs.SiteExtensionInfoResponsePropertiesResult Properties;
+        public readonly string? Project_url;
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Published timestamp.
+        /// </summary>
+        public readonly string? Published_date_time;
+        /// <summary>
+        /// Summary description.
+        /// </summary>
+        public readonly string? Summary;
+        public readonly string? Title;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version information.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetWebAppSiteExtensionSlotResult(
+            ImmutableArray<string> authors,
+
+            string? comment,
+
+            string? description,
+
+            int? download_count,
+
+            string? extension_id,
+
+            string? extension_type,
+
+            string? extension_url,
+
+            string? feed_url,
+
+            string? icon_url,
+
+            string? installed_date_time,
+
+            string? installer_command_line_params,
+
             string? kind,
+
+            string? license_url,
+
+            bool? local_is_latest_version,
+
+            string? local_path,
 
             string name,
 
-            Outputs.SiteExtensionInfoResponsePropertiesResult properties,
+            string? project_url,
 
-            string type)
+            string? provisioningState,
+
+            string? published_date_time,
+
+            string? summary,
+
+            string? title,
+
+            string type,
+
+            string? version)
         {
+            Authors = authors;
+            Comment = comment;
+            Description = description;
+            Download_count = download_count;
+            Extension_id = extension_id;
+            Extension_type = extension_type;
+            Extension_url = extension_url;
+            Feed_url = feed_url;
+            Icon_url = icon_url;
+            Installed_date_time = installed_date_time;
+            Installer_command_line_params = installer_command_line_params;
             Kind = kind;
+            License_url = license_url;
+            Local_is_latest_version = local_is_latest_version;
+            Local_path = local_path;
             Name = name;
-            Properties = properties;
+            Project_url = project_url;
+            ProvisioningState = provisioningState;
+            Published_date_time = published_date_time;
+            Summary = summary;
+            Title = title;
             Type = type;
+            Version = version;
         }
     }
 }

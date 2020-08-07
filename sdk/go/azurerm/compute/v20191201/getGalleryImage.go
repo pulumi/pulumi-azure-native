@@ -27,12 +27,36 @@ type LookupGalleryImageArgs struct {
 
 // Specifies information about the gallery Image Definition that you want to create or update.
 type LookupGalleryImageResult struct {
+	// The description of this gallery Image Definition resource. This property is updatable.
+	Description *string `pulumi:"description"`
+	// Describes the disallowed disk types.
+	Disallowed *DisallowedResponse `pulumi:"disallowed"`
+	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
+	// The Eula agreement for the gallery Image Definition.
+	Eula *string `pulumi:"eula"`
+	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// This is the gallery Image Definition identifier.
+	Identifier GalleryImageIdentifierResponse `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Describes the properties of a gallery Image Definition.
-	Properties GalleryImagePropertiesResponse `pulumi:"properties"`
+	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+	OsState string `pulumi:"osState"`
+	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+	OsType string `pulumi:"osType"`
+	// The privacy statement uri.
+	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	PurchasePlan *ImagePurchasePlanResponse `pulumi:"purchasePlan"`
+	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+	Recommended *RecommendedMachineConfigurationResponse `pulumi:"recommended"`
+	// The release note uri.
+	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

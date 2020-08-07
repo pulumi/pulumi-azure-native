@@ -37,17 +37,47 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
+     * This is only returned when the certificate provisioningState is 'Failed'.
+     */
+    public /*out*/ readonly deleteCertificateError!: pulumi.Output<outputs.batch.v20170901.DeleteCertificateErrorResponse>;
+    /**
      * The ETag of the resource, used for concurrency statements.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+     */
+    public readonly format!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties associated with the certificate.
+     * The previous provisioned state of the resource
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20170901.CertificatePropertiesResponse>;
+    public /*out*/ readonly previousProvisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly previousProvisioningStateTransitionTime!: pulumi.Output<string>;
+    /**
+     * Values are:
+     *
+     *  Succeeded - The certificate is available for use in pools.
+     *  Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
+     *  Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningStateTransitionTime!: pulumi.Output<string>;
+    /**
+     * The public key of the certificate.
+     */
+    public /*out*/ readonly publicData!: pulumi.Output<string>;
+    /**
+     * This must match the thumbprint from the name.
+     */
+    public readonly thumbprint!: pulumi.Output<string | undefined>;
+    /**
+     * This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+     */
+    public readonly thumbprintAlgorithm!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
@@ -86,8 +116,13 @@ export class Certificate extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["thumbprint"] = args ? args.thumbprint : undefined;
             inputs["thumbprintAlgorithm"] = args ? args.thumbprintAlgorithm : undefined;
+            inputs["deleteCertificateError"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["previousProvisioningState"] = undefined /*out*/;
+            inputs["previousProvisioningStateTransitionTime"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
+            inputs["publicData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

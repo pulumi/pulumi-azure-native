@@ -27,10 +27,12 @@ type LookupRedisFirewallRuleArgs struct {
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 type LookupRedisFirewallRuleResult struct {
+	// highest IP address included in the range
+	EndIP string `pulumi:"endIP"`
 	// name of the firewall rule
 	Name string `pulumi:"name"`
-	// redis cache firewall rule properties
-	Properties RedisFirewallRulePropertiesResponse `pulumi:"properties"`
+	// lowest IP address included in the range
+	StartIP string `pulumi:"startIP"`
 	// type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
 	Type string `pulumi:"type"`
 }

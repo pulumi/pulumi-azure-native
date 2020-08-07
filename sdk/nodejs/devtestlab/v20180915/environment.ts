@@ -37,6 +37,18 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
+     * The display name of the Azure Resource Manager template that produced the environment.
+     */
+    public readonly armTemplateDisplayName!: pulumi.Output<string | undefined>;
+    /**
+     * The creator of the environment.
+     */
+    public /*out*/ readonly createdByUser!: pulumi.Output<string>;
+    /**
+     * The deployment properties of the environment.
+     */
+    public readonly deploymentProperties!: pulumi.Output<outputs.devtestlab.v20180915.EnvironmentDeploymentPropertiesResponse | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +57,13 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.EnvironmentPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The identifier of the resource group containing the environment's resources.
+     */
+    public /*out*/ readonly resourceGroupId!: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +72,10 @@ export class Environment extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -90,8 +110,11 @@ export class Environment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userName"] = args ? args.userName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdByUser"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGroupId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

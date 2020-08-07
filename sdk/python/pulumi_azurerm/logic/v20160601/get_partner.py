@@ -13,12 +13,36 @@ class GetPartnerResult:
     """
     The integration account partner.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, changed_time=None, content=None, created_time=None, location=None, metadata=None, name=None, partner_type=None, tags=None, type=None):
+        if changed_time and not isinstance(changed_time, str):
+            raise TypeError("Expected argument 'changed_time' to be a str")
+        __self__.changed_time = changed_time
+        """
+        The changed time.
+        """
+        if content and not isinstance(content, dict):
+            raise TypeError("Expected argument 'content' to be a dict")
+        __self__.content = content
+        """
+        The partner content.
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        The created time.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The resource location.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The metadata.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +50,11 @@ class GetPartnerResult:
         """
         Gets the resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partner_type and not isinstance(partner_type, str):
+            raise TypeError("Expected argument 'partner_type' to be a str")
+        __self__.partner_type = partner_type
         """
-        The integration account partner properties.
+        The partner type.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +76,13 @@ class AwaitableGetPartnerResult(GetPartnerResult):
         if False:
             yield self
         return GetPartnerResult(
+            changed_time=self.changed_time,
+            content=self.content,
+            created_time=self.created_time,
             location=self.location,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            partner_type=self.partner_type,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +106,12 @@ def get_partner(integration_account_name=None, name=None, resource_group_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:getPartner', __args__, opts=opts).value
 
     return AwaitableGetPartnerResult(
+        changed_time=__ret__.get('changedTime'),
+        content=__ret__.get('content'),
+        created_time=__ret__.get('createdTime'),
         location=__ret__.get('location'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        partner_type=__ret__.get('partnerType'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

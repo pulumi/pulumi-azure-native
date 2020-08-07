@@ -54,9 +54,17 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the firewall policy rule group.
+        /// Priority of the Firewall Policy Rule Group resource.
         /// </summary>
-        public readonly Outputs.FirewallPolicyRuleGroupPropertiesResponseResult Properties;
+        public readonly int? Priority;
+        /// <summary>
+        /// The provisioning state of the firewall policy rule group resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Group of Firewall Policy rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FirewallPolicyRuleResponseResult> Rules;
         /// <summary>
         /// Rule Group type.
         /// </summary>
@@ -68,13 +76,19 @@ namespace Pulumi.AzureRM.Network.V20190801
 
             string? name,
 
-            Outputs.FirewallPolicyRuleGroupPropertiesResponseResult properties,
+            int? priority,
+
+            string? provisioningState,
+
+            ImmutableArray<Outputs.FirewallPolicyRuleResponseResult> rules,
 
             string type)
         {
             Etag = etag;
             Name = name;
-            Properties = properties;
+            Priority = priority;
+            ProvisioningState = provisioningState;
+            Rules = rules;
             Type = type;
         }
     }

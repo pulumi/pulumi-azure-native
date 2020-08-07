@@ -46,29 +46,57 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetVariableResult
     {
         /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        public readonly string? CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Gets or sets the encrypted flag of the variable.
+        /// </summary>
+        public readonly bool? IsEncrypted;
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        public readonly string? LastModifiedTime;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the properties of the variable.
-        /// </summary>
-        public readonly Outputs.VariablePropertiesResponseResult Properties;
-        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Gets or sets the value of the variable.
+        /// </summary>
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetVariableResult(
+            string? creationTime,
+
+            string? description,
+
+            bool? isEncrypted,
+
+            string? lastModifiedTime,
+
             string name,
 
-            Outputs.VariablePropertiesResponseResult properties,
+            string type,
 
-            string type)
+            string? value)
         {
+            CreationTime = creationTime;
+            Description = description;
+            IsEncrypted = isEncrypted;
+            LastModifiedTime = lastModifiedTime;
             Name = name;
-            Properties = properties;
             Type = type;
+            Value = value;
         }
     }
 }

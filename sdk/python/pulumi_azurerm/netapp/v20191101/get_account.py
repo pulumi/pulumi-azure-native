@@ -13,7 +13,13 @@ class GetAccountResult:
     """
     NetApp account resource
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, active_directories=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+        if active_directories and not isinstance(active_directories, list):
+            raise TypeError("Expected argument 'active_directories' to be a list")
+        __self__.active_directories = active_directories
+        """
+        Active Directories
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,11 @@ class GetAccountResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        NetApp Account properties
+        Azure lifecycle management
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +58,10 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            active_directories=self.active_directories,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +83,9 @@ def get_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:netapp/v20191101:getAccount', __args__, opts=opts).value
 
     return AwaitableGetAccountResult(
+        active_directories=__ret__.get('activeDirectories'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -23,10 +23,30 @@ type LookupAssessmentMetadataInSubscriptionArgs struct {
 
 // Security assessment metadata
 type LookupAssessmentMetadataInSubscriptionResult struct {
+	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+	AssessmentType string   `pulumi:"assessmentType"`
+	Category       []string `pulumi:"category"`
+	// Human readable description of the assessment
+	Description *string `pulumi:"description"`
+	// User friendly display name of the assessment
+	DisplayName string `pulumi:"displayName"`
+	// The implementation effort required to remediate this assessment
+	ImplementationEffort *string `pulumi:"implementationEffort"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Describes properties of an assessment metadata.
-	Properties SecurityAssessmentMetadataPropertiesResponse `pulumi:"properties"`
+	// Describes the partner that created the assessment
+	PartnerData *SecurityAssessmentMetadataPartnerDataResponse `pulumi:"partnerData"`
+	// Azure resource ID of the policy definition that turns this assessment calculation on
+	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
+	// True if this assessment is in preview release status
+	Preview *bool `pulumi:"preview"`
+	// Human readable description of what you should do to mitigate this security issue
+	RemediationDescription *string `pulumi:"remediationDescription"`
+	// The severity level of the assessment
+	Severity string   `pulumi:"severity"`
+	Threats  []string `pulumi:"threats"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The user impact of the assessment
+	UserImpact *string `pulumi:"userImpact"`
 }

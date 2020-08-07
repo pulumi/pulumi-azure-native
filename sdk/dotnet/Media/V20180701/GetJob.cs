@@ -52,13 +52,45 @@ namespace Pulumi.AzureRM.Media.V20180701
     public sealed class GetJobResult
     {
         /// <summary>
+        /// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? CorrelationData;
+        /// <summary>
+        /// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// Optional customer supplied description of the Job.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The UTC date and time at which this Job finished processing.
+        /// </summary>
+        public readonly string EndTime;
+        /// <summary>
+        /// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        /// </summary>
+        public readonly string LastModified;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource properties.
+        /// The outputs for the Job.
         /// </summary>
-        public readonly Outputs.JobPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.JobOutputResponseResult> Outputs;
+        /// <summary>
+        /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+        /// </summary>
+        public readonly string? Priority;
+        /// <summary>
+        /// The UTC date and time at which this Job began processing.
+        /// </summary>
+        public readonly string StartTime;
+        /// <summary>
+        /// The current state of the job.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -66,14 +98,38 @@ namespace Pulumi.AzureRM.Media.V20180701
 
         [OutputConstructor]
         private GetJobResult(
+            ImmutableDictionary<string, string>? correlationData,
+
+            string created,
+
+            string? description,
+
+            string endTime,
+
+            string lastModified,
+
             string name,
 
-            Outputs.JobPropertiesResponseResult properties,
+            ImmutableArray<Outputs.JobOutputResponseResult> outputs,
+
+            string? priority,
+
+            string startTime,
+
+            string state,
 
             string type)
         {
+            CorrelationData = correlationData;
+            Created = created;
+            Description = description;
+            EndTime = endTime;
+            LastModified = lastModified;
             Name = name;
-            Properties = properties;
+            Outputs = outputs;
+            Priority = priority;
+            StartTime = startTime;
+            State = state;
             Type = type;
         }
     }

@@ -10,34 +10,48 @@ from ... import _utilities, _tables
 
 
 class StorageTarget(pulumi.CustomResource):
+    clfs: pulumi.Output[dict]
+    """
+    Properties when targetType is clfs.
+      * `target` (`str`) - Resource ID of storage container.
+    """
+    junctions: pulumi.Output[list]
+    """
+    List of Cache namespace junctions to target for namespace associations.
+      * `namespace_path` (`str`) - Namespace path on a Cache for a Storage Target.
+      * `nfs_export` (`str`) - NFS export where targetPath exists.
+      * `target_path` (`str`) - Path in Storage Target to which namespacePath points.
+    """
     name: pulumi.Output[str]
     """
     Name of the Storage Target.
     """
-    properties: pulumi.Output[dict]
+    nfs3: pulumi.Output[dict]
     """
-    StorageTarget properties
-      * `clfs` (`dict`) - Properties when targetType is clfs.
-        * `target` (`str`) - Resource ID of storage container.
-
-      * `junctions` (`list`) - List of Cache namespace junctions to target for namespace associations.
-        * `namespace_path` (`str`) - Namespace path on a Cache for a Storage Target.
-        * `nfs_export` (`str`) - NFS export where targetPath exists.
-        * `target_path` (`str`) - Path in Storage Target to which namespacePath points.
-
-      * `nfs3` (`dict`) - Properties when targetType is nfs3.
-        * `target` (`str`) - IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        * `usage_model` (`str`) - Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
-
-      * `provisioning_state` (`str`) - ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-      * `target_base_type` (`str`) - Type of the Storage Target.
-      * `target_type` (`str`) - Type of the Storage Target.
-      * `unknown` (`dict`) - Properties when targetType is unknown.
-        * `unknown_map` (`dict`) - Dictionary of string->string pairs containing information about the Storage Target.
+    Properties when targetType is nfs3.
+      * `target` (`str`) - IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
+      * `usage_model` (`str`) - Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+    """
+    target_base_type: pulumi.Output[str]
+    """
+    Type of the Storage Target.
+    """
+    target_type: pulumi.Output[str]
+    """
+    Type of the Storage Target.
     """
     type: pulumi.Output[str]
     """
     Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+    """
+    unknown: pulumi.Output[dict]
+    """
+    Properties when targetType is unknown.
+      * `unknown_map` (`dict`) - Dictionary of string->string pairs containing information about the Storage Target.
     """
     def __init__(__self__, resource_name, opts=None, cache_name=None, clfs=None, junctions=None, name=None, nfs3=None, provisioning_state=None, resource_group_name=None, target_base_type=None, target_type=None, unknown=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -110,7 +124,6 @@ class StorageTarget(pulumi.CustomResource):
             __props__['target_base_type'] = target_base_type
             __props__['target_type'] = target_type
             __props__['unknown'] = unknown
-            __props__['properties'] = None
             __props__['type'] = None
         super(StorageTarget, __self__).__init__(
             'azurerm:storagecache/v20200301:StorageTarget',

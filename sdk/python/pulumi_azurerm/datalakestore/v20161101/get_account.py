@@ -13,12 +13,84 @@ class GetAccountResult:
     """
     Data Lake Store account information.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, creation_time=None, current_tier=None, default_group=None, encryption_config=None, encryption_provisioning_state=None, encryption_state=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, identity=None, last_modified_time=None, location=None, name=None, new_tier=None, provisioning_state=None, state=None, tags=None, trusted_id_provider_state=None, trusted_id_providers=None, type=None, virtual_network_rules=None):
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
+        __self__.account_id = account_id
+        """
+        The unique identifier associated with this Data Lake Store account.
+        """
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        The account creation time.
+        """
+        if current_tier and not isinstance(current_tier, str):
+            raise TypeError("Expected argument 'current_tier' to be a str")
+        __self__.current_tier = current_tier
+        """
+        The commitment tier in use for the current month.
+        """
+        if default_group and not isinstance(default_group, str):
+            raise TypeError("Expected argument 'default_group' to be a str")
+        __self__.default_group = default_group
+        """
+        The default owner group for all new folders and files created in the Data Lake Store account.
+        """
+        if encryption_config and not isinstance(encryption_config, dict):
+            raise TypeError("Expected argument 'encryption_config' to be a dict")
+        __self__.encryption_config = encryption_config
+        """
+        The Key Vault encryption configuration.
+        """
+        if encryption_provisioning_state and not isinstance(encryption_provisioning_state, str):
+            raise TypeError("Expected argument 'encryption_provisioning_state' to be a str")
+        __self__.encryption_provisioning_state = encryption_provisioning_state
+        """
+        The current state of encryption provisioning for this Data Lake Store account.
+        """
+        if encryption_state and not isinstance(encryption_state, str):
+            raise TypeError("Expected argument 'encryption_state' to be a str")
+        __self__.encryption_state = encryption_state
+        """
+        The current state of encryption for this Data Lake Store account.
+        """
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        __self__.endpoint = endpoint
+        """
+        The full CName endpoint for this account.
+        """
+        if firewall_allow_azure_ips and not isinstance(firewall_allow_azure_ips, str):
+            raise TypeError("Expected argument 'firewall_allow_azure_ips' to be a str")
+        __self__.firewall_allow_azure_ips = firewall_allow_azure_ips
+        """
+        The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        """
+        if firewall_rules and not isinstance(firewall_rules, list):
+            raise TypeError("Expected argument 'firewall_rules' to be a list")
+        __self__.firewall_rules = firewall_rules
+        """
+        The list of firewall rules associated with this Data Lake Store account.
+        """
+        if firewall_state and not isinstance(firewall_state, str):
+            raise TypeError("Expected argument 'firewall_state' to be a str")
+        __self__.firewall_state = firewall_state
+        """
+        The current state of the IP address firewall for this Data Lake Store account.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The Key Vault encryption identity, if any.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        The account last modified time.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +104,23 @@ class GetAccountResult:
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if new_tier and not isinstance(new_tier, str):
+            raise TypeError("Expected argument 'new_tier' to be a str")
+        __self__.new_tier = new_tier
         """
-        The Data Lake Store account properties.
+        The commitment tier to use for next month.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the Data Lake Store account.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The state of the Data Lake Store account.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,11 +128,29 @@ class GetAccountResult:
         """
         The resource tags.
         """
+        if trusted_id_provider_state and not isinstance(trusted_id_provider_state, str):
+            raise TypeError("Expected argument 'trusted_id_provider_state' to be a str")
+        __self__.trusted_id_provider_state = trusted_id_provider_state
+        """
+        The current state of the trusted identity provider feature for this Data Lake Store account.
+        """
+        if trusted_id_providers and not isinstance(trusted_id_providers, list):
+            raise TypeError("Expected argument 'trusted_id_providers' to be a list")
+        __self__.trusted_id_providers = trusted_id_providers
+        """
+        The list of trusted identity providers associated with this Data Lake Store account.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The resource type.
+        """
+        if virtual_network_rules and not isinstance(virtual_network_rules, list):
+            raise TypeError("Expected argument 'virtual_network_rules' to be a list")
+        __self__.virtual_network_rules = virtual_network_rules
+        """
+        The list of virtual network rules associated with this Data Lake Store account.
         """
 
 
@@ -58,12 +160,29 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            account_id=self.account_id,
+            creation_time=self.creation_time,
+            current_tier=self.current_tier,
+            default_group=self.default_group,
+            encryption_config=self.encryption_config,
+            encryption_provisioning_state=self.encryption_provisioning_state,
+            encryption_state=self.encryption_state,
+            endpoint=self.endpoint,
+            firewall_allow_azure_ips=self.firewall_allow_azure_ips,
+            firewall_rules=self.firewall_rules,
+            firewall_state=self.firewall_state,
             identity=self.identity,
+            last_modified_time=self.last_modified_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            new_tier=self.new_tier,
+            provisioning_state=self.provisioning_state,
+            state=self.state,
             tags=self.tags,
-            type=self.type)
+            trusted_id_provider_state=self.trusted_id_provider_state,
+            trusted_id_providers=self.trusted_id_providers,
+            type=self.type,
+            virtual_network_rules=self.virtual_network_rules)
 
 
 def get_account(name=None, resource_group_name=None, opts=None):
@@ -83,9 +202,26 @@ def get_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:datalakestore/v20161101:getAccount', __args__, opts=opts).value
 
     return AwaitableGetAccountResult(
+        account_id=__ret__.get('accountId'),
+        creation_time=__ret__.get('creationTime'),
+        current_tier=__ret__.get('currentTier'),
+        default_group=__ret__.get('defaultGroup'),
+        encryption_config=__ret__.get('encryptionConfig'),
+        encryption_provisioning_state=__ret__.get('encryptionProvisioningState'),
+        encryption_state=__ret__.get('encryptionState'),
+        endpoint=__ret__.get('endpoint'),
+        firewall_allow_azure_ips=__ret__.get('firewallAllowAzureIps'),
+        firewall_rules=__ret__.get('firewallRules'),
+        firewall_state=__ret__.get('firewallState'),
         identity=__ret__.get('identity'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        new_tier=__ret__.get('newTier'),
+        provisioning_state=__ret__.get('provisioningState'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        trusted_id_provider_state=__ret__.get('trustedIdProviderState'),
+        trusted_id_providers=__ret__.get('trustedIdProviders'),
+        type=__ret__.get('type'),
+        virtual_network_rules=__ret__.get('virtualNetworkRules'))

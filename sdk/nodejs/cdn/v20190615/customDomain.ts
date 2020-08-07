@@ -37,17 +37,41 @@ export class CustomDomain extends pulumi.CustomResource {
     }
 
     /**
+     * Certificate parameters for securing custom HTTPS
+     */
+    public /*out*/ readonly customHttpsParameters!: pulumi.Output<outputs.cdn.v20190615.CustomDomainHttpsParametersResponse | undefined>;
+    /**
+     * Provisioning status of Custom Https of the custom domain.
+     */
+    public /*out*/ readonly customHttpsProvisioningState!: pulumi.Output<string>;
+    /**
+     * Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+     */
+    public /*out*/ readonly customHttpsProvisioningSubstate!: pulumi.Output<string>;
+    /**
+     * The host name of the custom domain. Must be a domain name.
+     */
+    public readonly hostName!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The JSON object that contains the properties of the custom domain to create.
+     * Provisioning status of the custom domain.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20190615.CustomDomainPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource status of the custom domain.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+     */
+    public /*out*/ readonly validationData!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomDomain resource with the given unique name, arguments, and options.
@@ -82,8 +106,13 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["customHttpsParameters"] = undefined /*out*/;
+            inputs["customHttpsProvisioningState"] = undefined /*out*/;
+            inputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["validationData"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public partial class ElasticPool : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation date of the elastic pool (ISO8601 format).
+        /// </summary>
+        [Output("creationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum DTU any one database can consume.
+        /// </summary>
+        [Output("databaseDtuMax")]
+        public Output<int?> DatabaseDtuMax { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum DTU all databases are guaranteed.
+        /// </summary>
+        [Output("databaseDtuMin")]
+        public Output<int?> DatabaseDtuMin { get; private set; } = null!;
+
+        /// <summary>
+        /// The total shared DTU for the database elastic pool.
+        /// </summary>
+        [Output("dtu")]
+        public Output<int?> Dtu { get; private set; } = null!;
+
+        /// <summary>
+        /// The edition of the elastic pool.
+        /// </summary>
+        [Output("edition")]
+        public Output<string?> Edition { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of elastic pool.  This is metadata used for the Azure portal experience.
         /// </summary>
         [Output("kind")]
@@ -33,10 +63,16 @@ namespace Pulumi.AzureRM.Sql.V20140401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties representing the resource.
+        /// The state of the elastic pool.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ElasticPoolPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets storage limit for the database elastic pool in MB.
+        /// </summary>
+        [Output("storageMB")]
+        public Output<int?> StorageMB { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +85,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>

@@ -13,12 +13,66 @@ class GetCertificateOrderResult:
     """
     Certificate purchase order
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, auto_renew=None, certificates=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, intermediate=None, key_size=None, kind=None, last_certificate_issuance_time=None, location=None, name=None, product_type=None, provisioning_state=None, root=None, serial_number=None, signed_certificate=None, status=None, tags=None, type=None, validity_in_years=None):
+        if auto_renew and not isinstance(auto_renew, bool):
+            raise TypeError("Expected argument 'auto_renew' to be a bool")
+        __self__.auto_renew = auto_renew
+        """
+        Auto renew
+        """
+        if certificates and not isinstance(certificates, dict):
+            raise TypeError("Expected argument 'certificates' to be a dict")
+        __self__.certificates = certificates
+        """
+        State of the Key Vault secret
+        """
+        if csr and not isinstance(csr, str):
+            raise TypeError("Expected argument 'csr' to be a str")
+        __self__.csr = csr
+        """
+        Last CSR that was created for this order
+        """
+        if distinguished_name and not isinstance(distinguished_name, str):
+            raise TypeError("Expected argument 'distinguished_name' to be a str")
+        __self__.distinguished_name = distinguished_name
+        """
+        Certificate distinguished name
+        """
+        if domain_verification_token and not isinstance(domain_verification_token, str):
+            raise TypeError("Expected argument 'domain_verification_token' to be a str")
+        __self__.domain_verification_token = domain_verification_token
+        """
+        Domain Verification Token
+        """
+        if expiration_time and not isinstance(expiration_time, str):
+            raise TypeError("Expected argument 'expiration_time' to be a str")
+        __self__.expiration_time = expiration_time
+        """
+        Certificate expiration time
+        """
+        if intermediate and not isinstance(intermediate, dict):
+            raise TypeError("Expected argument 'intermediate' to be a dict")
+        __self__.intermediate = intermediate
+        """
+        Intermediate certificate
+        """
+        if key_size and not isinstance(key_size, float):
+            raise TypeError("Expected argument 'key_size' to be a float")
+        __self__.key_size = key_size
+        """
+        Certificate Key Size
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         Kind of resource
+        """
+        if last_certificate_issuance_time and not isinstance(last_certificate_issuance_time, str):
+            raise TypeError("Expected argument 'last_certificate_issuance_time' to be a str")
+        __self__.last_certificate_issuance_time = last_certificate_issuance_time
+        """
+        Certificate last issuance time
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,9 +86,42 @@ class GetCertificateOrderResult:
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if product_type and not isinstance(product_type, str):
+            raise TypeError("Expected argument 'product_type' to be a str")
+        __self__.product_type = product_type
+        """
+        Certificate product type
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Status of certificate order
+        """
+        if root and not isinstance(root, dict):
+            raise TypeError("Expected argument 'root' to be a dict")
+        __self__.root = root
+        """
+        Root certificate
+        """
+        if serial_number and not isinstance(serial_number, str):
+            raise TypeError("Expected argument 'serial_number' to be a str")
+        __self__.serial_number = serial_number
+        """
+        Current serial number of the certificate
+        """
+        if signed_certificate and not isinstance(signed_certificate, dict):
+            raise TypeError("Expected argument 'signed_certificate' to be a dict")
+        __self__.signed_certificate = signed_certificate
+        """
+        Signed certificate
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Current order status
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -47,6 +134,12 @@ class GetCertificateOrderResult:
         """
         Resource type
         """
+        if validity_in_years and not isinstance(validity_in_years, float):
+            raise TypeError("Expected argument 'validity_in_years' to be a float")
+        __self__.validity_in_years = validity_in_years
+        """
+        Duration in years (must be between 1 and 3)
+        """
 
 
 class AwaitableGetCertificateOrderResult(GetCertificateOrderResult):
@@ -55,12 +148,27 @@ class AwaitableGetCertificateOrderResult(GetCertificateOrderResult):
         if False:
             yield self
         return GetCertificateOrderResult(
+            auto_renew=self.auto_renew,
+            certificates=self.certificates,
+            csr=self.csr,
+            distinguished_name=self.distinguished_name,
+            domain_verification_token=self.domain_verification_token,
+            expiration_time=self.expiration_time,
+            intermediate=self.intermediate,
+            key_size=self.key_size,
             kind=self.kind,
+            last_certificate_issuance_time=self.last_certificate_issuance_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            product_type=self.product_type,
+            provisioning_state=self.provisioning_state,
+            root=self.root,
+            serial_number=self.serial_number,
+            signed_certificate=self.signed_certificate,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            validity_in_years=self.validity_in_years)
 
 
 def get_certificate_order(name=None, resource_group_name=None, opts=None):
@@ -80,9 +188,24 @@ def get_certificate_order(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:certificateregistration/v20150801:getCertificateOrder', __args__, opts=opts).value
 
     return AwaitableGetCertificateOrderResult(
+        auto_renew=__ret__.get('autoRenew'),
+        certificates=__ret__.get('certificates'),
+        csr=__ret__.get('csr'),
+        distinguished_name=__ret__.get('distinguishedName'),
+        domain_verification_token=__ret__.get('domainVerificationToken'),
+        expiration_time=__ret__.get('expirationTime'),
+        intermediate=__ret__.get('intermediate'),
+        key_size=__ret__.get('keySize'),
         kind=__ret__.get('kind'),
+        last_certificate_issuance_time=__ret__.get('lastCertificateIssuanceTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        product_type=__ret__.get('productType'),
+        provisioning_state=__ret__.get('provisioningState'),
+        root=__ret__.get('root'),
+        serial_number=__ret__.get('serialNumber'),
+        signed_certificate=__ret__.get('signedCertificate'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        validity_in_years=__ret__.get('validityInYears'))

@@ -13,24 +13,30 @@ class GetApiPolicyResult:
     """
     Policy Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, format=None, name=None, type=None, value=None):
+        if format and not isinstance(format, str):
+            raise TypeError("Expected argument 'format' to be a str")
+        __self__.format = format
+        """
+        Format of the policyContent.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Properties of the Policy.
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        __self__.value = value
+        """
+        Contents of the Policy as defined by the format.
         """
 
 
@@ -40,9 +46,10 @@ class AwaitableGetApiPolicyResult(GetApiPolicyResult):
         if False:
             yield self
         return GetApiPolicyResult(
+            format=self.format,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            value=self.value)
 
 
 def get_api_policy(api_id=None, format=None, name=None, resource_group_name=None, service_name=None, opts=None):
@@ -68,6 +75,7 @@ def get_api_policy(api_id=None, format=None, name=None, resource_group_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiPolicy', __args__, opts=opts).value
 
     return AwaitableGetApiPolicyResult(
+        format=__ret__.get('format'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        value=__ret__.get('value'))

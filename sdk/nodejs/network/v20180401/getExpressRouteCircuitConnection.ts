@@ -46,12 +46,35 @@ export interface GetExpressRouteCircuitConnectionArgs {
  */
 export interface GetExpressRouteCircuitConnectionResult {
     /**
+     * /29 IP address space to carve out Customer addresses for tunnels.
+     */
+    readonly addressPrefix?: string;
+    /**
+     * The authorization key.
+     */
+    readonly authorizationKey?: string;
+    /**
+     * Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
+     */
+    readonly circuitConnectionStatus: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
     /**
+     * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+     */
+    readonly expressRouteCircuitPeering?: outputs.network.v20180401.SubResourceResponse;
+    /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: string;
-    readonly properties: outputs.network.v20180401.ExpressRouteCircuitConnectionPropertiesFormatResponse;
+    /**
+     * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+     */
+    readonly peerExpressRouteCircuitPeering?: outputs.network.v20180401.SubResourceResponse;
+    /**
+     * Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState: string;
 }

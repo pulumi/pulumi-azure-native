@@ -15,16 +15,16 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public partial class AccessControlRecord : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Iscsi initiator name (IQN)
+        /// </summary>
+        [Output("initiatorName")]
+        public Output<string> InitiatorName { get; private set; } = null!;
+
+        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Properties of AccessControlRecord
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AccessControlRecordPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.

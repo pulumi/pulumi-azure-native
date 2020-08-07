@@ -13,12 +13,24 @@ class GetVirtualHubResult:
     """
     VirtualHub Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, address_prefix=None, etag=None, hub_virtual_network_connections=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_wan=None):
+        if address_prefix and not isinstance(address_prefix, str):
+            raise TypeError("Expected argument 'address_prefix' to be a str")
+        __self__.address_prefix = address_prefix
+        """
+        Address-prefix for this VirtualHub.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        if hub_virtual_network_connections and not isinstance(hub_virtual_network_connections, list):
+            raise TypeError("Expected argument 'hub_virtual_network_connections' to be a list")
+        __self__.hub_virtual_network_connections = hub_virtual_network_connections
+        """
+        list of all vnet connections with this VirtualHub.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +44,11 @@ class GetVirtualHubResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Parameters for VirtualHub
+        The provisioning state of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +62,12 @@ class GetVirtualHubResult:
         """
         Resource type.
         """
+        if virtual_wan and not isinstance(virtual_wan, dict):
+            raise TypeError("Expected argument 'virtual_wan' to be a dict")
+        __self__.virtual_wan = virtual_wan
+        """
+        The VirtualWAN to which the VirtualHub belongs
+        """
 
 
 class AwaitableGetVirtualHubResult(GetVirtualHubResult):
@@ -58,12 +76,15 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
         if False:
             yield self
         return GetVirtualHubResult(
+            address_prefix=self.address_prefix,
             etag=self.etag,
+            hub_virtual_network_connections=self.hub_virtual_network_connections,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_wan=self.virtual_wan)
 
 
 def get_virtual_hub(name=None, resource_group_name=None, opts=None):
@@ -83,9 +104,12 @@ def get_virtual_hub(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20180401:getVirtualHub', __args__, opts=opts).value
 
     return AwaitableGetVirtualHubResult(
+        address_prefix=__ret__.get('addressPrefix'),
         etag=__ret__.get('etag'),
+        hub_virtual_network_connections=__ret__.get('hubVirtualNetworkConnections'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_wan=__ret__.get('virtualWan'))

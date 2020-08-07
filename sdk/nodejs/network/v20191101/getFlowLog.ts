@@ -41,9 +41,21 @@ export interface GetFlowLogArgs {
  */
 export interface GetFlowLogResult {
     /**
+     * Flag to enable/disable flow logging.
+     */
+    readonly enabled?: boolean;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * Parameters that define the configuration of traffic analytics.
+     */
+    readonly flowAnalyticsConfiguration?: outputs.network.v20191101.TrafficAnalyticsPropertiesResponse;
+    /**
+     * Parameters that define the flow log format.
+     */
+    readonly format?: outputs.network.v20191101.FlowLogFormatParametersResponse;
     /**
      * Resource location.
      */
@@ -53,13 +65,29 @@ export interface GetFlowLogResult {
      */
     readonly name: string;
     /**
-     * Properties of the flow log.
+     * The provisioning state of the flow log.
      */
-    readonly properties: outputs.network.v20191101.FlowLogPropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * Parameters that define the retention policy for flow log.
+     */
+    readonly retentionPolicy?: outputs.network.v20191101.RetentionPolicyParametersResponse;
+    /**
+     * ID of the storage account which is used to store the flow log.
+     */
+    readonly storageId: string;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Guid of network security group to which flow log will be applied.
+     */
+    readonly targetResourceGuid: string;
+    /**
+     * ID of network security group to which flow log will be applied.
+     */
+    readonly targetResourceId: string;
     /**
      * Resource type.
      */

@@ -10,9 +10,49 @@ from ... import _utilities, _tables
 
 
 class Python2Package(pulumi.CustomResource):
+    activity_count: pulumi.Output[float]
+    """
+    Gets or sets the activity count of the module.
+    """
+    content_link: pulumi.Output[dict]
+    """
+    Gets or sets the contentLink of the module.
+      * `content_hash` (`dict`) - Gets or sets the hash.
+        * `algorithm` (`str`) - Gets or sets the content hash algorithm used to hash the content.
+        * `value` (`str`) - Gets or sets expected hash value of the content.
+
+      * `uri` (`str`) - Gets or sets the uri of the runbook content.
+      * `version` (`str`) - Gets or sets the version of the content.
+    """
+    creation_time: pulumi.Output[str]
+    """
+    Gets or sets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
+    error: pulumi.Output[dict]
+    """
+    Gets or sets the error info of the module.
+      * `code` (`str`) - Gets or sets the error code.
+      * `message` (`str`) - Gets or sets the error message.
+    """
     etag: pulumi.Output[str]
     """
     Gets or sets the etag of the resource.
+    """
+    is_composite: pulumi.Output[bool]
+    """
+    Gets or sets type of module, if its composite or not.
+    """
+    is_global: pulumi.Output[bool]
+    """
+    Gets or sets the isGlobal flag of the module.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets or sets the last modified time.
     """
     location: pulumi.Output[str]
     """
@@ -22,30 +62,13 @@ class Python2Package(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Gets or sets the module properties.
-      * `activity_count` (`float`) - Gets or sets the activity count of the module.
-      * `content_link` (`dict`) - Gets or sets the contentLink of the module.
-        * `content_hash` (`dict`) - Gets or sets the hash.
-          * `algorithm` (`str`) - Gets or sets the content hash algorithm used to hash the content.
-          * `value` (`str`) - Gets or sets expected hash value of the content.
-
-        * `uri` (`str`) - Gets or sets the uri of the runbook content.
-        * `version` (`str`) - Gets or sets the version of the content.
-
-      * `creation_time` (`str`) - Gets or sets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `error` (`dict`) - Gets or sets the error info of the module.
-        * `code` (`str`) - Gets or sets the error code.
-        * `message` (`str`) - Gets or sets the error message.
-
-      * `is_composite` (`bool`) - Gets or sets type of module, if its composite or not.
-      * `is_global` (`bool`) - Gets or sets the isGlobal flag of the module.
-      * `last_modified_time` (`str`) - Gets or sets the last modified time.
-      * `provisioning_state` (`str`) - Gets or sets the provisioning state of the module.
-      * `size_in_bytes` (`float`) - Gets or sets the size in bytes of the module.
-      * `version` (`str`) - Gets or sets the version of the module.
+    Gets or sets the provisioning state of the module.
+    """
+    size_in_bytes: pulumi.Output[float]
+    """
+    Gets or sets the size in bytes of the module.
     """
     tags: pulumi.Output[dict]
     """
@@ -54,6 +77,10 @@ class Python2Package(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    version: pulumi.Output[str]
+    """
+    Gets or sets the version of the module.
     """
     def __init__(__self__, resource_name, opts=None, automation_account_name=None, content_link=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -106,10 +133,19 @@ class Python2Package(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['activity_count'] = None
+            __props__['creation_time'] = None
+            __props__['description'] = None
+            __props__['error'] = None
             __props__['etag'] = None
+            __props__['is_composite'] = None
+            __props__['is_global'] = None
+            __props__['last_modified_time'] = None
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['size_in_bytes'] = None
             __props__['type'] = None
+            __props__['version'] = None
         super(Python2Package, __self__).__init__(
             'azurerm:automation/v20180630:Python2Package',
             resource_name,

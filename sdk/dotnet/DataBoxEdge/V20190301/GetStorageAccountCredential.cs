@@ -46,29 +46,71 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
     public sealed class GetStorageAccountCredentialResult
     {
         /// <summary>
+        /// Encrypted storage key.
+        /// </summary>
+        public readonly Outputs.AsymmetricEncryptedSecretResponseResult? AccountKey;
+        /// <summary>
+        /// Type of storage accessed on the storage account.
+        /// </summary>
+        public readonly string AccountType;
+        /// <summary>
+        /// Alias for the storage account.
+        /// </summary>
+        public readonly string Alias;
+        /// <summary>
+        /// Blob end point for private clouds.
+        /// </summary>
+        public readonly string? BlobDomainName;
+        /// <summary>
+        /// Connection string for the storage account. Use this string if username and account key are not specified.
+        /// </summary>
+        public readonly string? ConnectionString;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The storage account credential properties.
+        /// Signifies whether SSL needs to be enabled or not.
         /// </summary>
-        public readonly Outputs.StorageAccountCredentialPropertiesResponseResult Properties;
+        public readonly string SslStatus;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Username for the storage account.
+        /// </summary>
+        public readonly string? UserName;
 
         [OutputConstructor]
         private GetStorageAccountCredentialResult(
+            Outputs.AsymmetricEncryptedSecretResponseResult? accountKey,
+
+            string accountType,
+
+            string alias,
+
+            string? blobDomainName,
+
+            string? connectionString,
+
             string name,
 
-            Outputs.StorageAccountCredentialPropertiesResponseResult properties,
+            string sslStatus,
 
-            string type)
+            string type,
+
+            string? userName)
         {
+            AccountKey = accountKey;
+            AccountType = accountType;
+            Alias = alias;
+            BlobDomainName = blobDomainName;
+            ConnectionString = connectionString;
             Name = name;
-            Properties = properties;
+            SslStatus = sslStatus;
             Type = type;
+            UserName = userName;
         }
     }
 }

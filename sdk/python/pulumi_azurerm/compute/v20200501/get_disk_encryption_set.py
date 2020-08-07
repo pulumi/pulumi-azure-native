@@ -13,7 +13,19 @@ class GetDiskEncryptionSetResult:
     """
     disk encryption set resource.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, active_key=None, encryption_type=None, identity=None, location=None, name=None, previous_keys=None, provisioning_state=None, tags=None, type=None):
+        if active_key and not isinstance(active_key, dict):
+            raise TypeError("Expected argument 'active_key' to be a dict")
+        __self__.active_key = active_key
+        """
+        The key vault key which is currently used by this disk encryption set.
+        """
+        if encryption_type and not isinstance(encryption_type, str):
+            raise TypeError("Expected argument 'encryption_type' to be a str")
+        __self__.encryption_type = encryption_type
+        """
+        The type of key used to encrypt the data of the disk.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -32,9 +44,18 @@ class GetDiskEncryptionSetResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if previous_keys and not isinstance(previous_keys, list):
+            raise TypeError("Expected argument 'previous_keys' to be a list")
+        __self__.previous_keys = previous_keys
+        """
+        A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The disk encryption set provisioning state.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -55,10 +76,13 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
         if False:
             yield self
         return GetDiskEncryptionSetResult(
+            active_key=self.active_key,
+            encryption_type=self.encryption_type,
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            previous_keys=self.previous_keys,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -80,9 +104,12 @@ def get_disk_encryption_set(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200501:getDiskEncryptionSet', __args__, opts=opts).value
 
     return AwaitableGetDiskEncryptionSetResult(
+        active_key=__ret__.get('activeKey'),
+        encryption_type=__ret__.get('encryptionType'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        previous_keys=__ret__.get('previousKeys'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

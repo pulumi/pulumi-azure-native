@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20180601
     public partial class VirtualHub : Pulumi.CustomResource
     {
         /// <summary>
+        /// Address-prefix for this VirtualHub.
+        /// </summary>
+        [Output("addressPrefix")]
+        public Output<string?> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// list of all vnet connections with this VirtualHub.
+        /// </summary>
+        [Output("hubVirtualNetworkConnections")]
+        public Output<ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult>> HubVirtualNetworkConnections { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +45,10 @@ namespace Pulumi.AzureRM.Network.V20180601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for VirtualHub
+        /// The provisioning state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualHubPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +61,12 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The VirtualWAN to which the VirtualHub belongs
+        /// </summary>
+        [Output("virtualWan")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualWan { get; private set; } = null!;
 
 
         /// <summary>

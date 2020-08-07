@@ -13,24 +13,66 @@ class GetFileServerResult:
     """
     File Server information.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, creation_time=None, data_disks=None, mount_settings=None, name=None, provisioning_state=None, provisioning_state_transition_time=None, ssh_configuration=None, subnet=None, type=None, vm_size=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Time when the FileServer was created.
+        """
+        if data_disks and not isinstance(data_disks, dict):
+            raise TypeError("Expected argument 'data_disks' to be a dict")
+        __self__.data_disks = data_disks
+        """
+        Information about disks attached to File Server VM.
+        """
+        if mount_settings and not isinstance(mount_settings, dict):
+            raise TypeError("Expected argument 'mount_settings' to be a dict")
+        __self__.mount_settings = mount_settings
+        """
+        File Server mount settings.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        File Server properties.
+        Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
+        """
+        if provisioning_state_transition_time and not isinstance(provisioning_state_transition_time, str):
+            raise TypeError("Expected argument 'provisioning_state_transition_time' to be a str")
+        __self__.provisioning_state_transition_time = provisioning_state_transition_time
+        """
+        Time when the provisioning state was changed.
+        """
+        if ssh_configuration and not isinstance(ssh_configuration, dict):
+            raise TypeError("Expected argument 'ssh_configuration' to be a dict")
+        __self__.ssh_configuration = ssh_configuration
+        """
+        SSH configuration for accessing the File Server node.
+        """
+        if subnet and not isinstance(subnet, dict):
+            raise TypeError("Expected argument 'subnet' to be a dict")
+        __self__.subnet = subnet
+        """
+        File Server virtual network subnet resource ID.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource.
+        """
+        if vm_size and not isinstance(vm_size, str):
+            raise TypeError("Expected argument 'vm_size' to be a str")
+        __self__.vm_size = vm_size
+        """
+        VM size of the File Server.
         """
 
 
@@ -40,9 +82,16 @@ class AwaitableGetFileServerResult(GetFileServerResult):
         if False:
             yield self
         return GetFileServerResult(
+            creation_time=self.creation_time,
+            data_disks=self.data_disks,
+            mount_settings=self.mount_settings,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provisioning_state=self.provisioning_state,
+            provisioning_state_transition_time=self.provisioning_state_transition_time,
+            ssh_configuration=self.ssh_configuration,
+            subnet=self.subnet,
+            type=self.type,
+            vm_size=self.vm_size)
 
 
 def get_file_server(name=None, resource_group_name=None, workspace_name=None, opts=None):
@@ -64,6 +113,13 @@ def get_file_server(name=None, resource_group_name=None, workspace_name=None, op
     __ret__ = pulumi.runtime.invoke('azurerm:batchai/v20180501:getFileServer', __args__, opts=opts).value
 
     return AwaitableGetFileServerResult(
+        creation_time=__ret__.get('creationTime'),
+        data_disks=__ret__.get('dataDisks'),
+        mount_settings=__ret__.get('mountSettings'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provisioning_state=__ret__.get('provisioningState'),
+        provisioning_state_transition_time=__ret__.get('provisioningStateTransitionTime'),
+        ssh_configuration=__ret__.get('sshConfiguration'),
+        subnet=__ret__.get('subnet'),
+        type=__ret__.get('type'),
+        vm_size=__ret__.get('vmSize'))

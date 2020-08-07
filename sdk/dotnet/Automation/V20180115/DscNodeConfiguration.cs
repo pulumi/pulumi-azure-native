@@ -15,16 +15,46 @@ namespace Pulumi.AzureRM.Automation.V20180115
     public partial class DscNodeConfiguration : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the configuration of the node.
+        /// </summary>
+        [Output("configuration")]
+        public Output<Outputs.DscConfigurationAssociationPropertyResponseResult?> Configuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string?> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// If a new build version of NodeConfiguration is required.
+        /// </summary>
+        [Output("incrementNodeConfigurationBuild")]
+        public Output<bool?> IncrementNodeConfigurationBuild { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the configuration properties.
+        /// Number of nodes with this node configuration assigned
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DscNodeConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nodeCount")]
+        public Output<int?> NodeCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Source of node configuration.
+        /// </summary>
+        [Output("source")]
+        public Output<string?> Source { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

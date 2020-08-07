@@ -58,13 +58,21 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetApiIssueAttachmentResult
     {
         /// <summary>
+        /// An HTTP link or Base64-encoded binary data.
+        /// </summary>
+        public readonly string Content;
+        /// <summary>
+        /// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+        /// </summary>
+        public readonly string ContentFormat;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Issue Attachment.
+        /// Filename by which the binary data will be saved.
         /// </summary>
-        public readonly Outputs.IssueAttachmentContractPropertiesResponseResult Properties;
+        public readonly string Title;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -72,14 +80,20 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
 
         [OutputConstructor]
         private GetApiIssueAttachmentResult(
+            string content,
+
+            string contentFormat,
+
             string name,
 
-            Outputs.IssueAttachmentContractPropertiesResponseResult properties,
+            string title,
 
             string type)
         {
+            Content = content;
+            ContentFormat = contentFormat;
             Name = name;
-            Properties = properties;
+            Title = title;
             Type = type;
         }
     }

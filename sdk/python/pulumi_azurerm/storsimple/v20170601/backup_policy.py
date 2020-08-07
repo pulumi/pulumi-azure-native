@@ -10,28 +10,45 @@ from ... import _utilities, _tables
 
 
 class BackupPolicy(pulumi.CustomResource):
+    backup_policy_creation_type: pulumi.Output[str]
+    """
+    The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+    """
     kind: pulumi.Output[str]
     """
     The Kind of the object. Currently only Series8000 is supported
+    """
+    last_backup_time: pulumi.Output[str]
+    """
+    The time of the last backup for the backup policy.
     """
     name: pulumi.Output[str]
     """
     The name of the object.
     """
-    properties: pulumi.Output[dict]
+    next_backup_time: pulumi.Output[str]
     """
-    The properties of the backup policy.
-      * `backup_policy_creation_type` (`str`) - The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
-      * `last_backup_time` (`str`) - The time of the last backup for the backup policy.
-      * `next_backup_time` (`str`) - The time of the next backup for the backup policy.
-      * `scheduled_backup_status` (`str`) - Indicates whether at least one of the schedules in the backup policy is active or not.
-      * `schedules_count` (`float`) - The count of schedules the backup policy contains.
-      * `ssm_host_name` (`str`) - If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
-      * `volume_ids` (`list`) - The path IDs of the volumes which are part of the backup policy.
+    The time of the next backup for the backup policy.
+    """
+    scheduled_backup_status: pulumi.Output[str]
+    """
+    Indicates whether at least one of the schedules in the backup policy is active or not.
+    """
+    schedules_count: pulumi.Output[float]
+    """
+    The count of schedules the backup policy contains.
+    """
+    ssm_host_name: pulumi.Output[str]
+    """
+    If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
     """
     type: pulumi.Output[str]
     """
     The hierarchical type of the object.
+    """
+    volume_ids: pulumi.Output[list]
+    """
+    The path IDs of the volumes which are part of the backup policy.
     """
     def __init__(__self__, resource_name, opts=None, device_name=None, kind=None, manager_name=None, name=None, resource_group_name=None, volume_ids=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -79,7 +96,12 @@ class BackupPolicy(pulumi.CustomResource):
             if volume_ids is None:
                 raise TypeError("Missing required property 'volume_ids'")
             __props__['volume_ids'] = volume_ids
-            __props__['properties'] = None
+            __props__['backup_policy_creation_type'] = None
+            __props__['last_backup_time'] = None
+            __props__['next_backup_time'] = None
+            __props__['scheduled_backup_status'] = None
+            __props__['schedules_count'] = None
+            __props__['ssm_host_name'] = None
             __props__['type'] = None
         super(BackupPolicy, __self__).__init__(
             'azurerm:storsimple/v20170601:BackupPolicy',

@@ -41,6 +41,30 @@ export interface GetSiteInstanceDeploymentArgs {
  */
 export interface GetSiteInstanceDeploymentResult {
     /**
+     * Active
+     */
+    readonly active?: boolean;
+    /**
+     * Author
+     */
+    readonly author?: string;
+    /**
+     * AuthorEmail
+     */
+    readonly author_email?: string;
+    /**
+     * Deployer
+     */
+    readonly deployer?: string;
+    /**
+     * Detail
+     */
+    readonly details?: string;
+    /**
+     * EndTime
+     */
+    readonly end_time?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;
@@ -49,10 +73,21 @@ export interface GetSiteInstanceDeploymentResult {
      */
     readonly location: string;
     /**
+     * Message
+     */
+    readonly message?: string;
+    /**
      * Resource Name
      */
     readonly name?: string;
-    readonly properties: outputs.web.v20150801.DeploymentResponseProperties;
+    /**
+     * StartTime
+     */
+    readonly start_time?: string;
+    /**
+     * Status
+     */
+    readonly status?: number;
     /**
      * Resource tags
      */

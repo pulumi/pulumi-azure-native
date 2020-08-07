@@ -52,9 +52,17 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the service end point policy
+        /// The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.ServiceEndpointPolicyPropertiesFormatResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the service endpoint policy resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
+        /// A collection of service endpoint policy definitions of the service endpoint policy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponseResult> ServiceEndpointPolicyDefinitions;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +80,11 @@ namespace Pulumi.AzureRM.Network.V20180701
 
             string name,
 
-            Outputs.ServiceEndpointPolicyPropertiesFormatResponseResult properties,
+            string? provisioningState,
+
+            string? resourceGuid,
+
+            ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponseResult> serviceEndpointPolicyDefinitions,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -81,7 +93,9 @@ namespace Pulumi.AzureRM.Network.V20180701
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
+            ServiceEndpointPolicyDefinitions = serviceEndpointPolicyDefinitions;
             Tags = tags;
             Type = type;
         }

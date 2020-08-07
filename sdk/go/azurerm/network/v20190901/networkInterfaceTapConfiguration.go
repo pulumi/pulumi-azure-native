@@ -18,10 +18,12 @@ type NetworkInterfaceTapConfiguration struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the Virtual Network Tap configuration.
-	Properties NetworkInterfaceTapConfigurationPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the network interface tap configuration resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Sub Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The reference of the Virtual Network Tap resource.
+	VirtualNetworkTap VirtualNetworkTapResponsePtrOutput `pulumi:"virtualNetworkTap"`
 }
 
 // NewNetworkInterfaceTapConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -65,10 +67,12 @@ type networkInterfaceTapConfigurationState struct {
 	Etag *string `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the Virtual Network Tap configuration.
-	Properties *NetworkInterfaceTapConfigurationPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the network interface tap configuration resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Sub Resource type.
 	Type *string `pulumi:"type"`
+	// The reference of the Virtual Network Tap resource.
+	VirtualNetworkTap *VirtualNetworkTapResponse `pulumi:"virtualNetworkTap"`
 }
 
 type NetworkInterfaceTapConfigurationState struct {
@@ -76,10 +80,12 @@ type NetworkInterfaceTapConfigurationState struct {
 	Etag pulumi.StringPtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the Virtual Network Tap configuration.
-	Properties NetworkInterfaceTapConfigurationPropertiesFormatResponsePtrInput
+	// The provisioning state of the network interface tap configuration resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Sub Resource type.
 	Type pulumi.StringPtrInput
+	// The reference of the Virtual Network Tap resource.
+	VirtualNetworkTap VirtualNetworkTapResponsePtrInput
 }
 
 func (NetworkInterfaceTapConfigurationState) ElementType() reflect.Type {

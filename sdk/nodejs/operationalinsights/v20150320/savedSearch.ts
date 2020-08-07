@@ -37,6 +37,14 @@ export class SavedSearch extends pulumi.CustomResource {
     }
 
     /**
+     * The category of the saved search. This helps the user to find a saved search faster. 
+     */
+    public readonly category!: pulumi.Output<string>;
+    /**
+     * Saved search display name.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
      * The ETag of the saved search.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
@@ -45,13 +53,21 @@ export class SavedSearch extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the saved search.
+     * The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20150320.SavedSearchPropertiesResponse>;
+    public readonly query!: pulumi.Output<string>;
+    /**
+     * The tags attached to the saved search.
+     */
+    public readonly tags!: pulumi.Output<outputs.operationalinsights.v20150320.TagResponse[] | undefined>;
     /**
      * The type of the saved search.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The version number of the query language. The current version is 2 and is the default.
+     */
+    public readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a SavedSearch resource with the given unique name, arguments, and options.
@@ -93,7 +109,6 @@ export class SavedSearch extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

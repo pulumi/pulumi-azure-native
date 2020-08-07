@@ -37,6 +37,10 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
     }
 
     /**
+     * List of all connections attached to this route table v2.
+     */
+    public readonly attachedConnections!: pulumi.Output<string[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -45,9 +49,13 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the virtual hub route table v2.
+     * The provisioning state of the virtual hub route table v2 resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200301.VirtualHubRouteTableV2PropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * List of all routes.
+     */
+    public readonly routes!: pulumi.Output<outputs.network.v20200301.VirtualHubRouteV2Response[] | undefined>;
 
     /**
      * Create a VirtualHubRouteTableV2 resource with the given unique name, arguments, and options.
@@ -78,7 +86,7 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
             inputs["routes"] = args ? args.routes : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

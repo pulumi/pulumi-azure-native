@@ -13,24 +13,66 @@ class GetIscsiDiskResult:
     """
     The iSCSI disk.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, access_control_records=None, data_policy=None, description=None, disk_status=None, local_used_capacity_in_bytes=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, type=None, used_capacity_in_bytes=None):
+        if access_control_records and not isinstance(access_control_records, list):
+            raise TypeError("Expected argument 'access_control_records' to be a list")
+        __self__.access_control_records = access_control_records
+        """
+        The access control records.
+        """
+        if data_policy and not isinstance(data_policy, str):
+            raise TypeError("Expected argument 'data_policy' to be a str")
+        __self__.data_policy = data_policy
+        """
+        The data policy.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description.
+        """
+        if disk_status and not isinstance(disk_status, str):
+            raise TypeError("Expected argument 'disk_status' to be a str")
+        __self__.disk_status = disk_status
+        """
+        The disk status.
+        """
+        if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a float")
+        __self__.local_used_capacity_in_bytes = local_used_capacity_in_bytes
+        """
+        The local used capacity in bytes.
+        """
+        if monitoring_status and not isinstance(monitoring_status, str):
+            raise TypeError("Expected argument 'monitoring_status' to be a str")
+        __self__.monitoring_status = monitoring_status
+        """
+        The monitoring.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioned_capacity_in_bytes and not isinstance(provisioned_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'provisioned_capacity_in_bytes' to be a float")
+        __self__.provisioned_capacity_in_bytes = provisioned_capacity_in_bytes
         """
-        The properties.
+        The provisioned capacity in bytes.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type.
+        """
+        if used_capacity_in_bytes and not isinstance(used_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'used_capacity_in_bytes' to be a float")
+        __self__.used_capacity_in_bytes = used_capacity_in_bytes
+        """
+        The used capacity in bytes.
         """
 
 
@@ -40,9 +82,16 @@ class AwaitableGetIscsiDiskResult(GetIscsiDiskResult):
         if False:
             yield self
         return GetIscsiDiskResult(
+            access_control_records=self.access_control_records,
+            data_policy=self.data_policy,
+            description=self.description,
+            disk_status=self.disk_status,
+            local_used_capacity_in_bytes=self.local_used_capacity_in_bytes,
+            monitoring_status=self.monitoring_status,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provisioned_capacity_in_bytes=self.provisioned_capacity_in_bytes,
+            type=self.type,
+            used_capacity_in_bytes=self.used_capacity_in_bytes)
 
 
 def get_iscsi_disk(device_name=None, iscsi_server_name=None, manager_name=None, name=None, resource_group_name=None, opts=None):
@@ -68,6 +117,13 @@ def get_iscsi_disk(device_name=None, iscsi_server_name=None, manager_name=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getIscsiDisk', __args__, opts=opts).value
 
     return AwaitableGetIscsiDiskResult(
+        access_control_records=__ret__.get('accessControlRecords'),
+        data_policy=__ret__.get('dataPolicy'),
+        description=__ret__.get('description'),
+        disk_status=__ret__.get('diskStatus'),
+        local_used_capacity_in_bytes=__ret__.get('localUsedCapacityInBytes'),
+        monitoring_status=__ret__.get('monitoringStatus'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provisioned_capacity_in_bytes=__ret__.get('provisionedCapacityInBytes'),
+        type=__ret__.get('type'),
+        used_capacity_in_bytes=__ret__.get('usedCapacityInBytes'))

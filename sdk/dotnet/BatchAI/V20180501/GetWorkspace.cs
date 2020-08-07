@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// Time when the Workspace was created.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
         /// The location of the resource
         /// </summary>
         public readonly string Location;
@@ -48,9 +52,13 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the workspace.
+        /// The provisioned state of the Workspace
         /// </summary>
-        public readonly Outputs.WorkspacePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The time at which the workspace entered its current provisioning state.
+        /// </summary>
+        public readonly string ProvisioningStateTransitionTime;
         /// <summary>
         /// The tags of the resource
         /// </summary>
@@ -62,19 +70,25 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string creationTime,
+
             string location,
 
             string name,
 
-            Outputs.WorkspacePropertiesResponseResult properties,
+            string provisioningState,
+
+            string provisioningStateTransitionTime,
 
             ImmutableDictionary<string, string> tags,
 
             string type)
         {
+            CreationTime = creationTime;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ProvisioningStateTransitionTime = provisioningStateTransitionTime;
             Tags = tags;
             Type = type;
         }

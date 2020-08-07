@@ -36,6 +36,10 @@ export interface GetVirtualWANArgs {
  */
 export interface GetVirtualWANResult {
     /**
+     * Vpn encryption to be disabled or not.
+     */
+    readonly disableVpnEncryption?: boolean;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -48,9 +52,9 @@ export interface GetVirtualWANResult {
      */
     readonly name: string;
     /**
-     * Parameters for VirtualWAN
+     * The provisioning state of the resource.
      */
-    readonly properties: outputs.network.v20180401.VirtualWanPropertiesResponse;
+    readonly provisioningState?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +63,9 @@ export interface GetVirtualWANResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * List of VirtualHubs in the VirtualWAN.
+     */
+    readonly virtualHubs: outputs.network.v20180401.SubResourceResponse[];
+    readonly vpnSites: outputs.network.v20180401.SubResourceResponse[];
 }

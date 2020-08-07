@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Network.V20200501
     public partial class NetworkVirtualAppliance : Pulumi.CustomResource
     {
         /// <summary>
+        /// BootStrapConfigurationBlobs storage URLs.
+        /// </summary>
+        [Output("bootStrapConfigurationBlobs")]
+        public Output<ImmutableArray<string>> BootStrapConfigurationBlobs { get; private set; } = null!;
+
+        /// <summary>
+        /// CloudInitConfiguration string in plain text.
+        /// </summary>
+        [Output("cloudInitConfiguration")]
+        public Output<string?> CloudInitConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// CloudInitConfigurationBlob storage URLs.
+        /// </summary>
+        [Output("cloudInitConfigurationBlobs")]
+        public Output<ImmutableArray<string>> CloudInitConfigurationBlobs { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -39,10 +57,16 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Network Virtual Appliance.
+        /// Network Virtual Appliance SKU.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NetworkVirtualAppliancePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("nvaSku")]
+        public Output<Outputs.VirtualApplianceSkuPropertiesResponseResult?> NvaSku { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -55,6 +79,30 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// VirtualAppliance ASN.
+        /// </summary>
+        [Output("virtualApplianceAsn")]
+        public Output<int?> VirtualApplianceAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Virtual Appliance Network Interfaces.
+        /// </summary>
+        [Output("virtualApplianceNics")]
+        public Output<ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult>> VirtualApplianceNics { get; private set; } = null!;
+
+        /// <summary>
+        /// List of references to VirtualApplianceSite.
+        /// </summary>
+        [Output("virtualApplianceSites")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualApplianceSites { get; private set; } = null!;
+
+        /// <summary>
+        /// The Virtual Hub where Network Virtual Appliance is being deployed.
+        /// </summary>
+        [Output("virtualHub")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
 
 
         /// <summary>

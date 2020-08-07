@@ -46,29 +46,43 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
     public sealed class GetVirtualNetworkRuleResult
     {
         /// <summary>
+        /// Create firewall rule before the virtual network has vnet service endpoint enabled.
+        /// </summary>
+        public readonly bool? IgnoreMissingVnetServiceEndpoint;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource properties.
+        /// Virtual Network Rule State
         /// </summary>
-        public readonly Outputs.VirtualNetworkRulePropertiesResponseResult Properties;
+        public readonly string State;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The ARM resource id of the virtual network subnet.
+        /// </summary>
+        public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetVirtualNetworkRuleResult(
+            bool? ignoreMissingVnetServiceEndpoint,
+
             string name,
 
-            Outputs.VirtualNetworkRulePropertiesResponseResult properties,
+            string state,
 
-            string type)
+            string type,
+
+            string virtualNetworkSubnetId)
         {
+            IgnoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
             Name = name;
-            Properties = properties;
+            State = state;
             Type = type;
+            VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }
 }

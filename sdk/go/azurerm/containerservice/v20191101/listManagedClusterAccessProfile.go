@@ -27,12 +27,12 @@ type ListManagedClusterAccessProfileArgs struct {
 
 // Managed cluster Access Profile.
 type ListManagedClusterAccessProfileResult struct {
+	// Base64-encoded Kubernetes configuration file.
+	KubeConfig *string `pulumi:"kubeConfig"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// AccessProfile of a managed cluster.
-	Properties AccessProfileResponse `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

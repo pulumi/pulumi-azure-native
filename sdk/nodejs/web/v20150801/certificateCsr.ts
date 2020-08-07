@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,18 @@ export class CertificateCsr extends pulumi.CustomResource {
     }
 
     /**
+     * Actual CSR string created
+     */
+    public readonly csrString!: pulumi.Output<string | undefined>;
+    /**
+     * Distinguished name of certificate to be created
+     */
+    public readonly distinguishedName!: pulumi.Output<string | undefined>;
+    /**
+     * Hosting environment
+     */
+    public readonly hostingEnvironment!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -48,7 +58,18 @@ export class CertificateCsr extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.CsrResponseProperties>;
+    /**
+     * PFX password
+     */
+    public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * PFX certificate of created certificate
+     */
+    public readonly pfxBlob!: pulumi.Output<string | undefined>;
+    /**
+     * Hash of the certificates public key
+     */
+    public readonly publicKeyHash!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -93,7 +114,6 @@ export class CertificateCsr extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

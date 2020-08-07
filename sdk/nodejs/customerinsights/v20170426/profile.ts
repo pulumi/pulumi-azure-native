@@ -37,17 +37,85 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+     */
+    public readonly apiEntitySetName!: pulumi.Output<string | undefined>;
+    /**
+     * The attributes for the Type.
+     */
+    public readonly attributes!: pulumi.Output<{[key: string]: string[]} | undefined>;
+    /**
+     * Localized descriptions for the property.
+     */
+    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Localized display names for the property.
+     */
+    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Type of entity.
+     */
+    public readonly entityType!: pulumi.Output<string | undefined>;
+    /**
+     * The properties of the Profile.
+     */
+    public readonly fields!: pulumi.Output<outputs.customerinsights.v20170426.PropertyDefinitionResponse[] | undefined>;
+    /**
+     * The instance count.
+     */
+    public readonly instancesCount!: pulumi.Output<number | undefined>;
+    /**
+     * Large Image associated with the Property or EntityType.
+     */
+    public readonly largeImage!: pulumi.Output<string | undefined>;
+    /**
+     * The last changed time for the type definition.
+     */
+    public /*out*/ readonly lastChangedUtc!: pulumi.Output<string>;
+    /**
+     * Any custom localized attributes for the Type.
+     */
+    public readonly localizedAttributes!: pulumi.Output<{[key: string]: {[key: string]: string}} | undefined>;
+    /**
+     * Medium Image associated with the Property or EntityType.
+     */
+    public readonly mediumImage!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The profile type definition.
+     * Provisioning state.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.ProfileTypeDefinitionResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The schema org link. This helps ACI identify and suggest semantic models.
+     */
+    public readonly schemaItemTypeLink!: pulumi.Output<string | undefined>;
+    /**
+     * Small Image associated with the Property or EntityType.
+     */
+    public readonly smallImage!: pulumi.Output<string | undefined>;
+    /**
+     * The strong IDs.
+     */
+    public readonly strongIds!: pulumi.Output<outputs.customerinsights.v20170426.StrongIdResponse[] | undefined>;
+    /**
+     * The hub name.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    /**
+     * The timestamp property name. Represents the time when the interaction or profile update happened.
+     */
+    public readonly timestampFieldName!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The name of the entity.
+     */
+    public readonly typeName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -89,7 +157,9 @@ export class Profile extends pulumi.CustomResource {
             inputs["strongIds"] = args ? args.strongIds : undefined;
             inputs["timestampFieldName"] = args ? args.timestampFieldName : undefined;
             inputs["typeName"] = args ? args.typeName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastChangedUtc"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

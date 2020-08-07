@@ -40,6 +40,34 @@ namespace Pulumi.AzureRM.Compute.V20180930
     public sealed class GetDiskResult
     {
         /// <summary>
+        /// Disk source information. CreationData information cannot be changed after the disk has been created.
+        /// </summary>
+        public readonly Outputs.CreationDataResponseResult CreationData;
+        /// <summary>
+        /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        /// </summary>
+        public readonly int? DiskIOPSReadWrite;
+        /// <summary>
+        /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        /// </summary>
+        public readonly int? DiskMBpsReadWrite;
+        /// <summary>
+        /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        /// </summary>
+        public readonly int? DiskSizeGB;
+        /// <summary>
+        /// The state of the disk.
+        /// </summary>
+        public readonly string DiskState;
+        /// <summary>
+        /// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        /// </summary>
+        public readonly Outputs.EncryptionSettingsCollectionResponseResult? EncryptionSettingsCollection;
+        /// <summary>
+        /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        /// </summary>
+        public readonly string? HyperVGeneration;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -52,9 +80,13 @@ namespace Pulumi.AzureRM.Compute.V20180930
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Disk resource properties.
+        /// The Operating System type.
         /// </summary>
-        public readonly Outputs.DiskPropertiesResponseResult Properties;
+        public readonly string? OsType;
+        /// <summary>
+        /// The disk provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         /// </summary>
@@ -63,6 +95,10 @@ namespace Pulumi.AzureRM.Compute.V20180930
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The time when the disk was created.
+        /// </summary>
+        public readonly string TimeCreated;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -74,28 +110,55 @@ namespace Pulumi.AzureRM.Compute.V20180930
 
         [OutputConstructor]
         private GetDiskResult(
+            Outputs.CreationDataResponseResult creationData,
+
+            int? diskIOPSReadWrite,
+
+            int? diskMBpsReadWrite,
+
+            int? diskSizeGB,
+
+            string diskState,
+
+            Outputs.EncryptionSettingsCollectionResponseResult? encryptionSettingsCollection,
+
+            string? hyperVGeneration,
+
             string location,
 
             string managedBy,
 
             string name,
 
-            Outputs.DiskPropertiesResponseResult properties,
+            string? osType,
+
+            string provisioningState,
 
             Outputs.DiskSkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
+            string timeCreated,
+
             string type,
 
             ImmutableArray<string> zones)
         {
+            CreationData = creationData;
+            DiskIOPSReadWrite = diskIOPSReadWrite;
+            DiskMBpsReadWrite = diskMBpsReadWrite;
+            DiskSizeGB = diskSizeGB;
+            DiskState = diskState;
+            EncryptionSettingsCollection = encryptionSettingsCollection;
+            HyperVGeneration = hyperVGeneration;
             Location = location;
             ManagedBy = managedBy;
             Name = name;
-            Properties = properties;
+            OsType = osType;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
+            TimeCreated = timeCreated;
             Type = type;
             Zones = zones;
         }

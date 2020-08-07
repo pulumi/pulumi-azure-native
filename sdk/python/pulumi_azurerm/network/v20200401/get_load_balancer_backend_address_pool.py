@@ -13,12 +13,30 @@ class GetLoadBalancerBackendAddressPoolResult:
     """
     Pool of backend IP addresses.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, backend_ip_configurations=None, etag=None, load_balancer_backend_addresses=None, load_balancing_rules=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, type=None):
+        if backend_ip_configurations and not isinstance(backend_ip_configurations, list):
+            raise TypeError("Expected argument 'backend_ip_configurations' to be a list")
+        __self__.backend_ip_configurations = backend_ip_configurations
+        """
+        An array of references to IP addresses defined in network interfaces.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if load_balancer_backend_addresses and not isinstance(load_balancer_backend_addresses, list):
+            raise TypeError("Expected argument 'load_balancer_backend_addresses' to be a list")
+        __self__.load_balancer_backend_addresses = load_balancer_backend_addresses
+        """
+        An array of backend addresses.
+        """
+        if load_balancing_rules and not isinstance(load_balancing_rules, list):
+            raise TypeError("Expected argument 'load_balancing_rules' to be a list")
+        __self__.load_balancing_rules = load_balancing_rules
+        """
+        An array of references to load balancing rules that use this backend address pool.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +44,23 @@ class GetLoadBalancerBackendAddressPoolResult:
         """
         The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if outbound_rule and not isinstance(outbound_rule, dict):
+            raise TypeError("Expected argument 'outbound_rule' to be a dict")
+        __self__.outbound_rule = outbound_rule
         """
-        Properties of load balancer backend address pool.
+        A reference to an outbound rule that uses this backend address pool.
+        """
+        if outbound_rules and not isinstance(outbound_rules, list):
+            raise TypeError("Expected argument 'outbound_rules' to be a list")
+        __self__.outbound_rules = outbound_rules
+        """
+        An array of references to outbound rules that use this backend address pool.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the backend address pool resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +76,14 @@ class AwaitableGetLoadBalancerBackendAddressPoolResult(GetLoadBalancerBackendAdd
         if False:
             yield self
         return GetLoadBalancerBackendAddressPoolResult(
+            backend_ip_configurations=self.backend_ip_configurations,
             etag=self.etag,
+            load_balancer_backend_addresses=self.load_balancer_backend_addresses,
+            load_balancing_rules=self.load_balancing_rules,
             name=self.name,
-            properties=self.properties,
+            outbound_rule=self.outbound_rule,
+            outbound_rules=self.outbound_rules,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -71,7 +106,12 @@ def get_load_balancer_backend_address_pool(load_balancer_name=None, name=None, r
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200401:getLoadBalancerBackendAddressPool', __args__, opts=opts).value
 
     return AwaitableGetLoadBalancerBackendAddressPoolResult(
+        backend_ip_configurations=__ret__.get('backendIPConfigurations'),
         etag=__ret__.get('etag'),
+        load_balancer_backend_addresses=__ret__.get('loadBalancerBackendAddresses'),
+        load_balancing_rules=__ret__.get('loadBalancingRules'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        outbound_rule=__ret__.get('outboundRule'),
+        outbound_rules=__ret__.get('outboundRules'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

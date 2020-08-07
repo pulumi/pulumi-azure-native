@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class Account(pulumi.CustomResource):
+    active_directories: pulumi.Output[list]
+    """
+    Active Directories
+      * `active_directory_id` (`str`) - Id of the Active Directory
+      * `dns` (`str`) - Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
+      * `domain` (`str`) - Name of the Active Directory domain
+      * `organizational_unit` (`str`) - The Organizational Unit (OU) within the Windows Active Directory
+      * `password` (`str`) - Plain text password of Active Directory domain administrator
+      * `smb_server_name` (`str`) - NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+      * `status` (`str`) - Status of the Active Directory
+      * `username` (`str`) - Username of Active Directory domain administrator
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,20 +30,9 @@ class Account(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    NetApp Account properties
-      * `active_directories` (`list`) - Active Directories
-        * `active_directory_id` (`str`) - Id of the Active Directory
-        * `dns` (`str`) - Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-        * `domain` (`str`) - Name of the Active Directory domain
-        * `organizational_unit` (`str`) - The Organizational Unit (OU) within the Windows Active Directory
-        * `password` (`str`) - Plain text password of Active Directory domain administrator
-        * `smb_server_name` (`str`) - NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-        * `status` (`str`) - Status of the Active Directory
-        * `username` (`str`) - Username of Active Directory domain administrator
-
-      * `provisioning_state` (`str`) - Azure lifecycle management
+    Azure lifecycle management
     """
     tags: pulumi.Output[dict]
     """
@@ -92,7 +93,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Account, __self__).__init__(
             'azurerm:netapp/v20190801:Account',

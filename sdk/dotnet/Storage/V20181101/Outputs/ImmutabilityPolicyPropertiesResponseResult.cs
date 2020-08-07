@@ -18,9 +18,13 @@ namespace Pulumi.AzureRM.Storage.V20181101.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// The properties of an ImmutabilityPolicy of a blob container.
+        /// The immutability period for the blobs in the container since the policy creation, in days.
         /// </summary>
-        public readonly Outputs.ImmutabilityPolicyPropertyResponseResult? Properties;
+        public readonly int ImmutabilityPeriodSinceCreationInDays;
+        /// <summary>
+        /// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// The ImmutabilityPolicy update history of the blob container.
         /// </summary>
@@ -30,12 +34,15 @@ namespace Pulumi.AzureRM.Storage.V20181101.Outputs
         private ImmutabilityPolicyPropertiesResponseResult(
             string etag,
 
-            Outputs.ImmutabilityPolicyPropertyResponseResult? properties,
+            int immutabilityPeriodSinceCreationInDays,
+
+            string state,
 
             ImmutableArray<Outputs.UpdateHistoryPropertyResponseResult> updateHistory)
         {
             Etag = etag;
-            Properties = properties;
+            ImmutabilityPeriodSinceCreationInDays = immutabilityPeriodSinceCreationInDays;
+            State = state;
             UpdateHistory = updateHistory;
         }
     }

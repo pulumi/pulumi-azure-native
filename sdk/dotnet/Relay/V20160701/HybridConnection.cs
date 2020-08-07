@@ -15,22 +15,46 @@ namespace Pulumi.AzureRM.Relay.V20160701
     public partial class HybridConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the HybridConnection was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of listeners for this HybridConnection. min : 1 and max:25 supported
+        /// </summary>
+        [Output("listenerCount")]
+        public Output<int> ListenerCount { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of HybridConnection
+        /// true if client authorization is needed for this HybridConnection; otherwise, false.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HybridConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("requiresClientAuthorization")]
+        public Output<bool?> RequiresClientAuthorization { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+        /// </summary>
+        [Output("userMetadata")]
+        public Output<string?> UserMetadata { get; private set; } = null!;
 
 
         /// <summary>

@@ -18,8 +18,12 @@ type Image struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of an Image.
-	Properties ImagePropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The source virtual machine from which Image is created.
+	SourceVirtualMachine SubResourceResponsePtrOutput `pulumi:"sourceVirtualMachine"`
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile ImageStorageProfileResponsePtrOutput `pulumi:"storageProfile"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -67,8 +71,12 @@ type imageState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Describes the properties of an Image.
-	Properties *ImagePropertiesResponse `pulumi:"properties"`
+	// The provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The source virtual machine from which Image is created.
+	SourceVirtualMachine *SubResourceResponse `pulumi:"sourceVirtualMachine"`
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile *ImageStorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -80,8 +88,12 @@ type ImageState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Describes the properties of an Image.
-	Properties ImagePropertiesResponsePtrInput
+	// The provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// The source virtual machine from which Image is created.
+	SourceVirtualMachine SubResourceResponsePtrInput
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile ImageStorageProfileResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

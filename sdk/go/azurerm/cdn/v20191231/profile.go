@@ -18,8 +18,10 @@ type Profile struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The JSON object that contains the properties required to create a profile.
-	Properties ProfilePropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning status of the profile.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Resource status of the profile.
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// Resource tags.
@@ -72,8 +74,10 @@ type profileState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The JSON object that contains the properties required to create a profile.
-	Properties *ProfilePropertiesResponse `pulumi:"properties"`
+	// Provisioning status of the profile.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the profile.
+	ResourceState *string `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
@@ -87,8 +91,10 @@ type ProfileState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The JSON object that contains the properties required to create a profile.
-	Properties ProfilePropertiesResponsePtrInput
+	// Provisioning status of the profile.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource status of the profile.
+	ResourceState pulumi.StringPtrInput
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 	Sku SkuResponsePtrInput
 	// Resource tags.

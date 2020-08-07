@@ -41,13 +41,33 @@ export interface GetStreamingPolicyArgs {
  */
 export interface GetStreamingPolicyResult {
     /**
+     * Configuration of CommonEncryptionCbcs
+     */
+    readonly commonEncryptionCbcs?: outputs.media.v20200501.CommonEncryptionCbcsResponse;
+    /**
+     * Configuration of CommonEncryptionCenc
+     */
+    readonly commonEncryptionCenc?: outputs.media.v20200501.CommonEncryptionCencResponse;
+    /**
+     * Creation time of Streaming Policy
+     */
+    readonly created: string;
+    /**
+     * Default ContentKey used by current Streaming Policy
+     */
+    readonly defaultContentKeyPolicyName?: string;
+    /**
+     * Configuration of EnvelopeEncryption
+     */
+    readonly envelopeEncryption?: outputs.media.v20200501.EnvelopeEncryptionResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Class to specify properties of Streaming Policy
+     * Configurations of NoEncryption
      */
-    readonly properties: outputs.media.v20200501.StreamingPolicyPropertiesResponse;
+    readonly noEncryption?: outputs.media.v20200501.NoEncryptionResponse;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

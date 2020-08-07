@@ -27,14 +27,24 @@ type LookupNatGatewayArgs struct {
 type LookupNatGatewayResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The idle timeout of the nat gateway.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Nat Gateway properties.
-	Properties NatGatewayPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the NAT gateway resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// An array of public ip addresses associated with the nat gateway resource.
+	PublicIpAddresses []SubResourceResponse `pulumi:"publicIpAddresses"`
+	// An array of public ip prefixes associated with the nat gateway resource.
+	PublicIpPrefixes []SubResourceResponse `pulumi:"publicIpPrefixes"`
+	// The resource GUID property of the NAT gateway resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The nat gateway SKU.
 	Sku *NatGatewaySkuResponse `pulumi:"sku"`
+	// An array of references to the subnets using this nat gateway resource.
+	Subnets []SubResourceResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -13,18 +13,102 @@ class GetConnectorMappingResult:
     """
     The connector mapping resource format.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, connector_mapping_name=None, connector_name=None, connector_type=None, created=None, data_format_id=None, description=None, display_name=None, entity_type=None, entity_type_name=None, last_modified=None, mapping_properties=None, name=None, next_run_time=None, run_id=None, state=None, tenant_id=None, type=None):
+        if connector_mapping_name and not isinstance(connector_mapping_name, str):
+            raise TypeError("Expected argument 'connector_mapping_name' to be a str")
+        __self__.connector_mapping_name = connector_mapping_name
+        """
+        The connector mapping name
+        """
+        if connector_name and not isinstance(connector_name, str):
+            raise TypeError("Expected argument 'connector_name' to be a str")
+        __self__.connector_name = connector_name
+        """
+        The connector name.
+        """
+        if connector_type and not isinstance(connector_type, str):
+            raise TypeError("Expected argument 'connector_type' to be a str")
+        __self__.connector_type = connector_type
+        """
+        Type of connector.
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The created time.
+        """
+        if data_format_id and not isinstance(data_format_id, str):
+            raise TypeError("Expected argument 'data_format_id' to be a str")
+        __self__.data_format_id = data_format_id
+        """
+        The DataFormat ID.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the connector mapping.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Display name for the connector mapping.
+        """
+        if entity_type and not isinstance(entity_type, str):
+            raise TypeError("Expected argument 'entity_type' to be a str")
+        __self__.entity_type = entity_type
+        """
+        Defines which entity type the file should map to.
+        """
+        if entity_type_name and not isinstance(entity_type_name, str):
+            raise TypeError("Expected argument 'entity_type_name' to be a str")
+        __self__.entity_type_name = entity_type_name
+        """
+        The mapping entity name.
+        """
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        __self__.last_modified = last_modified
+        """
+        The last modified time.
+        """
+        if mapping_properties and not isinstance(mapping_properties, dict):
+            raise TypeError("Expected argument 'mapping_properties' to be a dict")
+        __self__.mapping_properties = mapping_properties
+        """
+        The properties of the mapping.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if next_run_time and not isinstance(next_run_time, str):
+            raise TypeError("Expected argument 'next_run_time' to be a str")
+        __self__.next_run_time = next_run_time
         """
-        The connector mapping definition.
+        The next run time based on customer's settings.
+        """
+        if run_id and not isinstance(run_id, str):
+            raise TypeError("Expected argument 'run_id' to be a str")
+        __self__.run_id = run_id
+        """
+        The RunId.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        State of connector mapping.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The hub name.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +124,22 @@ class AwaitableGetConnectorMappingResult(GetConnectorMappingResult):
         if False:
             yield self
         return GetConnectorMappingResult(
+            connector_mapping_name=self.connector_mapping_name,
+            connector_name=self.connector_name,
+            connector_type=self.connector_type,
+            created=self.created,
+            data_format_id=self.data_format_id,
+            description=self.description,
+            display_name=self.display_name,
+            entity_type=self.entity_type,
+            entity_type_name=self.entity_type_name,
+            last_modified=self.last_modified,
+            mapping_properties=self.mapping_properties,
             name=self.name,
-            properties=self.properties,
+            next_run_time=self.next_run_time,
+            run_id=self.run_id,
+            state=self.state,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -66,6 +164,20 @@ def get_connector_mapping(connector_name=None, hub_name=None, name=None, resourc
     __ret__ = pulumi.runtime.invoke('azurerm:customerinsights/v20170426:getConnectorMapping', __args__, opts=opts).value
 
     return AwaitableGetConnectorMappingResult(
+        connector_mapping_name=__ret__.get('connectorMappingName'),
+        connector_name=__ret__.get('connectorName'),
+        connector_type=__ret__.get('connectorType'),
+        created=__ret__.get('created'),
+        data_format_id=__ret__.get('dataFormatId'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        entity_type=__ret__.get('entityType'),
+        entity_type_name=__ret__.get('entityTypeName'),
+        last_modified=__ret__.get('lastModified'),
+        mapping_properties=__ret__.get('mappingProperties'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        next_run_time=__ret__.get('nextRunTime'),
+        run_id=__ret__.get('runId'),
+        state=__ret__.get('state'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

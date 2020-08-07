@@ -36,9 +36,17 @@ export interface GetFactoryArgs {
  */
 export interface GetFactoryResult {
     /**
+     * Time the factory was created in ISO8601 format.
+     */
+    readonly createTime: string;
+    /**
      * Etag identifies change in the resource.
      */
     readonly eTag: string;
+    /**
+     * List of parameters for factory.
+     */
+    readonly globalParameters?: {[key: string]: outputs.datafactory.v20180601.GlobalParameterSpecificationResponse};
     /**
      * Managed service identity of the factory.
      */
@@ -52,9 +60,13 @@ export interface GetFactoryResult {
      */
     readonly name: string;
     /**
-     * Properties of the factory.
+     * Factory provisioning state, example Succeeded.
      */
-    readonly properties: outputs.datafactory.v20180601.FactoryPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Git repo information of the factory.
+     */
+    readonly repoConfiguration?: outputs.datafactory.v20180601.FactoryRepoConfigurationResponse;
     /**
      * The resource tags.
      */
@@ -63,4 +75,8 @@ export interface GetFactoryResult {
      * The resource type.
      */
     readonly type: string;
+    /**
+     * Version of the factory.
+     */
+    readonly version: string;
 }

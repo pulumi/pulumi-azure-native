@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Compute.V20191201
     public partial class Gallery : Pulumi.CustomResource
     {
         /// <summary>
+        /// The description of this Shared Image Gallery resource. This property is updatable.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the gallery unique name.
+        /// </summary>
+        [Output("identifier")]
+        public Output<Outputs.GalleryIdentifierResponseResult?> Identifier { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +39,10 @@ namespace Pulumi.AzureRM.Compute.V20191201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a Shared Image Gallery.
+        /// The provisioning state, which only appears in the response.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GalleryPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

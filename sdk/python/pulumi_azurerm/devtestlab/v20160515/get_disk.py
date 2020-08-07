@@ -13,12 +13,60 @@ class GetDiskResult:
     """
     A Disk.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, created_date=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The creation date of the disk.
+        """
+        if disk_blob_name and not isinstance(disk_blob_name, str):
+            raise TypeError("Expected argument 'disk_blob_name' to be a str")
+        __self__.disk_blob_name = disk_blob_name
+        """
+        When backed by a blob, the name of the VHD blob without extension.
+        """
+        if disk_size_gi_b and not isinstance(disk_size_gi_b, float):
+            raise TypeError("Expected argument 'disk_size_gi_b' to be a float")
+        __self__.disk_size_gi_b = disk_size_gi_b
+        """
+        The size of the disk in Gibibytes.
+        """
+        if disk_type and not isinstance(disk_type, str):
+            raise TypeError("Expected argument 'disk_type' to be a str")
+        __self__.disk_type = disk_type
+        """
+        The storage type for the disk (i.e. Standard, Premium).
+        """
+        if disk_uri and not isinstance(disk_uri, str):
+            raise TypeError("Expected argument 'disk_uri' to be a str")
+        __self__.disk_uri = disk_uri
+        """
+        When backed by a blob, the URI of underlying blob.
+        """
+        if host_caching and not isinstance(host_caching, str):
+            raise TypeError("Expected argument 'host_caching' to be a str")
+        __self__.host_caching = host_caching
+        """
+        The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+        """
+        if leased_by_lab_vm_id and not isinstance(leased_by_lab_vm_id, str):
+            raise TypeError("Expected argument 'leased_by_lab_vm_id' to be a str")
+        __self__.leased_by_lab_vm_id = leased_by_lab_vm_id
+        """
+        The resource ID of the VM to which this disk is leased.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The location of the resource.
+        """
+        if managed_disk_id and not isinstance(managed_disk_id, str):
+            raise TypeError("Expected argument 'managed_disk_id' to be a str")
+        __self__.managed_disk_id = managed_disk_id
+        """
+        When backed by managed disk, this is the ID of the compute disk resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +74,11 @@ class GetDiskResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +92,12 @@ class GetDiskResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
 
 
 class AwaitableGetDiskResult(GetDiskResult):
@@ -52,11 +106,20 @@ class AwaitableGetDiskResult(GetDiskResult):
         if False:
             yield self
         return GetDiskResult(
+            created_date=self.created_date,
+            disk_blob_name=self.disk_blob_name,
+            disk_size_gi_b=self.disk_size_gi_b,
+            disk_type=self.disk_type,
+            disk_uri=self.disk_uri,
+            host_caching=self.host_caching,
+            leased_by_lab_vm_id=self.leased_by_lab_vm_id,
             location=self.location,
+            managed_disk_id=self.managed_disk_id,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_disk(lab_name=None, name=None, resource_group_name=None, user_name=None, opts=None):
@@ -80,8 +143,17 @@ def get_disk(lab_name=None, name=None, resource_group_name=None, user_name=None,
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getDisk', __args__, opts=opts).value
 
     return AwaitableGetDiskResult(
+        created_date=__ret__.get('createdDate'),
+        disk_blob_name=__ret__.get('diskBlobName'),
+        disk_size_gi_b=__ret__.get('diskSizeGiB'),
+        disk_type=__ret__.get('diskType'),
+        disk_uri=__ret__.get('diskUri'),
+        host_caching=__ret__.get('hostCaching'),
+        leased_by_lab_vm_id=__ret__.get('leasedByLabVmId'),
         location=__ret__.get('location'),
+        managed_disk_id=__ret__.get('managedDiskId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

@@ -37,21 +37,57 @@ export class Bookmark extends pulumi.CustomResource {
     }
 
     /**
+     * The time the bookmark was created
+     */
+    public readonly created!: pulumi.Output<string | undefined>;
+    /**
+     * Describes a user that created the bookmark
+     */
+    public readonly createdBy!: pulumi.Output<outputs.operationalinsights.v20200101.UserInfoResponse | undefined>;
+    /**
+     * The display name of the bookmark
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
      * Etag of the azure resource
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Describes an incident that relates to bookmark
+     */
+    public readonly incidentInfo!: pulumi.Output<outputs.operationalinsights.v20200101.IncidentInfoResponse | undefined>;
+    /**
+     * List of labels relevant to this bookmark
+     */
+    public readonly labels!: pulumi.Output<string[] | undefined>;
     /**
      * Azure resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Bookmark properties
+     * The notes of the bookmark
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20200101.BookmarkPropertiesResponse>;
+    public readonly notes!: pulumi.Output<string | undefined>;
+    /**
+     * The query of the bookmark.
+     */
+    public readonly query!: pulumi.Output<string>;
+    /**
+     * The query result of the bookmark.
+     */
+    public readonly queryResult!: pulumi.Output<string | undefined>;
     /**
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The last time the bookmark was updated
+     */
+    public readonly updated!: pulumi.Output<string | undefined>;
+    /**
+     * Describes a user that updated the bookmark
+     */
+    public readonly updatedBy!: pulumi.Output<outputs.operationalinsights.v20200101.UserInfoResponse | undefined>;
 
     /**
      * Create a Bookmark resource with the given unique name, arguments, and options.
@@ -95,7 +131,6 @@ export class Bookmark extends pulumi.CustomResource {
             inputs["updated"] = args ? args.updated : undefined;
             inputs["updatedBy"] = args ? args.updatedBy : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

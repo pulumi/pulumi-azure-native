@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,25 @@ export class RedisLinkedServer extends pulumi.CustomResource {
     }
 
     /**
+     * Fully qualified resourceId of the linked redis cache.
+     */
+    public readonly linkedRedisCacheId!: pulumi.Output<string>;
+    /**
+     * Location of the linked redis cache.
+     */
+    public readonly linkedRedisCacheLocation!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the linked server.
+     * Terminal state of the link between primary and secondary redis cache.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cache.v20170201.RedisLinkedServerPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Role of the linked server.
+     */
+    public readonly serverRole!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -82,7 +92,7 @@ export class RedisLinkedServer extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverRole"] = args ? args.serverRole : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

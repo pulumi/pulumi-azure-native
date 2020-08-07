@@ -36,6 +36,32 @@ export interface GetSignalRArgs {
  */
 export interface GetSignalRResult {
     /**
+     * Cross-Origin Resource Sharing (CORS) settings.
+     */
+    readonly cors?: outputs.signalrservice.v20200501.SignalRCorsSettingsResponse;
+    /**
+     * The publicly accessible IP of the SignalR service.
+     */
+    readonly externalIP: string;
+    /**
+     * List of SignalR featureFlags. e.g. ServiceMode.
+     * 
+     * FeatureFlags that are not included in the parameters for the update operation will not be modified.
+     * And the response will only include featureFlags that are explicitly set. 
+     * When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+     * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+     */
+    readonly features?: outputs.signalrservice.v20200501.SignalRFeatureResponse[];
+    /**
+     * FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+     */
+    readonly hostName: string;
+    /**
+     * Prefix for the hostName of the SignalR service. Retained for future use.
+     * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+     */
+    readonly hostNamePrefix?: string;
+    /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
     readonly kind?: string;
@@ -48,9 +74,25 @@ export interface GetSignalRResult {
      */
     readonly name: string;
     /**
-     * Settings used to provision or configure the resource
+     * Network ACLs
      */
-    readonly properties: outputs.signalrservice.v20200501.SignalRPropertiesResponse;
+    readonly networkACLs?: outputs.signalrservice.v20200501.SignalRNetworkACLsResponse;
+    /**
+     * Private endpoint connections to the SignalR resource.
+     */
+    readonly privateEndpointConnections: outputs.signalrservice.v20200501.PrivateEndpointConnectionResponse[];
+    /**
+     * Provisioning state of the resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+     */
+    readonly publicPort: number;
+    /**
+     * The publicly accessible port of the SignalR service which is designed for customer server side usage.
+     */
+    readonly serverPort: number;
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */
@@ -63,4 +105,12 @@ export interface GetSignalRResult {
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
     readonly type: string;
+    /**
+     * Upstream settings when the Azure SignalR is in server-less mode.
+     */
+    readonly upstream?: outputs.signalrservice.v20200501.ServerlessUpstreamSettingsResponse;
+    /**
+     * Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+     */
+    readonly version: string;
 }

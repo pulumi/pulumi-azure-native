@@ -10,6 +10,46 @@ from ... import _utilities, _tables
 
 
 class SecurityRule(pulumi.CustomResource):
+    access: pulumi.Output[str]
+    """
+    The network traffic is allowed or denied.
+    """
+    description: pulumi.Output[str]
+    """
+    A description for this rule. Restricted to 140 chars.
+    """
+    destination_address_prefix: pulumi.Output[str]
+    """
+    The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+    """
+    destination_address_prefixes: pulumi.Output[list]
+    """
+    The destination address prefixes. CIDR or destination IP ranges.
+    """
+    destination_application_security_groups: pulumi.Output[list]
+    """
+    The application security group specified as destination.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `location` (`str`) - Resource location.
+      * `name` (`str`) - Resource name.
+      * `provisioning_state` (`str`) - The provisioning state of the application security group resource.
+      * `resource_guid` (`str`) - The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+      * `tags` (`dict`) - Resource tags.
+      * `type` (`str`) - Resource type.
+    """
+    destination_port_range: pulumi.Output[str]
+    """
+    The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+    """
+    destination_port_ranges: pulumi.Output[list]
+    """
+    The destination port ranges.
+    """
+    direction: pulumi.Output[str]
+    """
+    The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -18,36 +58,45 @@ class SecurityRule(pulumi.CustomResource):
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    priority: pulumi.Output[float]
     """
-    Properties of the security rule.
-      * `access` (`str`) - The network traffic is allowed or denied.
-      * `description` (`str`) - A description for this rule. Restricted to 140 chars.
-      * `destination_address_prefix` (`str`) - The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-      * `destination_address_prefixes` (`list`) - The destination address prefixes. CIDR or destination IP ranges.
-      * `destination_application_security_groups` (`list`) - The application security group specified as destination.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `location` (`str`) - Resource location.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Properties of the application security group.
-          * `provisioning_state` (`str`) - The provisioning state of the application security group resource.
-          * `resource_guid` (`str`) - The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-
-        * `tags` (`dict`) - Resource tags.
-        * `type` (`str`) - Resource type.
-
-      * `destination_port_range` (`str`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-      * `destination_port_ranges` (`list`) - The destination port ranges.
-      * `direction` (`str`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-      * `priority` (`float`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-      * `protocol` (`str`) - Network protocol this rule applies to.
-      * `provisioning_state` (`str`) - The provisioning state of the security rule resource.
-      * `source_address_prefix` (`str`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-      * `source_address_prefixes` (`list`) - The CIDR or source IP ranges.
-      * `source_application_security_groups` (`list`) - The application security group specified as source.
-      * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-      * `source_port_ranges` (`list`) - The source port ranges.
+    The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+    """
+    protocol: pulumi.Output[str]
+    """
+    Network protocol this rule applies to.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the security rule resource.
+    """
+    source_address_prefix: pulumi.Output[str]
+    """
+    The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+    """
+    source_address_prefixes: pulumi.Output[list]
+    """
+    The CIDR or source IP ranges.
+    """
+    source_application_security_groups: pulumi.Output[list]
+    """
+    The application security group specified as source.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `location` (`str`) - Resource location.
+      * `name` (`str`) - Resource name.
+      * `provisioning_state` (`str`) - The provisioning state of the application security group resource.
+      * `resource_guid` (`str`) - The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+      * `tags` (`dict`) - Resource tags.
+      * `type` (`str`) - Resource type.
+    """
+    source_port_range: pulumi.Output[str]
+    """
+    The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+    """
+    source_port_ranges: pulumi.Output[list]
+    """
+    The source port ranges.
     """
     def __init__(__self__, resource_name, opts=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_groups=None, destination_port_range=None, destination_port_ranges=None, direction=None, id=None, name=None, network_security_group_name=None, priority=None, protocol=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_groups=None, source_port_range=None, source_port_ranges=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -130,7 +179,7 @@ class SecurityRule(pulumi.CustomResource):
             __props__['source_port_range'] = source_port_range
             __props__['source_port_ranges'] = source_port_ranges
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(SecurityRule, __self__).__init__(
             'azurerm:network/v20190901:SecurityRule',
             resource_name,

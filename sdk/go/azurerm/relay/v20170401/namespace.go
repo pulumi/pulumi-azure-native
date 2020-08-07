@@ -14,18 +14,25 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
+	// The time the namespace was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Identifier for Azure Insights metrics.
+	MetricId pulumi.StringOutput `pulumi:"metricId"`
 	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Description of Relay namespace
-	Properties RelayNamespacePropertiesResponseOutput `pulumi:"properties"`
+	Name              pulumi.StringOutput `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
 	// SKU of the namespace.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -65,33 +72,47 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
+	// The time the namespace was created.
+	CreatedAt *string `pulumi:"createdAt"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Identifier for Azure Insights metrics.
+	MetricId *string `pulumi:"metricId"`
 	// Resource name.
-	Name *string `pulumi:"name"`
-	// Description of Relay namespace
-	Properties *RelayNamespacePropertiesResponse `pulumi:"properties"`
+	Name              *string `pulumi:"name"`
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
 	// SKU of the namespace.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type NamespaceState struct {
+	// The time the namespace was created.
+	CreatedAt pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Identifier for Azure Insights metrics.
+	MetricId pulumi.StringPtrInput
 	// Resource name.
-	Name pulumi.StringPtrInput
-	// Description of Relay namespace
-	Properties RelayNamespacePropertiesResponsePtrInput
+	Name              pulumi.StringPtrInput
+	ProvisioningState pulumi.StringPtrInput
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint pulumi.StringPtrInput
 	// SKU of the namespace.
 	Sku SkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {

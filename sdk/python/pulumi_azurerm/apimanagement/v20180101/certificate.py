@@ -10,16 +10,21 @@ from ... import _utilities, _tables
 
 
 class Certificate(pulumi.CustomResource):
+    expiration_date: pulumi.Output[str]
+    """
+    Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    subject: pulumi.Output[str]
     """
-    Certificate properties details.
-      * `expiration_date` (`str`) - Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-      * `subject` (`str`) - Subject attribute of the certificate.
-      * `thumbprint` (`str`) - Thumbprint of the certificate.
+    Subject attribute of the certificate.
+    """
+    thumbprint: pulumi.Output[str]
+    """
+    Thumbprint of the certificate.
     """
     type: pulumi.Output[str]
     """
@@ -69,7 +74,9 @@ class Certificate(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
+            __props__['expiration_date'] = None
+            __props__['subject'] = None
+            __props__['thumbprint'] = None
             __props__['type'] = None
         super(Certificate, __self__).__init__(
             'azurerm:apimanagement/v20180101:Certificate',

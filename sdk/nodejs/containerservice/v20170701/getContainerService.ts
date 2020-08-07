@@ -36,17 +36,45 @@ export interface GetContainerServiceArgs {
  */
 export interface GetContainerServiceResult {
     /**
+     * Properties of the agent pool.
+     */
+    readonly agentPoolProfiles?: outputs.containerservice.v20170701.ContainerServiceAgentPoolProfileResponse[];
+    /**
+     * Properties to configure a custom container service cluster.
+     */
+    readonly customProfile?: outputs.containerservice.v20170701.ContainerServiceCustomProfileResponse;
+    /**
+     * Profile for diagnostics in the container service cluster.
+     */
+    readonly diagnosticsProfile?: outputs.containerservice.v20170701.ContainerServiceDiagnosticsProfileResponse;
+    /**
+     * Profile for Linux VMs in the container service cluster.
+     */
+    readonly linuxProfile: outputs.containerservice.v20170701.ContainerServiceLinuxProfileResponse;
+    /**
      * Resource location
      */
     readonly location: string;
+    /**
+     * Profile for the container service master.
+     */
+    readonly masterProfile: outputs.containerservice.v20170701.ContainerServiceMasterProfileResponse;
     /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Properties of the container service.
+     * Profile for the container service orchestrator.
      */
-    readonly properties: outputs.containerservice.v20170701.ContainerServicePropertiesResponse;
+    readonly orchestratorProfile: outputs.containerservice.v20170701.ContainerServiceOrchestratorProfileResponse;
+    /**
+     * The current deployment or provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+     */
+    readonly servicePrincipalProfile?: outputs.containerservice.v20170701.ContainerServiceServicePrincipalProfileResponse;
     /**
      * Resource tags
      */
@@ -55,4 +83,8 @@ export interface GetContainerServiceResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Profile for Windows VMs in the container service cluster.
+     */
+    readonly windowsProfile?: outputs.containerservice.v20170701.ContainerServiceWindowsProfileResponse;
 }

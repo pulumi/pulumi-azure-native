@@ -37,6 +37,50 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
+     * Raw bytes of .cer file
+     */
+    public /*out*/ readonly cerBlob!: pulumi.Output<string>;
+    /**
+     * Certificate expiration date.
+     */
+    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    /**
+     * Friendly name of the certificate.
+     */
+    public /*out*/ readonly friendlyName!: pulumi.Output<string>;
+    /**
+     * Region of the certificate.
+     */
+    public /*out*/ readonly geoRegion!: pulumi.Output<string>;
+    /**
+     * Host names the certificate applies to.
+     */
+    public readonly hostNames!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specification for the App Service Environment to use for the certificate.
+     */
+    public /*out*/ readonly hostingEnvironmentProfile!: pulumi.Output<outputs.web.v20160301.HostingEnvironmentProfileResponse>;
+    /**
+     * Certificate issue Date.
+     */
+    public /*out*/ readonly issueDate!: pulumi.Output<string>;
+    /**
+     * Certificate issuer.
+     */
+    public /*out*/ readonly issuer!: pulumi.Output<string>;
+    /**
+     * Key Vault Csm resource Id.
+     */
+    public readonly keyVaultId!: pulumi.Output<string | undefined>;
+    /**
+     * Key Vault secret name.
+     */
+    public readonly keyVaultSecretName!: pulumi.Output<string | undefined>;
+    /**
+     * Status of the Key Vault secret.
+     */
+    public /*out*/ readonly keyVaultSecretStatus!: pulumi.Output<string>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -49,17 +93,49 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Certificate resource specific properties
+     * Certificate password.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160301.CertificateResponseProperties>;
+    public readonly password!: pulumi.Output<string>;
+    /**
+     * Pfx blob.
+     */
+    public readonly pfxBlob!: pulumi.Output<string | undefined>;
+    /**
+     * Public key hash.
+     */
+    public /*out*/ readonly publicKeyHash!: pulumi.Output<string>;
+    /**
+     * Self link.
+     */
+    public /*out*/ readonly selfLink!: pulumi.Output<string>;
+    /**
+     * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+     */
+    public readonly serverFarmId!: pulumi.Output<string | undefined>;
+    /**
+     * App name.
+     */
+    public /*out*/ readonly siteName!: pulumi.Output<string>;
+    /**
+     * Subject name of the certificate.
+     */
+    public /*out*/ readonly subjectName!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Certificate thumbprint.
+     */
+    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Is the certificate valid?.
+     */
+    public /*out*/ readonly valid!: pulumi.Output<boolean>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -97,8 +173,21 @@ export class Certificate extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverFarmId"] = args ? args.serverFarmId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["cerBlob"] = undefined /*out*/;
+            inputs["expirationDate"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["geoRegion"] = undefined /*out*/;
+            inputs["hostingEnvironmentProfile"] = undefined /*out*/;
+            inputs["issueDate"] = undefined /*out*/;
+            inputs["issuer"] = undefined /*out*/;
+            inputs["keyVaultSecretStatus"] = undefined /*out*/;
+            inputs["publicKeyHash"] = undefined /*out*/;
+            inputs["selfLink"] = undefined /*out*/;
+            inputs["siteName"] = undefined /*out*/;
+            inputs["subjectName"] = undefined /*out*/;
+            inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["valid"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

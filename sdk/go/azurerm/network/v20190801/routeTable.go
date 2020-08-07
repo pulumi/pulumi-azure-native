@@ -14,14 +14,20 @@ import (
 type RouteTable struct {
 	pulumi.CustomResourceState
 
+	// Whether to disable the routes learned by BGP on that route table. True means disable.
+	DisableBgpRoutePropagation pulumi.BoolPtrOutput `pulumi:"disableBgpRoutePropagation"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the route table.
-	Properties RouteTablePropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the route table resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Collection of routes contained within a route table.
+	Routes RouteResponseArrayOutput `pulumi:"routes"`
+	// A collection of references to subnets.
+	Subnets SubnetResponseArrayOutput `pulumi:"subnets"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,14 +68,20 @@ func GetRouteTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTable resources.
 type routeTableState struct {
+	// Whether to disable the routes learned by BGP on that route table. True means disable.
+	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the route table.
-	Properties *RouteTablePropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the route table resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Collection of routes contained within a route table.
+	Routes []RouteResponse `pulumi:"routes"`
+	// A collection of references to subnets.
+	Subnets []SubnetResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -77,14 +89,20 @@ type routeTableState struct {
 }
 
 type RouteTableState struct {
+	// Whether to disable the routes learned by BGP on that route table. True means disable.
+	DisableBgpRoutePropagation pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the route table.
-	Properties RouteTablePropertiesFormatResponsePtrInput
+	// The provisioning state of the route table resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Collection of routes contained within a route table.
+	Routes RouteResponseArrayInput
+	// A collection of references to subnets.
+	Subnets SubnetResponseArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

@@ -10,20 +10,30 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteConnection(pulumi.CustomResource):
+    authorization_key: pulumi.Output[str]
+    """
+    Authorization key to establish the connection.
+    """
+    enable_internet_security: pulumi.Output[bool]
+    """
+    Enable internet security.
+    """
+    express_route_circuit_peering: pulumi.Output[dict]
+    """
+    The ExpressRoute circuit peering.
+      * `id` (`str`) - The ID of the ExpressRoute circuit peering.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the express route connection.
-      * `authorization_key` (`str`) - Authorization key to establish the connection.
-      * `enable_internet_security` (`bool`) - Enable internet security.
-      * `express_route_circuit_peering` (`dict`) - The ExpressRoute circuit peering.
-        * `id` (`str`) - The ID of the ExpressRoute circuit peering.
-
-      * `provisioning_state` (`str`) - The provisioning state of the express route connection resource.
-      * `routing_weight` (`float`) - The routing weight associated to the connection.
+    The provisioning state of the express route connection resource.
+    """
+    routing_weight: pulumi.Output[float]
+    """
+    The routing weight associated to the connection.
     """
     def __init__(__self__, resource_name, opts=None, authorization_key=None, enable_internet_security=None, express_route_circuit_peering=None, express_route_gateway_name=None, id=None, name=None, resource_group_name=None, routing_weight=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -77,7 +87,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['routing_weight'] = routing_weight
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(ExpressRouteConnection, __self__).__init__(
             'azurerm:network/v20200301:ExpressRouteConnection',
             resource_name,

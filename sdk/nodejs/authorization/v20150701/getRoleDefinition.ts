@@ -36,13 +36,29 @@ export interface GetRoleDefinitionArgs {
  */
 export interface GetRoleDefinitionResult {
     /**
+     * Role definition assignable scopes.
+     */
+    readonly assignableScopes?: string[];
+    /**
+     * The role definition description.
+     */
+    readonly description?: string;
+    /**
      * The role definition name.
      */
     readonly name: string;
     /**
-     * Role definition properties.
+     * Role definition permissions.
      */
-    readonly properties: outputs.authorization.v20150701.RoleDefinitionPropertiesResponse;
+    readonly permissions?: outputs.authorization.v20150701.PermissionResponse[];
+    /**
+     * The role name.
+     */
+    readonly roleName?: string;
+    /**
+     * The role type.
+     */
+    readonly roleType?: string;
     /**
      * The role definition type.
      */

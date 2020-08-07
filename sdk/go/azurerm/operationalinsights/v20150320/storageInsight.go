@@ -14,12 +14,18 @@ import (
 type StorageInsight struct {
 	pulumi.CustomResourceState
 
+	// The names of the blob containers that the workspace should read
+	Containers pulumi.StringArrayOutput `pulumi:"containers"`
 	// The ETag of the storage insight.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Storage insight properties.
-	Properties StorageInsightPropertiesResponseOutput `pulumi:"properties"`
+	// The status of the storage insight
+	Status StorageInsightStatusResponseOutput `pulumi:"status"`
+	// The storage account connection details
+	StorageAccount StorageAccountResponseOutput `pulumi:"storageAccount"`
+	// The names of the Azure tables that the workspace should read
+	Tables pulumi.StringArrayOutput `pulumi:"tables"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -66,12 +72,18 @@ func GetStorageInsight(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageInsight resources.
 type storageInsightState struct {
+	// The names of the blob containers that the workspace should read
+	Containers []string `pulumi:"containers"`
 	// The ETag of the storage insight.
 	ETag *string `pulumi:"eTag"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Storage insight properties.
-	Properties *StorageInsightPropertiesResponse `pulumi:"properties"`
+	// The status of the storage insight
+	Status *StorageInsightStatusResponse `pulumi:"status"`
+	// The storage account connection details
+	StorageAccount *StorageAccountResponse `pulumi:"storageAccount"`
+	// The names of the Azure tables that the workspace should read
+	Tables []string `pulumi:"tables"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -79,12 +91,18 @@ type storageInsightState struct {
 }
 
 type StorageInsightState struct {
+	// The names of the blob containers that the workspace should read
+	Containers pulumi.StringArrayInput
 	// The ETag of the storage insight.
 	ETag pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Storage insight properties.
-	Properties StorageInsightPropertiesResponsePtrInput
+	// The status of the storage insight
+	Status StorageInsightStatusResponsePtrInput
+	// The storage account connection details
+	StorageAccount StorageAccountResponsePtrInput
+	// The names of the Azure tables that the workspace should read
+	Tables pulumi.StringArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type.

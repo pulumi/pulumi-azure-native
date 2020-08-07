@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
+     * The creation date of the snapshot
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * UUID v4 used to identify the FileSystem
+     */
+    public readonly fileSystemId!: pulumi.Output<string | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +51,13 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Snapshot Properties
+     * Azure lifecycle management
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.netapp.v20191101.SnapshotPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * UUID v4 used to identify the Snapshot
+     */
+    public /*out*/ readonly snapshotId!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -91,7 +101,9 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["volumeName"] = args ? args.volumeName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["snapshotId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

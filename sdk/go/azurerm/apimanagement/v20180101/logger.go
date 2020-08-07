@@ -14,10 +14,17 @@ import (
 type Logger struct {
 	pulumi.CustomResourceState
 
+	// The name and SendRule connection string of the event hub for azureEventHub logger.
+	// Instrumentation key for applicationInsights logger.
+	Credentials pulumi.StringMapOutput `pulumi:"credentials"`
+	// Logger description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+	IsBuffered pulumi.BoolPtrOutput `pulumi:"isBuffered"`
+	// Logger type.
+	LoggerType pulumi.StringOutput `pulumi:"loggerType"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Logger entity contract properties.
-	Properties LoggerContractPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +72,33 @@ func GetLogger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Logger resources.
 type loggerState struct {
+	// The name and SendRule connection string of the event hub for azureEventHub logger.
+	// Instrumentation key for applicationInsights logger.
+	Credentials map[string]string `pulumi:"credentials"`
+	// Logger description.
+	Description *string `pulumi:"description"`
+	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+	IsBuffered *bool `pulumi:"isBuffered"`
+	// Logger type.
+	LoggerType *string `pulumi:"loggerType"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Logger entity contract properties.
-	Properties *LoggerContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type LoggerState struct {
+	// The name and SendRule connection string of the event hub for azureEventHub logger.
+	// Instrumentation key for applicationInsights logger.
+	Credentials pulumi.StringMapInput
+	// Logger description.
+	Description pulumi.StringPtrInput
+	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+	IsBuffered pulumi.BoolPtrInput
+	// Logger type.
+	LoggerType pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Logger entity contract properties.
-	Properties LoggerContractPropertiesResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

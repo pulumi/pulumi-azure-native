@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Batch.V20181201.Outputs
         /// If omitted, the default is "docker.io".
         /// </summary>
         public readonly string? RegistryServer;
-        public readonly string Username;
+        public readonly string UserName;
 
         [OutputConstructor]
         private ContainerRegistryResponseResult(
@@ -26,11 +26,11 @@ namespace Pulumi.AzureRM.Batch.V20181201.Outputs
 
             string? registryServer,
 
-            string username)
+            string userName)
         {
             Password = password;
             RegistryServer = registryServer;
-            Username = username;
+            UserName = userName;
         }
     }
 }

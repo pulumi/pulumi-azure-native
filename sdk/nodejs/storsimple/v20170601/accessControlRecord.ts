@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class AccessControlRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The iSCSI initiator name (IQN).
+     */
+    public readonly initiatorName!: pulumi.Output<string>;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,13 +47,13 @@ export class AccessControlRecord extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of access control record.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.AccessControlRecordPropertiesResponse>;
-    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The number of volumes using the access control record.
+     */
+    public /*out*/ readonly volumeCount!: pulumi.Output<number>;
 
     /**
      * Create a AccessControlRecord resource with the given unique name, arguments, and options.
@@ -83,8 +85,8 @@ export class AccessControlRecord extends pulumi.CustomResource {
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["volumeCount"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

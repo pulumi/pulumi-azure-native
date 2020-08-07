@@ -15,10 +15,58 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public partial class Disk : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation date of the disk.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// When backed by a blob, the name of the VHD blob without extension.
+        /// </summary>
+        [Output("diskBlobName")]
+        public Output<string?> DiskBlobName { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the disk in Gibibytes.
+        /// </summary>
+        [Output("diskSizeGiB")]
+        public Output<int?> DiskSizeGiB { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage type for the disk (i.e. Standard, Premium).
+        /// </summary>
+        [Output("diskType")]
+        public Output<string?> DiskType { get; private set; } = null!;
+
+        /// <summary>
+        /// When backed by a blob, the URI of underlying blob.
+        /// </summary>
+        [Output("diskUri")]
+        public Output<string?> DiskUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+        /// </summary>
+        [Output("hostCaching")]
+        public Output<string?> HostCaching { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the VM to which this disk is leased.
+        /// </summary>
+        [Output("leasedByLabVmId")]
+        public Output<string?> LeasedByLabVmId { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// When backed by managed disk, this is the ID of the compute disk resource.
+        /// </summary>
+        [Output("managedDiskId")]
+        public Output<string?> ManagedDiskId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -27,10 +75,10 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DiskPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +91,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>

@@ -37,6 +37,14 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
+     * Describes custom rules inside the policy.
+     */
+    public readonly customRules!: pulumi.Output<outputs.cdn.v20200331.CustomRuleListResponse | undefined>;
+    /**
+     * Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+     */
+    public /*out*/ readonly endpointLinks!: pulumi.Output<outputs.cdn.v20200331.CdnEndpointResponse[]>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -45,13 +53,26 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Describes managed rules inside the policy.
+     */
+    public readonly managedRules!: pulumi.Output<outputs.cdn.v20200331.ManagedRuleSetListResponse | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the web application firewall policy.
+     * Describes  policySettings for policy
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20200331.CdnWebApplicationFirewallPolicyPropertiesResponse>;
+    public readonly policySettings!: pulumi.Output<outputs.cdn.v20200331.PolicySettingsResponse | undefined>;
+    /**
+     * Provisioning state of the WebApplicationFirewallPolicy.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Describes rate limit rules inside the policy.
+     */
+    public readonly rateLimitRules!: pulumi.Output<outputs.cdn.v20200331.RateLimitRuleListResponse | undefined>;
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */
@@ -100,7 +121,9 @@ export class Policy extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["endpointLinks"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

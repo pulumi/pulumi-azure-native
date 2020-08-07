@@ -31,10 +31,12 @@ type LookupAlertRuleActionArgs struct {
 type LookupAlertRuleActionResult struct {
 	// Etag of the action.
 	Etag *string `pulumi:"etag"`
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+	LogicAppResourceId string `pulumi:"logicAppResourceId"`
 	// Azure resource name
 	Name string `pulumi:"name"`
-	// Action properties for get request
-	Properties ActionResponsePropertiesResponse `pulumi:"properties"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+	// The name of the logic app's workflow.
+	WorkflowId *string `pulumi:"workflowId"`
 }

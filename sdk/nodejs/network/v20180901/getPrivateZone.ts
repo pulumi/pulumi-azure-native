@@ -44,13 +44,37 @@ export interface GetPrivateZoneResult {
      */
     readonly location?: string;
     /**
+     * The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    readonly maxNumberOfRecordSets: number;
+    /**
+     * The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    readonly maxNumberOfVirtualNetworkLinks: number;
+    /**
+     * The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    readonly maxNumberOfVirtualNetworkLinksWithRegistration: number;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Properties of the Private DNS zone.
+     * The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
      */
-    readonly properties: outputs.network.v20180901.PrivateZonePropertiesResponse;
+    readonly numberOfRecordSets: number;
+    /**
+     * The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    readonly numberOfVirtualNetworkLinks: number;
+    /**
+     * The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    readonly numberOfVirtualNetworkLinksWithRegistration: number;
+    /**
+     * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

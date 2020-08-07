@@ -21,10 +21,22 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the private endpoint connection
+        /// Private endpoint associated with the private endpoint connection
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpoint")]
+        public Output<Outputs.PrivateEndpointResponseResult?> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Connection state
+        /// </summary>
+        [Output("privateLinkServiceConnectionState")]
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the private endpoint connection
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"

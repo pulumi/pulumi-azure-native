@@ -49,9 +49,21 @@ export interface GetPoolResult {
      */
     readonly name: string;
     /**
-     * Capacity pool properties
+     * UUID v4 used to identify the Pool
      */
-    readonly properties: outputs.netapp.v20191001.PoolPropertiesResponse;
+    readonly poolId: string;
+    /**
+     * Azure lifecycle management
+     */
+    readonly provisioningState: string;
+    /**
+     * The service level of the file system
+     */
+    readonly serviceLevel: string;
+    /**
+     * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+     */
+    readonly size: number;
     /**
      * Resource tags
      */

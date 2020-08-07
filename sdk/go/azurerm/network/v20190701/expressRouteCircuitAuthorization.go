@@ -14,12 +14,16 @@ import (
 type ExpressRouteCircuitAuthorization struct {
 	pulumi.CustomResourceState
 
+	// The authorization key.
+	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
+	// The authorization use status.
+	AuthorizationUseStatus pulumi.StringPtrOutput `pulumi:"authorizationUseStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the express route circuit authorization.
-	Properties AuthorizationPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the authorization resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,23 +65,31 @@ func GetExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteCircuitAuthorization resources.
 type expressRouteCircuitAuthorizationState struct {
+	// The authorization key.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The authorization use status.
+	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the express route circuit authorization.
-	Properties *AuthorizationPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the authorization resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type ExpressRouteCircuitAuthorizationState struct {
+	// The authorization key.
+	AuthorizationKey pulumi.StringPtrInput
+	// The authorization use status.
+	AuthorizationUseStatus pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the express route circuit authorization.
-	Properties AuthorizationPropertiesFormatResponsePtrInput
+	// The provisioning state of the authorization resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Type of the resource.
 	Type pulumi.StringPtrInput
 }

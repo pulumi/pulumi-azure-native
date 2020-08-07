@@ -14,16 +14,36 @@ import (
 type LiveEvent struct {
 	pulumi.CustomResourceState
 
+	// The exact time the Live Event was created.
+	Created pulumi.StringOutput `pulumi:"created"`
+	// The Live Event access policies.
+	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrOutput `pulumi:"crossSiteAccessPolicies"`
+	// The Live Event description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Live Event encoding.
+	Encoding LiveEventEncodingResponsePtrOutput `pulumi:"encoding"`
+	// The Live Event input.
+	Input LiveEventInputResponseOutput `pulumi:"input"`
+	// The exact time the Live Event was last modified.
+	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Live Event properties.
-	Properties LiveEventPropertiesResponseOutput `pulumi:"properties"`
+	// The Live Event preview.
+	Preview LiveEventPreviewResponsePtrOutput `pulumi:"preview"`
+	// The provisioning state of the Live Event.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The resource state of the Live Event.
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
+	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	StreamOptions pulumi.StringArrayOutput `pulumi:"streamOptions"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	UseStaticHostname pulumi.BoolPtrOutput `pulumi:"useStaticHostname"`
 }
 
 // NewLiveEvent registers a new resource with the given unique name, arguments, and options.
@@ -69,29 +89,69 @@ func GetLiveEvent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LiveEvent resources.
 type liveEventState struct {
+	// The exact time the Live Event was created.
+	Created *string `pulumi:"created"`
+	// The Live Event access policies.
+	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
+	// The Live Event description.
+	Description *string `pulumi:"description"`
+	// The Live Event encoding.
+	Encoding *LiveEventEncodingResponse `pulumi:"encoding"`
+	// The Live Event input.
+	Input *LiveEventInputResponse `pulumi:"input"`
+	// The exact time the Live Event was last modified.
+	LastModified *string `pulumi:"lastModified"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The Live Event properties.
-	Properties *LiveEventPropertiesResponse `pulumi:"properties"`
+	// The Live Event preview.
+	Preview *LiveEventPreviewResponse `pulumi:"preview"`
+	// The provisioning state of the Live Event.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource state of the Live Event.
+	ResourceState *string `pulumi:"resourceState"`
+	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	StreamOptions []string `pulumi:"streamOptions"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	UseStaticHostname *bool `pulumi:"useStaticHostname"`
 }
 
 type LiveEventState struct {
+	// The exact time the Live Event was created.
+	Created pulumi.StringPtrInput
+	// The Live Event access policies.
+	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrInput
+	// The Live Event description.
+	Description pulumi.StringPtrInput
+	// The Live Event encoding.
+	Encoding LiveEventEncodingResponsePtrInput
+	// The Live Event input.
+	Input LiveEventInputResponsePtrInput
+	// The exact time the Live Event was last modified.
+	LastModified pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The Live Event properties.
-	Properties LiveEventPropertiesResponsePtrInput
+	// The Live Event preview.
+	Preview LiveEventPreviewResponsePtrInput
+	// The provisioning state of the Live Event.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource state of the Live Event.
+	ResourceState pulumi.StringPtrInput
+	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	StreamOptions pulumi.StringArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	UseStaticHostname pulumi.BoolPtrInput
 }
 
 func (LiveEventState) ElementType() reflect.Type {

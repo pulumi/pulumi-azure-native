@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Batch.V20181201
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
+        /// A value indicating whether packages within the application may be overwritten using the same version string.
+        /// </summary>
+        [Output("allowUpdates")]
+        public Output<bool?> AllowUpdates { get; private set; } = null!;
+
+        /// <summary>
+        /// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+        /// </summary>
+        [Output("defaultVersion")]
+        public Output<string?> DefaultVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name for the application.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The ETag of the resource, used for concurrency statements.
         /// </summary>
         [Output("etag")]
@@ -25,12 +43,6 @@ namespace Pulumi.AzureRM.Batch.V20181201
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The properties associated with the Application.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

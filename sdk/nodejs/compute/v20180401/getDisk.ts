@@ -36,6 +36,18 @@ export interface GetDiskArgs {
  */
 export interface GetDiskResult {
     /**
+     * Disk source information. CreationData information cannot be changed after the disk has been created.
+     */
+    readonly creationData: outputs.compute.v20180401.CreationDataResponse;
+    /**
+     * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+     */
+    readonly diskSizeGB?: number;
+    /**
+     * Encryption settings for disk or snapshot
+     */
+    readonly encryptionSettings?: outputs.compute.v20180401.EncryptionSettingsResponse;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -48,9 +60,13 @@ export interface GetDiskResult {
      */
     readonly name: string;
     /**
-     * Disk resource properties.
+     * The Operating System type.
      */
-    readonly properties: outputs.compute.v20180401.DiskPropertiesResponse;
+    readonly osType?: string;
+    /**
+     * The disk provisioning state.
+     */
+    readonly provisioningState: string;
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
      */
@@ -59,6 +75,10 @@ export interface GetDiskResult {
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The time when the disk was created.
+     */
+    readonly timeCreated: string;
     /**
      * Resource type
      */

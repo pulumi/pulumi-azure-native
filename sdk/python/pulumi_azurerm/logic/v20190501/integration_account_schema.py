@@ -10,40 +10,65 @@ from ... import _utilities, _tables
 
 
 class IntegrationAccountSchema(pulumi.CustomResource):
+    changed_time: pulumi.Output[str]
+    """
+    The changed time.
+    """
+    content: pulumi.Output[str]
+    """
+    The content.
+    """
+    content_link: pulumi.Output[dict]
+    """
+    The content link.
+      * `content_hash` (`dict`) - The content hash.
+        * `algorithm` (`str`) - The algorithm of the content hash.
+        * `value` (`str`) - The value of the content hash.
+
+      * `content_size` (`float`) - The content size.
+      * `content_version` (`str`) - The content version.
+      * `metadata` (`dict`) - The metadata.
+      * `uri` (`str`) - The content link URI.
+    """
+    content_type: pulumi.Output[str]
+    """
+    The content type.
+    """
+    created_time: pulumi.Output[str]
+    """
+    The created time.
+    """
+    document_name: pulumi.Output[str]
+    """
+    The document name.
+    """
+    file_name: pulumi.Output[str]
+    """
+    The file name.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    The metadata.
     """
     name: pulumi.Output[str]
     """
     Gets the resource name.
     """
-    properties: pulumi.Output[dict]
+    schema_type: pulumi.Output[str]
     """
-    The integration account schema properties.
-      * `changed_time` (`str`) - The changed time.
-      * `content` (`str`) - The content.
-      * `content_link` (`dict`) - The content link.
-        * `content_hash` (`dict`) - The content hash.
-          * `algorithm` (`str`) - The algorithm of the content hash.
-          * `value` (`str`) - The value of the content hash.
-
-        * `content_size` (`float`) - The content size.
-        * `content_version` (`str`) - The content version.
-        * `metadata` (`dict`) - The metadata.
-        * `uri` (`str`) - The content link URI.
-
-      * `content_type` (`str`) - The content type.
-      * `created_time` (`str`) - The created time.
-      * `document_name` (`str`) - The document name.
-      * `file_name` (`str`) - The file name.
-      * `metadata` (`dict`) - The metadata.
-      * `schema_type` (`str`) - The schema type.
-      * `target_namespace` (`str`) - The target namespace of the schema.
+    The schema type.
     """
     tags: pulumi.Output[dict]
     """
     The resource tags.
+    """
+    target_namespace: pulumi.Output[str]
+    """
+    The target namespace of the schema.
     """
     type: pulumi.Output[str]
     """
@@ -105,7 +130,9 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             __props__['schema_type'] = schema_type
             __props__['tags'] = tags
             __props__['target_namespace'] = target_namespace
-            __props__['properties'] = None
+            __props__['changed_time'] = None
+            __props__['content_link'] = None
+            __props__['created_time'] = None
             __props__['type'] = None
         super(IntegrationAccountSchema, __self__).__init__(
             'azurerm:logic/v20190501:IntegrationAccountSchema',

@@ -46,13 +46,13 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
     public sealed class GetTrustedIdProviderResult
     {
         /// <summary>
+        /// The URL of this trusted identity provider.
+        /// </summary>
+        public readonly string IdProvider;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The trusted identity provider properties.
-        /// </summary>
-        public readonly Outputs.TrustedIdProviderPropertiesResponseResult Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -60,14 +60,14 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
 
         [OutputConstructor]
         private GetTrustedIdProviderResult(
-            string name,
+            string idProvider,
 
-            Outputs.TrustedIdProviderPropertiesResponseResult properties,
+            string name,
 
             string type)
         {
+            IdProvider = idProvider;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

@@ -10,15 +10,17 @@ from ... import _utilities, _tables
 
 
 class FirewallRule(pulumi.CustomResource):
+    end_ip: pulumi.Output[str]
+    """
+    highest IP address included in the range
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    start_ip: pulumi.Output[str]
     """
-    redis cache firewall rule properties
-      * `end_ip` (`str`) - highest IP address included in the range
-      * `start_ip` (`str`) - lowest IP address included in the range
+    lowest IP address included in the range
     """
     type: pulumi.Output[str]
     """
@@ -68,7 +70,6 @@ class FirewallRule(pulumi.CustomResource):
             if start_ip is None:
                 raise TypeError("Missing required property 'start_ip'")
             __props__['start_ip'] = start_ip
-            __props__['properties'] = None
             __props__['type'] = None
         super(FirewallRule, __self__).__init__(
             'azurerm:cache/v20180301:FirewallRule',

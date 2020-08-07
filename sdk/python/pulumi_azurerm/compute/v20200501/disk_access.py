@@ -18,10 +18,33 @@ class DiskAccess(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    private_endpoint_connections: pulumi.Output[list]
+    """
+    A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+      * `id` (`str`) - private endpoint connection Id
+      * `name` (`str`) - private endpoint connection name
+      * `private_endpoint` (`dict`) - The resource of private end point.
+        * `id` (`str`) - The ARM identifier for Private Endpoint
+
+      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between DiskAccess and Virtual Network.
+        * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+        * `description` (`str`) - The reason for approval/rejection of the connection.
+        * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+
+      * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
+      * `type` (`str`) - private endpoint connection type
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The disk access resource provisioning state.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
+    """
+    time_created: pulumi.Output[str]
+    """
+    The time when the disk access was created.
     """
     type: pulumi.Output[str]
     """
@@ -65,7 +88,9 @@ class DiskAccess(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['private_endpoint_connections'] = None
+            __props__['provisioning_state'] = None
+            __props__['time_created'] = None
             __props__['type'] = None
         super(DiskAccess, __self__).__init__(
             'azurerm:compute/v20200501:DiskAccess',

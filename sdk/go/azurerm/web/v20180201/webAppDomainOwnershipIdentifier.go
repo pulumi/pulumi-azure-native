@@ -18,8 +18,6 @@ type WebAppDomainOwnershipIdentifier struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties IdentifierResponsePropertiesOutput `pulumi:"properties"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,8 +60,6 @@ type webAppDomainOwnershipIdentifierState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties *IdentifierResponseProperties `pulumi:"properties"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -73,8 +69,6 @@ type WebAppDomainOwnershipIdentifierState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// Identifier resource specific properties
-	Properties IdentifierResponsePropertiesPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

@@ -37,14 +37,37 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
     }
 
     /**
+     * /29 IP address space to carve out Customer addresses for tunnels.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The authorization key.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
+     * Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
+     */
+    public /*out*/ readonly circuitConnectionStatus!: pulumi.Output<string>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+     */
+    public readonly expressRouteCircuitPeering!: pulumi.Output<outputs.network.v20181201.SubResourceResponse | undefined>;
+    /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181201.ExpressRouteCircuitConnectionPropertiesFormatResponse>;
+    /**
+     * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+     */
+    public readonly peerExpressRouteCircuitPeering!: pulumi.Output<outputs.network.v20181201.SubResourceResponse | undefined>;
+    /**
+     * Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
 
     /**
      * Create a ExpressRouteCircuitConnection resource with the given unique name, arguments, and options.
@@ -80,8 +103,9 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             inputs["peerExpressRouteCircuitPeering"] = args ? args.peerExpressRouteCircuitPeering : undefined;
             inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["circuitConnectionStatus"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

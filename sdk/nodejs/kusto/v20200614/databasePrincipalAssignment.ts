@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -41,9 +39,33 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The database principal.
+     * The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.kusto.v20200614.DatabasePrincipalPropertiesResponse>;
+    public readonly principalId!: pulumi.Output<string>;
+    /**
+     * The principal name
+     */
+    public /*out*/ readonly principalName!: pulumi.Output<string>;
+    /**
+     * Principal type.
+     */
+    public readonly principalType!: pulumi.Output<string>;
+    /**
+     * The provisioned state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Database principal role.
+     */
+    public readonly role!: pulumi.Output<string>;
+    /**
+     * The tenant id of the principal
+     */
+    public readonly tenantId!: pulumi.Output<string | undefined>;
+    /**
+     * The tenant name of the principal
+     */
+    public /*out*/ readonly tenantName!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -91,7 +113,9 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["role"] = args ? args.role : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["principalName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tenantName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

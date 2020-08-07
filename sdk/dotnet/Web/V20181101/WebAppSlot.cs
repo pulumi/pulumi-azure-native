@@ -15,10 +15,133 @@ namespace Pulumi.AzureRM.Web.V20181101
     public partial class WebAppSlot : Pulumi.CustomResource
     {
         /// <summary>
+        /// Management information availability state for the app.
+        /// </summary>
+        [Output("availabilityState")]
+        public Output<string> AvailabilityState { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to enable client affinity; &lt;code&gt;false&lt;/code&gt; to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        [Output("clientAffinityEnabled")]
+        public Output<bool?> ClientAffinityEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to enable client certificate authentication (TLS mutual authentication); otherwise, &lt;code&gt;false&lt;/code&gt;. Default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Output("clientCertEnabled")]
+        public Output<bool?> ClientCertEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// client certificate authentication comma-separated exclusion paths
+        /// </summary>
+        [Output("clientCertExclusionPaths")]
+        public Output<string?> ClientCertExclusionPaths { get; private set; } = null!;
+
+        /// <summary>
+        /// If specified during app creation, the app is cloned from a source app.
+        /// </summary>
+        [Output("cloningInfo")]
+        public Output<Outputs.CloningInfoResponseResult?> CloningInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// Size of the function container.
+        /// </summary>
+        [Output("containerSize")]
+        public Output<int?> ContainerSize { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+        /// </summary>
+        [Output("dailyMemoryTimeQuota")]
+        public Output<int?> DailyMemoryTimeQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// Default hostname of the app. Read-only.
+        /// </summary>
+        [Output("defaultHostName")]
+        public Output<string> DefaultHostName { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the app is enabled; otherwise, &lt;code&gt;false&lt;/code&gt;. Setting this value to false disables the app (takes the app offline).
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
+        /// the app is not served on those hostnames.
+        /// </summary>
+        [Output("enabledHostNames")]
+        public Output<ImmutableArray<string>> EnabledHostNames { get; private set; } = null!;
+
+        /// <summary>
+        /// GeoDistributions for this site
+        /// </summary>
+        [Output("geoDistributions")]
+        public Output<ImmutableArray<Outputs.GeoDistributionResponseResult>> GeoDistributions { get; private set; } = null!;
+
+        /// <summary>
+        /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+        /// </summary>
+        [Output("hostNameSslStates")]
+        public Output<ImmutableArray<Outputs.HostNameSslStateResponseResult>> HostNameSslStates { get; private set; } = null!;
+
+        /// <summary>
+        /// Hostnames associated with the app.
+        /// </summary>
+        [Output("hostNames")]
+        public Output<ImmutableArray<string>> HostNames { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to disable the public hostnames of the app; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        ///  If &lt;code&gt;true&lt;/code&gt;, the app is only accessible via API management process.
+        /// </summary>
+        [Output("hostNamesDisabled")]
+        public Output<bool?> HostNamesDisabled { get; private set; } = null!;
+
+        /// <summary>
+        /// App Service Environment to use for the app.
+        /// </summary>
+        [Output("hostingEnvironmentProfile")]
+        public Output<Outputs.HostingEnvironmentProfileResponseResult?> HostingEnvironmentProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+        /// http requests
+        /// </summary>
+        [Output("httpsOnly")]
+        public Output<bool?> HttpsOnly { get; private set; } = null!;
+
+        /// <summary>
+        /// Hyper-V sandbox.
+        /// </summary>
+        [Output("hyperV")]
+        public Output<bool?> HyperV { get; private set; } = null!;
+
+        /// <summary>
         /// Managed service identity.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies an operation id if this site has a pending operation.
+        /// </summary>
+        [Output("inProgressOperationId")]
+        public Output<string> InProgressOperationId { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the app is a default container; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Output("isDefaultContainer")]
+        public Output<bool> IsDefaultContainer { get; private set; } = null!;
+
+        /// <summary>
+        /// Obsolete: Hyper-V sandbox.
+        /// </summary>
+        [Output("isXenon")]
+        public Output<bool?> IsXenon { get; private set; } = null!;
 
         /// <summary>
         /// Kind of resource.
@@ -27,10 +150,23 @@ namespace Pulumi.AzureRM.Web.V20181101
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
+        /// Last time the app was modified, in UTC. Read-only.
+        /// </summary>
+        [Output("lastModifiedTimeUtc")]
+        public Output<string> LastModifiedTimeUtc { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Location.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum number of workers.
+        /// This only applies to Functions container.
+        /// </summary>
+        [Output("maxNumberOfWorkers")]
+        public Output<int> MaxNumberOfWorkers { get; private set; } = null!;
 
         /// <summary>
         /// Resource Name.
@@ -39,10 +175,76 @@ namespace Pulumi.AzureRM.Web.V20181101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Site resource specific properties
+        /// List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SiteResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("outboundIpAddresses")]
+        public Output<string> OutboundIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants. Read-only.
+        /// </summary>
+        [Output("possibleOutboundIpAddresses")]
+        public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// Site redundancy mode
+        /// </summary>
+        [Output("redundancyMode")]
+        public Output<string?> RedundancyMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the repository site.
+        /// </summary>
+        [Output("repositorySiteName")]
+        public Output<string> RepositorySiteName { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if reserved; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Output("reserved")]
+        public Output<bool?> Reserved { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group the app belongs to. Read-only.
+        /// </summary>
+        [Output("resourceGroup")]
+        public Output<string> ResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to stop SCM (KUDU) site when the app is stopped; otherwise, &lt;code&gt;false&lt;/code&gt;. The default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Output("scmSiteAlsoStopped")]
+        public Output<bool?> ScmSiteAlsoStopped { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        /// </summary>
+        [Output("serverFarmId")]
+        public Output<string?> ServerFarmId { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration of the app.
+        /// </summary>
+        [Output("siteConfig")]
+        public Output<Outputs.SiteConfigResponseResult?> SiteConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of the last deployment slot swap operation.
+        /// </summary>
+        [Output("slotSwapStatus")]
+        public Output<Outputs.SlotSwapStatusResponseResult> SlotSwapStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Current state of the app.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// App suspended till in case memory-time quota is exceeded.
+        /// </summary>
+        [Output("suspendedTill")]
+        public Output<string> SuspendedTill { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -51,10 +253,28 @@ namespace Pulumi.AzureRM.Web.V20181101
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies which deployment slot this app will swap into. Read-only.
+        /// </summary>
+        [Output("targetSwapSlot")]
+        public Output<string> TargetSwapSlot { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Traffic Manager hostnames associated with the app. Read-only.
+        /// </summary>
+        [Output("trafficManagerHostNames")]
+        public Output<ImmutableArray<string>> TrafficManagerHostNames { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// State indicating whether the app has exceeded its quota usage. Read-only.
+        /// </summary>
+        [Output("usageState")]
+        public Output<string> UsageState { get; private set; } = null!;
 
 
         /// <summary>

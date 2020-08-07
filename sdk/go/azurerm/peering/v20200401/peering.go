@@ -14,14 +14,20 @@ import (
 type Peering struct {
 	pulumi.CustomResourceState
 
+	// The properties that define a direct peering.
+	Direct PeeringPropertiesDirectResponsePtrOutput `pulumi:"direct"`
+	// The properties that define an exchange peering.
+	Exchange PeeringPropertiesExchangeResponsePtrOutput `pulumi:"exchange"`
 	// The kind of the peering.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties that define a peering.
-	Properties PeeringPropertiesResponseOutput `pulumi:"properties"`
+	// The location of the peering.
+	PeeringLocation pulumi.StringPtrOutput `pulumi:"peeringLocation"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The SKU that defines the tier and kind of the peering.
 	Sku PeeringSkuResponseOutput `pulumi:"sku"`
 	// The resource tags.
@@ -73,14 +79,20 @@ func GetPeering(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Peering resources.
 type peeringState struct {
+	// The properties that define a direct peering.
+	Direct *PeeringPropertiesDirectResponse `pulumi:"direct"`
+	// The properties that define an exchange peering.
+	Exchange *PeeringPropertiesExchangeResponse `pulumi:"exchange"`
 	// The kind of the peering.
 	Kind *string `pulumi:"kind"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties that define a peering.
-	Properties *PeeringPropertiesResponse `pulumi:"properties"`
+	// The location of the peering.
+	PeeringLocation *string `pulumi:"peeringLocation"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The SKU that defines the tier and kind of the peering.
 	Sku *PeeringSkuResponse `pulumi:"sku"`
 	// The resource tags.
@@ -90,14 +102,20 @@ type peeringState struct {
 }
 
 type PeeringState struct {
+	// The properties that define a direct peering.
+	Direct PeeringPropertiesDirectResponsePtrInput
+	// The properties that define an exchange peering.
+	Exchange PeeringPropertiesExchangeResponsePtrInput
 	// The kind of the peering.
 	Kind pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties that define a peering.
-	Properties PeeringPropertiesResponsePtrInput
+	// The location of the peering.
+	PeeringLocation pulumi.StringPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The SKU that defines the tier and kind of the peering.
 	Sku PeeringSkuResponsePtrInput
 	// The resource tags.

@@ -14,11 +14,26 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
     /// </summary>
     public partial class FileServer : Pulumi.CustomResource
     {
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings for the data disk which would be created for the File Server.
+        /// </summary>
+        [Output("dataDisks")]
+        public Output<Outputs.DataDisksResponseResult?> DataDisks { get; private set; } = null!;
+
         /// <summary>
         /// The location of the resource
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Details of the File Server.
+        /// </summary>
+        [Output("mountSettings")]
+        public Output<Outputs.MountSettingsResponseResult> MountSettings { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -27,10 +42,25 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the File Server.
+        /// Possible values: creating - The File Server is getting created. updating - The File Server creation has been accepted and it is getting updated. deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted. failed - The File Server creation has failed with the specified errorCode. Details about the error code are specified in the message field. succeeded - The File Server creation has succeeded.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FileServerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        [Output("provisioningStateTransitionTime")]
+        public Output<string> ProvisioningStateTransitionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// SSH configuration settings for the VM
+        /// </summary>
+        [Output("sshConfiguration")]
+        public Output<Outputs.SshConfigurationResponseResult?> SshConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        /// </summary>
+        [Output("subnet")]
+        public Output<Outputs.ResourceIdResponseResult?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource
@@ -43,6 +73,12 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// For information about available VM sizes for File Server from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+        /// </summary>
+        [Output("vmSize")]
+        public Output<string?> VmSize { get; private set; } = null!;
 
 
         /// <summary>

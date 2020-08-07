@@ -37,6 +37,18 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates whether to create an ACS namespace.
+     */
+    public readonly createACSNamespace!: pulumi.Output<boolean | undefined>;
+    /**
+     * The time the namespace was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Specifies whether this instance is enabled.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +57,21 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the namespace.
+     * Provisioning state of the namespace.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20140901.NamespacePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Endpoint you can use to perform Service Bus operations.
+     */
+    public /*out*/ readonly serviceBusEndpoint!: pulumi.Output<string>;
     /**
      * SKU of the namespace.
      */
     public readonly sku!: pulumi.Output<outputs.servicebus.v20140901.SkuResponse | undefined>;
+    /**
+     * State of the namespace.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -60,6 +80,10 @@ export class Namespace extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The time the namespace was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -91,8 +115,11 @@ export class Namespace extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serviceBusEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

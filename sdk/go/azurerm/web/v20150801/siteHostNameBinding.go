@@ -14,13 +14,24 @@ import (
 type SiteHostNameBinding struct {
 	pulumi.CustomResourceState
 
+	// Azure resource name
+	AzureResourceName pulumi.StringPtrOutput `pulumi:"azureResourceName"`
+	// Azure resource type
+	AzureResourceType pulumi.StringPtrOutput `pulumi:"azureResourceType"`
+	// Custom DNS record type
+	CustomHostNameDnsRecordType pulumi.StringPtrOutput `pulumi:"customHostNameDnsRecordType"`
+	// Fully qualified ARM domain resource URI
+	DomainId pulumi.StringPtrOutput `pulumi:"domainId"`
+	// Host name type
+	HostNameType pulumi.StringPtrOutput `pulumi:"hostNameType"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput                  `pulumi:"name"`
-	Properties HostNameBindingResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Web app name
+	SiteName pulumi.StringPtrOutput `pulumi:"siteName"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -64,13 +75,24 @@ func GetSiteHostNameBinding(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteHostNameBinding resources.
 type siteHostNameBindingState struct {
+	// Azure resource name
+	AzureResourceName *string `pulumi:"azureResourceName"`
+	// Azure resource type
+	AzureResourceType *string `pulumi:"azureResourceType"`
+	// Custom DNS record type
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
+	// Fully qualified ARM domain resource URI
+	DomainId *string `pulumi:"domainId"`
+	// Host name type
+	HostNameType *string `pulumi:"hostNameType"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name
-	Name       *string                            `pulumi:"name"`
-	Properties *HostNameBindingResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Web app name
+	SiteName *string `pulumi:"siteName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -78,13 +100,24 @@ type siteHostNameBindingState struct {
 }
 
 type SiteHostNameBindingState struct {
+	// Azure resource name
+	AzureResourceName pulumi.StringPtrInput
+	// Azure resource type
+	AzureResourceType pulumi.StringPtrInput
+	// Custom DNS record type
+	CustomHostNameDnsRecordType pulumi.StringPtrInput
+	// Fully qualified ARM domain resource URI
+	DomainId pulumi.StringPtrInput
+	// Host name type
+	HostNameType pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties HostNameBindingResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// Web app name
+	SiteName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

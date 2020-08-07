@@ -49,9 +49,13 @@ export class P2sVpnGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for P2SVpnGateway
+     * The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180801.P2SVpnGatewayPropertiesResponse>;
+    public readonly p2SVpnServerConfiguration!: pulumi.Output<outputs.network.v20180801.SubResourceResponse | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +64,22 @@ export class P2sVpnGateway extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The VirtualHub to which the gateway belongs
+     */
+    public readonly virtualHub!: pulumi.Output<outputs.network.v20180801.SubResourceResponse | undefined>;
+    /**
+     * The reference of the address space resource which represents Address space for P2S VpnClient.
+     */
+    public readonly vpnClientAddressPool!: pulumi.Output<outputs.network.v20180801.AddressSpaceResponse | undefined>;
+    /**
+     * All P2S VPN clients' connection health status.
+     */
+    public /*out*/ readonly vpnClientConnectionHealth!: pulumi.Output<outputs.network.v20180801.VpnClientConnectionHealthResponse>;
+    /**
+     * The scale unit for this p2s vpn gateway.
+     */
+    public readonly vpnGatewayScaleUnit!: pulumi.Output<number | undefined>;
 
     /**
      * Create a P2sVpnGateway resource with the given unique name, arguments, and options.
@@ -94,8 +114,8 @@ export class P2sVpnGateway extends pulumi.CustomResource {
             inputs["vpnClientAddressPool"] = args ? args.vpnClientAddressPool : undefined;
             inputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["vpnClientConnectionHealth"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

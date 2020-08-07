@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Media.V20200501
     public sealed class GetMediaServiceResult
     {
         /// <summary>
+        /// The account encryption properties.
+        /// </summary>
+        public readonly Outputs.AccountEncryptionResponseResult? Encryption;
+        /// <summary>
         /// The Managed Identity for the Media Services account.
         /// </summary>
         public readonly Outputs.MediaServiceIdentityResponseResult? Identity;
@@ -48,13 +52,18 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The Media Services account ID.
+        /// </summary>
+        public readonly string MediaServiceId;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource properties.
+        /// The storage accounts for this resource.
         /// </summary>
-        public readonly Outputs.MediaServicePropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.StorageAccountResponseResult> StorageAccounts;
+        public readonly string? StorageAuthentication;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +75,31 @@ namespace Pulumi.AzureRM.Media.V20200501
 
         [OutputConstructor]
         private GetMediaServiceResult(
+            Outputs.AccountEncryptionResponseResult? encryption,
+
             Outputs.MediaServiceIdentityResponseResult? identity,
 
             string location,
 
+            string mediaServiceId,
+
             string name,
 
-            Outputs.MediaServicePropertiesResponseResult properties,
+            ImmutableArray<Outputs.StorageAccountResponseResult> storageAccounts,
+
+            string? storageAuthentication,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Encryption = encryption;
             Identity = identity;
             Location = location;
+            MediaServiceId = mediaServiceId;
             Name = name;
-            Properties = properties;
+            StorageAccounts = storageAccounts;
+            StorageAuthentication = storageAuthentication;
             Tags = tags;
             Type = type;
         }

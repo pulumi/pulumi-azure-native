@@ -46,13 +46,21 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class GetCacheResult
     {
         /// <summary>
+        /// Runtime connection string to cache
+        /// </summary>
+        public readonly string ConnectionString;
+        /// <summary>
+        /// Cache description
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Cache properties details.
+        /// Original uri of entity in external system cache points to
         /// </summary>
-        public readonly Outputs.CacheContractPropertiesResponseResult Properties;
+        public readonly string? ResourceId;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +68,20 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
 
         [OutputConstructor]
         private GetCacheResult(
+            string connectionString,
+
+            string? description,
+
             string name,
 
-            Outputs.CacheContractPropertiesResponseResult properties,
+            string? resourceId,
 
             string type)
         {
+            ConnectionString = connectionString;
+            Description = description;
             Name = name;
-            Properties = properties;
+            ResourceId = resourceId;
             Type = type;
         }
     }

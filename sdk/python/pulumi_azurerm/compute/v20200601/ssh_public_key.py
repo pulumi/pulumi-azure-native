@@ -18,10 +18,9 @@ class SshPublicKey(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    public_key: pulumi.Output[str]
     """
-    Properties of the SSH public key.
-      * `public_key` (`str`) - SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
+    SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
     """
     tags: pulumi.Output[dict]
     """
@@ -71,7 +70,6 @@ class SshPublicKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(SshPublicKey, __self__).__init__(
             'azurerm:compute/v20200601:SshPublicKey',

@@ -13,18 +13,90 @@ class GetLinkResult:
     """
     The link resource format.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, display_name=None, link_name=None, mappings=None, name=None, operation_type=None, participant_property_references=None, provisioning_state=None, reference_only=None, source_entity_type=None, source_entity_type_name=None, target_entity_type=None, target_entity_type_name=None, tenant_id=None, type=None):
+        if description and not isinstance(description, dict):
+            raise TypeError("Expected argument 'description' to be a dict")
+        __self__.description = description
+        """
+        Localized descriptions for the Link.
+        """
+        if display_name and not isinstance(display_name, dict):
+            raise TypeError("Expected argument 'display_name' to be a dict")
+        __self__.display_name = display_name
+        """
+        Localized display name for the Link.
+        """
+        if link_name and not isinstance(link_name, str):
+            raise TypeError("Expected argument 'link_name' to be a str")
+        __self__.link_name = link_name
+        """
+        The link name.
+        """
+        if mappings and not isinstance(mappings, list):
+            raise TypeError("Expected argument 'mappings' to be a list")
+        __self__.mappings = mappings
+        """
+        The set of properties mappings between the source and target Types.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if operation_type and not isinstance(operation_type, str):
+            raise TypeError("Expected argument 'operation_type' to be a str")
+        __self__.operation_type = operation_type
         """
-        The definition of Link.
+        Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+        """
+        if participant_property_references and not isinstance(participant_property_references, list):
+            raise TypeError("Expected argument 'participant_property_references' to be a list")
+        __self__.participant_property_references = participant_property_references
+        """
+        The properties that represent the participating profile.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state.
+        """
+        if reference_only and not isinstance(reference_only, bool):
+            raise TypeError("Expected argument 'reference_only' to be a bool")
+        __self__.reference_only = reference_only
+        """
+        Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+        """
+        if source_entity_type and not isinstance(source_entity_type, str):
+            raise TypeError("Expected argument 'source_entity_type' to be a str")
+        __self__.source_entity_type = source_entity_type
+        """
+        Type of source entity.
+        """
+        if source_entity_type_name and not isinstance(source_entity_type_name, str):
+            raise TypeError("Expected argument 'source_entity_type_name' to be a str")
+        __self__.source_entity_type_name = source_entity_type_name
+        """
+        Name of the source Entity Type.
+        """
+        if target_entity_type and not isinstance(target_entity_type, str):
+            raise TypeError("Expected argument 'target_entity_type' to be a str")
+        __self__.target_entity_type = target_entity_type
+        """
+        Type of target entity.
+        """
+        if target_entity_type_name and not isinstance(target_entity_type_name, str):
+            raise TypeError("Expected argument 'target_entity_type_name' to be a str")
+        __self__.target_entity_type_name = target_entity_type_name
+        """
+        Name of the target Entity Type.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The hub name.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +112,20 @@ class AwaitableGetLinkResult(GetLinkResult):
         if False:
             yield self
         return GetLinkResult(
+            description=self.description,
+            display_name=self.display_name,
+            link_name=self.link_name,
+            mappings=self.mappings,
             name=self.name,
-            properties=self.properties,
+            operation_type=self.operation_type,
+            participant_property_references=self.participant_property_references,
+            provisioning_state=self.provisioning_state,
+            reference_only=self.reference_only,
+            source_entity_type=self.source_entity_type,
+            source_entity_type_name=self.source_entity_type_name,
+            target_entity_type=self.target_entity_type,
+            target_entity_type_name=self.target_entity_type_name,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -64,6 +148,18 @@ def get_link(hub_name=None, name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:customerinsights/v20170426:getLink', __args__, opts=opts).value
 
     return AwaitableGetLinkResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        link_name=__ret__.get('linkName'),
+        mappings=__ret__.get('mappings'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        operation_type=__ret__.get('operationType'),
+        participant_property_references=__ret__.get('participantPropertyReferences'),
+        provisioning_state=__ret__.get('provisioningState'),
+        reference_only=__ret__.get('referenceOnly'),
+        source_entity_type=__ret__.get('sourceEntityType'),
+        source_entity_type_name=__ret__.get('sourceEntityTypeName'),
+        target_entity_type=__ret__.get('targetEntityType'),
+        target_entity_type_name=__ret__.get('targetEntityTypeName'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

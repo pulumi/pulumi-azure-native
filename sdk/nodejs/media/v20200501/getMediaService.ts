@@ -36,6 +36,10 @@ export interface GetMediaServiceArgs {
  */
 export interface GetMediaServiceResult {
     /**
+     * The account encryption properties.
+     */
+    readonly encryption?: outputs.media.v20200501.AccountEncryptionResponse;
+    /**
      * The Managed Identity for the Media Services account.
      */
     readonly identity?: outputs.media.v20200501.MediaServiceIdentityResponse;
@@ -44,13 +48,18 @@ export interface GetMediaServiceResult {
      */
     readonly location: string;
     /**
+     * The Media Services account ID.
+     */
+    readonly mediaServiceId: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The resource properties.
+     * The storage accounts for this resource.
      */
-    readonly properties: outputs.media.v20200501.MediaServicePropertiesResponse;
+    readonly storageAccounts?: outputs.media.v20200501.StorageAccountResponse[];
+    readonly storageAuthentication?: string;
     /**
      * Resource tags.
      */

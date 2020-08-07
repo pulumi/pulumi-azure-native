@@ -33,10 +33,16 @@ namespace Pulumi.AzureRM.Sql.V20140401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of resource.
+        /// The name of the partner server.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServerCommunicationLinkPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partnerServer")]
+        public Output<string> PartnerServer { get; private set; } = null!;
+
+        /// <summary>
+        /// The state.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

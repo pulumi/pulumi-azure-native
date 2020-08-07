@@ -25,14 +25,22 @@ type LookupRegistryArgs struct {
 
 // An object that represents a container registry.
 type LookupRegistryResult struct {
+	// The value that indicates whether the admin user is enabled.
+	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
+	// The creation date of the container registry in ISO8601 format.
+	CreationDate string `pulumi:"creationDate"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
+	// The URL that can be used to log into the container registry.
+	LoginServer string `pulumi:"loginServer"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the container registry.
-	Properties RegistryPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the container registry at the time the operation was called.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the container registry.
 	Sku SkuResponse `pulumi:"sku"`
+	// The properties of the storage account for the container registry.
+	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

@@ -14,18 +14,28 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData CreationDataResponseOutput `pulumi:"creationData"`
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB pulumi.IntPtrOutput `pulumi:"diskSizeGB"`
+	// Encryption settings for disk or snapshot
+	EncryptionSettings EncryptionSettingsResponsePtrOutput `pulumi:"encryptionSettings"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Unused. Always Null.
 	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Disk resource properties.
-	Properties DiskPropertiesResponseOutput `pulumi:"properties"`
+	// The Operating System type.
+	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	// The disk provisioning state.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
 	Sku DiskSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The time when the disk was created.
+	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -70,35 +80,55 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData *CreationDataResponse `pulumi:"creationData"`
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// Encryption settings for disk or snapshot
+	EncryptionSettings *EncryptionSettingsResponse `pulumi:"encryptionSettings"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Unused. Always Null.
 	ManagedBy *string `pulumi:"managedBy"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Disk resource properties.
-	Properties *DiskPropertiesResponse `pulumi:"properties"`
+	// The Operating System type.
+	OsType *string `pulumi:"osType"`
+	// The disk provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
 	Sku *DiskSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The time when the disk was created.
+	TimeCreated *string `pulumi:"timeCreated"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type SnapshotState struct {
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData CreationDataResponsePtrInput
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB pulumi.IntPtrInput
+	// Encryption settings for disk or snapshot
+	EncryptionSettings EncryptionSettingsResponsePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Unused. Always Null.
 	ManagedBy pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Disk resource properties.
-	Properties DiskPropertiesResponsePtrInput
+	// The Operating System type.
+	OsType pulumi.StringPtrInput
+	// The disk provisioning state.
+	ProvisioningState pulumi.StringPtrInput
 	// The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
 	Sku DiskSkuResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// The time when the disk was created.
+	TimeCreated pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

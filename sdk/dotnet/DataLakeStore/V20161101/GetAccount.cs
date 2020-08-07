@@ -40,9 +40,57 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The unique identifier associated with this Data Lake Store account.
+        /// </summary>
+        public readonly string AccountId;
+        /// <summary>
+        /// The account creation time.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// The commitment tier in use for the current month.
+        /// </summary>
+        public readonly string CurrentTier;
+        /// <summary>
+        /// The default owner group for all new folders and files created in the Data Lake Store account.
+        /// </summary>
+        public readonly string DefaultGroup;
+        /// <summary>
+        /// The Key Vault encryption configuration.
+        /// </summary>
+        public readonly Outputs.EncryptionConfigResponseResult EncryptionConfig;
+        /// <summary>
+        /// The current state of encryption provisioning for this Data Lake Store account.
+        /// </summary>
+        public readonly string EncryptionProvisioningState;
+        /// <summary>
+        /// The current state of encryption for this Data Lake Store account.
+        /// </summary>
+        public readonly string EncryptionState;
+        /// <summary>
+        /// The full CName endpoint for this account.
+        /// </summary>
+        public readonly string Endpoint;
+        /// <summary>
+        /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        /// </summary>
+        public readonly string FirewallAllowAzureIps;
+        /// <summary>
+        /// The list of firewall rules associated with this Data Lake Store account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FirewallRuleResponseResult> FirewallRules;
+        /// <summary>
+        /// The current state of the IP address firewall for this Data Lake Store account.
+        /// </summary>
+        public readonly string FirewallState;
+        /// <summary>
         /// The Key Vault encryption identity, if any.
         /// </summary>
         public readonly Outputs.EncryptionIdentityResponseResult Identity;
+        /// <summary>
+        /// The account last modified time.
+        /// </summary>
+        public readonly string LastModifiedTime;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -52,38 +100,109 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Data Lake Store account properties.
+        /// The commitment tier to use for next month.
         /// </summary>
-        public readonly Outputs.DataLakeStoreAccountPropertiesResponseResult Properties;
+        public readonly string NewTier;
+        /// <summary>
+        /// The provisioning status of the Data Lake Store account.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The state of the Data Lake Store account.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// The resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// The current state of the trusted identity provider feature for this Data Lake Store account.
+        /// </summary>
+        public readonly string TrustedIdProviderState;
+        /// <summary>
+        /// The list of trusted identity providers associated with this Data Lake Store account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TrustedIdProviderResponseResult> TrustedIdProviders;
+        /// <summary>
         /// The resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The list of virtual network rules associated with this Data Lake Store account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkRuleResponseResult> VirtualNetworkRules;
 
         [OutputConstructor]
         private GetAccountResult(
+            string accountId,
+
+            string creationTime,
+
+            string currentTier,
+
+            string defaultGroup,
+
+            Outputs.EncryptionConfigResponseResult encryptionConfig,
+
+            string encryptionProvisioningState,
+
+            string encryptionState,
+
+            string endpoint,
+
+            string firewallAllowAzureIps,
+
+            ImmutableArray<Outputs.FirewallRuleResponseResult> firewallRules,
+
+            string firewallState,
+
             Outputs.EncryptionIdentityResponseResult identity,
+
+            string lastModifiedTime,
 
             string location,
 
             string name,
 
-            Outputs.DataLakeStoreAccountPropertiesResponseResult properties,
+            string newTier,
+
+            string provisioningState,
+
+            string state,
 
             ImmutableDictionary<string, string> tags,
 
-            string type)
+            string trustedIdProviderState,
+
+            ImmutableArray<Outputs.TrustedIdProviderResponseResult> trustedIdProviders,
+
+            string type,
+
+            ImmutableArray<Outputs.VirtualNetworkRuleResponseResult> virtualNetworkRules)
         {
+            AccountId = accountId;
+            CreationTime = creationTime;
+            CurrentTier = currentTier;
+            DefaultGroup = defaultGroup;
+            EncryptionConfig = encryptionConfig;
+            EncryptionProvisioningState = encryptionProvisioningState;
+            EncryptionState = encryptionState;
+            Endpoint = endpoint;
+            FirewallAllowAzureIps = firewallAllowAzureIps;
+            FirewallRules = firewallRules;
+            FirewallState = firewallState;
             Identity = identity;
+            LastModifiedTime = lastModifiedTime;
             Location = location;
             Name = name;
-            Properties = properties;
+            NewTier = newTier;
+            ProvisioningState = provisioningState;
+            State = state;
             Tags = tags;
+            TrustedIdProviderState = trustedIdProviderState;
+            TrustedIdProviders = trustedIdProviders;
             Type = type;
+            VirtualNetworkRules = virtualNetworkRules;
         }
     }
 }

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,29 @@ export class MigrationConfig extends pulumi.CustomResource {
     }
 
     /**
+     * State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+     */
+    public /*out*/ readonly migrationState!: pulumi.Output<string>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties required to the Create Migration Configuration
+     * Number of entities pending to be replicated.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.MigrationConfigPropertiesResponseProperties>;
+    public /*out*/ readonly pendingReplicationOperationsCount!: pulumi.Output<number>;
+    /**
+     * Name to access Standard Namespace after migration
+     */
+    public readonly postMigrationName!: pulumi.Output<string>;
+    /**
+     * Provisioning state of Migration Configuration 
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Existing premium Namespace ARM Id name which has no entities, will be used for migration
+     */
+    public readonly targetNamespace!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -82,7 +96,9 @@ export class MigrationConfig extends pulumi.CustomResource {
             inputs["postMigrationName"] = args ? args.postMigrationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["targetNamespace"] = args ? args.targetNamespace : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["migrationState"] = undefined /*out*/;
+            inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

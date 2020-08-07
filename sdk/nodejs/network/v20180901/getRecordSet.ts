@@ -46,17 +46,61 @@ export interface GetRecordSetArgs {
  */
 export interface GetRecordSetResult {
     /**
+     * The list of A records in the record set.
+     */
+    readonly aRecords?: outputs.network.v20180901.ARecordResponse[];
+    /**
+     * The list of AAAA records in the record set.
+     */
+    readonly aaaaRecords?: outputs.network.v20180901.AaaaRecordResponse[];
+    /**
+     * The CNAME record in the record set.
+     */
+    readonly cnameRecord?: outputs.network.v20180901.CnameRecordResponse;
+    /**
      * The ETag of the record set.
      */
     readonly etag?: string;
+    /**
+     * Fully qualified domain name of the record set.
+     */
+    readonly fqdn: string;
+    /**
+     * Is the record set auto-registered in the Private DNS zone through a virtual network link?
+     */
+    readonly isAutoRegistered: boolean;
+    /**
+     * The metadata attached to the record set.
+     */
+    readonly metadata?: {[key: string]: string};
+    /**
+     * The list of MX records in the record set.
+     */
+    readonly mxRecords?: outputs.network.v20180901.MxRecordResponse[];
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The properties of the record set.
+     * The list of PTR records in the record set.
      */
-    readonly properties: outputs.network.v20180901.RecordSetPropertiesResponse;
+    readonly ptrRecords?: outputs.network.v20180901.PtrRecordResponse[];
+    /**
+     * The SOA record in the record set.
+     */
+    readonly soaRecord?: outputs.network.v20180901.SoaRecordResponse;
+    /**
+     * The list of SRV records in the record set.
+     */
+    readonly srvRecords?: outputs.network.v20180901.SrvRecordResponse[];
+    /**
+     * The TTL (time-to-live) of the records in the record set.
+     */
+    readonly ttl?: number;
+    /**
+     * The list of TXT records in the record set.
+     */
+    readonly txtRecords?: outputs.network.v20180901.TxtRecordResponse[];
     /**
      * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
      */

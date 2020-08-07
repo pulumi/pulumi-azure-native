@@ -13,12 +13,18 @@ class GetNatGatewayResult:
     """
     Nat Gateway resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, etag=None, idle_timeout_in_minutes=None, location=None, name=None, provisioning_state=None, public_ip_addresses=None, public_ip_prefixes=None, resource_guid=None, sku=None, subnets=None, tags=None, type=None, zones=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
+            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
+        __self__.idle_timeout_in_minutes = idle_timeout_in_minutes
+        """
+        The idle timeout of the nat gateway.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,17 +38,41 @@ class GetNatGatewayResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Nat Gateway properties.
+        The provisioning state of the NAT gateway resource.
+        """
+        if public_ip_addresses and not isinstance(public_ip_addresses, list):
+            raise TypeError("Expected argument 'public_ip_addresses' to be a list")
+        __self__.public_ip_addresses = public_ip_addresses
+        """
+        An array of public ip addresses associated with the nat gateway resource.
+        """
+        if public_ip_prefixes and not isinstance(public_ip_prefixes, list):
+            raise TypeError("Expected argument 'public_ip_prefixes' to be a list")
+        __self__.public_ip_prefixes = public_ip_prefixes
+        """
+        An array of public ip prefixes associated with the nat gateway resource.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the NAT gateway resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The nat gateway SKU.
+        """
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        __self__.subnets = subnets
+        """
+        An array of references to the subnets using this nat gateway resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -71,10 +101,15 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             yield self
         return GetNatGatewayResult(
             etag=self.etag,
+            idle_timeout_in_minutes=self.idle_timeout_in_minutes,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            public_ip_addresses=self.public_ip_addresses,
+            public_ip_prefixes=self.public_ip_prefixes,
+            resource_guid=self.resource_guid,
             sku=self.sku,
+            subnets=self.subnets,
             tags=self.tags,
             type=self.type,
             zones=self.zones)
@@ -98,10 +133,15 @@ def get_nat_gateway(name=None, resource_group_name=None, opts=None):
 
     return AwaitableGetNatGatewayResult(
         etag=__ret__.get('etag'),
+        idle_timeout_in_minutes=__ret__.get('idleTimeoutInMinutes'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_ip_addresses=__ret__.get('publicIpAddresses'),
+        public_ip_prefixes=__ret__.get('publicIpPrefixes'),
+        resource_guid=__ret__.get('resourceGuid'),
         sku=__ret__.get('sku'),
+        subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),
         zones=__ret__.get('zones'))

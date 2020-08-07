@@ -13,12 +13,48 @@ class GetRosettaNetProcessConfigurationResult:
     """
     The integration account RosettaNet process configuration.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, activity_settings=None, changed_time=None, created_time=None, description=None, initiator_role_settings=None, location=None, metadata=None, name=None, process_code=None, process_name=None, process_version=None, responder_role_settings=None, tags=None, type=None):
+        if activity_settings and not isinstance(activity_settings, dict):
+            raise TypeError("Expected argument 'activity_settings' to be a dict")
+        __self__.activity_settings = activity_settings
+        """
+        The RosettaNet process configuration activity settings.
+        """
+        if changed_time and not isinstance(changed_time, str):
+            raise TypeError("Expected argument 'changed_time' to be a str")
+        __self__.changed_time = changed_time
+        """
+        The changed time.
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        The created time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The integration account RosettaNet ProcessConfiguration properties.
+        """
+        if initiator_role_settings and not isinstance(initiator_role_settings, dict):
+            raise TypeError("Expected argument 'initiator_role_settings' to be a dict")
+        __self__.initiator_role_settings = initiator_role_settings
+        """
+        The RosettaNet initiator role settings.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The resource location.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The metadata.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +62,29 @@ class GetRosettaNetProcessConfigurationResult:
         """
         Gets the resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if process_code and not isinstance(process_code, str):
+            raise TypeError("Expected argument 'process_code' to be a str")
+        __self__.process_code = process_code
         """
-        The integration account RosettaNet process configuration properties.
+        The integration account RosettaNet process code.
+        """
+        if process_name and not isinstance(process_name, str):
+            raise TypeError("Expected argument 'process_name' to be a str")
+        __self__.process_name = process_name
+        """
+        The integration account RosettaNet process name.
+        """
+        if process_version and not isinstance(process_version, str):
+            raise TypeError("Expected argument 'process_version' to be a str")
+        __self__.process_version = process_version
+        """
+        The integration account RosettaNet process version.
+        """
+        if responder_role_settings and not isinstance(responder_role_settings, dict):
+            raise TypeError("Expected argument 'responder_role_settings' to be a dict")
+        __self__.responder_role_settings = responder_role_settings
+        """
+        The RosettaNet responder role settings.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +106,18 @@ class AwaitableGetRosettaNetProcessConfigurationResult(GetRosettaNetProcessConfi
         if False:
             yield self
         return GetRosettaNetProcessConfigurationResult(
+            activity_settings=self.activity_settings,
+            changed_time=self.changed_time,
+            created_time=self.created_time,
+            description=self.description,
+            initiator_role_settings=self.initiator_role_settings,
             location=self.location,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            process_code=self.process_code,
+            process_name=self.process_name,
+            process_version=self.process_version,
+            responder_role_settings=self.responder_role_settings,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +141,17 @@ def get_rosetta_net_process_configuration(integration_account_name=None, name=No
     __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:getRosettaNetProcessConfiguration', __args__, opts=opts).value
 
     return AwaitableGetRosettaNetProcessConfigurationResult(
+        activity_settings=__ret__.get('activitySettings'),
+        changed_time=__ret__.get('changedTime'),
+        created_time=__ret__.get('createdTime'),
+        description=__ret__.get('description'),
+        initiator_role_settings=__ret__.get('initiatorRoleSettings'),
         location=__ret__.get('location'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        process_code=__ret__.get('processCode'),
+        process_name=__ret__.get('processName'),
+        process_version=__ret__.get('processVersion'),
+        responder_role_settings=__ret__.get('responderRoleSettings'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

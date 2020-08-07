@@ -33,10 +33,28 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the service end point policy.
+        /// The provisioning state of the service endpoint policy resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServiceEndpointPolicyPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the service endpoint policy resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of service endpoint policy definitions of the service endpoint policy.
+        /// </summary>
+        [Output("serviceEndpointPolicyDefinitions")]
+        public Output<ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponseResult>> ServiceEndpointPolicyDefinitions { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        [Output("subnets")]
+        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -37,17 +37,81 @@ export class Incident extends pulumi.CustomResource {
     }
 
     /**
+     * Additional data on the incident
+     */
+    public /*out*/ readonly additionalData!: pulumi.Output<outputs.operationalinsights.v20200101.IncidentAdditionalDataResponse>;
+    /**
+     * The reason the incident was closed
+     */
+    public readonly classification!: pulumi.Output<string | undefined>;
+    /**
+     * Describes the reason the incident was closed
+     */
+    public readonly classificationComment!: pulumi.Output<string | undefined>;
+    /**
+     * The classification reason the incident was closed with
+     */
+    public readonly classificationReason!: pulumi.Output<string | undefined>;
+    /**
+     * The time the incident was created
+     */
+    public /*out*/ readonly createdTimeUtc!: pulumi.Output<string>;
+    /**
+     * The description of the incident
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Etag of the azure resource
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * The time of the first activity in the incident
+     */
+    public readonly firstActivityTimeUtc!: pulumi.Output<string | undefined>;
+    /**
+     * A sequential number
+     */
+    public /*out*/ readonly incidentNumber!: pulumi.Output<number>;
+    /**
+     * The deep-link url to the incident in Azure portal
+     */
+    public /*out*/ readonly incidentUrl!: pulumi.Output<string>;
+    /**
+     * List of labels relevant to this incident
+     */
+    public readonly labels!: pulumi.Output<outputs.operationalinsights.v20200101.IncidentLabelResponse[] | undefined>;
+    /**
+     * The time of the last activity in the incident
+     */
+    public readonly lastActivityTimeUtc!: pulumi.Output<string | undefined>;
+    /**
+     * The last time the incident was updated
+     */
+    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
     /**
      * Azure resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Incident properties
+     * Describes a user that the incident is assigned to
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20200101.IncidentPropertiesResponse>;
+    public readonly owner!: pulumi.Output<outputs.operationalinsights.v20200101.IncidentOwnerInfoResponse | undefined>;
+    /**
+     * List of resource ids of Analytic rules related to the incident
+     */
+    public /*out*/ readonly relatedAnalyticRuleIds!: pulumi.Output<string[]>;
+    /**
+     * The severity of the incident
+     */
+    public readonly severity!: pulumi.Output<string>;
+    /**
+     * The status of the incident
+     */
+    public readonly status!: pulumi.Output<string>;
+    /**
+     * The title of the incident
+     */
+    public readonly title!: pulumi.Output<string>;
     /**
      * Azure resource type
      */
@@ -99,7 +163,12 @@ export class Incident extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["additionalData"] = undefined /*out*/;
+            inputs["createdTimeUtc"] = undefined /*out*/;
+            inputs["incidentNumber"] = undefined /*out*/;
+            inputs["incidentUrl"] = undefined /*out*/;
+            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            inputs["relatedAnalyticRuleIds"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

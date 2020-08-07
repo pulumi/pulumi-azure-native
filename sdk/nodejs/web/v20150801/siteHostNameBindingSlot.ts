@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,26 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
     }
 
     /**
+     * Azure resource name
+     */
+    public readonly azureResourceName!: pulumi.Output<string | undefined>;
+    /**
+     * Azure resource type
+     */
+    public readonly azureResourceType!: pulumi.Output<string | undefined>;
+    /**
+     * Custom DNS record type
+     */
+    public readonly customHostNameDnsRecordType!: pulumi.Output<string | undefined>;
+    /**
+     * Fully qualified ARM domain resource URI
+     */
+    public readonly domainId!: pulumi.Output<string | undefined>;
+    /**
+     * Host name type
+     */
+    public readonly hostNameType!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -48,7 +66,10 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.HostNameBindingResponseProperties>;
+    /**
+     * Web app name
+     */
+    public readonly siteName!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -97,7 +118,6 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

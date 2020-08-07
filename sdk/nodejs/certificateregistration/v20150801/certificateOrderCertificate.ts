@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
     }
 
     /**
+     * Key Vault Csm resource Id
+     */
+    public readonly keyVaultId!: pulumi.Output<string | undefined>;
+    /**
+     * Key Vault secret name
+     */
+    public readonly keyVaultSecretName!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -48,7 +54,10 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.certificateregistration.v20150801.CertificateOrderCertificateResponseProperties>;
+    /**
+     * Status of the Key Vault secret
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -94,7 +103,6 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

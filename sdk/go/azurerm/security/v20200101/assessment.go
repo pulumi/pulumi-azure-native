@@ -14,10 +14,22 @@ import (
 type Assessment struct {
 	pulumi.CustomResourceState
 
+	// Additional data regarding the assessment
+	AdditionalData pulumi.StringMapOutput `pulumi:"additionalData"`
+	// User friendly display name of the assessment
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// Links relevant to the assessment
+	Links AssessmentLinksResponsePtrOutput `pulumi:"links"`
+	// Describes properties of an assessment metadata.
+	Metadata SecurityAssessmentMetadataPropertiesResponsePtrOutput `pulumi:"metadata"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes properties of an assessment.
-	Properties SecurityAssessmentPropertiesResponseOutput `pulumi:"properties"`
+	// Data regarding 3rd party partner integration
+	PartnersData SecurityAssessmentPartnerDataResponsePtrOutput `pulumi:"partnersData"`
+	// Details of the resource that was assessed
+	ResourceDetails ResourceDetailsResponseOutput `pulumi:"resourceDetails"`
+	// The result of the assessment
+	Status AssessmentStatusResponseOutput `pulumi:"status"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +74,43 @@ func GetAssessment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assessment resources.
 type assessmentState struct {
+	// Additional data regarding the assessment
+	AdditionalData map[string]string `pulumi:"additionalData"`
+	// User friendly display name of the assessment
+	DisplayName *string `pulumi:"displayName"`
+	// Links relevant to the assessment
+	Links *AssessmentLinksResponse `pulumi:"links"`
+	// Describes properties of an assessment metadata.
+	Metadata *SecurityAssessmentMetadataPropertiesResponse `pulumi:"metadata"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Describes properties of an assessment.
-	Properties *SecurityAssessmentPropertiesResponse `pulumi:"properties"`
+	// Data regarding 3rd party partner integration
+	PartnersData *SecurityAssessmentPartnerDataResponse `pulumi:"partnersData"`
+	// Details of the resource that was assessed
+	ResourceDetails *ResourceDetailsResponse `pulumi:"resourceDetails"`
+	// The result of the assessment
+	Status *AssessmentStatusResponse `pulumi:"status"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type AssessmentState struct {
+	// Additional data regarding the assessment
+	AdditionalData pulumi.StringMapInput
+	// User friendly display name of the assessment
+	DisplayName pulumi.StringPtrInput
+	// Links relevant to the assessment
+	Links AssessmentLinksResponsePtrInput
+	// Describes properties of an assessment metadata.
+	Metadata SecurityAssessmentMetadataPropertiesResponsePtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Describes properties of an assessment.
-	Properties SecurityAssessmentPropertiesResponsePtrInput
+	// Data regarding 3rd party partner integration
+	PartnersData SecurityAssessmentPartnerDataResponsePtrInput
+	// Details of the resource that was assessed
+	ResourceDetails ResourceDetailsResponsePtrInput
+	// The result of the assessment
+	Status AssessmentStatusResponsePtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

@@ -37,6 +37,26 @@ export class JitRequest extends pulumi.CustomResource {
     }
 
     /**
+     * The parent application id.
+     */
+    public readonly applicationResourceId!: pulumi.Output<string>;
+    /**
+     * The client entity that created the JIT request.
+     */
+    public /*out*/ readonly createdBy!: pulumi.Output<outputs.solutions.v20190701.ApplicationClientDetailsResponse>;
+    /**
+     * The JIT authorization policies.
+     */
+    public readonly jitAuthorizationPolicies!: pulumi.Output<outputs.solutions.v20190701.JitAuthorizationPoliciesResponse[]>;
+    /**
+     * The JIT request state.
+     */
+    public /*out*/ readonly jitRequestState!: pulumi.Output<string>;
+    /**
+     * The JIT request properties.
+     */
+    public readonly jitSchedulingPolicy!: pulumi.Output<outputs.solutions.v20190701.JitSchedulingPolicyResponse>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +65,13 @@ export class JitRequest extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The JIT request properties.
+     * The JIT request provisioning state.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.solutions.v20190701.JitRequestPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The publisher tenant id.
+     */
+    public /*out*/ readonly publisherTenantId!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -56,6 +80,10 @@ export class JitRequest extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The client entity that last updated the JIT request.
+     */
+    public /*out*/ readonly updatedBy!: pulumi.Output<outputs.solutions.v20190701.ApplicationClientDetailsResponse>;
 
     /**
      * Create a JitRequest resource with the given unique name, arguments, and options.
@@ -92,8 +120,12 @@ export class JitRequest extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["jitRequestState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publisherTenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

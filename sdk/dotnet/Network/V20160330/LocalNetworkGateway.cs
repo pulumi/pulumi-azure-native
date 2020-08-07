@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.Network.V20160330
     public partial class LocalNetworkGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings
+        /// </summary>
+        [Output("bgpSettings")]
+        public Output<Outputs.BgpSettingsResponseResult?> BgpSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// IP address of local network gateway.
+        /// </summary>
+        [Output("gatewayIpAddress")]
+        public Output<string?> GatewayIpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Local network site Address space
+        /// </summary>
+        [Output("localNetworkAddressSpace")]
+        public Output<Outputs.AddressSpaceResponseResult?> LocalNetworkAddressSpace { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -33,10 +51,16 @@ namespace Pulumi.AzureRM.Network.V20160330
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// LocalNetworkGateway properties
+        /// Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LocalNetworkGatewayPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets resource GUID property of the LocalNetworkGateway resource
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

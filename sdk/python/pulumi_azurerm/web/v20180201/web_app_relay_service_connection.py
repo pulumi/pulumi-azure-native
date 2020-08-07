@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class WebAppRelayServiceConnection(pulumi.CustomResource):
+    biztalk_uri: pulumi.Output[str]
+    entity_connection_string: pulumi.Output[str]
+    entity_name: pulumi.Output[str]
+    hostname: pulumi.Output[str]
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,17 +22,9 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
-    """
-    RelayServiceConnectionEntity resource specific properties
-      * `biztalk_uri` (`str`)
-      * `entity_connection_string` (`str`)
-      * `entity_name` (`str`)
-      * `hostname` (`str`)
-      * `port` (`float`)
-      * `resource_connection_string` (`str`)
-      * `resource_type` (`str`)
-    """
+    port: pulumi.Output[float]
+    resource_connection_string: pulumi.Output[str]
+    resource_type: pulumi.Output[str]
     type: pulumi.Output[str]
     """
     Resource type.
@@ -72,7 +68,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_type'] = resource_type
-            __props__['properties'] = None
+            __props__['entity_name'] = None
             __props__['type'] = None
         super(WebAppRelayServiceConnection, __self__).__init__(
             'azurerm:web/v20180201:WebAppRelayServiceConnection',

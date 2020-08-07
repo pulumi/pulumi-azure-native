@@ -14,10 +14,10 @@ import (
 type AccessControlRecord struct {
 	pulumi.CustomResourceState
 
+	// The Iscsi initiator name (IQN)
+	InitiatorName pulumi.StringOutput `pulumi:"initiatorName"`
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of AccessControlRecord
-	Properties AccessControlRecordPropertiesResponseOutput `pulumi:"properties"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +62,19 @@ func GetAccessControlRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessControlRecord resources.
 type accessControlRecordState struct {
+	// The Iscsi initiator name (IQN)
+	InitiatorName *string `pulumi:"initiatorName"`
 	// The name.
 	Name *string `pulumi:"name"`
-	// Properties of AccessControlRecord
-	Properties *AccessControlRecordPropertiesResponse `pulumi:"properties"`
 	// The type.
 	Type *string `pulumi:"type"`
 }
 
 type AccessControlRecordState struct {
+	// The Iscsi initiator name (IQN)
+	InitiatorName pulumi.StringPtrInput
 	// The name.
 	Name pulumi.StringPtrInput
-	// Properties of AccessControlRecord
-	Properties AccessControlRecordPropertiesResponsePtrInput
 	// The type.
 	Type pulumi.StringPtrInput
 }

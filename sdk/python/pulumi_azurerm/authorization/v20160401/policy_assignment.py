@@ -10,16 +10,21 @@ from ... import _utilities, _tables
 
 
 class PolicyAssignment(pulumi.CustomResource):
+    display_name: pulumi.Output[str]
+    """
+    The display name of the policy assignment.
+    """
     name: pulumi.Output[str]
     """
     The name of the policy assignment.
     """
-    properties: pulumi.Output[dict]
+    policy_definition_id: pulumi.Output[str]
     """
-    Properties for the policy assignment.
-      * `display_name` (`str`) - The display name of the policy assignment.
-      * `policy_definition_id` (`str`) - The ID of the policy definition.
-      * `scope` (`str`) - The scope for the policy assignment.
+    The ID of the policy definition.
+    """
+    scope: pulumi.Output[str]
+    """
+    The scope for the policy assignment.
     """
     type: pulumi.Output[str]
     """
@@ -65,7 +70,6 @@ class PolicyAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['type'] = type
-            __props__['properties'] = None
         super(PolicyAssignment, __self__).__init__(
             'azurerm:authorization/v20160401:PolicyAssignment',
             resource_name,

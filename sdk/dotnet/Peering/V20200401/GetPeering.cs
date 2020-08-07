@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class GetPeeringResult
     {
         /// <summary>
+        /// The properties that define a direct peering.
+        /// </summary>
+        public readonly Outputs.PeeringPropertiesDirectResponseResult? Direct;
+        /// <summary>
+        /// The properties that define an exchange peering.
+        /// </summary>
+        public readonly Outputs.PeeringPropertiesExchangeResponseResult? Exchange;
+        /// <summary>
         /// The kind of the peering.
         /// </summary>
         public readonly string Kind;
@@ -52,9 +60,13 @@ namespace Pulumi.AzureRM.Peering.V20200401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties that define a peering.
+        /// The location of the peering.
         /// </summary>
-        public readonly Outputs.PeeringPropertiesResponseResult Properties;
+        public readonly string? PeeringLocation;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The SKU that defines the tier and kind of the peering.
         /// </summary>
@@ -70,13 +82,19 @@ namespace Pulumi.AzureRM.Peering.V20200401
 
         [OutputConstructor]
         private GetPeeringResult(
+            Outputs.PeeringPropertiesDirectResponseResult? direct,
+
+            Outputs.PeeringPropertiesExchangeResponseResult? exchange,
+
             string kind,
 
             string location,
 
             string name,
 
-            Outputs.PeeringPropertiesResponseResult properties,
+            string? peeringLocation,
+
+            string provisioningState,
 
             Outputs.PeeringSkuResponseResult sku,
 
@@ -84,10 +102,13 @@ namespace Pulumi.AzureRM.Peering.V20200401
 
             string type)
         {
+            Direct = direct;
+            Exchange = exchange;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            PeeringLocation = peeringLocation;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;

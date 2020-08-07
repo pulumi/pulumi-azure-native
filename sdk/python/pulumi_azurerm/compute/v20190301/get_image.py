@@ -13,7 +13,13 @@ class GetImageResult:
     """
     The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, hyper_v_generation=None, location=None, name=None, provisioning_state=None, source_virtual_machine=None, storage_profile=None, tags=None, type=None):
+        if hyper_v_generation and not isinstance(hyper_v_generation, str):
+            raise TypeError("Expected argument 'hyper_v_generation' to be a str")
+        __self__.hyper_v_generation = hyper_v_generation
+        """
+        Gets the HyperVGenerationType of the VirtualMachine created from the image
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,23 @@ class GetImageResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Describes the properties of an Image.
+        The provisioning state.
+        """
+        if source_virtual_machine and not isinstance(source_virtual_machine, dict):
+            raise TypeError("Expected argument 'source_virtual_machine' to be a dict")
+        __self__.source_virtual_machine = source_virtual_machine
+        """
+        The source virtual machine from which Image is created.
+        """
+        if storage_profile and not isinstance(storage_profile, dict):
+            raise TypeError("Expected argument 'storage_profile' to be a dict")
+        __self__.storage_profile = storage_profile
+        """
+        Specifies the storage settings for the virtual machine disks.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +70,12 @@ class AwaitableGetImageResult(GetImageResult):
         if False:
             yield self
         return GetImageResult(
+            hyper_v_generation=self.hyper_v_generation,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            source_virtual_machine=self.source_virtual_machine,
+            storage_profile=self.storage_profile,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +97,11 @@ def get_image(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190301:getImage', __args__, opts=opts).value
 
     return AwaitableGetImageResult(
+        hyper_v_generation=__ret__.get('hyperVGeneration'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        source_virtual_machine=__ret__.get('sourceVirtualMachine'),
+        storage_profile=__ret__.get('storageProfile'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

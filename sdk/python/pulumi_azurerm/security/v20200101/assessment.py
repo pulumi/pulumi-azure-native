@@ -10,47 +10,60 @@ from ... import _utilities, _tables
 
 
 class Assessment(pulumi.CustomResource):
+    additional_data: pulumi.Output[dict]
+    """
+    Additional data regarding the assessment
+    """
+    display_name: pulumi.Output[str]
+    """
+    User friendly display name of the assessment
+    """
+    links: pulumi.Output[dict]
+    """
+    Links relevant to the assessment
+      * `azure_portal_uri` (`str`) - Link to assessment in Azure Portal
+    """
+    metadata: pulumi.Output[dict]
+    """
+    Describes properties of an assessment metadata.
+      * `assessment_type` (`str`) - BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+      * `category` (`list`)
+      * `description` (`str`) - Human readable description of the assessment
+      * `display_name` (`str`) - User friendly display name of the assessment
+      * `implementation_effort` (`str`) - The implementation effort required to remediate this assessment
+      * `partner_data` (`dict`) - Describes the partner that created the assessment
+        * `partner_name` (`str`) - Name of the company of the partner
+        * `product_name` (`str`) - Name of the product of the partner that created the assessment
+        * `secret` (`str`) - Secret to authenticate the partner and verify it created the assessment - write only
+
+      * `policy_definition_id` (`str`) - Azure resource ID of the policy definition that turns this assessment calculation on
+      * `preview` (`bool`) - True if this assessment is in preview release status
+      * `remediation_description` (`str`) - Human readable description of what you should do to mitigate this security issue
+      * `severity` (`str`) - The severity level of the assessment
+      * `threats` (`list`)
+      * `user_impact` (`str`) - The user impact of the assessment
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    partners_data: pulumi.Output[dict]
     """
-    Describes properties of an assessment.
-      * `additional_data` (`dict`) - Additional data regarding the assessment
-      * `display_name` (`str`) - User friendly display name of the assessment
-      * `links` (`dict`) - Links relevant to the assessment
-        * `azure_portal_uri` (`str`) - Link to assessment in Azure Portal
-
-      * `metadata` (`dict`) - Describes properties of an assessment metadata.
-        * `assessment_type` (`str`) - BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
-        * `category` (`list`)
-        * `description` (`str`) - Human readable description of the assessment
-        * `display_name` (`str`) - User friendly display name of the assessment
-        * `implementation_effort` (`str`) - The implementation effort required to remediate this assessment
-        * `partner_data` (`dict`) - Describes the partner that created the assessment
-          * `partner_name` (`str`) - Name of the company of the partner
-          * `product_name` (`str`) - Name of the product of the partner that created the assessment
-          * `secret` (`str`) - Secret to authenticate the partner and verify it created the assessment - write only
-
-        * `policy_definition_id` (`str`) - Azure resource ID of the policy definition that turns this assessment calculation on
-        * `preview` (`bool`) - True if this assessment is in preview release status
-        * `remediation_description` (`str`) - Human readable description of what you should do to mitigate this security issue
-        * `severity` (`str`) - The severity level of the assessment
-        * `threats` (`list`)
-        * `user_impact` (`str`) - The user impact of the assessment
-
-      * `partners_data` (`dict`) - Data regarding 3rd party partner integration
-        * `partner_name` (`str`) - Name of the company of the partner
-        * `secret` (`str`) - secret to authenticate the partner - write only
-
-      * `resource_details` (`dict`) - Details of the resource that was assessed
-        * `source` (`str`) - The platform where the assessed resource resides
-
-      * `status` (`dict`) - The result of the assessment
-        * `cause` (`str`) - Programmatic code for the cause of the assessment status
-        * `code` (`str`) - Programmatic code for the status of the assessment
-        * `description` (`str`) - Human readable description of the assessment status
+    Data regarding 3rd party partner integration
+      * `partner_name` (`str`) - Name of the company of the partner
+      * `secret` (`str`) - secret to authenticate the partner - write only
+    """
+    resource_details: pulumi.Output[dict]
+    """
+    Details of the resource that was assessed
+      * `source` (`str`) - The platform where the assessed resource resides
+    """
+    status: pulumi.Output[dict]
+    """
+    The result of the assessment
+      * `cause` (`str`) - Programmatic code for the cause of the assessment status
+      * `code` (`str`) - Programmatic code for the status of the assessment
+      * `description` (`str`) - Human readable description of the assessment status
     """
     type: pulumi.Output[str]
     """
@@ -135,7 +148,8 @@ class Assessment(pulumi.CustomResource):
             if status is None:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
-            __props__['properties'] = None
+            __props__['display_name'] = None
+            __props__['links'] = None
             __props__['type'] = None
         super(Assessment, __self__).__init__(
             'azurerm:security/v20200101:Assessment',

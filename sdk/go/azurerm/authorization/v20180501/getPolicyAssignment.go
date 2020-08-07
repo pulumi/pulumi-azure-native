@@ -25,14 +25,26 @@ type LookupPolicyAssignmentArgs struct {
 
 // The policy assignment.
 type LookupPolicyAssignmentResult struct {
+	// This message will be part of response in case of policy violation.
+	Description *string `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
 	// The managed identity associated with the policy assignment.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location *string `pulumi:"location"`
+	// The policy assignment metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name string `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponse `pulumi:"properties"`
+	// The policy's excluded scopes.
+	NotScopes []string `pulumi:"notScopes"`
+	// Required if a parameter is used in policy rule.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope *string `pulumi:"scope"`
 	// The policy sku. This property is optional, obsolete, and will be ignored.
 	Sku *PolicySkuResponse `pulumi:"sku"`
 	// The type of the policy assignment.

@@ -36,21 +36,38 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
+     * Describes custom rules inside the policy.
+     */
+    readonly customRules?: outputs.network.v20191001.CustomRuleListResponse;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
+    /**
+     * Describes Frontend Endpoints associated with this Web Application Firewall policy.
+     */
+    readonly frontendEndpointLinks: outputs.network.v20191001.FrontendEndpointLinkResponse[];
     /**
      * Resource location.
      */
     readonly location?: string;
     /**
+     * Describes managed rules inside the policy.
+     */
+    readonly managedRules?: outputs.network.v20191001.ManagedRuleSetListResponse;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the web application firewall policy.
+     * Describes settings for the policy.
      */
-    readonly properties: outputs.network.v20191001.WebApplicationFirewallPolicyPropertiesResponse;
+    readonly policySettings?: outputs.network.v20191001.PolicySettingsResponse;
+    /**
+     * Provisioning state of the policy.
+     */
+    readonly provisioningState: string;
+    readonly resourceState: string;
     /**
      * Resource tags.
      */

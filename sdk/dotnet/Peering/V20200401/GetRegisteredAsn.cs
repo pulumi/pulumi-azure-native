@@ -46,13 +46,21 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class GetRegisteredAsnResult
     {
         /// <summary>
+        /// The customer's ASN from which traffic originates.
+        /// </summary>
+        public readonly int? Asn;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties that define a registered ASN.
+        /// The peering service prefix key that is to be shared with the customer.
         /// </summary>
-        public readonly Outputs.PeeringRegisteredAsnPropertiesResponseResult Properties;
+        public readonly string PeeringServicePrefixKey;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -60,14 +68,20 @@ namespace Pulumi.AzureRM.Peering.V20200401
 
         [OutputConstructor]
         private GetRegisteredAsnResult(
+            int? asn,
+
             string name,
 
-            Outputs.PeeringRegisteredAsnPropertiesResponseResult properties,
+            string peeringServicePrefixKey,
+
+            string provisioningState,
 
             string type)
         {
+            Asn = asn;
             Name = name;
-            Properties = properties;
+            PeeringServicePrefixKey = peeringServicePrefixKey;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

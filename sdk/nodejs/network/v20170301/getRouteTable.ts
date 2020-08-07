@@ -48,9 +48,17 @@ export interface GetRouteTableResult {
      */
     readonly name: string;
     /**
-     * Route Table resource
+     * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly properties: outputs.network.v20170301.RouteTablePropertiesFormatResponse;
+    readonly provisioningState?: string;
+    /**
+     * Collection of routes contained within a route table.
+     */
+    readonly routes?: outputs.network.v20170301.RouteResponse[];
+    /**
+     * A collection of references to subnets.
+     */
+    readonly subnets: outputs.network.v20170301.SubnetResponse[];
     /**
      * Resource tags.
      */

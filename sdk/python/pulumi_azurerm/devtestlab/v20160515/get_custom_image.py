@@ -13,12 +13,36 @@ class GetCustomImageResult:
     """
     A custom image.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, author=None, creation_date=None, description=None, location=None, managed_image_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
+        if author and not isinstance(author, str):
+            raise TypeError("Expected argument 'author' to be a str")
+        __self__.author = author
+        """
+        The author of the custom image.
+        """
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The creation date of the custom image.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the custom image.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The location of the resource.
+        """
+        if managed_image_id and not isinstance(managed_image_id, str):
+            raise TypeError("Expected argument 'managed_image_id' to be a str")
+        __self__.managed_image_id = managed_image_id
+        """
+        The Managed Image Id backing the custom image.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +50,11 @@ class GetCustomImageResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +68,24 @@ class GetCustomImageResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if vhd and not isinstance(vhd, dict):
+            raise TypeError("Expected argument 'vhd' to be a dict")
+        __self__.vhd = vhd
+        """
+        The VHD from which the image is to be created.
+        """
+        if vm and not isinstance(vm, dict):
+            raise TypeError("Expected argument 'vm' to be a dict")
+        __self__.vm = vm
+        """
+        The virtual machine from which the image is to be created.
+        """
 
 
 class AwaitableGetCustomImageResult(GetCustomImageResult):
@@ -52,11 +94,18 @@ class AwaitableGetCustomImageResult(GetCustomImageResult):
         if False:
             yield self
         return GetCustomImageResult(
+            author=self.author,
+            creation_date=self.creation_date,
+            description=self.description,
             location=self.location,
+            managed_image_id=self.managed_image_id,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            vhd=self.vhd,
+            vm=self.vm)
 
 
 def get_custom_image(lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +127,15 @@ def get_custom_image(lab_name=None, name=None, resource_group_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getCustomImage', __args__, opts=opts).value
 
     return AwaitableGetCustomImageResult(
+        author=__ret__.get('author'),
+        creation_date=__ret__.get('creationDate'),
+        description=__ret__.get('description'),
         location=__ret__.get('location'),
+        managed_image_id=__ret__.get('managedImageId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        vhd=__ret__.get('vhd'),
+        vm=__ret__.get('vm'))

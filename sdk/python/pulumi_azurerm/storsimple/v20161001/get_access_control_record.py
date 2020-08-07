@@ -13,18 +13,18 @@ class GetAccessControlRecordResult:
     """
     The access control record
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, initiator_name=None, name=None, type=None):
+        if initiator_name and not isinstance(initiator_name, str):
+            raise TypeError("Expected argument 'initiator_name' to be a str")
+        __self__.initiator_name = initiator_name
+        """
+        The Iscsi initiator name (IQN)
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Properties of AccessControlRecord
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +40,8 @@ class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
         if False:
             yield self
         return GetAccessControlRecordResult(
+            initiator_name=self.initiator_name,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -64,6 +64,6 @@ def get_access_control_record(manager_name=None, name=None, resource_group_name=
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getAccessControlRecord', __args__, opts=opts).value
 
     return AwaitableGetAccessControlRecordResult(
+        initiator_name=__ret__.get('initiatorName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

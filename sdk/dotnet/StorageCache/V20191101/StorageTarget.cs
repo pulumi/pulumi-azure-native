@@ -15,22 +15,52 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
     public partial class StorageTarget : Pulumi.CustomResource
     {
         /// <summary>
+        /// Properties when targetType is clfs.
+        /// </summary>
+        [Output("clfs")]
+        public Output<Outputs.ClfsTargetResponseResult?> Clfs { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Cache namespace junctions to target for namespace associations.
+        /// </summary>
+        [Output("junctions")]
+        public Output<ImmutableArray<Outputs.NamespaceJunctionResponseResult>> Junctions { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the Storage Target.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Storage Target.
+        /// Properties when targetType is nfs3.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageTargetResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("nfs3")]
+        public Output<Outputs.Nfs3TargetResponseResult?> Nfs3 { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of the Storage Target.
+        /// </summary>
+        [Output("targetType")]
+        public Output<string?> TargetType { get; private set; } = null!;
 
         /// <summary>
         /// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties when targetType is unknown.
+        /// </summary>
+        [Output("unknown")]
+        public Output<Outputs.UnknownTargetResponseResult?> Unknown { get; private set; } = null!;
 
 
         /// <summary>

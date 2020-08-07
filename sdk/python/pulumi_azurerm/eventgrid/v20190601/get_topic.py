@@ -13,7 +13,13 @@ class GetTopicResult:
     """
     EventGrid Topic
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, endpoint=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        __self__.endpoint = endpoint
+        """
+        Endpoint for the topic.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,11 @@ class GetTopicResult:
         """
         Name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the topic
+        Provisioning state of the topic.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +58,10 @@ class AwaitableGetTopicResult(GetTopicResult):
         if False:
             yield self
         return GetTopicResult(
+            endpoint=self.endpoint,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +83,9 @@ def get_topic(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:eventgrid/v20190601:getTopic', __args__, opts=opts).value
 
     return AwaitableGetTopicResult(
+        endpoint=__ret__.get('endpoint'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

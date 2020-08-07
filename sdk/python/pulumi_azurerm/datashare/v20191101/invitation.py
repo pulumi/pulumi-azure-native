@@ -10,28 +10,51 @@ from ... import _utilities, _tables
 
 
 class Invitation(pulumi.CustomResource):
+    invitation_id: pulumi.Output[str]
+    """
+    unique invitation id
+    """
+    invitation_status: pulumi.Output[str]
+    """
+    The status of the invitation.
+    """
     name: pulumi.Output[str]
     """
     Name of the azure resource
     """
-    properties: pulumi.Output[dict]
+    responded_at: pulumi.Output[str]
     """
-    Properties on the Invitation
-      * `invitation_id` (`str`) - unique invitation id
-      * `invitation_status` (`str`) - The status of the invitation.
-      * `responded_at` (`str`) - The time the recipient responded to the invitation.
-      * `sent_at` (`str`) - Gets the time at which the invitation was sent.
-      * `target_active_directory_id` (`str`) - The target Azure AD Id. Can't be combined with email.
-      * `target_email` (`str`) - The email the invitation is directed to.
-      * `target_object_id` (`str`) - The target user or application Id that invitation is being sent to.
-        Must be specified along TargetActiveDirectoryId. This enables sending
-        invitations to specific users or applications in an AD tenant.
-      * `user_email` (`str`) - Email of the user who created the resource
-      * `user_name` (`str`) - Name of the user who created the resource
+    The time the recipient responded to the invitation.
+    """
+    sent_at: pulumi.Output[str]
+    """
+    Gets the time at which the invitation was sent.
+    """
+    target_active_directory_id: pulumi.Output[str]
+    """
+    The target Azure AD Id. Can't be combined with email.
+    """
+    target_email: pulumi.Output[str]
+    """
+    The email the invitation is directed to.
+    """
+    target_object_id: pulumi.Output[str]
+    """
+    The target user or application Id that invitation is being sent to.
+    Must be specified along TargetActiveDirectoryId. This enables sending
+    invitations to specific users or applications in an AD tenant.
     """
     type: pulumi.Output[str]
     """
     Type of the azure resource
+    """
+    user_email: pulumi.Output[str]
+    """
+    Email of the user who created the resource
+    """
+    user_name: pulumi.Output[str]
+    """
+    Name of the user who created the resource
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, name=None, resource_group_name=None, share_name=None, target_active_directory_id=None, target_email=None, target_object_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -81,8 +104,13 @@ class Invitation(pulumi.CustomResource):
             __props__['target_active_directory_id'] = target_active_directory_id
             __props__['target_email'] = target_email
             __props__['target_object_id'] = target_object_id
-            __props__['properties'] = None
+            __props__['invitation_id'] = None
+            __props__['invitation_status'] = None
+            __props__['responded_at'] = None
+            __props__['sent_at'] = None
             __props__['type'] = None
+            __props__['user_email'] = None
+            __props__['user_name'] = None
         super(Invitation, __self__).__init__(
             'azurerm:datashare/v20191101:Invitation',
             resource_name,

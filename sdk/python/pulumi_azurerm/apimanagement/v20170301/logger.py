@@ -10,30 +10,40 @@ from ... import _utilities, _tables
 
 
 class Logger(pulumi.CustomResource):
+    credentials: pulumi.Output[dict]
+    """
+    The name and SendRule connection string of the event hub for azureEventHub logger.
+    Instrumentation key for applicationInsights logger.
+    """
+    description: pulumi.Output[str]
+    """
+    Logger description.
+    """
+    is_buffered: pulumi.Output[bool]
+    """
+    Whether records are buffered in the logger before publishing. Default is assumed to be true.
+    """
+    logger_type: pulumi.Output[str]
+    """
+    Logger type.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    sampling: pulumi.Output[dict]
     """
-    Logger entity contract properties.
-      * `credentials` (`dict`) - The name and SendRule connection string of the event hub for azureEventHub logger.
-        Instrumentation key for applicationInsights logger.
-      * `description` (`str`) - Logger description.
-      * `is_buffered` (`bool`) - Whether records are buffered in the logger before publishing. Default is assumed to be true.
-      * `logger_type` (`str`) - Logger type.
-      * `sampling` (`dict`) - Sampling settings for an ApplicationInsights logger.
-        * `properties` (`dict`) - Sampling settings entity contract properties.
-          * `evaluation_interval` (`str`) - Rate re-evaluation interval in ISO8601 format.
-          * `initial_percentage` (`float`) - Initial sampling rate.
-          * `max_percentage` (`float`) - Maximum allowed rate of sampling.
-          * `max_telemetry_items_per_second` (`float`) - Target rate of telemetry items per second.
-          * `min_percentage` (`float`) - Minimum allowed rate of sampling.
-          * `moving_average_ratio` (`float`) - Moving average ration assigned to most recent value.
-          * `percentage` (`float`) - Rate of sampling for fixed-rate sampling.
-          * `percentage_decrease_timeout` (`str`) - Duration in ISO8601 format after which it's allowed to lower the sampling rate.
-          * `percentage_increase_timeout` (`str`) - Duration in ISO8601 format after which it's allowed to increase the sampling rate.
-          * `sampling_type` (`str`) - Sampling type.
+    Sampling settings for an ApplicationInsights logger.
+      * `evaluation_interval` (`str`) - Rate re-evaluation interval in ISO8601 format.
+      * `initial_percentage` (`float`) - Initial sampling rate.
+      * `max_percentage` (`float`) - Maximum allowed rate of sampling.
+      * `max_telemetry_items_per_second` (`float`) - Target rate of telemetry items per second.
+      * `min_percentage` (`float`) - Minimum allowed rate of sampling.
+      * `moving_average_ratio` (`float`) - Moving average ration assigned to most recent value.
+      * `percentage` (`float`) - Rate of sampling for fixed-rate sampling.
+      * `percentage_decrease_timeout` (`str`) - Duration in ISO8601 format after which it's allowed to lower the sampling rate.
+      * `percentage_increase_timeout` (`str`) - Duration in ISO8601 format after which it's allowed to increase the sampling rate.
+      * `sampling_type` (`str`) - Sampling type.
     """
     type: pulumi.Output[str]
     """
@@ -103,7 +113,6 @@ class Logger(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(Logger, __self__).__init__(
             'azurerm:apimanagement/v20170301:Logger',

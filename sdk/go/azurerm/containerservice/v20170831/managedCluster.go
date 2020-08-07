@@ -14,12 +14,24 @@ import (
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 
+	// Properties of the agent pool.
+	AgentPoolProfiles ContainerServiceAgentPoolProfileResponseArrayOutput `pulumi:"agentPoolProfiles"`
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix pulumi.StringPtrOutput `pulumi:"dnsPrefix"`
+	// FQDN for the master pool.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion pulumi.StringPtrOutput `pulumi:"kubernetesVersion"`
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile ContainerServiceLinuxProfileResponsePtrOutput `pulumi:"linuxProfile"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesResponseOutput `pulumi:"properties"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+	ServicePrincipalProfile ContainerServiceServicePrincipalProfileResponsePtrOutput `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -63,12 +75,24 @@ func GetManagedCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedCluster resources.
 type managedClusterState struct {
+	// Properties of the agent pool.
+	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix *string `pulumi:"dnsPrefix"`
+	// FQDN for the master pool.
+	Fqdn *string `pulumi:"fqdn"`
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion *string `pulumi:"kubernetesVersion"`
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile *ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties *ManagedClusterPropertiesResponse `pulumi:"properties"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+	ServicePrincipalProfile *ContainerServiceServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -76,12 +100,24 @@ type managedClusterState struct {
 }
 
 type ManagedClusterState struct {
+	// Properties of the agent pool.
+	AgentPoolProfiles ContainerServiceAgentPoolProfileResponseArrayInput
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix pulumi.StringPtrInput
+	// FQDN for the master pool.
+	Fqdn pulumi.StringPtrInput
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion pulumi.StringPtrInput
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile ContainerServiceLinuxProfileResponsePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesResponsePtrInput
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+	ServicePrincipalProfile ContainerServiceServicePrincipalProfileResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

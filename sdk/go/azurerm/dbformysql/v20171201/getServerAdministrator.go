@@ -25,10 +25,16 @@ type LookupServerAdministratorArgs struct {
 
 // Represents a and external administrator to be created.
 type LookupServerAdministratorResult struct {
+	// The type of administrator.
+	AdministratorType string `pulumi:"administratorType"`
+	// The server administrator login account name.
+	Login string `pulumi:"login"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Properties of the server AAD administrator.
-	Properties ServerAdministratorPropertiesResponse `pulumi:"properties"`
+	// The server administrator Sid (Secure ID).
+	Sid string `pulumi:"sid"`
+	// The server Active Directory Administrator tenant id.
+	TenantId string `pulumi:"tenantId"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

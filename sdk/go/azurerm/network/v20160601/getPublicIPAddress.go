@@ -25,14 +25,27 @@ type LookupPublicIPAddressArgs struct {
 
 // PublicIPAddress resource
 type LookupPublicIPAddressResult struct {
+	// Gets or sets FQDN of the DNS record associated with the public IP address
+	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Gets or sets the idle timeout of the public IP address
+	IdleTimeoutInMinutes *int    `pulumi:"idleTimeoutInMinutes"`
+	IpAddress            *string `pulumi:"ipAddress"`
+	// IPConfiguration
+	IpConfiguration IPConfigurationResponse `pulumi:"ipConfiguration"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// PublicIpAddress properties
-	Properties PublicIPAddressPropertiesFormatResponse `pulumi:"properties"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets PublicIP address version (IPv4/IPv6)
+	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
+	// Gets or sets PublicIP allocation method (Static/Dynamic)
+	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
+	// Gets or sets resource guid property of the PublicIP resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

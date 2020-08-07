@@ -44,6 +44,18 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The allocated Prefix.
+        /// </summary>
+        public readonly string IpPrefix;
+        /// <summary>
+        /// The list of tags associated with the public IP prefix.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpTagResponseResult> IpTags;
+        /// <summary>
+        /// The reference to load balancer frontend IP configuration associated with the public IP prefix.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult LoadBalancerFrontendIpConfiguration;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -52,9 +64,25 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Public IP prefix properties.
+        /// The Length of the Public IP Prefix.
         /// </summary>
-        public readonly Outputs.PublicIPPrefixPropertiesFormatResponseResult Properties;
+        public readonly int? PrefixLength;
+        /// <summary>
+        /// The provisioning state of the public IP prefix resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The public IP address version.
+        /// </summary>
+        public readonly string? PublicIPAddressVersion;
+        /// <summary>
+        /// The list of all referenced PublicIPAddresses.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ReferencedPublicIpAddressResponseResult> PublicIPAddresses;
+        /// <summary>
+        /// The resource GUID property of the public IP prefix resource.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// The public IP prefix SKU.
         /// </summary>
@@ -76,11 +104,25 @@ namespace Pulumi.AzureRM.Network.V20191101
         private GetPublicIPPrefixResult(
             string etag,
 
+            string ipPrefix,
+
+            ImmutableArray<Outputs.IpTagResponseResult> ipTags,
+
+            Outputs.SubResourceResponseResult loadBalancerFrontendIpConfiguration,
+
             string? location,
 
             string name,
 
-            Outputs.PublicIPPrefixPropertiesFormatResponseResult properties,
+            int? prefixLength,
+
+            string provisioningState,
+
+            string? publicIPAddressVersion,
+
+            ImmutableArray<Outputs.ReferencedPublicIpAddressResponseResult> publicIPAddresses,
+
+            string resourceGuid,
 
             Outputs.PublicIPPrefixSkuResponseResult? sku,
 
@@ -91,9 +133,16 @@ namespace Pulumi.AzureRM.Network.V20191101
             ImmutableArray<string> zones)
         {
             Etag = etag;
+            IpPrefix = ipPrefix;
+            IpTags = ipTags;
+            LoadBalancerFrontendIpConfiguration = loadBalancerFrontendIpConfiguration;
             Location = location;
             Name = name;
-            Properties = properties;
+            PrefixLength = prefixLength;
+            ProvisioningState = provisioningState;
+            PublicIPAddressVersion = publicIPAddressVersion;
+            PublicIPAddresses = publicIPAddresses;
+            ResourceGuid = resourceGuid;
             Sku = sku;
             Tags = tags;
             Type = type;

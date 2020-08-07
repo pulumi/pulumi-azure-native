@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Network.V20200501
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>
+        /// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        /// </summary>
+        [Output("addressSpace")]
+        public Output<Outputs.AddressSpaceResponseResult?> AddressSpace { get; private set; } = null!;
+
+        /// <summary>
+        /// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        /// </summary>
+        [Output("bgpCommunities")]
+        public Output<Outputs.VirtualNetworkBgpCommunitiesResponseResult?> BgpCommunities { get; private set; } = null!;
+
+        /// <summary>
+        /// The DDoS protection plan associated with the virtual network.
+        /// </summary>
+        [Output("ddosProtectionPlan")]
+        public Output<Outputs.SubResourceResponseResult?> DdosProtectionPlan { get; private set; } = null!;
+
+        /// <summary>
+        /// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        /// </summary>
+        [Output("dhcpOptions")]
+        public Output<Outputs.DhcpOptionsResponseResult?> DhcpOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        /// </summary>
+        [Output("enableDdosProtection")]
+        public Output<bool?> EnableDdosProtection { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if VM protection is enabled for all the subnets in the virtual network.
+        /// </summary>
+        [Output("enableVmProtection")]
+        public Output<bool?> EnableVmProtection { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Array of IpAllocation which reference this VNET.
+        /// </summary>
+        [Output("ipAllocations")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> IpAllocations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +75,22 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual network.
+        /// The provisioning state of the virtual network resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resourceGuid property of the Virtual Network resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of subnets in a Virtual Network.
+        /// </summary>
+        [Output("subnets")]
+        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +103,12 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of peerings in a Virtual Network.
+        /// </summary>
+        [Output("virtualNetworkPeerings")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult>> VirtualNetworkPeerings { get; private set; } = null!;
 
 
         /// <summary>

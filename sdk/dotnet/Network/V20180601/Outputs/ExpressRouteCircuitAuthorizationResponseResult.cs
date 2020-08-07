@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20180601.Outputs
     public sealed class ExpressRouteCircuitAuthorizationResponseResult
     {
         /// <summary>
+        /// The authorization key.
+        /// </summary>
+        public readonly string? AuthorizationKey;
+        /// <summary>
+        /// AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+        /// </summary>
+        public readonly string? AuthorizationUseStatus;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -25,22 +33,31 @@ namespace Pulumi.AzureRM.Network.V20180601.Outputs
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.AuthorizationPropertiesFormatResponseResult? Properties;
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private ExpressRouteCircuitAuthorizationResponseResult(
+            string? authorizationKey,
+
+            string? authorizationUseStatus,
+
             string etag,
 
             string? id,
 
             string? name,
 
-            Outputs.AuthorizationPropertiesFormatResponseResult? properties)
+            string? provisioningState)
         {
+            AuthorizationKey = authorizationKey;
+            AuthorizationUseStatus = authorizationUseStatus;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

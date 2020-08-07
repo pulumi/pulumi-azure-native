@@ -37,6 +37,22 @@ export class DedicatedHost extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+     */
+    public readonly autoReplaceOnFailure!: pulumi.Output<boolean | undefined>;
+    /**
+     * A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+     */
+    public /*out*/ readonly hostId!: pulumi.Output<string>;
+    /**
+     * The dedicated host instance view.
+     */
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.v20190701.DedicatedHostInstanceViewResponse>;
+    /**
+     * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+     */
+    public readonly licenseType!: pulumi.Output<string | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +61,17 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the dedicated host.
+     * Fault domain of the dedicated host within a dedicated host group.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20190701.DedicatedHostPropertiesResponse>;
+    public readonly platformFaultDomain!: pulumi.Output<number | undefined>;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The date when the host was first provisioned.
+     */
+    public /*out*/ readonly provisioningTime!: pulumi.Output<string>;
     /**
      * SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
      */
@@ -60,6 +84,10 @@ export class DedicatedHost extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A list of references to all virtual machines in the Dedicated Host.
+     */
+    public /*out*/ readonly virtualMachines!: pulumi.Output<outputs.compute.v20190701.SubResourceReadOnlyResponse[]>;
 
     /**
      * Create a DedicatedHost resource with the given unique name, arguments, and options.
@@ -98,8 +126,12 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["hostId"] = undefined /*out*/;
+            inputs["instanceView"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["provisioningTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualMachines"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

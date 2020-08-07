@@ -37,17 +37,73 @@ export class Subnet extends pulumi.CustomResource {
     }
 
     /**
+     * The address prefix for the subnet.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * List of  address prefixes for the subnet.
+     */
+    public readonly addressPrefixes!: pulumi.Output<string[] | undefined>;
+    /**
+     * Gets an array of references to the delegations on the subnet.
+     */
+    public readonly delegations!: pulumi.Output<outputs.network.v20190201.DelegationResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * An array of references to interface endpoints 
+     */
+    public /*out*/ readonly interfaceEndpoints!: pulumi.Output<outputs.network.v20190201.InterfaceEndpointResponse[]>;
+    /**
+     * Array of IP configuration profiles which reference this subnet.
+     */
+    public /*out*/ readonly ipConfigurationProfiles!: pulumi.Output<outputs.network.v20190201.IPConfigurationProfileResponse[]>;
+    /**
+     * Gets an array of references to the network interface IP configurations using subnet.
+     */
+    public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.v20190201.IPConfigurationResponse[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the subnet.
+     * Nat gateway associated with this subnet.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190201.SubnetPropertiesFormatResponse>;
+    public readonly natGateway!: pulumi.Output<outputs.network.v20190201.SubResourceResponse | undefined>;
+    /**
+     * The reference of the NetworkSecurityGroup resource.
+     */
+    public readonly networkSecurityGroup!: pulumi.Output<outputs.network.v20190201.NetworkSecurityGroupResponse | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+     */
+    public /*out*/ readonly purpose!: pulumi.Output<string>;
+    /**
+     * Gets an array of references to the external resources using subnet.
+     */
+    public readonly resourceNavigationLinks!: pulumi.Output<outputs.network.v20190201.ResourceNavigationLinkResponse[] | undefined>;
+    /**
+     * The reference of the RouteTable resource.
+     */
+    public readonly routeTable!: pulumi.Output<outputs.network.v20190201.RouteTableResponse | undefined>;
+    /**
+     * Gets an array of references to services injecting into this subnet.
+     */
+    public readonly serviceAssociationLinks!: pulumi.Output<outputs.network.v20190201.ServiceAssociationLinkResponse[] | undefined>;
+    /**
+     * An array of service endpoint policies.
+     */
+    public readonly serviceEndpointPolicies!: pulumi.Output<outputs.network.v20190201.ServiceEndpointPolicyResponse[] | undefined>;
+    /**
+     * An array of service endpoints.
+     */
+    public readonly serviceEndpoints!: pulumi.Output<outputs.network.v20190201.ServiceEndpointPropertiesFormatResponse[] | undefined>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -87,7 +143,10 @@ export class Subnet extends pulumi.CustomResource {
             inputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["interfaceEndpoints"] = undefined /*out*/;
+            inputs["ipConfigurationProfiles"] = undefined /*out*/;
+            inputs["ipConfigurations"] = undefined /*out*/;
+            inputs["purpose"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -14,13 +14,18 @@ import (
 type CertificateOrderCertificate struct {
 	pulumi.CustomResourceState
 
+	// Key Vault Csm resource Id
+	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
+	// Key Vault secret name
+	KeyVaultSecretName pulumi.StringPtrOutput `pulumi:"keyVaultSecretName"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput                              `pulumi:"name"`
-	Properties CertificateOrderCertificateResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Status of the Key Vault secret
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -67,13 +72,18 @@ func GetCertificateOrderCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificateOrderCertificate resources.
 type certificateOrderCertificateState struct {
+	// Key Vault Csm resource Id
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name
-	Name       *string                                        `pulumi:"name"`
-	Properties *CertificateOrderCertificateResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Status of the Key Vault secret
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -81,13 +91,18 @@ type certificateOrderCertificateState struct {
 }
 
 type CertificateOrderCertificateState struct {
+	// Key Vault Csm resource Id
+	KeyVaultId pulumi.StringPtrInput
+	// Key Vault secret name
+	KeyVaultSecretName pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties CertificateOrderCertificateResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// Status of the Key Vault secret
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

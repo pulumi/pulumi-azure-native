@@ -46,6 +46,26 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class GetArtifactSourceResult
     {
         /// <summary>
+        /// The folder containing Azure Resource Manager templates.
+        /// </summary>
+        public readonly string? ArmTemplateFolderPath;
+        /// <summary>
+        /// The artifact source's branch reference.
+        /// </summary>
+        public readonly string? BranchRef;
+        /// <summary>
+        /// The artifact source's creation date.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// The artifact source's display name.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// The folder containing artifacts.
+        /// </summary>
+        public readonly string? FolderPath;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -54,9 +74,21 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.ArtifactSourcePropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The security token to authenticate to the artifact source.
+        /// </summary>
+        public readonly string? SecurityToken;
+        /// <summary>
+        /// The artifact source's type.
+        /// </summary>
+        public readonly string? SourceType;
+        /// <summary>
+        /// Indicates if the artifact source is enabled (values: Enabled, Disabled).
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -65,24 +97,62 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
+        /// <summary>
+        /// The artifact source's URI.
+        /// </summary>
+        public readonly string? Uri;
 
         [OutputConstructor]
         private GetArtifactSourceResult(
+            string? armTemplateFolderPath,
+
+            string? branchRef,
+
+            string createdDate,
+
+            string? displayName,
+
+            string? folderPath,
+
             string? location,
 
             string name,
 
-            Outputs.ArtifactSourcePropertiesResponseResult properties,
+            string? provisioningState,
+
+            string? securityToken,
+
+            string? sourceType,
+
+            string? status,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? uniqueIdentifier,
+
+            string? uri)
         {
+            ArmTemplateFolderPath = armTemplateFolderPath;
+            BranchRef = branchRef;
+            CreatedDate = createdDate;
+            DisplayName = displayName;
+            FolderPath = folderPath;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SecurityToken = securityToken;
+            SourceType = sourceType;
+            Status = status;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
+            Uri = uri;
         }
     }
 }

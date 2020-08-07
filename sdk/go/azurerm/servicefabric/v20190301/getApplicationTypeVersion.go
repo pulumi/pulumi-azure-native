@@ -29,14 +29,18 @@ type LookupApplicationTypeVersionArgs struct {
 
 // An application type version resource for the specified application type name resource.
 type LookupApplicationTypeVersionResult struct {
+	// The URL to the application package
+	AppPackageUrl string `pulumi:"appPackageUrl"`
+	// List of application type parameters that can be overridden when creating or updating the application.
+	DefaultParameterList map[string]string `pulumi:"defaultParameterList"`
 	// Azure resource etag.
 	Etag string `pulumi:"etag"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
 	// Azure resource name.
 	Name string `pulumi:"name"`
-	// The properties of the application type version resource.
-	Properties ApplicationTypeVersionResourcePropertiesResponse `pulumi:"properties"`
+	// The current deployment or provisioning state, which only appears in the response
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.

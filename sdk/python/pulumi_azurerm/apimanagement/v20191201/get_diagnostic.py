@@ -13,24 +13,66 @@ class GetDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, log_client_ip=None, logger_id=None, name=None, sampling=None, type=None, verbosity=None):
+        if always_log and not isinstance(always_log, str):
+            raise TypeError("Expected argument 'always_log' to be a str")
+        __self__.always_log = always_log
+        """
+        Specifies for what type of messages sampling settings should not apply.
+        """
+        if backend and not isinstance(backend, dict):
+            raise TypeError("Expected argument 'backend' to be a dict")
+        __self__.backend = backend
+        """
+        Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+        """
+        if frontend and not isinstance(frontend, dict):
+            raise TypeError("Expected argument 'frontend' to be a dict")
+        __self__.frontend = frontend
+        """
+        Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        """
+        if http_correlation_protocol and not isinstance(http_correlation_protocol, str):
+            raise TypeError("Expected argument 'http_correlation_protocol' to be a str")
+        __self__.http_correlation_protocol = http_correlation_protocol
+        """
+        Sets correlation protocol to use for Application Insights diagnostics.
+        """
+        if log_client_ip and not isinstance(log_client_ip, bool):
+            raise TypeError("Expected argument 'log_client_ip' to be a bool")
+        __self__.log_client_ip = log_client_ip
+        """
+        Log the ClientIP. Default is false.
+        """
+        if logger_id and not isinstance(logger_id, str):
+            raise TypeError("Expected argument 'logger_id' to be a str")
+        __self__.logger_id = logger_id
+        """
+        Resource Id of a target logger.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if sampling and not isinstance(sampling, dict):
+            raise TypeError("Expected argument 'sampling' to be a dict")
+        __self__.sampling = sampling
         """
-        Diagnostic entity contract properties.
+        Sampling settings for Diagnostic.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if verbosity and not isinstance(verbosity, str):
+            raise TypeError("Expected argument 'verbosity' to be a str")
+        __self__.verbosity = verbosity
+        """
+        The verbosity level applied to traces emitted by trace policies.
         """
 
 
@@ -40,9 +82,16 @@ class AwaitableGetDiagnosticResult(GetDiagnosticResult):
         if False:
             yield self
         return GetDiagnosticResult(
+            always_log=self.always_log,
+            backend=self.backend,
+            frontend=self.frontend,
+            http_correlation_protocol=self.http_correlation_protocol,
+            log_client_ip=self.log_client_ip,
+            logger_id=self.logger_id,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            sampling=self.sampling,
+            type=self.type,
+            verbosity=self.verbosity)
 
 
 def get_diagnostic(name=None, resource_group_name=None, service_name=None, opts=None):
@@ -64,6 +113,13 @@ def get_diagnostic(name=None, resource_group_name=None, service_name=None, opts=
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getDiagnostic', __args__, opts=opts).value
 
     return AwaitableGetDiagnosticResult(
+        always_log=__ret__.get('alwaysLog'),
+        backend=__ret__.get('backend'),
+        frontend=__ret__.get('frontend'),
+        http_correlation_protocol=__ret__.get('httpCorrelationProtocol'),
+        log_client_ip=__ret__.get('logClientIp'),
+        logger_id=__ret__.get('loggerId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        sampling=__ret__.get('sampling'),
+        type=__ret__.get('type'),
+        verbosity=__ret__.get('verbosity'))

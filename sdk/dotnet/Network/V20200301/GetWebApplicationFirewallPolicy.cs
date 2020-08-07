@@ -40,21 +40,49 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class GetWebApplicationFirewallPolicyResult
     {
         /// <summary>
+        /// A collection of references to application gateways.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayResponseResult> ApplicationGateways;
+        /// <summary>
+        /// The custom rules inside the policy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult> CustomRules;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// A collection of references to application gateway http listeners.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> HttpListeners;
         /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Describes the managedRules structure.
+        /// </summary>
+        public readonly Outputs.ManagedRulesDefinitionResponseResult ManagedRules;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// A collection of references to application gateway path rules.
         /// </summary>
-        public readonly Outputs.WebApplicationFirewallPolicyPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PathBasedRules;
+        /// <summary>
+        /// The PolicySettings for policy.
+        /// </summary>
+        public readonly Outputs.PolicySettingsResponseResult? PolicySettings;
+        /// <summary>
+        /// The provisioning state of the web application firewall policy resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource status of the policy.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +94,43 @@ namespace Pulumi.AzureRM.Network.V20200301
 
         [OutputConstructor]
         private GetWebApplicationFirewallPolicyResult(
+            ImmutableArray<Outputs.ApplicationGatewayResponseResult> applicationGateways,
+
+            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult> customRules,
+
             string etag,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> httpListeners,
 
             string? location,
 
+            Outputs.ManagedRulesDefinitionResponseResult managedRules,
+
             string name,
 
-            Outputs.WebApplicationFirewallPolicyPropertiesFormatResponseResult properties,
+            ImmutableArray<Outputs.SubResourceResponseResult> pathBasedRules,
+
+            Outputs.PolicySettingsResponseResult? policySettings,
+
+            string provisioningState,
+
+            string resourceState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ApplicationGateways = applicationGateways;
+            CustomRules = customRules;
             Etag = etag;
+            HttpListeners = httpListeners;
             Location = location;
+            ManagedRules = managedRules;
             Name = name;
-            Properties = properties;
+            PathBasedRules = pathBasedRules;
+            PolicySettings = policySettings;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
             Tags = tags;
             Type = type;
         }

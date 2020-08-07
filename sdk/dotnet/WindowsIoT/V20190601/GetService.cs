@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.WindowsIoT.V20190601
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// Windows IoT Device Service OEM AAD domain
+        /// </summary>
+        public readonly string? AdminDomainName;
+        /// <summary>
+        /// Windows IoT Device Service ODM AAD domain
+        /// </summary>
+        public readonly string? BillingDomainName;
+        /// <summary>
         /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +60,17 @@ namespace Pulumi.AzureRM.WindowsIoT.V20190601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of a Windows IoT Device Service.
+        /// Windows IoT Device Service notes.
         /// </summary>
-        public readonly Outputs.DeviceServicePropertiesResponseResult Properties;
+        public readonly string? Notes;
+        /// <summary>
+        /// Windows IoT Device Service device allocation,
+        /// </summary>
+        public readonly int? Quantity;
+        /// <summary>
+        /// Windows IoT Device Service start date,
+        /// </summary>
+        public readonly string StartDate;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +82,34 @@ namespace Pulumi.AzureRM.WindowsIoT.V20190601
 
         [OutputConstructor]
         private GetServiceResult(
+            string? adminDomainName,
+
+            string? billingDomainName,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.DeviceServicePropertiesResponseResult properties,
+            string? notes,
+
+            int? quantity,
+
+            string startDate,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AdminDomainName = adminDomainName;
+            BillingDomainName = billingDomainName;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            Notes = notes;
+            Quantity = quantity;
+            StartDate = startDate;
             Tags = tags;
             Type = type;
         }

@@ -27,12 +27,16 @@ type LookupServerKeyArgs struct {
 
 // A PostgreSQL Server key.
 type LookupServerKeyResult struct {
+	// The key creation date.
+	CreationDate string `pulumi:"creationDate"`
 	// Kind of encryption protector used to protect the key.
 	Kind string `pulumi:"kind"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Properties of the ServerKey Resource.
-	Properties ServerKeyPropertiesResponse `pulumi:"properties"`
+	// The key type like 'AzureKeyVault'.
+	ServerKeyType string `pulumi:"serverKeyType"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+	// The URI of the key.
+	Uri *string `pulumi:"uri"`
 }

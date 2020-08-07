@@ -10,6 +10,11 @@ from ... import _utilities, _tables
 
 
 class Manager(pulumi.CustomResource):
+    cis_intrinsic_settings: pulumi.Output[dict]
+    """
+    Specifies if the Manager is Garda or Helsinki
+      * `type` (`str`) - Refers to the type of the StorSimple Manager
+    """
     etag: pulumi.Output[str]
     """
     ETag of the Manager
@@ -22,15 +27,14 @@ class Manager(pulumi.CustomResource):
     """
     The Resource Name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    List of properties of the Manager
-      * `cis_intrinsic_settings` (`dict`) - Specifies if the Manager is Garda or Helsinki
-        * `type` (`str`) - Refers to the type of the StorSimple Manager
-
-      * `provisioning_state` (`str`) - Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
-      * `sku` (`dict`) - Specifies the Sku
-        * `name` (`str`) - Refers to the sku name which should be "Standard"
+    Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
+    """
+    sku: pulumi.Output[dict]
+    """
+    Specifies the Sku
+      * `name` (`str`) - Refers to the sku name which should be "Standard"
     """
     tags: pulumi.Output[dict]
     """
@@ -92,7 +96,7 @@ class Manager(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Manager, __self__).__init__(
             'azurerm:storsimple/v20161001:Manager',

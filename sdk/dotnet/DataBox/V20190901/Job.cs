@@ -15,6 +15,60 @@ namespace Pulumi.AzureRM.DataBox.V20190901
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
+        /// Reason for cancellation.
+        /// </summary>
+        [Output("cancellationReason")]
+        public Output<string> CancellationReason { get; private set; } = null!;
+
+        /// <summary>
+        /// Delivery Info of Job.
+        /// </summary>
+        [Output("deliveryInfo")]
+        public Output<Outputs.JobDeliveryInfoResponseResult?> DeliveryInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// Delivery type of Job.
+        /// </summary>
+        [Output("deliveryType")]
+        public Output<string?> DeliveryType { get; private set; } = null!;
+
+        /// <summary>
+        /// Details of a job run. This field will only be sent for expand details filter.
+        /// </summary>
+        [Output("details")]
+        public Output<Outputs.JobDetailsResponseResult?> Details { get; private set; } = null!;
+
+        /// <summary>
+        /// Top level error for the job.
+        /// </summary>
+        [Output("error")]
+        public Output<Outputs.ErrorResponseResult> Error { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes whether the job is cancellable or not.
+        /// </summary>
+        [Output("isCancellable")]
+        public Output<bool> IsCancellable { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag to indicate cancellation of scheduled job.
+        /// </summary>
+        [Output("isCancellableWithoutFee")]
+        public Output<bool> IsCancellableWithoutFee { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes whether the job is deletable or not.
+        /// </summary>
+        [Output("isDeletable")]
+        public Output<bool> IsDeletable { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes whether the shipping address is editable or not.
+        /// </summary>
+        [Output("isShippingAddressEditable")]
+        public Output<bool> IsShippingAddressEditable { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
         /// </summary>
         [Output("location")]
@@ -27,16 +81,22 @@ namespace Pulumi.AzureRM.DataBox.V20190901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of a job.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.JobPropertiesResponseResult> Properties { get; private set; } = null!;
-
-        /// <summary>
         /// The sku type.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Time at which the job was started in UTC ISO 8601 format.
+        /// </summary>
+        [Output("startTime")]
+        public Output<string> StartTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the stage which is in progress.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).

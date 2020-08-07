@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Insights.V20150501
     public sealed class GetWorkbookResult
     {
         /// <summary>
+        /// Workbook category, as defined by the user at creation time.
+        /// </summary>
+        public readonly string Category;
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         public readonly string? Kind;
@@ -52,38 +56,83 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Metadata describing a web test for an Azure resource.
+        /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
         /// </summary>
-        public readonly Outputs.WorkbookPropertiesResponseResult Properties;
+        public readonly string SerializedData;
+        /// <summary>
+        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// </summary>
+        public readonly string SharedTypeKind;
+        /// <summary>
+        /// Optional resourceId for a source resource.
+        /// </summary>
+        public readonly string? SourceResourceId;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Date and time in UTC of the last modification that was made to this workbook definition.
+        /// </summary>
+        public readonly string TimeModified;
+        /// <summary>
         /// Azure resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Unique user id of the specific user that owns this workbook.
+        /// </summary>
+        public readonly string UserId;
+        /// <summary>
+        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
+        /// Internally assigned unique id of the workbook definition.
+        /// </summary>
+        public readonly string WorkbookId;
 
         [OutputConstructor]
         private GetWorkbookResult(
+            string category,
+
             string? kind,
 
             string? location,
 
             string name,
 
-            Outputs.WorkbookPropertiesResponseResult properties,
+            string serializedData,
+
+            string sharedTypeKind,
+
+            string? sourceResourceId,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string timeModified,
+
+            string type,
+
+            string userId,
+
+            string? version,
+
+            string workbookId)
         {
+            Category = category;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            SerializedData = serializedData;
+            SharedTypeKind = sharedTypeKind;
+            SourceResourceId = sourceResourceId;
             Tags = tags;
+            TimeModified = timeModified;
             Type = type;
+            UserId = userId;
+            Version = version;
+            WorkbookId = workbookId;
         }
     }
 }

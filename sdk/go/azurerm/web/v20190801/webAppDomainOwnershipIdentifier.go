@@ -18,10 +18,10 @@ type WebAppDomainOwnershipIdentifier struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties IdentifierResponsePropertiesOutput `pulumi:"properties"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// String representation of the identity.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewWebAppDomainOwnershipIdentifier registers a new resource with the given unique name, arguments, and options.
@@ -62,10 +62,10 @@ type webAppDomainOwnershipIdentifierState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties *IdentifierResponseProperties `pulumi:"properties"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// String representation of the identity.
+	Value *string `pulumi:"value"`
 }
 
 type WebAppDomainOwnershipIdentifierState struct {
@@ -73,10 +73,10 @@ type WebAppDomainOwnershipIdentifierState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// Identifier resource specific properties
-	Properties IdentifierResponsePropertiesPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// String representation of the identity.
+	Value pulumi.StringPtrInput
 }
 
 func (WebAppDomainOwnershipIdentifierState) ElementType() reflect.Type {

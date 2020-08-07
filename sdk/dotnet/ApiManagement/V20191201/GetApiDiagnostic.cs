@@ -52,29 +52,78 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetApiDiagnosticResult
     {
         /// <summary>
+        /// Specifies for what type of messages sampling settings should not apply.
+        /// </summary>
+        public readonly string? AlwaysLog;
+        /// <summary>
+        /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+        /// </summary>
+        public readonly Outputs.PipelineDiagnosticSettingsResponseResult? Backend;
+        /// <summary>
+        /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        /// </summary>
+        public readonly Outputs.PipelineDiagnosticSettingsResponseResult? Frontend;
+        /// <summary>
+        /// Sets correlation protocol to use for Application Insights diagnostics.
+        /// </summary>
+        public readonly string? HttpCorrelationProtocol;
+        /// <summary>
+        /// Log the ClientIP. Default is false.
+        /// </summary>
+        public readonly bool? LogClientIp;
+        /// <summary>
+        /// Resource Id of a target logger.
+        /// </summary>
+        public readonly string LoggerId;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Diagnostic entity contract properties.
+        /// Sampling settings for Diagnostic.
         /// </summary>
-        public readonly Outputs.DiagnosticContractPropertiesResponseResult Properties;
+        public readonly Outputs.SamplingSettingsResponseResult? Sampling;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The verbosity level applied to traces emitted by trace policies.
+        /// </summary>
+        public readonly string? Verbosity;
 
         [OutputConstructor]
         private GetApiDiagnosticResult(
+            string? alwaysLog,
+
+            Outputs.PipelineDiagnosticSettingsResponseResult? backend,
+
+            Outputs.PipelineDiagnosticSettingsResponseResult? frontend,
+
+            string? httpCorrelationProtocol,
+
+            bool? logClientIp,
+
+            string loggerId,
+
             string name,
 
-            Outputs.DiagnosticContractPropertiesResponseResult properties,
+            Outputs.SamplingSettingsResponseResult? sampling,
 
-            string type)
+            string type,
+
+            string? verbosity)
         {
+            AlwaysLog = alwaysLog;
+            Backend = backend;
+            Frontend = frontend;
+            HttpCorrelationProtocol = httpCorrelationProtocol;
+            LogClientIp = logClientIp;
+            LoggerId = loggerId;
             Name = name;
-            Properties = properties;
+            Sampling = sampling;
             Type = type;
+            Verbosity = verbosity;
         }
     }
 }

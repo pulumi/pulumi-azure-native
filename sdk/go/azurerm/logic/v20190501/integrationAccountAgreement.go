@@ -14,12 +14,28 @@ import (
 type IntegrationAccountAgreement struct {
 	pulumi.CustomResourceState
 
+	// The agreement type.
+	AgreementType pulumi.StringOutput `pulumi:"agreementType"`
+	// The changed time.
+	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
+	// The agreement content.
+	Content AgreementContentResponseOutput `pulumi:"content"`
+	// The created time.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The business identity of the guest partner.
+	GuestIdentity BusinessIdentityResponseOutput `pulumi:"guestIdentity"`
+	// The integration account partner that is set as guest partner for this agreement.
+	GuestPartner pulumi.StringOutput `pulumi:"guestPartner"`
+	// The business identity of the host partner.
+	HostIdentity BusinessIdentityResponseOutput `pulumi:"hostIdentity"`
+	// The integration account partner that is set as host partner for this agreement.
+	HostPartner pulumi.StringOutput `pulumi:"hostPartner"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The metadata.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The integration account agreement properties.
-	Properties IntegrationAccountAgreementPropertiesResponseOutput `pulumi:"properties"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Gets the resource type.
@@ -81,12 +97,28 @@ func GetIntegrationAccountAgreement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountAgreement resources.
 type integrationAccountAgreementState struct {
+	// The agreement type.
+	AgreementType *string `pulumi:"agreementType"`
+	// The changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// The agreement content.
+	Content *AgreementContentResponse `pulumi:"content"`
+	// The created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The business identity of the guest partner.
+	GuestIdentity *BusinessIdentityResponse `pulumi:"guestIdentity"`
+	// The integration account partner that is set as guest partner for this agreement.
+	GuestPartner *string `pulumi:"guestPartner"`
+	// The business identity of the host partner.
+	HostIdentity *BusinessIdentityResponse `pulumi:"hostIdentity"`
+	// The integration account partner that is set as host partner for this agreement.
+	HostPartner *string `pulumi:"hostPartner"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
-	// The integration account agreement properties.
-	Properties *IntegrationAccountAgreementPropertiesResponse `pulumi:"properties"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
@@ -94,12 +126,28 @@ type integrationAccountAgreementState struct {
 }
 
 type IntegrationAccountAgreementState struct {
+	// The agreement type.
+	AgreementType pulumi.StringPtrInput
+	// The changed time.
+	ChangedTime pulumi.StringPtrInput
+	// The agreement content.
+	Content AgreementContentResponsePtrInput
+	// The created time.
+	CreatedTime pulumi.StringPtrInput
+	// The business identity of the guest partner.
+	GuestIdentity BusinessIdentityResponsePtrInput
+	// The integration account partner that is set as guest partner for this agreement.
+	GuestPartner pulumi.StringPtrInput
+	// The business identity of the host partner.
+	HostIdentity BusinessIdentityResponsePtrInput
+	// The integration account partner that is set as host partner for this agreement.
+	HostPartner pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.MapInput
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
-	// The integration account agreement properties.
-	Properties IntegrationAccountAgreementPropertiesResponsePtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// Gets the resource type.

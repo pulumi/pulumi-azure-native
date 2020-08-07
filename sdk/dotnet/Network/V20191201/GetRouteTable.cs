@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Network.V20191201
     public sealed class GetRouteTableResult
     {
         /// <summary>
+        /// Whether to disable the routes learned by BGP on that route table. True means disable.
+        /// </summary>
+        public readonly bool? DisableBgpRoutePropagation;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -52,9 +56,17 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the route table.
+        /// The provisioning state of the route table resource.
         /// </summary>
-        public readonly Outputs.RouteTablePropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Collection of routes contained within a route table.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RouteResponseResult> Routes;
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +78,31 @@ namespace Pulumi.AzureRM.Network.V20191201
 
         [OutputConstructor]
         private GetRouteTableResult(
+            bool? disableBgpRoutePropagation,
+
             string etag,
 
             string? location,
 
             string name,
 
-            Outputs.RouteTablePropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            ImmutableArray<Outputs.RouteResponseResult> routes,
+
+            ImmutableArray<Outputs.SubnetResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            DisableBgpRoutePropagation = disableBgpRoutePropagation;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Routes = routes;
+            Subnets = subnets;
             Tags = tags;
             Type = type;
         }

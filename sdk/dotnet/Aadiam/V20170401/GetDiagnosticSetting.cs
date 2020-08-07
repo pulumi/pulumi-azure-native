@@ -34,29 +34,64 @@ namespace Pulumi.AzureRM.Aadiam.V20170401
     public sealed class GetDiagnosticSettingResult
     {
         /// <summary>
+        /// The resource Id for the event hub authorization rule.
+        /// </summary>
+        public readonly string? EventHubAuthorizationRuleId;
+        /// <summary>
+        /// The name of the event hub. If none is specified, the default event hub will be selected.
+        /// </summary>
+        public readonly string? EventHubName;
+        /// <summary>
+        /// The list of logs settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LogSettingsResponseResult> Logs;
+        /// <summary>
         /// Azure resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of a Diagnostic Settings Resource.
+        /// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         /// </summary>
-        public readonly Outputs.DiagnosticSettingsResponseResult Properties;
+        public readonly string? ServiceBusRuleId;
+        /// <summary>
+        /// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+        /// </summary>
+        public readonly string? StorageAccountId;
         /// <summary>
         /// Azure resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+        /// </summary>
+        public readonly string? WorkspaceId;
 
         [OutputConstructor]
         private GetDiagnosticSettingResult(
+            string? eventHubAuthorizationRuleId,
+
+            string? eventHubName,
+
+            ImmutableArray<Outputs.LogSettingsResponseResult> logs,
+
             string name,
 
-            Outputs.DiagnosticSettingsResponseResult properties,
+            string? serviceBusRuleId,
 
-            string type)
+            string? storageAccountId,
+
+            string type,
+
+            string? workspaceId)
         {
+            EventHubAuthorizationRuleId = eventHubAuthorizationRuleId;
+            EventHubName = eventHubName;
+            Logs = logs;
             Name = name;
-            Properties = properties;
+            ServiceBusRuleId = serviceBusRuleId;
+            StorageAccountId = storageAccountId;
             Type = type;
+            WorkspaceId = workspaceId;
         }
     }
 }

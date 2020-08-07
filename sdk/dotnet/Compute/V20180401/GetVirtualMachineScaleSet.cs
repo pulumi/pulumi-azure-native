@@ -52,13 +52,29 @@ namespace Pulumi.AzureRM.Compute.V20180401
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+        /// </summary>
+        public readonly bool? Overprovision;
+        /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
         public readonly Outputs.PlanResponseResult? Plan;
         /// <summary>
-        /// Describes the properties of a Virtual Machine Scale Set.
+        /// Fault Domain count for each placement group.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetPropertiesResponseResult Properties;
+        public readonly int? PlatformFaultDomainCount;
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? ProximityPlacementGroup;
+        /// <summary>
+        /// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+        /// </summary>
+        public readonly bool? SinglePlacementGroup;
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
@@ -72,6 +88,22 @@ namespace Pulumi.AzureRM.Compute.V20180401
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
+        /// </summary>
+        public readonly string UniqueId;
+        /// <summary>
+        /// The upgrade policy.
+        /// </summary>
+        public readonly Outputs.UpgradePolicyResponseResult? UpgradePolicy;
+        /// <summary>
+        /// The virtual machine profile.
+        /// </summary>
+        public readonly Outputs.VirtualMachineScaleSetVMProfileResponseResult? VirtualMachineProfile;
+        /// <summary>
+        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+        /// </summary>
+        public readonly bool? ZoneBalance;
+        /// <summary>
         /// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
@@ -84,9 +116,17 @@ namespace Pulumi.AzureRM.Compute.V20180401
 
             string name,
 
+            bool? overprovision,
+
             Outputs.PlanResponseResult? plan,
 
-            Outputs.VirtualMachineScaleSetPropertiesResponseResult properties,
+            int? platformFaultDomainCount,
+
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? proximityPlacementGroup,
+
+            bool? singlePlacementGroup,
 
             Outputs.SkuResponseResult? sku,
 
@@ -94,16 +134,32 @@ namespace Pulumi.AzureRM.Compute.V20180401
 
             string type,
 
+            string uniqueId,
+
+            Outputs.UpgradePolicyResponseResult? upgradePolicy,
+
+            Outputs.VirtualMachineScaleSetVMProfileResponseResult? virtualMachineProfile,
+
+            bool? zoneBalance,
+
             ImmutableArray<string> zones)
         {
             Identity = identity;
             Location = location;
             Name = name;
+            Overprovision = overprovision;
             Plan = plan;
-            Properties = properties;
+            PlatformFaultDomainCount = platformFaultDomainCount;
+            ProvisioningState = provisioningState;
+            ProximityPlacementGroup = proximityPlacementGroup;
+            SinglePlacementGroup = singlePlacementGroup;
             Sku = sku;
             Tags = tags;
             Type = type;
+            UniqueId = uniqueId;
+            UpgradePolicy = upgradePolicy;
+            VirtualMachineProfile = virtualMachineProfile;
+            ZoneBalance = zoneBalance;
             Zones = zones;
         }
     }

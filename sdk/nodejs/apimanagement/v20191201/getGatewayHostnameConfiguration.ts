@@ -46,13 +46,21 @@ export interface GetGatewayHostnameConfigurationArgs {
  */
 export interface GetGatewayHostnameConfigurationResult {
     /**
+     * Identifier of Certificate entity that will be used for TLS connection establishment
+     */
+    readonly certificateId?: string;
+    /**
+     * Hostname value. Supports valid domain name, partial or full wildcard
+     */
+    readonly hostname?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Gateway hostname configuration details.
+     * Determines whether gateway requests client certificate
      */
-    readonly properties: outputs.apimanagement.v20191201.GatewayHostnameConfigurationContractPropertiesResponse;
+    readonly negotiateClientCertificate?: boolean;
     /**
      * Resource type for API Management resource.
      */

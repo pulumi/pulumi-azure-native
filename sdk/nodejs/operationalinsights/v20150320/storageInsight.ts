@@ -37,6 +37,10 @@ export class StorageInsight extends pulumi.CustomResource {
     }
 
     /**
+     * The names of the blob containers that the workspace should read
+     */
+    public readonly containers!: pulumi.Output<string[] | undefined>;
+    /**
      * The ETag of the storage insight.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
@@ -45,9 +49,17 @@ export class StorageInsight extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Storage insight properties.
+     * The status of the storage insight
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20150320.StorageInsightPropertiesResponse>;
+    public /*out*/ readonly status!: pulumi.Output<outputs.operationalinsights.v20150320.StorageInsightStatusResponse>;
+    /**
+     * The storage account connection details
+     */
+    public readonly storageAccount!: pulumi.Output<outputs.operationalinsights.v20150320.StorageAccountResponse>;
+    /**
+     * The names of the Azure tables that the workspace should read
+     */
+    public readonly tables!: pulumi.Output<string[] | undefined>;
     /**
      * Resource tags
      */
@@ -90,7 +102,7 @@ export class StorageInsight extends pulumi.CustomResource {
             inputs["tables"] = args ? args.tables : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

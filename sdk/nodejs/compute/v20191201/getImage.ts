@@ -36,6 +36,10 @@ export interface GetImageArgs {
  */
 export interface GetImageResult {
     /**
+     * Gets the HyperVGenerationType of the VirtualMachine created from the image
+     */
+    readonly hyperVGeneration?: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,9 +48,17 @@ export interface GetImageResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of an Image.
+     * The provisioning state.
      */
-    readonly properties: outputs.compute.v20191201.ImagePropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The source virtual machine from which Image is created.
+     */
+    readonly sourceVirtualMachine?: outputs.compute.v20191201.SubResourceResponse;
+    /**
+     * Specifies the storage settings for the virtual machine disks.
+     */
+    readonly storageProfile?: outputs.compute.v20191201.ImageStorageProfileResponse;
     /**
      * Resource tags
      */

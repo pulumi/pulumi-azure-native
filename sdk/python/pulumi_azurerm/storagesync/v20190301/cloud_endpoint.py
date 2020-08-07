@@ -10,22 +10,45 @@ from ... import _utilities, _tables
 
 
 class CloudEndpoint(pulumi.CustomResource):
+    azure_file_share_name: pulumi.Output[str]
+    """
+    Azure file share name
+    """
+    backup_enabled: pulumi.Output[str]
+    """
+    Backup Enabled
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    Friendly Name
+    """
+    last_operation_name: pulumi.Output[str]
+    """
+    Resource Last Operation Name
+    """
+    last_workflow_id: pulumi.Output[str]
+    """
+    CloudEndpoint lastWorkflowId
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    partnership_id: pulumi.Output[str]
     """
-    Cloud Endpoint properties.
-      * `azure_file_share_name` (`str`) - Azure file share name
-      * `backup_enabled` (`str`) - Backup Enabled
-      * `friendly_name` (`str`) - Friendly Name
-      * `last_operation_name` (`str`) - Resource Last Operation Name
-      * `last_workflow_id` (`str`) - CloudEndpoint lastWorkflowId
-      * `partnership_id` (`str`) - Partnership Id
-      * `provisioning_state` (`str`) - CloudEndpoint Provisioning State
-      * `storage_account_resource_id` (`str`) - Storage Account Resource Id
-      * `storage_account_tenant_id` (`str`) - Storage Account Tenant Id
+    Partnership Id
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    CloudEndpoint Provisioning State
+    """
+    storage_account_resource_id: pulumi.Output[str]
+    """
+    Storage Account Resource Id
+    """
+    storage_account_tenant_id: pulumi.Output[str]
+    """
+    Storage Account Tenant Id
     """
     type: pulumi.Output[str]
     """
@@ -79,7 +102,11 @@ class CloudEndpoint(pulumi.CustomResource):
             if sync_group_name is None:
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
-            __props__['properties'] = None
+            __props__['backup_enabled'] = None
+            __props__['last_operation_name'] = None
+            __props__['last_workflow_id'] = None
+            __props__['partnership_id'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(CloudEndpoint, __self__).__init__(
             'azurerm:storagesync/v20190301:CloudEndpoint',

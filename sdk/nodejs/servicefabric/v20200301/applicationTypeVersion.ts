@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
     }
 
     /**
+     * The URL to the application package
+     */
+    public readonly appPackageUrl!: pulumi.Output<string>;
+    /**
+     * List of application type parameters that can be overridden when creating or updating the application.
+     */
+    public /*out*/ readonly defaultParameterList!: pulumi.Output<{[key: string]: string}>;
+    /**
      * Azure resource etag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +55,9 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the application type version resource.
+     * The current deployment or provisioning state, which only appears in the response
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20200301.ApplicationTypeVersionResourcePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Azure resource tags.
      */
@@ -96,8 +102,9 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["defaultParameterList"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

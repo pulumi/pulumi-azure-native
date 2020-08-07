@@ -41,13 +41,53 @@ export interface GetConnectorArgs {
  */
 export interface GetConnectorResult {
     /**
+     * ID of the connector.
+     */
+    readonly connectorId: number;
+    /**
+     * Name of the connector.
+     */
+    readonly connectorName?: string;
+    /**
+     * The connector properties.
+     */
+    readonly connectorProperties: {[key: string]: {[key: string]: any}};
+    /**
+     * Type of connector.
+     */
+    readonly connectorType: string;
+    /**
+     * The created time.
+     */
+    readonly created: string;
+    /**
+     * Description of the connector.
+     */
+    readonly description?: string;
+    /**
+     * Display name of the connector.
+     */
+    readonly displayName?: string;
+    /**
+     * If this is an internal connector.
+     */
+    readonly isInternal?: boolean;
+    /**
+     * The last modified time.
+     */
+    readonly lastModified: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of connector.
+     * State of connector.
      */
-    readonly properties: outputs.customerinsights.v20170426.ConnectorResponse;
+    readonly state: string;
+    /**
+     * The hub name.
+     */
+    readonly tenantId: string;
     /**
      * Resource type.
      */

@@ -15,6 +15,54 @@ namespace Pulumi.AzureRM.Compute.V20200501
     public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>
+        /// Disk source information. CreationData information cannot be changed after the disk has been created.
+        /// </summary>
+        [Output("creationData")]
+        public Output<Outputs.CreationDataResponseResult> CreationData { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM id of the DiskAccess resource for using private endpoints on disks.
+        /// </summary>
+        [Output("diskAccessId")]
+        public Output<string?> DiskAccessId { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the disk in bytes. This field is read only.
+        /// </summary>
+        [Output("diskSizeBytes")]
+        public Output<int> DiskSizeBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        /// </summary>
+        [Output("diskSizeGB")]
+        public Output<int?> DiskSizeGB { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponseResult?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        /// </summary>
+        [Output("encryptionSettingsCollection")]
+        public Output<Outputs.EncryptionSettingsCollectionResponseResult?> EncryptionSettingsCollection { get; private set; } = null!;
+
+        /// <summary>
+        /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        /// </summary>
+        [Output("hyperVGeneration")]
+        public Output<string?> HyperVGeneration { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+        /// </summary>
+        [Output("incremental")]
+        public Output<bool?> Incremental { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -33,10 +81,22 @@ namespace Pulumi.AzureRM.Compute.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Snapshot resource properties.
+        /// Policy for accessing the disk via network.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SnapshotPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkAccessPolicy")]
+        public Output<string?> NetworkAccessPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The Operating System type.
+        /// </summary>
+        [Output("osType")]
+        public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The disk provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
@@ -51,10 +111,22 @@ namespace Pulumi.AzureRM.Compute.V20200501
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The time when the snapshot was created.
+        /// </summary>
+        [Output("timeCreated")]
+        public Output<string> TimeCreated { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique Guid identifying the resource.
+        /// </summary>
+        [Output("uniqueId")]
+        public Output<string> UniqueId { get; private set; } = null!;
 
 
         /// <summary>

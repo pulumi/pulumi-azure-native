@@ -46,29 +46,92 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
     public sealed class GetShareResult
     {
         /// <summary>
+        /// Access protocol to be used by the share.
+        /// </summary>
+        public readonly string AccessProtocol;
+        /// <summary>
+        /// Azure container mapping for the share.
+        /// </summary>
+        public readonly Outputs.AzureContainerInfoResponseResult? AzureContainerInfo;
+        /// <summary>
+        /// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ClientAccessRightResponseResult> ClientAccessRights;
+        /// <summary>
+        /// Data policy of the share.
+        /// </summary>
+        public readonly string? DataPolicy;
+        /// <summary>
+        /// Description for the share.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Current monitoring status of the share.
+        /// </summary>
+        public readonly string MonitoringStatus;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The share properties.
+        /// Details of the refresh job on this share.
         /// </summary>
-        public readonly Outputs.SharePropertiesResponseResult Properties;
+        public readonly Outputs.RefreshDetailsResponseResult? RefreshDetails;
+        /// <summary>
+        /// Share mount point to the role.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MountPointMapResponseResult> ShareMappings;
+        /// <summary>
+        /// Current status of the share.
+        /// </summary>
+        public readonly string ShareStatus;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Mapping of users and corresponding access rights on the share (required for SMB protocol).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserAccessRightResponseResult> UserAccessRights;
 
         [OutputConstructor]
         private GetShareResult(
+            string accessProtocol,
+
+            Outputs.AzureContainerInfoResponseResult? azureContainerInfo,
+
+            ImmutableArray<Outputs.ClientAccessRightResponseResult> clientAccessRights,
+
+            string? dataPolicy,
+
+            string? description,
+
+            string monitoringStatus,
+
             string name,
 
-            Outputs.SharePropertiesResponseResult properties,
+            Outputs.RefreshDetailsResponseResult? refreshDetails,
 
-            string type)
+            ImmutableArray<Outputs.MountPointMapResponseResult> shareMappings,
+
+            string shareStatus,
+
+            string type,
+
+            ImmutableArray<Outputs.UserAccessRightResponseResult> userAccessRights)
         {
+            AccessProtocol = accessProtocol;
+            AzureContainerInfo = azureContainerInfo;
+            ClientAccessRights = clientAccessRights;
+            DataPolicy = dataPolicy;
+            Description = description;
+            MonitoringStatus = monitoringStatus;
             Name = name;
-            Properties = properties;
+            RefreshDetails = refreshDetails;
+            ShareMappings = shareMappings;
+            ShareStatus = shareStatus;
             Type = type;
+            UserAccessRights = userAccessRights;
         }
     }
 }

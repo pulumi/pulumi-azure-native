@@ -33,8 +33,8 @@ type LookupNotificationHubAuthorizationRuleResult struct {
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the Namespace AuthorizationRule.
-	Properties SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// The sku of the created namespace
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags

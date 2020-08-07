@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Network.V20161201
     public partial class VirtualNetworkGatewayConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// The authorizationKey.
+        /// </summary>
+        [Output("authorizationKey")]
+        public Output<string?> AuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
+        /// </summary>
+        [Output("connectionStatus")]
+        public Output<string> ConnectionStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
+        /// </summary>
+        [Output("connectionType")]
+        public Output<string> ConnectionType { get; private set; } = null!;
+
+        /// <summary>
+        /// The egress bytes transferred in this connection.
+        /// </summary>
+        [Output("egressBytesTransferred")]
+        public Output<int> EgressBytesTransferred { get; private set; } = null!;
+
+        /// <summary>
+        /// EnableBgp flag
+        /// </summary>
+        [Output("enableBgp")]
+        public Output<bool?> EnableBgp { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The ingress bytes transferred in this connection.
+        /// </summary>
+        [Output("ingressBytesTransferred")]
+        public Output<int> IngressBytesTransferred { get; private set; } = null!;
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        [Output("localNetworkGateway2")]
+        public Output<Outputs.LocalNetworkGatewayResponseResult?> LocalNetworkGateway2 { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +75,34 @@ namespace Pulumi.AzureRM.Network.V20161201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// VirtualNetworkGatewayConnection properties
+        /// The reference to peerings resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peer")]
+        public Output<Outputs.SubResourceResponseResult?> Peer { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the VirtualNetworkGatewayConnection resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// The routing weight.
+        /// </summary>
+        [Output("routingWeight")]
+        public Output<int?> RoutingWeight { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPSec shared key.
+        /// </summary>
+        [Output("sharedKey")]
+        public Output<string?> SharedKey { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -45,10 +111,28 @@ namespace Pulumi.AzureRM.Network.V20161201
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Collection of all tunnels' connection health status.
+        /// </summary>
+        [Output("tunnelConnectionStatus")]
+        public Output<ImmutableArray<Outputs.TunnelConnectionHealthResponseResult>> TunnelConnectionStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        [Output("virtualNetworkGateway1")]
+        public Output<Outputs.VirtualNetworkGatewayResponseResult> VirtualNetworkGateway1 { get; private set; } = null!;
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        [Output("virtualNetworkGateway2")]
+        public Output<Outputs.VirtualNetworkGatewayResponseResult?> VirtualNetworkGateway2 { get; private set; } = null!;
 
 
         /// <summary>

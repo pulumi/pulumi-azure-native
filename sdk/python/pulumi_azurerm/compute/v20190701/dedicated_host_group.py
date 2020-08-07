@@ -10,6 +10,11 @@ from ... import _utilities, _tables
 
 
 class DedicatedHostGroup(pulumi.CustomResource):
+    hosts: pulumi.Output[list]
+    """
+    A list of references to all dedicated hosts in the dedicated host group.
+      * `id` (`str`) - Resource Id
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,13 +23,9 @@ class DedicatedHostGroup(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    platform_fault_domain_count: pulumi.Output[float]
     """
-    Dedicated Host Group Properties.
-      * `hosts` (`list`) - A list of references to all dedicated hosts in the dedicated host group.
-        * `id` (`str`) - Resource Id
-
-      * `platform_fault_domain_count` (`float`) - Number of fault domains that the host group can span.
+    Number of fault domains that the host group can span.
     """
     tags: pulumi.Output[dict]
     """
@@ -82,7 +83,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['zones'] = zones
-            __props__['properties'] = None
+            __props__['hosts'] = None
             __props__['type'] = None
         super(DedicatedHostGroup, __self__).__init__(
             'azurerm:compute/v20190701:DedicatedHostGroup',

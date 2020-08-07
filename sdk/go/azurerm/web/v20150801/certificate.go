@@ -14,17 +14,46 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	// Raw bytes of .cer file
+	CerBlob pulumi.StringPtrOutput `pulumi:"cerBlob"`
+	// Certificate expiration date
+	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
+	// Friendly name of the certificate
+	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	// Host names the certificate applies to
+	HostNames pulumi.StringArrayOutput `pulumi:"hostNames"`
+	// Specification for the hosting environment (App Service Environment) to use for the certificate
+	HostingEnvironmentProfile HostingEnvironmentProfileResponsePtrOutput `pulumi:"hostingEnvironmentProfile"`
+	// Certificate issue Date
+	IssueDate pulumi.StringPtrOutput `pulumi:"issueDate"`
+	// Certificate issuer
+	Issuer pulumi.StringPtrOutput `pulumi:"issuer"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput              `pulumi:"name"`
-	Properties CertificateResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Certificate password
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// Pfx blob
+	PfxBlob pulumi.StringPtrOutput `pulumi:"pfxBlob"`
+	// Public key hash
+	PublicKeyHash pulumi.StringPtrOutput `pulumi:"publicKeyHash"`
+	// Self link
+	SelfLink pulumi.StringPtrOutput `pulumi:"selfLink"`
+	// App name
+	SiteName pulumi.StringPtrOutput `pulumi:"siteName"`
+	// Subject name of the certificate
+	SubjectName pulumi.StringPtrOutput `pulumi:"subjectName"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Certificate thumbprint
+	Thumbprint pulumi.StringPtrOutput `pulumi:"thumbprint"`
 	// Resource type
 	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Is the certificate valid?
+	Valid pulumi.BoolPtrOutput `pulumi:"valid"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -64,31 +93,89 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
+	// Raw bytes of .cer file
+	CerBlob *string `pulumi:"cerBlob"`
+	// Certificate expiration date
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// Friendly name of the certificate
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Host names the certificate applies to
+	HostNames []string `pulumi:"hostNames"`
+	// Specification for the hosting environment (App Service Environment) to use for the certificate
+	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	// Certificate issue Date
+	IssueDate *string `pulumi:"issueDate"`
+	// Certificate issuer
+	Issuer *string `pulumi:"issuer"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name
-	Name       *string                        `pulumi:"name"`
-	Properties *CertificateResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Certificate password
+	Password *string `pulumi:"password"`
+	// Pfx blob
+	PfxBlob *string `pulumi:"pfxBlob"`
+	// Public key hash
+	PublicKeyHash *string `pulumi:"publicKeyHash"`
+	// Self link
+	SelfLink *string `pulumi:"selfLink"`
+	// App name
+	SiteName *string `pulumi:"siteName"`
+	// Subject name of the certificate
+	SubjectName *string `pulumi:"subjectName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Certificate thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Is the certificate valid?
+	Valid *bool `pulumi:"valid"`
 }
 
 type CertificateState struct {
+	// Raw bytes of .cer file
+	CerBlob pulumi.StringPtrInput
+	// Certificate expiration date
+	ExpirationDate pulumi.StringPtrInput
+	// Friendly name of the certificate
+	FriendlyName pulumi.StringPtrInput
+	// Host names the certificate applies to
+	HostNames pulumi.StringArrayInput
+	// Specification for the hosting environment (App Service Environment) to use for the certificate
+	HostingEnvironmentProfile HostingEnvironmentProfileResponsePtrInput
+	// Certificate issue Date
+	IssueDate pulumi.StringPtrInput
+	// Certificate issuer
+	Issuer pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties CertificateResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// Certificate password
+	Password pulumi.StringPtrInput
+	// Pfx blob
+	PfxBlob pulumi.StringPtrInput
+	// Public key hash
+	PublicKeyHash pulumi.StringPtrInput
+	// Self link
+	SelfLink pulumi.StringPtrInput
+	// App name
+	SiteName pulumi.StringPtrInput
+	// Subject name of the certificate
+	SubjectName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Certificate thumbprint
+	Thumbprint pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Is the certificate valid?
+	Valid pulumi.BoolPtrInput
 }
 
 func (CertificateState) ElementType() reflect.Type {

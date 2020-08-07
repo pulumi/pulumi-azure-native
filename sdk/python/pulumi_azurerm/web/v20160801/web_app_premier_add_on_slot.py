@@ -18,21 +18,29 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
     """
     Resource Location.
     """
+    marketplace_offer: pulumi.Output[str]
+    """
+    Premier add on Marketplace offer.
+    """
+    marketplace_publisher: pulumi.Output[str]
+    """
+    Premier add on Marketplace publisher.
+    """
     name: pulumi.Output[str]
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    premier_add_on_name: pulumi.Output[str]
     """
-    PremierAddOn resource specific properties
-      * `location` (`str`) - Premier add on Location.
-      * `marketplace_offer` (`str`) - Premier add on Marketplace offer.
-      * `marketplace_publisher` (`str`) - Premier add on Marketplace publisher.
-      * `name` (`str`) - Premier add on Name.
-      * `product` (`str`) - Premier add on Product.
-      * `sku` (`str`) - Premier add on SKU.
-      * `tags` (`dict`) - Premier add on Tags.
-      * `vendor` (`str`) - Premier add on Vendor.
+    Premier add on Name.
+    """
+    product: pulumi.Output[str]
+    """
+    Premier add on Product.
+    """
+    sku: pulumi.Output[str]
+    """
+    Premier add on SKU.
     """
     tags: pulumi.Output[dict]
     """
@@ -41,6 +49,10 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    vendor: pulumi.Output[str]
+    """
+    Premier add on Vendor.
     """
     def __init__(__self__, resource_name, opts=None, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, resource_group_name=None, sku=None, slot=None, tags=None, vendor=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -96,7 +108,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['vendor'] = vendor
-            __props__['properties'] = None
+            __props__['premier_add_on_name'] = None
             __props__['type'] = None
         super(WebAppPremierAddOnSlot, __self__).__init__(
             'azurerm:web/v20160801:WebAppPremierAddOnSlot',

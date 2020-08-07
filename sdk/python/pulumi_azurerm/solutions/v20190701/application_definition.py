@@ -10,54 +10,86 @@ from ... import _utilities, _tables
 
 
 class ApplicationDefinition(pulumi.CustomResource):
+    artifacts: pulumi.Output[list]
+    """
+    The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+      * `name` (`str`) - The managed application definition artifact name.
+      * `type` (`str`) - The managed application definition artifact type.
+      * `uri` (`str`) - The managed application definition artifact blob uri.
+    """
+    authorizations: pulumi.Output[list]
+    """
+    The managed application provider authorizations.
+      * `principal_id` (`str`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
+      * `role_definition_id` (`str`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+    """
+    create_ui_definition: pulumi.Output[dict]
+    """
+    The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+    """
+    deployment_policy: pulumi.Output[dict]
+    """
+    The managed application deployment policy.
+      * `deployment_mode` (`str`) - The managed application deployment mode.
+    """
+    description: pulumi.Output[str]
+    """
+    The managed application definition description.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The managed application definition display name.
+    """
+    is_enabled: pulumi.Output[bool]
+    """
+    A value indicating whether the package is enabled or not.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    lock_level: pulumi.Output[str]
+    """
+    The managed application lock level.
+    """
+    locking_policy: pulumi.Output[dict]
+    """
+    The managed application locking policy.
+      * `allowed_actions` (`list`) - The deny assignment excluded actions.
+    """
+    main_template: pulumi.Output[dict]
+    """
+    The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
     """
     managed_by: pulumi.Output[str]
     """
     ID of the resource that manages this resource.
     """
+    management_policy: pulumi.Output[dict]
+    """
+    The managed application management policy that determines publisher's access to the managed resource group.
+      * `mode` (`str`) - The managed application management mode.
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    notification_policy: pulumi.Output[dict]
     """
-    The managed application definition properties.
-      * `artifacts` (`list`) - The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-        * `name` (`str`) - The managed application definition artifact name.
-        * `type` (`str`) - The managed application definition artifact type.
-        * `uri` (`str`) - The managed application definition artifact blob uri.
-
-      * `authorizations` (`list`) - The managed application provider authorizations.
-        * `principal_id` (`str`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-        * `role_definition_id` (`str`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-
-      * `create_ui_definition` (`dict`) - The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-      * `deployment_policy` (`dict`) - The managed application deployment policy.
-        * `deployment_mode` (`str`) - The managed application deployment mode.
-
-      * `description` (`str`) - The managed application definition description.
-      * `display_name` (`str`) - The managed application definition display name.
-      * `is_enabled` (`bool`) - A value indicating whether the package is enabled or not.
-      * `lock_level` (`str`) - The managed application lock level.
-      * `locking_policy` (`dict`) - The managed application locking policy.
-        * `allowed_actions` (`list`) - The deny assignment excluded actions.
-
-      * `main_template` (`dict`) - The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-      * `management_policy` (`dict`) - The managed application management policy that determines publisher's access to the managed resource group.
-        * `mode` (`str`) - The managed application management mode.
-
-      * `notification_policy` (`dict`) - The managed application notification policy.
-        * `notification_endpoints` (`list`) - The managed application notification endpoint.
-          * `uri` (`str`) - The managed application notification endpoint uri.
-
-      * `package_file_uri` (`str`) - The managed application definition package file Uri. Use this element
-      * `policies` (`list`) - The managed application provider policies.
-        * `name` (`str`) - The policy name
-        * `parameters` (`str`) - The policy parameters.
-        * `policy_definition_id` (`str`) - The policy definition Id.
+    The managed application notification policy.
+      * `notification_endpoints` (`list`) - The managed application notification endpoint.
+        * `uri` (`str`) - The managed application notification endpoint uri.
+    """
+    package_file_uri: pulumi.Output[str]
+    """
+    The managed application definition package file Uri. Use this element
+    """
+    policies: pulumi.Output[list]
+    """
+    The managed application provider policies.
+      * `name` (`str`) - The policy name
+      * `parameters` (`str`) - The policy parameters.
+      * `policy_definition_id` (`str`) - The policy definition Id.
     """
     sku: pulumi.Output[dict]
     """
@@ -190,7 +222,6 @@ class ApplicationDefinition(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApplicationDefinition, __self__).__init__(
             'azurerm:solutions/v20190701:ApplicationDefinition',

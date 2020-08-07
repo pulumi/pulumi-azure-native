@@ -31,8 +31,8 @@ type LookupWCFRelayAuthorizationRuleArgs struct {
 type LookupWCFRelayAuthorizationRuleResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
-	// Authorization Rule properties
-	Properties AuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

@@ -37,6 +37,22 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     }
 
     /**
+     * Determines if the connection monitor will start automatically once created.
+     */
+    public readonly autoStart!: pulumi.Output<boolean | undefined>;
+    /**
+     * Type of connection monitor.
+     */
+    public /*out*/ readonly connectionMonitorType!: pulumi.Output<string>;
+    /**
+     * Describes the destination of connection monitor.
+     */
+    public readonly destination!: pulumi.Output<outputs.network.v20191201.ConnectionMonitorDestinationResponse | undefined>;
+    /**
+     * List of connection monitor endpoints.
+     */
+    public readonly endpoints!: pulumi.Output<outputs.network.v20191201.ConnectionMonitorEndpointResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -45,17 +61,49 @@ export class ConnectionMonitor extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Monitoring interval in seconds.
+     */
+    public readonly monitoringIntervalInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The monitoring status of the connection monitor.
+     */
+    public /*out*/ readonly monitoringStatus!: pulumi.Output<string>;
+    /**
      * Name of the connection monitor.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the connection monitor result.
+     * Optional notes to be associated with the connection monitor.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191201.ConnectionMonitorResultPropertiesResponse>;
+    public readonly notes!: pulumi.Output<string | undefined>;
+    /**
+     * List of connection monitor outputs.
+     */
+    public readonly outputs!: pulumi.Output<outputs.network.v20191201.ConnectionMonitorOutputResponse[] | undefined>;
+    /**
+     * The provisioning state of the connection monitor.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Describes the source of connection monitor.
+     */
+    public readonly source!: pulumi.Output<outputs.network.v20191201.ConnectionMonitorSourceResponse | undefined>;
+    /**
+     * The date and time when the connection monitor was started.
+     */
+    public /*out*/ readonly startTime!: pulumi.Output<string>;
     /**
      * Connection monitor tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * List of connection monitor test configurations.
+     */
+    public readonly testConfigurations!: pulumi.Output<outputs.network.v20191201.ConnectionMonitorTestConfigurationResponse[] | undefined>;
+    /**
+     * List of connection monitor test groups.
+     */
+    public readonly testGroups!: pulumi.Output<outputs.network.v20191201.ConnectionMonitorTestGroupResponse[] | undefined>;
     /**
      * Connection monitor type.
      */
@@ -97,8 +145,11 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["testConfigurations"] = args ? args.testConfigurations : undefined;
             inputs["testGroups"] = args ? args.testGroups : undefined;
+            inputs["connectionMonitorType"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["monitoringStatus"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["startTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

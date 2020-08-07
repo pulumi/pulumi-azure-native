@@ -13,12 +13,90 @@ class GetApplicationGatewayResult:
     """
     Application gateway resource.
     """
-    def __init__(__self__, etag=None, identity=None, location=None, name=None, properties=None, tags=None, type=None, zones=None):
+    def __init__(__self__, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings_collection=None, custom_error_configurations=None, enable_fips=None, enable_http2=None, etag=None, firewall_policy=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, operational_state=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, provisioning_state=None, redirect_configurations=None, request_routing_rules=None, resource_guid=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policy=None, tags=None, trusted_root_certificates=None, type=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None):
+        if authentication_certificates and not isinstance(authentication_certificates, list):
+            raise TypeError("Expected argument 'authentication_certificates' to be a list")
+        __self__.authentication_certificates = authentication_certificates
+        """
+        Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        if autoscale_configuration and not isinstance(autoscale_configuration, dict):
+            raise TypeError("Expected argument 'autoscale_configuration' to be a dict")
+        __self__.autoscale_configuration = autoscale_configuration
+        """
+        Autoscale Configuration.
+        """
+        if backend_address_pools and not isinstance(backend_address_pools, list):
+            raise TypeError("Expected argument 'backend_address_pools' to be a list")
+        __self__.backend_address_pools = backend_address_pools
+        """
+        Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        if backend_http_settings_collection and not isinstance(backend_http_settings_collection, list):
+            raise TypeError("Expected argument 'backend_http_settings_collection' to be a list")
+        __self__.backend_http_settings_collection = backend_http_settings_collection
+        """
+        Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        if custom_error_configurations and not isinstance(custom_error_configurations, list):
+            raise TypeError("Expected argument 'custom_error_configurations' to be a list")
+        __self__.custom_error_configurations = custom_error_configurations
+        """
+        Custom error configurations of the application gateway resource.
+        """
+        if enable_fips and not isinstance(enable_fips, bool):
+            raise TypeError("Expected argument 'enable_fips' to be a bool")
+        __self__.enable_fips = enable_fips
+        """
+        Whether FIPS is enabled on the application gateway resource.
+        """
+        if enable_http2 and not isinstance(enable_http2, bool):
+            raise TypeError("Expected argument 'enable_http2' to be a bool")
+        __self__.enable_http2 = enable_http2
+        """
+        Whether HTTP2 is enabled on the application gateway resource.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if firewall_policy and not isinstance(firewall_policy, dict):
+            raise TypeError("Expected argument 'firewall_policy' to be a dict")
+        __self__.firewall_policy = firewall_policy
+        """
+        Reference to the FirewallPolicy resource.
+        """
+        if force_firewall_policy_association and not isinstance(force_firewall_policy_association, bool):
+            raise TypeError("Expected argument 'force_firewall_policy_association' to be a bool")
+        __self__.force_firewall_policy_association = force_firewall_policy_association
+        """
+        If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
+        """
+        if frontend_ip_configurations and not isinstance(frontend_ip_configurations, list):
+            raise TypeError("Expected argument 'frontend_ip_configurations' to be a list")
+        __self__.frontend_ip_configurations = frontend_ip_configurations
+        """
+        Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        if frontend_ports and not isinstance(frontend_ports, list):
+            raise TypeError("Expected argument 'frontend_ports' to be a list")
+        __self__.frontend_ports = frontend_ports
+        """
+        Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        if gateway_ip_configurations and not isinstance(gateway_ip_configurations, list):
+            raise TypeError("Expected argument 'gateway_ip_configurations' to be a list")
+        __self__.gateway_ip_configurations = gateway_ip_configurations
+        """
+        Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        if http_listeners and not isinstance(http_listeners, list):
+            raise TypeError("Expected argument 'http_listeners' to be a list")
+        __self__.http_listeners = http_listeners
+        """
+        Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
@@ -38,11 +116,77 @@ class GetApplicationGatewayResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if operational_state and not isinstance(operational_state, str):
+            raise TypeError("Expected argument 'operational_state' to be a str")
+        __self__.operational_state = operational_state
         """
-        Properties of the application gateway.
+        Operational state of the application gateway resource.
+        """
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
+        """
+        Private Endpoint connections on application gateway.
+        """
+        if private_link_configurations and not isinstance(private_link_configurations, list):
+            raise TypeError("Expected argument 'private_link_configurations' to be a list")
+        __self__.private_link_configurations = private_link_configurations
+        """
+        PrivateLink configurations on application gateway.
+        """
+        if probes and not isinstance(probes, list):
+            raise TypeError("Expected argument 'probes' to be a list")
+        __self__.probes = probes
+        """
+        Probes of the application gateway resource.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the application gateway resource.
+        """
+        if redirect_configurations and not isinstance(redirect_configurations, list):
+            raise TypeError("Expected argument 'redirect_configurations' to be a list")
+        __self__.redirect_configurations = redirect_configurations
+        """
+        Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        if request_routing_rules and not isinstance(request_routing_rules, list):
+            raise TypeError("Expected argument 'request_routing_rules' to be a list")
+        __self__.request_routing_rules = request_routing_rules
+        """
+        Request routing rules of the application gateway resource.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the application gateway resource.
+        """
+        if rewrite_rule_sets and not isinstance(rewrite_rule_sets, list):
+            raise TypeError("Expected argument 'rewrite_rule_sets' to be a list")
+        __self__.rewrite_rule_sets = rewrite_rule_sets
+        """
+        Rewrite rules for the application gateway resource.
+        """
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        __self__.sku = sku
+        """
+        SKU of the application gateway resource.
+        """
+        if ssl_certificates and not isinstance(ssl_certificates, list):
+            raise TypeError("Expected argument 'ssl_certificates' to be a list")
+        __self__.ssl_certificates = ssl_certificates
+        """
+        SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        if ssl_policy and not isinstance(ssl_policy, dict):
+            raise TypeError("Expected argument 'ssl_policy' to be a dict")
+        __self__.ssl_policy = ssl_policy
+        """
+        SSL policy of the application gateway resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,11 +194,29 @@ class GetApplicationGatewayResult:
         """
         Resource tags.
         """
+        if trusted_root_certificates and not isinstance(trusted_root_certificates, list):
+            raise TypeError("Expected argument 'trusted_root_certificates' to be a list")
+        __self__.trusted_root_certificates = trusted_root_certificates
+        """
+        Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if url_path_maps and not isinstance(url_path_maps, list):
+            raise TypeError("Expected argument 'url_path_maps' to be a list")
+        __self__.url_path_maps = url_path_maps
+        """
+        URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        if web_application_firewall_configuration and not isinstance(web_application_firewall_configuration, dict):
+            raise TypeError("Expected argument 'web_application_firewall_configuration' to be a dict")
+        __self__.web_application_firewall_configuration = web_application_firewall_configuration
+        """
+        Web application firewall configuration.
         """
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
@@ -70,13 +232,40 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
         if False:
             yield self
         return GetApplicationGatewayResult(
+            authentication_certificates=self.authentication_certificates,
+            autoscale_configuration=self.autoscale_configuration,
+            backend_address_pools=self.backend_address_pools,
+            backend_http_settings_collection=self.backend_http_settings_collection,
+            custom_error_configurations=self.custom_error_configurations,
+            enable_fips=self.enable_fips,
+            enable_http2=self.enable_http2,
             etag=self.etag,
+            firewall_policy=self.firewall_policy,
+            force_firewall_policy_association=self.force_firewall_policy_association,
+            frontend_ip_configurations=self.frontend_ip_configurations,
+            frontend_ports=self.frontend_ports,
+            gateway_ip_configurations=self.gateway_ip_configurations,
+            http_listeners=self.http_listeners,
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            operational_state=self.operational_state,
+            private_endpoint_connections=self.private_endpoint_connections,
+            private_link_configurations=self.private_link_configurations,
+            probes=self.probes,
+            provisioning_state=self.provisioning_state,
+            redirect_configurations=self.redirect_configurations,
+            request_routing_rules=self.request_routing_rules,
+            resource_guid=self.resource_guid,
+            rewrite_rule_sets=self.rewrite_rule_sets,
+            sku=self.sku,
+            ssl_certificates=self.ssl_certificates,
+            ssl_policy=self.ssl_policy,
             tags=self.tags,
+            trusted_root_certificates=self.trusted_root_certificates,
             type=self.type,
+            url_path_maps=self.url_path_maps,
+            web_application_firewall_configuration=self.web_application_firewall_configuration,
             zones=self.zones)
 
 
@@ -97,11 +286,38 @@ def get_application_gateway(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getApplicationGateway', __args__, opts=opts).value
 
     return AwaitableGetApplicationGatewayResult(
+        authentication_certificates=__ret__.get('authenticationCertificates'),
+        autoscale_configuration=__ret__.get('autoscaleConfiguration'),
+        backend_address_pools=__ret__.get('backendAddressPools'),
+        backend_http_settings_collection=__ret__.get('backendHttpSettingsCollection'),
+        custom_error_configurations=__ret__.get('customErrorConfigurations'),
+        enable_fips=__ret__.get('enableFips'),
+        enable_http2=__ret__.get('enableHttp2'),
         etag=__ret__.get('etag'),
+        firewall_policy=__ret__.get('firewallPolicy'),
+        force_firewall_policy_association=__ret__.get('forceFirewallPolicyAssociation'),
+        frontend_ip_configurations=__ret__.get('frontendIPConfigurations'),
+        frontend_ports=__ret__.get('frontendPorts'),
+        gateway_ip_configurations=__ret__.get('gatewayIPConfigurations'),
+        http_listeners=__ret__.get('httpListeners'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        operational_state=__ret__.get('operationalState'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        private_link_configurations=__ret__.get('privateLinkConfigurations'),
+        probes=__ret__.get('probes'),
+        provisioning_state=__ret__.get('provisioningState'),
+        redirect_configurations=__ret__.get('redirectConfigurations'),
+        request_routing_rules=__ret__.get('requestRoutingRules'),
+        resource_guid=__ret__.get('resourceGuid'),
+        rewrite_rule_sets=__ret__.get('rewriteRuleSets'),
+        sku=__ret__.get('sku'),
+        ssl_certificates=__ret__.get('sslCertificates'),
+        ssl_policy=__ret__.get('sslPolicy'),
         tags=__ret__.get('tags'),
+        trusted_root_certificates=__ret__.get('trustedRootCertificates'),
         type=__ret__.get('type'),
+        url_path_maps=__ret__.get('urlPathMaps'),
+        web_application_firewall_configuration=__ret__.get('webApplicationFirewallConfiguration'),
         zones=__ret__.get('zones'))

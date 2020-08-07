@@ -37,13 +37,25 @@ export class Export extends pulumi.CustomResource {
     }
 
     /**
+     * Has definition for the export.
+     */
+    public readonly definition!: pulumi.Output<outputs.costmanagement.v20191101.QueryDefinitionResponse>;
+    /**
+     * Has delivery information for the export.
+     */
+    public readonly deliveryInfo!: pulumi.Output<outputs.costmanagement.v20191101.ExportDeliveryInfoResponse>;
+    /**
+     * The format of the export being delivered.
+     */
+    public readonly format!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the export.
+     * Has schedule information for the export.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.costmanagement.v20191101.ExportPropertiesResponse>;
+    public readonly schedule!: pulumi.Output<outputs.costmanagement.v20191101.ExportScheduleResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -84,7 +96,6 @@ export class Export extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["scope"] = args ? args.scope : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

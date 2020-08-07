@@ -22,15 +22,13 @@ class VirtualNetworkLink(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the virtual network link to the Private DNS zone.
-      * `provisioning_state` (`str`) - The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
-      * `registration_enabled` (`bool`) - Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
-      * `virtual_network` (`dict`) - The reference of the virtual network.
-        * `id` (`str`) - Resource ID.
-
-      * `virtual_network_link_state` (`str`) - The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
+    The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+    """
+    registration_enabled: pulumi.Output[bool]
+    """
+    Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
     """
     tags: pulumi.Output[dict]
     """
@@ -39,6 +37,15 @@ class VirtualNetworkLink(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+    """
+    virtual_network: pulumi.Output[dict]
+    """
+    The reference of the virtual network.
+      * `id` (`str`) - Resource ID.
+    """
+    virtual_network_link_state: pulumi.Output[str]
+    """
+    The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
     """
     def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, private_zone_name=None, registration_enabled=None, resource_group_name=None, tags=None, virtual_network=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -90,8 +97,9 @@ class VirtualNetworkLink(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['virtual_network'] = virtual_network
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['virtual_network_link_state'] = None
         super(VirtualNetworkLink, __self__).__init__(
             'azurerm:network/v20180901:VirtualNetworkLink',
             resource_name,

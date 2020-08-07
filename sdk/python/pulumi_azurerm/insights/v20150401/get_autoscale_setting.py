@@ -13,7 +13,13 @@ class GetAutoscaleSettingResult:
     """
     The autoscale setting resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, enabled=None, location=None, name=None, notifications=None, profiles=None, tags=None, target_resource_uri=None, type=None):
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +32,29 @@ class GetAutoscaleSettingResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notifications and not isinstance(notifications, list):
+            raise TypeError("Expected argument 'notifications' to be a list")
+        __self__.notifications = notifications
         """
-        The autoscale setting of the resource.
+        the collection of notifications.
+        """
+        if profiles and not isinstance(profiles, list):
+            raise TypeError("Expected argument 'profiles' to be a list")
+        __self__.profiles = profiles
+        """
+        the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags
+        """
+        if target_resource_uri and not isinstance(target_resource_uri, str):
+            raise TypeError("Expected argument 'target_resource_uri' to be a str")
+        __self__.target_resource_uri = target_resource_uri
+        """
+        the resource identifier of the resource that the autoscale setting should be added to.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -52,10 +70,13 @@ class AwaitableGetAutoscaleSettingResult(GetAutoscaleSettingResult):
         if False:
             yield self
         return GetAutoscaleSettingResult(
+            enabled=self.enabled,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            notifications=self.notifications,
+            profiles=self.profiles,
             tags=self.tags,
+            target_resource_uri=self.target_resource_uri,
             type=self.type)
 
 
@@ -76,8 +97,11 @@ def get_autoscale_setting(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150401:getAutoscaleSetting', __args__, opts=opts).value
 
     return AwaitableGetAutoscaleSettingResult(
+        enabled=__ret__.get('enabled'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notifications=__ret__.get('notifications'),
+        profiles=__ret__.get('profiles'),
         tags=__ret__.get('tags'),
+        target_resource_uri=__ret__.get('targetResourceUri'),
         type=__ret__.get('type'))

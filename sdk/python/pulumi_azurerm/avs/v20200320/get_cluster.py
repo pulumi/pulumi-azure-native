@@ -13,18 +13,36 @@ class GetClusterResult:
     """
     A cluster resource
     """
-    def __init__(__self__, name=None, properties=None, sku=None, type=None):
+    def __init__(__self__, cluster_id=None, cluster_size=None, hosts=None, name=None, provisioning_state=None, sku=None, type=None):
+        if cluster_id and not isinstance(cluster_id, float):
+            raise TypeError("Expected argument 'cluster_id' to be a float")
+        __self__.cluster_id = cluster_id
+        """
+        The identity
+        """
+        if cluster_size and not isinstance(cluster_size, float):
+            raise TypeError("Expected argument 'cluster_size' to be a float")
+        __self__.cluster_size = cluster_size
+        """
+        The cluster size
+        """
+        if hosts and not isinstance(hosts, list):
+            raise TypeError("Expected argument 'hosts' to be a list")
+        __self__.hosts = hosts
+        """
+        The hosts
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of a cluster resource
+        The state of the cluster provisioning
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -46,8 +64,11 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            cluster_id=self.cluster_id,
+            cluster_size=self.cluster_size,
+            hosts=self.hosts,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             type=self.type)
 
@@ -71,7 +92,10 @@ def get_cluster(name=None, private_cloud_name=None, resource_group_name=None, op
     __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getCluster', __args__, opts=opts).value
 
     return AwaitableGetClusterResult(
+        cluster_id=__ret__.get('clusterId'),
+        cluster_size=__ret__.get('clusterSize'),
+        hosts=__ret__.get('hosts'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         type=__ret__.get('type'))

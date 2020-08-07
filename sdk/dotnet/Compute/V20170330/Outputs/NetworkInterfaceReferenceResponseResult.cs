@@ -18,18 +18,18 @@ namespace Pulumi.AzureRM.Compute.V20170330.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Describes a network interface reference properties.
+        /// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
         /// </summary>
-        public readonly Outputs.NetworkInterfaceReferencePropertiesResponseResult? Properties;
+        public readonly bool? Primary;
 
         [OutputConstructor]
         private NetworkInterfaceReferenceResponseResult(
             string? id,
 
-            Outputs.NetworkInterfaceReferencePropertiesResponseResult? properties)
+            bool? primary)
         {
             Id = id;
-            Properties = properties;
+            Primary = primary;
         }
     }
 }

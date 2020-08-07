@@ -14,12 +14,14 @@ import (
 type ApiSchema struct {
 	pulumi.CustomResourceState
 
+	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+	ContentType pulumi.StringOutput `pulumi:"contentType"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Schema.
-	Properties SchemaContractPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Json escaped string defining the document representing the Schema.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewApiSchema registers a new resource with the given unique name, arguments, and options.
@@ -65,21 +67,25 @@ func GetApiSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiSchema resources.
 type apiSchemaState struct {
+	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+	ContentType *string `pulumi:"contentType"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Schema.
-	Properties *SchemaContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
+	// Json escaped string defining the document representing the Schema.
+	Value *string `pulumi:"value"`
 }
 
 type ApiSchemaState struct {
+	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+	ContentType pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Schema.
-	Properties SchemaContractPropertiesResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
+	// Json escaped string defining the document representing the Schema.
+	Value pulumi.StringPtrInput
 }
 
 func (ApiSchemaState) ElementType() reflect.Type {

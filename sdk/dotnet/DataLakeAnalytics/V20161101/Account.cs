@@ -15,10 +15,100 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
+        /// The unique identifier associated with this Data Lake Analytics account.
+        /// </summary>
+        [Output("accountId")]
+        public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of compute policies associated with this account.
+        /// </summary>
+        [Output("computePolicies")]
+        public Output<ImmutableArray<Outputs.ComputePolicyResponseResult>> ComputePolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// The account creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The commitment tier in use for the current month.
+        /// </summary>
+        [Output("currentTier")]
+        public Output<string> CurrentTier { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of Data Lake Store accounts associated with this account.
+        /// </summary>
+        [Output("dataLakeStoreAccounts")]
+        public Output<ImmutableArray<Outputs.DataLakeStoreAccountInformationResponseResult>> DataLakeStoreAccounts { get; private set; } = null!;
+
+        /// <summary>
+        /// The default Data Lake Store account associated with this account.
+        /// </summary>
+        [Output("defaultDataLakeStoreAccount")]
+        public Output<string> DefaultDataLakeStoreAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// The full CName endpoint for this account.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        /// </summary>
+        [Output("firewallAllowAzureIps")]
+        public Output<string> FirewallAllowAzureIps { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of firewall rules associated with this account.
+        /// </summary>
+        [Output("firewallRules")]
+        public Output<ImmutableArray<Outputs.FirewallRuleResponseResult>> FirewallRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of the IP address firewall for this account.
+        /// </summary>
+        [Output("firewallState")]
+        public Output<string> FirewallState { get; private set; } = null!;
+
+        /// <summary>
+        /// The account last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum supported degree of parallelism for this account.
+        /// </summary>
+        [Output("maxDegreeOfParallelism")]
+        public Output<int> MaxDegreeOfParallelism { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum supported degree of parallelism per job for this account.
+        /// </summary>
+        [Output("maxDegreeOfParallelismPerJob")]
+        public Output<int> MaxDegreeOfParallelismPerJob { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum supported jobs running under the account at the same time.
+        /// </summary>
+        [Output("maxJobCount")]
+        public Output<int> MaxJobCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum supported priority per job for this account.
+        /// </summary>
+        [Output("minPriorityPerJob")]
+        public Output<int> MinPriorityPerJob { get; private set; } = null!;
 
         /// <summary>
         /// The resource name.
@@ -27,10 +117,46 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties defined by Data Lake Analytics all properties are specific to each resource provider.
+        /// The commitment tier for the next month.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DataLakeAnalyticsAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("newTier")]
+        public Output<string> NewTier { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the Data Lake Analytics account.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of days that job metadata is retained.
+        /// </summary>
+        [Output("queryStoreRetention")]
+        public Output<int> QueryStoreRetention { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of the Data Lake Analytics account.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of Azure Blob Storage accounts associated with this account.
+        /// </summary>
+        [Output("storageAccounts")]
+        public Output<ImmutableArray<Outputs.StorageAccountInformationResponseResult>> StorageAccounts { get; private set; } = null!;
+
+        /// <summary>
+        /// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
+        /// </summary>
+        [Output("systemMaxDegreeOfParallelism")]
+        public Output<int> SystemMaxDegreeOfParallelism { get; private set; } = null!;
+
+        /// <summary>
+        /// The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
+        /// </summary>
+        [Output("systemMaxJobCount")]
+        public Output<int> SystemMaxJobCount { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

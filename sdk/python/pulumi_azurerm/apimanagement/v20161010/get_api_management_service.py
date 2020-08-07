@@ -13,12 +13,42 @@ class GetApiManagementServiceResult:
     """
     A single API Management service resource in List or Get response.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, additional_locations=None, addresser_email=None, created_at_utc=None, custom_properties=None, etag=None, hostname_configurations=None, location=None, management_api_url=None, name=None, portal_url=None, provisioning_state=None, publisher_email=None, publisher_name=None, runtime_url=None, scm_url=None, sku=None, static_i_ps=None, tags=None, target_provisioning_state=None, type=None, vpn_type=None, vpnconfiguration=None):
+        if additional_locations and not isinstance(additional_locations, list):
+            raise TypeError("Expected argument 'additional_locations' to be a list")
+        __self__.additional_locations = additional_locations
+        """
+        Additional datacenter locations of the API Management service.
+        """
+        if addresser_email and not isinstance(addresser_email, str):
+            raise TypeError("Expected argument 'addresser_email' to be a str")
+        __self__.addresser_email = addresser_email
+        """
+        Addresser email.
+        """
+        if created_at_utc and not isinstance(created_at_utc, str):
+            raise TypeError("Expected argument 'created_at_utc' to be a str")
+        __self__.created_at_utc = created_at_utc
+        """
+        Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        if custom_properties and not isinstance(custom_properties, dict):
+            raise TypeError("Expected argument 'custom_properties' to be a dict")
+        __self__.custom_properties = custom_properties
+        """
+        Custom properties of the API Management service, like disabling TLS 1.0.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         ETag of the resource.
+        """
+        if hostname_configurations and not isinstance(hostname_configurations, list):
+            raise TypeError("Expected argument 'hostname_configurations' to be a list")
+        __self__.hostname_configurations = hostname_configurations
+        """
+        Custom hostname configuration of the API Management service.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +56,53 @@ class GetApiManagementServiceResult:
         """
         Resource location.
         """
+        if management_api_url and not isinstance(management_api_url, str):
+            raise TypeError("Expected argument 'management_api_url' to be a str")
+        __self__.management_api_url = management_api_url
+        """
+        Management API endpoint URL of the API Management service.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if portal_url and not isinstance(portal_url, str):
+            raise TypeError("Expected argument 'portal_url' to be a str")
+        __self__.portal_url = portal_url
         """
-        Properties of the API Management service.
+        Publisher portal endpoint Url of the API Management service.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+        """
+        if publisher_email and not isinstance(publisher_email, str):
+            raise TypeError("Expected argument 'publisher_email' to be a str")
+        __self__.publisher_email = publisher_email
+        """
+        Publisher email.
+        """
+        if publisher_name and not isinstance(publisher_name, str):
+            raise TypeError("Expected argument 'publisher_name' to be a str")
+        __self__.publisher_name = publisher_name
+        """
+        Publisher name.
+        """
+        if runtime_url and not isinstance(runtime_url, str):
+            raise TypeError("Expected argument 'runtime_url' to be a str")
+        __self__.runtime_url = runtime_url
+        """
+        Proxy endpoint URL of the API Management service.
+        """
+        if scm_url and not isinstance(scm_url, str):
+            raise TypeError("Expected argument 'scm_url' to be a str")
+        __self__.scm_url = scm_url
+        """
+        SCM endpoint URL of the API Management service.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -44,17 +110,41 @@ class GetApiManagementServiceResult:
         """
         SKU properties of the API Management service.
         """
+        if static_i_ps and not isinstance(static_i_ps, list):
+            raise TypeError("Expected argument 'static_i_ps' to be a list")
+        __self__.static_i_ps = static_i_ps
+        """
+        Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags.
         """
+        if target_provisioning_state and not isinstance(target_provisioning_state, str):
+            raise TypeError("Expected argument 'target_provisioning_state' to be a str")
+        __self__.target_provisioning_state = target_provisioning_state
+        """
+        The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource is set to Microsoft.ApiManagement.
+        """
+        if vpn_type and not isinstance(vpn_type, str):
+            raise TypeError("Expected argument 'vpn_type' to be a str")
+        __self__.vpn_type = vpn_type
+        """
+        The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        """
+        if vpnconfiguration and not isinstance(vpnconfiguration, dict):
+            raise TypeError("Expected argument 'vpnconfiguration' to be a dict")
+        __self__.vpnconfiguration = vpnconfiguration
+        """
+        Virtual network configuration of the API Management service.
         """
 
 
@@ -64,13 +154,28 @@ class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
         if False:
             yield self
         return GetApiManagementServiceResult(
+            additional_locations=self.additional_locations,
+            addresser_email=self.addresser_email,
+            created_at_utc=self.created_at_utc,
+            custom_properties=self.custom_properties,
             etag=self.etag,
+            hostname_configurations=self.hostname_configurations,
             location=self.location,
+            management_api_url=self.management_api_url,
             name=self.name,
-            properties=self.properties,
+            portal_url=self.portal_url,
+            provisioning_state=self.provisioning_state,
+            publisher_email=self.publisher_email,
+            publisher_name=self.publisher_name,
+            runtime_url=self.runtime_url,
+            scm_url=self.scm_url,
             sku=self.sku,
+            static_i_ps=self.static_i_ps,
             tags=self.tags,
-            type=self.type)
+            target_provisioning_state=self.target_provisioning_state,
+            type=self.type,
+            vpn_type=self.vpn_type,
+            vpnconfiguration=self.vpnconfiguration)
 
 
 def get_api_management_service(name=None, resource_group_name=None, opts=None):
@@ -90,10 +195,25 @@ def get_api_management_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20161010:getApiManagementService', __args__, opts=opts).value
 
     return AwaitableGetApiManagementServiceResult(
+        additional_locations=__ret__.get('additionalLocations'),
+        addresser_email=__ret__.get('addresserEmail'),
+        created_at_utc=__ret__.get('createdAtUtc'),
+        custom_properties=__ret__.get('customProperties'),
         etag=__ret__.get('etag'),
+        hostname_configurations=__ret__.get('hostnameConfigurations'),
         location=__ret__.get('location'),
+        management_api_url=__ret__.get('managementApiUrl'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        portal_url=__ret__.get('portalUrl'),
+        provisioning_state=__ret__.get('provisioningState'),
+        publisher_email=__ret__.get('publisherEmail'),
+        publisher_name=__ret__.get('publisherName'),
+        runtime_url=__ret__.get('runtimeUrl'),
+        scm_url=__ret__.get('scmUrl'),
         sku=__ret__.get('sku'),
+        static_i_ps=__ret__.get('staticIPs'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        target_provisioning_state=__ret__.get('targetProvisioningState'),
+        type=__ret__.get('type'),
+        vpn_type=__ret__.get('vpnType'),
+        vpnconfiguration=__ret__.get('vpnconfiguration'))

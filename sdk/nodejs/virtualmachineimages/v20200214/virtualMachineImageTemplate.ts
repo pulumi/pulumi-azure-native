@@ -37,9 +37,25 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     }
 
     /**
+     * Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+     */
+    public readonly buildTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies the properties used to describe the customization steps of the image, like Image source etc
+     */
+    public readonly customize!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplateCustomizerResponse[] | undefined>;
+    /**
+     * The distribution targets where the image output needs to go to.
+     */
+    public readonly distribute!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplateDistributorResponse[]>;
+    /**
      * The identity of the image template, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplateIdentityResponse>;
+    /**
+     * State of 'run' that is currently executing or was last executed.
+     */
+    public /*out*/ readonly lastRunStatus!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplateLastRunStatusResponse>;
     /**
      * Resource location
      */
@@ -49,9 +65,17 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the image template
+     * Provisioning error, if any
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplatePropertiesResponse>;
+    public /*out*/ readonly provisioningError!: pulumi.Output<outputs.virtualmachineimages.v20200214.ProvisioningErrorResponse>;
+    /**
+     * Provisioning state of the resource
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Specifies the properties used to describe the source image.
+     */
+    public readonly source!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplateSourceResponse>;
     /**
      * Resource tags
      */
@@ -60,6 +84,10 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Describes how virtual machine is set up to build images
+     */
+    public readonly vmProfile!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplateVmProfileResponse | undefined>;
 
     /**
      * Create a VirtualMachineImageTemplate resource with the given unique name, arguments, and options.
@@ -102,7 +130,9 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vmProfile"] = args ? args.vmProfile : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastRunStatus"] = undefined /*out*/;
+            inputs["provisioningError"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

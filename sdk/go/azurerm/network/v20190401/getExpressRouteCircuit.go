@@ -25,16 +25,42 @@ type LookupExpressRouteCircuitArgs struct {
 
 // ExpressRouteCircuit resource.
 type LookupExpressRouteCircuitResult struct {
+	// Allow classic operations.
+	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
+	// The list of authorizations.
+	Authorizations []ExpressRouteCircuitAuthorizationResponse `pulumi:"authorizations"`
+	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
+	// The CircuitProvisioningState state of the resource.
+	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+	ExpressRoutePort *SubResourceResponse `pulumi:"expressRoutePort"`
+	// The GatewayManager Etag.
+	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
+	// Flag denoting Global reach status.
+	GlobalReachEnabled *bool `pulumi:"globalReachEnabled"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the express route circuit.
-	Properties ExpressRouteCircuitPropertiesFormatResponse `pulumi:"properties"`
+	// The list of peerings.
+	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The ServiceKey.
+	ServiceKey *string `pulumi:"serviceKey"`
+	// The ServiceProviderNotes.
+	ServiceProviderNotes *string `pulumi:"serviceProviderNotes"`
+	// The ServiceProviderProperties.
+	ServiceProviderProperties *ExpressRouteCircuitServiceProviderPropertiesResponse `pulumi:"serviceProviderProperties"`
+	// The ServiceProviderProvisioningState state of the resource.
+	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
 	// The SKU.
 	Sku *ExpressRouteCircuitSkuResponse `pulumi:"sku"`
+	// The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+	Stag int `pulumi:"stag"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

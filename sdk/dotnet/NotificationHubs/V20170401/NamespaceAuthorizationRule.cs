@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// A string that describes the claim type
+        /// </summary>
+        [Output("claimType")]
+        public Output<string> ClaimType { get; private set; } = null!;
+
+        /// <summary>
+        /// A string that describes the claim value
+        /// </summary>
+        [Output("claimValue")]
+        public Output<string> ClaimValue { get; private set; } = null!;
+
+        /// <summary>
+        /// The created time for this rule
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A string that describes the authorization rule.
+        /// </summary>
+        [Output("keyName")]
+        public Output<string> KeyName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The last modified time for this rule
+        /// </summary>
+        [Output("modifiedTime")]
+        public Output<string> ModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,10 +57,28 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Namespace AuthorizationRule.
+        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SharedAccessAuthorizationRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("primaryKey")]
+        public Output<string> PrimaryKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The revision number for the rule
+        /// </summary>
+        [Output("revision")]
+        public Output<int> Revision { get; private set; } = null!;
+
+        /// <summary>
+        /// The rights associated with the rule.
+        /// </summary>
+        [Output("rights")]
+        public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
+
+        /// <summary>
+        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        /// </summary>
+        [Output("secondaryKey")]
+        public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the created namespace

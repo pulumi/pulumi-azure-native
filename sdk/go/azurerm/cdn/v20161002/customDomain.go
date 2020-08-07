@@ -14,16 +14,24 @@ import (
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
+	// Provisioning state of Custom Https of the custom domain.
+	CustomHttpsProvisioningState pulumi.StringOutput `pulumi:"customHttpsProvisioningState"`
+	// The host name of the custom domain. Must be a domain name.
+	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The JSON object that contains the properties of the custom domain to create.
-	Properties CustomDomainPropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning status of the custom domain.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Resource status of the custom domain.
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+	ValidationData pulumi.StringPtrOutput `pulumi:"validationData"`
 }
 
 // NewCustomDomain registers a new resource with the given unique name, arguments, and options.
@@ -69,29 +77,45 @@ func GetCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDomain resources.
 type customDomainState struct {
+	// Provisioning state of Custom Https of the custom domain.
+	CustomHttpsProvisioningState *string `pulumi:"customHttpsProvisioningState"`
+	// The host name of the custom domain. Must be a domain name.
+	HostName *string `pulumi:"hostName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The JSON object that contains the properties of the custom domain to create.
-	Properties *CustomDomainPropertiesResponse `pulumi:"properties"`
+	// Provisioning status of the custom domain.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the custom domain.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+	ValidationData *string `pulumi:"validationData"`
 }
 
 type CustomDomainState struct {
+	// Provisioning state of Custom Https of the custom domain.
+	CustomHttpsProvisioningState pulumi.StringPtrInput
+	// The host name of the custom domain. Must be a domain name.
+	HostName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The JSON object that contains the properties of the custom domain to create.
-	Properties CustomDomainPropertiesResponsePtrInput
+	// Provisioning status of the custom domain.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource status of the custom domain.
+	ResourceState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+	ValidationData pulumi.StringPtrInput
 }
 
 func (CustomDomainState) ElementType() reflect.Type {

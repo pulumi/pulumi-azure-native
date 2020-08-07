@@ -1954,403 +1954,6 @@ func (o ContainerGroupResponseInstanceViewPtrOutput) State() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The container group properties
-type ContainerGroupResponseProperties struct {
-	// The containers within the container group.
-	Containers []ContainerResponse `pulumi:"containers"`
-	// The diagnostic information for a container group.
-	Diagnostics *ContainerGroupDiagnosticsResponse `pulumi:"diagnostics"`
-	// The DNS config information for a container group.
-	DnsConfig *DnsConfigurationResponse `pulumi:"dnsConfig"`
-	// The encryption properties for a container group.
-	EncryptionProperties *EncryptionPropertiesResponse `pulumi:"encryptionProperties"`
-	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials []ImageRegistryCredentialResponse `pulumi:"imageRegistryCredentials"`
-	// The init containers for a container group.
-	InitContainers []InitContainerDefinitionResponse `pulumi:"initContainers"`
-	// The instance view of the container group. Only valid in response.
-	InstanceView ContainerGroupResponseInstanceView `pulumi:"instanceView"`
-	// The IP address type of the container group.
-	IpAddress *IpAddressResponse `pulumi:"ipAddress"`
-	// The network profile information for a container group.
-	NetworkProfile *ContainerGroupNetworkProfileResponse `pulumi:"networkProfile"`
-	// The operating system type required by the containers in the container group.
-	OsType string `pulumi:"osType"`
-	// The provisioning state of the container group. This only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Restart policy for all containers within the container group.
-	// - `Always` Always restart
-	// - `OnFailure` Restart on failure
-	// - `Never` Never restart
-	RestartPolicy *string `pulumi:"restartPolicy"`
-	// The SKU for a container group.
-	Sku *string `pulumi:"sku"`
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes []VolumeResponse `pulumi:"volumes"`
-}
-
-// ContainerGroupResponsePropertiesInput is an input type that accepts ContainerGroupResponsePropertiesArgs and ContainerGroupResponsePropertiesOutput values.
-// You can construct a concrete instance of `ContainerGroupResponsePropertiesInput` via:
-//
-//          ContainerGroupResponsePropertiesArgs{...}
-type ContainerGroupResponsePropertiesInput interface {
-	pulumi.Input
-
-	ToContainerGroupResponsePropertiesOutput() ContainerGroupResponsePropertiesOutput
-	ToContainerGroupResponsePropertiesOutputWithContext(context.Context) ContainerGroupResponsePropertiesOutput
-}
-
-// The container group properties
-type ContainerGroupResponsePropertiesArgs struct {
-	// The containers within the container group.
-	Containers ContainerResponseArrayInput `pulumi:"containers"`
-	// The diagnostic information for a container group.
-	Diagnostics ContainerGroupDiagnosticsResponsePtrInput `pulumi:"diagnostics"`
-	// The DNS config information for a container group.
-	DnsConfig DnsConfigurationResponsePtrInput `pulumi:"dnsConfig"`
-	// The encryption properties for a container group.
-	EncryptionProperties EncryptionPropertiesResponsePtrInput `pulumi:"encryptionProperties"`
-	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials ImageRegistryCredentialResponseArrayInput `pulumi:"imageRegistryCredentials"`
-	// The init containers for a container group.
-	InitContainers InitContainerDefinitionResponseArrayInput `pulumi:"initContainers"`
-	// The instance view of the container group. Only valid in response.
-	InstanceView ContainerGroupResponseInstanceViewInput `pulumi:"instanceView"`
-	// The IP address type of the container group.
-	IpAddress IpAddressResponsePtrInput `pulumi:"ipAddress"`
-	// The network profile information for a container group.
-	NetworkProfile ContainerGroupNetworkProfileResponsePtrInput `pulumi:"networkProfile"`
-	// The operating system type required by the containers in the container group.
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// The provisioning state of the container group. This only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Restart policy for all containers within the container group.
-	// - `Always` Always restart
-	// - `OnFailure` Restart on failure
-	// - `Never` Never restart
-	RestartPolicy pulumi.StringPtrInput `pulumi:"restartPolicy"`
-	// The SKU for a container group.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes VolumeResponseArrayInput `pulumi:"volumes"`
-}
-
-func (ContainerGroupResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupResponseProperties)(nil)).Elem()
-}
-
-func (i ContainerGroupResponsePropertiesArgs) ToContainerGroupResponsePropertiesOutput() ContainerGroupResponsePropertiesOutput {
-	return i.ToContainerGroupResponsePropertiesOutputWithContext(context.Background())
-}
-
-func (i ContainerGroupResponsePropertiesArgs) ToContainerGroupResponsePropertiesOutputWithContext(ctx context.Context) ContainerGroupResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupResponsePropertiesOutput)
-}
-
-func (i ContainerGroupResponsePropertiesArgs) ToContainerGroupResponsePropertiesPtrOutput() ContainerGroupResponsePropertiesPtrOutput {
-	return i.ToContainerGroupResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ContainerGroupResponsePropertiesArgs) ToContainerGroupResponsePropertiesPtrOutputWithContext(ctx context.Context) ContainerGroupResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupResponsePropertiesOutput).ToContainerGroupResponsePropertiesPtrOutputWithContext(ctx)
-}
-
-// ContainerGroupResponsePropertiesPtrInput is an input type that accepts ContainerGroupResponsePropertiesArgs, ContainerGroupResponsePropertiesPtr and ContainerGroupResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `ContainerGroupResponsePropertiesPtrInput` via:
-//
-//          ContainerGroupResponsePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerGroupResponsePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToContainerGroupResponsePropertiesPtrOutput() ContainerGroupResponsePropertiesPtrOutput
-	ToContainerGroupResponsePropertiesPtrOutputWithContext(context.Context) ContainerGroupResponsePropertiesPtrOutput
-}
-
-type containerGroupResponsePropertiesPtrType ContainerGroupResponsePropertiesArgs
-
-func ContainerGroupResponsePropertiesPtr(v *ContainerGroupResponsePropertiesArgs) ContainerGroupResponsePropertiesPtrInput {
-	return (*containerGroupResponsePropertiesPtrType)(v)
-}
-
-func (*containerGroupResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerGroupResponseProperties)(nil)).Elem()
-}
-
-func (i *containerGroupResponsePropertiesPtrType) ToContainerGroupResponsePropertiesPtrOutput() ContainerGroupResponsePropertiesPtrOutput {
-	return i.ToContainerGroupResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *containerGroupResponsePropertiesPtrType) ToContainerGroupResponsePropertiesPtrOutputWithContext(ctx context.Context) ContainerGroupResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupResponsePropertiesPtrOutput)
-}
-
-// The container group properties
-type ContainerGroupResponsePropertiesOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupResponseProperties)(nil)).Elem()
-}
-
-func (o ContainerGroupResponsePropertiesOutput) ToContainerGroupResponsePropertiesOutput() ContainerGroupResponsePropertiesOutput {
-	return o
-}
-
-func (o ContainerGroupResponsePropertiesOutput) ToContainerGroupResponsePropertiesOutputWithContext(ctx context.Context) ContainerGroupResponsePropertiesOutput {
-	return o
-}
-
-func (o ContainerGroupResponsePropertiesOutput) ToContainerGroupResponsePropertiesPtrOutput() ContainerGroupResponsePropertiesPtrOutput {
-	return o.ToContainerGroupResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerGroupResponsePropertiesOutput) ToContainerGroupResponsePropertiesPtrOutputWithContext(ctx context.Context) ContainerGroupResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) *ContainerGroupResponseProperties {
-		return &v
-	}).(ContainerGroupResponsePropertiesPtrOutput)
-}
-
-// The containers within the container group.
-func (o ContainerGroupResponsePropertiesOutput) Containers() ContainerResponseArrayOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) []ContainerResponse { return v.Containers }).(ContainerResponseArrayOutput)
-}
-
-// The diagnostic information for a container group.
-func (o ContainerGroupResponsePropertiesOutput) Diagnostics() ContainerGroupDiagnosticsResponsePtrOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) *ContainerGroupDiagnosticsResponse { return v.Diagnostics }).(ContainerGroupDiagnosticsResponsePtrOutput)
-}
-
-// The DNS config information for a container group.
-func (o ContainerGroupResponsePropertiesOutput) DnsConfig() DnsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) *DnsConfigurationResponse { return v.DnsConfig }).(DnsConfigurationResponsePtrOutput)
-}
-
-// The encryption properties for a container group.
-func (o ContainerGroupResponsePropertiesOutput) EncryptionProperties() EncryptionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) *EncryptionPropertiesResponse { return v.EncryptionProperties }).(EncryptionPropertiesResponsePtrOutput)
-}
-
-// The image registry credentials by which the container group is created from.
-func (o ContainerGroupResponsePropertiesOutput) ImageRegistryCredentials() ImageRegistryCredentialResponseArrayOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) []ImageRegistryCredentialResponse {
-		return v.ImageRegistryCredentials
-	}).(ImageRegistryCredentialResponseArrayOutput)
-}
-
-// The init containers for a container group.
-func (o ContainerGroupResponsePropertiesOutput) InitContainers() InitContainerDefinitionResponseArrayOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) []InitContainerDefinitionResponse { return v.InitContainers }).(InitContainerDefinitionResponseArrayOutput)
-}
-
-// The instance view of the container group. Only valid in response.
-func (o ContainerGroupResponsePropertiesOutput) InstanceView() ContainerGroupResponseInstanceViewOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) ContainerGroupResponseInstanceView { return v.InstanceView }).(ContainerGroupResponseInstanceViewOutput)
-}
-
-// The IP address type of the container group.
-func (o ContainerGroupResponsePropertiesOutput) IpAddress() IpAddressResponsePtrOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) *IpAddressResponse { return v.IpAddress }).(IpAddressResponsePtrOutput)
-}
-
-// The network profile information for a container group.
-func (o ContainerGroupResponsePropertiesOutput) NetworkProfile() ContainerGroupNetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) *ContainerGroupNetworkProfileResponse {
-		return v.NetworkProfile
-	}).(ContainerGroupNetworkProfileResponsePtrOutput)
-}
-
-// The operating system type required by the containers in the container group.
-func (o ContainerGroupResponsePropertiesOutput) OsType() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) string { return v.OsType }).(pulumi.StringOutput)
-}
-
-// The provisioning state of the container group. This only appears in the response.
-func (o ContainerGroupResponsePropertiesOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Restart policy for all containers within the container group.
-// - `Always` Always restart
-// - `OnFailure` Restart on failure
-// - `Never` Never restart
-func (o ContainerGroupResponsePropertiesOutput) RestartPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) *string { return v.RestartPolicy }).(pulumi.StringPtrOutput)
-}
-
-// The SKU for a container group.
-func (o ContainerGroupResponsePropertiesOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) *string { return v.Sku }).(pulumi.StringPtrOutput)
-}
-
-// The list of volumes that can be mounted by containers in this container group.
-func (o ContainerGroupResponsePropertiesOutput) Volumes() VolumeResponseArrayOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) []VolumeResponse { return v.Volumes }).(VolumeResponseArrayOutput)
-}
-
-type ContainerGroupResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerGroupResponseProperties)(nil)).Elem()
-}
-
-func (o ContainerGroupResponsePropertiesPtrOutput) ToContainerGroupResponsePropertiesPtrOutput() ContainerGroupResponsePropertiesPtrOutput {
-	return o
-}
-
-func (o ContainerGroupResponsePropertiesPtrOutput) ToContainerGroupResponsePropertiesPtrOutputWithContext(ctx context.Context) ContainerGroupResponsePropertiesPtrOutput {
-	return o
-}
-
-func (o ContainerGroupResponsePropertiesPtrOutput) Elem() ContainerGroupResponsePropertiesOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) ContainerGroupResponseProperties { return *v }).(ContainerGroupResponsePropertiesOutput)
-}
-
-// The containers within the container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) Containers() ContainerResponseArrayOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) []ContainerResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Containers
-	}).(ContainerResponseArrayOutput)
-}
-
-// The diagnostic information for a container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) Diagnostics() ContainerGroupDiagnosticsResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *ContainerGroupDiagnosticsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Diagnostics
-	}).(ContainerGroupDiagnosticsResponsePtrOutput)
-}
-
-// The DNS config information for a container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) DnsConfig() DnsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *DnsConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DnsConfig
-	}).(DnsConfigurationResponsePtrOutput)
-}
-
-// The encryption properties for a container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) EncryptionProperties() EncryptionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *EncryptionPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionProperties
-	}).(EncryptionPropertiesResponsePtrOutput)
-}
-
-// The image registry credentials by which the container group is created from.
-func (o ContainerGroupResponsePropertiesPtrOutput) ImageRegistryCredentials() ImageRegistryCredentialResponseArrayOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) []ImageRegistryCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ImageRegistryCredentials
-	}).(ImageRegistryCredentialResponseArrayOutput)
-}
-
-// The init containers for a container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) InitContainers() InitContainerDefinitionResponseArrayOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) []InitContainerDefinitionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.InitContainers
-	}).(InitContainerDefinitionResponseArrayOutput)
-}
-
-// The instance view of the container group. Only valid in response.
-func (o ContainerGroupResponsePropertiesPtrOutput) InstanceView() ContainerGroupResponseInstanceViewPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *ContainerGroupResponseInstanceView {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceView
-	}).(ContainerGroupResponseInstanceViewPtrOutput)
-}
-
-// The IP address type of the container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) IpAddress() IpAddressResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *IpAddressResponse {
-		if v == nil {
-			return nil
-		}
-		return v.IpAddress
-	}).(IpAddressResponsePtrOutput)
-}
-
-// The network profile information for a container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) NetworkProfile() ContainerGroupNetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *ContainerGroupNetworkProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkProfile
-	}).(ContainerGroupNetworkProfileResponsePtrOutput)
-}
-
-// The operating system type required by the containers in the container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OsType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state of the container group. This only appears in the response.
-func (o ContainerGroupResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Restart policy for all containers within the container group.
-// - `Always` Always restart
-// - `OnFailure` Restart on failure
-// - `Never` Never restart
-func (o ContainerGroupResponsePropertiesPtrOutput) RestartPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RestartPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU for a container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sku
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of volumes that can be mounted by containers in this container group.
-func (o ContainerGroupResponsePropertiesPtrOutput) Volumes() VolumeResponseArrayOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) []VolumeResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Volumes
-	}).(VolumeResponseArrayOutput)
-}
-
 // The container Http Get settings, for liveness or readiness probe
 type ContainerHttpGet struct {
 	// The path to probe.
@@ -3409,133 +3012,6 @@ func (o ContainerProbeResponsePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The container instance properties.
-type ContainerPropertiesResponse struct {
-	// The commands to execute within the container instance in exec form.
-	Command []string `pulumi:"command"`
-	// The environment variables to set in the container instance.
-	EnvironmentVariables []EnvironmentVariableResponse `pulumi:"environmentVariables"`
-	// The name of the image used to create the container instance.
-	Image string `pulumi:"image"`
-	// The instance view of the container instance. Only valid in response.
-	InstanceView ContainerPropertiesResponseInstanceView `pulumi:"instanceView"`
-	// The liveness probe.
-	LivenessProbe *ContainerProbeResponse `pulumi:"livenessProbe"`
-	// The exposed ports on the container instance.
-	Ports []ContainerPortResponse `pulumi:"ports"`
-	// The readiness probe.
-	ReadinessProbe *ContainerProbeResponse `pulumi:"readinessProbe"`
-	// The resource requirements of the container instance.
-	Resources ResourceRequirementsResponse `pulumi:"resources"`
-	// The volume mounts available to the container instance.
-	VolumeMounts []VolumeMountResponse `pulumi:"volumeMounts"`
-}
-
-// ContainerPropertiesResponseInput is an input type that accepts ContainerPropertiesResponseArgs and ContainerPropertiesResponseOutput values.
-// You can construct a concrete instance of `ContainerPropertiesResponseInput` via:
-//
-//          ContainerPropertiesResponseArgs{...}
-type ContainerPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToContainerPropertiesResponseOutput() ContainerPropertiesResponseOutput
-	ToContainerPropertiesResponseOutputWithContext(context.Context) ContainerPropertiesResponseOutput
-}
-
-// The container instance properties.
-type ContainerPropertiesResponseArgs struct {
-	// The commands to execute within the container instance in exec form.
-	Command pulumi.StringArrayInput `pulumi:"command"`
-	// The environment variables to set in the container instance.
-	EnvironmentVariables EnvironmentVariableResponseArrayInput `pulumi:"environmentVariables"`
-	// The name of the image used to create the container instance.
-	Image pulumi.StringInput `pulumi:"image"`
-	// The instance view of the container instance. Only valid in response.
-	InstanceView ContainerPropertiesResponseInstanceViewInput `pulumi:"instanceView"`
-	// The liveness probe.
-	LivenessProbe ContainerProbeResponsePtrInput `pulumi:"livenessProbe"`
-	// The exposed ports on the container instance.
-	Ports ContainerPortResponseArrayInput `pulumi:"ports"`
-	// The readiness probe.
-	ReadinessProbe ContainerProbeResponsePtrInput `pulumi:"readinessProbe"`
-	// The resource requirements of the container instance.
-	Resources ResourceRequirementsResponseInput `pulumi:"resources"`
-	// The volume mounts available to the container instance.
-	VolumeMounts VolumeMountResponseArrayInput `pulumi:"volumeMounts"`
-}
-
-func (ContainerPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPropertiesResponse)(nil)).Elem()
-}
-
-func (i ContainerPropertiesResponseArgs) ToContainerPropertiesResponseOutput() ContainerPropertiesResponseOutput {
-	return i.ToContainerPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerPropertiesResponseArgs) ToContainerPropertiesResponseOutputWithContext(ctx context.Context) ContainerPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesResponseOutput)
-}
-
-// The container instance properties.
-type ContainerPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ContainerPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPropertiesResponse)(nil)).Elem()
-}
-
-func (o ContainerPropertiesResponseOutput) ToContainerPropertiesResponseOutput() ContainerPropertiesResponseOutput {
-	return o
-}
-
-func (o ContainerPropertiesResponseOutput) ToContainerPropertiesResponseOutputWithContext(ctx context.Context) ContainerPropertiesResponseOutput {
-	return o
-}
-
-// The commands to execute within the container instance in exec form.
-func (o ContainerPropertiesResponseOutput) Command() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) []string { return v.Command }).(pulumi.StringArrayOutput)
-}
-
-// The environment variables to set in the container instance.
-func (o ContainerPropertiesResponseOutput) EnvironmentVariables() EnvironmentVariableResponseArrayOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) []EnvironmentVariableResponse { return v.EnvironmentVariables }).(EnvironmentVariableResponseArrayOutput)
-}
-
-// The name of the image used to create the container instance.
-func (o ContainerPropertiesResponseOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) string { return v.Image }).(pulumi.StringOutput)
-}
-
-// The instance view of the container instance. Only valid in response.
-func (o ContainerPropertiesResponseOutput) InstanceView() ContainerPropertiesResponseInstanceViewOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) ContainerPropertiesResponseInstanceView { return v.InstanceView }).(ContainerPropertiesResponseInstanceViewOutput)
-}
-
-// The liveness probe.
-func (o ContainerPropertiesResponseOutput) LivenessProbe() ContainerProbeResponsePtrOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) *ContainerProbeResponse { return v.LivenessProbe }).(ContainerProbeResponsePtrOutput)
-}
-
-// The exposed ports on the container instance.
-func (o ContainerPropertiesResponseOutput) Ports() ContainerPortResponseArrayOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) []ContainerPortResponse { return v.Ports }).(ContainerPortResponseArrayOutput)
-}
-
-// The readiness probe.
-func (o ContainerPropertiesResponseOutput) ReadinessProbe() ContainerProbeResponsePtrOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) *ContainerProbeResponse { return v.ReadinessProbe }).(ContainerProbeResponsePtrOutput)
-}
-
-// The resource requirements of the container instance.
-func (o ContainerPropertiesResponseOutput) Resources() ResourceRequirementsResponseOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) ResourceRequirementsResponse { return v.Resources }).(ResourceRequirementsResponseOutput)
-}
-
-// The volume mounts available to the container instance.
-func (o ContainerPropertiesResponseOutput) VolumeMounts() VolumeMountResponseArrayOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) []VolumeMountResponse { return v.VolumeMounts }).(VolumeMountResponseArrayOutput)
-}
-
 // The instance view of the container instance. Only valid in response.
 type ContainerPropertiesResponseInstanceView struct {
 	// Current container instance state.
@@ -3620,10 +3096,26 @@ func (o ContainerPropertiesResponseInstanceViewOutput) RestartCount() pulumi.Int
 
 // A container instance.
 type ContainerResponse struct {
+	// The commands to execute within the container instance in exec form.
+	Command []string `pulumi:"command"`
+	// The environment variables to set in the container instance.
+	EnvironmentVariables []EnvironmentVariableResponse `pulumi:"environmentVariables"`
+	// The name of the image used to create the container instance.
+	Image string `pulumi:"image"`
+	// The instance view of the container instance. Only valid in response.
+	InstanceView ContainerPropertiesResponseInstanceView `pulumi:"instanceView"`
+	// The liveness probe.
+	LivenessProbe *ContainerProbeResponse `pulumi:"livenessProbe"`
 	// The user-provided name of the container instance.
 	Name string `pulumi:"name"`
-	// The properties of the container instance.
-	Properties ContainerPropertiesResponse `pulumi:"properties"`
+	// The exposed ports on the container instance.
+	Ports []ContainerPortResponse `pulumi:"ports"`
+	// The readiness probe.
+	ReadinessProbe *ContainerProbeResponse `pulumi:"readinessProbe"`
+	// The resource requirements of the container instance.
+	Resources ResourceRequirementsResponse `pulumi:"resources"`
+	// The volume mounts available to the container instance.
+	VolumeMounts []VolumeMountResponse `pulumi:"volumeMounts"`
 }
 
 // ContainerResponseInput is an input type that accepts ContainerResponseArgs and ContainerResponseOutput values.
@@ -3639,10 +3131,26 @@ type ContainerResponseInput interface {
 
 // A container instance.
 type ContainerResponseArgs struct {
+	// The commands to execute within the container instance in exec form.
+	Command pulumi.StringArrayInput `pulumi:"command"`
+	// The environment variables to set in the container instance.
+	EnvironmentVariables EnvironmentVariableResponseArrayInput `pulumi:"environmentVariables"`
+	// The name of the image used to create the container instance.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The instance view of the container instance. Only valid in response.
+	InstanceView ContainerPropertiesResponseInstanceViewInput `pulumi:"instanceView"`
+	// The liveness probe.
+	LivenessProbe ContainerProbeResponsePtrInput `pulumi:"livenessProbe"`
 	// The user-provided name of the container instance.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the container instance.
-	Properties ContainerPropertiesResponseInput `pulumi:"properties"`
+	// The exposed ports on the container instance.
+	Ports ContainerPortResponseArrayInput `pulumi:"ports"`
+	// The readiness probe.
+	ReadinessProbe ContainerProbeResponsePtrInput `pulumi:"readinessProbe"`
+	// The resource requirements of the container instance.
+	Resources ResourceRequirementsResponseInput `pulumi:"resources"`
+	// The volume mounts available to the container instance.
+	VolumeMounts VolumeMountResponseArrayInput `pulumi:"volumeMounts"`
 }
 
 func (ContainerResponseArgs) ElementType() reflect.Type {
@@ -3697,14 +3205,54 @@ func (o ContainerResponseOutput) ToContainerResponseOutputWithContext(ctx contex
 	return o
 }
 
+// The commands to execute within the container instance in exec form.
+func (o ContainerResponseOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerResponse) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to set in the container instance.
+func (o ContainerResponseOutput) EnvironmentVariables() EnvironmentVariableResponseArrayOutput {
+	return o.ApplyT(func(v ContainerResponse) []EnvironmentVariableResponse { return v.EnvironmentVariables }).(EnvironmentVariableResponseArrayOutput)
+}
+
+// The name of the image used to create the container instance.
+func (o ContainerResponseOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerResponse) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The instance view of the container instance. Only valid in response.
+func (o ContainerResponseOutput) InstanceView() ContainerPropertiesResponseInstanceViewOutput {
+	return o.ApplyT(func(v ContainerResponse) ContainerPropertiesResponseInstanceView { return v.InstanceView }).(ContainerPropertiesResponseInstanceViewOutput)
+}
+
+// The liveness probe.
+func (o ContainerResponseOutput) LivenessProbe() ContainerProbeResponsePtrOutput {
+	return o.ApplyT(func(v ContainerResponse) *ContainerProbeResponse { return v.LivenessProbe }).(ContainerProbeResponsePtrOutput)
+}
+
 // The user-provided name of the container instance.
 func (o ContainerResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties of the container instance.
-func (o ContainerResponseOutput) Properties() ContainerPropertiesResponseOutput {
-	return o.ApplyT(func(v ContainerResponse) ContainerPropertiesResponse { return v.Properties }).(ContainerPropertiesResponseOutput)
+// The exposed ports on the container instance.
+func (o ContainerResponseOutput) Ports() ContainerPortResponseArrayOutput {
+	return o.ApplyT(func(v ContainerResponse) []ContainerPortResponse { return v.Ports }).(ContainerPortResponseArrayOutput)
+}
+
+// The readiness probe.
+func (o ContainerResponseOutput) ReadinessProbe() ContainerProbeResponsePtrOutput {
+	return o.ApplyT(func(v ContainerResponse) *ContainerProbeResponse { return v.ReadinessProbe }).(ContainerProbeResponsePtrOutput)
+}
+
+// The resource requirements of the container instance.
+func (o ContainerResponseOutput) Resources() ResourceRequirementsResponseOutput {
+	return o.ApplyT(func(v ContainerResponse) ResourceRequirementsResponse { return v.Resources }).(ResourceRequirementsResponseOutput)
+}
+
+// The volume mounts available to the container instance.
+func (o ContainerResponseOutput) VolumeMounts() VolumeMountResponseArrayOutput {
+	return o.ApplyT(func(v ContainerResponse) []VolumeMountResponse { return v.VolumeMounts }).(VolumeMountResponseArrayOutput)
 }
 
 type ContainerResponseArrayOutput struct{ *pulumi.OutputState }
@@ -5911,10 +5459,18 @@ func (o InitContainerDefinitionArrayOutput) Index(i pulumi.IntInput) InitContain
 
 // The init container definition.
 type InitContainerDefinitionResponse struct {
+	// The command to execute within the init container in exec form.
+	Command []string `pulumi:"command"`
+	// The environment variables to set in the init container.
+	EnvironmentVariables []EnvironmentVariableResponse `pulumi:"environmentVariables"`
+	// The image of the init container.
+	Image *string `pulumi:"image"`
+	// The instance view of the init container. Only valid in response.
+	InstanceView InitContainerPropertiesDefinitionResponseInstanceView `pulumi:"instanceView"`
 	// The name for the init container.
 	Name string `pulumi:"name"`
-	// The properties for the init container.
-	Properties InitContainerPropertiesDefinitionResponse `pulumi:"properties"`
+	// The volume mounts available to the init container.
+	VolumeMounts []VolumeMountResponse `pulumi:"volumeMounts"`
 }
 
 // InitContainerDefinitionResponseInput is an input type that accepts InitContainerDefinitionResponseArgs and InitContainerDefinitionResponseOutput values.
@@ -5930,10 +5486,18 @@ type InitContainerDefinitionResponseInput interface {
 
 // The init container definition.
 type InitContainerDefinitionResponseArgs struct {
+	// The command to execute within the init container in exec form.
+	Command pulumi.StringArrayInput `pulumi:"command"`
+	// The environment variables to set in the init container.
+	EnvironmentVariables EnvironmentVariableResponseArrayInput `pulumi:"environmentVariables"`
+	// The image of the init container.
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// The instance view of the init container. Only valid in response.
+	InstanceView InitContainerPropertiesDefinitionResponseInstanceViewInput `pulumi:"instanceView"`
 	// The name for the init container.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The properties for the init container.
-	Properties InitContainerPropertiesDefinitionResponseInput `pulumi:"properties"`
+	// The volume mounts available to the init container.
+	VolumeMounts VolumeMountResponseArrayInput `pulumi:"volumeMounts"`
 }
 
 func (InitContainerDefinitionResponseArgs) ElementType() reflect.Type {
@@ -5988,14 +5552,36 @@ func (o InitContainerDefinitionResponseOutput) ToInitContainerDefinitionResponse
 	return o
 }
 
+// The command to execute within the init container in exec form.
+func (o InitContainerDefinitionResponseOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InitContainerDefinitionResponse) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to set in the init container.
+func (o InitContainerDefinitionResponseOutput) EnvironmentVariables() EnvironmentVariableResponseArrayOutput {
+	return o.ApplyT(func(v InitContainerDefinitionResponse) []EnvironmentVariableResponse { return v.EnvironmentVariables }).(EnvironmentVariableResponseArrayOutput)
+}
+
+// The image of the init container.
+func (o InitContainerDefinitionResponseOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InitContainerDefinitionResponse) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// The instance view of the init container. Only valid in response.
+func (o InitContainerDefinitionResponseOutput) InstanceView() InitContainerPropertiesDefinitionResponseInstanceViewOutput {
+	return o.ApplyT(func(v InitContainerDefinitionResponse) InitContainerPropertiesDefinitionResponseInstanceView {
+		return v.InstanceView
+	}).(InitContainerPropertiesDefinitionResponseInstanceViewOutput)
+}
+
 // The name for the init container.
 func (o InitContainerDefinitionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v InitContainerDefinitionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties for the init container.
-func (o InitContainerDefinitionResponseOutput) Properties() InitContainerPropertiesDefinitionResponseOutput {
-	return o.ApplyT(func(v InitContainerDefinitionResponse) InitContainerPropertiesDefinitionResponse { return v.Properties }).(InitContainerPropertiesDefinitionResponseOutput)
+// The volume mounts available to the init container.
+func (o InitContainerDefinitionResponseOutput) VolumeMounts() VolumeMountResponseArrayOutput {
+	return o.ApplyT(func(v InitContainerDefinitionResponse) []VolumeMountResponse { return v.VolumeMounts }).(VolumeMountResponseArrayOutput)
 }
 
 type InitContainerDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
@@ -6016,101 +5602,6 @@ func (o InitContainerDefinitionResponseArrayOutput) Index(i pulumi.IntInput) Ini
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InitContainerDefinitionResponse {
 		return vs[0].([]InitContainerDefinitionResponse)[vs[1].(int)]
 	}).(InitContainerDefinitionResponseOutput)
-}
-
-// The init container definition properties.
-type InitContainerPropertiesDefinitionResponse struct {
-	// The command to execute within the init container in exec form.
-	Command []string `pulumi:"command"`
-	// The environment variables to set in the init container.
-	EnvironmentVariables []EnvironmentVariableResponse `pulumi:"environmentVariables"`
-	// The image of the init container.
-	Image *string `pulumi:"image"`
-	// The instance view of the init container. Only valid in response.
-	InstanceView InitContainerPropertiesDefinitionResponseInstanceView `pulumi:"instanceView"`
-	// The volume mounts available to the init container.
-	VolumeMounts []VolumeMountResponse `pulumi:"volumeMounts"`
-}
-
-// InitContainerPropertiesDefinitionResponseInput is an input type that accepts InitContainerPropertiesDefinitionResponseArgs and InitContainerPropertiesDefinitionResponseOutput values.
-// You can construct a concrete instance of `InitContainerPropertiesDefinitionResponseInput` via:
-//
-//          InitContainerPropertiesDefinitionResponseArgs{...}
-type InitContainerPropertiesDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToInitContainerPropertiesDefinitionResponseOutput() InitContainerPropertiesDefinitionResponseOutput
-	ToInitContainerPropertiesDefinitionResponseOutputWithContext(context.Context) InitContainerPropertiesDefinitionResponseOutput
-}
-
-// The init container definition properties.
-type InitContainerPropertiesDefinitionResponseArgs struct {
-	// The command to execute within the init container in exec form.
-	Command pulumi.StringArrayInput `pulumi:"command"`
-	// The environment variables to set in the init container.
-	EnvironmentVariables EnvironmentVariableResponseArrayInput `pulumi:"environmentVariables"`
-	// The image of the init container.
-	Image pulumi.StringPtrInput `pulumi:"image"`
-	// The instance view of the init container. Only valid in response.
-	InstanceView InitContainerPropertiesDefinitionResponseInstanceViewInput `pulumi:"instanceView"`
-	// The volume mounts available to the init container.
-	VolumeMounts VolumeMountResponseArrayInput `pulumi:"volumeMounts"`
-}
-
-func (InitContainerPropertiesDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InitContainerPropertiesDefinitionResponse)(nil)).Elem()
-}
-
-func (i InitContainerPropertiesDefinitionResponseArgs) ToInitContainerPropertiesDefinitionResponseOutput() InitContainerPropertiesDefinitionResponseOutput {
-	return i.ToInitContainerPropertiesDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i InitContainerPropertiesDefinitionResponseArgs) ToInitContainerPropertiesDefinitionResponseOutputWithContext(ctx context.Context) InitContainerPropertiesDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InitContainerPropertiesDefinitionResponseOutput)
-}
-
-// The init container definition properties.
-type InitContainerPropertiesDefinitionResponseOutput struct{ *pulumi.OutputState }
-
-func (InitContainerPropertiesDefinitionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InitContainerPropertiesDefinitionResponse)(nil)).Elem()
-}
-
-func (o InitContainerPropertiesDefinitionResponseOutput) ToInitContainerPropertiesDefinitionResponseOutput() InitContainerPropertiesDefinitionResponseOutput {
-	return o
-}
-
-func (o InitContainerPropertiesDefinitionResponseOutput) ToInitContainerPropertiesDefinitionResponseOutputWithContext(ctx context.Context) InitContainerPropertiesDefinitionResponseOutput {
-	return o
-}
-
-// The command to execute within the init container in exec form.
-func (o InitContainerPropertiesDefinitionResponseOutput) Command() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v InitContainerPropertiesDefinitionResponse) []string { return v.Command }).(pulumi.StringArrayOutput)
-}
-
-// The environment variables to set in the init container.
-func (o InitContainerPropertiesDefinitionResponseOutput) EnvironmentVariables() EnvironmentVariableResponseArrayOutput {
-	return o.ApplyT(func(v InitContainerPropertiesDefinitionResponse) []EnvironmentVariableResponse {
-		return v.EnvironmentVariables
-	}).(EnvironmentVariableResponseArrayOutput)
-}
-
-// The image of the init container.
-func (o InitContainerPropertiesDefinitionResponseOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InitContainerPropertiesDefinitionResponse) *string { return v.Image }).(pulumi.StringPtrOutput)
-}
-
-// The instance view of the init container. Only valid in response.
-func (o InitContainerPropertiesDefinitionResponseOutput) InstanceView() InitContainerPropertiesDefinitionResponseInstanceViewOutput {
-	return o.ApplyT(func(v InitContainerPropertiesDefinitionResponse) InitContainerPropertiesDefinitionResponseInstanceView {
-		return v.InstanceView
-	}).(InitContainerPropertiesDefinitionResponseInstanceViewOutput)
-}
-
-// The volume mounts available to the init container.
-func (o InitContainerPropertiesDefinitionResponseOutput) VolumeMounts() VolumeMountResponseArrayOutput {
-	return o.ApplyT(func(v InitContainerPropertiesDefinitionResponse) []VolumeMountResponse { return v.VolumeMounts }).(VolumeMountResponseArrayOutput)
 }
 
 // The instance view of the init container. Only valid in response.
@@ -8353,8 +7844,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerGroupNetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(ContainerGroupResponseInstanceViewPtrOutput{})
-	pulumi.RegisterOutputType(ContainerGroupResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(ContainerGroupResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerHttpGetOutput{})
 	pulumi.RegisterOutputType(ContainerHttpGetPtrOutput{})
 	pulumi.RegisterOutputType(ContainerHttpGetResponseOutput{})
@@ -8367,7 +7856,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerProbePtrOutput{})
 	pulumi.RegisterOutputType(ContainerProbeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerProbeResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(ContainerResponseOutput{})
 	pulumi.RegisterOutputType(ContainerResponseArrayOutput{})
@@ -8402,7 +7890,6 @@ func init() {
 	pulumi.RegisterOutputType(InitContainerDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(InitContainerDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(InitContainerDefinitionResponseArrayOutput{})
-	pulumi.RegisterOutputType(InitContainerPropertiesDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(InitContainerPropertiesDefinitionResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(IpAddressOutput{})
 	pulumi.RegisterOutputType(IpAddressPtrOutput{})

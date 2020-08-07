@@ -22,20 +22,24 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the service end point policy
-      * `provisioning_state` (`str`) - The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-      * `resource_guid` (`str`) - The resource GUID property of the service endpoint policy resource.
-      * `service_endpoint_policy_definitions` (`list`) - A collection of service endpoint policy definitions of the service endpoint policy.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the service endpoint policy definition
-          * `description` (`str`) - A description for this rule. Restricted to 140 chars.
-          * `provisioning_state` (`str`) - The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `service` (`str`) - service endpoint name.
-          * `service_resources` (`list`) - A list of service resources.
+    The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    The resource GUID property of the service endpoint policy resource.
+    """
+    service_endpoint_policy_definitions: pulumi.Output[list]
+    """
+    A collection of service endpoint policy definitions of the service endpoint policy.
+      * `description` (`str`) - A description for this rule. Restricted to 140 chars.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+      * `service` (`str`) - service endpoint name.
+      * `service_resources` (`list`) - A list of service resources.
     """
     tags: pulumi.Output[dict]
     """
@@ -101,7 +105,6 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
             __props__['resource_guid'] = resource_guid
             __props__['service_endpoint_policy_definitions'] = service_endpoint_policy_definitions
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(ServiceEndpointPolicy, __self__).__init__(
             'azurerm:network/v20180701:ServiceEndpointPolicy',

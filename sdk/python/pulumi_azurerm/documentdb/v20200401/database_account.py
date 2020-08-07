@@ -10,6 +10,79 @@ from ... import _utilities, _tables
 
 
 class DatabaseAccount(pulumi.CustomResource):
+    api_properties: pulumi.Output[dict]
+    """
+    API specific properties.
+      * `server_version` (`str`) - Describes the ServerVersion of an a MongoDB account.
+    """
+    capabilities: pulumi.Output[list]
+    """
+    List of Cosmos DB capabilities for the account
+      * `name` (`str`) - Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+    """
+    connector_offer: pulumi.Output[str]
+    """
+    The cassandra connector offer type for the Cosmos DB database C* account.
+    """
+    consistency_policy: pulumi.Output[dict]
+    """
+    The consistency policy for the Cosmos DB database account.
+      * `default_consistency_level` (`str`) - The default consistency level and configuration settings of the Cosmos DB account.
+      * `max_interval_in_seconds` (`float`) - When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+      * `max_staleness_prefix` (`float`) - When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+    """
+    database_account_offer_type: pulumi.Output[str]
+    """
+    The offer type for the Cosmos DB database account. Default value: Standard.
+    """
+    disable_key_based_metadata_write_access: pulumi.Output[bool]
+    """
+    Disable write operations on metadata resources (databases, containers, throughput) via account keys
+    """
+    document_endpoint: pulumi.Output[str]
+    """
+    The connection endpoint for the Cosmos DB database account.
+    """
+    enable_analytical_storage: pulumi.Output[bool]
+    """
+    Flag to indicate whether to enable storage analytics.
+    """
+    enable_automatic_failover: pulumi.Output[bool]
+    """
+    Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+    """
+    enable_cassandra_connector: pulumi.Output[bool]
+    """
+    Enables the cassandra connector on the Cosmos DB C* account
+    """
+    enable_free_tier: pulumi.Output[bool]
+    """
+    Flag to indicate whether Free Tier is enabled.
+    """
+    enable_multiple_write_locations: pulumi.Output[bool]
+    """
+    Enables the account to write in multiple locations
+    """
+    failover_policies: pulumi.Output[list]
+    """
+    An array that contains the regions ordered by their failover priorities.
+      * `failover_priority` (`float`) - The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+      * `id` (`str`) - The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+      * `location_name` (`str`) - The name of the region in which the database account exists.
+    """
+    ip_rules: pulumi.Output[list]
+    """
+    List of IpRules.
+      * `ip_address_or_range` (`str`) - A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
+    """
+    is_virtual_network_filter_enabled: pulumi.Output[bool]
+    """
+    Flag to indicate whether to enable/disable Virtual Network ACL rules.
+    """
+    key_vault_key_uri: pulumi.Output[str]
+    """
+    The URI of the key vault
+    """
     kind: pulumi.Output[str]
     """
     Indicates the type of database account. This can only be set at database account creation.
@@ -18,72 +91,51 @@ class DatabaseAccount(pulumi.CustomResource):
     """
     The location of the resource group to which the resource belongs.
     """
+    locations: pulumi.Output[list]
+    """
+    An array that contains all of the locations enabled for the Cosmos DB account.
+      * `document_endpoint` (`str`) - The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
+      * `failover_priority` (`float`) - The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+      * `id` (`str`) - The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+      * `is_zone_redundant` (`bool`) - Flag to indicate whether or not this region is an AvailabilityZone region
+      * `location_name` (`str`) - The name of the region.
+      * `provisioning_state` (`str`) - The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
+    """
     name: pulumi.Output[str]
     """
     The name of the ARM resource.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint_connections: pulumi.Output[list]
     """
-    Properties for the database account.
-      * `api_properties` (`dict`) - API specific properties.
-        * `server_version` (`str`) - Describes the ServerVersion of an a MongoDB account.
+    List of Private Endpoint Connections configured for the Cosmos DB account.
+      * `id` (`str`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+      * `name` (`str`) - The name of the resource
+      * `private_endpoint` (`dict`) - Private endpoint which the connection belongs to.
+        * `id` (`str`) - Resource id of the private endpoint.
 
-      * `capabilities` (`list`) - List of Cosmos DB capabilities for the account
-        * `name` (`str`) - Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+      * `private_link_service_connection_state` (`dict`) - Connection State of the Private Endpoint Connection.
+        * `actions_required` (`str`) - Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+        * `status` (`str`) - The private link service connection status.
 
-      * `connector_offer` (`str`) - The cassandra connector offer type for the Cosmos DB database C* account.
-      * `consistency_policy` (`dict`) - The consistency policy for the Cosmos DB database account.
-        * `default_consistency_level` (`str`) - The default consistency level and configuration settings of the Cosmos DB account.
-        * `max_interval_in_seconds` (`float`) - When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        * `max_staleness_prefix` (`float`) - When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-
-      * `database_account_offer_type` (`str`) - The offer type for the Cosmos DB database account. Default value: Standard.
-      * `disable_key_based_metadata_write_access` (`bool`) - Disable write operations on metadata resources (databases, containers, throughput) via account keys
-      * `document_endpoint` (`str`) - The connection endpoint for the Cosmos DB database account.
-      * `enable_analytical_storage` (`bool`) - Flag to indicate whether to enable storage analytics.
-      * `enable_automatic_failover` (`bool`) - Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-      * `enable_cassandra_connector` (`bool`) - Enables the cassandra connector on the Cosmos DB C* account
-      * `enable_free_tier` (`bool`) - Flag to indicate whether Free Tier is enabled.
-      * `enable_multiple_write_locations` (`bool`) - Enables the account to write in multiple locations
-      * `failover_policies` (`list`) - An array that contains the regions ordered by their failover priorities.
-        * `failover_priority` (`float`) - The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-        * `id` (`str`) - The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-        * `location_name` (`str`) - The name of the region in which the database account exists.
-
-      * `ip_rules` (`list`) - List of IpRules.
-        * `ip_address_or_range` (`str`) - A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
-
-      * `is_virtual_network_filter_enabled` (`bool`) - Flag to indicate whether to enable/disable Virtual Network ACL rules.
-      * `key_vault_key_uri` (`str`) - The URI of the key vault
-      * `locations` (`list`) - An array that contains all of the locations enabled for the Cosmos DB account.
-        * `document_endpoint` (`str`) - The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
-        * `failover_priority` (`float`) - The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-        * `id` (`str`) - The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-        * `is_zone_redundant` (`bool`) - Flag to indicate whether or not this region is an AvailabilityZone region
-        * `location_name` (`str`) - The name of the region.
-        * `provisioning_state` (`str`) - The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-
-      * `private_endpoint_connections` (`list`) - List of Private Endpoint Connections configured for the Cosmos DB account.
-        * `id` (`str`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        * `name` (`str`) - The name of the resource
-        * `properties` (`dict`) - Resource properties.
-          * `private_endpoint` (`dict`) - Private endpoint which the connection belongs to.
-            * `id` (`str`) - Resource id of the private endpoint.
-
-          * `private_link_service_connection_state` (`dict`) - Connection State of the Private Endpoint Connection.
-            * `actions_required` (`str`) - Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-            * `status` (`str`) - The private link service connection status.
-
-        * `type` (`str`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
+      * `type` (`str`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
+    """
+    public_network_access: pulumi.Output[str]
+    """
+    Whether requests from Public Network are allowed
+    """
+    read_locations: pulumi.Output[list]
+    """
+    An array that contains of the read locations enabled for the Cosmos DB account.
+      * `document_endpoint` (`str`) - The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
+      * `failover_priority` (`float`) - The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+      * `id` (`str`) - The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+      * `is_zone_redundant` (`bool`) - Flag to indicate whether or not this region is an AvailabilityZone region
+      * `location_name` (`str`) - The name of the region.
       * `provisioning_state` (`str`) - The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-      * `public_network_access` (`str`) - Whether requests from Public Network are allowed
-      * `read_locations` (`list`) - An array that contains of the read locations enabled for the Cosmos DB account.
-      * `virtual_network_rules` (`list`) - List of Virtual Network ACL rules configured for the Cosmos DB account.
-        * `id` (`str`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-        * `ignore_missing_v_net_service_endpoint` (`bool`) - Create firewall rule before the virtual network has vnet service endpoint enabled.
-
-      * `write_locations` (`list`) - An array that contains the write location for the Cosmos DB account.
     """
     tags: pulumi.Output[dict]
     """
@@ -92,6 +144,22 @@ class DatabaseAccount(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of Azure resource.
+    """
+    virtual_network_rules: pulumi.Output[list]
+    """
+    List of Virtual Network ACL rules configured for the Cosmos DB account.
+      * `id` (`str`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+      * `ignore_missing_v_net_service_endpoint` (`bool`) - Create firewall rule before the virtual network has vnet service endpoint enabled.
+    """
+    write_locations: pulumi.Output[list]
+    """
+    An array that contains the write location for the Cosmos DB account.
+      * `document_endpoint` (`str`) - The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
+      * `failover_priority` (`float`) - The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+      * `id` (`str`) - The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+      * `is_zone_redundant` (`bool`) - Flag to indicate whether or not this region is an AvailabilityZone region
+      * `location_name` (`str`) - The name of the region.
+      * `provisioning_state` (`str`) - The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
     """
     def __init__(__self__, resource_name, opts=None, api_properties=None, capabilities=None, connector_offer=None, consistency_policy=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, public_network_access=None, resource_group_name=None, tags=None, virtual_network_rules=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -199,8 +267,13 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['virtual_network_rules'] = virtual_network_rules
-            __props__['properties'] = None
+            __props__['document_endpoint'] = None
+            __props__['failover_policies'] = None
+            __props__['private_endpoint_connections'] = None
+            __props__['provisioning_state'] = None
+            __props__['read_locations'] = None
             __props__['type'] = None
+            __props__['write_locations'] = None
         super(DatabaseAccount, __self__).__init__(
             'azurerm:documentdb/v20200401:DatabaseAccount',
             resource_name,

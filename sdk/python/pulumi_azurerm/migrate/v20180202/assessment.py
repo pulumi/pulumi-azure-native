@@ -10,42 +10,101 @@ from ... import _utilities, _tables
 
 
 class Assessment(pulumi.CustomResource):
+    azure_hybrid_use_benefit: pulumi.Output[str]
+    """
+    AHUB discount on windows virtual machines.
+    """
+    azure_location: pulumi.Output[str]
+    """
+    Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+    """
+    azure_offer_code: pulumi.Output[str]
+    """
+    Offer code according to which cost estimation is done.
+    """
+    azure_pricing_tier: pulumi.Output[str]
+    """
+    Pricing tier for Size evaluation.
+    """
+    azure_storage_redundancy: pulumi.Output[str]
+    """
+    Storage Redundancy type offered by Azure.
+    """
+    confidence_rating_in_percentage: pulumi.Output[float]
+    """
+    Confidence rating percentage for assessment. Can be in the range [0, 100].
+    """
+    created_timestamp: pulumi.Output[str]
+    """
+    Time when this project was created. Date-Time represented in ISO-8601 format.
+    """
+    currency: pulumi.Output[str]
+    """
+    Currency to report prices in.
+    """
+    discount_percentage: pulumi.Output[float]
+    """
+    Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+    """
     e_tag: pulumi.Output[str]
     """
     For optimistic concurrency control.
+    """
+    monthly_bandwidth_cost: pulumi.Output[float]
+    """
+    Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+    """
+    monthly_compute_cost: pulumi.Output[float]
+    """
+    Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+    """
+    monthly_storage_cost: pulumi.Output[float]
+    """
+    Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
     """
     name: pulumi.Output[str]
     """
     Unique name of an assessment.
     """
-    properties: pulumi.Output[dict]
+    number_of_machines: pulumi.Output[float]
     """
-    Properties of the assessment.
-      * `azure_hybrid_use_benefit` (`str`) - AHUB discount on windows virtual machines.
-      * `azure_location` (`str`) - Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-      * `azure_offer_code` (`str`) - Offer code according to which cost estimation is done.
-      * `azure_pricing_tier` (`str`) - Pricing tier for Size evaluation.
-      * `azure_storage_redundancy` (`str`) - Storage Redundancy type offered by Azure.
-      * `confidence_rating_in_percentage` (`float`) - Confidence rating percentage for assessment. Can be in the range [0, 100].
-      * `created_timestamp` (`str`) - Time when this project was created. Date-Time represented in ISO-8601 format.
-      * `currency` (`str`) - Currency to report prices in.
-      * `discount_percentage` (`float`) - Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-      * `monthly_bandwidth_cost` (`float`) - Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-      * `monthly_compute_cost` (`float`) - Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-      * `monthly_storage_cost` (`float`) - Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-      * `number_of_machines` (`float`) - Number of assessed machines part of this assessment.
-      * `percentile` (`str`) - Percentile of performance data used to recommend Azure size.
-      * `prices_timestamp` (`str`) - Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
-      * `scaling_factor` (`float`) - Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-      * `sizing_criterion` (`str`) - Assessment sizing criterion.
-      * `stage` (`str`) - User configurable setting that describes the status of the assessment.
-      * `status` (`str`) - Whether the assessment has been created and is valid.
-      * `time_range` (`str`) - Time range of performance data used to recommend a size.
-      * `updated_timestamp` (`str`) - Time when this project was last updated. Date-Time represented in ISO-8601 format.
+    Number of assessed machines part of this assessment.
+    """
+    percentile: pulumi.Output[str]
+    """
+    Percentile of performance data used to recommend Azure size.
+    """
+    prices_timestamp: pulumi.Output[str]
+    """
+    Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+    """
+    scaling_factor: pulumi.Output[float]
+    """
+    Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+    """
+    sizing_criterion: pulumi.Output[str]
+    """
+    Assessment sizing criterion.
+    """
+    stage: pulumi.Output[str]
+    """
+    User configurable setting that describes the status of the assessment.
+    """
+    status: pulumi.Output[str]
+    """
+    Whether the assessment has been created and is valid.
+    """
+    time_range: pulumi.Output[str]
+    """
+    Time range of performance data used to recommend a size.
     """
     type: pulumi.Output[str]
     """
     Type of the object = [Microsoft.Migrate/projects/groups/assessments].
+    """
+    updated_timestamp: pulumi.Output[str]
+    """
+    Time when this project was last updated. Date-Time represented in ISO-8601 format.
     """
     def __init__(__self__, resource_name, opts=None, azure_hybrid_use_benefit=None, azure_location=None, azure_offer_code=None, azure_pricing_tier=None, azure_storage_redundancy=None, currency=None, discount_percentage=None, e_tag=None, group_name=None, name=None, percentile=None, project_name=None, resource_group_name=None, scaling_factor=None, sizing_criterion=None, stage=None, time_range=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -137,8 +196,16 @@ class Assessment(pulumi.CustomResource):
             if time_range is None:
                 raise TypeError("Missing required property 'time_range'")
             __props__['time_range'] = time_range
-            __props__['properties'] = None
+            __props__['confidence_rating_in_percentage'] = None
+            __props__['created_timestamp'] = None
+            __props__['monthly_bandwidth_cost'] = None
+            __props__['monthly_compute_cost'] = None
+            __props__['monthly_storage_cost'] = None
+            __props__['number_of_machines'] = None
+            __props__['prices_timestamp'] = None
+            __props__['status'] = None
             __props__['type'] = None
+            __props__['updated_timestamp'] = None
         super(Assessment, __self__).__init__(
             'azurerm:migrate/v20180202:Assessment',
             resource_name,

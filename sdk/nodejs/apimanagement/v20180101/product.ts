@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,37 @@ export class Product extends pulumi.CustomResource {
     }
 
     /**
+     * whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
+     */
+    public readonly approvalRequired!: pulumi.Output<boolean | undefined>;
+    /**
+     * Product description. May include HTML formatting tags.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Product name.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Product entity contract properties.
+     * whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.ProductContractPropertiesResponse>;
+    public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
+     */
+    public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
+     */
+    public readonly subscriptionsLimit!: pulumi.Output<number | undefined>;
+    /**
+     * Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
+     */
+    public readonly terms!: pulumi.Output<string | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -84,7 +106,6 @@ export class Product extends pulumi.CustomResource {
             inputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
             inputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
             inputs["terms"] = args ? args.terms : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

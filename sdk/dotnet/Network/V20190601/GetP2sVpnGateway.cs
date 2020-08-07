@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Network.V20190601
     public sealed class GetP2sVpnGatewayResult
     {
         /// <summary>
+        /// The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? CustomRoutes;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -52,9 +56,13 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the P2SVpnGateway.
+        /// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
         /// </summary>
-        public readonly Outputs.P2SVpnGatewayPropertiesResponseResult Properties;
+        public readonly Outputs.SubResourceResponseResult? P2SVpnServerConfiguration;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +71,61 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VirtualHub to which the gateway belongs.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualHub;
+        /// <summary>
+        /// The reference of the address space resource which represents Address space for P2S VpnClient.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? VpnClientAddressPool;
+        /// <summary>
+        /// All P2S VPN clients' connection health status.
+        /// </summary>
+        public readonly Outputs.VpnClientConnectionHealthResponseResult VpnClientConnectionHealth;
+        /// <summary>
+        /// The scale unit for this p2s vpn gateway.
+        /// </summary>
+        public readonly int? VpnGatewayScaleUnit;
 
         [OutputConstructor]
         private GetP2sVpnGatewayResult(
+            Outputs.AddressSpaceResponseResult? customRoutes,
+
             string etag,
 
             string location,
 
             string name,
 
-            Outputs.P2SVpnGatewayPropertiesResponseResult properties,
+            Outputs.SubResourceResponseResult? p2SVpnServerConfiguration,
+
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualHub,
+
+            Outputs.AddressSpaceResponseResult? vpnClientAddressPool,
+
+            Outputs.VpnClientConnectionHealthResponseResult vpnClientConnectionHealth,
+
+            int? vpnGatewayScaleUnit)
         {
+            CustomRoutes = customRoutes;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            P2SVpnServerConfiguration = p2SVpnServerConfiguration;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            VirtualHub = virtualHub;
+            VpnClientAddressPool = vpnClientAddressPool;
+            VpnClientConnectionHealth = vpnClientConnectionHealth;
+            VpnGatewayScaleUnit = vpnGatewayScaleUnit;
         }
     }
 }

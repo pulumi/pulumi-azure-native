@@ -40,13 +40,21 @@ namespace Pulumi.AzureRM.Authorization.V20160401
     public sealed class GetPolicyAssignmentResult
     {
         /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties for the policy assignment.
+        /// The ID of the policy definition.
         /// </summary>
-        public readonly Outputs.PolicyAssignmentPropertiesResponseResult Properties;
+        public readonly string? PolicyDefinitionId;
+        /// <summary>
+        /// The scope for the policy assignment.
+        /// </summary>
+        public readonly string? Scope;
         /// <summary>
         /// The type of the policy assignment.
         /// </summary>
@@ -54,14 +62,20 @@ namespace Pulumi.AzureRM.Authorization.V20160401
 
         [OutputConstructor]
         private GetPolicyAssignmentResult(
+            string? displayName,
+
             string? name,
 
-            Outputs.PolicyAssignmentPropertiesResponseResult properties,
+            string? policyDefinitionId,
+
+            string? scope,
 
             string? type)
         {
+            DisplayName = displayName;
             Name = name;
-            Properties = properties;
+            PolicyDefinitionId = policyDefinitionId;
+            Scope = scope;
             Type = type;
         }
     }

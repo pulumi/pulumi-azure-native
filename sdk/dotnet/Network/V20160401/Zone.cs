@@ -27,16 +27,28 @@ namespace Pulumi.AzureRM.Network.V20160401
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        [Output("maxNumberOfRecordSets")]
+        public Output<int?> MaxNumberOfRecordSets { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the zone.
+        /// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ZonePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nameServers")]
+        public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
+
+        /// <summary>
+        /// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        [Output("numberOfRecordSets")]
+        public Output<int?> NumberOfRecordSets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

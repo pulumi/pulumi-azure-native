@@ -40,9 +40,37 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190601
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        public readonly string? ApplicationInsights;
+        /// <summary>
+        /// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        public readonly string? ContainerRegistry;
+        /// <summary>
+        /// The creation time of the machine learning workspace in ISO8601 format.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// The description of this workspace.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+        /// </summary>
+        public readonly string? DiscoveryUrl;
+        /// <summary>
+        /// The friendly name for this workspace. This name in mutable
+        /// </summary>
+        public readonly string? FriendlyName;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponseResult? Identity;
+        /// <summary>
+        /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        public readonly string? KeyVault;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -52,9 +80,13 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the machine learning workspace.
+        /// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
-        public readonly Outputs.WorkspacePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        public readonly string? StorageAccount;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -63,27 +95,58 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190601
         /// Specifies the type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The immutable id associated with this workspace.
+        /// </summary>
+        public readonly string WorkspaceId;
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string? applicationInsights,
+
+            string? containerRegistry,
+
+            string creationTime,
+
+            string? description,
+
+            string? discoveryUrl,
+
+            string? friendlyName,
+
             Outputs.IdentityResponseResult? identity,
+
+            string? keyVault,
 
             string? location,
 
             string name,
 
-            Outputs.WorkspacePropertiesResponseResult properties,
+            string provisioningState,
+
+            string? storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string workspaceId)
         {
+            ApplicationInsights = applicationInsights;
+            ContainerRegistry = containerRegistry;
+            CreationTime = creationTime;
+            Description = description;
+            DiscoveryUrl = discoveryUrl;
+            FriendlyName = friendlyName;
             Identity = identity;
+            KeyVault = keyVault;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            StorageAccount = storageAccount;
             Tags = tags;
             Type = type;
+            WorkspaceId = workspaceId;
         }
     }
 }

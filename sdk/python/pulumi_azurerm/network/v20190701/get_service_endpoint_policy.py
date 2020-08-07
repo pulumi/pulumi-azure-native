@@ -13,7 +13,7 @@ class GetServiceEndpointPolicyResult:
     """
     Service End point policy resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, name=None, provisioning_state=None, resource_guid=None, service_endpoint_policy_definitions=None, subnets=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +32,29 @@ class GetServiceEndpointPolicyResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the service end point policy.
+        The provisioning state of the service endpoint policy resource.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the service endpoint policy resource.
+        """
+        if service_endpoint_policy_definitions and not isinstance(service_endpoint_policy_definitions, list):
+            raise TypeError("Expected argument 'service_endpoint_policy_definitions' to be a list")
+        __self__.service_endpoint_policy_definitions = service_endpoint_policy_definitions
+        """
+        A collection of service endpoint policy definitions of the service endpoint policy.
+        """
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        __self__.subnets = subnets
+        """
+        A collection of references to subnets.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -61,7 +79,10 @@ class AwaitableGetServiceEndpointPolicyResult(GetServiceEndpointPolicyResult):
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
+            service_endpoint_policy_definitions=self.service_endpoint_policy_definitions,
+            subnets=self.subnets,
             tags=self.tags,
             type=self.type)
 
@@ -86,6 +107,9 @@ def get_service_endpoint_policy(name=None, resource_group_name=None, opts=None):
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
+        service_endpoint_policy_definitions=__ret__.get('serviceEndpointPolicyDefinitions'),
+        subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

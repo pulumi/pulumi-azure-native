@@ -10,24 +10,41 @@ from ... import _utilities, _tables
 
 
 class View(pulumi.CustomResource):
+    changed: pulumi.Output[str]
+    """
+    Date time when view was last modified.
+    """
+    created: pulumi.Output[str]
+    """
+    Date time when view was created.
+    """
+    definition: pulumi.Output[str]
+    """
+    View definition.
+    """
+    display_name: pulumi.Output[dict]
+    """
+    Localized display name for the view.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    tenant_id: pulumi.Output[str]
     """
-    The view in Customer 360 web application.
-      * `changed` (`str`) - Date time when view was last modified.
-      * `created` (`str`) - Date time when view was created.
-      * `definition` (`str`) - View definition.
-      * `display_name` (`dict`) - Localized display name for the view.
-      * `tenant_id` (`str`) - the hub name.
-      * `user_id` (`str`) - the user ID.
-      * `view_name` (`str`) - Name of the view.
+    the hub name.
     """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    user_id: pulumi.Output[str]
+    """
+    the user ID.
+    """
+    view_name: pulumi.Output[str]
+    """
+    Name of the view.
     """
     def __init__(__self__, resource_name, opts=None, definition=None, display_name=None, hub_name=None, name=None, resource_group_name=None, user_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -73,8 +90,11 @@ class View(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['user_id'] = user_id
-            __props__['properties'] = None
+            __props__['changed'] = None
+            __props__['created'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
+            __props__['view_name'] = None
         super(View, __self__).__init__(
             'azurerm:customerinsights/v20170101:View',
             resource_name,

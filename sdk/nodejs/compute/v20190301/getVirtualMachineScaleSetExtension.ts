@@ -41,11 +41,43 @@ export interface GetVirtualMachineScaleSetExtensionArgs {
  */
 export interface GetVirtualMachineScaleSetExtensionResult {
     /**
+     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+     */
+    readonly autoUpgradeMinorVersion?: boolean;
+    /**
+     * If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+     */
+    readonly forceUpdateTag?: string;
+    /**
      * The name of the extension.
      */
     readonly name?: string;
     /**
-     * Describes the properties of a Virtual Machine Scale Set Extension.
+     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly properties: outputs.compute.v20190301.VirtualMachineScaleSetExtensionPropertiesResponse;
+    readonly protectedSettings?: {[key: string]: any};
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    readonly provisionAfterExtensions?: string[];
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * The name of the extension handler publisher.
+     */
+    readonly publisher?: string;
+    /**
+     * Json formatted public settings for the extension.
+     */
+    readonly settings?: {[key: string]: any};
+    /**
+     * Specifies the type of the extension; an example is "CustomScriptExtension".
+     */
+    readonly type?: string;
+    /**
+     * Specifies the version of the script handler.
+     */
+    readonly typeHandlerVersion?: string;
 }

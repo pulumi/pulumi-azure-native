@@ -10,55 +10,90 @@ from ... import _utilities, _tables
 
 
 class RosettaNetProcessConfiguration(pulumi.CustomResource):
+    activity_settings: pulumi.Output[dict]
+    """
+    The RosettaNet process configuration activity settings.
+      * `acknowledgment_of_receipt_settings` (`dict`) - The RosettaNet ProcessConfiguration acknowledgement settings.
+        * `is_non_repudiation_required` (`bool`) - The non-repudiation is required or not.
+        * `time_to_acknowledge_in_seconds` (`float`) - The time to acknowledge in seconds.
+
+      * `activity_behavior` (`dict`) - The RosettaNet ProcessConfiguration activity behavior.
+        * `action_type` (`str`) - The value indicating whether the RosettaNet PIP is used for a single action.
+        * `is_authorization_required` (`bool`) - The value indicating whether authorization is required.
+        * `is_secured_transport_required` (`bool`) - The value indicating whether secured transport is required.
+        * `non_repudiation_of_origin_and_content` (`bool`) - The value indicating whether non-repudiation is for origin and content.
+        * `persistent_confidentiality_scope` (`str`) - The persistent confidentiality encryption scope.
+        * `response_type` (`str`) - The value indicating whether the RosettaNet PIP communication is synchronous.
+        * `retry_count` (`float`) - The value indicating retry count.
+        * `time_to_perform_in_seconds` (`float`) - The time to perform in seconds.
+
+      * `activity_type` (`str`) - The RosettaNet ProcessConfiguration activity type.
+    """
+    changed_time: pulumi.Output[str]
+    """
+    The changed time.
+    """
+    created_time: pulumi.Output[str]
+    """
+    The created time.
+    """
+    description: pulumi.Output[str]
+    """
+    The integration account RosettaNet ProcessConfiguration properties.
+    """
+    initiator_role_settings: pulumi.Output[dict]
+    """
+    The RosettaNet initiator role settings.
+      * `action` (`str`) - The action name.
+      * `business_document` (`dict`) - The RosettaNet ProcessConfiguration business document.
+        * `description` (`str`) - The business document description.
+        * `name` (`str`) - The business document name.
+        * `version` (`str`) - The business document version.
+
+      * `description` (`str`) - The description.
+      * `role` (`str`) - The role name.
+      * `role_type` (`str`) - The RosettaNet ProcessConfiguration role type.
+      * `service` (`str`) - The service name.
+      * `service_classification` (`str`) - The service classification name.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    The metadata.
     """
     name: pulumi.Output[str]
     """
     Gets the resource name.
     """
-    properties: pulumi.Output[dict]
+    process_code: pulumi.Output[str]
     """
-    The integration account RosettaNet process configuration properties.
-      * `activity_settings` (`dict`) - The RosettaNet process configuration activity settings.
-        * `acknowledgment_of_receipt_settings` (`dict`) - The RosettaNet ProcessConfiguration acknowledgement settings.
-          * `is_non_repudiation_required` (`bool`) - The non-repudiation is required or not.
-          * `time_to_acknowledge_in_seconds` (`float`) - The time to acknowledge in seconds.
+    The integration account RosettaNet process code.
+    """
+    process_name: pulumi.Output[str]
+    """
+    The integration account RosettaNet process name.
+    """
+    process_version: pulumi.Output[str]
+    """
+    The integration account RosettaNet process version.
+    """
+    responder_role_settings: pulumi.Output[dict]
+    """
+    The RosettaNet responder role settings.
+      * `action` (`str`) - The action name.
+      * `business_document` (`dict`) - The RosettaNet ProcessConfiguration business document.
+        * `description` (`str`) - The business document description.
+        * `name` (`str`) - The business document name.
+        * `version` (`str`) - The business document version.
 
-        * `activity_behavior` (`dict`) - The RosettaNet ProcessConfiguration activity behavior.
-          * `action_type` (`str`) - The value indicating whether the RosettaNet PIP is used for a single action.
-          * `is_authorization_required` (`bool`) - The value indicating whether authorization is required.
-          * `is_secured_transport_required` (`bool`) - The value indicating whether secured transport is required.
-          * `non_repudiation_of_origin_and_content` (`bool`) - The value indicating whether non-repudiation is for origin and content.
-          * `persistent_confidentiality_scope` (`str`) - The persistent confidentiality encryption scope.
-          * `response_type` (`str`) - The value indicating whether the RosettaNet PIP communication is synchronous.
-          * `retry_count` (`float`) - The value indicating retry count.
-          * `time_to_perform_in_seconds` (`float`) - The time to perform in seconds.
-
-        * `activity_type` (`str`) - The RosettaNet ProcessConfiguration activity type.
-
-      * `changed_time` (`str`) - The changed time.
-      * `created_time` (`str`) - The created time.
-      * `description` (`str`) - The integration account RosettaNet ProcessConfiguration properties.
-      * `initiator_role_settings` (`dict`) - The RosettaNet initiator role settings.
-        * `action` (`str`) - The action name.
-        * `business_document` (`dict`) - The RosettaNet ProcessConfiguration business document.
-          * `description` (`str`) - The business document description.
-          * `name` (`str`) - The business document name.
-          * `version` (`str`) - The business document version.
-
-        * `description` (`str`) - The description.
-        * `role` (`str`) - The role name.
-        * `role_type` (`str`) - The RosettaNet ProcessConfiguration role type.
-        * `service` (`str`) - The service name.
-        * `service_classification` (`str`) - The service classification name.
-
-      * `metadata` (`dict`) - The metadata.
-      * `process_code` (`str`) - The integration account RosettaNet process code.
-      * `process_name` (`str`) - The integration account RosettaNet process name.
-      * `process_version` (`str`) - The integration account RosettaNet process version.
-      * `responder_role_settings` (`dict`) - The RosettaNet responder role settings.
+      * `description` (`str`) - The description.
+      * `role` (`str`) - The role name.
+      * `role_type` (`str`) - The RosettaNet ProcessConfiguration role type.
+      * `service` (`str`) - The service name.
+      * `service_classification` (`str`) - The service classification name.
     """
     tags: pulumi.Output[dict]
     """
@@ -168,7 +203,8 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'responder_role_settings'")
             __props__['responder_role_settings'] = responder_role_settings
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['changed_time'] = None
+            __props__['created_time'] = None
             __props__['type'] = None
         super(RosettaNetProcessConfiguration, __self__).__init__(
             'azurerm:logic/v20160601:RosettaNetProcessConfiguration',

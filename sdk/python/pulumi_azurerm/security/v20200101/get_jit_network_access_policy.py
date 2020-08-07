@@ -10,7 +10,7 @@ from ... import _utilities, _tables
 
 
 class GetJitNetworkAccessPolicyResult:
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -29,14 +29,26 @@ class GetJitNetworkAccessPolicyResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Gets the provisioning state of the Just-in-Time policy.
+        """
+        if requests and not isinstance(requests, list):
+            raise TypeError("Expected argument 'requests' to be a list")
+        __self__.requests = requests
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if virtual_machines and not isinstance(virtual_machines, list):
+            raise TypeError("Expected argument 'virtual_machines' to be a list")
+        __self__.virtual_machines = virtual_machines
+        """
+        Configurations for Microsoft.Compute/virtualMachines resource type.
         """
 
 
@@ -49,8 +61,10 @@ class AwaitableGetJitNetworkAccessPolicyResult(GetJitNetworkAccessPolicyResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provisioning_state=self.provisioning_state,
+            requests=self.requests,
+            type=self.type,
+            virtual_machines=self.virtual_machines)
 
 
 def get_jit_network_access_policy(asc_location=None, name=None, resource_group_name=None, opts=None):
@@ -75,5 +89,7 @@ def get_jit_network_access_policy(asc_location=None, name=None, resource_group_n
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provisioning_state=__ret__.get('provisioningState'),
+        requests=__ret__.get('requests'),
+        type=__ret__.get('type'),
+        virtual_machines=__ret__.get('virtualMachines'))

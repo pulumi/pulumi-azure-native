@@ -46,29 +46,127 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+        /// </summary>
+        public readonly string AllocationState;
+        /// <summary>
+        /// The time at which the cluster entered its current allocation state.
+        /// </summary>
+        public readonly string AllocationStateTransitionTime;
+        /// <summary>
+        /// The time when the cluster was created.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// The number of compute nodes currently assigned to the cluster.
+        /// </summary>
+        public readonly int CurrentNodeCount;
+        /// <summary>
+        /// Collection of errors encountered by various compute nodes during node setup.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BatchAIErrorResponseResult> Errors;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the Cluster.
+        /// Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
         /// </summary>
-        public readonly Outputs.ClusterPropertiesResponseResult Properties;
+        public readonly Outputs.NodeSetupResponseResult? NodeSetup;
+        /// <summary>
+        /// Counts of various node states on the cluster.
+        /// </summary>
+        public readonly Outputs.NodeStateCountsResponseResult NodeStateCounts;
+        /// <summary>
+        /// Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Time when the provisioning state was changed.
+        /// </summary>
+        public readonly string ProvisioningStateTransitionTime;
+        /// <summary>
+        /// Scale settings of the cluster.
+        /// </summary>
+        public readonly Outputs.ScaleSettingsResponseResult? ScaleSettings;
+        /// <summary>
+        /// Virtual network subnet resource ID the cluster nodes belong to.
+        /// </summary>
+        public readonly Outputs.ResourceIdResponseResult? Subnet;
         /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Administrator user account settings which can be used to SSH to compute nodes.
+        /// </summary>
+        public readonly Outputs.UserAccountSettingsResponseResult? UserAccountSettings;
+        /// <summary>
+        /// Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
+        /// </summary>
+        public readonly Outputs.VirtualMachineConfigurationResponseResult? VirtualMachineConfiguration;
+        /// <summary>
+        /// VM priority of cluster nodes.
+        /// </summary>
+        public readonly string? VmPriority;
+        /// <summary>
+        /// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
+        /// </summary>
+        public readonly string? VmSize;
 
         [OutputConstructor]
         private GetClusterResult(
+            string allocationState,
+
+            string allocationStateTransitionTime,
+
+            string creationTime,
+
+            int currentNodeCount,
+
+            ImmutableArray<Outputs.BatchAIErrorResponseResult> errors,
+
             string name,
 
-            Outputs.ClusterPropertiesResponseResult properties,
+            Outputs.NodeSetupResponseResult? nodeSetup,
 
-            string type)
+            Outputs.NodeStateCountsResponseResult nodeStateCounts,
+
+            string provisioningState,
+
+            string provisioningStateTransitionTime,
+
+            Outputs.ScaleSettingsResponseResult? scaleSettings,
+
+            Outputs.ResourceIdResponseResult? subnet,
+
+            string type,
+
+            Outputs.UserAccountSettingsResponseResult? userAccountSettings,
+
+            Outputs.VirtualMachineConfigurationResponseResult? virtualMachineConfiguration,
+
+            string? vmPriority,
+
+            string? vmSize)
         {
+            AllocationState = allocationState;
+            AllocationStateTransitionTime = allocationStateTransitionTime;
+            CreationTime = creationTime;
+            CurrentNodeCount = currentNodeCount;
+            Errors = errors;
             Name = name;
-            Properties = properties;
+            NodeSetup = nodeSetup;
+            NodeStateCounts = nodeStateCounts;
+            ProvisioningState = provisioningState;
+            ProvisioningStateTransitionTime = provisioningStateTransitionTime;
+            ScaleSettings = scaleSettings;
+            Subnet = subnet;
             Type = type;
+            UserAccountSettings = userAccountSettings;
+            VirtualMachineConfiguration = virtualMachineConfiguration;
+            VmPriority = vmPriority;
+            VmSize = vmSize;
         }
     }
 }

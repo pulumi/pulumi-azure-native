@@ -37,6 +37,10 @@ export class VirtualWAN extends pulumi.CustomResource {
     }
 
     /**
+     * Vpn encryption to be disabled or not.
+     */
+    public readonly disableVpnEncryption!: pulumi.Output<boolean | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +53,9 @@ export class VirtualWAN extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for VirtualWAN
+     * The provisioning state of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180401.VirtualWanPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +64,11 @@ export class VirtualWAN extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * List of VirtualHubs in the VirtualWAN.
+     */
+    public /*out*/ readonly virtualHubs!: pulumi.Output<outputs.network.v20180401.SubResourceResponse[]>;
+    public /*out*/ readonly vpnSites!: pulumi.Output<outputs.network.v20180401.SubResourceResponse[]>;
 
     /**
      * Create a VirtualWAN resource with the given unique name, arguments, and options.
@@ -91,8 +100,9 @@ export class VirtualWAN extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualHubs"] = undefined /*out*/;
+            inputs["vpnSites"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

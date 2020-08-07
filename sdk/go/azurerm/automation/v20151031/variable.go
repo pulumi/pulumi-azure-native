@@ -14,12 +14,20 @@ import (
 type Variable struct {
 	pulumi.CustomResourceState
 
+	// Gets or sets the creation time.
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Gets or sets the encrypted flag of the variable.
+	IsEncrypted pulumi.BoolPtrOutput `pulumi:"isEncrypted"`
+	// Gets or sets the last modified time.
+	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the properties of the variable.
-	Properties VariablePropertiesResponseOutput `pulumi:"properties"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Gets or sets the value of the variable.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewVariable registers a new resource with the given unique name, arguments, and options.
@@ -59,21 +67,37 @@ func GetVariable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Variable resources.
 type variableState struct {
+	// Gets or sets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets or sets the encrypted flag of the variable.
+	IsEncrypted *bool `pulumi:"isEncrypted"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Gets or sets the properties of the variable.
-	Properties *VariablePropertiesResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// Gets or sets the value of the variable.
+	Value *string `pulumi:"value"`
 }
 
 type VariableState struct {
+	// Gets or sets the creation time.
+	CreationTime pulumi.StringPtrInput
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput
+	// Gets or sets the encrypted flag of the variable.
+	IsEncrypted pulumi.BoolPtrInput
+	// Gets or sets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Gets or sets the properties of the variable.
-	Properties VariablePropertiesResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// Gets or sets the value of the variable.
+	Value pulumi.StringPtrInput
 }
 
 func (VariableState) ElementType() reflect.Type {

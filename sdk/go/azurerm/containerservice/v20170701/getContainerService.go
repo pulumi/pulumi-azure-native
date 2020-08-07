@@ -25,14 +25,30 @@ type LookupContainerServiceArgs struct {
 
 // Container service.
 type LookupContainerServiceResult struct {
+	// Properties of the agent pool.
+	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
+	// Properties to configure a custom container service cluster.
+	CustomProfile *ContainerServiceCustomProfileResponse `pulumi:"customProfile"`
+	// Profile for diagnostics in the container service cluster.
+	DiagnosticsProfile *ContainerServiceDiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// Profile for the container service master.
+	MasterProfile ContainerServiceMasterProfileResponse `pulumi:"masterProfile"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the container service.
-	Properties ContainerServicePropertiesResponse `pulumi:"properties"`
+	// Profile for the container service orchestrator.
+	OrchestratorProfile ContainerServiceOrchestratorProfileResponse `pulumi:"orchestratorProfile"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+	ServicePrincipalProfile *ContainerServiceServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Profile for Windows VMs in the container service cluster.
+	WindowsProfile *ContainerServiceWindowsProfileResponse `pulumi:"windowsProfile"`
 }

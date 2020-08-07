@@ -13,7 +13,19 @@ class GetServiceResult:
     """
     The service resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, correlation_scheme=None, default_move_cost=None, etag=None, location=None, name=None, partition_description=None, placement_constraints=None, provisioning_state=None, service_kind=None, service_load_metrics=None, service_package_activation_mode=None, service_placement_policies=None, service_type_name=None, tags=None, type=None):
+        if correlation_scheme and not isinstance(correlation_scheme, list):
+            raise TypeError("Expected argument 'correlation_scheme' to be a list")
+        __self__.correlation_scheme = correlation_scheme
+        """
+        A list that describes the correlation of the service with other services.
+        """
+        if default_move_cost and not isinstance(default_move_cost, str):
+            raise TypeError("Expected argument 'default_move_cost' to be a str")
+        __self__.default_move_cost = default_move_cost
+        """
+        Specifies the move cost for the service.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +44,53 @@ class GetServiceResult:
         """
         Azure resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partition_description and not isinstance(partition_description, dict):
+            raise TypeError("Expected argument 'partition_description' to be a dict")
+        __self__.partition_description = partition_description
         """
-        The service resource properties.
+        Describes how the service is partitioned.
+        """
+        if placement_constraints and not isinstance(placement_constraints, str):
+            raise TypeError("Expected argument 'placement_constraints' to be a str")
+        __self__.placement_constraints = placement_constraints
+        """
+        The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The current deployment or provisioning state, which only appears in the response
+        """
+        if service_kind and not isinstance(service_kind, str):
+            raise TypeError("Expected argument 'service_kind' to be a str")
+        __self__.service_kind = service_kind
+        """
+        The kind of service (Stateless or Stateful).
+        """
+        if service_load_metrics and not isinstance(service_load_metrics, list):
+            raise TypeError("Expected argument 'service_load_metrics' to be a list")
+        __self__.service_load_metrics = service_load_metrics
+        """
+        The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        """
+        if service_package_activation_mode and not isinstance(service_package_activation_mode, str):
+            raise TypeError("Expected argument 'service_package_activation_mode' to be a str")
+        __self__.service_package_activation_mode = service_package_activation_mode
+        """
+        The activation Mode of the service package
+        """
+        if service_placement_policies and not isinstance(service_placement_policies, list):
+            raise TypeError("Expected argument 'service_placement_policies' to be a list")
+        __self__.service_placement_policies = service_placement_policies
+        """
+        A list that describes the correlation of the service with other services.
+        """
+        if service_type_name and not isinstance(service_type_name, str):
+            raise TypeError("Expected argument 'service_type_name' to be a str")
+        __self__.service_type_name = service_type_name
+        """
+        The name of the service type
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +112,19 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            correlation_scheme=self.correlation_scheme,
+            default_move_cost=self.default_move_cost,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            partition_description=self.partition_description,
+            placement_constraints=self.placement_constraints,
+            provisioning_state=self.provisioning_state,
+            service_kind=self.service_kind,
+            service_load_metrics=self.service_load_metrics,
+            service_package_activation_mode=self.service_package_activation_mode,
+            service_placement_policies=self.service_placement_policies,
+            service_type_name=self.service_type_name,
             tags=self.tags,
             type=self.type)
 
@@ -87,9 +150,18 @@ def get_service(application_name=None, cluster_name=None, name=None, resource_gr
     __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20190301:getService', __args__, opts=opts).value
 
     return AwaitableGetServiceResult(
+        correlation_scheme=__ret__.get('correlationScheme'),
+        default_move_cost=__ret__.get('defaultMoveCost'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        partition_description=__ret__.get('partitionDescription'),
+        placement_constraints=__ret__.get('placementConstraints'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_kind=__ret__.get('serviceKind'),
+        service_load_metrics=__ret__.get('serviceLoadMetrics'),
+        service_package_activation_mode=__ret__.get('servicePackageActivationMode'),
+        service_placement_policies=__ret__.get('servicePlacementPolicies'),
+        service_type_name=__ret__.get('serviceTypeName'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

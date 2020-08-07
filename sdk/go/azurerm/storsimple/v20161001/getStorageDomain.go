@@ -27,10 +27,14 @@ type LookupStorageDomainArgs struct {
 
 // The storage domain.
 type LookupStorageDomainResult struct {
+	// The encryption key used to encrypt the data. This is a user secret.
+	EncryptionKey *AsymmetricEncryptedSecretResponse `pulumi:"encryptionKey"`
+	// The encryption status "Enabled | Disabled".
+	EncryptionStatus string `pulumi:"encryptionStatus"`
 	// The name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties StorageDomainPropertiesResponse `pulumi:"properties"`
+	// The storage account credentials.
+	StorageAccountCredentialIds []string `pulumi:"storageAccountCredentialIds"`
 	// The type.
 	Type string `pulumi:"type"`
 }

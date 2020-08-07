@@ -36,9 +36,17 @@ export interface GetVirtualHubArgs {
  */
 export interface GetVirtualHubResult {
     /**
+     * Address-prefix for this VirtualHub.
+     */
+    readonly addressPrefix?: string;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The expressRouteGateway associated with this VirtualHub.
+     */
+    readonly expressRouteGateway?: outputs.network.v20190601.SubResourceResponse;
     /**
      * Resource location.
      */
@@ -48,9 +56,17 @@ export interface GetVirtualHubResult {
      */
     readonly name: string;
     /**
-     * Properties of the virtual hub.
+     * The P2SVpnGateway associated with this VirtualHub.
      */
-    readonly properties: outputs.network.v20190601.VirtualHubPropertiesResponse;
+    readonly p2SVpnGateway?: outputs.network.v20190601.SubResourceResponse;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: string;
+    /**
+     * The routeTable associated with this virtual hub.
+     */
+    readonly routeTable?: outputs.network.v20190601.VirtualHubRouteTableResponse;
     /**
      * Resource tags.
      */
@@ -59,4 +75,16 @@ export interface GetVirtualHubResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * List of all vnet connections with this VirtualHub.
+     */
+    readonly virtualNetworkConnections?: outputs.network.v20190601.HubVirtualNetworkConnectionResponse[];
+    /**
+     * The VirtualWAN to which the VirtualHub belongs.
+     */
+    readonly virtualWan?: outputs.network.v20190601.SubResourceResponse;
+    /**
+     * The VpnGateway associated with this VirtualHub.
+     */
+    readonly vpnGateway?: outputs.network.v20190601.SubResourceResponse;
 }

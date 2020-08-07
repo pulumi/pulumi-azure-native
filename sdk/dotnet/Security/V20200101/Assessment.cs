@@ -15,16 +15,52 @@ namespace Pulumi.AzureRM.Security.V20200101
     public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>
+        /// Additional data regarding the assessment
+        /// </summary>
+        [Output("additionalData")]
+        public Output<ImmutableDictionary<string, string>?> AdditionalData { get; private set; } = null!;
+
+        /// <summary>
+        /// User friendly display name of the assessment
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Links relevant to the assessment
+        /// </summary>
+        [Output("links")]
+        public Output<Outputs.AssessmentLinksResponseResult?> Links { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes properties of an assessment metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<Outputs.SecurityAssessmentMetadataPropertiesResponseResult?> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes properties of an assessment.
+        /// Data regarding 3rd party partner integration
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SecurityAssessmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partnersData")]
+        public Output<Outputs.SecurityAssessmentPartnerDataResponseResult?> PartnersData { get; private set; } = null!;
+
+        /// <summary>
+        /// Details of the resource that was assessed
+        /// </summary>
+        [Output("resourceDetails")]
+        public Output<Outputs.ResourceDetailsResponseResult> ResourceDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// The result of the assessment
+        /// </summary>
+        [Output("status")]
+        public Output<Outputs.AssessmentStatusResponseResult> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

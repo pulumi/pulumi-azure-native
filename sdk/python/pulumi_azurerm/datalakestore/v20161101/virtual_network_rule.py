@@ -14,10 +14,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
     """
     The resource name.
     """
-    properties: pulumi.Output[dict]
+    subnet_id: pulumi.Output[str]
     """
-    The virtual network rule properties.
-      * `subnet_id` (`str`) - The resource identifier for the subnet.
+    The resource identifier for the subnet.
     """
     type: pulumi.Output[str]
     """
@@ -63,7 +62,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
             if subnet_id is None:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
-            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualNetworkRule, __self__).__init__(
             'azurerm:datalakestore/v20161101:VirtualNetworkRule',

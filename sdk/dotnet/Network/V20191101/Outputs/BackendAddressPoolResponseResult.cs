@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
     public sealed class BackendAddressPoolResponseResult
     {
         /// <summary>
+        /// An array of references to IP addresses defined in network interfaces.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> BackendIPConfigurations;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -22,13 +26,25 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// An array of references to load balancing rules that use this backend address pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> LoadBalancingRules;
+        /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of load balancer backend address pool.
+        /// A reference to an outbound rule that uses this backend address pool.
         /// </summary>
-        public readonly Outputs.BackendAddressPoolPropertiesFormatResponseResult? Properties;
+        public readonly Outputs.SubResourceResponseResult OutboundRule;
+        /// <summary>
+        /// An array of references to outbound rules that use this backend address pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> OutboundRules;
+        /// <summary>
+        /// The provisioning state of the backend address pool resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +52,32 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
 
         [OutputConstructor]
         private BackendAddressPoolResponseResult(
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> backendIPConfigurations,
+
             string etag,
 
             string? id,
 
+            ImmutableArray<Outputs.SubResourceResponseResult> loadBalancingRules,
+
             string? name,
 
-            Outputs.BackendAddressPoolPropertiesFormatResponseResult? properties,
+            Outputs.SubResourceResponseResult outboundRule,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> outboundRules,
+
+            string provisioningState,
 
             string type)
         {
+            BackendIPConfigurations = backendIPConfigurations;
             Etag = etag;
             Id = id;
+            LoadBalancingRules = loadBalancingRules;
             Name = name;
-            Properties = properties;
+            OutboundRule = outboundRule;
+            OutboundRules = outboundRules;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

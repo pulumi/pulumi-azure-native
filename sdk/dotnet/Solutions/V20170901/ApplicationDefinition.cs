@@ -15,16 +15,64 @@ namespace Pulumi.AzureRM.Solutions.V20170901
     public partial class ApplicationDefinition : Pulumi.CustomResource
     {
         /// <summary>
+        /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        /// </summary>
+        [Output("artifacts")]
+        public Output<ImmutableArray<Outputs.ApplicationArtifactResponseResult>> Artifacts { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application provider authorizations.
+        /// </summary>
+        [Output("authorizations")]
+        public Output<ImmutableArray<Outputs.ApplicationProviderAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+
+        /// <summary>
+        /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        /// </summary>
+        [Output("createUiDefinition")]
+        public Output<ImmutableDictionary<string, object>?> CreateUiDefinition { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application definition description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application definition display name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// A value indicating whether the package is enabled or not.
+        /// </summary>
+        [Output("isEnabled")]
+        public Output<string?> IsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application lock level.
+        /// </summary>
+        [Output("lockLevel")]
+        public Output<string> LockLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        /// </summary>
+        [Output("mainTemplate")]
+        public Output<ImmutableDictionary<string, object>?> MainTemplate { get; private set; } = null!;
 
         /// <summary>
         /// ID of the resource that manages this resource.
@@ -39,10 +87,10 @@ namespace Pulumi.AzureRM.Solutions.V20170901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The managed application definition properties.
+        /// The managed application definition package file Uri. Use this element
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationDefinitionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("packageFileUri")]
+        public Output<string?> PackageFileUri { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.

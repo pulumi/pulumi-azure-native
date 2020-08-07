@@ -10,42 +10,86 @@ from ... import _utilities, _tables
 
 
 class Prediction(pulumi.CustomResource):
+    auto_analyze: pulumi.Output[bool]
+    """
+    Whether do auto analyze.
+    """
+    description: pulumi.Output[dict]
+    """
+    Description of the prediction.
+    """
+    display_name: pulumi.Output[dict]
+    """
+    Display name of the prediction.
+    """
+    grades: pulumi.Output[list]
+    """
+    The prediction grades.
+      * `grade_name` (`str`) - Name of the grade.
+      * `max_score_threshold` (`float`) - Maximum score threshold.
+      * `min_score_threshold` (`float`) - Minimum score threshold.
+    """
+    involved_interaction_types: pulumi.Output[list]
+    """
+    Interaction types involved in the prediction.
+    """
+    involved_kpi_types: pulumi.Output[list]
+    """
+    KPI types involved in the prediction.
+    """
+    involved_relationships: pulumi.Output[list]
+    """
+    Relationships involved in the prediction.
+    """
+    mappings: pulumi.Output[dict]
+    """
+    Definition of the link mapping of prediction.
+      * `grade` (`str`) - The grade of the link mapping.
+      * `reason` (`str`) - The reason of the link mapping.
+      * `score` (`str`) - The score of the link mapping.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    negative_outcome_expression: pulumi.Output[str]
     """
-    The prediction definition.
-      * `auto_analyze` (`bool`) - Whether do auto analyze.
-      * `description` (`dict`) - Description of the prediction.
-      * `display_name` (`dict`) - Display name of the prediction.
-      * `grades` (`list`) - The prediction grades.
-        * `grade_name` (`str`) - Name of the grade.
-        * `max_score_threshold` (`float`) - Maximum score threshold.
-        * `min_score_threshold` (`float`) - Minimum score threshold.
-
-      * `involved_interaction_types` (`list`) - Interaction types involved in the prediction.
-      * `involved_kpi_types` (`list`) - KPI types involved in the prediction.
-      * `involved_relationships` (`list`) - Relationships involved in the prediction.
-      * `mappings` (`dict`) - Definition of the link mapping of prediction.
-        * `grade` (`str`) - The grade of the link mapping.
-        * `reason` (`str`) - The reason of the link mapping.
-        * `score` (`str`) - The score of the link mapping.
-
-      * `negative_outcome_expression` (`str`) - Negative outcome expression.
-      * `positive_outcome_expression` (`str`) - Positive outcome expression.
-      * `prediction_name` (`str`) - Name of the prediction.
-      * `primary_profile_type` (`str`) - Primary profile type.
-      * `provisioning_state` (`str`) - Provisioning state.
-      * `scope_expression` (`str`) - Scope expression.
-      * `score_label` (`str`) - Score label.
-      * `system_generated_entities` (`dict`) - System generated entities.
-        * `generated_interaction_types` (`list`) - Generated interaction types.
-        * `generated_kpis` (`dict`) - Generated KPIs.
-        * `generated_links` (`list`) - Generated links.
-
-      * `tenant_id` (`str`) - The hub name.
+    Negative outcome expression.
+    """
+    positive_outcome_expression: pulumi.Output[str]
+    """
+    Positive outcome expression.
+    """
+    prediction_name: pulumi.Output[str]
+    """
+    Name of the prediction.
+    """
+    primary_profile_type: pulumi.Output[str]
+    """
+    Primary profile type.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state.
+    """
+    scope_expression: pulumi.Output[str]
+    """
+    Scope expression.
+    """
+    score_label: pulumi.Output[str]
+    """
+    Score label.
+    """
+    system_generated_entities: pulumi.Output[dict]
+    """
+    System generated entities.
+      * `generated_interaction_types` (`list`) - Generated interaction types.
+      * `generated_kpis` (`dict`) - Generated KPIs.
+      * `generated_links` (`list`) - Generated links.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The hub name.
     """
     type: pulumi.Output[str]
     """
@@ -139,7 +183,10 @@ class Prediction(pulumi.CustomResource):
             if score_label is None:
                 raise TypeError("Missing required property 'score_label'")
             __props__['score_label'] = score_label
-            __props__['properties'] = None
+            __props__['prediction_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['system_generated_entities'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(Prediction, __self__).__init__(
             'azurerm:customerinsights/v20170426:Prediction',

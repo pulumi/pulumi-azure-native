@@ -13,18 +13,30 @@ class GetGatewayHostnameConfigurationResult:
     """
     Gateway hostname configuration details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, certificate_id=None, hostname=None, name=None, negotiate_client_certificate=None, type=None):
+        if certificate_id and not isinstance(certificate_id, str):
+            raise TypeError("Expected argument 'certificate_id' to be a str")
+        __self__.certificate_id = certificate_id
+        """
+        Identifier of Certificate entity that will be used for TLS connection establishment
+        """
+        if hostname and not isinstance(hostname, str):
+            raise TypeError("Expected argument 'hostname' to be a str")
+        __self__.hostname = hostname
+        """
+        Hostname value. Supports valid domain name, partial or full wildcard
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if negotiate_client_certificate and not isinstance(negotiate_client_certificate, bool):
+            raise TypeError("Expected argument 'negotiate_client_certificate' to be a bool")
+        __self__.negotiate_client_certificate = negotiate_client_certificate
         """
-        Gateway hostname configuration details.
+        Determines whether gateway requests client certificate
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetGatewayHostnameConfigurationResult(GetGatewayHostnameConfigura
         if False:
             yield self
         return GetGatewayHostnameConfigurationResult(
+            certificate_id=self.certificate_id,
+            hostname=self.hostname,
             name=self.name,
-            properties=self.properties,
+            negotiate_client_certificate=self.negotiate_client_certificate,
             type=self.type)
 
 
@@ -66,6 +80,8 @@ def get_gateway_hostname_configuration(gateway_id=None, name=None, resource_grou
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getGatewayHostnameConfiguration', __args__, opts=opts).value
 
     return AwaitableGetGatewayHostnameConfigurationResult(
+        certificate_id=__ret__.get('certificateId'),
+        hostname=__ret__.get('hostname'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        negotiate_client_certificate=__ret__.get('negotiateClientCertificate'),
         type=__ret__.get('type'))

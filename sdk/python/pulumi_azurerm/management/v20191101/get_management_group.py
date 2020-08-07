@@ -13,18 +13,48 @@ class GetManagementGroupResult:
     """
     The management group details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, children=None, details=None, display_name=None, name=None, path=None, roles=None, tenant_id=None, type=None):
+        if children and not isinstance(children, list):
+            raise TypeError("Expected argument 'children' to be a list")
+        __self__.children = children
+        """
+        The list of children.
+        """
+        if details and not isinstance(details, dict):
+            raise TypeError("Expected argument 'details' to be a dict")
+        __self__.details = details
+        """
+        The details of a management group.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The friendly name of the management group.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if path and not isinstance(path, list):
+            raise TypeError("Expected argument 'path' to be a list")
+        __self__.path = path
         """
-        The generic properties of a management group.
+        The hierarchial path from the root group to the current group.
+        """
+        if roles and not isinstance(roles, list):
+            raise TypeError("Expected argument 'roles' to be a list")
+        __self__.roles = roles
+        """
+        The role definitions associated with the management group.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +70,13 @@ class AwaitableGetManagementGroupResult(GetManagementGroupResult):
         if False:
             yield self
         return GetManagementGroupResult(
+            children=self.children,
+            details=self.details,
+            display_name=self.display_name,
             name=self.name,
-            properties=self.properties,
+            path=self.path,
+            roles=self.roles,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -60,6 +95,11 @@ def get_management_group(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:management/v20191101:getManagementGroup', __args__, opts=opts).value
 
     return AwaitableGetManagementGroupResult(
+        children=__ret__.get('children'),
+        details=__ret__.get('details'),
+        display_name=__ret__.get('displayName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        path=__ret__.get('path'),
+        roles=__ret__.get('roles'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

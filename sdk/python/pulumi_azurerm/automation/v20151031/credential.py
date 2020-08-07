@@ -10,21 +10,29 @@ from ... import _utilities, _tables
 
 
 class Credential(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Gets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets the last modified time.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
-    """
-    Gets or sets the properties of the credential.
-      * `creation_time` (`str`) - Gets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `last_modified_time` (`str`) - Gets the last modified time.
-      * `user_name` (`str`) - Gets the user name of the credential.
-    """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    user_name: pulumi.Output[str]
+    """
+    Gets the user name of the credential.
     """
     def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -72,7 +80,8 @@ class Credential(pulumi.CustomResource):
             if user_name is None:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['last_modified_time'] = None
             __props__['type'] = None
         super(Credential, __self__).__init__(
             'azurerm:automation/v20151031:Credential',

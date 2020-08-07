@@ -13,12 +13,24 @@ class GetFactoryResult:
     """
     Factory resource type.
     """
-    def __init__(__self__, e_tag=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, create_time=None, e_tag=None, global_parameters=None, identity=None, location=None, name=None, provisioning_state=None, repo_configuration=None, tags=None, type=None, version=None):
+        if create_time and not isinstance(create_time, str):
+            raise TypeError("Expected argument 'create_time' to be a str")
+        __self__.create_time = create_time
+        """
+        Time the factory was created in ISO8601 format.
+        """
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         __self__.e_tag = e_tag
         """
         Etag identifies change in the resource.
+        """
+        if global_parameters and not isinstance(global_parameters, dict):
+            raise TypeError("Expected argument 'global_parameters' to be a dict")
+        __self__.global_parameters = global_parameters
+        """
+        List of parameters for factory.
         """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
@@ -38,11 +50,17 @@ class GetFactoryResult:
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the factory.
+        Factory provisioning state, example Succeeded.
+        """
+        if repo_configuration and not isinstance(repo_configuration, dict):
+            raise TypeError("Expected argument 'repo_configuration' to be a dict")
+        __self__.repo_configuration = repo_configuration
+        """
+        Git repo information of the factory.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -56,6 +74,12 @@ class GetFactoryResult:
         """
         The resource type.
         """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        Version of the factory.
+        """
 
 
 class AwaitableGetFactoryResult(GetFactoryResult):
@@ -64,13 +88,17 @@ class AwaitableGetFactoryResult(GetFactoryResult):
         if False:
             yield self
         return GetFactoryResult(
+            create_time=self.create_time,
             e_tag=self.e_tag,
+            global_parameters=self.global_parameters,
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            repo_configuration=self.repo_configuration,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            version=self.version)
 
 
 def get_factory(name=None, resource_group_name=None, opts=None):
@@ -90,10 +118,14 @@ def get_factory(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:datafactory/v20180601:getFactory', __args__, opts=opts).value
 
     return AwaitableGetFactoryResult(
+        create_time=__ret__.get('createTime'),
         e_tag=__ret__.get('eTag'),
+        global_parameters=__ret__.get('globalParameters'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        repo_configuration=__ret__.get('repoConfiguration'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

@@ -37,6 +37,22 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     }
 
     /**
+     * The alert rule actions.
+     */
+    public readonly actionGroups!: pulumi.Output<outputs.alertsmanagement.v20190601.ActionGroupsInformationResponse>;
+    /**
+     * The alert rule description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The alert rule's detector.
+     */
+    public readonly detector!: pulumi.Output<outputs.alertsmanagement.v20190601.DetectorResponse>;
+    /**
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+     */
+    public readonly frequency!: pulumi.Output<string>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,13 +61,25 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the alert rule.
+     * The alert rule resources scope.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.alertsmanagement.v20190601.AlertRulePropertiesResponse>;
+    public readonly scope!: pulumi.Output<string[]>;
+    /**
+     * The alert rule severity.
+     */
+    public readonly severity!: pulumi.Output<string>;
+    /**
+     * The alert rule state.
+     */
+    public readonly state!: pulumi.Output<string>;
     /**
      * The resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The alert rule throttling information.
+     */
+    public readonly throttling!: pulumi.Output<outputs.alertsmanagement.v20190601.ThrottlingInformationResponse | undefined>;
     /**
      * The resource type.
      */
@@ -106,7 +134,6 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["throttling"] = args ? args.throttling : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

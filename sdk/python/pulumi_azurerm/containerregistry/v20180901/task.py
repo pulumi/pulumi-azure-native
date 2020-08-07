@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class Task(pulumi.CustomResource):
+    agent_configuration: pulumi.Output[dict]
+    """
+    The machine configuration of the run agent.
+      * `cpu` (`float`) - The CPU configuration in terms of number of cores required for the run.
+    """
+    creation_date: pulumi.Output[str]
+    """
+    The creation date of task.
+    """
+    credentials: pulumi.Output[dict]
+    """
+    The properties that describes a set of credentials that will be used when this run is invoked.
+      * `custom_registries` (`dict`) - Describes the credential parameters for accessing other custom registries. The key
+        for the dictionary item will be the registry login server (myregistry.azurecr.io) and
+        the value of the item will be the registry credentials for accessing the registry.
+      * `source_registry` (`dict`) - Describes the credential parameters for accessing the source registry.
+        * `login_mode` (`str`) - The authentication mode which determines the source registry login scope. The credentials for the source registry
+          will be generated using the given scope. These credentials will be used to login to
+          the source registry during the run.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource. This cannot be changed after the resource is created.
@@ -18,69 +38,68 @@ class Task(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    platform: pulumi.Output[dict]
     """
-    The properties of a task.
-      * `agent_configuration` (`dict`) - The machine configuration of the run agent.
-        * `cpu` (`float`) - The CPU configuration in terms of number of cores required for the run.
+    The platform properties against which the run has to happen.
+      * `architecture` (`str`) - The OS architecture.
+      * `os` (`str`) - The operating system type required for the run.
+      * `variant` (`str`) - Variant of the CPU.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the task.
+    """
+    status: pulumi.Output[str]
+    """
+    The current status of task.
+    """
+    step: pulumi.Output[dict]
+    """
+    The properties of a task step.
+      * `base_image_dependencies` (`list`) - List of base image dependencies for a step.
+        * `digest` (`str`) - The sha256-based digest of the image manifest.
+        * `registry` (`str`) - The registry login server.
+        * `repository` (`str`) - The repository name.
+        * `tag` (`str`) - The tag name.
+        * `type` (`str`) - The type of the base image dependency.
 
-      * `creation_date` (`str`) - The creation date of task.
-      * `credentials` (`dict`) - The properties that describes a set of credentials that will be used when this run is invoked.
-        * `custom_registries` (`dict`) - Describes the credential parameters for accessing other custom registries. The key
-          for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-          the value of the item will be the registry credentials for accessing the registry.
-        * `source_registry` (`dict`) - Describes the credential parameters for accessing the source registry.
-          * `login_mode` (`str`) - The authentication mode which determines the source registry login scope. The credentials for the source registry
-            will be generated using the given scope. These credentials will be used to login to
-            the source registry during the run.
-
-      * `platform` (`dict`) - The platform properties against which the run has to happen.
-        * `architecture` (`str`) - The OS architecture.
-        * `os` (`str`) - The operating system type required for the run.
-        * `variant` (`str`) - Variant of the CPU.
-
-      * `provisioning_state` (`str`) - The provisioning state of the task.
-      * `status` (`str`) - The current status of task.
-      * `step` (`dict`) - The properties of a task step.
-        * `base_image_dependencies` (`list`) - List of base image dependencies for a step.
-          * `digest` (`str`) - The sha256-based digest of the image manifest.
-          * `registry` (`str`) - The registry login server.
-          * `repository` (`str`) - The repository name.
-          * `tag` (`str`) - The tag name.
-          * `type` (`str`) - The type of the base image dependency.
-
-        * `context_access_token` (`str`) - The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-        * `context_path` (`str`) - The URL(absolute or relative) of the source context for the task step.
-        * `type` (`str`) - The type of the step.
-
-      * `timeout` (`float`) - Run timeout in seconds.
-      * `trigger` (`dict`) - The properties that describe all triggers for the task.
-        * `base_image_trigger` (`dict`) - The trigger based on base image dependencies.
-          * `base_image_trigger_type` (`str`) - The type of the auto trigger for base image dependency updates.
-          * `name` (`str`) - The name of the trigger.
-          * `status` (`str`) - The current status of trigger.
-
-        * `source_triggers` (`list`) - The collection of triggers based on source code repository.
-          * `name` (`str`) - The name of the trigger.
-          * `source_repository` (`dict`) - The properties that describes the source(code) for the task.
-            * `branch` (`str`) - The branch name of the source code.
-            * `repository_url` (`str`) - The full URL to the source code repository
-            * `source_control_auth_properties` (`dict`) - The authorization properties for accessing the source code repository and to set up
-              webhooks for notifications.
-              * `expires_in` (`float`) - Time in seconds that the token remains valid
-              * `refresh_token` (`str`) - The refresh token used to refresh the access token.
-              * `scope` (`str`) - The scope of the access token.
-              * `token` (`str`) - The access token used to access the source control provider.
-              * `token_type` (`str`) - The type of Auth token.
-
-            * `source_control_type` (`str`) - The type of source control service.
-
-          * `source_trigger_events` (`list`) - The source event corresponding to the trigger.
-          * `status` (`str`) - The current status of trigger.
+      * `context_access_token` (`str`) - The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+      * `context_path` (`str`) - The URL(absolute or relative) of the source context for the task step.
+      * `type` (`str`) - The type of the step.
     """
     tags: pulumi.Output[dict]
     """
     The tags of the resource.
+    """
+    timeout: pulumi.Output[float]
+    """
+    Run timeout in seconds.
+    """
+    trigger: pulumi.Output[dict]
+    """
+    The properties that describe all triggers for the task.
+      * `base_image_trigger` (`dict`) - The trigger based on base image dependencies.
+        * `base_image_trigger_type` (`str`) - The type of the auto trigger for base image dependency updates.
+        * `name` (`str`) - The name of the trigger.
+        * `status` (`str`) - The current status of trigger.
+
+      * `source_triggers` (`list`) - The collection of triggers based on source code repository.
+        * `name` (`str`) - The name of the trigger.
+        * `source_repository` (`dict`) - The properties that describes the source(code) for the task.
+          * `branch` (`str`) - The branch name of the source code.
+          * `repository_url` (`str`) - The full URL to the source code repository
+          * `source_control_auth_properties` (`dict`) - The authorization properties for accessing the source code repository and to set up
+            webhooks for notifications.
+            * `expires_in` (`float`) - Time in seconds that the token remains valid
+            * `refresh_token` (`str`) - The refresh token used to refresh the access token.
+            * `scope` (`str`) - The scope of the access token.
+            * `token` (`str`) - The access token used to access the source control provider.
+            * `token_type` (`str`) - The type of Auth token.
+
+          * `source_control_type` (`str`) - The type of source control service.
+
+        * `source_trigger_events` (`list`) - The source event corresponding to the trigger.
+        * `status` (`str`) - The current status of trigger.
     """
     type: pulumi.Output[str]
     """
@@ -197,7 +216,8 @@ class Task(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['timeout'] = timeout
             __props__['trigger'] = trigger
-            __props__['properties'] = None
+            __props__['creation_date'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Task, __self__).__init__(
             'azurerm:containerregistry/v20180901:Task',

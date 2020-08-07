@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// </summary>
+        [Output("endIpAddress")]
+        public Output<string> EndIpAddress { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of server that contains this firewall rule.
         /// </summary>
         [Output("kind")]
@@ -33,10 +39,10 @@ namespace Pulumi.AzureRM.Sql.V20140401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties representing the resource.
+        /// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FirewallRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("startIpAddress")]
+        public Output<string> StartIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

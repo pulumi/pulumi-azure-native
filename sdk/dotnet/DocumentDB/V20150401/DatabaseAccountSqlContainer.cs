@@ -15,6 +15,42 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
     public partial class DatabaseAccountSqlContainer : Pulumi.CustomResource
     {
         /// <summary>
+        /// A system generated property representing the resource etag required for optimistic concurrency control.
+        /// </summary>
+        [Output("_etag")]
+        public Output<string?> _etag { get; private set; } = null!;
+
+        /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        [Output("_rid")]
+        public Output<string?> _rid { get; private set; } = null!;
+
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        [Output("_ts")]
+        public Output<ImmutableDictionary<string, object>?> _ts { get; private set; } = null!;
+
+        /// <summary>
+        /// The conflict resolution policy for the container.
+        /// </summary>
+        [Output("conflictResolutionPolicy")]
+        public Output<Outputs.ConflictResolutionPolicyResponseResult?> ConflictResolutionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Default time to live
+        /// </summary>
+        [Output("defaultTtl")]
+        public Output<int?> DefaultTtl { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        /// </summary>
+        [Output("indexingPolicy")]
+        public Output<Outputs.IndexingPolicyResponseResult?> IndexingPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         [Output("location")]
@@ -27,10 +63,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of an Azure Cosmos DB container
+        /// The configuration of the partition key to be used for partitioning data into multiple partitions
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SqlContainerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partitionKey")]
+        public Output<Outputs.ContainerPartitionKeyResponseResult?> PartitionKey { get; private set; } = null!;
 
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -43,6 +79,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        /// </summary>
+        [Output("uniqueKeyPolicy")]
+        public Output<Outputs.UniqueKeyPolicyResponseResult?> UniqueKeyPolicy { get; private set; } = null!;
 
 
         /// <summary>

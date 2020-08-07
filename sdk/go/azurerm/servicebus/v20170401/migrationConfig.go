@@ -14,10 +14,18 @@ import (
 type MigrationConfig struct {
 	pulumi.CustomResourceState
 
+	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+	MigrationState pulumi.StringOutput `pulumi:"migrationState"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties required to the Create Migration Configuration
-	Properties MigrationConfigPropertiesResponsePropertiesOutput `pulumi:"properties"`
+	// Number of entities pending to be replicated.
+	PendingReplicationOperationsCount pulumi.IntOutput `pulumi:"pendingReplicationOperationsCount"`
+	// Name to access Standard Namespace after migration
+	PostMigrationName pulumi.StringOutput `pulumi:"postMigrationName"`
+	// Provisioning state of Migration Configuration
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+	TargetNamespace pulumi.StringOutput `pulumi:"targetNamespace"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +73,35 @@ func GetMigrationConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MigrationConfig resources.
 type migrationConfigState struct {
+	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+	MigrationState *string `pulumi:"migrationState"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties required to the Create Migration Configuration
-	Properties *MigrationConfigPropertiesResponseProperties `pulumi:"properties"`
+	// Number of entities pending to be replicated.
+	PendingReplicationOperationsCount *int `pulumi:"pendingReplicationOperationsCount"`
+	// Name to access Standard Namespace after migration
+	PostMigrationName *string `pulumi:"postMigrationName"`
+	// Provisioning state of Migration Configuration
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+	TargetNamespace *string `pulumi:"targetNamespace"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type MigrationConfigState struct {
+	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+	MigrationState pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties required to the Create Migration Configuration
-	Properties MigrationConfigPropertiesResponsePropertiesPtrInput
+	// Number of entities pending to be replicated.
+	PendingReplicationOperationsCount pulumi.IntPtrInput
+	// Name to access Standard Namespace after migration
+	PostMigrationName pulumi.StringPtrInput
+	// Provisioning state of Migration Configuration
+	ProvisioningState pulumi.StringPtrInput
+	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+	TargetNamespace pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

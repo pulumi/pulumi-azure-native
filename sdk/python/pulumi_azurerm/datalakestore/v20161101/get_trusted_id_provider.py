@@ -13,18 +13,18 @@ class GetTrustedIdProviderResult:
     """
     Data Lake Store trusted identity provider information.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, id_provider=None, name=None, type=None):
+        if id_provider and not isinstance(id_provider, str):
+            raise TypeError("Expected argument 'id_provider' to be a str")
+        __self__.id_provider = id_provider
+        """
+        The URL of this trusted identity provider.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The resource name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The trusted identity provider properties.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +40,8 @@ class AwaitableGetTrustedIdProviderResult(GetTrustedIdProviderResult):
         if False:
             yield self
         return GetTrustedIdProviderResult(
+            id_provider=self.id_provider,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -64,6 +64,6 @@ def get_trusted_id_provider(account_name=None, name=None, resource_group_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:datalakestore/v20161101:getTrustedIdProvider', __args__, opts=opts).value
 
     return AwaitableGetTrustedIdProviderResult(
+        id_provider=__ret__.get('idProvider'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

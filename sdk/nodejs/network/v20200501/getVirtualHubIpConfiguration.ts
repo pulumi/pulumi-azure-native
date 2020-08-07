@@ -49,9 +49,25 @@ export interface GetVirtualHubIpConfigurationResult {
      */
     readonly name?: string;
     /**
-     * The properties of the Virtual Hub IPConfigurations.
+     * The private IP address of the IP configuration.
      */
-    readonly properties: outputs.network.v20200501.HubIPConfigurationPropertiesFormatResponse;
+    readonly privateIPAddress?: string;
+    /**
+     * The private IP address allocation method.
+     */
+    readonly privateIPAllocationMethod?: string;
+    /**
+     * The provisioning state of the IP configuration resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The reference to the public IP resource.
+     */
+    readonly publicIPAddress?: outputs.network.v20200501.PublicIPAddressResponse;
+    /**
+     * The reference to the subnet resource.
+     */
+    readonly subnet?: outputs.network.v20200501.SubnetResponse;
     /**
      * Ipconfiguration type.
      */

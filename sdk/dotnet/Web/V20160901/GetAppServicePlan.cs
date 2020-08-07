@@ -40,6 +40,22 @@ namespace Pulumi.AzureRM.Web.V20160901
     public sealed class GetAppServicePlanResult
     {
         /// <summary>
+        /// App Service plan administration site.
+        /// </summary>
+        public readonly string? AdminSiteName;
+        /// <summary>
+        /// Geographical location for the App Service plan.
+        /// </summary>
+        public readonly string GeoRegion;
+        /// <summary>
+        /// Specification for the App Service Environment to use for the App Service plan.
+        /// </summary>
+        public readonly Outputs.HostingEnvironmentProfileResponseResult? HostingEnvironmentProfile;
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan owns spot instances.
+        /// </summary>
+        public readonly bool? IsSpot;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -48,49 +64,139 @@ namespace Pulumi.AzureRM.Web.V20160901
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Maximum number of instances that can be assigned to this App Service plan.
+        /// </summary>
+        public readonly int MaximumNumberOfWorkers;
+        /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// AppServicePlan resource specific properties
+        /// Number of apps assigned to this App Service plan.
         /// </summary>
-        public readonly Outputs.AppServicePlanResponsePropertiesResult Properties;
+        public readonly int NumberOfSites;
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, apps assigned to this App Service plan can be scaled independently.
+        /// If &lt;code&gt;false&lt;/code&gt;, apps assigned to this App Service plan will scale to all instances of the plan.
+        /// </summary>
+        public readonly bool? PerSiteScaling;
+        /// <summary>
+        /// Provisioning state of the App Service Environment.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// If Linux app service plan &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        public readonly bool? Reserved;
+        /// <summary>
+        /// Resource group of the App Service plan.
+        /// </summary>
+        public readonly string ResourceGroup;
         /// <summary>
         /// Description of a SKU for a scalable resource.
         /// </summary>
         public readonly Outputs.SkuDescriptionResponseResult? Sku;
         /// <summary>
+        /// The time when the server farm expires. Valid only if it is a spot server farm.
+        /// </summary>
+        public readonly string? SpotExpirationTime;
+        /// <summary>
+        /// App Service plan status.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// App Service plan subscription.
+        /// </summary>
+        public readonly string Subscription;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Scaling worker count.
+        /// </summary>
+        public readonly int? TargetWorkerCount;
+        /// <summary>
+        /// Scaling worker size ID.
+        /// </summary>
+        public readonly int? TargetWorkerSizeId;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Target worker tier assigned to the App Service plan.
+        /// </summary>
+        public readonly string? WorkerTierName;
 
         [OutputConstructor]
         private GetAppServicePlanResult(
+            string? adminSiteName,
+
+            string geoRegion,
+
+            Outputs.HostingEnvironmentProfileResponseResult? hostingEnvironmentProfile,
+
+            bool? isSpot,
+
             string? kind,
 
             string location,
 
+            int maximumNumberOfWorkers,
+
             string name,
 
-            Outputs.AppServicePlanResponsePropertiesResult properties,
+            int numberOfSites,
+
+            bool? perSiteScaling,
+
+            string provisioningState,
+
+            bool? reserved,
+
+            string resourceGroup,
 
             Outputs.SkuDescriptionResponseResult? sku,
 
+            string? spotExpirationTime,
+
+            string status,
+
+            string subscription,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            int? targetWorkerCount,
+
+            int? targetWorkerSizeId,
+
+            string type,
+
+            string? workerTierName)
         {
+            AdminSiteName = adminSiteName;
+            GeoRegion = geoRegion;
+            HostingEnvironmentProfile = hostingEnvironmentProfile;
+            IsSpot = isSpot;
             Kind = kind;
             Location = location;
+            MaximumNumberOfWorkers = maximumNumberOfWorkers;
             Name = name;
-            Properties = properties;
+            NumberOfSites = numberOfSites;
+            PerSiteScaling = perSiteScaling;
+            ProvisioningState = provisioningState;
+            Reserved = reserved;
+            ResourceGroup = resourceGroup;
             Sku = sku;
+            SpotExpirationTime = spotExpirationTime;
+            Status = status;
+            Subscription = subscription;
             Tags = tags;
+            TargetWorkerCount = targetWorkerCount;
+            TargetWorkerSizeId = targetWorkerSizeId;
             Type = type;
+            WorkerTierName = workerTierName;
         }
     }
 }

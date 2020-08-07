@@ -46,6 +46,14 @@ namespace Pulumi.AzureRM.Compute.V20191201
     public sealed class GetProximityPlacementGroupResult
     {
         /// <summary>
+        /// A list of references to all availability sets in the proximity placement group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> AvailabilitySets;
+        /// <summary>
+        /// Describes colocation status of the Proximity Placement Group.
+        /// </summary>
+        public readonly Outputs.InstanceViewStatusResponseResult? ColocationStatus;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -54,9 +62,9 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a Proximity Placement Group.
+        /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
         /// </summary>
-        public readonly Outputs.ProximityPlacementGroupPropertiesResponseResult Properties;
+        public readonly string? ProximityPlacementGroupType;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -65,24 +73,44 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A list of references to all virtual machine scale sets in the proximity placement group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> VirtualMachineScaleSets;
+        /// <summary>
+        /// A list of references to all virtual machines in the proximity placement group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> VirtualMachines;
 
         [OutputConstructor]
         private GetProximityPlacementGroupResult(
+            ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> availabilitySets,
+
+            Outputs.InstanceViewStatusResponseResult? colocationStatus,
+
             string location,
 
             string name,
 
-            Outputs.ProximityPlacementGroupPropertiesResponseResult properties,
+            string? proximityPlacementGroupType,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> virtualMachineScaleSets,
+
+            ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> virtualMachines)
         {
+            AvailabilitySets = availabilitySets;
+            ColocationStatus = colocationStatus;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProximityPlacementGroupType = proximityPlacementGroupType;
             Tags = tags;
             Type = type;
+            VirtualMachineScaleSets = virtualMachineScaleSets;
+            VirtualMachines = virtualMachines;
         }
     }
 }

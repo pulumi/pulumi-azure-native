@@ -50,9 +50,33 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The cluster principal.
+        /// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
         /// </summary>
-        public readonly Outputs.ClusterPrincipalPropertiesResponseResult Properties;
+        public readonly string PrincipalId;
+        /// <summary>
+        /// The principal name
+        /// </summary>
+        public readonly string PrincipalName;
+        /// <summary>
+        /// Principal type.
+        /// </summary>
+        public readonly string PrincipalType;
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Cluster principal role.
+        /// </summary>
+        public readonly string Role;
+        /// <summary>
+        /// The tenant id of the principal
+        /// </summary>
+        public readonly string? TenantId;
+        /// <summary>
+        /// The tenant name of the principal
+        /// </summary>
+        public readonly string TenantName;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -62,12 +86,30 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         private GetClusterPrincipalAssignmentResult(
             string name,
 
-            Outputs.ClusterPrincipalPropertiesResponseResult properties,
+            string principalId,
+
+            string principalName,
+
+            string principalType,
+
+            string provisioningState,
+
+            string role,
+
+            string? tenantId,
+
+            string tenantName,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            PrincipalId = principalId;
+            PrincipalName = principalName;
+            PrincipalType = principalType;
+            ProvisioningState = provisioningState;
+            Role = role;
+            TenantId = tenantId;
+            TenantName = tenantName;
             Type = type;
         }
     }

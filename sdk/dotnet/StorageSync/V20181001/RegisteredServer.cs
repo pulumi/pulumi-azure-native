@@ -15,16 +15,124 @@ namespace Pulumi.AzureRM.StorageSync.V20181001
     public partial class RegisteredServer : Pulumi.CustomResource
     {
         /// <summary>
+        /// Registered Server Agent Version
+        /// </summary>
+        [Output("agentVersion")]
+        public Output<string?> AgentVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server clusterId
+        /// </summary>
+        [Output("clusterId")]
+        public Output<string?> ClusterId { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server clusterName
+        /// </summary>
+        [Output("clusterName")]
+        public Output<string?> ClusterName { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource discoveryEndpointUri
+        /// </summary>
+        [Output("discoveryEndpointUri")]
+        public Output<string?> DiscoveryEndpointUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string?> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server last heart beat
+        /// </summary>
+        [Output("lastHeartBeat")]
+        public Output<string?> LastHeartBeat { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Last Operation Name
+        /// </summary>
+        [Output("lastOperationName")]
+        public Output<string?> LastOperationName { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server lastWorkflowId
+        /// </summary>
+        [Output("lastWorkflowId")]
+        public Output<string?> LastWorkflowId { get; private set; } = null!;
+
+        /// <summary>
+        /// Management Endpoint Uri
+        /// </summary>
+        [Output("managementEndpointUri")]
+        public Output<string?> ManagementEndpointUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Monitoring Configuration
+        /// </summary>
+        [Output("monitoringConfiguration")]
+        public Output<string?> MonitoringConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// RegisteredServer properties.
+        /// Registered Server Provisioning State
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RegisteredServerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Location
+        /// </summary>
+        [Output("resourceLocation")]
+        public Output<string?> ResourceLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server Certificate
+        /// </summary>
+        [Output("serverCertificate")]
+        public Output<string?> ServerCertificate { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server serverId
+        /// </summary>
+        [Output("serverId")]
+        public Output<string?> ServerId { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server Management Error Code
+        /// </summary>
+        [Output("serverManagementErrorCode")]
+        public Output<int?> ServerManagementErrorCode { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server OS Version
+        /// </summary>
+        [Output("serverOSVersion")]
+        public Output<string?> ServerOSVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server serverRole
+        /// </summary>
+        [Output("serverRole")]
+        public Output<string?> ServerRole { get; private set; } = null!;
+
+        /// <summary>
+        /// Service Location
+        /// </summary>
+        [Output("serviceLocation")]
+        public Output<string?> ServiceLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Registered Server storageSyncServiceUid
+        /// </summary>
+        [Output("storageSyncServiceUid")]
+        public Output<string?> StorageSyncServiceUid { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

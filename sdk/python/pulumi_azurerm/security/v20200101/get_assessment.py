@@ -13,18 +13,54 @@ class GetAssessmentResult:
     """
     Security assessment on a resource
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, additional_data=None, display_name=None, links=None, metadata=None, name=None, partners_data=None, resource_details=None, status=None, type=None):
+        if additional_data and not isinstance(additional_data, dict):
+            raise TypeError("Expected argument 'additional_data' to be a dict")
+        __self__.additional_data = additional_data
+        """
+        Additional data regarding the assessment
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        User friendly display name of the assessment
+        """
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        __self__.links = links
+        """
+        Links relevant to the assessment
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        Describes properties of an assessment metadata.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partners_data and not isinstance(partners_data, dict):
+            raise TypeError("Expected argument 'partners_data' to be a dict")
+        __self__.partners_data = partners_data
         """
-        Describes properties of an assessment.
+        Data regarding 3rd party partner integration
+        """
+        if resource_details and not isinstance(resource_details, dict):
+            raise TypeError("Expected argument 'resource_details' to be a dict")
+        __self__.resource_details = resource_details
+        """
+        Details of the resource that was assessed
+        """
+        if status and not isinstance(status, dict):
+            raise TypeError("Expected argument 'status' to be a dict")
+        __self__.status = status
+        """
+        The result of the assessment
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +76,14 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
         if False:
             yield self
         return GetAssessmentResult(
+            additional_data=self.additional_data,
+            display_name=self.display_name,
+            links=self.links,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            partners_data=self.partners_data,
+            resource_details=self.resource_details,
+            status=self.status,
             type=self.type)
 
 
@@ -62,6 +104,12 @@ def get_assessment(name=None, resource_id=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:security/v20200101:getAssessment', __args__, opts=opts).value
 
     return AwaitableGetAssessmentResult(
+        additional_data=__ret__.get('additionalData'),
+        display_name=__ret__.get('displayName'),
+        links=__ret__.get('links'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        partners_data=__ret__.get('partnersData'),
+        resource_details=__ret__.get('resourceDetails'),
+        status=__ret__.get('status'),
         type=__ret__.get('type'))

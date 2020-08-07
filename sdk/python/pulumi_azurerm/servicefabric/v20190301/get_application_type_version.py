@@ -13,7 +13,19 @@ class GetApplicationTypeVersionResult:
     """
     An application type version resource for the specified application type name resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, app_package_url=None, default_parameter_list=None, etag=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+        if app_package_url and not isinstance(app_package_url, str):
+            raise TypeError("Expected argument 'app_package_url' to be a str")
+        __self__.app_package_url = app_package_url
+        """
+        The URL to the application package
+        """
+        if default_parameter_list and not isinstance(default_parameter_list, dict):
+            raise TypeError("Expected argument 'default_parameter_list' to be a dict")
+        __self__.default_parameter_list = default_parameter_list
+        """
+        List of application type parameters that can be overridden when creating or updating the application.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +44,11 @@ class GetApplicationTypeVersionResult:
         """
         Azure resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the application type version resource.
+        The current deployment or provisioning state, which only appears in the response
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +70,12 @@ class AwaitableGetApplicationTypeVersionResult(GetApplicationTypeVersionResult):
         if False:
             yield self
         return GetApplicationTypeVersionResult(
+            app_package_url=self.app_package_url,
+            default_parameter_list=self.default_parameter_list,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -87,9 +101,11 @@ def get_application_type_version(application_type_name=None, cluster_name=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20190301:getApplicationTypeVersion', __args__, opts=opts).value
 
     return AwaitableGetApplicationTypeVersionResult(
+        app_package_url=__ret__.get('appPackageUrl'),
+        default_parameter_list=__ret__.get('defaultParameterList'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -46,29 +46,120 @@ namespace Pulumi.AzureRM.Network.V20181201
     public sealed class GetSubnetResult
     {
         /// <summary>
+        /// The address prefix for the subnet.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
+        /// List of  address prefixes for the subnet.
+        /// </summary>
+        public readonly ImmutableArray<string> AddressPrefixes;
+        /// <summary>
+        /// Gets an array of references to the delegations on the subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DelegationResponseResult> Delegations;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// An array of references to interface endpoints 
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InterfaceEndpointResponseResult> InterfaceEndpoints;
+        /// <summary>
+        /// Array of IP configuration profiles which reference this subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IPConfigurationProfileResponseResult> IpConfigurationProfiles;
+        /// <summary>
+        /// Gets an array of references to the network interface IP configurations using subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IPConfigurationResponseResult> IpConfigurations;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the subnet.
+        /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.SubnetPropertiesFormatResponseResult Properties;
+        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+        /// </summary>
+        public readonly string Purpose;
+        /// <summary>
+        /// Gets an array of references to the external resources using subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> ResourceNavigationLinks;
+        /// <summary>
+        /// The reference of the RouteTable resource.
+        /// </summary>
+        public readonly Outputs.RouteTableResponseResult? RouteTable;
+        /// <summary>
+        /// Gets an array of references to services injecting into this subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceAssociationLinkResponseResult> ServiceAssociationLinks;
+        /// <summary>
+        /// An array of service endpoint policies.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyResponseResult> ServiceEndpointPolicies;
+        /// <summary>
+        /// An array of service endpoints.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> ServiceEndpoints;
 
         [OutputConstructor]
         private GetSubnetResult(
+            string? addressPrefix,
+
+            ImmutableArray<string> addressPrefixes,
+
+            ImmutableArray<Outputs.DelegationResponseResult> delegations,
+
             string? etag,
+
+            ImmutableArray<Outputs.InterfaceEndpointResponseResult> interfaceEndpoints,
+
+            ImmutableArray<Outputs.IPConfigurationProfileResponseResult> ipConfigurationProfiles,
+
+            ImmutableArray<Outputs.IPConfigurationResponseResult> ipConfigurations,
 
             string? name,
 
-            Outputs.SubnetPropertiesFormatResponseResult properties)
+            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+
+            string? provisioningState,
+
+            string purpose,
+
+            ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> resourceNavigationLinks,
+
+            Outputs.RouteTableResponseResult? routeTable,
+
+            ImmutableArray<Outputs.ServiceAssociationLinkResponseResult> serviceAssociationLinks,
+
+            ImmutableArray<Outputs.ServiceEndpointPolicyResponseResult> serviceEndpointPolicies,
+
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> serviceEndpoints)
         {
+            AddressPrefix = addressPrefix;
+            AddressPrefixes = addressPrefixes;
+            Delegations = delegations;
             Etag = etag;
+            InterfaceEndpoints = interfaceEndpoints;
+            IpConfigurationProfiles = ipConfigurationProfiles;
+            IpConfigurations = ipConfigurations;
             Name = name;
-            Properties = properties;
+            NetworkSecurityGroup = networkSecurityGroup;
+            ProvisioningState = provisioningState;
+            Purpose = purpose;
+            ResourceNavigationLinks = resourceNavigationLinks;
+            RouteTable = routeTable;
+            ServiceAssociationLinks = serviceAssociationLinks;
+            ServiceEndpointPolicies = serviceEndpointPolicies;
+            ServiceEndpoints = serviceEndpoints;
         }
     }
 }

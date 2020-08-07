@@ -37,29 +37,77 @@ export class NetworkInterface extends pulumi.CustomResource {
     }
 
     /**
+     * The DNS settings in network interface.
+     */
+    public readonly dnsSettings!: pulumi.Output<outputs.network.v20190901.NetworkInterfaceDnsSettingsResponse | undefined>;
+    /**
+     * If the network interface is accelerated networking enabled.
+     */
+    public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether IP forwarding is enabled on this network interface.
+     */
+    public readonly enableIPForwarding!: pulumi.Output<boolean | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * A list of references to linked BareMetal resources.
+     */
+    public /*out*/ readonly hostedWorkloads!: pulumi.Output<string[]>;
+    /**
+     * A list of IPConfigurations of the network interface.
+     */
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.v20190901.NetworkInterfaceIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * The MAC address of the network interface.
+     */
+    public /*out*/ readonly macAddress!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the network interface.
+     * The reference of the NetworkSecurityGroup resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.NetworkInterfacePropertiesFormatResponse>;
+    public readonly networkSecurityGroup!: pulumi.Output<outputs.network.v20190901.NetworkSecurityGroupResponse | undefined>;
+    /**
+     * Whether this is a primary network interface on a virtual machine.
+     */
+    public /*out*/ readonly primary!: pulumi.Output<boolean>;
+    /**
+     * A reference to the private endpoint to which the network interface is linked.
+     */
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.network.v20190901.PrivateEndpointResponse>;
+    /**
+     * The provisioning state of the network interface resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource GUID property of the network interface resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A list of TapConfigurations of the network interface.
+     */
+    public /*out*/ readonly tapConfigurations!: pulumi.Output<outputs.network.v20190901.NetworkInterfaceTapConfigurationResponse[]>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The reference of a virtual machine.
+     */
+    public /*out*/ readonly virtualMachine!: pulumi.Output<outputs.network.v20190901.SubResourceResponse>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -91,8 +139,15 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["hostedWorkloads"] = undefined /*out*/;
+            inputs["macAddress"] = undefined /*out*/;
+            inputs["primary"] = undefined /*out*/;
+            inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["tapConfigurations"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualMachine"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

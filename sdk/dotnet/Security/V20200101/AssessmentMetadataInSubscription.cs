@@ -15,22 +15,82 @@ namespace Pulumi.AzureRM.Security.V20200101
     public partial class AssessmentMetadataInSubscription : Pulumi.CustomResource
     {
         /// <summary>
+        /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+        /// </summary>
+        [Output("assessmentType")]
+        public Output<string> AssessmentType { get; private set; } = null!;
+
+        [Output("category")]
+        public Output<ImmutableArray<string>> Category { get; private set; } = null!;
+
+        /// <summary>
+        /// Human readable description of the assessment
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// User friendly display name of the assessment
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The implementation effort required to remediate this assessment
+        /// </summary>
+        [Output("implementationEffort")]
+        public Output<string?> ImplementationEffort { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes properties of an assessment metadata.
+        /// Describes the partner that created the assessment
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SecurityAssessmentMetadataPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partnerData")]
+        public Output<Outputs.SecurityAssessmentMetadataPartnerDataResponseResult?> PartnerData { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure resource ID of the policy definition that turns this assessment calculation on
+        /// </summary>
+        [Output("policyDefinitionId")]
+        public Output<string> PolicyDefinitionId { get; private set; } = null!;
+
+        /// <summary>
+        /// True if this assessment is in preview release status
+        /// </summary>
+        [Output("preview")]
+        public Output<bool?> Preview { get; private set; } = null!;
+
+        /// <summary>
+        /// Human readable description of what you should do to mitigate this security issue
+        /// </summary>
+        [Output("remediationDescription")]
+        public Output<string?> RemediationDescription { get; private set; } = null!;
+
+        /// <summary>
+        /// The severity level of the assessment
+        /// </summary>
+        [Output("severity")]
+        public Output<string> Severity { get; private set; } = null!;
+
+        [Output("threats")]
+        public Output<ImmutableArray<string>> Threats { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The user impact of the assessment
+        /// </summary>
+        [Output("userImpact")]
+        public Output<string?> UserImpact { get; private set; } = null!;
 
 
         /// <summary>

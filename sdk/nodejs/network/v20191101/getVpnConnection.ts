@@ -41,15 +41,75 @@ export interface GetVpnConnectionArgs {
  */
 export interface GetVpnConnectionResult {
     /**
+     * Expected bandwidth in MBPS.
+     */
+    readonly connectionBandwidth?: number;
+    /**
+     * The connection status.
+     */
+    readonly connectionStatus?: string;
+    /**
+     * Egress bytes transferred.
+     */
+    readonly egressBytesTransferred: number;
+    /**
+     * EnableBgp flag.
+     */
+    readonly enableBgp?: boolean;
+    /**
+     * Enable internet security.
+     */
+    readonly enableInternetSecurity?: boolean;
+    /**
+     * EnableBgp flag.
+     */
+    readonly enableRateLimiting?: boolean;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * Ingress bytes transferred.
+     */
+    readonly ingressBytesTransferred: number;
+    /**
+     * The IPSec Policies to be considered by this connection.
+     */
+    readonly ipsecPolicies?: outputs.network.v20191101.IpsecPolicyResponse[];
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: string;
     /**
-     * Properties of the VPN connection.
+     * The provisioning state of the VPN connection resource.
      */
-    readonly properties: outputs.network.v20191101.VpnConnectionPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Id of the connected vpn site.
+     */
+    readonly remoteVpnSite?: outputs.network.v20191101.SubResourceResponse;
+    /**
+     * Routing weight for vpn connection.
+     */
+    readonly routingWeight?: number;
+    /**
+     * SharedKey for the vpn connection.
+     */
+    readonly sharedKey?: string;
+    /**
+     * Use local azure ip to initiate connection.
+     */
+    readonly useLocalAzureIpAddress?: boolean;
+    /**
+     * Enable policy-based traffic selectors.
+     */
+    readonly usePolicyBasedTrafficSelectors?: boolean;
+    /**
+     * Connection protocol used for this connection.
+     */
+    readonly vpnConnectionProtocolType?: string;
+    /**
+     * List of all vpn site link connections to the gateway.
+     */
+    readonly vpnLinkConnections?: outputs.network.v20191101.VpnSiteLinkConnectionResponse[];
 }

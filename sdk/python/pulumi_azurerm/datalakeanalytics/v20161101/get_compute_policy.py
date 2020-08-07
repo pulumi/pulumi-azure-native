@@ -13,18 +13,36 @@ class GetComputePolicyResult:
     """
     Data Lake Analytics compute policy information.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, max_degree_of_parallelism_per_job=None, min_priority_per_job=None, name=None, object_id=None, object_type=None, type=None):
+        if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, float):
+            raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a float")
+        __self__.max_degree_of_parallelism_per_job = max_degree_of_parallelism_per_job
+        """
+        The maximum degree of parallelism per job this user can use to submit jobs.
+        """
+        if min_priority_per_job and not isinstance(min_priority_per_job, float):
+            raise TypeError("Expected argument 'min_priority_per_job' to be a float")
+        __self__.min_priority_per_job = min_priority_per_job
+        """
+        The minimum priority per job this user can use to submit jobs.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if object_id and not isinstance(object_id, str):
+            raise TypeError("Expected argument 'object_id' to be a str")
+        __self__.object_id = object_id
         """
-        The compute policy properties.
+        The AAD object identifier for the entity to create a policy for.
+        """
+        if object_type and not isinstance(object_type, str):
+            raise TypeError("Expected argument 'object_type' to be a str")
+        __self__.object_type = object_type
+        """
+        The type of AAD object the object identifier refers to.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetComputePolicyResult(GetComputePolicyResult):
         if False:
             yield self
         return GetComputePolicyResult(
+            max_degree_of_parallelism_per_job=self.max_degree_of_parallelism_per_job,
+            min_priority_per_job=self.min_priority_per_job,
             name=self.name,
-            properties=self.properties,
+            object_id=self.object_id,
+            object_type=self.object_type,
             type=self.type)
 
 
@@ -64,6 +85,9 @@ def get_compute_policy(account_name=None, name=None, resource_group_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:datalakeanalytics/v20161101:getComputePolicy', __args__, opts=opts).value
 
     return AwaitableGetComputePolicyResult(
+        max_degree_of_parallelism_per_job=__ret__.get('maxDegreeOfParallelismPerJob'),
+        min_priority_per_job=__ret__.get('minPriorityPerJob'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        object_id=__ret__.get('objectId'),
+        object_type=__ret__.get('objectType'),
         type=__ret__.get('type'))

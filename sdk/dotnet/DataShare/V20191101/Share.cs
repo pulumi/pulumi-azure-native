@@ -15,22 +15,58 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>
+        /// Time at which the share was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Share description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the azure resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties on the share
+        /// Gets or sets the provisioning state
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SharePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Share kind.
+        /// </summary>
+        [Output("shareKind")]
+        public Output<string?> ShareKind { get; private set; } = null!;
+
+        /// <summary>
+        /// Share terms.
+        /// </summary>
+        [Output("terms")]
+        public Output<string?> Terms { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Email of the user who created the resource
+        /// </summary>
+        [Output("userEmail")]
+        public Output<string> UserEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the user who created the resource
+        /// </summary>
+        [Output("userName")]
+        public Output<string> UserName { get; private set; } = null!;
 
 
         /// <summary>

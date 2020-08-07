@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Network.V20190801
     public sealed class GetVpnGatewayResult
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings.
+        /// </summary>
+        public readonly Outputs.BgpSettingsResponseResult? BgpSettings;
+        /// <summary>
+        /// List of all vpn connections to the gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnConnectionResponseResult> Connections;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -52,9 +60,9 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the VPN gateway.
+        /// The provisioning state of the VPN gateway resource.
         /// </summary>
-        public readonly Outputs.VpnGatewayPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +71,47 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VirtualHub to which the gateway belongs.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualHub;
+        /// <summary>
+        /// The scale unit for this vpn gateway.
+        /// </summary>
+        public readonly int? VpnGatewayScaleUnit;
 
         [OutputConstructor]
         private GetVpnGatewayResult(
+            Outputs.BgpSettingsResponseResult? bgpSettings,
+
+            ImmutableArray<Outputs.VpnConnectionResponseResult> connections,
+
             string etag,
 
             string location,
 
             string name,
 
-            Outputs.VpnGatewayPropertiesResponseResult properties,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualHub,
+
+            int? vpnGatewayScaleUnit)
         {
+            BgpSettings = bgpSettings;
+            Connections = connections;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            VirtualHub = virtualHub;
+            VpnGatewayScaleUnit = vpnGatewayScaleUnit;
         }
     }
 }

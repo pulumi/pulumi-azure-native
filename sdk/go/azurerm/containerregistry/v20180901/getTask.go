@@ -28,14 +28,30 @@ type LookupTaskArgs struct {
 // The task that has the ARM resource and task properties.
 // The task will have all information to schedule a run against it.
 type LookupTaskResult struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
+	// The creation date of task.
+	CreationDate string `pulumi:"creationDate"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials *CredentialsResponse `pulumi:"credentials"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of a task.
-	Properties TaskPropertiesResponse `pulumi:"properties"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesResponse `pulumi:"platform"`
+	// The provisioning state of the task.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The current status of task.
+	Status *string `pulumi:"status"`
+	// The properties of a task step.
+	Step TaskStepPropertiesResponse `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Run timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The properties that describe all triggers for the task.
+	Trigger *TriggerPropertiesResponse `pulumi:"trigger"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

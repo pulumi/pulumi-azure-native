@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.Media.V20200501
     public partial class ContentKeyPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation date of the Policy
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// A description for the Policy.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The last modified date of the Policy
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the Content Key Policy.
+        /// The Key Policy options.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ContentKeyPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("options")]
+        public Output<ImmutableArray<Outputs.ContentKeyPolicyOptionResponseResult>> Options { get; private set; } = null!;
+
+        /// <summary>
+        /// The legacy Policy ID.
+        /// </summary>
+        [Output("policyId")]
+        public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

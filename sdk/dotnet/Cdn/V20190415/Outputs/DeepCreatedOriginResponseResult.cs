@@ -14,22 +14,36 @@ namespace Pulumi.AzureRM.Cdn.V20190415.Outputs
     public sealed class DeepCreatedOriginResponseResult
     {
         /// <summary>
+        /// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
+        /// </summary>
+        public readonly string HostName;
+        /// <summary>
+        /// The value of the HTTP port. Must be between 1 and 65535
+        /// </summary>
+        public readonly int? HttpPort;
+        /// <summary>
+        /// The value of the HTTPS port. Must be between 1 and 65535
+        /// </summary>
+        public readonly int? HttpsPort;
+        /// <summary>
         /// Origin name
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Properties of the origin created on the CDN endpoint.
-        /// </summary>
-        public readonly Outputs.DeepCreatedOriginPropertiesResponseResult? Properties;
 
         [OutputConstructor]
         private DeepCreatedOriginResponseResult(
-            string name,
+            string hostName,
 
-            Outputs.DeepCreatedOriginPropertiesResponseResult? properties)
+            int? httpPort,
+
+            int? httpsPort,
+
+            string name)
         {
+            HostName = hostName;
+            HttpPort = httpPort;
+            HttpsPort = httpsPort;
             Name = name;
-            Properties = properties;
         }
     }
 }

@@ -37,6 +37,10 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The default security rules of network security group.
+     */
+    public readonly defaultSecurityRules!: pulumi.Output<outputs.network.v20150615.SecurityRuleResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +53,25 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Network Security Group resource.
+     * A collection of references to network interfaces.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20150615.NetworkSecurityGroupPropertiesFormatResponse>;
+    public readonly networkInterfaces!: pulumi.Output<outputs.network.v20150615.NetworkInterfaceResponse[] | undefined>;
+    /**
+     * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The resource GUID property of the network security group resource.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * A collection of security rules of the network security group.
+     */
+    public readonly securityRules!: pulumi.Output<outputs.network.v20150615.SecurityRuleResponse[] | undefined>;
+    /**
+     * A collection of references to subnets.
+     */
+    public readonly subnets!: pulumi.Output<outputs.network.v20150615.SubnetResponse[] | undefined>;
     /**
      * Resource tags.
      */
@@ -92,7 +112,6 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             inputs["securityRules"] = args ? args.securityRules : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

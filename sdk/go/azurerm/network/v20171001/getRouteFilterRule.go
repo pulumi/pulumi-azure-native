@@ -27,14 +27,20 @@ type LookupRouteFilterRuleArgs struct {
 
 // Route Filter Rule Resource
 type LookupRouteFilterRuleResult struct {
+	// The access type of the rule. Valid values are: 'Allow', 'Deny'
+	Access string `pulumi:"access"`
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+	Communities []string `pulumi:"communities"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Route Filter Rule Resource
-	Properties RouteFilterRulePropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The rule type of the rule. Valid value is: 'Community'
+	RouteFilterRuleType string `pulumi:"routeFilterRuleType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }

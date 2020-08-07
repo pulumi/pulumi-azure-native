@@ -10,6 +10,22 @@ from ... import _utilities, _tables
 
 
 class WebAppSourceControlSlot(pulumi.CustomResource):
+    branch: pulumi.Output[str]
+    """
+    Name of branch to use for deployment.
+    """
+    deployment_rollback_enabled: pulumi.Output[bool]
+    """
+    <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+    """
+    is_manual_integration: pulumi.Output[bool]
+    """
+    <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+    """
+    is_mercurial: pulumi.Output[bool]
+    """
+    <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,14 +34,9 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    repo_url: pulumi.Output[str]
     """
-    SiteSourceControl resource specific properties
-      * `branch` (`str`) - Name of branch to use for deployment.
-      * `deployment_rollback_enabled` (`bool`) - <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-      * `is_manual_integration` (`bool`) - <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-      * `is_mercurial` (`bool`) - <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-      * `repo_url` (`str`) - Repository or source control URL.
+    Repository or source control URL.
     """
     type: pulumi.Output[str]
     """
@@ -75,7 +86,6 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppSourceControlSlot, __self__).__init__(
             'azurerm:web/v20160801:WebAppSourceControlSlot',

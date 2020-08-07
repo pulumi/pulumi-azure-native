@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public partial class ObjectReplicationPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Required. Destination account name.
+        /// </summary>
+        [Output("destinationAccount")]
+        public Output<string> DestinationAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates when the policy is enabled on the source account.
+        /// </summary>
+        [Output("enabledTime")]
+        public Output<string> EnabledTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the Storage Account Object Replication Policy.
+        /// A unique id for object replication policy.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ObjectReplicationPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("policyId")]
+        public Output<string> PolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage account object replication rules.
+        /// </summary>
+        [Output("rules")]
+        public Output<ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponseResult>> Rules { get; private set; } = null!;
+
+        /// <summary>
+        /// Required. Source account name.
+        /// </summary>
+        [Output("sourceAccount")]
+        public Output<string> SourceAccount { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

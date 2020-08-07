@@ -15,22 +15,64 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public partial class IscsiDisk : Pulumi.CustomResource
     {
         /// <summary>
+        /// The access control records.
+        /// </summary>
+        [Output("accessControlRecords")]
+        public Output<ImmutableArray<string>> AccessControlRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// The data policy.
+        /// </summary>
+        [Output("dataPolicy")]
+        public Output<string> DataPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The disk status.
+        /// </summary>
+        [Output("diskStatus")]
+        public Output<string> DiskStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The local used capacity in bytes.
+        /// </summary>
+        [Output("localUsedCapacityInBytes")]
+        public Output<int> LocalUsedCapacityInBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// The monitoring.
+        /// </summary>
+        [Output("monitoringStatus")]
+        public Output<string> MonitoringStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties.
+        /// The provisioned capacity in bytes.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ISCSIDiskPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisionedCapacityInBytes")]
+        public Output<int> ProvisionedCapacityInBytes { get; private set; } = null!;
 
         /// <summary>
         /// The type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The used capacity in bytes.
+        /// </summary>
+        [Output("usedCapacityInBytes")]
+        public Output<int> UsedCapacityInBytes { get; private set; } = null!;
 
 
         /// <summary>

@@ -36,9 +36,29 @@ export interface GetPrivateLinkServiceArgs {
  */
 export interface GetPrivateLinkServiceResult {
     /**
+     * The alias of the private link service.
+     */
+    readonly alias: string;
+    /**
+     * The auto-approval list of the private link service.
+     */
+    readonly autoApproval?: outputs.network.v20190801.PrivateLinkServicePropertiesResponseAutoApproval;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
+    /**
+     * The list of Fqdn.
+     */
+    readonly fqdns?: string[];
+    /**
+     * An array of private link service IP configurations.
+     */
+    readonly ipConfigurations?: outputs.network.v20190801.PrivateLinkServiceIpConfigurationResponse[];
+    /**
+     * An array of references to the load balancer IP configurations.
+     */
+    readonly loadBalancerFrontendIpConfigurations?: outputs.network.v20190801.FrontendIPConfigurationResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +68,17 @@ export interface GetPrivateLinkServiceResult {
      */
     readonly name: string;
     /**
-     * Properties of the private link service.
+     * An array of references to the network interfaces created for this private link service.
      */
-    readonly properties: outputs.network.v20190801.PrivateLinkServicePropertiesResponse;
+    readonly networkInterfaces: outputs.network.v20190801.NetworkInterfaceResponse[];
+    /**
+     * An array of list about connections to the private endpoint.
+     */
+    readonly privateEndpointConnections?: outputs.network.v20190801.PrivateEndpointConnectionResponse[];
+    /**
+     * The provisioning state of the private link service resource.
+     */
+    readonly provisioningState?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +87,8 @@ export interface GetPrivateLinkServiceResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The visibility list of the private link service.
+     */
+    readonly visibility?: outputs.network.v20190801.PrivateLinkServicePropertiesResponseVisibility;
 }

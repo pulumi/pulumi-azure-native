@@ -40,17 +40,37 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
     public sealed class GetExportResult
     {
         /// <summary>
+        /// Has the definition for the export.
+        /// </summary>
+        public readonly Outputs.ExportDefinitionResponseResult Definition;
+        /// <summary>
+        /// Has delivery information for the export.
+        /// </summary>
+        public readonly Outputs.ExportDeliveryInfoResponseResult DeliveryInfo;
+        /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
         public readonly string? ETag;
+        /// <summary>
+        /// The format of the export being delivered. Currently only 'Csv' is supported.
+        /// </summary>
+        public readonly string? Format;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the export.
+        /// If the export has an active schedule, provides an estimate of the next execution time.
         /// </summary>
-        public readonly Outputs.ExportPropertiesResponseResult Properties;
+        public readonly string NextRunTimeEstimate;
+        /// <summary>
+        /// If requested, has the most recent execution history for the export.
+        /// </summary>
+        public readonly Outputs.ExportExecutionListResultResponseResult? RunHistory;
+        /// <summary>
+        /// Has schedule information for the export.
+        /// </summary>
+        public readonly Outputs.ExportScheduleResponseResult? Schedule;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -58,17 +78,32 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
 
         [OutputConstructor]
         private GetExportResult(
+            Outputs.ExportDefinitionResponseResult definition,
+
+            Outputs.ExportDeliveryInfoResponseResult deliveryInfo,
+
             string? eTag,
+
+            string? format,
 
             string name,
 
-            Outputs.ExportPropertiesResponseResult properties,
+            string nextRunTimeEstimate,
+
+            Outputs.ExportExecutionListResultResponseResult? runHistory,
+
+            Outputs.ExportScheduleResponseResult? schedule,
 
             string type)
         {
+            Definition = definition;
+            DeliveryInfo = deliveryInfo;
             ETag = eTag;
+            Format = format;
             Name = name;
-            Properties = properties;
+            NextRunTimeEstimate = nextRunTimeEstimate;
+            RunHistory = runHistory;
+            Schedule = schedule;
             Type = type;
         }
     }

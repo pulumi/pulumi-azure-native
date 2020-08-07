@@ -44,9 +44,13 @@ export interface GetStorageSyncServiceResult {
      */
     readonly name: string;
     /**
-     * Storage Sync Service properties.
+     * Storage Sync service status.
      */
-    readonly properties: outputs.storagesync.v20190301.StorageSyncServicePropertiesResponse;
+    readonly storageSyncServiceStatus: number;
+    /**
+     * Storage Sync service Uid
+     */
+    readonly storageSyncServiceUid: string;
     /**
      * Resource tags.
      */

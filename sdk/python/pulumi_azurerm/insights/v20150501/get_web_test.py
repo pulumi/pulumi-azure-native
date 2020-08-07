@@ -13,7 +13,55 @@ class GetWebTestResult:
     """
     An Application Insights web test definition.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, configuration=None, description=None, enabled=None, frequency=None, locations=None, retry_enabled=None, synthetic_monitor_id=None, timeout=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None, web_test_kind=None, web_test_name=None):
+        if configuration and not isinstance(configuration, dict):
+            raise TypeError("Expected argument 'configuration' to be a dict")
+        __self__.configuration = configuration
+        """
+        An XML configuration specification for a WebTest.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Purpose/user defined descriptive test for this WebTest.
+        """
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        Is the test actively being monitored.
+        """
+        if frequency and not isinstance(frequency, float):
+            raise TypeError("Expected argument 'frequency' to be a float")
+        __self__.frequency = frequency
+        """
+        Interval in seconds between test runs for this WebTest. Default value is 300.
+        """
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        __self__.locations = locations
+        """
+        A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        """
+        if retry_enabled and not isinstance(retry_enabled, bool):
+            raise TypeError("Expected argument 'retry_enabled' to be a bool")
+        __self__.retry_enabled = retry_enabled
+        """
+        Allow for retries should this WebTest fail.
+        """
+        if synthetic_monitor_id and not isinstance(synthetic_monitor_id, str):
+            raise TypeError("Expected argument 'synthetic_monitor_id' to be a str")
+        __self__.synthetic_monitor_id = synthetic_monitor_id
+        """
+        Unique ID of this WebTest. This is typically the same value as the Name field.
+        """
+        if timeout and not isinstance(timeout, float):
+            raise TypeError("Expected argument 'timeout' to be a float")
+        __self__.timeout = timeout
+        """
+        Seconds until this WebTest will timeout and fail. Default value is 30.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,11 +80,11 @@ class GetWebTestResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Metadata describing a web test for an Azure resource.
+        Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +98,18 @@ class GetWebTestResult:
         """
         Azure resource type
         """
+        if web_test_kind and not isinstance(web_test_kind, str):
+            raise TypeError("Expected argument 'web_test_kind' to be a str")
+        __self__.web_test_kind = web_test_kind
+        """
+        The kind of web test this is, valid choices are ping and multistep.
+        """
+        if web_test_name and not isinstance(web_test_name, str):
+            raise TypeError("Expected argument 'web_test_name' to be a str")
+        __self__.web_test_name = web_test_name
+        """
+        User defined name if this WebTest.
+        """
 
 
 class AwaitableGetWebTestResult(GetWebTestResult):
@@ -58,12 +118,22 @@ class AwaitableGetWebTestResult(GetWebTestResult):
         if False:
             yield self
         return GetWebTestResult(
+            configuration=self.configuration,
+            description=self.description,
+            enabled=self.enabled,
+            frequency=self.frequency,
+            locations=self.locations,
+            retry_enabled=self.retry_enabled,
+            synthetic_monitor_id=self.synthetic_monitor_id,
+            timeout=self.timeout,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            web_test_kind=self.web_test_kind,
+            web_test_name=self.web_test_name)
 
 
 def get_web_test(name=None, resource_group_name=None, opts=None):
@@ -83,9 +153,19 @@ def get_web_test(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150501:getWebTest', __args__, opts=opts).value
 
     return AwaitableGetWebTestResult(
+        configuration=__ret__.get('Configuration'),
+        description=__ret__.get('Description'),
+        enabled=__ret__.get('Enabled'),
+        frequency=__ret__.get('Frequency'),
+        locations=__ret__.get('Locations'),
+        retry_enabled=__ret__.get('RetryEnabled'),
+        synthetic_monitor_id=__ret__.get('SyntheticMonitorId'),
+        timeout=__ret__.get('Timeout'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        web_test_kind=__ret__.get('webTestKind'),
+        web_test_name=__ret__.get('webTestName'))

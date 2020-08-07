@@ -27,10 +27,10 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// SharedAccessAuthorizationRule properties.
+        /// The rights associated with the rule.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SharedAccessAuthorizationRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("rights")]
+        public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

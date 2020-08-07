@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
     public sealed class GetStorageSyncServiceResult
     {
         /// <summary>
+        /// Incoming Traffic Policy
+        /// </summary>
+        public readonly string? IncomingTrafficPolicy;
+        /// <summary>
+        /// Resource Last Operation Name
+        /// </summary>
+        public readonly string LastOperationName;
+        /// <summary>
+        /// StorageSyncService lastWorkflowId
+        /// </summary>
+        public readonly string LastWorkflowId;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -48,9 +60,21 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Storage Sync Service properties.
+        /// List of private endpoint connection associated with the specified storage sync service
         /// </summary>
-        public readonly Outputs.StorageSyncServicePropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        /// <summary>
+        /// StorageSyncService Provisioning State
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Storage Sync service status.
+        /// </summary>
+        public readonly int StorageSyncServiceStatus;
+        /// <summary>
+        /// Storage Sync service Uid
+        /// </summary>
+        public readonly string StorageSyncServiceUid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -62,19 +86,37 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
 
         [OutputConstructor]
         private GetStorageSyncServiceResult(
+            string? incomingTrafficPolicy,
+
+            string lastOperationName,
+
+            string lastWorkflowId,
+
             string location,
 
             string name,
 
-            Outputs.StorageSyncServicePropertiesResponseResult properties,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+
+            string provisioningState,
+
+            int storageSyncServiceStatus,
+
+            string storageSyncServiceUid,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            IncomingTrafficPolicy = incomingTrafficPolicy;
+            LastOperationName = lastOperationName;
+            LastWorkflowId = lastWorkflowId;
             Location = location;
             Name = name;
-            Properties = properties;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            StorageSyncServiceStatus = storageSyncServiceStatus;
+            StorageSyncServiceUid = storageSyncServiceUid;
             Tags = tags;
             Type = type;
         }

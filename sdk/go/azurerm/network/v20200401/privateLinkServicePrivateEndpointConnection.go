@@ -16,10 +16,16 @@ type PrivateLinkServicePrivateEndpointConnection struct {
 
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The consumer link id.
+	LinkIdentifier pulumi.StringOutput `pulumi:"linkIdentifier"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the private end point connection.
-	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointResponseOutput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -63,10 +69,16 @@ func GetPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 type privateLinkServicePrivateEndpointConnectionState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The consumer link id.
+	LinkIdentifier *string `pulumi:"linkIdentifier"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the private end point connection.
-	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
@@ -74,10 +86,16 @@ type privateLinkServicePrivateEndpointConnectionState struct {
 type PrivateLinkServicePrivateEndpointConnectionState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The consumer link id.
+	LinkIdentifier pulumi.StringPtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the private end point connection.
-	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointResponsePtrInput
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The resource type.
 	Type pulumi.StringPtrInput
 }

@@ -37,6 +37,22 @@ export class Redis extends pulumi.CustomResource {
     }
 
     /**
+     * The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
+     */
+    public /*out*/ readonly accessKeys!: pulumi.Output<outputs.cache.v20171001.RedisAccessKeysResponse>;
+    /**
+     * Specifies whether the non-ssl Redis server port (6379) is enabled.
+     */
+    public readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
+    /**
+     * Redis host name.
+     */
+    public /*out*/ readonly hostName!: pulumi.Output<string>;
+    /**
+     * List of the linked servers associated with the cache
+     */
+    public /*out*/ readonly linkedServers!: pulumi.Output<outputs.cache.v20171001.RedisLinkedServerResponse[]>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +61,49 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Redis cache properties.
+     * Redis non-SSL port.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cache.v20171001.RedisPropertiesResponse>;
+    public /*out*/ readonly port!: pulumi.Output<number>;
+    /**
+     * Redis instance provisioning status.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+     */
+    public readonly redisConfiguration!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Redis version.
+     */
+    public /*out*/ readonly redisVersion!: pulumi.Output<string>;
+    /**
+     * The number of shards to be created on a Premium Cluster Cache.
+     */
+    public readonly shardCount!: pulumi.Output<number | undefined>;
+    /**
+     * The SKU of the Redis cache to deploy.
+     */
+    public readonly sku!: pulumi.Output<outputs.cache.v20171001.SkuResponse>;
+    /**
+     * Redis SSL port.
+     */
+    public /*out*/ readonly sslPort!: pulumi.Output<number>;
+    /**
+     * Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+     */
+    public readonly staticIP!: pulumi.Output<string | undefined>;
+    /**
+     * The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+     */
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A dictionary of tenant settings
+     */
+    public readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
@@ -98,7 +150,13 @@ export class Redis extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenantSettings"] = args ? args.tenantSettings : undefined;
             inputs["zones"] = args ? args.zones : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accessKeys"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["linkedServers"] = undefined /*out*/;
+            inputs["port"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["redisVersion"] = undefined /*out*/;
+            inputs["sslPort"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

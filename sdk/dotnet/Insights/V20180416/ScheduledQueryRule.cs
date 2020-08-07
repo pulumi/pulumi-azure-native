@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Insights.V20180416
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The description of the Log Search rule.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        /// </summary>
+        [Output("enabled")]
+        public Output<string?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Last time the rule was updated in IS08601 format.
+        /// </summary>
+        [Output("lastUpdatedTime")]
+        public Output<string> LastUpdatedTime { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +45,22 @@ namespace Pulumi.AzureRM.Insights.V20180416
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The rule properties of the resource.
+        /// Provisioning state of the scheduled query rule
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LogSearchRuleResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        /// </summary>
+        [Output("schedule")]
+        public Output<Outputs.ScheduleResponseResult?> Schedule { get; private set; } = null!;
+
+        /// <summary>
+        /// Data Source against which rule will Query Data
+        /// </summary>
+        [Output("source")]
+        public Output<Outputs.SourceResponseResult> Source { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -48,10 +48,6 @@ export interface ListSiteConnectionStringsSlotResult {
      */
     readonly name?: string;
     /**
-     * Connection strings
-     */
-    readonly properties: {[key: string]: outputs.web.v20150801.ConnStringValueTypePairResponse};
-    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};

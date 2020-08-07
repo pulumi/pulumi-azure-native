@@ -13,7 +13,13 @@ class GetNetworkExperimentProfileResult:
     """
     Defines an Network Experiment Profile and lists of Experiments
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, enabled_state=None, etag=None, location=None, name=None, resource_state=None, tags=None, type=None):
+        if enabled_state and not isinstance(enabled_state, str):
+            raise TypeError("Expected argument 'enabled_state' to be a str")
+        __self__.enabled_state = enabled_state
+        """
+        The state of the Experiment
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +38,11 @@ class GetNetworkExperimentProfileResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
         """
-        The properties of a Profile
+        Resource status.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +64,11 @@ class AwaitableGetNetworkExperimentProfileResult(GetNetworkExperimentProfileResu
         if False:
             yield self
         return GetNetworkExperimentProfileResult(
+            enabled_state=self.enabled_state,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            resource_state=self.resource_state,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +90,10 @@ def get_network_experiment_profile(name=None, resource_group_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20191101:getNetworkExperimentProfile', __args__, opts=opts).value
 
     return AwaitableGetNetworkExperimentProfileResult(
+        enabled_state=__ret__.get('enabledState'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        resource_state=__ret__.get('resourceState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

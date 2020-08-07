@@ -13,12 +13,42 @@ class GetOpenShiftClusterResult:
     """
     OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, apiserver_profile=None, cluster_profile=None, console_profile=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None, worker_profiles=None):
+        if apiserver_profile and not isinstance(apiserver_profile, dict):
+            raise TypeError("Expected argument 'apiserver_profile' to be a dict")
+        __self__.apiserver_profile = apiserver_profile
+        """
+        The cluster API server profile.
+        """
+        if cluster_profile and not isinstance(cluster_profile, dict):
+            raise TypeError("Expected argument 'cluster_profile' to be a dict")
+        __self__.cluster_profile = cluster_profile
+        """
+        The cluster profile.
+        """
+        if console_profile and not isinstance(console_profile, dict):
+            raise TypeError("Expected argument 'console_profile' to be a dict")
+        __self__.console_profile = console_profile
+        """
+        The console profile.
+        """
+        if ingress_profiles and not isinstance(ingress_profiles, list):
+            raise TypeError("Expected argument 'ingress_profiles' to be a list")
+        __self__.ingress_profiles = ingress_profiles
+        """
+        The cluster ingress profiles.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The geo-location where the resource lives
+        """
+        if master_profile and not isinstance(master_profile, dict):
+            raise TypeError("Expected argument 'master_profile' to be a dict")
+        __self__.master_profile = master_profile
+        """
+        The cluster master profile.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +56,23 @@ class GetOpenShiftClusterResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        __self__.network_profile = network_profile
         """
-        The cluster properties.
+        The cluster network profile.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The cluster provisioning state (immutable).
+        """
+        if service_principal_profile and not isinstance(service_principal_profile, dict):
+            raise TypeError("Expected argument 'service_principal_profile' to be a dict")
+        __self__.service_principal_profile = service_principal_profile
+        """
+        The cluster service principal profile.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +86,12 @@ class GetOpenShiftClusterResult:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        if worker_profiles and not isinstance(worker_profiles, list):
+            raise TypeError("Expected argument 'worker_profiles' to be a list")
+        __self__.worker_profiles = worker_profiles
+        """
+        The cluster worker profiles.
+        """
 
 
 class AwaitableGetOpenShiftClusterResult(GetOpenShiftClusterResult):
@@ -52,11 +100,19 @@ class AwaitableGetOpenShiftClusterResult(GetOpenShiftClusterResult):
         if False:
             yield self
         return GetOpenShiftClusterResult(
+            apiserver_profile=self.apiserver_profile,
+            cluster_profile=self.cluster_profile,
+            console_profile=self.console_profile,
+            ingress_profiles=self.ingress_profiles,
             location=self.location,
+            master_profile=self.master_profile,
             name=self.name,
-            properties=self.properties,
+            network_profile=self.network_profile,
+            provisioning_state=self.provisioning_state,
+            service_principal_profile=self.service_principal_profile,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            worker_profiles=self.worker_profiles)
 
 
 def get_open_shift_cluster(name=None, resource_group_name=None, opts=None):
@@ -76,8 +132,16 @@ def get_open_shift_cluster(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:redhatopenshift/v20200430:getOpenShiftCluster', __args__, opts=opts).value
 
     return AwaitableGetOpenShiftClusterResult(
+        apiserver_profile=__ret__.get('apiserverProfile'),
+        cluster_profile=__ret__.get('clusterProfile'),
+        console_profile=__ret__.get('consoleProfile'),
+        ingress_profiles=__ret__.get('ingressProfiles'),
         location=__ret__.get('location'),
+        master_profile=__ret__.get('masterProfile'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_profile=__ret__.get('networkProfile'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_principal_profile=__ret__.get('servicePrincipalProfile'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        worker_profiles=__ret__.get('workerProfiles'))

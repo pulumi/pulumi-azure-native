@@ -10,6 +10,12 @@ from ... import _utilities, _tables
 
 
 class MediaService(pulumi.CustomResource):
+    api_endpoints: pulumi.Output[list]
+    """
+    Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
+      * `endpoint` (`str`) - The Media Services REST endpoint.
+      * `major_version` (`str`) - The version of Media Services REST API.
+    """
     location: pulumi.Output[str]
     """
     The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
@@ -18,16 +24,11 @@ class MediaService(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    storage_accounts: pulumi.Output[list]
     """
-    The additional properties of a Media Service resource.
-      * `api_endpoints` (`list`) - Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
-        * `endpoint` (`str`) - The Media Services REST endpoint.
-        * `major_version` (`str`) - The version of Media Services REST API.
-
-      * `storage_accounts` (`list`) - The storage accounts for this resource.
-        * `id` (`str`) - The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
-        * `is_primary` (`bool`) - Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
+    The storage accounts for this resource.
+      * `id` (`str`) - The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
+      * `is_primary` (`bool`) - Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
     """
     tags: pulumi.Output[dict]
     """
@@ -80,7 +81,7 @@ class MediaService(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['api_endpoints'] = None
             __props__['type'] = None
         super(MediaService, __self__).__init__(
             'azurerm:media/v20151001:MediaService',

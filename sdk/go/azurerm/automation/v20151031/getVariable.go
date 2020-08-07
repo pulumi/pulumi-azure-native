@@ -27,10 +27,18 @@ type LookupVariableArgs struct {
 
 // Definition of the variable.
 type LookupVariableResult struct {
+	// Gets or sets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets or sets the encrypted flag of the variable.
+	IsEncrypted *bool `pulumi:"isEncrypted"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the variable.
-	Properties VariablePropertiesResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// Gets or sets the value of the variable.
+	Value *string `pulumi:"value"`
 }

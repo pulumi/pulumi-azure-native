@@ -40,9 +40,21 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class GetFirewallPolicyResult
     {
         /// <summary>
+        /// The parent firewall policy from which rules are inherited.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BasePolicy;
+        /// <summary>
+        /// List of references to Child Firewall Policies.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> ChildPolicies;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// List of references to Azure Firewalls that this Firewall Policy is associated with.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Firewalls;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,13 +64,21 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the firewall policy.
+        /// The provisioning state of the firewall policy resource.
         /// </summary>
-        public readonly Outputs.FirewallPolicyPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// List of references to FirewallPolicyRuleGroups.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> RuleGroups;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The operation mode for Threat Intelligence.
+        /// </summary>
+        public readonly string? ThreatIntelMode;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -66,23 +86,38 @@ namespace Pulumi.AzureRM.Network.V20200301
 
         [OutputConstructor]
         private GetFirewallPolicyResult(
+            Outputs.SubResourceResponseResult? basePolicy,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> childPolicies,
+
             string etag,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> firewalls,
 
             string? location,
 
             string name,
 
-            Outputs.FirewallPolicyPropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> ruleGroups,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? threatIntelMode,
+
             string type)
         {
+            BasePolicy = basePolicy;
+            ChildPolicies = childPolicies;
             Etag = etag;
+            Firewalls = firewalls;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RuleGroups = ruleGroups;
             Tags = tags;
+            ThreatIntelMode = threatIntelMode;
             Type = type;
         }
     }

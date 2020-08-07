@@ -37,9 +37,29 @@ export class LoadBalancer extends pulumi.CustomResource {
     }
 
     /**
+     * Collection of backend address pools used by a load balancer
+     */
+    public readonly backendAddressPools!: pulumi.Output<outputs.network.v20190201.BackendAddressPoolResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Object representing the frontend IPs to be used for the load balancer
+     */
+    public readonly frontendIPConfigurations!: pulumi.Output<outputs.network.v20190201.FrontendIPConfigurationResponse[] | undefined>;
+    /**
+     * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+     */
+    public readonly inboundNatPools!: pulumi.Output<outputs.network.v20190201.InboundNatPoolResponse[] | undefined>;
+    /**
+     * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+     */
+    public readonly inboundNatRules!: pulumi.Output<outputs.network.v20190201.InboundNatRuleResponse[] | undefined>;
+    /**
+     * Object collection representing the load balancing rules Gets the provisioning 
+     */
+    public readonly loadBalancingRules!: pulumi.Output<outputs.network.v20190201.LoadBalancingRuleResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +69,21 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of load balancer.
+     * The outbound rules.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190201.LoadBalancerPropertiesFormatResponse>;
+    public readonly outboundRules!: pulumi.Output<outputs.network.v20190201.OutboundRuleResponse[] | undefined>;
+    /**
+     * Collection of probe objects used in the load balancer
+     */
+    public readonly probes!: pulumi.Output<outputs.network.v20190201.ProbeResponse[] | undefined>;
+    /**
+     * Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The resource GUID property of the load balancer resource.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
     /**
      * The load balancer SKU.
      */
@@ -100,7 +132,6 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the Namespace was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+        /// </summary>
+        [Output("isAutoInflateEnabled")]
+        public Output<bool?> IsAutoInflateEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether Kafka is enabled for eventhub namespace.
+        /// </summary>
+        [Output("kafkaEnabled")]
+        public Output<bool?> KafkaEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+        /// </summary>
+        [Output("maximumThroughputUnits")]
+        public Output<int?> MaximumThroughputUnits { get; private set; } = null!;
+
+        /// <summary>
+        /// Identifier for Azure Insights metrics.
+        /// </summary>
+        [Output("metricId")]
+        public Output<string> MetricId { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -27,10 +57,16 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Namespace properties supplied for create namespace operation.
+        /// Provisioning state of the Namespace.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EHNamespaceResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Endpoint you can use to perform Service Bus operations.
+        /// </summary>
+        [Output("serviceBusEndpoint")]
+        public Output<string> ServiceBusEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Properties of sku resource
@@ -49,6 +85,12 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the Namespace was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

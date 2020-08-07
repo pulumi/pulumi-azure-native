@@ -40,17 +40,43 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
     public sealed class GetTopicResult
     {
         /// <summary>
+        /// Endpoint for the topic.
+        /// </summary>
+        public readonly string Endpoint;
+        /// <summary>
+        /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InboundIpRuleResponseResult> InboundIpRules;
+        /// <summary>
+        /// This determines the format that Event Grid should expect for incoming events published to the topic.
+        /// </summary>
+        public readonly string? InputSchema;
+        /// <summary>
+        /// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+        /// </summary>
+        public readonly Outputs.InputSchemaMappingResponseResult? InputSchemaMapping;
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Metric resource id for the topic.
+        /// </summary>
+        public readonly string MetricResourceId;
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
         /// <summary>
-        /// Properties of the topic.
+        /// Provisioning state of the topic.
         /// </summary>
-        public readonly Outputs.TopicPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled. 
+        /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" /&gt;
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Tags of the resource.
         /// </summary>
@@ -62,19 +88,40 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
 
         [OutputConstructor]
         private GetTopicResult(
+            string endpoint,
+
+            ImmutableArray<Outputs.InboundIpRuleResponseResult> inboundIpRules,
+
+            string? inputSchema,
+
+            Outputs.InputSchemaMappingResponseResult? inputSchemaMapping,
+
             string location,
+
+            string metricResourceId,
 
             string name,
 
-            Outputs.TopicPropertiesResponseResult properties,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+
+            string provisioningState,
+
+            string? publicNetworkAccess,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Endpoint = endpoint;
+            InboundIpRules = inboundIpRules;
+            InputSchema = inputSchema;
+            InputSchemaMapping = inputSchemaMapping;
             Location = location;
+            MetricResourceId = metricResourceId;
             Name = name;
-            Properties = properties;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Tags = tags;
             Type = type;
         }

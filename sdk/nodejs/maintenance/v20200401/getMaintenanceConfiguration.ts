@@ -36,17 +36,25 @@ export interface GetMaintenanceConfigurationArgs {
  */
 export interface GetMaintenanceConfigurationResult {
     /**
+     * Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+     */
+    readonly extensionProperties?: {[key: string]: string};
+    /**
      * Gets or sets location of the resource
      */
     readonly location?: string;
+    /**
+     * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+     */
+    readonly maintenanceScope?: string;
     /**
      * Name of the resource
      */
     readonly name: string;
     /**
-     * Gets or sets properties of the resource
+     * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */
-    readonly properties: outputs.maintenance.v20200401.MaintenanceConfigurationPropertiesResponse;
+    readonly namespace?: string;
     /**
      * Gets or sets tags of the resource
      */

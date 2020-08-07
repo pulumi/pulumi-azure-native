@@ -51,6 +51,14 @@ export interface GetSnapshotArgs {
  */
 export interface GetSnapshotResult {
     /**
+     * The creation date of the snapshot
+     */
+    readonly creationDate: string;
+    /**
+     * UUID v4 used to identify the FileSystem
+     */
+    readonly fileSystemId?: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -59,13 +67,13 @@ export interface GetSnapshotResult {
      */
     readonly name: string;
     /**
-     * Snapshot Properties
+     * Azure lifecycle management
      */
-    readonly properties: outputs.netapp.v20190601.SnapshotPropertiesResponse;
+    readonly provisioningState: string;
     /**
-     * Resource tags
+     * UUID v4 used to identify the Snapshot
      */
-    readonly tags?: {[key: string]: any};
+    readonly snapshotId: string;
     /**
      * Resource type
      */

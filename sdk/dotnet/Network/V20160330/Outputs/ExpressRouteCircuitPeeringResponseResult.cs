@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
     public sealed class ExpressRouteCircuitPeeringResponseResult
     {
         /// <summary>
+        /// Gets or sets the azure ASN
+        /// </summary>
+        public readonly int? AzureASN;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
@@ -22,25 +26,108 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Gets or sets the Microsoft peering config
+        /// </summary>
+        public readonly Outputs.ExpressRouteCircuitPeeringConfigResponseResult? MicrosoftPeeringConfig;
+        /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.ExpressRouteCircuitPeeringPropertiesFormatResponseResult? Properties;
+        /// <summary>
+        /// Gets or sets the peer ASN
+        /// </summary>
+        public readonly int? PeerASN;
+        /// <summary>
+        /// Gets or sets PeeringType
+        /// </summary>
+        public readonly string? PeeringType;
+        /// <summary>
+        /// Gets or sets the primary port
+        /// </summary>
+        public readonly string? PrimaryAzurePort;
+        /// <summary>
+        /// Gets or sets the primary address prefix
+        /// </summary>
+        public readonly string? PrimaryPeerAddressPrefix;
+        /// <summary>
+        /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the secondary port
+        /// </summary>
+        public readonly string? SecondaryAzurePort;
+        /// <summary>
+        /// Gets or sets the secondary address prefix
+        /// </summary>
+        public readonly string? SecondaryPeerAddressPrefix;
+        /// <summary>
+        /// Gets or sets the shared key
+        /// </summary>
+        public readonly string? SharedKey;
+        /// <summary>
+        /// Gets or sets state of Peering
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
+        /// Gets or peering stats
+        /// </summary>
+        public readonly Outputs.ExpressRouteCircuitStatsResponseResult? Stats;
+        /// <summary>
+        /// Gets or sets the vlan id
+        /// </summary>
+        public readonly int? VlanId;
 
         [OutputConstructor]
         private ExpressRouteCircuitPeeringResponseResult(
+            int? azureASN,
+
             string? etag,
 
             string? id,
 
+            Outputs.ExpressRouteCircuitPeeringConfigResponseResult? microsoftPeeringConfig,
+
             string? name,
 
-            Outputs.ExpressRouteCircuitPeeringPropertiesFormatResponseResult? properties)
+            int? peerASN,
+
+            string? peeringType,
+
+            string? primaryAzurePort,
+
+            string? primaryPeerAddressPrefix,
+
+            string? provisioningState,
+
+            string? secondaryAzurePort,
+
+            string? secondaryPeerAddressPrefix,
+
+            string? sharedKey,
+
+            string? state,
+
+            Outputs.ExpressRouteCircuitStatsResponseResult? stats,
+
+            int? vlanId)
         {
+            AzureASN = azureASN;
             Etag = etag;
             Id = id;
+            MicrosoftPeeringConfig = microsoftPeeringConfig;
             Name = name;
-            Properties = properties;
+            PeerASN = peerASN;
+            PeeringType = peeringType;
+            PrimaryAzurePort = primaryAzurePort;
+            PrimaryPeerAddressPrefix = primaryPeerAddressPrefix;
+            ProvisioningState = provisioningState;
+            SecondaryAzurePort = secondaryAzurePort;
+            SecondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
+            SharedKey = sharedKey;
+            State = state;
+            Stats = stats;
+            VlanId = vlanId;
         }
     }
 }

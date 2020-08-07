@@ -46,10 +46,29 @@ export interface GetOriginArgs {
  */
 export interface GetOriginResult {
     /**
+     * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+     */
+    readonly hostName: string;
+    /**
+     * The value of the HTTP port. Must be between 1 and 65535.
+     */
+    readonly httpPort?: number;
+    /**
+     * The value of the https port. Must be between 1 and 65535.
+     */
+    readonly httpsPort?: number;
+    /**
      * Resource name
      */
     readonly name: string;
-    readonly properties: outputs.cdn.v20150601.OriginPropertiesResponse;
+    /**
+     * Provisioning status of the origin.
+     */
+    readonly provisioningState?: string;
+    /**
+     * Resource status of the origin.
+     */
+    readonly resourceState: string;
     /**
      * Resource type
      */

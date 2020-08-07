@@ -10,6 +10,25 @@ from ... import _utilities, _tables
 
 
 class VolumeContainer(pulumi.CustomResource):
+    band_width_rate_in_mbps: pulumi.Output[float]
+    """
+    The bandwidth-rate set on the volume container.
+    """
+    bandwidth_setting_id: pulumi.Output[str]
+    """
+    The ID of the bandwidth setting associated with the volume container.
+    """
+    encryption_key: pulumi.Output[dict]
+    """
+    The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+      * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
+      * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+      * `value` (`str`) - The value of the secret.
+    """
+    encryption_status: pulumi.Output[str]
+    """
+    The flag to denote whether encryption is enabled or not.
+    """
     kind: pulumi.Output[str]
     """
     The Kind of the object. Currently only Series8000 is supported
@@ -18,25 +37,25 @@ class VolumeContainer(pulumi.CustomResource):
     """
     The name of the object.
     """
-    properties: pulumi.Output[dict]
+    owner_ship_status: pulumi.Output[str]
     """
-    The volume container properties.
-      * `band_width_rate_in_mbps` (`float`) - The bandwidth-rate set on the volume container.
-      * `bandwidth_setting_id` (`str`) - The ID of the bandwidth setting associated with the volume container.
-      * `encryption_key` (`dict`) - The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-        * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
-        * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
-        * `value` (`str`) - The value of the secret.
-
-      * `encryption_status` (`str`) - The flag to denote whether encryption is enabled or not.
-      * `owner_ship_status` (`str`) - The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
-      * `storage_account_credential_id` (`str`) - The path ID of storage account associated with the volume container.
-      * `total_cloud_storage_usage_in_bytes` (`float`) - The total cloud storage for the volume container.
-      * `volume_count` (`float`) - The number of volumes in the volume Container.
+    The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
+    """
+    storage_account_credential_id: pulumi.Output[str]
+    """
+    The path ID of storage account associated with the volume container.
+    """
+    total_cloud_storage_usage_in_bytes: pulumi.Output[float]
+    """
+    The total cloud storage for the volume container.
     """
     type: pulumi.Output[str]
     """
     The hierarchical type of the object.
+    """
+    volume_count: pulumi.Output[float]
+    """
+    The number of volumes in the volume Container.
     """
     def __init__(__self__, resource_name, opts=None, band_width_rate_in_mbps=None, bandwidth_setting_id=None, device_name=None, encryption_key=None, kind=None, manager_name=None, name=None, resource_group_name=None, storage_account_credential_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -96,8 +115,11 @@ class VolumeContainer(pulumi.CustomResource):
             if storage_account_credential_id is None:
                 raise TypeError("Missing required property 'storage_account_credential_id'")
             __props__['storage_account_credential_id'] = storage_account_credential_id
-            __props__['properties'] = None
+            __props__['encryption_status'] = None
+            __props__['owner_ship_status'] = None
+            __props__['total_cloud_storage_usage_in_bytes'] = None
             __props__['type'] = None
+            __props__['volume_count'] = None
         super(VolumeContainer, __self__).__init__(
             'azurerm:storsimple/v20170601:VolumeContainer',
             resource_name,

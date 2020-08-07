@@ -14,29 +14,57 @@ namespace Pulumi.AzureRM.Compute.V20170330.Outputs
     public sealed class VirtualMachineScaleSetNetworkConfigurationResponseResult
     {
         /// <summary>
+        /// The dns settings to be applied on the network interfaces.
+        /// </summary>
+        public readonly Outputs.VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseResult? DnsSettings;
+        /// <summary>
+        /// Specifies whether the network interface is accelerated networking-enabled.
+        /// </summary>
+        public readonly bool? EnableAcceleratedNetworking;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies the IP configurations of the network interface.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualMachineScaleSetIPConfigurationResponseResult> IpConfigurations;
         /// <summary>
         /// The network configuration name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes a virtual machine scale set network profile's IP configuration.
+        /// The network security group.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetNetworkConfigurationPropertiesResponseResult? Properties;
+        public readonly Outputs.SubResourceResponseResult? NetworkSecurityGroup;
+        /// <summary>
+        /// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        /// </summary>
+        public readonly bool? Primary;
 
         [OutputConstructor]
         private VirtualMachineScaleSetNetworkConfigurationResponseResult(
+            Outputs.VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseResult? dnsSettings,
+
+            bool? enableAcceleratedNetworking,
+
             string? id,
+
+            ImmutableArray<Outputs.VirtualMachineScaleSetIPConfigurationResponseResult> ipConfigurations,
 
             string name,
 
-            Outputs.VirtualMachineScaleSetNetworkConfigurationPropertiesResponseResult? properties)
+            Outputs.SubResourceResponseResult? networkSecurityGroup,
+
+            bool? primary)
         {
+            DnsSettings = dnsSettings;
+            EnableAcceleratedNetworking = enableAcceleratedNetworking;
             Id = id;
+            IpConfigurations = ipConfigurations;
             Name = name;
-            Properties = properties;
+            NetworkSecurityGroup = networkSecurityGroup;
+            Primary = primary;
         }
     }
 }

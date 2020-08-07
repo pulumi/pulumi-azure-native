@@ -13,18 +13,42 @@ class GetObjectReplicationPolicyResult:
     """
     The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, destination_account=None, enabled_time=None, name=None, policy_id=None, rules=None, source_account=None, type=None):
+        if destination_account and not isinstance(destination_account, str):
+            raise TypeError("Expected argument 'destination_account' to be a str")
+        __self__.destination_account = destination_account
+        """
+        Required. Destination account name.
+        """
+        if enabled_time and not isinstance(enabled_time, str):
+            raise TypeError("Expected argument 'enabled_time' to be a str")
+        __self__.enabled_time = enabled_time
+        """
+        Indicates when the policy is enabled on the source account.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if policy_id and not isinstance(policy_id, str):
+            raise TypeError("Expected argument 'policy_id' to be a str")
+        __self__.policy_id = policy_id
         """
-        Returns the Storage Account Object Replication Policy.
+        A unique id for object replication policy.
+        """
+        if rules and not isinstance(rules, list):
+            raise TypeError("Expected argument 'rules' to be a list")
+        __self__.rules = rules
+        """
+        The storage account object replication rules.
+        """
+        if source_account and not isinstance(source_account, str):
+            raise TypeError("Expected argument 'source_account' to be a str")
+        __self__.source_account = source_account
+        """
+        Required. Source account name.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetObjectReplicationPolicyResult(GetObjectReplicationPolicyResult
         if False:
             yield self
         return GetObjectReplicationPolicyResult(
+            destination_account=self.destination_account,
+            enabled_time=self.enabled_time,
             name=self.name,
-            properties=self.properties,
+            policy_id=self.policy_id,
+            rules=self.rules,
+            source_account=self.source_account,
             type=self.type)
 
 
@@ -64,6 +92,10 @@ def get_object_replication_policy(account_name=None, name=None, resource_group_n
     __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190601:getObjectReplicationPolicy', __args__, opts=opts).value
 
     return AwaitableGetObjectReplicationPolicyResult(
+        destination_account=__ret__.get('destinationAccount'),
+        enabled_time=__ret__.get('enabledTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        policy_id=__ret__.get('policyId'),
+        rules=__ret__.get('rules'),
+        source_account=__ret__.get('sourceAccount'),
         type=__ret__.get('type'))

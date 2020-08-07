@@ -10,6 +10,33 @@ from ... import _utilities, _tables
 
 
 class Endpoint(pulumi.CustomResource):
+    content_types_to_compress: pulumi.Output[list]
+    """
+    List of content types on which compression applies. The value should be a valid MIME type.
+    """
+    geo_filters: pulumi.Output[list]
+    """
+    List of rules defining user geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+      * `action` (`str`) - Action of the geo filter, i.e. allow or block access.
+      * `country_codes` (`list`) - Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+      * `relative_path` (`str`) - Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+    """
+    host_name: pulumi.Output[str]
+    """
+    The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+    """
+    is_compression_enabled: pulumi.Output[bool]
+    """
+    Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+    """
+    is_http_allowed: pulumi.Output[bool]
+    """
+    Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+    """
+    is_https_allowed: pulumi.Output[bool]
+    """
+    Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,32 +45,37 @@ class Endpoint(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    optimization_type: pulumi.Output[str]
     """
-    The JSON object that contains the properties required to create an endpoint.
-      * `content_types_to_compress` (`list`) - List of content types on which compression applies. The value should be a valid MIME type.
-      * `geo_filters` (`list`) - List of rules defining user geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-        * `action` (`str`) - Action of the geo filter, i.e. allow or block access.
-        * `country_codes` (`list`) - Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
-        * `relative_path` (`str`) - Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-
-      * `host_name` (`str`) - The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
-      * `is_compression_enabled` (`bool`) - Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-      * `is_http_allowed` (`bool`) - Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-      * `is_https_allowed` (`bool`) - Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-      * `optimization_type` (`str`) - Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
-      * `origin_host_header` (`str`) - The host header CDN sends along with content requests to origin. The default value is the host name of the origin.
-      * `origin_path` (`str`) - The path used when CDN sends request to origin.
-      * `origins` (`list`) - The source of the content being delivered via CDN.
-        * `name` (`str`) - Origin name
-        * `properties` (`dict`) - Properties of origin Properties of the origin created on the CDN endpoint.
-          * `host_name` (`str`) - The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
-          * `http_port` (`float`) - The value of the HTTP port. Must be between 1 and 65535
-          * `https_port` (`float`) - The value of the HTTPS port. Must be between 1 and 65535
-
-      * `provisioning_state` (`str`) - Provisioning status of the endpoint.
-      * `query_string_caching_behavior` (`str`) - Defines the query string caching behavior
-      * `resource_state` (`str`) - Resource status of the endpoint.
+    Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
+    """
+    origin_host_header: pulumi.Output[str]
+    """
+    The host header CDN sends along with content requests to origin. The default value is the host name of the origin.
+    """
+    origin_path: pulumi.Output[str]
+    """
+    The path used when CDN sends request to origin.
+    """
+    origins: pulumi.Output[list]
+    """
+    The source of the content being delivered via CDN.
+      * `host_name` (`str`) - The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
+      * `http_port` (`float`) - The value of the HTTP port. Must be between 1 and 65535
+      * `https_port` (`float`) - The value of the HTTPS port. Must be between 1 and 65535
+      * `name` (`str`) - Origin name
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning status of the endpoint.
+    """
+    query_string_caching_behavior: pulumi.Output[str]
+    """
+    Defines the query string caching behavior
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the endpoint.
     """
     tags: pulumi.Output[dict]
     """
@@ -130,7 +162,9 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['host_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(Endpoint, __self__).__init__(
             'azurerm:cdn/v20161002:Endpoint',

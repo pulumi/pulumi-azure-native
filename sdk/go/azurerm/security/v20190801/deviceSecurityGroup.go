@@ -14,10 +14,16 @@ import (
 type DeviceSecurityGroup struct {
 	pulumi.CustomResourceState
 
+	// The allow-list custom alert rules.
+	AllowlistRules AllowlistCustomAlertRuleResponseArrayOutput `pulumi:"allowlistRules"`
+	// The deny-list custom alert rules.
+	DenylistRules DenylistCustomAlertRuleResponseArrayOutput `pulumi:"denylistRules"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Device Security group data
-	Properties DeviceSecurityGroupPropertiesResponseOutput `pulumi:"properties"`
+	// The list of custom alert threshold rules.
+	ThresholdRules ThresholdCustomAlertRuleResponseArrayOutput `pulumi:"thresholdRules"`
+	// The list of custom alert time-window rules.
+	TimeWindowRules TimeWindowCustomAlertRuleResponseArrayOutput `pulumi:"timeWindowRules"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -56,19 +62,31 @@ func GetDeviceSecurityGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeviceSecurityGroup resources.
 type deviceSecurityGroupState struct {
+	// The allow-list custom alert rules.
+	AllowlistRules []AllowlistCustomAlertRuleResponse `pulumi:"allowlistRules"`
+	// The deny-list custom alert rules.
+	DenylistRules []DenylistCustomAlertRuleResponse `pulumi:"denylistRules"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Device Security group data
-	Properties *DeviceSecurityGroupPropertiesResponse `pulumi:"properties"`
+	// The list of custom alert threshold rules.
+	ThresholdRules []ThresholdCustomAlertRuleResponse `pulumi:"thresholdRules"`
+	// The list of custom alert time-window rules.
+	TimeWindowRules []TimeWindowCustomAlertRuleResponse `pulumi:"timeWindowRules"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type DeviceSecurityGroupState struct {
+	// The allow-list custom alert rules.
+	AllowlistRules AllowlistCustomAlertRuleResponseArrayInput
+	// The deny-list custom alert rules.
+	DenylistRules DenylistCustomAlertRuleResponseArrayInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Device Security group data
-	Properties DeviceSecurityGroupPropertiesResponsePtrInput
+	// The list of custom alert threshold rules.
+	ThresholdRules ThresholdCustomAlertRuleResponseArrayInput
+	// The list of custom alert time-window rules.
+	TimeWindowRules TimeWindowCustomAlertRuleResponseArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

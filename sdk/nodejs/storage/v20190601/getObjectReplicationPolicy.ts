@@ -41,13 +41,29 @@ export interface GetObjectReplicationPolicyArgs {
  */
 export interface GetObjectReplicationPolicyResult {
     /**
+     * Required. Destination account name.
+     */
+    readonly destinationAccount: string;
+    /**
+     * Indicates when the policy is enabled on the source account.
+     */
+    readonly enabledTime: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Returns the Storage Account Object Replication Policy.
+     * A unique id for object replication policy.
      */
-    readonly properties: outputs.storage.v20190601.ObjectReplicationPolicyPropertiesResponse;
+    readonly policyId: string;
+    /**
+     * The storage account object replication rules.
+     */
+    readonly rules?: outputs.storage.v20190601.ObjectReplicationPolicyRuleResponse[];
+    /**
+     * Required. Source account name.
+     */
+    readonly sourceAccount: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

@@ -10,47 +10,62 @@ from ... import _utilities, _tables
 
 
 class Domain(pulumi.CustomResource):
+    endpoint: pulumi.Output[str]
+    """
+    Endpoint for the domain.
+    """
+    inbound_ip_rules: pulumi.Output[list]
+    """
+    This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+      * `action` (`str`) - Action to perform based on the match or no match of the IpMask.
+      * `ip_mask` (`str`) - IP Address in CIDR notation e.g., 10.0.0.0/8.
+    """
+    input_schema: pulumi.Output[str]
+    """
+    This determines the format that Event Grid should expect for incoming events published to the domain.
+    """
+    input_schema_mapping: pulumi.Output[dict]
+    """
+    Information about the InputSchemaMapping which specified the info about mapping event payload.
+      * `input_schema_mapping_type` (`str`) - Type of the custom mapping
+    """
     location: pulumi.Output[str]
     """
     Location of the resource.
+    """
+    metric_resource_id: pulumi.Output[str]
+    """
+    Metric resource id for the domain.
     """
     name: pulumi.Output[str]
     """
     Name of the resource.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint_connections: pulumi.Output[list]
     """
-    Properties of the domain.
-      * `endpoint` (`str`) - Endpoint for the domain.
-      * `inbound_ip_rules` (`list`) - This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-        * `action` (`str`) - Action to perform based on the match or no match of the IpMask.
-        * `ip_mask` (`str`) - IP Address in CIDR notation e.g., 10.0.0.0/8.
+    List of private endpoint connections.
+      * `group_ids` (`list`) - GroupIds from the private link service resource.
+      * `id` (`str`) - Fully qualified identifier of the resource.
+      * `name` (`str`) - Name of the resource.
+      * `private_endpoint` (`dict`) - The Private Endpoint resource for this Connection.
+        * `id` (`str`) - The ARM identifier for Private Endpoint.
 
-      * `input_schema` (`str`) - This determines the format that Event Grid should expect for incoming events published to the domain.
-      * `input_schema_mapping` (`dict`) - Information about the InputSchemaMapping which specified the info about mapping event payload.
-        * `input_schema_mapping_type` (`str`) - Type of the custom mapping
+      * `private_link_service_connection_state` (`dict`) - Details about the state of the connection.
+        * `actions_required` (`str`) - Actions required (if any).
+        * `description` (`str`) - Description of the connection state.
+        * `status` (`str`) - Status of the connection.
 
-      * `metric_resource_id` (`str`) - Metric resource id for the domain.
-      * `private_endpoint_connections` (`list`) - List of private endpoint connections.
-        * `id` (`str`) - Fully qualified identifier of the resource.
-        * `name` (`str`) - Name of the resource.
-        * `properties` (`dict`) - Properties of the PrivateEndpointConnection.
-          * `group_ids` (`list`) - GroupIds from the private link service resource.
-          * `private_endpoint` (`dict`) - The Private Endpoint resource for this Connection.
-            * `id` (`str`) - The ARM identifier for Private Endpoint.
-
-          * `private_link_service_connection_state` (`dict`) - Details about the state of the connection.
-            * `actions_required` (`str`) - Actions required (if any).
-            * `description` (`str`) - Description of the connection state.
-            * `status` (`str`) - Status of the connection.
-
-          * `provisioning_state` (`str`) - Provisioning state of the Private Endpoint Connection.
-
-        * `type` (`str`) - Type of the resource.
-
-      * `provisioning_state` (`str`) - Provisioning state of the domain.
-      * `public_network_access` (`str`) - This determines if traffic is allowed over public network. By default it is enabled. 
-        You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
+      * `provisioning_state` (`str`) - Provisioning state of the Private Endpoint Connection.
+      * `type` (`str`) - Type of the resource.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the domain.
+    """
+    public_network_access: pulumi.Output[str]
+    """
+    This determines if traffic is allowed over public network. By default it is enabled. 
+    You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
     """
     tags: pulumi.Output[dict]
     """
@@ -131,7 +146,9 @@ class Domain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['endpoint'] = None
+            __props__['metric_resource_id'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Domain, __self__).__init__(
             'azurerm:eventgrid/v20200601:Domain',

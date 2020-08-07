@@ -36,6 +36,26 @@ export interface GetVirtualNetworkArgs {
  */
 export interface GetVirtualNetworkResult {
     /**
+     * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+     */
+    readonly addressSpace?: outputs.network.v20181101.AddressSpaceResponse;
+    /**
+     * The DDoS protection plan associated with the virtual network.
+     */
+    readonly ddosProtectionPlan?: outputs.network.v20181101.SubResourceResponse;
+    /**
+     * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+     */
+    readonly dhcpOptions?: outputs.network.v20181101.DhcpOptionsResponse;
+    /**
+     * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+     */
+    readonly enableDdosProtection?: boolean;
+    /**
+     * Indicates if VM protection is enabled for all the subnets in the virtual network.
+     */
+    readonly enableVmProtection?: boolean;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
@@ -48,9 +68,17 @@ export interface GetVirtualNetworkResult {
      */
     readonly name: string;
     /**
-     * Properties of the virtual network.
+     * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly properties: outputs.network.v20181101.VirtualNetworkPropertiesFormatResponse;
+    readonly provisioningState?: string;
+    /**
+     * The resourceGuid property of the Virtual Network resource.
+     */
+    readonly resourceGuid?: string;
+    /**
+     * A list of subnets in a Virtual Network.
+     */
+    readonly subnets?: outputs.network.v20181101.SubnetResponse[];
     /**
      * Resource tags.
      */
@@ -59,4 +87,8 @@ export interface GetVirtualNetworkResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * A list of peerings in a Virtual Network.
+     */
+    readonly virtualNetworkPeerings?: outputs.network.v20181101.VirtualNetworkPeeringResponse[];
 }

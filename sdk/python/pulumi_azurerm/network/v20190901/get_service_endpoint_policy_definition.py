@@ -13,7 +13,13 @@ class GetServiceEndpointPolicyDefinitionResult:
     """
     Service Endpoint policy definitions.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, description=None, etag=None, name=None, provisioning_state=None, service=None, service_resources=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +32,23 @@ class GetServiceEndpointPolicyDefinitionResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the service endpoint policy definition.
+        The provisioning state of the service endpoint policy definition resource.
+        """
+        if service and not isinstance(service, str):
+            raise TypeError("Expected argument 'service' to be a str")
+        __self__.service = service
+        """
+        Service endpoint name.
+        """
+        if service_resources and not isinstance(service_resources, list):
+            raise TypeError("Expected argument 'service_resources' to be a list")
+        __self__.service_resources = service_resources
+        """
+        A list of service resources.
         """
 
 
@@ -40,9 +58,12 @@ class AwaitableGetServiceEndpointPolicyDefinitionResult(GetServiceEndpointPolicy
         if False:
             yield self
         return GetServiceEndpointPolicyDefinitionResult(
+            description=self.description,
             etag=self.etag,
             name=self.name,
-            properties=self.properties)
+            provisioning_state=self.provisioning_state,
+            service=self.service,
+            service_resources=self.service_resources)
 
 
 def get_service_endpoint_policy_definition(name=None, resource_group_name=None, service_endpoint_policy_name=None, opts=None):
@@ -64,6 +85,9 @@ def get_service_endpoint_policy_definition(name=None, resource_group_name=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190901:getServiceEndpointPolicyDefinition', __args__, opts=opts).value
 
     return AwaitableGetServiceEndpointPolicyDefinitionResult(
+        description=__ret__.get('description'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        provisioning_state=__ret__.get('provisioningState'),
+        service=__ret__.get('service'),
+        service_resources=__ret__.get('serviceResources'))

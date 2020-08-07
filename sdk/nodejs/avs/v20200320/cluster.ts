@@ -37,13 +37,25 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * The identity
+     */
+    public /*out*/ readonly clusterId!: pulumi.Output<number>;
+    /**
+     * The cluster size
+     */
+    public readonly clusterSize!: pulumi.Output<number>;
+    /**
+     * The hosts
+     */
+    public /*out*/ readonly hosts!: pulumi.Output<string[]>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of a cluster resource
+     * The state of the cluster provisioning
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.avs.v20200320.ClusterPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The cluster SKU
      */
@@ -86,7 +98,9 @@ export class Cluster extends pulumi.CustomResource {
             inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["clusterId"] = undefined /*out*/;
+            inputs["hosts"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

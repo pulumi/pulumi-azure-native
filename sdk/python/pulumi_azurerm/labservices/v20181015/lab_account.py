@@ -10,6 +10,20 @@ from ... import _utilities, _tables
 
 
 class LabAccount(pulumi.CustomResource):
+    enabled_region_selection: pulumi.Output[bool]
+    """
+    Represents if region selection is enabled
+    """
+    latest_operation_result: pulumi.Output[dict]
+    """
+    The details of the latest operation. ex: status, error
+      * `error_code` (`str`) - Error code on failure.
+      * `error_message` (`str`) - The error message.
+      * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
+      * `operation_url` (`str`) - The URL to use to check long-running operation status
+      * `request_uri` (`str`) - Request URI of the operation.
+      * `status` (`str`) - The current status of the operation.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,32 +32,23 @@ class LabAccount(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `enabled_region_selection` (`bool`) - Represents if region selection is enabled
-      * `latest_operation_result` (`dict`) - The details of the latest operation. ex: status, error
-        * `error_code` (`str`) - Error code on failure.
-        * `error_message` (`str`) - The error message.
-        * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
-        * `operation_url` (`str`) - The URL to use to check long-running operation status
-        * `request_uri` (`str`) - Request URI of the operation.
-        * `status` (`str`) - The current status of the operation.
-
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `size_configuration` (`dict`) - Represents the size configuration under the lab account
-        * `environment_sizes` (`list`) - Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
-          * `max_price` (`float`) - The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
-          * `min_memory` (`float`) - The amount of memory available (in GB). This is the minimum amount of memory within this tier.
-          * `min_number_of_cores` (`float`) - The number of cores a VM of this size has. This is the minimum number of cores within this tier.
-          * `name` (`str`) - The size category
-          * `vm_sizes` (`list`) - Represents a set of compute sizes that can serve this given size type
-            * `compute_size` (`str`) - Represents the actual compute size, e.g. Standard_A2_v2.
-            * `memory` (`float`) - The amount of memory available (in GB).
-            * `number_of_cores` (`float`) - The number of cores a VM of this size has.
-            * `price` (`float`) - The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
-
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    The provisioning status of the resource.
+    """
+    size_configuration: pulumi.Output[dict]
+    """
+    Represents the size configuration under the lab account
+      * `environment_sizes` (`list`) - Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
+        * `max_price` (`float`) - The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
+        * `min_memory` (`float`) - The amount of memory available (in GB). This is the minimum amount of memory within this tier.
+        * `min_number_of_cores` (`float`) - The number of cores a VM of this size has. This is the minimum number of cores within this tier.
+        * `name` (`str`) - The size category
+        * `vm_sizes` (`list`) - Represents a set of compute sizes that can serve this given size type
+          * `compute_size` (`str`) - Represents the actual compute size, e.g. Standard_A2_v2.
+          * `memory` (`float`) - The amount of memory available (in GB).
+          * `number_of_cores` (`float`) - The number of cores a VM of this size has.
+          * `price` (`float`) - The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
     """
     tags: pulumi.Output[dict]
     """
@@ -52,6 +57,10 @@ class LabAccount(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, enabled_region_selection=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -95,7 +104,8 @@ class LabAccount(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
-            __props__['properties'] = None
+            __props__['latest_operation_result'] = None
+            __props__['size_configuration'] = None
             __props__['type'] = None
         super(LabAccount, __self__).__init__(
             'azurerm:labservices/v20181015:LabAccount',

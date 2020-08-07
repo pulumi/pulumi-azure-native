@@ -37,21 +37,57 @@ export class DscConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Gets or sets the etag of the resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the job count of the configuration.
+     */
+    public /*out*/ readonly jobCount!: pulumi.Output<number | undefined>;
+    /**
+     * Gets or sets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Gets or sets verbose log option.
+     */
+    public readonly logVerbose!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the configuration properties.
+     * Gets the number of compiled node configurations.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.DscConfigurationPropertiesResponse>;
+    public /*out*/ readonly nodeConfigurationCount!: pulumi.Output<number | undefined>;
+    /**
+     * Gets or sets the configuration parameters.
+     */
+    public readonly parameters!: pulumi.Output<{[key: string]: outputs.automation.v20151031.DscConfigurationParameterResponse} | undefined>;
+    /**
+     * Gets or sets the provisioning state of the configuration.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the source.
+     */
+    public readonly source!: pulumi.Output<outputs.automation.v20151031.ContentSourceResponse | undefined>;
+    /**
+     * Gets or sets the state of the configuration.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -96,8 +132,13 @@ export class DscConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["creationTime"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["jobCount"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["nodeConfigurationCount"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

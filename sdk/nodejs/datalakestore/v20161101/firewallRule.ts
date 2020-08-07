@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,17 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /**
+     * The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+     */
+    public readonly endIpAddress!: pulumi.Output<string>;
+    /**
      * The resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The firewall rule properties.
+     * The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakestore.v20161101.FirewallRulePropertiesResponse>;
+    public readonly startIpAddress!: pulumi.Output<string>;
     /**
      * The resource type.
      */
@@ -82,7 +84,6 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

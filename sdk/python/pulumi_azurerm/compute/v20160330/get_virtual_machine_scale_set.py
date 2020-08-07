@@ -13,7 +13,7 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, identity=None, location=None, name=None, over_provision=None, provisioning_state=None, sku=None, tags=None, type=None, upgrade_policy=None, virtual_machine_profile=None):
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -32,11 +32,17 @@ class GetVirtualMachineScaleSetResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if over_provision and not isinstance(over_provision, bool):
+            raise TypeError("Expected argument 'over_provision' to be a bool")
+        __self__.over_provision = over_provision
         """
-        Describes the properties of a Virtual Machine Scale Set.
+        Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state, which only appears in the response.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -56,6 +62,18 @@ class GetVirtualMachineScaleSetResult:
         """
         Resource type
         """
+        if upgrade_policy and not isinstance(upgrade_policy, dict):
+            raise TypeError("Expected argument 'upgrade_policy' to be a dict")
+        __self__.upgrade_policy = upgrade_policy
+        """
+        The upgrade policy.
+        """
+        if virtual_machine_profile and not isinstance(virtual_machine_profile, dict):
+            raise TypeError("Expected argument 'virtual_machine_profile' to be a dict")
+        __self__.virtual_machine_profile = virtual_machine_profile
+        """
+        The virtual machine profile.
+        """
 
 
 class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
@@ -67,10 +85,13 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            over_provision=self.over_provision,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            upgrade_policy=self.upgrade_policy,
+            virtual_machine_profile=self.virtual_machine_profile)
 
 
 def get_virtual_machine_scale_set(name=None, resource_group_name=None, opts=None):
@@ -93,7 +114,10 @@ def get_virtual_machine_scale_set(name=None, resource_group_name=None, opts=None
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        over_provision=__ret__.get('overProvision'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        upgrade_policy=__ret__.get('upgradePolicy'),
+        virtual_machine_profile=__ret__.get('virtualMachineProfile'))

@@ -13,7 +13,31 @@ class GetDedicatedCloudNodeResult:
     """
     Dedicated cloud node model
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, availability_zone_id=None, availability_zone_name=None, cloud_rack_name=None, created=None, location=None, name=None, nodes_count=None, placement_group_id=None, placement_group_name=None, private_cloud_id=None, private_cloud_name=None, provisioning_state=None, purchase_id=None, sku=None, status=None, tags=None, type=None, vmware_cluster_name=None):
+        if availability_zone_id and not isinstance(availability_zone_id, str):
+            raise TypeError("Expected argument 'availability_zone_id' to be a str")
+        __self__.availability_zone_id = availability_zone_id
+        """
+        Availability Zone id, e.g. "az1"
+        """
+        if availability_zone_name and not isinstance(availability_zone_name, str):
+            raise TypeError("Expected argument 'availability_zone_name' to be a str")
+        __self__.availability_zone_name = availability_zone_name
+        """
+        Availability Zone name, e.g. "Availability Zone 1"
+        """
+        if cloud_rack_name and not isinstance(cloud_rack_name, str):
+            raise TypeError("Expected argument 'cloud_rack_name' to be a str")
+        __self__.cloud_rack_name = cloud_rack_name
+        """
+        VMWare Cloud Rack Name
+        """
+        if created and not isinstance(created, dict):
+            raise TypeError("Expected argument 'created' to be a dict")
+        __self__.created = created
+        """
+        date time the resource was created
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -24,19 +48,61 @@ class GetDedicatedCloudNodeResult:
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
-        {dedicatedCloudNodeName}
+        SKU's name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if nodes_count and not isinstance(nodes_count, float):
+            raise TypeError("Expected argument 'nodes_count' to be a float")
+        __self__.nodes_count = nodes_count
         """
-        Dedicated Cloud Nodes properties
+        count of nodes to create
+        """
+        if placement_group_id and not isinstance(placement_group_id, str):
+            raise TypeError("Expected argument 'placement_group_id' to be a str")
+        __self__.placement_group_id = placement_group_id
+        """
+        Placement Group id, e.g. "n1"
+        """
+        if placement_group_name and not isinstance(placement_group_name, str):
+            raise TypeError("Expected argument 'placement_group_name' to be a str")
+        __self__.placement_group_name = placement_group_name
+        """
+        Placement Name, e.g. "Placement Group 1"
+        """
+        if private_cloud_id and not isinstance(private_cloud_id, str):
+            raise TypeError("Expected argument 'private_cloud_id' to be a str")
+        __self__.private_cloud_id = private_cloud_id
+        """
+        Private Cloud Id
+        """
+        if private_cloud_name and not isinstance(private_cloud_name, str):
+            raise TypeError("Expected argument 'private_cloud_name' to be a str")
+        __self__.private_cloud_name = private_cloud_name
+        """
+        Resource Pool Name
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the resource
+        """
+        if purchase_id and not isinstance(purchase_id, str):
+            raise TypeError("Expected argument 'purchase_id' to be a str")
+        __self__.purchase_id = purchase_id
+        """
+        purchase id
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         Dedicated Cloud Nodes SKU
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Node status, indicates is private cloud set up on this node or not
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +116,12 @@ class GetDedicatedCloudNodeResult:
         """
         {resourceProviderNamespace}/{resourceType}
         """
+        if vmware_cluster_name and not isinstance(vmware_cluster_name, str):
+            raise TypeError("Expected argument 'vmware_cluster_name' to be a str")
+        __self__.vmware_cluster_name = vmware_cluster_name
+        """
+        VMWare Cluster Name
+        """
 
 
 class AwaitableGetDedicatedCloudNodeResult(GetDedicatedCloudNodeResult):
@@ -58,12 +130,24 @@ class AwaitableGetDedicatedCloudNodeResult(GetDedicatedCloudNodeResult):
         if False:
             yield self
         return GetDedicatedCloudNodeResult(
+            availability_zone_id=self.availability_zone_id,
+            availability_zone_name=self.availability_zone_name,
+            cloud_rack_name=self.cloud_rack_name,
+            created=self.created,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            nodes_count=self.nodes_count,
+            placement_group_id=self.placement_group_id,
+            placement_group_name=self.placement_group_name,
+            private_cloud_id=self.private_cloud_id,
+            private_cloud_name=self.private_cloud_name,
+            provisioning_state=self.provisioning_state,
+            purchase_id=self.purchase_id,
             sku=self.sku,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            vmware_cluster_name=self.vmware_cluster_name)
 
 
 def get_dedicated_cloud_node(name=None, resource_group_name=None, opts=None):
@@ -83,9 +167,21 @@ def get_dedicated_cloud_node(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:vmwarecloudsimple/v20190401:getDedicatedCloudNode', __args__, opts=opts).value
 
     return AwaitableGetDedicatedCloudNodeResult(
+        availability_zone_id=__ret__.get('availabilityZoneId'),
+        availability_zone_name=__ret__.get('availabilityZoneName'),
+        cloud_rack_name=__ret__.get('cloudRackName'),
+        created=__ret__.get('created'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        nodes_count=__ret__.get('nodesCount'),
+        placement_group_id=__ret__.get('placementGroupId'),
+        placement_group_name=__ret__.get('placementGroupName'),
+        private_cloud_id=__ret__.get('privateCloudId'),
+        private_cloud_name=__ret__.get('privateCloudName'),
+        provisioning_state=__ret__.get('provisioningState'),
+        purchase_id=__ret__.get('purchaseId'),
         sku=__ret__.get('sku'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        vmware_cluster_name=__ret__.get('vmwareClusterName'))

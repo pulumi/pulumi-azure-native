@@ -45,11 +45,19 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20200101.JitNetworkAccessPolicyPropertiesResponse>;
+    /**
+     * Gets the provisioning state of the Just-in-Time policy.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly requests!: pulumi.Output<outputs.security.v20200101.JitNetworkAccessRequestResponse[] | undefined>;
     /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Configurations for Microsoft.Compute/virtualMachines resource type.
+     */
+    public readonly virtualMachines!: pulumi.Output<outputs.security.v20200101.JitNetworkAccessPolicyVirtualMachineResponse[]>;
 
     /**
      * Create a JitNetworkAccessPolicy resource with the given unique name, arguments, and options.
@@ -83,7 +91,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

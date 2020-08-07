@@ -10,6 +10,48 @@ from ... import _utilities, _tables
 
 
 class Workspace(pulumi.CustomResource):
+    allow_public_access_when_behind_vnet: pulumi.Output[bool]
+    """
+    The flag to indicate whether to allow public access when behind VNet.
+    """
+    application_insights: pulumi.Output[str]
+    """
+    ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+    """
+    container_registry: pulumi.Output[str]
+    """
+    ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+    """
+    creation_time: pulumi.Output[str]
+    """
+    The creation time of the machine learning workspace in ISO8601 format.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of this workspace.
+    """
+    discovery_url: pulumi.Output[str]
+    """
+    Url for the discovery service to identify regional endpoints for machine learning experimentation services
+    """
+    encryption: pulumi.Output[dict]
+    """
+    The encryption settings of Azure ML workspace.
+      * `key_vault_properties` (`dict`) - Customer Key vault properties.
+        * `identity_client_id` (`str`) - For future use - The client id of the identity which will be used to access key vault.
+        * `key_identifier` (`str`) - Key vault uri to access the encryption key.
+        * `key_vault_arm_id` (`str`) - The ArmId of the keyVault where the customer owned encryption key is present.
+
+      * `status` (`str`) - Indicates whether or not the encryption is enabled for the workspace.
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    The friendly name for this workspace. This name in mutable
+    """
+    hbi_workspace: pulumi.Output[bool]
+    """
+    The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the resource.
@@ -17,6 +59,14 @@ class Workspace(pulumi.CustomResource):
       * `tenant_id` (`str`) - The tenant ID of resource.
       * `type` (`str`) - The identity type.
       * `user_assigned_identities` (`dict`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
+    image_build_compute: pulumi.Output[str]
+    """
+    The compute name for image build
+    """
+    key_vault: pulumi.Output[str]
+    """
+    ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
     """
     location: pulumi.Output[str]
     """
@@ -26,82 +76,74 @@ class Workspace(pulumi.CustomResource):
     """
     Specifies the name of the resource.
     """
-    properties: pulumi.Output[dict]
+    notebook_info: pulumi.Output[dict]
     """
-    The properties of the machine learning workspace.
-      * `allow_public_access_when_behind_vnet` (`bool`) - The flag to indicate whether to allow public access when behind VNet.
-      * `application_insights` (`str`) - ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-      * `container_registry` (`str`) - ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-      * `creation_time` (`str`) - The creation time of the machine learning workspace in ISO8601 format.
-      * `description` (`str`) - The description of this workspace.
-      * `discovery_url` (`str`) - Url for the discovery service to identify regional endpoints for machine learning experimentation services
-      * `encryption` (`dict`) - The encryption settings of Azure ML workspace.
-        * `key_vault_properties` (`dict`) - Customer Key vault properties.
-          * `identity_client_id` (`str`) - For future use - The client id of the identity which will be used to access key vault.
-          * `key_identifier` (`str`) - Key vault uri to access the encryption key.
-          * `key_vault_arm_id` (`str`) - The ArmId of the keyVault where the customer owned encryption key is present.
+    The notebook info of Azure ML workspace.
+      * `fqdn` (`str`)
+      * `notebook_preparation_error` (`dict`) - The error that occurs when preparing notebook.
+        * `error_message` (`str`)
+        * `status_code` (`float`)
 
-        * `status` (`str`) - Indicates whether or not the encryption is enabled for the workspace.
+      * `resource_id` (`str`) - the data plane resourceId that used to initialize notebook component
+    """
+    private_endpoint_connections: pulumi.Output[list]
+    """
+    The list of private endpoint connections in the workspace.
+      * `id` (`str`) - Specifies the resource ID.
+      * `identity` (`dict`) - The identity of the resource.
+        * `principal_id` (`str`) - The principal ID of resource identity.
+        * `tenant_id` (`str`) - The tenant ID of resource.
+        * `type` (`str`) - The identity type.
+        * `user_assigned_identities` (`dict`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
-      * `friendly_name` (`str`) - The friendly name for this workspace. This name in mutable
-      * `hbi_workspace` (`bool`) - The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-      * `image_build_compute` (`str`) - The compute name for image build
-      * `key_vault` (`str`) - ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-      * `notebook_info` (`dict`) - The notebook info of Azure ML workspace.
-        * `fqdn` (`str`)
-        * `notebook_preparation_error` (`dict`) - The error that occurs when preparing notebook.
-          * `error_message` (`str`)
-          * `status_code` (`float`)
+      * `location` (`str`) - Specifies the location of the resource.
+      * `name` (`str`) - Specifies the name of the resource.
+      * `private_endpoint` (`dict`) - The resource of private end point.
+        * `id` (`str`) - The ARM identifier for Private Endpoint
 
-        * `resource_id` (`str`) - the data plane resourceId that used to initialize notebook component
+      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
+        * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+        * `description` (`str`) - The reason for approval/rejection of the connection.
+        * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 
-      * `private_endpoint_connections` (`list`) - The list of private endpoint connections in the workspace.
-        * `id` (`str`) - Specifies the resource ID.
-        * `identity` (`dict`) - The identity of the resource.
-          * `principal_id` (`str`) - The principal ID of resource identity.
-          * `tenant_id` (`str`) - The tenant ID of resource.
-          * `type` (`str`) - The identity type.
-          * `user_assigned_identities` (`dict`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+      * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
+      * `sku` (`dict`) - The sku of the workspace.
+        * `name` (`str`) - Name of the sku
+        * `tier` (`str`) - Tier of the sku like Basic or Enterprise
 
-        * `location` (`str`) - Specifies the location of the resource.
-        * `name` (`str`) - Specifies the name of the resource.
-        * `properties` (`dict`) - Resource properties.
-          * `private_endpoint` (`dict`) - The resource of private end point.
-            * `id` (`str`) - The ARM identifier for Private Endpoint
-
-          * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
-            * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-            * `description` (`str`) - The reason for approval/rejection of the connection.
-            * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-          * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
-
-        * `sku` (`dict`) - The sku of the workspace.
-          * `name` (`str`) - Name of the sku
-          * `tier` (`str`) - Tier of the sku like Basic or Enterprise
-
-        * `tags` (`dict`) - Contains resource tags defined as key/value pairs.
-        * `type` (`str`) - Specifies the type of the resource.
-
-      * `private_link_count` (`float`) - Count of private connections in the workspace
-      * `provisioning_state` (`str`) - The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
-      * `service_provisioned_resource_group` (`str`) - The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
-      * `shared_private_link_resources` (`list`) - The list of shared private link resources in this workspace.
-        * `name` (`str`) - Unique name of the private link.
-        * `properties` (`dict`) - Resource properties.
-          * `group_id` (`str`) - The private link resource group id.
-          * `private_link_resource_id` (`str`) - The resource id that private link links to.
-          * `request_message` (`str`) - Request message.
-          * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-      * `storage_account` (`str`) - ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-      * `workspace_id` (`str`) - The immutable id associated with this workspace.
+      * `tags` (`dict`) - Contains resource tags defined as key/value pairs.
+      * `type` (`str`) - Specifies the type of the resource.
+    """
+    private_link_count: pulumi.Output[float]
+    """
+    Count of private connections in the workspace
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+    """
+    service_provisioned_resource_group: pulumi.Output[str]
+    """
+    The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
+    """
+    shared_private_link_resources: pulumi.Output[list]
+    """
+    The list of shared private link resources in this workspace.
+      * `group_id` (`str`) - The private link resource group id.
+      * `name` (`str`) - Unique name of the private link.
+      * `private_link_resource_id` (`str`) - The resource id that private link links to.
+      * `request_message` (`str`) - Request message.
+      * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
     sku: pulumi.Output[dict]
     """
     The sku of the workspace.
       * `name` (`str`) - Name of the sku
       * `tier` (`str`) - Tier of the sku like Basic or Enterprise
+    """
+    storage_account: pulumi.Output[str]
+    """
+    ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
     """
     tags: pulumi.Output[dict]
     """
@@ -110,6 +152,10 @@ class Workspace(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Specifies the type of the resource.
+    """
+    workspace_id: pulumi.Output[str]
+    """
+    The immutable id associated with this workspace.
     """
     def __init__(__self__, resource_name, opts=None, allow_public_access_when_behind_vnet=None, application_insights=None, container_registry=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, identity=None, image_build_compute=None, key_vault=None, location=None, name=None, resource_group_name=None, shared_private_link_resources=None, sku=None, storage_account=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -201,8 +247,14 @@ class Workspace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['storage_account'] = storage_account
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['notebook_info'] = None
+            __props__['private_endpoint_connections'] = None
+            __props__['private_link_count'] = None
+            __props__['provisioning_state'] = None
+            __props__['service_provisioned_resource_group'] = None
             __props__['type'] = None
+            __props__['workspace_id'] = None
         super(Workspace, __self__).__init__(
             'azurerm:machinelearningservices/v20200401:Workspace',
             resource_name,

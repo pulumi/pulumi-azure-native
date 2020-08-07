@@ -41,7 +41,7 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("websitesa",
 // );
 
 // Web endpoint to the website
-export const staticEndpoint = storageAccount.properties.primaryEndpoints.web;
+export const staticEndpoint = storageAccount.primaryEndpoints.web;
 // TODO: figure out why this output is resolved to undefined during the preview, which breaks the URL constructor call.
 const staticHostname = staticEndpoint.apply(url => url ? new URL(url).hostname : "<preview>");
 
@@ -69,4 +69,4 @@ const endpoint = new azurerm.cdn.v20200331.Endpoint("website-cdn-ep", {
 
 // CDN endpoint to the website.
 // Allow it some time after the deployment to get ready.
-export const cdnEndpoint = pulumi.interpolate`https://${endpoint.properties.hostName}/`;
+export const cdnEndpoint = pulumi.interpolate`https://${endpoint.hostName}/`;

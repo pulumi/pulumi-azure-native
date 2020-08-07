@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Storage.V20170601
     public partial class StorageAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        /// </summary>
+        [Output("accessTier")]
+        public Output<string> AccessTier { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the creation date and time of the storage account in UTC.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the custom domain the user assigned to this storage account.
+        /// </summary>
+        [Output("customDomain")]
+        public Output<Outputs.CustomDomainResponseResult> CustomDomain { get; private set; } = null!;
+
+        /// <summary>
+        /// Allows https traffic only to storage service if sets to true.
+        /// </summary>
+        [Output("enableHttpsTrafficOnly")]
+        public Output<bool?> EnableHttpsTrafficOnly { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponseResult> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
@@ -25,6 +55,12 @@ namespace Pulumi.AzureRM.Storage.V20170601
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+        /// </summary>
+        [Output("lastGeoFailoverTime")]
+        public Output<string> LastGeoFailoverTime { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -39,16 +75,58 @@ namespace Pulumi.AzureRM.Storage.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the storage account.
+        /// Network rule set
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkRuleSet")]
+        public Output<Outputs.NetworkRuleSetResponseResult> NetworkRuleSet { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+        /// </summary>
+        [Output("primaryEndpoints")]
+        public Output<Outputs.EndpointsResponseResult> PrimaryEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the location of the primary data center for the storage account.
+        /// </summary>
+        [Output("primaryLocation")]
+        public Output<string> PrimaryLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the status of the storage account at the time the operation was called.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+        /// </summary>
+        [Output("secondaryEndpoints")]
+        public Output<Outputs.EndpointsResponseResult> SecondaryEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+        /// </summary>
+        [Output("secondaryLocation")]
+        public Output<string> SecondaryLocation { get; private set; } = null!;
 
         /// <summary>
         /// Gets the SKU.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the status indicating whether the primary location of the storage account is available or unavailable.
+        /// </summary>
+        [Output("statusOfPrimary")]
+        public Output<string> StatusOfPrimary { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+        /// </summary>
+        [Output("statusOfSecondary")]
+        public Output<string> StatusOfSecondary { get; private set; } = null!;
 
         /// <summary>
         /// Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).

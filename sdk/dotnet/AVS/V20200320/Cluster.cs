@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// The identity
+        /// </summary>
+        [Output("clusterId")]
+        public Output<int> ClusterId { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster size
+        /// </summary>
+        [Output("clusterSize")]
+        public Output<int> ClusterSize { get; private set; } = null!;
+
+        /// <summary>
+        /// The hosts
+        /// </summary>
+        [Output("hosts")]
+        public Output<ImmutableArray<string>> Hosts { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of a cluster resource
+        /// The state of the cluster provisioning
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The cluster SKU

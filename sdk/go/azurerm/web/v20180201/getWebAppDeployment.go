@@ -25,12 +25,28 @@ type LookupWebAppDeploymentArgs struct {
 
 // User credentials used for publishing activity.
 type LookupWebAppDeploymentResult struct {
+	// True if deployment is currently active, false if completed and null if not started.
+	Active *bool `pulumi:"active"`
+	// Who authored the deployment.
+	Author *string `pulumi:"author"`
+	// Author email.
+	Author_email *string `pulumi:"author_email"`
+	// Who performed the deployment.
+	Deployer *string `pulumi:"deployer"`
+	// Details on deployment.
+	Details *string `pulumi:"details"`
+	// End time.
+	End_time *string `pulumi:"end_time"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// Details about deployment status.
+	Message *string `pulumi:"message"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// Deployment resource specific properties
-	Properties DeploymentResponseProperties `pulumi:"properties"`
+	// Start time.
+	Start_time *string `pulumi:"start_time"`
+	// Deployment status.
+	Status *int `pulumi:"status"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
     public sealed class NetworkInterfaceIPConfigurationResponseResult
     {
         /// <summary>
+        /// The reference to ApplicationGatewayBackendAddressPool resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> ApplicationGatewayBackendAddressPools;
+        /// <summary>
+        /// Application security groups in which the IP configuration is included.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> ApplicationSecurityGroups;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -22,28 +30,104 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The reference to LoadBalancerBackendAddressPool resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BackendAddressPoolResponseResult> LoadBalancerBackendAddressPools;
+        /// <summary>
+        /// A list of references of LoadBalancerInboundNatRules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InboundNatRuleResponseResult> LoadBalancerInboundNatRules;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Network interface IP configuration properties.
+        /// Whether this is a primary customer address on the network interface.
         /// </summary>
-        public readonly Outputs.NetworkInterfaceIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly bool? Primary;
+        /// <summary>
+        /// Private IP address of the IP configuration.
+        /// </summary>
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        /// </summary>
+        public readonly string? PrivateIPAddressVersion;
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// PrivateLinkConnection properties for the network interface.
+        /// </summary>
+        public readonly Outputs.NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponseResult PrivateLinkConnectionProperties;
+        /// <summary>
+        /// The provisioning state of the network interface IP configuration.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Public IP address bound to the IP configuration.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Subnet bound to the IP configuration.
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
+        /// <summary>
+        /// The reference to Virtual Network Taps.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkTapResponseResult> VirtualNetworkTaps;
 
         [OutputConstructor]
         private NetworkInterfaceIPConfigurationResponseResult(
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> applicationGatewayBackendAddressPools,
+
+            ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> applicationSecurityGroups,
+
             string etag,
 
             string? id,
 
+            ImmutableArray<Outputs.BackendAddressPoolResponseResult> loadBalancerBackendAddressPools,
+
+            ImmutableArray<Outputs.InboundNatRuleResponseResult> loadBalancerInboundNatRules,
+
             string? name,
 
-            Outputs.NetworkInterfaceIPConfigurationPropertiesFormatResponseResult? properties)
+            bool? primary,
+
+            string? privateIPAddress,
+
+            string? privateIPAddressVersion,
+
+            string? privateIPAllocationMethod,
+
+            Outputs.NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponseResult privateLinkConnectionProperties,
+
+            string provisioningState,
+
+            Outputs.PublicIPAddressResponseResult? publicIPAddress,
+
+            Outputs.SubnetResponseResult? subnet,
+
+            ImmutableArray<Outputs.VirtualNetworkTapResponseResult> virtualNetworkTaps)
         {
+            ApplicationGatewayBackendAddressPools = applicationGatewayBackendAddressPools;
+            ApplicationSecurityGroups = applicationSecurityGroups;
             Etag = etag;
             Id = id;
+            LoadBalancerBackendAddressPools = loadBalancerBackendAddressPools;
+            LoadBalancerInboundNatRules = loadBalancerInboundNatRules;
             Name = name;
-            Properties = properties;
+            Primary = primary;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAddressVersion = privateIPAddressVersion;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            PrivateLinkConnectionProperties = privateLinkConnectionProperties;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
+            VirtualNetworkTaps = virtualNetworkTaps;
         }
     }
 }

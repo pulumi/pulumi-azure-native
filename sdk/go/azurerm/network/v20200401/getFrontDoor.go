@@ -25,12 +25,36 @@ type LookupFrontDoorArgs struct {
 
 // Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 type LookupFrontDoorResult struct {
+	// Backend pools available to routing rules.
+	BackendPools []BackendPoolResponse `pulumi:"backendPools"`
+	// Settings for all backendPools
+	BackendPoolsSettings *BackendPoolsSettingsResponse `pulumi:"backendPoolsSettings"`
+	// The host that each frontendEndpoint must CNAME to.
+	Cname string `pulumi:"cname"`
+	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+	EnabledState *string `pulumi:"enabledState"`
+	// A friendly name for the frontDoor
+	FriendlyName *string `pulumi:"friendlyName"`
+	// The Id of the frontdoor.
+	FrontdoorId string `pulumi:"frontdoorId"`
+	// Frontend endpoints available to routing rules.
+	FrontendEndpoints []FrontendEndpointResponse `pulumi:"frontendEndpoints"`
+	// Health probe settings associated with this Front Door instance.
+	HealthProbeSettings []HealthProbeSettingsModelResponse `pulumi:"healthProbeSettings"`
+	// Load balancing settings associated with this Front Door instance.
+	LoadBalancingSettings []LoadBalancingSettingsModelResponse `pulumi:"loadBalancingSettings"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Front Door Load Balancer
-	Properties FrontDoorPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the Front Door.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource status of the Front Door.
+	ResourceState *string `pulumi:"resourceState"`
+	// Routing rules associated with this Front Door.
+	RoutingRules []RoutingRuleResponse `pulumi:"routingRules"`
+	// Rules Engine Configurations available to routing rules.
+	RulesEngines []RulesEngineResponse `pulumi:"rulesEngines"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

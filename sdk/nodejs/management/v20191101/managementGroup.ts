@@ -37,13 +37,33 @@ export class ManagementGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The list of children.
+     */
+    public /*out*/ readonly children!: pulumi.Output<outputs.management.v20191101.ManagementGroupChildInfoResponse[] | undefined>;
+    /**
+     * The details of a management group.
+     */
+    public readonly details!: pulumi.Output<outputs.management.v20191101.ManagementGroupDetailsResponse | undefined>;
+    /**
+     * The friendly name of the management group.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * The name of the management group. For example, 00000000-0000-0000-0000-000000000000
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The generic properties of a management group.
+     * The hierarchial path from the root group to the current group.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.management.v20191101.ManagementGroupPropertiesResponse>;
+    public /*out*/ readonly path!: pulumi.Output<outputs.management.v20191101.ManagementGroupPathElementResponse[] | undefined>;
+    /**
+     * The role definitions associated with the management group.
+     */
+    public /*out*/ readonly roles!: pulumi.Output<string[] | undefined>;
+    /**
+     * The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.  For example, Microsoft.Management/managementGroups
      */
@@ -68,7 +88,10 @@ export class ManagementGroup extends pulumi.CustomResource {
             inputs["details"] = args ? args.details : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["children"] = undefined /*out*/;
+            inputs["path"] = undefined /*out*/;
+            inputs["roles"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

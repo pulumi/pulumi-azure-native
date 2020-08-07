@@ -37,21 +37,81 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /**
+     * Last time there was a receive request to this subscription.
+     */
+    public /*out*/ readonly accessedAt!: pulumi.Output<string>;
+    /**
+     * TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+     */
+    public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
+    /**
+     * Message Count Details.
+     */
+    public /*out*/ readonly countDetails!: pulumi.Output<outputs.servicebus.v20150801.MessageCountDetailsResponse>;
+    /**
+     * Exact time the message was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+     */
+    public readonly deadLetteringOnFilterEvaluationExceptions!: pulumi.Output<boolean | undefined>;
+    /**
+     * Value that indicates whether a subscription has dead letter support when a message expires.
+     */
+    public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
+    /**
+     * Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     */
+    public readonly defaultMessageTimeToLive!: pulumi.Output<string | undefined>;
+    /**
+     * Value that indicates whether server-side batched operations are enabled.
+     */
+    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
+    /**
+     * Entity availability status for the topic.
+     */
+    public readonly entityAvailabilityStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Value that indicates whether the entity description is read-only.
+     */
+    public readonly isReadOnly!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The lock duration time span for the subscription.
+     */
+    public readonly lockDuration!: pulumi.Output<string | undefined>;
+    /**
+     * Number of maximum deliveries.
+     */
+    public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
+    /**
+     * Number of messages.
+     */
+    public /*out*/ readonly messageCount!: pulumi.Output<number>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Description of Subscription Resource.
+     * Value indicating if a subscription supports the concept of sessions.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20150801.SubscriptionPropertiesResponse>;
+    public readonly requiresSession!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enumerates the possible values for the status of a messaging entity.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * The exact time the message was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -98,7 +158,11 @@ export class Subscription extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accessedAt"] = undefined /*out*/;
+            inputs["countDetails"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["messageCount"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

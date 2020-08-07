@@ -37,17 +37,25 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
+     * The password details.
+     */
+    public readonly encryptedPassword!: pulumi.Output<outputs.databoxedge.v20190801.AsymmetricEncryptedSecretResponse | undefined>;
+    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The storage account credential properties.
+     * List of shares that the user has rights on. This field should not be specified during user creation.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.UserPropertiesResponse>;
+    public readonly shareAccessRights!: pulumi.Output<outputs.databoxedge.v20190801.ShareAccessRightResponse[] | undefined>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Type of the user.
+     */
+    public readonly userType!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -80,7 +88,6 @@ export class User extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareAccessRights"] = args ? args.shareAccessRights : undefined;
             inputs["userType"] = args ? args.userType : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

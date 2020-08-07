@@ -52,6 +52,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class GetEnvironmentResult
     {
         /// <summary>
+        /// The display name of the Azure Resource Manager template that produced the environment.
+        /// </summary>
+        public readonly string? ArmTemplateDisplayName;
+        /// <summary>
+        /// The creator of the environment.
+        /// </summary>
+        public readonly string CreatedByUser;
+        /// <summary>
+        /// The deployment properties of the environment.
+        /// </summary>
+        public readonly Outputs.EnvironmentDeploymentPropertiesResponseResult? DeploymentProperties;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -60,9 +72,13 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.EnvironmentPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The identifier of the resource group containing the environment's resources.
+        /// </summary>
+        public readonly string ResourceGroupId;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -71,24 +87,43 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string UniqueIdentifier;
 
         [OutputConstructor]
         private GetEnvironmentResult(
+            string? armTemplateDisplayName,
+
+            string createdByUser,
+
+            Outputs.EnvironmentDeploymentPropertiesResponseResult? deploymentProperties,
+
             string? location,
 
             string name,
 
-            Outputs.EnvironmentPropertiesResponseResult properties,
+            string provisioningState,
+
+            string resourceGroupId,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string uniqueIdentifier)
         {
+            ArmTemplateDisplayName = armTemplateDisplayName;
+            CreatedByUser = createdByUser;
+            DeploymentProperties = deploymentProperties;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGroupId = resourceGroupId;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

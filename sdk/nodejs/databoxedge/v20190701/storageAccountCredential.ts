@@ -37,17 +37,45 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     }
 
     /**
+     * Encrypted storage key.
+     */
+    public readonly accountKey!: pulumi.Output<outputs.databoxedge.v20190701.AsymmetricEncryptedSecretResponse | undefined>;
+    /**
+     * Type of storage accessed on the storage account.
+     */
+    public readonly accountType!: pulumi.Output<string>;
+    /**
+     * Alias for the storage account.
+     */
+    public readonly alias!: pulumi.Output<string>;
+    /**
+     * Blob end point for private clouds.
+     */
+    public readonly blobDomainName!: pulumi.Output<string | undefined>;
+    /**
+     * Connection string for the storage account. Use this string if username and account key are not specified.
+     */
+    public readonly connectionString!: pulumi.Output<string | undefined>;
+    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The storage account credential properties.
+     * Signifies whether SSL needs to be enabled or not.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190701.StorageAccountCredentialPropertiesResponse>;
+    public readonly sslStatus!: pulumi.Output<string>;
+    /**
+     * Id of the storage account.
+     */
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Username for the storage account.
+     */
+    public readonly userName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StorageAccountCredential resource with the given unique name, arguments, and options.
@@ -91,7 +119,6 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             inputs["sslStatus"] = args ? args.sslStatus : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["userName"] = args ? args.userName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

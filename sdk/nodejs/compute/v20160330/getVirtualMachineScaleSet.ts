@@ -48,9 +48,13 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of a Virtual Machine Scale Set.
+     * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
-    readonly properties: outputs.compute.v20160330.VirtualMachineScaleSetPropertiesResponse;
+    readonly overProvision?: boolean;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
     /**
      * The virtual machine scale set sku.
      */
@@ -63,4 +67,12 @@ export interface GetVirtualMachineScaleSetResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * The upgrade policy.
+     */
+    readonly upgradePolicy?: outputs.compute.v20160330.UpgradePolicyResponse;
+    /**
+     * The virtual machine profile.
+     */
+    readonly virtualMachineProfile?: outputs.compute.v20160330.VirtualMachineScaleSetVMProfileResponse;
 }

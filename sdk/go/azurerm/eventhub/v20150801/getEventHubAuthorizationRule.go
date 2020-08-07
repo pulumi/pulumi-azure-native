@@ -33,8 +33,8 @@ type LookupEventHubAuthorizationRuleResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties supplied to create or update SharedAccessAuthorizationRule
-	Properties SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

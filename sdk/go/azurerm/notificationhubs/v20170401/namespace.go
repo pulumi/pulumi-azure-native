@@ -14,18 +14,42 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
+	// The time the namespace was created.
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
+	// Whether or not the namespace is set as Critical.
+	Critical pulumi.BoolPtrOutput `pulumi:"critical"`
+	// Data center for the namespace
+	DataCenter pulumi.StringPtrOutput `pulumi:"dataCenter"`
+	// Whether or not the namespace is currently enabled.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// Identifier for Azure Insights metrics
+	MetricId pulumi.StringOutput `pulumi:"metricId"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Namespace.
-	Properties NamespacePropertiesResponseOutput `pulumi:"properties"`
+	// The namespace type.
+	NamespaceType pulumi.StringPtrOutput `pulumi:"namespaceType"`
+	// Provisioning state of the Namespace.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+	Region pulumi.StringPtrOutput `pulumi:"region"`
+	// ScaleUnit where the namespace gets created
+	ScaleUnit pulumi.StringPtrOutput `pulumi:"scaleUnit"`
+	// Endpoint you can use to perform NotificationHub operations.
+	ServiceBusEndpoint pulumi.StringPtrOutput `pulumi:"serviceBusEndpoint"`
 	// The sku of the created namespace
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The Id of the Azure subscription associated with the namespace.
+	SubscriptionId pulumi.StringPtrOutput `pulumi:"subscriptionId"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringPtrOutput `pulumi:"updatedAt"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -65,33 +89,81 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
+	// The time the namespace was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Whether or not the namespace is set as Critical.
+	Critical *bool `pulumi:"critical"`
+	// Data center for the namespace
+	DataCenter *string `pulumi:"dataCenter"`
+	// Whether or not the namespace is currently enabled.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Identifier for Azure Insights metrics
+	MetricId *string `pulumi:"metricId"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of the Namespace.
-	Properties *NamespacePropertiesResponse `pulumi:"properties"`
+	// The namespace type.
+	NamespaceType *string `pulumi:"namespaceType"`
+	// Provisioning state of the Namespace.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+	Region *string `pulumi:"region"`
+	// ScaleUnit where the namespace gets created
+	ScaleUnit *string `pulumi:"scaleUnit"`
+	// Endpoint you can use to perform NotificationHub operations.
+	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
 	// The sku of the created namespace
 	Sku *SkuResponse `pulumi:"sku"`
+	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+	Status *string `pulumi:"status"`
+	// The Id of the Azure subscription associated with the namespace.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type NamespaceState struct {
+	// The time the namespace was created.
+	CreatedAt pulumi.StringPtrInput
+	// Whether or not the namespace is set as Critical.
+	Critical pulumi.BoolPtrInput
+	// Data center for the namespace
+	DataCenter pulumi.StringPtrInput
+	// Whether or not the namespace is currently enabled.
+	Enabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// Identifier for Azure Insights metrics
+	MetricId pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of the Namespace.
-	Properties NamespacePropertiesResponsePtrInput
+	// The namespace type.
+	NamespaceType pulumi.StringPtrInput
+	// Provisioning state of the Namespace.
+	ProvisioningState pulumi.StringPtrInput
+	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+	Region pulumi.StringPtrInput
+	// ScaleUnit where the namespace gets created
+	ScaleUnit pulumi.StringPtrInput
+	// Endpoint you can use to perform NotificationHub operations.
+	ServiceBusEndpoint pulumi.StringPtrInput
 	// The sku of the created namespace
 	Sku SkuResponsePtrInput
+	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+	Status pulumi.StringPtrInput
+	// The Id of the Azure subscription associated with the namespace.
+	SubscriptionId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {

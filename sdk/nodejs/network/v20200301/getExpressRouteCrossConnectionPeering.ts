@@ -41,15 +41,71 @@ export interface GetExpressRouteCrossConnectionPeeringArgs {
  */
 export interface GetExpressRouteCrossConnectionPeeringResult {
     /**
+     * The Azure ASN.
+     */
+    readonly azureASN: number;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The GatewayManager Etag.
+     */
+    readonly gatewayManagerEtag?: string;
+    /**
+     * The IPv6 peering configuration.
+     */
+    readonly ipv6PeeringConfig?: outputs.network.v20200301.Ipv6ExpressRouteCircuitPeeringConfigResponse;
+    /**
+     * Who was the last to modify the peering.
+     */
+    readonly lastModifiedBy: string;
+    /**
+     * The Microsoft peering configuration.
+     */
+    readonly microsoftPeeringConfig?: outputs.network.v20200301.ExpressRouteCircuitPeeringConfigResponse;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: string;
     /**
-     * Properties of the express route cross connection peering.
+     * The peer ASN.
      */
-    readonly properties: outputs.network.v20200301.ExpressRouteCrossConnectionPeeringPropertiesResponse;
+    readonly peerASN?: number;
+    /**
+     * The peering type.
+     */
+    readonly peeringType?: string;
+    /**
+     * The primary port.
+     */
+    readonly primaryAzurePort: string;
+    /**
+     * The primary address prefix.
+     */
+    readonly primaryPeerAddressPrefix?: string;
+    /**
+     * The provisioning state of the express route cross connection peering resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The secondary port.
+     */
+    readonly secondaryAzurePort: string;
+    /**
+     * The secondary address prefix.
+     */
+    readonly secondaryPeerAddressPrefix?: string;
+    /**
+     * The shared key.
+     */
+    readonly sharedKey?: string;
+    /**
+     * The peering state.
+     */
+    readonly state?: string;
+    /**
+     * The VLAN ID.
+     */
+    readonly vlanId?: number;
 }

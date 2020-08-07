@@ -37,6 +37,10 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
     }
 
     /**
+     * Time to live of the Cosmos DB Cassandra table
+     */
+    public /*out*/ readonly defaultTtl!: pulumi.Output<number | undefined>;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     public /*out*/ readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +49,9 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of an Azure Cosmos DB Cassandra table
+     * Schema of the Cosmos DB Cassandra table
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20160319.CassandraTablePropertiesResponse>;
+    public /*out*/ readonly schema!: pulumi.Output<outputs.documentdb.v20160319.CassandraSchemaResponse | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -94,8 +98,9 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["defaultTtl"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["schema"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

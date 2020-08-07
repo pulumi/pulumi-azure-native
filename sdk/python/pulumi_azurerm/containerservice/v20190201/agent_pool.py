@@ -10,30 +10,61 @@ from ... import _utilities, _tables
 
 
 class AgentPool(pulumi.CustomResource):
+    availability_zones: pulumi.Output[list]
+    """
+    (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+    """
+    count: pulumi.Output[float]
+    """
+    Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+    """
+    enable_auto_scaling: pulumi.Output[bool]
+    """
+    Whether to enable auto-scaler
+    """
+    max_count: pulumi.Output[float]
+    """
+    Maximum number of nodes for auto-scaling
+    """
+    max_pods: pulumi.Output[float]
+    """
+    Maximum number of pods that can run on a node.
+    """
+    min_count: pulumi.Output[float]
+    """
+    Minimum number of nodes for auto-scaling
+    """
     name: pulumi.Output[str]
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    orchestrator_version: pulumi.Output[str]
     """
-    Properties of an agent pool.
-      * `availability_zones` (`list`) - (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-      * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-      * `enable_auto_scaling` (`bool`) - Whether to enable auto-scaler
-      * `max_count` (`float`) - Maximum number of nodes for auto-scaling
-      * `max_pods` (`float`) - Maximum number of pods that can run on a node.
-      * `min_count` (`float`) - Minimum number of nodes for auto-scaling
-      * `orchestrator_version` (`str`) - Version of orchestrator specified when creating the managed cluster.
-      * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-      * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
-      * `type` (`str`) - AgentPoolType represents types of an agent pool
-      * `vm_size` (`str`) - Size of agent VMs.
-      * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
+    Version of orchestrator specified when creating the managed cluster.
+    """
+    os_disk_size_gb: pulumi.Output[float]
+    """
+    OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+    """
+    os_type: pulumi.Output[str]
+    """
+    OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The current deployment or provisioning state, which only appears in the response.
     """
     type: pulumi.Output[str]
     """
-    Resource type
+    AgentPoolType represents types of an agent pool
+    """
+    vm_size: pulumi.Output[str]
+    """
+    Size of agent VMs.
+    """
+    vnet_subnet_id: pulumi.Output[str]
+    """
+    VNet SubnetID specifies the VNet's subnet identifier.
     """
     def __init__(__self__, resource_name, opts=None, availability_zones=None, count=None, enable_auto_scaling=None, managed_cluster_name=None, max_count=None, max_pods=None, min_count=None, name=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, resource_group_name=None, type=None, vm_size=None, vnet_subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -99,7 +130,7 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
             __props__['vnet_subnet_id'] = vnet_subnet_id
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(AgentPool, __self__).__init__(
             'azurerm:containerservice/v20190201:AgentPool',
             resource_name,

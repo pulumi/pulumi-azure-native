@@ -10,6 +10,20 @@ from ... import _utilities, _tables
 
 
 class Redis(pulumi.CustomResource):
+    access_keys: pulumi.Output[dict]
+    """
+    Redis cache access keys.
+      * `primary_key` (`str`) - The current primary key that clients can use to authenticate with Redis cache.
+      * `secondary_key` (`str`) - The current secondary key that clients can use to authenticate with Redis cache.
+    """
+    enable_non_ssl_port: pulumi.Output[bool]
+    """
+    If the value is true, then the non-SLL Redis server port (6379) will be enabled.
+    """
+    host_name: pulumi.Output[str]
+    """
+    Redis host name.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,38 +32,60 @@ class Redis(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    port: pulumi.Output[float]
     """
-    Redis cache properties.
-      * `access_keys` (`dict`) - Redis cache access keys.
-        * `primary_key` (`str`) - The current primary key that clients can use to authenticate with Redis cache.
-        * `secondary_key` (`str`) - The current secondary key that clients can use to authenticate with Redis cache.
-
-      * `enable_non_ssl_port` (`bool`) - If the value is true, then the non-SLL Redis server port (6379) will be enabled.
-      * `host_name` (`str`) - Redis host name.
-      * `port` (`float`) - Redis non-SSL port.
-      * `provisioning_state` (`str`) - Redis instance provisioning status.
-      * `redis_configuration` (`dict`) - All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-      * `redis_version` (`str`) - RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
-      * `shard_count` (`float`) - The number of shards to be created on a Premium Cluster Cache.
-      * `sku` (`dict`) - What SKU of Redis cache to deploy.
-        * `capacity` (`float`) - What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
-        * `family` (`str`) - Which family to use. Valid values: (C, P).
-        * `name` (`str`) - What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
-
-      * `ssl_port` (`float`) - Redis SSL port.
-      * `static_ip` (`str`) - Required when deploying a Redis cache inside an existing Azure Virtual Network.
-      * `subnet` (`str`) - Required when deploying a Redis cache inside an existing Azure Virtual Network.
-      * `tenant_settings` (`dict`) - tenantSettings
-      * `virtual_network` (`str`) - The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+    Redis non-SSL port.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Redis instance provisioning status.
+    """
+    redis_configuration: pulumi.Output[dict]
+    """
+    All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+    """
+    redis_version: pulumi.Output[str]
+    """
+    RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
+    """
+    shard_count: pulumi.Output[float]
+    """
+    The number of shards to be created on a Premium Cluster Cache.
+    """
+    sku: pulumi.Output[dict]
+    """
+    What SKU of Redis cache to deploy.
+      * `capacity` (`float`) - What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
+      * `family` (`str`) - Which family to use. Valid values: (C, P).
+      * `name` (`str`) - What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
+    """
+    ssl_port: pulumi.Output[float]
+    """
+    Redis SSL port.
+    """
+    static_ip: pulumi.Output[str]
+    """
+    Required when deploying a Redis cache inside an existing Azure Virtual Network.
+    """
+    subnet: pulumi.Output[str]
+    """
+    Required when deploying a Redis cache inside an existing Azure Virtual Network.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags.
     """
+    tenant_settings: pulumi.Output[dict]
+    """
+    tenantSettings
+    """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_network: pulumi.Output[str]
+    """
+    The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
     """
     def __init__(__self__, resource_name, opts=None, enable_non_ssl_port=None, location=None, name=None, redis_configuration=None, redis_version=None, resource_group_name=None, shard_count=None, sku=None, static_ip=None, subnet=None, tags=None, tenant_settings=None, virtual_network=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -115,7 +151,11 @@ class Redis(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['tenant_settings'] = tenant_settings
             __props__['virtual_network'] = virtual_network
-            __props__['properties'] = None
+            __props__['access_keys'] = None
+            __props__['host_name'] = None
+            __props__['port'] = None
+            __props__['provisioning_state'] = None
+            __props__['ssl_port'] = None
             __props__['type'] = None
         super(Redis, __self__).__init__(
             'azurerm:cache/v20150801:Redis',

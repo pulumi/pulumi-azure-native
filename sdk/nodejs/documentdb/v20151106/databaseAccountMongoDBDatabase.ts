@@ -45,10 +45,6 @@ export class DatabaseAccountMongoDBDatabase extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of an Azure Cosmos DB MongoDB database
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20151106.MongoDBDatabasePropertiesResponse>;
-    /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
     public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -91,7 +87,6 @@ export class DatabaseAccountMongoDBDatabase extends pulumi.CustomResource {
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

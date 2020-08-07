@@ -13,12 +13,78 @@ class GetLabResult:
     """
     A lab.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, announcement=None, artifacts_storage_account=None, created_date=None, default_premium_storage_account=None, default_storage_account=None, environment_permission=None, extended_properties=None, lab_storage_type=None, load_balancer_id=None, location=None, mandatory_artifacts_resource_ids_linux=None, mandatory_artifacts_resource_ids_windows=None, name=None, network_security_group_id=None, premium_data_disk_storage_account=None, premium_data_disks=None, provisioning_state=None, public_ip_id=None, support=None, tags=None, type=None, unique_identifier=None, vault_name=None, vm_creation_resource_group=None):
+        if announcement and not isinstance(announcement, dict):
+            raise TypeError("Expected argument 'announcement' to be a dict")
+        __self__.announcement = announcement
+        """
+        The properties of any lab announcement associated with this lab
+        """
+        if artifacts_storage_account and not isinstance(artifacts_storage_account, str):
+            raise TypeError("Expected argument 'artifacts_storage_account' to be a str")
+        __self__.artifacts_storage_account = artifacts_storage_account
+        """
+        The lab's artifact storage account.
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The creation date of the lab.
+        """
+        if default_premium_storage_account and not isinstance(default_premium_storage_account, str):
+            raise TypeError("Expected argument 'default_premium_storage_account' to be a str")
+        __self__.default_premium_storage_account = default_premium_storage_account
+        """
+        The lab's default premium storage account.
+        """
+        if default_storage_account and not isinstance(default_storage_account, str):
+            raise TypeError("Expected argument 'default_storage_account' to be a str")
+        __self__.default_storage_account = default_storage_account
+        """
+        The lab's default storage account.
+        """
+        if environment_permission and not isinstance(environment_permission, str):
+            raise TypeError("Expected argument 'environment_permission' to be a str")
+        __self__.environment_permission = environment_permission
+        """
+        The access rights to be granted to the user when provisioning an environment
+        """
+        if extended_properties and not isinstance(extended_properties, dict):
+            raise TypeError("Expected argument 'extended_properties' to be a dict")
+        __self__.extended_properties = extended_properties
+        """
+        Extended properties of the lab used for experimental features
+        """
+        if lab_storage_type and not isinstance(lab_storage_type, str):
+            raise TypeError("Expected argument 'lab_storage_type' to be a str")
+        __self__.lab_storage_type = lab_storage_type
+        """
+        Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        """
+        if load_balancer_id and not isinstance(load_balancer_id, str):
+            raise TypeError("Expected argument 'load_balancer_id' to be a str")
+        __self__.load_balancer_id = load_balancer_id
+        """
+        The load balancer used to for lab VMs that use shared IP address.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The location of the resource.
+        """
+        if mandatory_artifacts_resource_ids_linux and not isinstance(mandatory_artifacts_resource_ids_linux, list):
+            raise TypeError("Expected argument 'mandatory_artifacts_resource_ids_linux' to be a list")
+        __self__.mandatory_artifacts_resource_ids_linux = mandatory_artifacts_resource_ids_linux
+        """
+        The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+        """
+        if mandatory_artifacts_resource_ids_windows and not isinstance(mandatory_artifacts_resource_ids_windows, list):
+            raise TypeError("Expected argument 'mandatory_artifacts_resource_ids_windows' to be a list")
+        __self__.mandatory_artifacts_resource_ids_windows = mandatory_artifacts_resource_ids_windows
+        """
+        The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +92,43 @@ class GetLabResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_security_group_id and not isinstance(network_security_group_id, str):
+            raise TypeError("Expected argument 'network_security_group_id' to be a str")
+        __self__.network_security_group_id = network_security_group_id
         """
-        The properties of the resource.
+        The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
+        """
+        if premium_data_disk_storage_account and not isinstance(premium_data_disk_storage_account, str):
+            raise TypeError("Expected argument 'premium_data_disk_storage_account' to be a str")
+        __self__.premium_data_disk_storage_account = premium_data_disk_storage_account
+        """
+        The lab's premium data disk storage account.
+        """
+        if premium_data_disks and not isinstance(premium_data_disks, str):
+            raise TypeError("Expected argument 'premium_data_disks' to be a str")
+        __self__.premium_data_disks = premium_data_disks
+        """
+        The setting to enable usage of premium data disks.
+        When its value is 'Enabled', creation of standard or premium data disks is allowed.
+        When its value is 'Disabled', only creation of standard data disks is allowed.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the resource.
+        """
+        if public_ip_id and not isinstance(public_ip_id, str):
+            raise TypeError("Expected argument 'public_ip_id' to be a str")
+        __self__.public_ip_id = public_ip_id
+        """
+        The public IP address for the lab's load balancer.
+        """
+        if support and not isinstance(support, dict):
+            raise TypeError("Expected argument 'support' to be a dict")
+        __self__.support = support
+        """
+        The properties of any lab support message associated with this lab
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +142,24 @@ class GetLabResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if vault_name and not isinstance(vault_name, str):
+            raise TypeError("Expected argument 'vault_name' to be a str")
+        __self__.vault_name = vault_name
+        """
+        The lab's Key vault.
+        """
+        if vm_creation_resource_group and not isinstance(vm_creation_resource_group, str):
+            raise TypeError("Expected argument 'vm_creation_resource_group' to be a str")
+        __self__.vm_creation_resource_group = vm_creation_resource_group
+        """
+        The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
+        """
 
 
 class AwaitableGetLabResult(GetLabResult):
@@ -52,11 +168,30 @@ class AwaitableGetLabResult(GetLabResult):
         if False:
             yield self
         return GetLabResult(
+            announcement=self.announcement,
+            artifacts_storage_account=self.artifacts_storage_account,
+            created_date=self.created_date,
+            default_premium_storage_account=self.default_premium_storage_account,
+            default_storage_account=self.default_storage_account,
+            environment_permission=self.environment_permission,
+            extended_properties=self.extended_properties,
+            lab_storage_type=self.lab_storage_type,
+            load_balancer_id=self.load_balancer_id,
             location=self.location,
+            mandatory_artifacts_resource_ids_linux=self.mandatory_artifacts_resource_ids_linux,
+            mandatory_artifacts_resource_ids_windows=self.mandatory_artifacts_resource_ids_windows,
             name=self.name,
-            properties=self.properties,
+            network_security_group_id=self.network_security_group_id,
+            premium_data_disk_storage_account=self.premium_data_disk_storage_account,
+            premium_data_disks=self.premium_data_disks,
+            provisioning_state=self.provisioning_state,
+            public_ip_id=self.public_ip_id,
+            support=self.support,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            vault_name=self.vault_name,
+            vm_creation_resource_group=self.vm_creation_resource_group)
 
 
 def get_lab(name=None, resource_group_name=None, opts=None):
@@ -76,8 +211,27 @@ def get_lab(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getLab', __args__, opts=opts).value
 
     return AwaitableGetLabResult(
+        announcement=__ret__.get('announcement'),
+        artifacts_storage_account=__ret__.get('artifactsStorageAccount'),
+        created_date=__ret__.get('createdDate'),
+        default_premium_storage_account=__ret__.get('defaultPremiumStorageAccount'),
+        default_storage_account=__ret__.get('defaultStorageAccount'),
+        environment_permission=__ret__.get('environmentPermission'),
+        extended_properties=__ret__.get('extendedProperties'),
+        lab_storage_type=__ret__.get('labStorageType'),
+        load_balancer_id=__ret__.get('loadBalancerId'),
         location=__ret__.get('location'),
+        mandatory_artifacts_resource_ids_linux=__ret__.get('mandatoryArtifactsResourceIdsLinux'),
+        mandatory_artifacts_resource_ids_windows=__ret__.get('mandatoryArtifactsResourceIdsWindows'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_security_group_id=__ret__.get('networkSecurityGroupId'),
+        premium_data_disk_storage_account=__ret__.get('premiumDataDiskStorageAccount'),
+        premium_data_disks=__ret__.get('premiumDataDisks'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_ip_id=__ret__.get('publicIpId'),
+        support=__ret__.get('support'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        vault_name=__ret__.get('vaultName'),
+        vm_creation_resource_group=__ret__.get('vmCreationResourceGroup'))

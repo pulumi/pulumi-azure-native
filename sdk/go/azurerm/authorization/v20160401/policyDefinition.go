@@ -14,10 +14,16 @@ import (
 type PolicyDefinition struct {
 	pulumi.CustomResourceState
 
+	// The policy definition description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponseOutput `pulumi:"properties"`
+	// The policy rule.
+	PolicyRule pulumi.MapOutput `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
 }
 
 // NewPolicyDefinition registers a new resource with the given unique name, arguments, and options.
@@ -51,17 +57,29 @@ func GetPolicyDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyDefinition resources.
 type policyDefinitionState struct {
+	// The policy definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName *string `pulumi:"displayName"`
 	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
 	Name *string `pulumi:"name"`
-	// The policy definition properties.
-	Properties *PolicyDefinitionPropertiesResponse `pulumi:"properties"`
+	// The policy rule.
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType *string `pulumi:"policyType"`
 }
 
 type PolicyDefinitionState struct {
+	// The policy definition description.
+	Description pulumi.StringPtrInput
+	// The display name of the policy definition.
+	DisplayName pulumi.StringPtrInput
 	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
 	Name pulumi.StringPtrInput
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponsePtrInput
+	// The policy rule.
+	PolicyRule pulumi.MapInput
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionState) ElementType() reflect.Type {

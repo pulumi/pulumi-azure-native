@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Domain(pulumi.CustomResource):
+    endpoint: pulumi.Output[str]
+    """
+    Endpoint for the domain.
+    """
     location: pulumi.Output[str]
     """
     Location of the resource.
@@ -18,11 +22,9 @@ class Domain(pulumi.CustomResource):
     """
     Name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the domain.
-      * `endpoint` (`str`) - Endpoint for the domain.
-      * `provisioning_state` (`str`) - Provisioning state of the domain.
+    Provisioning state of the domain.
     """
     tags: pulumi.Output[dict]
     """
@@ -70,7 +72,8 @@ class Domain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['endpoint'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Domain, __self__).__init__(
             'azurerm:eventgrid/v20190601:Domain',

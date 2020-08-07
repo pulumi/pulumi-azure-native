@@ -16,8 +16,10 @@ type RulesEngine struct {
 
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Rules Engine Configuration.
-	Properties RulesEnginePropertiesResponseOutput `pulumi:"properties"`
+	// Resource status.
+	ResourceState pulumi.StringPtrOutput `pulumi:"resourceState"`
+	// A list of rules that define a particular Rules Engine Configuration.
+	Rules RulesEngineRuleResponseArrayOutput `pulumi:"rules"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,8 +63,10 @@ func GetRulesEngine(ctx *pulumi.Context,
 type rulesEngineState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Rules Engine Configuration.
-	Properties *RulesEnginePropertiesResponse `pulumi:"properties"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
+	// A list of rules that define a particular Rules Engine Configuration.
+	Rules []RulesEngineRuleResponse `pulumi:"rules"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -70,8 +74,10 @@ type rulesEngineState struct {
 type RulesEngineState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Rules Engine Configuration.
-	Properties RulesEnginePropertiesResponsePtrInput
+	// Resource status.
+	ResourceState pulumi.StringPtrInput
+	// A list of rules that define a particular Rules Engine Configuration.
+	Rules RulesEngineRuleResponseArrayInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

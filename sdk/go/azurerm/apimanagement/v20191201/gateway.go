@@ -14,10 +14,12 @@ import (
 type Gateway struct {
 	pulumi.CustomResourceState
 
+	// Gateway description
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Gateway location.
+	LocationData ResourceLocationDataContractResponsePtrOutput `pulumi:"locationData"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gateway details.
-	Properties GatewayContractPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +61,23 @@ func GetGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Gateway resources.
 type gatewayState struct {
+	// Gateway description
+	Description *string `pulumi:"description"`
+	// Gateway location.
+	LocationData *ResourceLocationDataContractResponse `pulumi:"locationData"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Gateway details.
-	Properties *GatewayContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type GatewayState struct {
+	// Gateway description
+	Description pulumi.StringPtrInput
+	// Gateway location.
+	LocationData ResourceLocationDataContractResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Gateway details.
-	Properties GatewayContractPropertiesResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

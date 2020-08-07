@@ -37,17 +37,53 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The RosettaNet process configuration activity settings.
+     */
+    public readonly activitySettings!: pulumi.Output<outputs.logic.v20160601.RosettaNetPipActivitySettingsResponse>;
+    /**
+     * The changed time.
+     */
+    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    /**
+     * The created time.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The integration account RosettaNet ProcessConfiguration properties.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The RosettaNet initiator role settings.
+     */
+    public readonly initiatorRoleSettings!: pulumi.Output<outputs.logic.v20160601.RosettaNetPipRoleSettingsResponse>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets the resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The integration account RosettaNet process configuration properties.
+     * The integration account RosettaNet process code.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse>;
+    public readonly processCode!: pulumi.Output<string>;
+    /**
+     * The integration account RosettaNet process name.
+     */
+    public readonly processName!: pulumi.Output<string>;
+    /**
+     * The integration account RosettaNet process version.
+     */
+    public readonly processVersion!: pulumi.Output<string>;
+    /**
+     * The RosettaNet responder role settings.
+     */
+    public readonly responderRoleSettings!: pulumi.Output<outputs.logic.v20160601.RosettaNetPipRoleSettingsResponse>;
     /**
      * The resource tags.
      */
@@ -110,7 +146,8 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["responderRoleSettings"] = args ? args.responderRoleSettings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

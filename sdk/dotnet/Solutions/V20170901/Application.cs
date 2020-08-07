@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Solutions.V20170901
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
+        /// The fully qualified path of managed application definition Id.
+        /// </summary>
+        [Output("applicationDefinitionId")]
+        public Output<string?> ApplicationDefinitionId { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
@@ -39,10 +45,28 @@ namespace Pulumi.AzureRM.Solutions.V20170901
         public Output<string?> ManagedBy { get; private set; } = null!;
 
         /// <summary>
+        /// The managed resource group Id.
+        /// </summary>
+        [Output("managedResourceGroupId")]
+        public Output<string> ManagedResourceGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Name and value pairs that define the managed application outputs.
+        /// </summary>
+        [Output("outputs")]
+        public Output<ImmutableDictionary<string, object>> Outputs { get; private set; } = null!;
+
+        /// <summary>
+        /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, object>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The plan information.
@@ -51,10 +75,10 @@ namespace Pulumi.AzureRM.Solutions.V20170901
         public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// The managed application properties.
+        /// The managed application provisioning state.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
@@ -73,6 +97,12 @@ namespace Pulumi.AzureRM.Solutions.V20170901
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The blob URI where the UI definition file is located.
+        /// </summary>
+        [Output("uiDefinitionUri")]
+        public Output<string?> UiDefinitionUri { get; private set; } = null!;
 
 
         /// <summary>

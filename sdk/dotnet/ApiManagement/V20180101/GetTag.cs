@@ -46,13 +46,13 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetTagResult
     {
         /// <summary>
+        /// Tag name.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Tag entity contract properties.
-        /// </summary>
-        public readonly Outputs.TagContractPropertiesResponseResult Properties;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +60,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 
         [OutputConstructor]
         private GetTagResult(
-            string name,
+            string displayName,
 
-            Outputs.TagContractPropertiesResponseResult properties,
+            string name,
 
             string type)
         {
+            DisplayName = displayName;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

@@ -13,7 +13,13 @@ class GetWorkbookResult:
     """
     An Application Insights workbook definition.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, category=None, kind=None, location=None, name=None, serialized_data=None, shared_type_kind=None, source_resource_id=None, tags=None, time_modified=None, type=None, user_id=None, version=None, workbook_id=None):
+        if category and not isinstance(category, str):
+            raise TypeError("Expected argument 'category' to be a str")
+        __self__.category = category
+        """
+        Workbook category, as defined by the user at creation time.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,11 +38,23 @@ class GetWorkbookResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if serialized_data and not isinstance(serialized_data, str):
+            raise TypeError("Expected argument 'serialized_data' to be a str")
+        __self__.serialized_data = serialized_data
         """
-        Metadata describing a web test for an Azure resource.
+        Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        """
+        if shared_type_kind and not isinstance(shared_type_kind, str):
+            raise TypeError("Expected argument 'shared_type_kind' to be a str")
+        __self__.shared_type_kind = shared_type_kind
+        """
+        Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        """
+        if source_resource_id and not isinstance(source_resource_id, str):
+            raise TypeError("Expected argument 'source_resource_id' to be a str")
+        __self__.source_resource_id = source_resource_id
+        """
+        Optional resourceId for a source resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,11 +62,35 @@ class GetWorkbookResult:
         """
         Resource tags
         """
+        if time_modified and not isinstance(time_modified, str):
+            raise TypeError("Expected argument 'time_modified' to be a str")
+        __self__.time_modified = time_modified
+        """
+        Date and time in UTC of the last modification that was made to this workbook definition.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Azure resource type
+        """
+        if user_id and not isinstance(user_id, str):
+            raise TypeError("Expected argument 'user_id' to be a str")
+        __self__.user_id = user_id
+        """
+        Unique user id of the specific user that owns this workbook.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        """
+        if workbook_id and not isinstance(workbook_id, str):
+            raise TypeError("Expected argument 'workbook_id' to be a str")
+        __self__.workbook_id = workbook_id
+        """
+        Internally assigned unique id of the workbook definition.
         """
 
 
@@ -58,12 +100,19 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
         if False:
             yield self
         return GetWorkbookResult(
+            category=self.category,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            serialized_data=self.serialized_data,
+            shared_type_kind=self.shared_type_kind,
+            source_resource_id=self.source_resource_id,
             tags=self.tags,
-            type=self.type)
+            time_modified=self.time_modified,
+            type=self.type,
+            user_id=self.user_id,
+            version=self.version,
+            workbook_id=self.workbook_id)
 
 
 def get_workbook(name=None, resource_group_name=None, opts=None):
@@ -83,9 +132,16 @@ def get_workbook(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150501:getWorkbook', __args__, opts=opts).value
 
     return AwaitableGetWorkbookResult(
+        category=__ret__.get('category'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        serialized_data=__ret__.get('serializedData'),
+        shared_type_kind=__ret__.get('sharedTypeKind'),
+        source_resource_id=__ret__.get('sourceResourceId'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        time_modified=__ret__.get('timeModified'),
+        type=__ret__.get('type'),
+        user_id=__ret__.get('userId'),
+        version=__ret__.get('version'),
+        workbook_id=__ret__.get('workbookId'))

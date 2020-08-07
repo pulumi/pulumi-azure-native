@@ -52,29 +52,141 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public sealed class GetSubscriptionResult
     {
         /// <summary>
+        /// Last time there was a receive request to this subscription.
+        /// </summary>
+        public readonly string AccessedAt;
+        /// <summary>
+        /// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        public readonly string? AutoDeleteOnIdle;
+        /// <summary>
+        /// Message count details
+        /// </summary>
+        public readonly Outputs.MessageCountDetailsResponseResult CountDetails;
+        /// <summary>
+        /// Exact time the message was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+        /// </summary>
+        public readonly bool? DeadLetteringOnFilterEvaluationExceptions;
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support when a message expires.
+        /// </summary>
+        public readonly bool? DeadLetteringOnMessageExpiration;
+        /// <summary>
+        /// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        public readonly string? DefaultMessageTimeToLive;
+        /// <summary>
+        /// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        /// </summary>
+        public readonly string? DuplicateDetectionHistoryTimeWindow;
+        /// <summary>
+        /// Value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        public readonly bool? EnableBatchedOperations;
+        /// <summary>
+        /// Queue/Topic name to forward the Dead Letter message
+        /// </summary>
+        public readonly string? ForwardDeadLetteredMessagesTo;
+        /// <summary>
+        /// Queue/Topic name to forward the messages
+        /// </summary>
+        public readonly string? ForwardTo;
+        /// <summary>
+        /// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+        /// </summary>
+        public readonly string? LockDuration;
+        /// <summary>
+        /// Number of maximum deliveries.
+        /// </summary>
+        public readonly int? MaxDeliveryCount;
+        /// <summary>
+        /// Number of messages.
+        /// </summary>
+        public readonly int MessageCount;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of subscriptions resource.
+        /// Value indicating if a subscription supports the concept of sessions.
         /// </summary>
-        public readonly Outputs.SBSubscriptionPropertiesResponseResult Properties;
+        public readonly bool? RequiresSession;
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
 
         [OutputConstructor]
         private GetSubscriptionResult(
+            string accessedAt,
+
+            string? autoDeleteOnIdle,
+
+            Outputs.MessageCountDetailsResponseResult countDetails,
+
+            string createdAt,
+
+            bool? deadLetteringOnFilterEvaluationExceptions,
+
+            bool? deadLetteringOnMessageExpiration,
+
+            string? defaultMessageTimeToLive,
+
+            string? duplicateDetectionHistoryTimeWindow,
+
+            bool? enableBatchedOperations,
+
+            string? forwardDeadLetteredMessagesTo,
+
+            string? forwardTo,
+
+            string? lockDuration,
+
+            int? maxDeliveryCount,
+
+            int messageCount,
+
             string name,
 
-            Outputs.SBSubscriptionPropertiesResponseResult properties,
+            bool? requiresSession,
 
-            string type)
+            string? status,
+
+            string type,
+
+            string updatedAt)
         {
+            AccessedAt = accessedAt;
+            AutoDeleteOnIdle = autoDeleteOnIdle;
+            CountDetails = countDetails;
+            CreatedAt = createdAt;
+            DeadLetteringOnFilterEvaluationExceptions = deadLetteringOnFilterEvaluationExceptions;
+            DeadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
+            DefaultMessageTimeToLive = defaultMessageTimeToLive;
+            DuplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
+            EnableBatchedOperations = enableBatchedOperations;
+            ForwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
+            ForwardTo = forwardTo;
+            LockDuration = lockDuration;
+            MaxDeliveryCount = maxDeliveryCount;
+            MessageCount = messageCount;
             Name = name;
-            Properties = properties;
+            RequiresSession = requiresSession;
+            Status = status;
             Type = type;
+            UpdatedAt = updatedAt;
         }
     }
 }

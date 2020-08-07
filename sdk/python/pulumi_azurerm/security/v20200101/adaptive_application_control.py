@@ -10,6 +10,15 @@ from ... import _utilities, _tables
 
 
 class AdaptiveApplicationControl(pulumi.CustomResource):
+    configuration_status: pulumi.Output[str]
+    """
+    The configuration status of the VM/server group or machine or rule on the machine
+    """
+    enforcement_mode: pulumi.Output[str]
+    """
+    The application control policy enforcement/protection mode of the VM/server group
+    """
+    issues: pulumi.Output[list]
     location: pulumi.Output[str]
     """
     Location where the resource is stored
@@ -18,51 +27,28 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    path_recommendations: pulumi.Output[list]
+    protection_mode: pulumi.Output[dict]
     """
-    Represents a VM/server group and set of rules to be allowed running on a machine
-      * `configuration_status` (`str`) - The configuration status of the VM/server group or machine or rule on the machine
-      * `enforcement_mode` (`str`) - The application control policy enforcement/protection mode of the VM/server group
-      * `issues` (`list`)
-        * `issue` (`str`) - An alert that VMs/servers within a group can have
-        * `number_of_vms` (`float`) - The number of machines in the VM/server group that have this alert
-
-      * `path_recommendations` (`list`)
-        * `action` (`str`) - The recommendation action of the VM/server or rule
-        * `common` (`bool`) - Whether the path is commonly run on the machine
-        * `configuration_status` (`str`) - The configuration status of the VM/server group or machine or rule on the machine
-        * `file_type` (`str`) - The type of the file (for Linux files - Executable is used)
-        * `path` (`str`) - The full path to whitelist
-        * `publisher_info` (`dict`) - Represents the publisher information of a process/rule
-          * `binary_name` (`str`) - The "OriginalName" field taken from the file's version resource
-          * `product_name` (`str`) - The product name taken from the file's version resource
-          * `publisher_name` (`str`) - The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
-          * `version` (`str`) - The binary file version taken from the file's version resource
-
-        * `type` (`str`) - The type of the rule to be allowed
-        * `user_sids` (`list`)
-        * `usernames` (`list`)
-          * `recommendation_action` (`str`) - The recommendation action of the VM/server or rule
-          * `username` (`str`) - Represents a user that is recommended to be allowed for a certain rule
-
-      * `protection_mode` (`dict`) - The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
-        * `exe` (`str`) - The application control policy enforcement/protection mode of the VM/server group
-        * `executable` (`str`) - The application control policy enforcement/protection mode of the VM/server group
-        * `msi` (`str`) - The application control policy enforcement/protection mode of the VM/server group
-        * `script` (`str`) - The application control policy enforcement/protection mode of the VM/server group
-
-      * `recommendation_status` (`str`) - The recommendation status of the VM/server group or VM/server
-      * `source_system` (`str`) - The source type of the VM/server group
-      * `vm_recommendations` (`list`)
-        * `configuration_status` (`str`) - The configuration status of the VM/server group or machine or rule on the machine
-        * `enforcement_support` (`str`) - The VM/server supportability of Enforce feature
-        * `recommendation_action` (`str`) - The recommendation action of the VM/server or rule
-        * `resource_id` (`str`) - The full azure resource id of the machine
+    The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+      * `exe` (`str`) - The application control policy enforcement/protection mode of the VM/server group
+      * `executable` (`str`) - The application control policy enforcement/protection mode of the VM/server group
+      * `msi` (`str`) - The application control policy enforcement/protection mode of the VM/server group
+      * `script` (`str`) - The application control policy enforcement/protection mode of the VM/server group
+    """
+    recommendation_status: pulumi.Output[str]
+    """
+    The recommendation status of the VM/server group or VM/server
+    """
+    source_system: pulumi.Output[str]
+    """
+    The source type of the VM/server group
     """
     type: pulumi.Output[str]
     """
     Resource type
     """
+    vm_recommendations: pulumi.Output[list]
     def __init__(__self__, resource_name, opts=None, asc_location=None, enforcement_mode=None, name=None, path_recommendations=None, protection_mode=None, vm_recommendations=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
@@ -133,8 +119,11 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
             __props__['path_recommendations'] = path_recommendations
             __props__['protection_mode'] = protection_mode
             __props__['vm_recommendations'] = vm_recommendations
+            __props__['configuration_status'] = None
+            __props__['issues'] = None
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['recommendation_status'] = None
+            __props__['source_system'] = None
             __props__['type'] = None
         super(AdaptiveApplicationControl, __self__).__init__(
             'azurerm:security/v20200101:AdaptiveApplicationControl',

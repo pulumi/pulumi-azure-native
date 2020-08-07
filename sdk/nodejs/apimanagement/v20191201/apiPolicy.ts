@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,21 @@ export class ApiPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Format of the policyContent.
+     */
+    public readonly format!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Policy.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.PolicyContractPropertiesResponse>;
-    /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Contents of the Policy as defined by the format.
+     */
+    public readonly value!: pulumi.Output<string>;
 
     /**
      * Create a ApiPolicy resource with the given unique name, arguments, and options.
@@ -83,7 +85,6 @@ export class ApiPolicy extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["value"] = args ? args.value : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

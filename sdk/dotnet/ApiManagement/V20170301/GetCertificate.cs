@@ -46,13 +46,21 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public sealed class GetCertificateResult
     {
         /// <summary>
+        /// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        public readonly string ExpirationDate;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Certificate properties details.
+        /// Subject attribute of the certificate.
         /// </summary>
-        public readonly Outputs.CertificateContractPropertiesResponseResult Properties;
+        public readonly string Subject;
+        /// <summary>
+        /// Thumbprint of the certificate.
+        /// </summary>
+        public readonly string Thumbprint;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +68,20 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
         [OutputConstructor]
         private GetCertificateResult(
+            string expirationDate,
+
             string name,
 
-            Outputs.CertificateContractPropertiesResponseResult properties,
+            string subject,
+
+            string thumbprint,
 
             string type)
         {
+            ExpirationDate = expirationDate;
             Name = name;
-            Properties = properties;
+            Subject = subject;
+            Thumbprint = thumbprint;
             Type = type;
         }
     }

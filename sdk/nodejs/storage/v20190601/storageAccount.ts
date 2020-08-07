@@ -37,29 +37,121 @@ export class StorageAccount extends pulumi.CustomResource {
     }
 
     /**
+     * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+     */
+    public readonly accessTier!: pulumi.Output<string>;
+    /**
+     * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+     */
+    public readonly allowBlobPublicAccess!: pulumi.Output<boolean | undefined>;
+    /**
+     * Provides the identity based authentication settings for Azure Files.
+     */
+    public readonly azureFilesIdentityBasedAuthentication!: pulumi.Output<outputs.storage.v20190601.AzureFilesIdentityBasedAuthenticationResponse | undefined>;
+    /**
+     * Blob restore status
+     */
+    public /*out*/ readonly blobRestoreStatus!: pulumi.Output<outputs.storage.v20190601.BlobRestoreStatusResponse>;
+    /**
+     * Gets the creation date and time of the storage account in UTC.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Gets the custom domain the user assigned to this storage account.
+     */
+    public readonly customDomain!: pulumi.Output<outputs.storage.v20190601.CustomDomainResponse>;
+    /**
+     * Allows https traffic only to storage service if sets to true.
+     */
+    public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+     */
+    public readonly encryption!: pulumi.Output<outputs.storage.v20190601.EncryptionResponse>;
+    /**
+     * If the failover is in progress, the value will be true, otherwise, it will be null.
+     */
+    public /*out*/ readonly failoverInProgress!: pulumi.Output<boolean>;
+    /**
+     * Geo Replication Stats
+     */
+    public /*out*/ readonly geoReplicationStats!: pulumi.Output<outputs.storage.v20190601.GeoReplicationStatsResponse>;
+    /**
      * The identity of the resource.
      */
     public readonly identity!: pulumi.Output<outputs.storage.v20190601.IdentityResponse | undefined>;
+    /**
+     * Account HierarchicalNamespace enabled if sets to true.
+     */
+    public readonly isHnsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Gets the Kind.
      */
     public readonly kind!: pulumi.Output<string>;
     /**
+     * Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+     */
+    public readonly largeFileSharesState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+     */
+    public /*out*/ readonly lastGeoFailoverTime!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+     */
+    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the storage account.
+     * Network rule set
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190601.StorageAccountPropertiesResponse>;
+    public readonly networkRuleSet!: pulumi.Output<outputs.storage.v20190601.NetworkRuleSetResponse>;
+    /**
+     * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+     */
+    public /*out*/ readonly primaryEndpoints!: pulumi.Output<outputs.storage.v20190601.EndpointsResponse>;
+    /**
+     * Gets the location of the primary data center for the storage account.
+     */
+    public /*out*/ readonly primaryLocation!: pulumi.Output<string>;
+    /**
+     * List of private endpoint connection associated with the specified storage account
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.storage.v20190601.PrivateEndpointConnectionResponse[]>;
+    /**
+     * Gets the status of the storage account at the time the operation was called.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Maintains information about the network routing choice opted by the user for data transfer
+     */
+    public readonly routingPreference!: pulumi.Output<outputs.storage.v20190601.RoutingPreferenceResponse | undefined>;
+    /**
+     * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+     */
+    public /*out*/ readonly secondaryEndpoints!: pulumi.Output<outputs.storage.v20190601.EndpointsResponse>;
+    /**
+     * Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+     */
+    public /*out*/ readonly secondaryLocation!: pulumi.Output<string>;
     /**
      * Gets the SKU.
      */
     public readonly sku!: pulumi.Output<outputs.storage.v20190601.SkuResponse>;
+    /**
+     * Gets the status indicating whether the primary location of the storage account is available or unavailable.
+     */
+    public /*out*/ readonly statusOfPrimary!: pulumi.Output<string>;
+    /**
+     * Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+     */
+    public /*out*/ readonly statusOfSecondary!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -115,7 +207,19 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["routingPreference"] = args ? args.routingPreference : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["blobRestoreStatus"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["failoverInProgress"] = undefined /*out*/;
+            inputs["geoReplicationStats"] = undefined /*out*/;
+            inputs["lastGeoFailoverTime"] = undefined /*out*/;
+            inputs["primaryEndpoints"] = undefined /*out*/;
+            inputs["primaryLocation"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["secondaryEndpoints"] = undefined /*out*/;
+            inputs["secondaryLocation"] = undefined /*out*/;
+            inputs["statusOfPrimary"] = undefined /*out*/;
+            inputs["statusOfSecondary"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

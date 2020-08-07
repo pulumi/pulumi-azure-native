@@ -15,10 +15,64 @@ namespace Pulumi.AzureRM.Insights.V20190601
     public partial class ActionGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+        /// </summary>
+        [Output("armRoleReceivers")]
+        public Output<ImmutableArray<Outputs.ArmRoleReceiverResponseResult>> ArmRoleReceivers { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of AutomationRunbook receivers that are part of this action group.
+        /// </summary>
+        [Output("automationRunbookReceivers")]
+        public Output<ImmutableArray<Outputs.AutomationRunbookReceiverResponseResult>> AutomationRunbookReceivers { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of AzureAppPush receivers that are part of this action group.
+        /// </summary>
+        [Output("azureAppPushReceivers")]
+        public Output<ImmutableArray<Outputs.AzureAppPushReceiverResponseResult>> AzureAppPushReceivers { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of azure function receivers that are part of this action group.
+        /// </summary>
+        [Output("azureFunctionReceivers")]
+        public Output<ImmutableArray<Outputs.AzureFunctionReceiverResponseResult>> AzureFunctionReceivers { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of email receivers that are part of this action group.
+        /// </summary>
+        [Output("emailReceivers")]
+        public Output<ImmutableArray<Outputs.EmailReceiverResponseResult>> EmailReceivers { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The short name of the action group. This will be used in SMS messages.
+        /// </summary>
+        [Output("groupShortName")]
+        public Output<string> GroupShortName { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of ITSM receivers that are part of this action group.
+        /// </summary>
+        [Output("itsmReceivers")]
+        public Output<ImmutableArray<Outputs.ItsmReceiverResponseResult>> ItsmReceivers { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of logic app receivers that are part of this action group.
+        /// </summary>
+        [Output("logicAppReceivers")]
+        public Output<ImmutableArray<Outputs.LogicAppReceiverResponseResult>> LogicAppReceivers { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name
@@ -27,10 +81,10 @@ namespace Pulumi.AzureRM.Insights.V20190601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The action groups properties of the resource.
+        /// The list of SMS receivers that are part of this action group.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ActionGroupResponseResult> Properties { get; private set; } = null!;
+        [Output("smsReceivers")]
+        public Output<ImmutableArray<Outputs.SmsReceiverResponseResult>> SmsReceivers { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -43,6 +97,18 @@ namespace Pulumi.AzureRM.Insights.V20190601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of voice receivers that are part of this action group.
+        /// </summary>
+        [Output("voiceReceivers")]
+        public Output<ImmutableArray<Outputs.VoiceReceiverResponseResult>> VoiceReceivers { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of webhook receivers that are part of this action group.
+        /// </summary>
+        [Output("webhookReceivers")]
+        public Output<ImmutableArray<Outputs.WebhookReceiverResponseResult>> WebhookReceivers { get; private set; } = null!;
 
 
         /// <summary>

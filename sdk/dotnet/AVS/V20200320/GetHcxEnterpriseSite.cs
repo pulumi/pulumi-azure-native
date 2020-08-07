@@ -46,13 +46,17 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public sealed class GetHcxEnterpriseSiteResult
     {
         /// <summary>
+        /// The activation key
+        /// </summary>
+        public readonly string ActivationKey;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of an HCX Enterprise Site resource
+        /// The status of the HCX Enterprise Site
         /// </summary>
-        public readonly Outputs.HcxEnterpriseSitePropertiesResponseResult Properties;
+        public readonly string Status;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -60,14 +64,17 @@ namespace Pulumi.AzureRM.AVS.V20200320
 
         [OutputConstructor]
         private GetHcxEnterpriseSiteResult(
+            string activationKey,
+
             string name,
 
-            Outputs.HcxEnterpriseSitePropertiesResponseResult properties,
+            string status,
 
             string type)
         {
+            ActivationKey = activationKey;
             Name = name;
-            Properties = properties;
+            Status = status;
             Type = type;
         }
     }

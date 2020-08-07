@@ -13,12 +13,36 @@ class GetVolumeResult:
     """
     The volume.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, access_control_record_ids=None, backup_policy_ids=None, backup_status=None, kind=None, monitoring_status=None, name=None, operation_status=None, size_in_bytes=None, type=None, volume_container_id=None, volume_status=None, volume_type=None):
+        if access_control_record_ids and not isinstance(access_control_record_ids, list):
+            raise TypeError("Expected argument 'access_control_record_ids' to be a list")
+        __self__.access_control_record_ids = access_control_record_ids
+        """
+        The IDs of the access control records, associated with the volume.
+        """
+        if backup_policy_ids and not isinstance(backup_policy_ids, list):
+            raise TypeError("Expected argument 'backup_policy_ids' to be a list")
+        __self__.backup_policy_ids = backup_policy_ids
+        """
+        The IDs of the backup policies, in which this volume is part of.
+        """
+        if backup_status and not isinstance(backup_status, str):
+            raise TypeError("Expected argument 'backup_status' to be a str")
+        __self__.backup_status = backup_status
+        """
+        The backup status of the volume.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         The Kind of the object. Currently only Series8000 is supported
+        """
+        if monitoring_status and not isinstance(monitoring_status, str):
+            raise TypeError("Expected argument 'monitoring_status' to be a str")
+        __self__.monitoring_status = monitoring_status
+        """
+        The monitoring status of the volume.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +50,41 @@ class GetVolumeResult:
         """
         The name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if operation_status and not isinstance(operation_status, str):
+            raise TypeError("Expected argument 'operation_status' to be a str")
+        __self__.operation_status = operation_status
         """
-        The properties of the volume.
+        The operation status on the volume.
+        """
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        __self__.size_in_bytes = size_in_bytes
+        """
+        The size of the volume in bytes.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The hierarchical type of the object.
+        """
+        if volume_container_id and not isinstance(volume_container_id, str):
+            raise TypeError("Expected argument 'volume_container_id' to be a str")
+        __self__.volume_container_id = volume_container_id
+        """
+        The ID of the volume container, in which this volume is created.
+        """
+        if volume_status and not isinstance(volume_status, str):
+            raise TypeError("Expected argument 'volume_status' to be a str")
+        __self__.volume_status = volume_status
+        """
+        The volume status.
+        """
+        if volume_type and not isinstance(volume_type, str):
+            raise TypeError("Expected argument 'volume_type' to be a str")
+        __self__.volume_type = volume_type
+        """
+        The type of the volume.
         """
 
 
@@ -46,10 +94,18 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
+            access_control_record_ids=self.access_control_record_ids,
+            backup_policy_ids=self.backup_policy_ids,
+            backup_status=self.backup_status,
             kind=self.kind,
+            monitoring_status=self.monitoring_status,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            operation_status=self.operation_status,
+            size_in_bytes=self.size_in_bytes,
+            type=self.type,
+            volume_container_id=self.volume_container_id,
+            volume_status=self.volume_status,
+            volume_type=self.volume_type)
 
 
 def get_volume(device_name=None, manager_name=None, name=None, resource_group_name=None, volume_container_name=None, opts=None):
@@ -75,7 +131,15 @@ def get_volume(device_name=None, manager_name=None, name=None, resource_group_na
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:getVolume', __args__, opts=opts).value
 
     return AwaitableGetVolumeResult(
+        access_control_record_ids=__ret__.get('accessControlRecordIds'),
+        backup_policy_ids=__ret__.get('backupPolicyIds'),
+        backup_status=__ret__.get('backupStatus'),
         kind=__ret__.get('kind'),
+        monitoring_status=__ret__.get('monitoringStatus'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        operation_status=__ret__.get('operationStatus'),
+        size_in_bytes=__ret__.get('sizeInBytes'),
+        type=__ret__.get('type'),
+        volume_container_id=__ret__.get('volumeContainerId'),
+        volume_status=__ret__.get('volumeStatus'),
+        volume_type=__ret__.get('volumeType'))

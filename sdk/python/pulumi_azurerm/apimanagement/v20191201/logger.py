@@ -10,19 +10,30 @@ from ... import _utilities, _tables
 
 
 class Logger(pulumi.CustomResource):
+    credentials: pulumi.Output[dict]
+    """
+    The name and SendRule connection string of the event hub for azureEventHub logger.
+    Instrumentation key for applicationInsights logger.
+    """
+    description: pulumi.Output[str]
+    """
+    Logger description.
+    """
+    is_buffered: pulumi.Output[bool]
+    """
+    Whether records are buffered in the logger before publishing. Default is assumed to be true.
+    """
+    logger_type: pulumi.Output[str]
+    """
+    Logger type.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    resource_id: pulumi.Output[str]
     """
-    Logger entity contract properties.
-      * `credentials` (`dict`) - The name and SendRule connection string of the event hub for azureEventHub logger.
-        Instrumentation key for applicationInsights logger.
-      * `description` (`str`) - Logger description.
-      * `is_buffered` (`bool`) - Whether records are buffered in the logger before publishing. Default is assumed to be true.
-      * `logger_type` (`str`) - Logger type.
-      * `resource_id` (`str`) - Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
+    Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
     """
     type: pulumi.Output[str]
     """
@@ -79,7 +90,6 @@ class Logger(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(Logger, __self__).__init__(
             'azurerm:apimanagement/v20191201:Logger',

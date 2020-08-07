@@ -10,16 +10,21 @@ from ... import _utilities, _tables
 
 
 class HierarchySetting(pulumi.CustomResource):
+    default_management_group: pulumi.Output[str]
+    """
+    Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+    """
     name: pulumi.Output[str]
     """
     The name of the object. In this case, default.
     """
-    properties: pulumi.Output[dict]
+    require_authorization_for_group_creation: pulumi.Output[bool]
     """
-    The generic properties of hierarchy settings.
-      * `default_management_group` (`str`) - Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-      * `require_authorization_for_group_creation` (`bool`) - Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
-      * `tenant_id` (`str`) - The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
+    Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
     """
     type: pulumi.Output[str]
     """
@@ -57,7 +62,7 @@ class HierarchySetting(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['require_authorization_for_group_creation'] = require_authorization_for_group_creation
-            __props__['properties'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(HierarchySetting, __self__).__init__(
             'azurerm:management/v20200201:HierarchySetting',

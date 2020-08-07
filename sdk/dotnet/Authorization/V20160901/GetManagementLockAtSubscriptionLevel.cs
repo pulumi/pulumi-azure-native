@@ -34,13 +34,21 @@ namespace Pulumi.AzureRM.Authorization.V20160901
     public sealed class GetManagementLockAtSubscriptionLevelResult
     {
         /// <summary>
+        /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        /// </summary>
+        public readonly string Level;
+        /// <summary>
         /// The name of the lock.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the lock.
+        /// Notes about the lock. Maximum of 512 characters.
         /// </summary>
-        public readonly Outputs.ManagementLockPropertiesResponseResult Properties;
+        public readonly string? Notes;
+        /// <summary>
+        /// The owners of the lock.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ManagementLockOwnerResponseResult> Owners;
         /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.
         /// </summary>
@@ -48,14 +56,20 @@ namespace Pulumi.AzureRM.Authorization.V20160901
 
         [OutputConstructor]
         private GetManagementLockAtSubscriptionLevelResult(
+            string level,
+
             string name,
 
-            Outputs.ManagementLockPropertiesResponseResult properties,
+            string? notes,
+
+            ImmutableArray<Outputs.ManagementLockOwnerResponseResult> owners,
 
             string type)
         {
+            Level = level;
             Name = name;
-            Properties = properties;
+            Notes = notes;
+            Owners = owners;
             Type = type;
         }
     }

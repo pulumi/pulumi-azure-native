@@ -13,24 +13,78 @@ class GetShareResult:
     """
     Represents a share on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, access_protocol=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, monitoring_status=None, name=None, refresh_details=None, share_mappings=None, share_status=None, type=None, user_access_rights=None):
+        if access_protocol and not isinstance(access_protocol, str):
+            raise TypeError("Expected argument 'access_protocol' to be a str")
+        __self__.access_protocol = access_protocol
+        """
+        Access protocol to be used by the share.
+        """
+        if azure_container_info and not isinstance(azure_container_info, dict):
+            raise TypeError("Expected argument 'azure_container_info' to be a dict")
+        __self__.azure_container_info = azure_container_info
+        """
+        Azure container mapping for the share.
+        """
+        if client_access_rights and not isinstance(client_access_rights, list):
+            raise TypeError("Expected argument 'client_access_rights' to be a list")
+        __self__.client_access_rights = client_access_rights
+        """
+        List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        """
+        if data_policy and not isinstance(data_policy, str):
+            raise TypeError("Expected argument 'data_policy' to be a str")
+        __self__.data_policy = data_policy
+        """
+        Data policy of the share.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description for the share.
+        """
+        if monitoring_status and not isinstance(monitoring_status, str):
+            raise TypeError("Expected argument 'monitoring_status' to be a str")
+        __self__.monitoring_status = monitoring_status
+        """
+        Current monitoring status of the share.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The object name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if refresh_details and not isinstance(refresh_details, dict):
+            raise TypeError("Expected argument 'refresh_details' to be a dict")
+        __self__.refresh_details = refresh_details
         """
-        The share properties.
+        Details of the refresh job on this share.
+        """
+        if share_mappings and not isinstance(share_mappings, list):
+            raise TypeError("Expected argument 'share_mappings' to be a list")
+        __self__.share_mappings = share_mappings
+        """
+        Share mount point to the role.
+        """
+        if share_status and not isinstance(share_status, str):
+            raise TypeError("Expected argument 'share_status' to be a str")
+        __self__.share_status = share_status
+        """
+        Current status of the share.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The hierarchical type of the object.
+        """
+        if user_access_rights and not isinstance(user_access_rights, list):
+            raise TypeError("Expected argument 'user_access_rights' to be a list")
+        __self__.user_access_rights = user_access_rights
+        """
+        Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
 
 
@@ -40,9 +94,18 @@ class AwaitableGetShareResult(GetShareResult):
         if False:
             yield self
         return GetShareResult(
+            access_protocol=self.access_protocol,
+            azure_container_info=self.azure_container_info,
+            client_access_rights=self.client_access_rights,
+            data_policy=self.data_policy,
+            description=self.description,
+            monitoring_status=self.monitoring_status,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            refresh_details=self.refresh_details,
+            share_mappings=self.share_mappings,
+            share_status=self.share_status,
+            type=self.type,
+            user_access_rights=self.user_access_rights)
 
 
 def get_share(device_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +127,15 @@ def get_share(device_name=None, name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190801:getShare', __args__, opts=opts).value
 
     return AwaitableGetShareResult(
+        access_protocol=__ret__.get('accessProtocol'),
+        azure_container_info=__ret__.get('azureContainerInfo'),
+        client_access_rights=__ret__.get('clientAccessRights'),
+        data_policy=__ret__.get('dataPolicy'),
+        description=__ret__.get('description'),
+        monitoring_status=__ret__.get('monitoringStatus'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        refresh_details=__ret__.get('refreshDetails'),
+        share_mappings=__ret__.get('shareMappings'),
+        share_status=__ret__.get('shareStatus'),
+        type=__ret__.get('type'),
+        user_access_rights=__ret__.get('userAccessRights'))

@@ -46,6 +46,14 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
     public sealed class GetSavedSearchResult
     {
         /// <summary>
+        /// The category of the saved search. This helps the user to find a saved search faster. 
+        /// </summary>
+        public readonly string Category;
+        /// <summary>
+        /// Saved search display name.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
         /// The ETag of the saved search.
         /// </summary>
         public readonly string? ETag;
@@ -54,28 +62,48 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the saved search.
+        /// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
         /// </summary>
-        public readonly Outputs.SavedSearchPropertiesResponseResult Properties;
+        public readonly string Query;
+        /// <summary>
+        /// The tags attached to the saved search.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TagResponseResult> Tags;
         /// <summary>
         /// The type of the saved search.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The version number of the query language. The current version is 2 and is the default.
+        /// </summary>
+        public readonly int? Version;
 
         [OutputConstructor]
         private GetSavedSearchResult(
+            string category,
+
+            string displayName,
+
             string? eTag,
 
             string name,
 
-            Outputs.SavedSearchPropertiesResponseResult properties,
+            string query,
 
-            string type)
+            ImmutableArray<Outputs.TagResponseResult> tags,
+
+            string type,
+
+            int? version)
         {
+            Category = category;
+            DisplayName = displayName;
             ETag = eTag;
             Name = name;
-            Properties = properties;
+            Query = query;
+            Tags = tags;
             Type = type;
+            Version = version;
         }
     }
 }

@@ -10,22 +10,29 @@ from ... import _utilities, _tables
 
 
 class Namespace(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    The time the namespace was created.
+    """
     location: pulumi.Output[str]
     """
     The Geo-location where the resource lives
+    """
+    metric_id: pulumi.Output[str]
+    """
+    Identifier for Azure Insights metrics
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the namespace.
-      * `created_at` (`str`) - The time the namespace was created.
-      * `metric_id` (`str`) - Identifier for Azure Insights metrics
-      * `provisioning_state` (`str`) - Provisioning state of the namespace.
-      * `service_bus_endpoint` (`str`) - Endpoint you can use to perform Service Bus operations.
-      * `updated_at` (`str`) - The time the namespace was updated.
+    Provisioning state of the namespace.
+    """
+    service_bus_endpoint: pulumi.Output[str]
+    """
+    Endpoint you can use to perform Service Bus operations.
     """
     sku: pulumi.Output[dict]
     """
@@ -41,6 +48,10 @@ class Namespace(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The time the namespace was updated.
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -88,8 +99,12 @@ class Namespace(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['metric_id'] = None
+            __props__['provisioning_state'] = None
+            __props__['service_bus_endpoint'] = None
             __props__['type'] = None
+            __props__['updated_at'] = None
         super(Namespace, __self__).__init__(
             'azurerm:servicebus/v20170401:Namespace',
             resource_name,

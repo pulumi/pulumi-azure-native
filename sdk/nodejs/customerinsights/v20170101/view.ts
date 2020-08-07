@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,41 @@ export class View extends pulumi.CustomResource {
     }
 
     /**
+     * Date time when view was last modified.
+     */
+    public /*out*/ readonly changed!: pulumi.Output<string>;
+    /**
+     * Date time when view was created.
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * View definition.
+     */
+    public readonly definition!: pulumi.Output<string>;
+    /**
+     * Localized display name for the view.
+     */
+    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The view in Customer 360 web application.
+     * the hub name.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.ViewResponse>;
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * the user ID.
+     */
+    public readonly userId!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the view.
+     */
+    public /*out*/ readonly viewName!: pulumi.Output<string>;
 
     /**
      * Create a View resource with the given unique name, arguments, and options.
@@ -80,8 +102,11 @@ export class View extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userId"] = args ? args.userId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["changed"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["viewName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

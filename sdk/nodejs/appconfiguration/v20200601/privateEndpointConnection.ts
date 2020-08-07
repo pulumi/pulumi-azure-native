@@ -41,9 +41,17 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of a private endpoint.
+     * The resource of private endpoint.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.appconfiguration.v20200601.PrivateEndpointConnectionPropertiesResponse>;
+    public readonly privateEndpoint!: pulumi.Output<outputs.appconfiguration.v20200601.PrivateEndpointResponse | undefined>;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.appconfiguration.v20200601.PrivateLinkServiceConnectionStateResponse>;
+    /**
+     * The provisioning status of the private endpoint connection.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -79,7 +87,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -13,12 +13,54 @@ class GetWebAppDeploymentSlotResult:
     """
     User credentials used for publishing activity.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, kind=None, message=None, name=None, start_time=None, status=None, type=None):
+        if active and not isinstance(active, bool):
+            raise TypeError("Expected argument 'active' to be a bool")
+        __self__.active = active
+        """
+        True if deployment is currently active, false if completed and null if not started.
+        """
+        if author and not isinstance(author, str):
+            raise TypeError("Expected argument 'author' to be a str")
+        __self__.author = author
+        """
+        Who authored the deployment.
+        """
+        if author_email and not isinstance(author_email, str):
+            raise TypeError("Expected argument 'author_email' to be a str")
+        __self__.author_email = author_email
+        """
+        Author email.
+        """
+        if deployer and not isinstance(deployer, str):
+            raise TypeError("Expected argument 'deployer' to be a str")
+        __self__.deployer = deployer
+        """
+        Who performed the deployment.
+        """
+        if details and not isinstance(details, str):
+            raise TypeError("Expected argument 'details' to be a str")
+        __self__.details = details
+        """
+        Details on deployment.
+        """
+        if end_time and not isinstance(end_time, str):
+            raise TypeError("Expected argument 'end_time' to be a str")
+        __self__.end_time = end_time
+        """
+        End time.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         Kind of resource.
+        """
+        if message and not isinstance(message, str):
+            raise TypeError("Expected argument 'message' to be a str")
+        __self__.message = message
+        """
+        Details about deployment status.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +68,17 @@ class GetWebAppDeploymentSlotResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        __self__.start_time = start_time
         """
-        Deployment resource specific properties
+        Start time.
+        """
+        if status and not isinstance(status, float):
+            raise TypeError("Expected argument 'status' to be a float")
+        __self__.status = status
+        """
+        Deployment status.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +94,17 @@ class AwaitableGetWebAppDeploymentSlotResult(GetWebAppDeploymentSlotResult):
         if False:
             yield self
         return GetWebAppDeploymentSlotResult(
+            active=self.active,
+            author=self.author,
+            author_email=self.author_email,
+            deployer=self.deployer,
+            details=self.details,
+            end_time=self.end_time,
             kind=self.kind,
+            message=self.message,
             name=self.name,
-            properties=self.properties,
+            start_time=self.start_time,
+            status=self.status,
             type=self.type)
 
 
@@ -71,7 +127,15 @@ def get_web_app_deployment_slot(name=None, resource_group_name=None, slot=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20160801:getWebAppDeploymentSlot', __args__, opts=opts).value
 
     return AwaitableGetWebAppDeploymentSlotResult(
+        active=__ret__.get('active'),
+        author=__ret__.get('author'),
+        author_email=__ret__.get('authorEmail'),
+        deployer=__ret__.get('deployer'),
+        details=__ret__.get('details'),
+        end_time=__ret__.get('endTime'),
         kind=__ret__.get('kind'),
+        message=__ret__.get('message'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        start_time=__ret__.get('startTime'),
+        status=__ret__.get('status'),
         type=__ret__.get('type'))

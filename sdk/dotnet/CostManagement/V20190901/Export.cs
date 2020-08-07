@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.CostManagement.V20190901
     public partial class Export : Pulumi.CustomResource
     {
         /// <summary>
+        /// Has definition for the export.
+        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.QueryDefinitionResponseResult> Definition { get; private set; } = null!;
+
+        /// <summary>
+        /// Has delivery information for the export.
+        /// </summary>
+        [Output("deliveryInfo")]
+        public Output<Outputs.ExportDeliveryInfoResponseResult> DeliveryInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// The format of the export being delivered.
+        /// </summary>
+        [Output("format")]
+        public Output<string?> Format { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the export.
+        /// Has schedule information for the export.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExportPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("schedule")]
+        public Output<Outputs.ExportScheduleResponseResult?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

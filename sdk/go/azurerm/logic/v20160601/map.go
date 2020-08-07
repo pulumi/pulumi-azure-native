@@ -14,12 +14,26 @@ import (
 type Map struct {
 	pulumi.CustomResourceState
 
+	// The changed time.
+	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
+	// The content.
+	Content pulumi.StringPtrOutput `pulumi:"content"`
+	// The content link.
+	ContentLink ContentLinkResponseOutput `pulumi:"contentLink"`
+	// The content type.
+	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
+	// The created time.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The map type.
+	MapType pulumi.StringOutput `pulumi:"mapType"`
+	// The metadata.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The integration account map properties.
-	Properties IntegrationAccountMapPropertiesResponseOutput `pulumi:"properties"`
+	// The parameters schema of integration account map.
+	ParametersSchema IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput `pulumi:"parametersSchema"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Gets the resource type.
@@ -66,12 +80,26 @@ func GetMap(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Map resources.
 type mapState struct {
+	// The changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// The content.
+	Content *string `pulumi:"content"`
+	// The content link.
+	ContentLink *ContentLinkResponse `pulumi:"contentLink"`
+	// The content type.
+	ContentType *string `pulumi:"contentType"`
+	// The created time.
+	CreatedTime *string `pulumi:"createdTime"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The map type.
+	MapType *string `pulumi:"mapType"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
-	// The integration account map properties.
-	Properties *IntegrationAccountMapPropertiesResponse `pulumi:"properties"`
+	// The parameters schema of integration account map.
+	ParametersSchema *IntegrationAccountMapPropertiesResponseParametersSchema `pulumi:"parametersSchema"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
@@ -79,12 +107,26 @@ type mapState struct {
 }
 
 type MapState struct {
+	// The changed time.
+	ChangedTime pulumi.StringPtrInput
+	// The content.
+	Content pulumi.StringPtrInput
+	// The content link.
+	ContentLink ContentLinkResponsePtrInput
+	// The content type.
+	ContentType pulumi.StringPtrInput
+	// The created time.
+	CreatedTime pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The map type.
+	MapType pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.MapInput
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
-	// The integration account map properties.
-	Properties IntegrationAccountMapPropertiesResponsePtrInput
+	// The parameters schema of integration account map.
+	ParametersSchema IntegrationAccountMapPropertiesResponseParametersSchemaPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// Gets the resource type.

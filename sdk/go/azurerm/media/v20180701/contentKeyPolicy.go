@@ -14,10 +14,18 @@ import (
 type ContentKeyPolicy struct {
 	pulumi.CustomResourceState
 
+	// The creation date of the Policy
+	Created pulumi.StringOutput `pulumi:"created"`
+	// A description for the Policy.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The last modified date of the Policy
+	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the Content Key Policy.
-	Properties ContentKeyPolicyPropertiesResponseOutput `pulumi:"properties"`
+	// The Key Policy options.
+	Options ContentKeyPolicyOptionResponseArrayOutput `pulumi:"options"`
+	// The legacy Policy ID.
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +70,35 @@ func GetContentKeyPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContentKeyPolicy resources.
 type contentKeyPolicyState struct {
+	// The creation date of the Policy
+	Created *string `pulumi:"created"`
+	// A description for the Policy.
+	Description *string `pulumi:"description"`
+	// The last modified date of the Policy
+	LastModified *string `pulumi:"lastModified"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the Content Key Policy.
-	Properties *ContentKeyPolicyPropertiesResponse `pulumi:"properties"`
+	// The Key Policy options.
+	Options []ContentKeyPolicyOptionResponse `pulumi:"options"`
+	// The legacy Policy ID.
+	PolicyId *string `pulumi:"policyId"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type ContentKeyPolicyState struct {
+	// The creation date of the Policy
+	Created pulumi.StringPtrInput
+	// A description for the Policy.
+	Description pulumi.StringPtrInput
+	// The last modified date of the Policy
+	LastModified pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the Content Key Policy.
-	Properties ContentKeyPolicyPropertiesResponsePtrInput
+	// The Key Policy options.
+	Options ContentKeyPolicyOptionResponseArrayInput
+	// The legacy Policy ID.
+	PolicyId pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

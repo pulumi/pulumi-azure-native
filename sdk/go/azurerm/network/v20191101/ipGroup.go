@@ -16,12 +16,16 @@ type IpGroup struct {
 
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// List of references to Azure resources that this IpGroups is associated with.
+	Firewalls SubResourceResponseArrayOutput `pulumi:"firewalls"`
+	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the IpGroups.
-	Properties IpGroupPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the IpGroups resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -64,12 +68,16 @@ func GetIpGroup(ctx *pulumi.Context,
 type ipGroupState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// List of references to Azure resources that this IpGroups is associated with.
+	Firewalls []SubResourceResponse `pulumi:"firewalls"`
+	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+	IpAddresses []string `pulumi:"ipAddresses"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the IpGroups.
-	Properties *IpGroupPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the IpGroups resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -79,12 +87,16 @@ type ipGroupState struct {
 type IpGroupState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// List of references to Azure resources that this IpGroups is associated with.
+	Firewalls SubResourceResponseArrayInput
+	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+	IpAddresses pulumi.StringArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the IpGroups.
-	Properties IpGroupPropertiesFormatResponsePtrInput
+	// The provisioning state of the IpGroups resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

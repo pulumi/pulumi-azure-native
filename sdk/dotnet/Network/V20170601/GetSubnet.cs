@@ -46,29 +46,71 @@ namespace Pulumi.AzureRM.Network.V20170601
     public sealed class GetSubnetResult
     {
         /// <summary>
+        /// The address prefix for the subnet.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Gets an array of references to the network interface IP configurations using subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IPConfigurationResponseResult> IpConfigurations;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the subnet.
+        /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.SubnetPropertiesFormatResponseResult Properties;
+        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets an array of references to the external resources using subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> ResourceNavigationLinks;
+        /// <summary>
+        /// The reference of the RouteTable resource.
+        /// </summary>
+        public readonly Outputs.RouteTableResponseResult? RouteTable;
+        /// <summary>
+        /// An array of service endpoints.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> ServiceEndpoints;
 
         [OutputConstructor]
         private GetSubnetResult(
+            string? addressPrefix,
+
             string? etag,
+
+            ImmutableArray<Outputs.IPConfigurationResponseResult> ipConfigurations,
 
             string? name,
 
-            Outputs.SubnetPropertiesFormatResponseResult properties)
+            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+
+            string? provisioningState,
+
+            ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> resourceNavigationLinks,
+
+            Outputs.RouteTableResponseResult? routeTable,
+
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> serviceEndpoints)
         {
+            AddressPrefix = addressPrefix;
             Etag = etag;
+            IpConfigurations = ipConfigurations;
             Name = name;
-            Properties = properties;
+            NetworkSecurityGroup = networkSecurityGroup;
+            ProvisioningState = provisioningState;
+            ResourceNavigationLinks = resourceNavigationLinks;
+            RouteTable = routeTable;
+            ServiceEndpoints = serviceEndpoints;
         }
     }
 }

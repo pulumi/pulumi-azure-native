@@ -25,18 +25,44 @@ type LookupDeviceArgs struct {
 
 // The Data Box Edge/Gateway device.
 type LookupDeviceResult struct {
+	// Type of compute roles configured.
+	ConfiguredRoleTypes []string `pulumi:"configuredRoleTypes"`
+	// The Data Box Edge/Gateway device culture.
+	Culture string `pulumi:"culture"`
+	// The status of the Data Box Edge/Gateway device.
+	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
+	// The Description of the Data Box Edge/Gateway device.
+	Description *string `pulumi:"description"`
+	// The device software version number of the device (eg: 1.2.18105.6).
+	DeviceHcsVersion string `pulumi:"deviceHcsVersion"`
+	// The Data Box Edge/Gateway device local capacity in MB.
+	DeviceLocalCapacity int `pulumi:"deviceLocalCapacity"`
+	// The Data Box Edge/Gateway device model.
+	DeviceModel string `pulumi:"deviceModel"`
+	// The Data Box Edge/Gateway device software version.
+	DeviceSoftwareVersion string `pulumi:"deviceSoftwareVersion"`
+	// The type of the Data Box Edge/Gateway device.
+	DeviceType string `pulumi:"deviceType"`
 	// The etag for the devices.
 	Etag *string `pulumi:"etag"`
+	// The Data Box Edge/Gateway device name.
+	FriendlyName *string `pulumi:"friendlyName"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location string `pulumi:"location"`
+	// The description of the Data Box Edge/Gateway device model.
+	ModelDescription *string `pulumi:"modelDescription"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// The properties of the Data Box Edge/Gateway device.
-	Properties DataBoxEdgeDevicePropertiesResponse `pulumi:"properties"`
+	// The number of nodes in the cluster.
+	NodeCount int `pulumi:"nodeCount"`
+	// The Serial Number of Data Box Edge/Gateway device.
+	SerialNumber string `pulumi:"serialNumber"`
 	// The SKU type.
 	Sku *SkuResponse `pulumi:"sku"`
 	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
 	Tags map[string]string `pulumi:"tags"`
+	// The Data Box Edge/Gateway device timezone.
+	TimeZone string `pulumi:"timeZone"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

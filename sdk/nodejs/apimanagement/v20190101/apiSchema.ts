@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,17 @@ export class ApiSchema extends pulumi.CustomResource {
     }
 
     /**
+     * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`. 
+     */
+    public readonly contentType!: pulumi.Output<string>;
+    /**
+     * Properties of the Schema Document.
+     */
+    public /*out*/ readonly document!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Properties of the Schema.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.SchemaContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -83,7 +85,7 @@ export class ApiSchema extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["value"] = args ? args.value : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["document"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -41,6 +41,10 @@ export interface GetServerKeyArgs {
  */
 export interface GetServerKeyResult {
     /**
+     * The key creation date.
+     */
+    readonly creationDate: string;
+    /**
      * Kind of encryption protector used to protect the key.
      */
     readonly kind: string;
@@ -49,11 +53,15 @@ export interface GetServerKeyResult {
      */
     readonly name: string;
     /**
-     * Properties of the ServerKey Resource.
+     * The key type like 'AzureKeyVault'.
      */
-    readonly properties: outputs.dbformysql.v20200101.ServerKeyPropertiesResponse;
+    readonly serverKeyType: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * The URI of the key.
+     */
+    readonly uri?: string;
 }

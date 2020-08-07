@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public partial class ApiManagementService : Pulumi.CustomResource
     {
         /// <summary>
+        /// Additional datacenter locations of the API Management service.
+        /// </summary>
+        [Output("additionalLocations")]
+        public Output<ImmutableArray<Outputs.AdditionalLocationResponseResult>> AdditionalLocations { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+        /// </summary>
+        [Output("certificates")]
+        public Output<ImmutableArray<Outputs.CertificateConfigurationResponseResult>> Certificates { get; private set; } = null!;
+
+        /// <summary>
+        /// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        [Output("createdAtUtc")]
+        public Output<string> CreatedAtUtc { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+        /// </summary>
+        [Output("customProperties")]
+        public Output<ImmutableDictionary<string, string>?> CustomProperties { get; private set; } = null!;
+
+        /// <summary>
         /// ETag of the resource.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gateway URL of the API Management service in the Default Region.
+        /// </summary>
+        [Output("gatewayRegionalUrl")]
+        public Output<string> GatewayRegionalUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Gateway URL of the API Management service.
+        /// </summary>
+        [Output("gatewayUrl")]
+        public Output<string> GatewayUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom hostname configuration of the API Management service.
+        /// </summary>
+        [Output("hostnameConfigurations")]
+        public Output<ImmutableArray<Outputs.HostnameConfigurationResponseResult>> HostnameConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Managed service identity of the Api Management service.
@@ -33,16 +75,64 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Management API endpoint URL of the API Management service.
+        /// </summary>
+        [Output("managementApiUrl")]
+        public Output<string> ManagementApiUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the API Management service.
+        /// Email address from which the notification will be sent.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApiManagementServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notificationSenderEmail")]
+        public Output<string?> NotificationSenderEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// Publisher portal endpoint Url of the API Management service.
+        /// </summary>
+        [Output("portalUrl")]
+        public Output<string> PortalUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
+        /// </summary>
+        [Output("privateIPAddresses")]
+        public Output<ImmutableArray<string>> PrivateIPAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
+        /// </summary>
+        [Output("publicIPAddresses")]
+        public Output<ImmutableArray<string>> PublicIPAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// Publisher email.
+        /// </summary>
+        [Output("publisherEmail")]
+        public Output<string> PublisherEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// Publisher name.
+        /// </summary>
+        [Output("publisherName")]
+        public Output<string> PublisherName { get; private set; } = null!;
+
+        /// <summary>
+        /// SCM endpoint URL of the API Management service.
+        /// </summary>
+        [Output("scmUrl")]
+        public Output<string> ScmUrl { get; private set; } = null!;
 
         /// <summary>
         /// SKU properties of the API Management service.
@@ -57,10 +147,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+        /// </summary>
+        [Output("targetProvisioningState")]
+        public Output<string> TargetProvisioningState { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type for API Management resource is set to Microsoft.ApiManagement.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual network configuration of the API Management service.
+        /// </summary>
+        [Output("virtualNetworkConfiguration")]
+        public Output<Outputs.VirtualNetworkConfigurationResponseResult?> VirtualNetworkConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        /// </summary>
+        [Output("virtualNetworkType")]
+        public Output<string?> VirtualNetworkType { get; private set; } = null!;
 
 
         /// <summary>

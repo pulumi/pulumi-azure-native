@@ -31,10 +31,18 @@ type LookupApplicationPackageArgs struct {
 type LookupApplicationPackageResult struct {
 	// The ETag of the resource, used for concurrency statements.
 	Etag string `pulumi:"etag"`
+	// The format of the application package, if the package is active.
+	Format string `pulumi:"format"`
+	// The time at which the package was last activated, if the package is active.
+	LastActivationTime string `pulumi:"lastActivationTime"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties associated with the Application Package.
-	Properties ApplicationPackagePropertiesResponse `pulumi:"properties"`
+	// The current state of the application package.
+	State string `pulumi:"state"`
+	// The URL for the application package in Azure Storage.
+	StorageUrl string `pulumi:"storageUrl"`
+	// The UTC time at which the Azure Storage URL will expire.
+	StorageUrlExpiry string `pulumi:"storageUrlExpiry"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

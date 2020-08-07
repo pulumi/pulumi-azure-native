@@ -10,6 +10,22 @@ from ... import _utilities, _tables
 
 
 class Server(pulumi.CustomResource):
+    administrator_login: pulumi.Output[str]
+    """
+    The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+    """
+    byok_enforcement: pulumi.Output[str]
+    """
+    Status showing whether the server data encryption is enabled with customer-managed keys.
+    """
+    earliest_restore_date: pulumi.Output[str]
+    """
+    Earliest restore point creation time (ISO8601 format)
+    """
+    fully_qualified_domain_name: pulumi.Output[str]
+    """
+    The fully qualified domain name of a server.
+    """
     identity: pulumi.Output[dict]
     """
     The Azure Active Directory identity of the server.
@@ -17,49 +33,52 @@ class Server(pulumi.CustomResource):
       * `tenant_id` (`str`) - The Azure Active Directory tenant id.
       * `type` (`str`) - The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
     """
+    infrastructure_encryption: pulumi.Output[str]
+    """
+    Status showing whether the server enabled infrastructure encryption.
+    """
     location: pulumi.Output[str]
     """
     The location the resource resides in.
+    """
+    master_server_id: pulumi.Output[str]
+    """
+    The master server id of a replica server.
+    """
+    minimal_tls_version: pulumi.Output[str]
+    """
+    Enforce a minimal Tls version for the server.
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    private_endpoint_connections: pulumi.Output[list]
     """
-    Properties of the server.
-      * `administrator_login` (`str`) - The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-      * `byok_enforcement` (`str`) - Status showing whether the server data encryption is enabled with customer-managed keys.
-      * `earliest_restore_date` (`str`) - Earliest restore point creation time (ISO8601 format)
-      * `fully_qualified_domain_name` (`str`) - The fully qualified domain name of a server.
-      * `infrastructure_encryption` (`str`) - Status showing whether the server enabled infrastructure encryption.
-      * `master_server_id` (`str`) - The master server id of a replica server.
-      * `minimal_tls_version` (`str`) - Enforce a minimal Tls version for the server.
-      * `private_endpoint_connections` (`list`) - List of private endpoint connections on a server
-        * `id` (`str`) - Resource Id of the private endpoint connection.
-        * `properties` (`dict`) - Private endpoint connection properties
-          * `private_endpoint` (`dict`) - Private endpoint which the connection belongs to.
-            * `id` (`str`) - Resource id of the private endpoint.
+    List of private endpoint connections on a server
+      * `id` (`str`) - Resource Id of the private endpoint connection.
+      * `properties` (`dict`) - Private endpoint connection properties
+        * `private_endpoint` (`dict`) - Private endpoint which the connection belongs to.
+          * `id` (`str`) - Resource id of the private endpoint.
 
-          * `private_link_service_connection_state` (`dict`) - Connection state of the private endpoint connection.
-            * `actions_required` (`str`) - The actions required for private link service connection.
-            * `description` (`str`) - The private link service connection description.
-            * `status` (`str`) - The private link service connection status.
+        * `private_link_service_connection_state` (`dict`) - Connection state of the private endpoint connection.
+          * `actions_required` (`str`) - The actions required for private link service connection.
+          * `description` (`str`) - The private link service connection description.
+          * `status` (`str`) - The private link service connection status.
 
-          * `provisioning_state` (`str`) - State of the private endpoint connection.
-
-      * `public_network_access` (`str`) - Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-      * `replica_capacity` (`float`) - The maximum number of replicas that a master server can have.
-      * `replication_role` (`str`) - The replication role of the server.
-      * `ssl_enforcement` (`str`) - Enable ssl enforcement or not when connect to server.
-      * `storage_profile` (`dict`) - Storage profile of a server.
-        * `backup_retention_days` (`float`) - Backup retention days for the server.
-        * `geo_redundant_backup` (`str`) - Enable Geo-redundant or not for server backup.
-        * `storage_autogrow` (`str`) - Enable Storage Auto Grow.
-        * `storage_mb` (`float`) - Max storage allowed for a server.
-
-      * `user_visible_state` (`str`) - A state of a server that is visible to user.
-      * `version` (`str`) - Server version.
+        * `provisioning_state` (`str`) - State of the private endpoint connection.
+    """
+    public_network_access: pulumi.Output[str]
+    """
+    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    replica_capacity: pulumi.Output[float]
+    """
+    The maximum number of replicas that a master server can have.
+    """
+    replication_role: pulumi.Output[str]
+    """
+    The replication role of the server.
     """
     sku: pulumi.Output[dict]
     """
@@ -70,6 +89,18 @@ class Server(pulumi.CustomResource):
       * `size` (`str`) - The size code, to be interpreted by resource as appropriate.
       * `tier` (`str`) - The tier of the particular SKU, e.g. Basic.
     """
+    ssl_enforcement: pulumi.Output[str]
+    """
+    Enable ssl enforcement or not when connect to server.
+    """
+    storage_profile: pulumi.Output[dict]
+    """
+    Storage profile of a server.
+      * `backup_retention_days` (`float`) - Backup retention days for the server.
+      * `geo_redundant_backup` (`str`) - Enable Geo-redundant or not for server backup.
+      * `storage_autogrow` (`str`) - Enable Storage Auto Grow.
+      * `storage_mb` (`float`) - Max storage allowed for a server.
+    """
     tags: pulumi.Output[dict]
     """
     Application-specific metadata in the form of key-value pairs.
@@ -77,6 +108,14 @@ class Server(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    user_visible_state: pulumi.Output[str]
+    """
+    A state of a server that is visible to user.
+    """
+    version: pulumi.Output[str]
+    """
+    Server version.
     """
     def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -151,7 +190,22 @@ class Server(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['administrator_login'] = None
+            __props__['byok_enforcement'] = None
+            __props__['earliest_restore_date'] = None
+            __props__['fully_qualified_domain_name'] = None
+            __props__['infrastructure_encryption'] = None
+            __props__['master_server_id'] = None
+            __props__['minimal_tls_version'] = None
+            __props__['private_endpoint_connections'] = None
+            __props__['public_network_access'] = None
+            __props__['replica_capacity'] = None
+            __props__['replication_role'] = None
+            __props__['ssl_enforcement'] = None
+            __props__['storage_profile'] = None
             __props__['type'] = None
+            __props__['user_visible_state'] = None
+            __props__['version'] = None
         super(Server, __self__).__init__(
             'azurerm:dbformysql/v20171201:Server',
             resource_name,

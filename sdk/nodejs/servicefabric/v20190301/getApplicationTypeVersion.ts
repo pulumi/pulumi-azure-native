@@ -46,6 +46,14 @@ export interface GetApplicationTypeVersionArgs {
  */
 export interface GetApplicationTypeVersionResult {
     /**
+     * The URL to the application package
+     */
+    readonly appPackageUrl: string;
+    /**
+     * List of application type parameters that can be overridden when creating or updating the application.
+     */
+    readonly defaultParameterList: {[key: string]: string};
+    /**
      * Azure resource etag.
      */
     readonly etag: string;
@@ -58,9 +66,9 @@ export interface GetApplicationTypeVersionResult {
      */
     readonly name: string;
     /**
-     * The properties of the application type version resource.
+     * The current deployment or provisioning state, which only appears in the response
      */
-    readonly properties: outputs.servicefabric.v20190301.ApplicationTypeVersionResourcePropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Azure resource tags.
      */

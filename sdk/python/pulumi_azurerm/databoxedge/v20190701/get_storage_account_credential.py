@@ -13,24 +13,66 @@ class GetStorageAccountCredentialResult:
     """
     The storage account credential.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, account_key=None, account_type=None, alias=None, blob_domain_name=None, connection_string=None, name=None, ssl_status=None, storage_account_id=None, type=None, user_name=None):
+        if account_key and not isinstance(account_key, dict):
+            raise TypeError("Expected argument 'account_key' to be a dict")
+        __self__.account_key = account_key
+        """
+        Encrypted storage key.
+        """
+        if account_type and not isinstance(account_type, str):
+            raise TypeError("Expected argument 'account_type' to be a str")
+        __self__.account_type = account_type
+        """
+        Type of storage accessed on the storage account.
+        """
+        if alias and not isinstance(alias, str):
+            raise TypeError("Expected argument 'alias' to be a str")
+        __self__.alias = alias
+        """
+        Alias for the storage account.
+        """
+        if blob_domain_name and not isinstance(blob_domain_name, str):
+            raise TypeError("Expected argument 'blob_domain_name' to be a str")
+        __self__.blob_domain_name = blob_domain_name
+        """
+        Blob end point for private clouds.
+        """
+        if connection_string and not isinstance(connection_string, str):
+            raise TypeError("Expected argument 'connection_string' to be a str")
+        __self__.connection_string = connection_string
+        """
+        Connection string for the storage account. Use this string if username and account key are not specified.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The object name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if ssl_status and not isinstance(ssl_status, str):
+            raise TypeError("Expected argument 'ssl_status' to be a str")
+        __self__.ssl_status = ssl_status
         """
-        The storage account credential properties.
+        Signifies whether SSL needs to be enabled or not.
+        """
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        __self__.storage_account_id = storage_account_id
+        """
+        Id of the storage account.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The hierarchical type of the object.
+        """
+        if user_name and not isinstance(user_name, str):
+            raise TypeError("Expected argument 'user_name' to be a str")
+        __self__.user_name = user_name
+        """
+        Username for the storage account.
         """
 
 
@@ -40,9 +82,16 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
         if False:
             yield self
         return GetStorageAccountCredentialResult(
+            account_key=self.account_key,
+            account_type=self.account_type,
+            alias=self.alias,
+            blob_domain_name=self.blob_domain_name,
+            connection_string=self.connection_string,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            ssl_status=self.ssl_status,
+            storage_account_id=self.storage_account_id,
+            type=self.type,
+            user_name=self.user_name)
 
 
 def get_storage_account_credential(device_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +113,13 @@ def get_storage_account_credential(device_name=None, name=None, resource_group_n
     __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190701:getStorageAccountCredential', __args__, opts=opts).value
 
     return AwaitableGetStorageAccountCredentialResult(
+        account_key=__ret__.get('accountKey'),
+        account_type=__ret__.get('accountType'),
+        alias=__ret__.get('alias'),
+        blob_domain_name=__ret__.get('blobDomainName'),
+        connection_string=__ret__.get('connectionString'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        ssl_status=__ret__.get('sslStatus'),
+        storage_account_id=__ret__.get('storageAccountId'),
+        type=__ret__.get('type'),
+        user_name=__ret__.get('userName'))

@@ -14,9 +14,14 @@ import (
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 
+	// An description of the access policy.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Resource name
-	Name       pulumi.StringOutput                          `pulumi:"name"`
-	Properties AccessPolicyResourcePropertiesResponseOutput `pulumi:"properties"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The objectId of the principal in Azure Active Directory.
+	PrincipalObjectId pulumi.StringPtrOutput `pulumi:"principalObjectId"`
+	// The list of roles the principal is assigned on the environment.
+	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -58,17 +63,27 @@ func GetAccessPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessPolicy resources.
 type accessPolicyState struct {
+	// An description of the access policy.
+	Description *string `pulumi:"description"`
 	// Resource name
-	Name       *string                                 `pulumi:"name"`
-	Properties *AccessPolicyResourcePropertiesResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// The objectId of the principal in Azure Active Directory.
+	PrincipalObjectId *string `pulumi:"principalObjectId"`
+	// The list of roles the principal is assigned on the environment.
+	Roles []string `pulumi:"roles"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type AccessPolicyState struct {
+	// An description of the access policy.
+	Description pulumi.StringPtrInput
 	// Resource name
-	Name       pulumi.StringPtrInput
-	Properties AccessPolicyResourcePropertiesResponsePtrInput
+	Name pulumi.StringPtrInput
+	// The objectId of the principal in Azure Active Directory.
+	PrincipalObjectId pulumi.StringPtrInput
+	// The list of roles the principal is assigned on the environment.
+	Roles pulumi.StringArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

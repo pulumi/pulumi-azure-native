@@ -14,10 +14,14 @@ import (
 type StorageDomain struct {
 	pulumi.CustomResourceState
 
+	// The encryption key used to encrypt the data. This is a user secret.
+	EncryptionKey AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"encryptionKey"`
+	// The encryption status "Enabled | Disabled".
+	EncryptionStatus pulumi.StringOutput `pulumi:"encryptionStatus"`
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties.
-	Properties StorageDomainPropertiesResponseOutput `pulumi:"properties"`
+	// The storage account credentials.
+	StorageAccountCredentialIds pulumi.StringArrayOutput `pulumi:"storageAccountCredentialIds"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +69,27 @@ func GetStorageDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageDomain resources.
 type storageDomainState struct {
+	// The encryption key used to encrypt the data. This is a user secret.
+	EncryptionKey *AsymmetricEncryptedSecretResponse `pulumi:"encryptionKey"`
+	// The encryption status "Enabled | Disabled".
+	EncryptionStatus *string `pulumi:"encryptionStatus"`
 	// The name.
 	Name *string `pulumi:"name"`
-	// The properties.
-	Properties *StorageDomainPropertiesResponse `pulumi:"properties"`
+	// The storage account credentials.
+	StorageAccountCredentialIds []string `pulumi:"storageAccountCredentialIds"`
 	// The type.
 	Type *string `pulumi:"type"`
 }
 
 type StorageDomainState struct {
+	// The encryption key used to encrypt the data. This is a user secret.
+	EncryptionKey AsymmetricEncryptedSecretResponsePtrInput
+	// The encryption status "Enabled | Disabled".
+	EncryptionStatus pulumi.StringPtrInput
 	// The name.
 	Name pulumi.StringPtrInput
-	// The properties.
-	Properties StorageDomainPropertiesResponsePtrInput
+	// The storage account credentials.
+	StorageAccountCredentialIds pulumi.StringArrayInput
 	// The type.
 	Type pulumi.StringPtrInput
 }

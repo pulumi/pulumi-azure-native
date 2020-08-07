@@ -30,9 +30,13 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the application security group.
+        /// The provisioning state of the application security group resource.
         /// </summary>
-        public readonly Outputs.ApplicationSecurityGroupPropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -52,7 +56,9 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
 
             string name,
 
-            Outputs.ApplicationSecurityGroupPropertiesFormatResponseResult? properties,
+            string provisioningState,
+
+            string resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -62,7 +68,8 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
         }

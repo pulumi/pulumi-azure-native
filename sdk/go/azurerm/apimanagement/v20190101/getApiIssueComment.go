@@ -31,10 +31,14 @@ type LookupApiIssueCommentArgs struct {
 
 // Issue Comment Contract details.
 type LookupApiIssueCommentResult struct {
+	// Date and time when the comment was created.
+	CreatedDate *string `pulumi:"createdDate"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Issue Comment.
-	Properties IssueCommentContractPropertiesResponse `pulumi:"properties"`
+	// Comment text.
+	Text string `pulumi:"text"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// A resource identifier for the user who left the comment.
+	UserId string `pulumi:"userId"`
 }

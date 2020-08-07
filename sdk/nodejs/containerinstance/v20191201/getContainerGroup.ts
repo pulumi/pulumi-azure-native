@@ -36,9 +36,41 @@ export interface GetContainerGroupArgs {
  */
 export interface GetContainerGroupResult {
     /**
+     * The containers within the container group.
+     */
+    readonly containers: outputs.containerinstance.v20191201.ContainerResponse[];
+    /**
+     * The diagnostic information for a container group.
+     */
+    readonly diagnostics?: outputs.containerinstance.v20191201.ContainerGroupDiagnosticsResponse;
+    /**
+     * The DNS config information for a container group.
+     */
+    readonly dnsConfig?: outputs.containerinstance.v20191201.DnsConfigurationResponse;
+    /**
+     * The encryption properties for a container group.
+     */
+    readonly encryptionProperties?: outputs.containerinstance.v20191201.EncryptionPropertiesResponse;
+    /**
      * The identity of the container group, if configured.
      */
     readonly identity?: outputs.containerinstance.v20191201.ContainerGroupIdentityResponse;
+    /**
+     * The image registry credentials by which the container group is created from.
+     */
+    readonly imageRegistryCredentials?: outputs.containerinstance.v20191201.ImageRegistryCredentialResponse[];
+    /**
+     * The init containers for a container group.
+     */
+    readonly initContainers?: outputs.containerinstance.v20191201.InitContainerDefinitionResponse[];
+    /**
+     * The instance view of the container group. Only valid in response.
+     */
+    readonly instanceView: outputs.containerinstance.v20191201.ContainerGroupResponseInstanceView;
+    /**
+     * The IP address type of the container group.
+     */
+    readonly ipAddress?: outputs.containerinstance.v20191201.IpAddressResponse;
     /**
      * The resource location.
      */
@@ -48,9 +80,28 @@ export interface GetContainerGroupResult {
      */
     readonly name: string;
     /**
-     * The container group properties
+     * The network profile information for a container group.
      */
-    readonly properties: outputs.containerinstance.v20191201.ContainerGroupResponseProperties;
+    readonly networkProfile?: outputs.containerinstance.v20191201.ContainerGroupNetworkProfileResponse;
+    /**
+     * The operating system type required by the containers in the container group.
+     */
+    readonly osType: string;
+    /**
+     * The provisioning state of the container group. This only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * Restart policy for all containers within the container group. 
+     * - `Always` Always restart
+     * - `OnFailure` Restart on failure
+     * - `Never` Never restart
+     */
+    readonly restartPolicy?: string;
+    /**
+     * The SKU for a container group.
+     */
+    readonly sku?: string;
     /**
      * The resource tags.
      */
@@ -59,4 +110,8 @@ export interface GetContainerGroupResult {
      * The resource type.
      */
     readonly type: string;
+    /**
+     * The list of volumes that can be mounted by containers in this container group.
+     */
+    readonly volumes?: outputs.containerinstance.v20191201.VolumeResponse[];
 }

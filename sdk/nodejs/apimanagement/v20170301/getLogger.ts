@@ -41,13 +41,30 @@ export interface GetLoggerArgs {
  */
 export interface GetLoggerResult {
     /**
+     * The name and SendRule connection string of the event hub for azureEventHub logger.
+     * Instrumentation key for applicationInsights logger.
+     */
+    readonly credentials: {[key: string]: string};
+    /**
+     * Logger description.
+     */
+    readonly description?: string;
+    /**
+     * Whether records are buffered in the logger before publishing. Default is assumed to be true.
+     */
+    readonly isBuffered?: boolean;
+    /**
+     * Logger type.
+     */
+    readonly loggerType: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Logger entity contract properties.
+     * Sampling settings for an ApplicationInsights logger.
      */
-    readonly properties: outputs.apimanagement.v20170301.LoggerContractPropertiesResponse;
+    readonly sampling?: outputs.apimanagement.v20170301.LoggerSamplingContractResponse;
     /**
      * Resource type for API Management resource.
      */

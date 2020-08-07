@@ -36,13 +36,25 @@ export interface GetReportConfigByResourceGroupNameArgs {
  */
 export interface GetReportConfigByResourceGroupNameResult {
     /**
+     * Has definition for the report config.
+     */
+    readonly definition: outputs.costmanagement.v20180531.ReportConfigDefinitionResponse;
+    /**
+     * Has delivery information for the report config.
+     */
+    readonly deliveryInfo: outputs.costmanagement.v20180531.ReportConfigDeliveryInfoResponse;
+    /**
+     * The format of the report being delivered.
+     */
+    readonly format?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The properties of the report config.
+     * Has schedule information for the report config.
      */
-    readonly properties: outputs.costmanagement.v20180531.ReportConfigPropertiesResponse;
+    readonly schedule?: outputs.costmanagement.v20180531.ReportConfigScheduleResponse;
     /**
      * Resource tags.
      */

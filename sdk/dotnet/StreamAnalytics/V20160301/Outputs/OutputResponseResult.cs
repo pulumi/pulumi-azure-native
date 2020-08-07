@@ -14,6 +14,18 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
     public sealed class OutputResponseResult
     {
         /// <summary>
+        /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        /// </summary>
+        public readonly Outputs.OutputDataSourceResponseResult? Datasource;
+        /// <summary>
+        /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        /// </summary>
+        public readonly Outputs.DiagnosticsResponseResult Diagnostics;
+        /// <summary>
+        /// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -22,9 +34,9 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
+        /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Outputs.OutputPropertiesResponseResult? Properties;
+        public readonly Outputs.SerializationResponseResult? Serialization;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -32,17 +44,26 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
 
         [OutputConstructor]
         private OutputResponseResult(
+            Outputs.OutputDataSourceResponseResult? datasource,
+
+            Outputs.DiagnosticsResponseResult diagnostics,
+
+            string etag,
+
             string id,
 
             string? name,
 
-            Outputs.OutputPropertiesResponseResult? properties,
+            Outputs.SerializationResponseResult? serialization,
 
             string type)
         {
+            Datasource = datasource;
+            Diagnostics = diagnostics;
+            Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Serialization = serialization;
             Type = type;
         }
     }

@@ -14,12 +14,24 @@ import (
 type View struct {
 	pulumi.CustomResourceState
 
+	// Date time when view was last modified.
+	Changed pulumi.StringOutput `pulumi:"changed"`
+	// Date time when view was created.
+	Created pulumi.StringOutput `pulumi:"created"`
+	// View definition.
+	Definition pulumi.StringOutput `pulumi:"definition"`
+	// Localized display name for the view.
+	DisplayName pulumi.StringMapOutput `pulumi:"displayName"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties ViewResponseOutput `pulumi:"properties"`
+	// the hub name.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// the user ID.
+	UserId pulumi.StringPtrOutput `pulumi:"userId"`
+	// Name of the view.
+	ViewName pulumi.StringOutput `pulumi:"viewName"`
 }
 
 // NewView registers a new resource with the given unique name, arguments, and options.
@@ -62,21 +74,45 @@ func GetView(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering View resources.
 type viewState struct {
+	// Date time when view was last modified.
+	Changed *string `pulumi:"changed"`
+	// Date time when view was created.
+	Created *string `pulumi:"created"`
+	// View definition.
+	Definition *string `pulumi:"definition"`
+	// Localized display name for the view.
+	DisplayName map[string]string `pulumi:"displayName"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties *ViewResponse `pulumi:"properties"`
+	// the hub name.
+	TenantId *string `pulumi:"tenantId"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// the user ID.
+	UserId *string `pulumi:"userId"`
+	// Name of the view.
+	ViewName *string `pulumi:"viewName"`
 }
 
 type ViewState struct {
+	// Date time when view was last modified.
+	Changed pulumi.StringPtrInput
+	// Date time when view was created.
+	Created pulumi.StringPtrInput
+	// View definition.
+	Definition pulumi.StringPtrInput
+	// Localized display name for the view.
+	DisplayName pulumi.StringMapInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The view in Customer 360 web application.
-	Properties ViewResponsePtrInput
+	// the hub name.
+	TenantId pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// the user ID.
+	UserId pulumi.StringPtrInput
+	// Name of the view.
+	ViewName pulumi.StringPtrInput
 }
 
 func (ViewState) ElementType() reflect.Type {

@@ -10,24 +10,53 @@ from ... import _utilities, _tables
 
 
 class Connector(pulumi.CustomResource):
+    connector_id: pulumi.Output[float]
+    """
+    ID of the connector.
+    """
+    connector_name: pulumi.Output[str]
+    """
+    Name of the connector.
+    """
+    connector_properties: pulumi.Output[dict]
+    """
+    The connector properties.
+    """
+    connector_type: pulumi.Output[str]
+    """
+    Type of connector.
+    """
+    created: pulumi.Output[str]
+    """
+    The created time.
+    """
+    description: pulumi.Output[str]
+    """
+    Description of the connector.
+    """
+    display_name: pulumi.Output[str]
+    """
+    Display name of the connector.
+    """
+    is_internal: pulumi.Output[bool]
+    """
+    If this is an internal connector.
+    """
+    last_modified: pulumi.Output[str]
+    """
+    The last modified time.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    state: pulumi.Output[str]
     """
-    Properties of connector.
-      * `connector_id` (`float`) - ID of the connector.
-      * `connector_name` (`str`) - Name of the connector.
-      * `connector_properties` (`dict`) - The connector properties.
-      * `connector_type` (`str`) - Type of connector.
-      * `created` (`str`) - The created time.
-      * `description` (`str`) - Description of the connector.
-      * `display_name` (`str`) - Display name of the connector.
-      * `is_internal` (`bool`) - If this is an internal connector.
-      * `last_modified` (`str`) - The last modified time.
-      * `state` (`str`) - State of connector.
-      * `tenant_id` (`str`) - The hub name.
+    State of connector.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The hub name.
     """
     type: pulumi.Output[str]
     """
@@ -83,7 +112,12 @@ class Connector(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['connector_id'] = None
+            __props__['connector_name'] = None
+            __props__['created'] = None
+            __props__['last_modified'] = None
+            __props__['state'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(Connector, __self__).__init__(
             'azurerm:customerinsights/v20170426:Connector',

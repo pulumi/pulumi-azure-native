@@ -14,9 +14,18 @@ import (
 type Origin struct {
 	pulumi.CustomResourceState
 
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+	HostName pulumi.StringOutput `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort pulumi.IntPtrOutput `pulumi:"httpPort"`
+	// The value of the https port. Must be between 1 and 65535.
+	HttpsPort pulumi.IntPtrOutput `pulumi:"httpsPort"`
 	// Resource name
-	Name       pulumi.StringOutput            `pulumi:"name"`
-	Properties OriginPropertiesResponseOutput `pulumi:"properties"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Provisioning status of the origin.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Resource status of the origin.
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -64,17 +73,35 @@ func GetOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Origin resources.
 type originState struct {
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+	HostName *string `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort *int `pulumi:"httpPort"`
+	// The value of the https port. Must be between 1 and 65535.
+	HttpsPort *int `pulumi:"httpsPort"`
 	// Resource name
-	Name       *string                   `pulumi:"name"`
-	Properties *OriginPropertiesResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Provisioning status of the origin.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the origin.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type OriginState struct {
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+	HostName pulumi.StringPtrInput
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort pulumi.IntPtrInput
+	// The value of the https port. Must be between 1 and 65535.
+	HttpsPort pulumi.IntPtrInput
 	// Resource name
-	Name       pulumi.StringPtrInput
-	Properties OriginPropertiesResponsePtrInput
+	Name pulumi.StringPtrInput
+	// Provisioning status of the origin.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource status of the origin.
+	ResourceState pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

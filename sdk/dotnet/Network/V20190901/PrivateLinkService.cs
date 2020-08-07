@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.Network.V20190901
     public partial class PrivateLinkService : Pulumi.CustomResource
     {
         /// <summary>
+        /// The alias of the private link service.
+        /// </summary>
+        [Output("alias")]
+        public Output<string> Alias { get; private set; } = null!;
+
+        /// <summary>
+        /// The auto-approval list of the private link service.
+        /// </summary>
+        [Output("autoApproval")]
+        public Output<Outputs.PrivateLinkServicePropertiesResponseAutoApprovalResult?> AutoApproval { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the private link service is enabled for proxy protocol or not.
+        /// </summary>
+        [Output("enableProxyProtocol")]
+        public Output<bool?> EnableProxyProtocol { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of Fqdn.
+        /// </summary>
+        [Output("fqdns")]
+        public Output<ImmutableArray<string>> Fqdns { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of private link service IP configurations.
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of references to the load balancer IP configurations.
+        /// </summary>
+        [Output("loadBalancerFrontendIpConfigurations")]
+        public Output<ImmutableArray<Outputs.FrontendIPConfigurationResponseResult>> LoadBalancerFrontendIpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +69,22 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the private link service.
+        /// An array of references to the network interfaces created for this private link service.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateLinkServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkInterfaces")]
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseResult>> NetworkInterfaces { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of list about connections to the private endpoint.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the private link service resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +97,12 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The visibility list of the private link service.
+        /// </summary>
+        [Output("visibility")]
+        public Output<Outputs.PrivateLinkServicePropertiesResponseVisibilityResult?> Visibility { get; private set; } = null!;
 
 
         /// <summary>

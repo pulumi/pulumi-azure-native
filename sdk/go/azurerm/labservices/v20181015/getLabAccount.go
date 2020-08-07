@@ -25,14 +25,22 @@ type LookupLabAccountArgs struct {
 
 // Represents a lab account.
 type LookupLabAccountResult struct {
+	// Represents if region selection is enabled
+	EnabledRegionSelection *bool `pulumi:"enabledRegionSelection"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabAccountPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Represents the size configuration under the lab account
+	SizeConfiguration SizeConfigurationPropertiesResponse `pulumi:"sizeConfiguration"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }

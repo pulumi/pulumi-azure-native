@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,37 @@ export class ApiIssue extends pulumi.CustomResource {
     }
 
     /**
+     * A resource identifier for the API the issue was created for.
+     */
+    public readonly apiId!: pulumi.Output<string | undefined>;
+    /**
+     * Date and time when the issue was created.
+     */
+    public readonly createdDate!: pulumi.Output<string | undefined>;
+    /**
+     * Text describing the issue.
+     */
+    public readonly description!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Issue.
+     * Status of the issue.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.IssueContractPropertiesResponse>;
+    public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * The issue title.
+     */
+    public readonly title!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A resource identifier for the user created the issue.
+     */
+    public readonly userId!: pulumi.Output<string>;
 
     /**
      * Create a ApiIssue resource with the given unique name, arguments, and options.
@@ -92,7 +110,6 @@ export class ApiIssue extends pulumi.CustomResource {
             inputs["state"] = args ? args.state : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["userId"] = args ? args.userId : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

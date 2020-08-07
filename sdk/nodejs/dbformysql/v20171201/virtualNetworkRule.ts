@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,25 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     }
 
     /**
+     * Create firewall rule before the virtual network has vnet service endpoint enabled.
+     */
+    public readonly ignoreMissingVnetServiceEndpoint!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Resource properties.
+     * Virtual Network Rule State
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.dbformysql.v20171201.VirtualNetworkRulePropertiesResponse>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The ARM resource id of the virtual network subnet.
+     */
+    public readonly virtualNetworkSubnetId!: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkRule resource with the given unique name, arguments, and options.
@@ -79,7 +85,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

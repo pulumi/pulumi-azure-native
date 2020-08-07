@@ -31,8 +31,8 @@ type LookupEventHubAuthorizationRuleArgs struct {
 type LookupEventHubAuthorizationRuleResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties supplied to create or update AuthorizationRule
-	Properties AuthorizationRuleResponseProperties `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

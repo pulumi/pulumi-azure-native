@@ -37,6 +37,14 @@ export class Peering extends pulumi.CustomResource {
     }
 
     /**
+     * The properties that define a direct peering.
+     */
+    public readonly direct!: pulumi.Output<outputs.peering.v20200401.PeeringPropertiesDirectResponse | undefined>;
+    /**
+     * The properties that define an exchange peering.
+     */
+    public readonly exchange!: pulumi.Output<outputs.peering.v20200401.PeeringPropertiesExchangeResponse | undefined>;
+    /**
      * The kind of the peering.
      */
     public readonly kind!: pulumi.Output<string>;
@@ -49,9 +57,13 @@ export class Peering extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties that define a peering.
+     * The location of the peering.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringPropertiesResponse>;
+    public readonly peeringLocation!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The SKU that defines the tier and kind of the peering.
      */
@@ -102,7 +114,7 @@ export class Peering extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

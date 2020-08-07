@@ -37,17 +37,77 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
+     */
+    public /*out*/ readonly availableClusterVersions!: pulumi.Output<outputs.servicefabric.v20160901.ClusterVersionDetailsResponse[]>;
+    /**
+     * The settings to enable AAD authentication on the cluster
+     */
+    public readonly azureActiveDirectory!: pulumi.Output<outputs.servicefabric.v20160901.AzureActiveDirectoryResponse | undefined>;
+    /**
+     * This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+     */
+    public readonly certificate!: pulumi.Output<outputs.servicefabric.v20160901.CertificateDescriptionResponse | undefined>;
+    /**
+     *  List of client certificates to whitelist based on common names
+     */
+    public readonly clientCertificateCommonNames!: pulumi.Output<outputs.servicefabric.v20160901.ClientCertificateCommonNameResponse[] | undefined>;
+    /**
+     * The client thumbprint details ,it is used for client access for cluster operation
+     */
+    public readonly clientCertificateThumbprints!: pulumi.Output<outputs.servicefabric.v20160901.ClientCertificateThumbprintResponse[] | undefined>;
+    /**
+     * The ServiceFabric code version running in your cluster
+     */
+    public readonly clusterCodeVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The endpoint for the cluster connecting to servicefabric resource provider
+     */
+    public /*out*/ readonly clusterEndpoint!: pulumi.Output<string>;
+    /**
+     * The unique identifier for the cluster resource
+     */
+    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    /**
+     * The state for the cluster
+     */
+    public /*out*/ readonly clusterState!: pulumi.Output<string>;
+    /**
+     * The storage diagnostics account configuration details
+     */
+    public readonly diagnosticsStorageAccountConfig!: pulumi.Output<outputs.servicefabric.v20160901.DiagnosticsStorageAccountConfigResponse | undefined>;
+    /**
+     * List of custom fabric settings to configure the cluster.
+     */
+    public readonly fabricSettings!: pulumi.Output<outputs.servicefabric.v20160901.SettingsSectionDescriptionResponse[] | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The http management endpoint of the cluster
+     */
+    public readonly managementEndpoint!: pulumi.Output<string>;
     /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The cluster resource properties
+     * The list of node types that make up the cluster
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20160901.ClusterPropertiesResponse>;
+    public readonly nodeTypes!: pulumi.Output<outputs.servicefabric.v20160901.NodeTypeDescriptionResponse[]>;
+    /**
+     * The provisioning state of the cluster resource
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Cluster reliability level indicates replica set size of system service
+     */
+    public readonly reliabilityLevel!: pulumi.Output<string | undefined>;
+    /**
+     * The server certificate used by reverse proxy
+     */
+    public readonly reverseProxyCertificate!: pulumi.Output<outputs.servicefabric.v20160901.CertificateDescriptionResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -56,6 +116,18 @@ export class Cluster extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The policy to use when upgrading the cluster.
+     */
+    public readonly upgradeDescription!: pulumi.Output<outputs.servicefabric.v20160901.ClusterUpgradePolicyResponse | undefined>;
+    /**
+     * Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+     */
+    public readonly upgradeMode!: pulumi.Output<string | undefined>;
+    /**
+     * The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+     */
+    public readonly vmImage!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -103,7 +175,11 @@ export class Cluster extends pulumi.CustomResource {
             inputs["upgradeDescription"] = args ? args.upgradeDescription : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
             inputs["vmImage"] = args ? args.vmImage : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["availableClusterVersions"] = undefined /*out*/;
+            inputs["clusterEndpoint"] = undefined /*out*/;
+            inputs["clusterId"] = undefined /*out*/;
+            inputs["clusterState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

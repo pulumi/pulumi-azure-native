@@ -20,8 +20,10 @@ type ApplicationSecurityGroup struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the application security group.
-	Properties ApplicationSecurityGroupPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the application security group resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -68,8 +70,10 @@ type applicationSecurityGroupState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the application security group.
-	Properties *ApplicationSecurityGroupPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the application security group resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -83,8 +87,10 @@ type ApplicationSecurityGroupState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the application security group.
-	Properties ApplicationSecurityGroupPropertiesFormatResponsePtrInput
+	// The provisioning state of the application security group resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

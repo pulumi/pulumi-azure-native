@@ -13,7 +13,85 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, capabilities=None, connector_offer=None, consistency_policy=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_multiple_write_locations=None, failover_policies=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, provisioning_state=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+        if capabilities and not isinstance(capabilities, list):
+            raise TypeError("Expected argument 'capabilities' to be a list")
+        __self__.capabilities = capabilities
+        """
+        List of Cosmos DB capabilities for the account
+        """
+        if connector_offer and not isinstance(connector_offer, str):
+            raise TypeError("Expected argument 'connector_offer' to be a str")
+        __self__.connector_offer = connector_offer
+        """
+        The cassandra connector offer type for the Cosmos DB database C* account.
+        """
+        if consistency_policy and not isinstance(consistency_policy, dict):
+            raise TypeError("Expected argument 'consistency_policy' to be a dict")
+        __self__.consistency_policy = consistency_policy
+        """
+        The consistency policy for the Cosmos DB database account.
+        """
+        if database_account_offer_type and not isinstance(database_account_offer_type, str):
+            raise TypeError("Expected argument 'database_account_offer_type' to be a str")
+        __self__.database_account_offer_type = database_account_offer_type
+        """
+        The offer type for the Cosmos DB database account. Default value: Standard.
+        """
+        if disable_key_based_metadata_write_access and not isinstance(disable_key_based_metadata_write_access, bool):
+            raise TypeError("Expected argument 'disable_key_based_metadata_write_access' to be a bool")
+        __self__.disable_key_based_metadata_write_access = disable_key_based_metadata_write_access
+        """
+        Disable write operations on metadata resources (databases, containers, throughput) via account keys
+        """
+        if document_endpoint and not isinstance(document_endpoint, str):
+            raise TypeError("Expected argument 'document_endpoint' to be a str")
+        __self__.document_endpoint = document_endpoint
+        """
+        The connection endpoint for the Cosmos DB database account.
+        """
+        if enable_automatic_failover and not isinstance(enable_automatic_failover, bool):
+            raise TypeError("Expected argument 'enable_automatic_failover' to be a bool")
+        __self__.enable_automatic_failover = enable_automatic_failover
+        """
+        Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        """
+        if enable_cassandra_connector and not isinstance(enable_cassandra_connector, bool):
+            raise TypeError("Expected argument 'enable_cassandra_connector' to be a bool")
+        __self__.enable_cassandra_connector = enable_cassandra_connector
+        """
+        Enables the cassandra connector on the Cosmos DB C* account
+        """
+        if enable_multiple_write_locations and not isinstance(enable_multiple_write_locations, bool):
+            raise TypeError("Expected argument 'enable_multiple_write_locations' to be a bool")
+        __self__.enable_multiple_write_locations = enable_multiple_write_locations
+        """
+        Enables the account to write in multiple locations
+        """
+        if failover_policies and not isinstance(failover_policies, list):
+            raise TypeError("Expected argument 'failover_policies' to be a list")
+        __self__.failover_policies = failover_policies
+        """
+        An array that contains the regions ordered by their failover priorities.
+        """
+        if ip_range_filter and not isinstance(ip_range_filter, str):
+            raise TypeError("Expected argument 'ip_range_filter' to be a str")
+        __self__.ip_range_filter = ip_range_filter
+        """
+        Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+        """
+        if is_virtual_network_filter_enabled and not isinstance(is_virtual_network_filter_enabled, bool):
+            raise TypeError("Expected argument 'is_virtual_network_filter_enabled' to be a bool")
+        __self__.is_virtual_network_filter_enabled = is_virtual_network_filter_enabled
+        """
+        Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        """
+        if key_vault_key_uri and not isinstance(key_vault_key_uri, str):
+            raise TypeError("Expected argument 'key_vault_key_uri' to be a str")
+        __self__.key_vault_key_uri = key_vault_key_uri
+        """
+        The URI of the key vault
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +104,29 @@ class GetDatabaseAccountResult:
         """
         The location of the resource group to which the resource belongs.
         """
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        __self__.locations = locations
+        """
+        An array that contains all of the locations enabled for the Cosmos DB account.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the ARM resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties for the database account.
+        The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
+        """
+        if read_locations and not isinstance(read_locations, list):
+            raise TypeError("Expected argument 'read_locations' to be a list")
+        __self__.read_locations = read_locations
+        """
+        An array that contains of the read locations enabled for the Cosmos DB account.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +140,18 @@ class GetDatabaseAccountResult:
         """
         The type of Azure resource.
         """
+        if virtual_network_rules and not isinstance(virtual_network_rules, list):
+            raise TypeError("Expected argument 'virtual_network_rules' to be a list")
+        __self__.virtual_network_rules = virtual_network_rules
+        """
+        List of Virtual Network ACL rules configured for the Cosmos DB account.
+        """
+        if write_locations and not isinstance(write_locations, list):
+            raise TypeError("Expected argument 'write_locations' to be a list")
+        __self__.write_locations = write_locations
+        """
+        An array that contains the write location for the Cosmos DB account.
+        """
 
 
 class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
@@ -58,12 +160,29 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
         if False:
             yield self
         return GetDatabaseAccountResult(
+            capabilities=self.capabilities,
+            connector_offer=self.connector_offer,
+            consistency_policy=self.consistency_policy,
+            database_account_offer_type=self.database_account_offer_type,
+            disable_key_based_metadata_write_access=self.disable_key_based_metadata_write_access,
+            document_endpoint=self.document_endpoint,
+            enable_automatic_failover=self.enable_automatic_failover,
+            enable_cassandra_connector=self.enable_cassandra_connector,
+            enable_multiple_write_locations=self.enable_multiple_write_locations,
+            failover_policies=self.failover_policies,
+            ip_range_filter=self.ip_range_filter,
+            is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
+            key_vault_key_uri=self.key_vault_key_uri,
             kind=self.kind,
             location=self.location,
+            locations=self.locations,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            read_locations=self.read_locations,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network_rules=self.virtual_network_rules,
+            write_locations=self.write_locations)
 
 
 def get_database_account(name=None, resource_group_name=None, opts=None):
@@ -83,9 +202,26 @@ def get_database_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20191212:getDatabaseAccount', __args__, opts=opts).value
 
     return AwaitableGetDatabaseAccountResult(
+        capabilities=__ret__.get('capabilities'),
+        connector_offer=__ret__.get('connectorOffer'),
+        consistency_policy=__ret__.get('consistencyPolicy'),
+        database_account_offer_type=__ret__.get('databaseAccountOfferType'),
+        disable_key_based_metadata_write_access=__ret__.get('disableKeyBasedMetadataWriteAccess'),
+        document_endpoint=__ret__.get('documentEndpoint'),
+        enable_automatic_failover=__ret__.get('enableAutomaticFailover'),
+        enable_cassandra_connector=__ret__.get('enableCassandraConnector'),
+        enable_multiple_write_locations=__ret__.get('enableMultipleWriteLocations'),
+        failover_policies=__ret__.get('failoverPolicies'),
+        ip_range_filter=__ret__.get('ipRangeFilter'),
+        is_virtual_network_filter_enabled=__ret__.get('isVirtualNetworkFilterEnabled'),
+        key_vault_key_uri=__ret__.get('keyVaultKeyUri'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
+        locations=__ret__.get('locations'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        read_locations=__ret__.get('readLocations'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_network_rules=__ret__.get('virtualNetworkRules'),
+        write_locations=__ret__.get('writeLocations'))

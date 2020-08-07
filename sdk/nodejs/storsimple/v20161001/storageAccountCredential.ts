@@ -37,13 +37,33 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     }
 
     /**
+     * The details of the storage account password
+     */
+    public readonly accessKey!: pulumi.Output<outputs.storsimple.v20161001.AsymmetricEncryptedSecretResponse | undefined>;
+    /**
+     * The cloud service provider
+     */
+    public readonly cloudType!: pulumi.Output<string>;
+    /**
+     * SSL needs to be enabled or not
+     */
+    public readonly enableSSL!: pulumi.Output<string>;
+    /**
+     * The storage endpoint
+     */
+    public readonly endPoint!: pulumi.Output<string>;
+    /**
+     * The storage account's geo location
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The storage account login
+     */
+    public readonly login!: pulumi.Output<string>;
+    /**
      * The name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Credential properties
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.StorageAccountCredentialPropertiesResponse>;
     /**
      * The type.
      */
@@ -92,7 +112,6 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

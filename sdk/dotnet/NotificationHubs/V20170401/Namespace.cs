@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the namespace was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string?> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not the namespace is set as Critical.
+        /// </summary>
+        [Output("critical")]
+        public Output<bool?> Critical { get; private set; } = null!;
+
+        /// <summary>
+        /// Data center for the namespace
+        /// </summary>
+        [Output("dataCenter")]
+        public Output<string?> DataCenter { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not the namespace is currently enabled.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Identifier for Azure Insights metrics
+        /// </summary>
+        [Output("metricId")]
+        public Output<string> MetricId { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,16 +57,52 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Namespace.
+        /// The namespace type.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NamespacePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("namespaceType")]
+        public Output<string?> NamespaceType { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the Namespace.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+        /// </summary>
+        [Output("region")]
+        public Output<string?> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// ScaleUnit where the namespace gets created
+        /// </summary>
+        [Output("scaleUnit")]
+        public Output<string?> ScaleUnit { get; private set; } = null!;
+
+        /// <summary>
+        /// Endpoint you can use to perform NotificationHub operations.
+        /// </summary>
+        [Output("serviceBusEndpoint")]
+        public Output<string?> ServiceBusEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The Id of the Azure subscription associated with the namespace.
+        /// </summary>
+        [Output("subscriptionId")]
+        public Output<string?> SubscriptionId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -49,6 +115,12 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string?> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

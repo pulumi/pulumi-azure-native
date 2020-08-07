@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class Route extends pulumi.CustomResource {
     }
 
     /**
+     * The destination CIDR to which the route applies.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -45,9 +47,17 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the route.
+     * The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181001.RoutePropertiesFormatResponse>;
+    public readonly nextHopIpAddress!: pulumi.Output<string | undefined>;
+    /**
+     * The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
+     */
+    public readonly nextHopType!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -83,7 +93,6 @@ export class Route extends pulumi.CustomResource {
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

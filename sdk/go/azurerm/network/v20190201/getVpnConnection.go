@@ -27,10 +27,36 @@ type LookupVpnConnectionArgs struct {
 
 // VpnConnection Resource.
 type LookupVpnConnectionResult struct {
+	// Expected bandwidth in MBPS.
+	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
+	// The connection status.
+	ConnectionStatus *string `pulumi:"connectionStatus"`
+	// Egress bytes transferred.
+	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	// EnableBgp flag
+	EnableBgp *bool `pulumi:"enableBgp"`
+	// Enable internet security
+	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
+	// EnableBgp flag
+	EnableRateLimiting *bool `pulumi:"enableRateLimiting"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Ingress bytes transferred.
+	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	// The IPSec Policies to be considered by this connection.
+	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the VPN connection.
-	Properties VpnConnectionPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Id of the connected vpn site.
+	RemoteVpnSite *SubResourceResponse `pulumi:"remoteVpnSite"`
+	// Routing weight for vpn connection.
+	RoutingWeight *int `pulumi:"routingWeight"`
+	// SharedKey for the vpn connection.
+	SharedKey *string `pulumi:"sharedKey"`
+	// Use local azure ip to initiate connection
+	UseLocalAzureIpAddress *bool `pulumi:"useLocalAzureIpAddress"`
+	// Connection protocol used for this connection
+	VpnConnectionProtocolType *string `pulumi:"vpnConnectionProtocolType"`
 }

@@ -36,6 +36,54 @@ export interface GetDiskArgs {
  */
 export interface GetDiskResult {
     /**
+     * Disk source information. CreationData information cannot be changed after the disk has been created.
+     */
+    readonly creationData: outputs.compute.v20200501.CreationDataResponse;
+    /**
+     * ARM id of the DiskAccess resource for using private endpoints on disks.
+     */
+    readonly diskAccessId?: string;
+    /**
+     * The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+     */
+    readonly diskIOPSReadOnly?: number;
+    /**
+     * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     */
+    readonly diskIOPSReadWrite?: number;
+    /**
+     * The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+     */
+    readonly diskMBpsReadOnly?: number;
+    /**
+     * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+     */
+    readonly diskMBpsReadWrite?: number;
+    /**
+     * The size of the disk in bytes. This field is read only.
+     */
+    readonly diskSizeBytes: number;
+    /**
+     * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+     */
+    readonly diskSizeGB?: number;
+    /**
+     * The state of the disk.
+     */
+    readonly diskState: string;
+    /**
+     * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+     */
+    readonly encryption?: outputs.compute.v20200501.EncryptionResponse;
+    /**
+     * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+     */
+    readonly encryptionSettingsCollection?: outputs.compute.v20200501.EncryptionSettingsCollectionResponse;
+    /**
+     * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+     */
+    readonly hyperVGeneration?: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -48,13 +96,29 @@ export interface GetDiskResult {
      */
     readonly managedByExtended: string[];
     /**
+     * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+     */
+    readonly maxShares?: number;
+    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Disk resource properties.
+     * Policy for accessing the disk via network.
      */
-    readonly properties: outputs.compute.v20200501.DiskPropertiesResponse;
+    readonly networkAccessPolicy?: string;
+    /**
+     * The Operating System type.
+     */
+    readonly osType?: string;
+    /**
+     * The disk provisioning state.
+     */
+    readonly provisioningState: string;
+    /**
+     * Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
+     */
+    readonly shareInfo: outputs.compute.v20200501.ShareInfoElementResponse[];
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
@@ -64,9 +128,17 @@ export interface GetDiskResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The time when the disk was created.
+     */
+    readonly timeCreated: string;
+    /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * Unique Guid identifying the resource.
+     */
+    readonly uniqueId: string;
     /**
      * The Logical zone list for Disk.
      */

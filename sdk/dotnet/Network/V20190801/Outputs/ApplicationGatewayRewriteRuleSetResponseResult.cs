@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20190801.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway rewrite rule set.
+        /// The provisioning state of the rewrite rule set resource.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayRewriteRuleSetPropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Rewrite rules in the rewrite rule set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRewriteRuleResponseResult> RewriteRules;
 
         [OutputConstructor]
         private ApplicationGatewayRewriteRuleSetResponseResult(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureRM.Network.V20190801.Outputs
 
             string? name,
 
-            Outputs.ApplicationGatewayRewriteRuleSetPropertiesFormatResponseResult? properties)
+            string provisioningState,
+
+            ImmutableArray<Outputs.ApplicationGatewayRewriteRuleResponseResult> rewriteRules)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RewriteRules = rewriteRules;
         }
     }
 }

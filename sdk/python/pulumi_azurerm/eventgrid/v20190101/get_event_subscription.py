@@ -13,18 +13,54 @@ class GetEventSubscriptionResult:
     """
     Event Subscription
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, dead_letter_destination=None, destination=None, filter=None, labels=None, name=None, provisioning_state=None, retry_policy=None, topic=None, type=None):
+        if dead_letter_destination and not isinstance(dead_letter_destination, dict):
+            raise TypeError("Expected argument 'dead_letter_destination' to be a dict")
+        __self__.dead_letter_destination = dead_letter_destination
+        """
+        The DeadLetter destination of the event subscription.
+        """
+        if destination and not isinstance(destination, dict):
+            raise TypeError("Expected argument 'destination' to be a dict")
+        __self__.destination = destination
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        """
+        if filter and not isinstance(filter, dict):
+            raise TypeError("Expected argument 'filter' to be a dict")
+        __self__.filter = filter
+        """
+        Information about the filter for the event subscription.
+        """
+        if labels and not isinstance(labels, list):
+            raise TypeError("Expected argument 'labels' to be a list")
+        __self__.labels = labels
+        """
+        List of user defined labels.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the event subscription
+        Provisioning state of the event subscription.
+        """
+        if retry_policy and not isinstance(retry_policy, dict):
+            raise TypeError("Expected argument 'retry_policy' to be a dict")
+        __self__.retry_policy = retry_policy
+        """
+        The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+        """
+        if topic and not isinstance(topic, str):
+            raise TypeError("Expected argument 'topic' to be a str")
+        __self__.topic = topic
+        """
+        Name of the topic of the event subscription.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +76,14 @@ class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
         if False:
             yield self
         return GetEventSubscriptionResult(
+            dead_letter_destination=self.dead_letter_destination,
+            destination=self.destination,
+            filter=self.filter,
+            labels=self.labels,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            retry_policy=self.retry_policy,
+            topic=self.topic,
             type=self.type)
 
 
@@ -62,6 +104,12 @@ def get_event_subscription(name=None, scope=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:eventgrid/v20190101:getEventSubscription', __args__, opts=opts).value
 
     return AwaitableGetEventSubscriptionResult(
+        dead_letter_destination=__ret__.get('deadLetterDestination'),
+        destination=__ret__.get('destination'),
+        filter=__ret__.get('filter'),
+        labels=__ret__.get('labels'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        retry_policy=__ret__.get('retryPolicy'),
+        topic=__ret__.get('topic'),
         type=__ret__.get('type'))

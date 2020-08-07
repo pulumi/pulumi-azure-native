@@ -14,12 +14,26 @@ import (
 type FileShare struct {
 	pulumi.CustomResourceState
 
+	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+	AdminUser pulumi.StringOutput `pulumi:"adminUser"`
+	// The data policy
+	DataPolicy pulumi.StringOutput `pulumi:"dataPolicy"`
+	// Description for file share
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The local used capacity in Bytes.
+	LocalUsedCapacityInBytes pulumi.IntOutput `pulumi:"localUsedCapacityInBytes"`
+	// The monitoring status
+	MonitoringStatus pulumi.StringOutput `pulumi:"monitoringStatus"`
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties.
-	Properties FileSharePropertiesResponseOutput `pulumi:"properties"`
+	// The total provisioned capacity in Bytes
+	ProvisionedCapacityInBytes pulumi.IntOutput `pulumi:"provisionedCapacityInBytes"`
+	// The Share Status
+	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The used capacity in Bytes.
+	UsedCapacityInBytes pulumi.IntOutput `pulumi:"usedCapacityInBytes"`
 }
 
 // NewFileShare registers a new resource with the given unique name, arguments, and options.
@@ -80,21 +94,49 @@ func GetFileShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileShare resources.
 type fileShareState struct {
+	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+	AdminUser *string `pulumi:"adminUser"`
+	// The data policy
+	DataPolicy *string `pulumi:"dataPolicy"`
+	// Description for file share
+	Description *string `pulumi:"description"`
+	// The local used capacity in Bytes.
+	LocalUsedCapacityInBytes *int `pulumi:"localUsedCapacityInBytes"`
+	// The monitoring status
+	MonitoringStatus *string `pulumi:"monitoringStatus"`
 	// The name.
 	Name *string `pulumi:"name"`
-	// The properties.
-	Properties *FileSharePropertiesResponse `pulumi:"properties"`
+	// The total provisioned capacity in Bytes
+	ProvisionedCapacityInBytes *int `pulumi:"provisionedCapacityInBytes"`
+	// The Share Status
+	ShareStatus *string `pulumi:"shareStatus"`
 	// The type.
 	Type *string `pulumi:"type"`
+	// The used capacity in Bytes.
+	UsedCapacityInBytes *int `pulumi:"usedCapacityInBytes"`
 }
 
 type FileShareState struct {
+	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+	AdminUser pulumi.StringPtrInput
+	// The data policy
+	DataPolicy pulumi.StringPtrInput
+	// Description for file share
+	Description pulumi.StringPtrInput
+	// The local used capacity in Bytes.
+	LocalUsedCapacityInBytes pulumi.IntPtrInput
+	// The monitoring status
+	MonitoringStatus pulumi.StringPtrInput
 	// The name.
 	Name pulumi.StringPtrInput
-	// The properties.
-	Properties FileSharePropertiesResponsePtrInput
+	// The total provisioned capacity in Bytes
+	ProvisionedCapacityInBytes pulumi.IntPtrInput
+	// The Share Status
+	ShareStatus pulumi.StringPtrInput
 	// The type.
 	Type pulumi.StringPtrInput
+	// The used capacity in Bytes.
+	UsedCapacityInBytes pulumi.IntPtrInput
 }
 
 func (FileShareState) ElementType() reflect.Type {

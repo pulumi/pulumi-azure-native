@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.Authorization.V20160401
     public partial class PolicyDefinition : Pulumi.CustomResource
     {
         /// <summary>
+        /// The policy definition description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the policy definition.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The policy definition properties.
+        /// The policy rule.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PolicyDefinitionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("policyRule")]
+        public Output<ImmutableDictionary<string, object>?> PolicyRule { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        /// </summary>
+        [Output("policyType")]
+        public Output<string?> PolicyType { get; private set; } = null!;
 
 
         /// <summary>

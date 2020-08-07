@@ -41,9 +41,9 @@ export class ChapSetting extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Chap properties
+     * The chap password.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ChapPropertiesResponse>;
+    public readonly password!: pulumi.Output<outputs.storsimple.v20161001.AsymmetricEncryptedSecretResponse>;
     /**
      * The type.
      */
@@ -82,7 +82,6 @@ export class ChapSetting extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

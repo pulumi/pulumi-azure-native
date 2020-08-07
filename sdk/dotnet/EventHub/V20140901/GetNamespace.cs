@@ -40,21 +40,41 @@ namespace Pulumi.AzureRM.EventHub.V20140901
     public sealed class GetNamespaceResult
     {
         /// <summary>
+        /// The time the Namespace was created.
+        /// </summary>
+        public readonly string? CreatedAt;
+        /// <summary>
+        /// Specifies whether this instance is enabled.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Identifier for Azure Insights metrics
+        /// </summary>
+        public readonly string MetricId;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Namespace supplied for create or update Namespace operation
+        /// Provisioning state of the Namespace.
         /// </summary>
-        public readonly Outputs.NamespacePropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Endpoint you can use to perform Service Bus operations.
+        /// </summary>
+        public readonly string? ServiceBusEndpoint;
         /// <summary>
         /// SKU parameters supplied to the create Namespace operation
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// State of the Namespace.
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,27 +83,49 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The time the Namespace was updated.
+        /// </summary>
+        public readonly string? UpdatedAt;
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string? createdAt,
+
+            bool? enabled,
+
             string location,
+
+            string metricId,
 
             string name,
 
-            Outputs.NamespacePropertiesResponseResult properties,
+            string? provisioningState,
+
+            string? serviceBusEndpoint,
 
             Outputs.SkuResponseResult? sku,
 
+            string? status,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? updatedAt)
         {
+            CreatedAt = createdAt;
+            Enabled = enabled;
             Location = location;
+            MetricId = metricId;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
+            Status = status;
             Tags = tags;
             Type = type;
+            UpdatedAt = updatedAt;
         }
     }
 }

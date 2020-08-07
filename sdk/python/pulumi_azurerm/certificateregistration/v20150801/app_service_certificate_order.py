@@ -10,9 +10,68 @@ from ... import _utilities, _tables
 
 
 class AppServiceCertificateOrder(pulumi.CustomResource):
+    app_service_certificate_not_renewable_reasons: pulumi.Output[list]
+    """
+    Reasons why App Service Certificate is not renewable at the current moment.
+    """
+    auto_renew: pulumi.Output[bool]
+    """
+    <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+    """
+    certificates: pulumi.Output[dict]
+    """
+    State of the Key Vault secret.
+    """
+    csr: pulumi.Output[str]
+    """
+    Last CSR that was created for this order.
+    """
+    distinguished_name: pulumi.Output[str]
+    """
+    Certificate distinguished name.
+    """
+    domain_verification_token: pulumi.Output[str]
+    """
+    Domain verification token.
+    """
+    expiration_time: pulumi.Output[str]
+    """
+    Certificate expiration time.
+    """
+    intermediate: pulumi.Output[dict]
+    """
+    Intermediate certificate.
+      * `id` (`str`) - Resource Id
+      * `issuer` (`str`) - Issuer
+      * `kind` (`str`) - Kind of resource
+      * `location` (`str`) - Resource Location
+      * `name` (`str`) - Resource Name
+      * `not_after` (`str`) - Valid to
+      * `not_before` (`str`) - Valid from
+      * `raw_data` (`str`) - Raw certificate data
+      * `serial_number` (`str`) - Serial Number
+      * `signature_algorithm` (`str`) - Signature Algorithm
+      * `subject` (`str`) - Subject
+      * `tags` (`dict`) - Resource tags
+      * `thumbprint` (`str`) - Thumbprint
+      * `type` (`str`) - Resource type
+      * `version` (`float`) - Version
+    """
+    is_private_key_external: pulumi.Output[bool]
+    """
+    <code>true</code> if private key is external; otherwise, <code>false</code>.
+    """
+    key_size: pulumi.Output[float]
+    """
+    Certificate key size.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
+    """
+    last_certificate_issuance_time: pulumi.Output[str]
+    """
+    Certificate last issuance time.
     """
     location: pulumi.Output[str]
     """
@@ -22,46 +81,63 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    next_auto_renewal_time_stamp: pulumi.Output[str]
     """
-    AppServiceCertificateOrder resource specific properties
-      * `app_service_certificate_not_renewable_reasons` (`list`) - Reasons why App Service Certificate is not renewable at the current moment.
-      * `auto_renew` (`bool`) - <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-      * `certificates` (`dict`) - State of the Key Vault secret.
-      * `csr` (`str`) - Last CSR that was created for this order.
-      * `distinguished_name` (`str`) - Certificate distinguished name.
-      * `domain_verification_token` (`str`) - Domain verification token.
-      * `expiration_time` (`str`) - Certificate expiration time.
-      * `intermediate` (`dict`) - Intermediate certificate.
-        * `id` (`str`) - Resource Id
-        * `kind` (`str`) - Kind of resource
-        * `location` (`str`) - Resource Location
-        * `name` (`str`) - Resource Name
-        * `properties` (`dict`)
-          * `issuer` (`str`) - Issuer
-          * `not_after` (`str`) - Valid to
-          * `not_before` (`str`) - Valid from
-          * `raw_data` (`str`) - Raw certificate data
-          * `serial_number` (`str`) - Serial Number
-          * `signature_algorithm` (`str`) - Signature Algorithm
-          * `subject` (`str`) - Subject
-          * `thumbprint` (`str`) - Thumbprint
-          * `version` (`float`) - Version
-
-        * `tags` (`dict`) - Resource tags
-        * `type` (`str`) - Resource type
-
-      * `is_private_key_external` (`bool`) - <code>true</code> if private key is external; otherwise, <code>false</code>.
-      * `key_size` (`float`) - Certificate key size.
-      * `last_certificate_issuance_time` (`str`) - Certificate last issuance time.
-      * `next_auto_renewal_time_stamp` (`str`) - Time stamp when the certificate would be auto renewed next
-      * `product_type` (`str`) - Certificate product type.
-      * `provisioning_state` (`str`) - Status of certificate order.
-      * `root` (`dict`) - Root certificate.
-      * `serial_number` (`str`) - Current serial number of the certificate.
-      * `signed_certificate` (`dict`) - Signed certificate.
-      * `status` (`str`) - Current order status.
-      * `validity_in_years` (`float`) - Duration in years (must be between 1 and 3).
+    Time stamp when the certificate would be auto renewed next
+    """
+    product_type: pulumi.Output[str]
+    """
+    Certificate product type.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Status of certificate order.
+    """
+    root: pulumi.Output[dict]
+    """
+    Root certificate.
+      * `id` (`str`) - Resource Id
+      * `issuer` (`str`) - Issuer
+      * `kind` (`str`) - Kind of resource
+      * `location` (`str`) - Resource Location
+      * `name` (`str`) - Resource Name
+      * `not_after` (`str`) - Valid to
+      * `not_before` (`str`) - Valid from
+      * `raw_data` (`str`) - Raw certificate data
+      * `serial_number` (`str`) - Serial Number
+      * `signature_algorithm` (`str`) - Signature Algorithm
+      * `subject` (`str`) - Subject
+      * `tags` (`dict`) - Resource tags
+      * `thumbprint` (`str`) - Thumbprint
+      * `type` (`str`) - Resource type
+      * `version` (`float`) - Version
+    """
+    serial_number: pulumi.Output[str]
+    """
+    Current serial number of the certificate.
+    """
+    signed_certificate: pulumi.Output[dict]
+    """
+    Signed certificate.
+      * `id` (`str`) - Resource Id
+      * `issuer` (`str`) - Issuer
+      * `kind` (`str`) - Kind of resource
+      * `location` (`str`) - Resource Location
+      * `name` (`str`) - Resource Name
+      * `not_after` (`str`) - Valid to
+      * `not_before` (`str`) - Valid from
+      * `raw_data` (`str`) - Raw certificate data
+      * `serial_number` (`str`) - Serial Number
+      * `signature_algorithm` (`str`) - Signature Algorithm
+      * `subject` (`str`) - Subject
+      * `tags` (`dict`) - Resource tags
+      * `thumbprint` (`str`) - Thumbprint
+      * `type` (`str`) - Resource type
+      * `version` (`float`) - Version
+    """
+    status: pulumi.Output[str]
+    """
+    Current order status.
     """
     tags: pulumi.Output[dict]
     """
@@ -70,6 +146,10 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    validity_in_years: pulumi.Output[float]
+    """
+    Duration in years (must be between 1 and 3).
     """
     def __init__(__self__, resource_name, opts=None, auto_renew=None, certificates=None, csr=None, distinguished_name=None, key_size=None, kind=None, location=None, name=None, product_type=None, resource_group_name=None, tags=None, validity_in_years=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -127,7 +207,18 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['validity_in_years'] = validity_in_years
-            __props__['properties'] = None
+            __props__['app_service_certificate_not_renewable_reasons'] = None
+            __props__['domain_verification_token'] = None
+            __props__['expiration_time'] = None
+            __props__['intermediate'] = None
+            __props__['is_private_key_external'] = None
+            __props__['last_certificate_issuance_time'] = None
+            __props__['next_auto_renewal_time_stamp'] = None
+            __props__['provisioning_state'] = None
+            __props__['root'] = None
+            __props__['serial_number'] = None
+            __props__['signed_certificate'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(AppServiceCertificateOrder, __self__).__init__(
             'azurerm:certificateregistration/v20150801:AppServiceCertificateOrder',

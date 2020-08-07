@@ -10,16 +10,21 @@ from ... import _utilities, _tables
 
 
 class ApiIssueAttachment(pulumi.CustomResource):
+    content: pulumi.Output[str]
+    """
+    An HTTP link or Base64-encoded binary data.
+    """
+    content_format: pulumi.Output[str]
+    """
+    Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    title: pulumi.Output[str]
     """
-    Properties of the Issue Attachment.
-      * `content` (`str`) - An HTTP link or Base64-encoded binary data.
-      * `content_format` (`str`) - Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
-      * `title` (`str`) - Filename by which the binary data will be saved.
+    Filename by which the binary data will be saved.
     """
     type: pulumi.Output[str]
     """
@@ -81,7 +86,6 @@ class ApiIssueAttachment(pulumi.CustomResource):
             if title is None:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiIssueAttachment, __self__).__init__(
             'azurerm:apimanagement/v20191201:ApiIssueAttachment',

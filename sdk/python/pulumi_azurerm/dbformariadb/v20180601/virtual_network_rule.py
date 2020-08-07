@@ -10,20 +10,25 @@ from ... import _utilities, _tables
 
 
 class VirtualNetworkRule(pulumi.CustomResource):
+    ignore_missing_vnet_service_endpoint: pulumi.Output[bool]
+    """
+    Create firewall rule before the virtual network has vnet service endpoint enabled.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    state: pulumi.Output[str]
     """
-    Resource properties.
-      * `ignore_missing_vnet_service_endpoint` (`bool`) - Create firewall rule before the virtual network has vnet service endpoint enabled.
-      * `state` (`str`) - Virtual Network Rule State
-      * `virtual_network_subnet_id` (`str`) - The ARM resource id of the virtual network subnet.
+    Virtual Network Rule State
     """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    virtual_network_subnet_id: pulumi.Output[str]
+    """
+    The ARM resource id of the virtual network subnet.
     """
     def __init__(__self__, resource_name, opts=None, ignore_missing_vnet_service_endpoint=None, name=None, resource_group_name=None, server_name=None, virtual_network_subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -67,7 +72,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
             if virtual_network_subnet_id is None:
                 raise TypeError("Missing required property 'virtual_network_subnet_id'")
             __props__['virtual_network_subnet_id'] = virtual_network_subnet_id
-            __props__['properties'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(VirtualNetworkRule, __self__).__init__(
             'azurerm:dbformariadb/v20180601:VirtualNetworkRule',

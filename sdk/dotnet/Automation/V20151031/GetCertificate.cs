@@ -46,13 +46,33 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetCertificateResult
     {
         /// <summary>
+        /// Gets the creation time.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Gets the expiry time of the certificate.
+        /// </summary>
+        public readonly string ExpiryTime;
+        /// <summary>
+        /// Gets the is exportable flag of the certificate.
+        /// </summary>
+        public readonly bool IsExportable;
+        /// <summary>
+        /// Gets the last modified time.
+        /// </summary>
+        public readonly string LastModifiedTime;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the properties of the certificate.
+        /// Gets the thumbprint of the certificate.
         /// </summary>
-        public readonly Outputs.CertificatePropertiesResponseResult Properties;
+        public readonly string Thumbprint;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -60,14 +80,29 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
         [OutputConstructor]
         private GetCertificateResult(
+            string creationTime,
+
+            string? description,
+
+            string expiryTime,
+
+            bool isExportable,
+
+            string lastModifiedTime,
+
             string name,
 
-            Outputs.CertificatePropertiesResponseResult properties,
+            string thumbprint,
 
             string type)
         {
+            CreationTime = creationTime;
+            Description = description;
+            ExpiryTime = expiryTime;
+            IsExportable = isExportable;
+            LastModifiedTime = lastModifiedTime;
             Name = name;
-            Properties = properties;
+            Thumbprint = thumbprint;
             Type = type;
         }
     }

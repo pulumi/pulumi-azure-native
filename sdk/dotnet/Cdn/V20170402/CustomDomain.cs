@@ -15,22 +15,52 @@ namespace Pulumi.AzureRM.Cdn.V20170402
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>
+        /// Provisioning status of Custom Https of the custom domain.
+        /// </summary>
+        [Output("customHttpsProvisioningState")]
+        public Output<string> CustomHttpsProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+        /// </summary>
+        [Output("customHttpsProvisioningSubstate")]
+        public Output<string> CustomHttpsProvisioningSubstate { get; private set; } = null!;
+
+        /// <summary>
+        /// The host name of the custom domain. Must be a domain name.
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties of the custom domain to create.
+        /// Provisioning status of the custom domain.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CustomDomainPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the custom domain.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+        /// </summary>
+        [Output("validationData")]
+        public Output<string?> ValidationData { get; private set; } = null!;
 
 
         /// <summary>

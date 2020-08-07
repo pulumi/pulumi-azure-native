@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,45 @@ export class CloudEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * Azure file share name
+     */
+    public readonly azureFileShareName!: pulumi.Output<string | undefined>;
+    /**
+     * Backup Enabled
+     */
+    public /*out*/ readonly backupEnabled!: pulumi.Output<string>;
+    /**
+     * Friendly Name
+     */
+    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    /**
+     * Resource Last Operation Name
+     */
+    public /*out*/ readonly lastOperationName!: pulumi.Output<string | undefined>;
+    /**
+     * CloudEndpoint lastWorkflowId
+     */
+    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Cloud Endpoint properties.
+     * Partnership Id
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20190601.CloudEndpointPropertiesResponse>;
+    public /*out*/ readonly partnershipId!: pulumi.Output<string | undefined>;
+    /**
+     * CloudEndpoint Provisioning State
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Storage Account Resource Id
+     */
+    public readonly storageAccountResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * Storage Account Tenant Id
+     */
+    public readonly storageAccountTenantId!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -82,7 +112,11 @@ export class CloudEndpoint extends pulumi.CustomResource {
             inputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["backupEnabled"] = undefined /*out*/;
+            inputs["lastOperationName"] = undefined /*out*/;
+            inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["partnershipId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

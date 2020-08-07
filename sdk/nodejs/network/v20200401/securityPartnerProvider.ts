@@ -37,6 +37,10 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
     }
 
     /**
+     * The connection status with the Security Partner Provider.
+     */
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +53,13 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Security Partner Provider.
+     * The provisioning state of the Security Partner Provider resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.SecurityPartnerProviderPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The security provider name.
+     */
+    public readonly securityProviderName!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +68,10 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The virtualHub to which the Security Partner Provider belongs.
+     */
+    public readonly virtualHub!: pulumi.Output<outputs.network.v20200401.SubResourceResponse | undefined>;
 
     /**
      * Create a SecurityPartnerProvider resource with the given unique name, arguments, and options.
@@ -87,8 +99,9 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
             inputs["securityProviderName"] = args ? args.securityProviderName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
+            inputs["connectionStatus"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

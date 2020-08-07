@@ -27,10 +27,12 @@ type LookupGatewayArgs struct {
 
 // Gateway details.
 type LookupGatewayResult struct {
+	// Gateway description
+	Description *string `pulumi:"description"`
+	// Gateway location.
+	LocationData *ResourceLocationDataContractResponse `pulumi:"locationData"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Gateway details.
-	Properties GatewayContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

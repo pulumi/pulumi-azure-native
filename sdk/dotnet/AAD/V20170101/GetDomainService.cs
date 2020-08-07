@@ -40,9 +40,41 @@ namespace Pulumi.AzureRM.AAD.V20170101
     public sealed class GetDomainServiceResult
     {
         /// <summary>
+        /// List of Domain Controller IP Address
+        /// </summary>
+        public readonly ImmutableArray<string> DomainControllerIpAddress;
+        /// <summary>
+        /// The name of the Azure domain that the user would like to deploy Domain Services to.
+        /// </summary>
+        public readonly string? DomainName;
+        /// <summary>
+        /// DomainSecurity Settings
+        /// </summary>
+        public readonly Outputs.DomainSecuritySettingsResponseResult? DomainSecuritySettings;
+        /// <summary>
         /// Resource etag
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Enabled or Disabled flag to turn on Group-based filtered sync
+        /// </summary>
+        public readonly string? FilteredSync;
+        /// <summary>
+        /// List of Domain Health Alerts
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HealthAlertResponseResult> HealthAlerts;
+        /// <summary>
+        /// Last domain evaluation run DateTime
+        /// </summary>
+        public readonly string HealthLastEvaluated;
+        /// <summary>
+        /// List of Domain Health Monitors
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HealthMonitorResponseResult> HealthMonitors;
+        /// <summary>
+        /// Secure LDAP Settings
+        /// </summary>
+        public readonly Outputs.LdapsSettingsResponseResult? LdapsSettings;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -52,38 +84,97 @@ namespace Pulumi.AzureRM.AAD.V20170101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Domain service properties
+        /// Notification Settings
         /// </summary>
-        public readonly Outputs.DomainServicePropertiesResponseResult Properties;
+        public readonly Outputs.NotificationSettingsResponseResult? NotificationSettings;
+        /// <summary>
+        /// the current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Status of Domain Service instance
+        /// </summary>
+        public readonly string ServiceStatus;
+        /// <summary>
+        /// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+        /// </summary>
+        public readonly string? SubnetId;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Azure Active Directory tenant id
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Virtual network site id
+        /// </summary>
+        public readonly string VnetSiteId;
 
         [OutputConstructor]
         private GetDomainServiceResult(
+            ImmutableArray<string> domainControllerIpAddress,
+
+            string? domainName,
+
+            Outputs.DomainSecuritySettingsResponseResult? domainSecuritySettings,
+
             string? etag,
+
+            string? filteredSync,
+
+            ImmutableArray<Outputs.HealthAlertResponseResult> healthAlerts,
+
+            string healthLastEvaluated,
+
+            ImmutableArray<Outputs.HealthMonitorResponseResult> healthMonitors,
+
+            Outputs.LdapsSettingsResponseResult? ldapsSettings,
 
             string? location,
 
             string name,
 
-            Outputs.DomainServicePropertiesResponseResult properties,
+            Outputs.NotificationSettingsResponseResult? notificationSettings,
+
+            string provisioningState,
+
+            string serviceStatus,
+
+            string? subnetId,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string tenantId,
+
+            string type,
+
+            string vnetSiteId)
         {
+            DomainControllerIpAddress = domainControllerIpAddress;
+            DomainName = domainName;
+            DomainSecuritySettings = domainSecuritySettings;
             Etag = etag;
+            FilteredSync = filteredSync;
+            HealthAlerts = healthAlerts;
+            HealthLastEvaluated = healthLastEvaluated;
+            HealthMonitors = healthMonitors;
+            LdapsSettings = ldapsSettings;
             Location = location;
             Name = name;
-            Properties = properties;
+            NotificationSettings = notificationSettings;
+            ProvisioningState = provisioningState;
+            ServiceStatus = serviceStatus;
+            SubnetId = subnetId;
             Tags = tags;
+            TenantId = tenantId;
             Type = type;
+            VnetSiteId = vnetSiteId;
         }
     }
 }

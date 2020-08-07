@@ -37,6 +37,18 @@ export class ServiceFabric extends pulumi.CustomResource {
     }
 
     /**
+     * The applicable schedule for the virtual machine.
+     */
+    public /*out*/ readonly applicableSchedule!: pulumi.Output<outputs.devtestlab.v20180915.ApplicableScheduleResponse>;
+    /**
+     * The resource id of the environment under which the service fabric resource is present
+     */
+    public readonly environmentId!: pulumi.Output<string | undefined>;
+    /**
+     * The backing service fabric resource's id
+     */
+    public readonly externalServiceFabricId!: pulumi.Output<string | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +57,9 @@ export class ServiceFabric extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.ServiceFabricPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +68,10 @@ export class ServiceFabric extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
 
     /**
      * Create a ServiceFabric resource with the given unique name, arguments, and options.
@@ -90,8 +106,10 @@ export class ServiceFabric extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userName"] = args ? args.userName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["applicableSchedule"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

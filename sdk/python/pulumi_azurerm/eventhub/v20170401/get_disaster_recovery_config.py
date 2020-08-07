@@ -13,18 +13,42 @@ class GetDisasterRecoveryConfigResult:
     """
     Single item in List or Get Alias(Disaster Recovery configuration) operation
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, alternate_name=None, name=None, partner_namespace=None, pending_replication_operations_count=None, provisioning_state=None, role=None, type=None):
+        if alternate_name and not isinstance(alternate_name, str):
+            raise TypeError("Expected argument 'alternate_name' to be a str")
+        __self__.alternate_name = alternate_name
+        """
+        Alternate name specified when alias and namespace names are same.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partner_namespace and not isinstance(partner_namespace, str):
+            raise TypeError("Expected argument 'partner_namespace' to be a str")
+        __self__.partner_namespace = partner_namespace
         """
-        Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+        ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+        """
+        if pending_replication_operations_count and not isinstance(pending_replication_operations_count, float):
+            raise TypeError("Expected argument 'pending_replication_operations_count' to be a float")
+        __self__.pending_replication_operations_count = pending_replication_operations_count
+        """
+        Number of entities pending to be replicated.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+        """
+        if role and not isinstance(role, str):
+            raise TypeError("Expected argument 'role' to be a str")
+        __self__.role = role
+        """
+        role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetDisasterRecoveryConfigResult(GetDisasterRecoveryConfigResult):
         if False:
             yield self
         return GetDisasterRecoveryConfigResult(
+            alternate_name=self.alternate_name,
             name=self.name,
-            properties=self.properties,
+            partner_namespace=self.partner_namespace,
+            pending_replication_operations_count=self.pending_replication_operations_count,
+            provisioning_state=self.provisioning_state,
+            role=self.role,
             type=self.type)
 
 
@@ -64,6 +92,10 @@ def get_disaster_recovery_config(name=None, namespace_name=None, resource_group_
     __ret__ = pulumi.runtime.invoke('azurerm:eventhub/v20170401:getDisasterRecoveryConfig', __args__, opts=opts).value
 
     return AwaitableGetDisasterRecoveryConfigResult(
+        alternate_name=__ret__.get('alternateName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        partner_namespace=__ret__.get('partnerNamespace'),
+        pending_replication_operations_count=__ret__.get('pendingReplicationOperationsCount'),
+        provisioning_state=__ret__.get('provisioningState'),
+        role=__ret__.get('role'),
         type=__ret__.get('type'))

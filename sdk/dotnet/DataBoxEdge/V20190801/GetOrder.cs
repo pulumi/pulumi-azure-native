@@ -40,13 +40,37 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public sealed class GetOrderResult
     {
         /// <summary>
+        /// The contact details.
+        /// </summary>
+        public readonly Outputs.ContactDetailsResponseResult ContactInformation;
+        /// <summary>
+        /// Current status of the order.
+        /// </summary>
+        public readonly Outputs.OrderStatusResponseResult? CurrentStatus;
+        /// <summary>
+        /// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TrackingInfoResponseResult> DeliveryTrackingInfo;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The order properties.
+        /// List of status changes in the order.
         /// </summary>
-        public readonly Outputs.OrderPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.OrderStatusResponseResult> OrderHistory;
+        /// <summary>
+        /// Tracking information for the package returned from the customer whether it has an original or a replacement device.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TrackingInfoResponseResult> ReturnTrackingInfo;
+        /// <summary>
+        /// Serial number of the device.
+        /// </summary>
+        public readonly string SerialNumber;
+        /// <summary>
+        /// The shipping address.
+        /// </summary>
+        public readonly Outputs.AddressResponseResult ShippingAddress;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -54,14 +78,32 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
 
         [OutputConstructor]
         private GetOrderResult(
+            Outputs.ContactDetailsResponseResult contactInformation,
+
+            Outputs.OrderStatusResponseResult? currentStatus,
+
+            ImmutableArray<Outputs.TrackingInfoResponseResult> deliveryTrackingInfo,
+
             string name,
 
-            Outputs.OrderPropertiesResponseResult properties,
+            ImmutableArray<Outputs.OrderStatusResponseResult> orderHistory,
+
+            ImmutableArray<Outputs.TrackingInfoResponseResult> returnTrackingInfo,
+
+            string serialNumber,
+
+            Outputs.AddressResponseResult shippingAddress,
 
             string type)
         {
+            ContactInformation = contactInformation;
+            CurrentStatus = currentStatus;
+            DeliveryTrackingInfo = deliveryTrackingInfo;
             Name = name;
-            Properties = properties;
+            OrderHistory = orderHistory;
+            ReturnTrackingInfo = returnTrackingInfo;
+            SerialNumber = serialNumber;
+            ShippingAddress = shippingAddress;
             Type = type;
         }
     }

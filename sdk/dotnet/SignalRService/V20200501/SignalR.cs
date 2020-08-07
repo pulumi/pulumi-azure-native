@@ -15,6 +15,42 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
     public partial class SignalR : Pulumi.CustomResource
     {
         /// <summary>
+        /// Cross-Origin Resource Sharing (CORS) settings.
+        /// </summary>
+        [Output("cors")]
+        public Output<Outputs.SignalRCorsSettingsResponseResult?> Cors { get; private set; } = null!;
+
+        /// <summary>
+        /// The publicly accessible IP of the SignalR service.
+        /// </summary>
+        [Output("externalIP")]
+        public Output<string> ExternalIP { get; private set; } = null!;
+
+        /// <summary>
+        /// List of SignalR featureFlags. e.g. ServiceMode.
+        /// 
+        /// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        /// And the response will only include featureFlags that are explicitly set. 
+        /// When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+        /// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        /// </summary>
+        [Output("features")]
+        public Output<ImmutableArray<Outputs.SignalRFeatureResponseResult>> Features { get; private set; } = null!;
+
+        /// <summary>
+        /// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// Prefix for the hostName of the SignalR service. Retained for future use.
+        /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
+        /// </summary>
+        [Output("hostNamePrefix")]
+        public Output<string?> HostNamePrefix { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         /// </summary>
         [Output("kind")]
@@ -33,10 +69,34 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Settings used to provision or configure the resource
+        /// Network ACLs
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SignalRPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkACLs")]
+        public Output<Outputs.SignalRNetworkACLsResponseResult?> NetworkACLs { get; private set; } = null!;
+
+        /// <summary>
+        /// Private endpoint connections to the SignalR resource.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        /// </summary>
+        [Output("publicPort")]
+        public Output<int> PublicPort { get; private set; } = null!;
+
+        /// <summary>
+        /// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+        /// </summary>
+        [Output("serverPort")]
+        public Output<int> ServerPort { get; private set; } = null!;
 
         /// <summary>
         /// The billing information of the resource.(e.g. Free, Standard)
@@ -55,6 +115,18 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Upstream settings when the Azure SignalR is in server-less mode.
+        /// </summary>
+        [Output("upstream")]
+        public Output<Outputs.ServerlessUpstreamSettingsResponseResult?> Upstream { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        /// </summary>
+        [Output("version")]
+        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>

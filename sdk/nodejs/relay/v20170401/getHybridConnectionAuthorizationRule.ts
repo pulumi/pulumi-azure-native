@@ -50,9 +50,9 @@ export interface GetHybridConnectionAuthorizationRuleResult {
      */
     readonly name: string;
     /**
-     * Authorization rule properties.
+     * The rights associated with the rule.
      */
-    readonly properties: outputs.relay.v20170401.AuthorizationRuleResponseProperties;
+    readonly rights: string[];
     /**
      * Resource type.
      */

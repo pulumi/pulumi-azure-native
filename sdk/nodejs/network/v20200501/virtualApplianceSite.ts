@@ -37,6 +37,10 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
     }
 
     /**
+     * Address Prefix.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -45,9 +49,13 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The properties of the Virtual Appliance Sites.
+     * Office 365 Policy.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.VirtualApplianceSitePropertiesResponse>;
+    public readonly o365Policy!: pulumi.Output<outputs.network.v20200501.Office365PolicyPropertiesResponse | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Site type.
      */
@@ -82,7 +90,7 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
             inputs["o365Policy"] = args ? args.o365Policy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

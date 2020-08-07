@@ -18,18 +18,25 @@ class WebAppPremierAddOn(pulumi.CustomResource):
     """
     Resource Location.
     """
+    marketplace_offer: pulumi.Output[str]
+    """
+    Premier add on Marketplace offer.
+    """
+    marketplace_publisher: pulumi.Output[str]
+    """
+    Premier add on Marketplace publisher.
+    """
     name: pulumi.Output[str]
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    product: pulumi.Output[str]
     """
-    PremierAddOn resource specific properties
-      * `marketplace_offer` (`str`) - Premier add on Marketplace offer.
-      * `marketplace_publisher` (`str`) - Premier add on Marketplace publisher.
-      * `product` (`str`) - Premier add on Product.
-      * `sku` (`str`) - Premier add on SKU.
-      * `vendor` (`str`) - Premier add on Vendor.
+    Premier add on Product.
+    """
+    sku: pulumi.Output[str]
+    """
+    Premier add on SKU.
     """
     tags: pulumi.Output[dict]
     """
@@ -38,6 +45,10 @@ class WebAppPremierAddOn(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    vendor: pulumi.Output[str]
+    """
+    Premier add on Vendor.
     """
     def __init__(__self__, resource_name, opts=None, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, resource_group_name=None, sku=None, tags=None, vendor=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -89,7 +100,6 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['vendor'] = vendor
-            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppPremierAddOn, __self__).__init__(
             'azurerm:web/v20180201:WebAppPremierAddOn',

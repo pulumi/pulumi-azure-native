@@ -22,13 +22,29 @@ namespace Pulumi.AzureRM.Network.V20180401.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Reference of the PublicIP resource. This field is a mandatory input.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? InternalPublicIpAddress;
+        /// <summary>
         /// Name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of IP configuration of an Azure Firewall.
+        /// The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
         /// </summary>
-        public readonly Outputs.AzureFirewallIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Reference of the PublicIP resource. This field is populated in the output.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Subnet;
 
         [OutputConstructor]
         private AzureFirewallIPConfigurationResponseResult(
@@ -36,14 +52,26 @@ namespace Pulumi.AzureRM.Network.V20180401.Outputs
 
             string? id,
 
+            Outputs.SubResourceResponseResult? internalPublicIpAddress,
+
             string? name,
 
-            Outputs.AzureFirewallIPConfigurationPropertiesFormatResponseResult? properties)
+            string? privateIPAddress,
+
+            string? provisioningState,
+
+            Outputs.SubResourceResponseResult? publicIPAddress,
+
+            Outputs.SubResourceResponseResult? subnet)
         {
             Etag = etag;
             Id = id;
+            InternalPublicIpAddress = internalPublicIpAddress;
             Name = name;
-            Properties = properties;
+            PrivateIPAddress = privateIPAddress;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
         }
     }
 }

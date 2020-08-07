@@ -51,13 +51,13 @@ export interface GetTagByOperationArgs {
  */
 export interface GetTagByOperationResult {
     /**
+     * Tag name.
+     */
+    readonly displayName: string;
+    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * Tag entity contract properties.
-     */
-    readonly properties: outputs.apimanagement.v20190101.TagContractPropertiesResponse;
     /**
      * Resource type for API Management resource.
      */

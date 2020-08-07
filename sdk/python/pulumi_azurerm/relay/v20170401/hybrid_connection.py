@@ -10,22 +10,33 @@ from ... import _utilities, _tables
 
 
 class HybridConnection(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    The time the hybrid connection was created.
+    """
+    listener_count: pulumi.Output[float]
+    """
+    The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    requires_client_authorization: pulumi.Output[bool]
     """
-    Properties of the HybridConnection.
-      * `created_at` (`str`) - The time the hybrid connection was created.
-      * `listener_count` (`float`) - The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
-      * `requires_client_authorization` (`bool`) - Returns true if client authorization is needed for this hybrid connection; otherwise, false.
-      * `updated_at` (`str`) - The time the namespace was updated.
-      * `user_metadata` (`str`) - The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+    Returns true if client authorization is needed for this hybrid connection; otherwise, false.
     """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The time the namespace was updated.
+    """
+    user_metadata: pulumi.Output[str]
+    """
+    The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
     """
     def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, requires_client_authorization=None, resource_group_name=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -67,8 +78,10 @@ class HybridConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['user_metadata'] = user_metadata
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['listener_count'] = None
             __props__['type'] = None
+            __props__['updated_at'] = None
         super(HybridConnection, __self__).__init__(
             'azurerm:relay/v20170401:HybridConnection',
             resource_name,

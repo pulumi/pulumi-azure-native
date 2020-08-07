@@ -18,8 +18,8 @@ type EventHubAuthorizationRule struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties supplied to create or update SharedAccessAuthorizationRule
-	Properties SharedAccessAuthorizationRulePropertiesResponseOutput `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayOutput `pulumi:"rights"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,8 +71,8 @@ type eventHubAuthorizationRuleState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties supplied to create or update SharedAccessAuthorizationRule
-	Properties *SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -82,8 +82,8 @@ type EventHubAuthorizationRuleState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties supplied to create or update SharedAccessAuthorizationRule
-	Properties SharedAccessAuthorizationRulePropertiesResponsePtrInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

@@ -15,6 +15,25 @@ namespace Pulumi.AzureRM.Web.V20150801
     public partial class SiteVNETConnectionSlot : Pulumi.CustomResource
     {
         /// <summary>
+        /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+        ///             Point-To-Site VPN connection.
+        /// </summary>
+        [Output("certBlob")]
+        public Output<string?> CertBlob { get; private set; } = null!;
+
+        /// <summary>
+        /// The client certificate thumbprint
+        /// </summary>
+        [Output("certThumbprint")]
+        public Output<string?> CertThumbprint { get; private set; } = null!;
+
+        /// <summary>
+        /// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+        /// </summary>
+        [Output("dnsServers")]
+        public Output<string?> DnsServers { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
@@ -32,8 +51,17 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.VnetInfoResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Flag to determine if a resync is required
+        /// </summary>
+        [Output("resyncRequired")]
+        public Output<bool?> ResyncRequired { get; private set; } = null!;
+
+        /// <summary>
+        /// The routes that this virtual network connection uses.
+        /// </summary>
+        [Output("routes")]
+        public Output<ImmutableArray<Outputs.VnetRouteResponseResult>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -46,6 +74,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The vnet resource id
+        /// </summary>
+        [Output("vnetResourceId")]
+        public Output<string?> VnetResourceId { get; private set; } = null!;
 
 
         /// <summary>

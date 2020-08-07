@@ -15,22 +15,136 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public partial class RoleAssignment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The name of the metadata object.
+        /// </summary>
+        [Output("assignmentName")]
+        public Output<string> AssignmentName { get; private set; } = null!;
+
+        /// <summary>
+        /// Widget types set for the assignment.
+        /// </summary>
+        [Output("conflationPolicies")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> ConflationPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// Connectors set for the assignment.
+        /// </summary>
+        [Output("connectors")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> Connectors { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized description for the metadata.
+        /// </summary>
+        [Output("description")]
+        public Output<ImmutableDictionary<string, string>?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized display names for the metadata.
+        /// </summary>
+        [Output("displayName")]
+        public Output<ImmutableDictionary<string, string>?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Interactions set for the assignment.
+        /// </summary>
+        [Output("interactions")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> Interactions { get; private set; } = null!;
+
+        /// <summary>
+        /// Kpis set for the assignment.
+        /// </summary>
+        [Output("kpis")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> Kpis { get; private set; } = null!;
+
+        /// <summary>
+        /// Links set for the assignment.
+        /// </summary>
+        [Output("links")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> Links { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Role Assignment definition.
+        /// The principals being assigned to.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RoleAssignmentResponseResult> Properties { get; private set; } = null!;
+        [Output("principals")]
+        public Output<ImmutableArray<Outputs.AssignmentPrincipalResponseResult>> Principals { get; private set; } = null!;
+
+        /// <summary>
+        /// Profiles set for the assignment.
+        /// </summary>
+        [Output("profiles")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> Profiles { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The Role assignments set for the relationship links.
+        /// </summary>
+        [Output("relationshipLinks")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> RelationshipLinks { get; private set; } = null!;
+
+        /// <summary>
+        /// The Role assignments set for the relationships.
+        /// </summary>
+        [Output("relationships")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> Relationships { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of roles.
+        /// </summary>
+        [Output("role")]
+        public Output<string> Role { get; private set; } = null!;
+
+        /// <summary>
+        /// The Role assignments set for the assignment.
+        /// </summary>
+        [Output("roleAssignments")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> RoleAssignments { get; private set; } = null!;
+
+        /// <summary>
+        /// Sas Policies set for the assignment.
+        /// </summary>
+        [Output("sasPolicies")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> SasPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// The Role assignments set for the assignment.
+        /// </summary>
+        [Output("segments")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> Segments { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Views set for the assignment.
+        /// </summary>
+        [Output("views")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> Views { get; private set; } = null!;
+
+        /// <summary>
+        /// Widget types set for the assignment.
+        /// </summary>
+        [Output("widgetTypes")]
+        public Output<Outputs.ResourceSetDescriptionResponseResult?> WidgetTypes { get; private set; } = null!;
 
 
         /// <summary>

@@ -41,6 +41,30 @@ export interface GetEndpointArgs {
  */
 export interface GetEndpointResult {
     /**
+     * List of content types on which compression applies. The value should be a valid MIME type.
+     */
+    readonly contentTypesToCompress?: string[];
+    /**
+     * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+     */
+    readonly geoFilters?: outputs.cdn.v20170402.GeoFilterResponse[];
+    /**
+     * The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+     */
+    readonly hostName: string;
+    /**
+     * Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+     */
+    readonly isCompressionEnabled?: boolean;
+    /**
+     * Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    readonly isHttpAllowed?: boolean;
+    /**
+     * Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    readonly isHttpsAllowed?: boolean;
+    /**
      * Resource location.
      */
     readonly location: string;
@@ -49,9 +73,37 @@ export interface GetEndpointResult {
      */
     readonly name: string;
     /**
-     * The JSON object that contains the properties required to create an endpoint.
+     * Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
      */
-    readonly properties: outputs.cdn.v20170402.EndpointPropertiesResponse;
+    readonly optimizationType?: string;
+    /**
+     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+     */
+    readonly originHostHeader?: string;
+    /**
+     * A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+     */
+    readonly originPath?: string;
+    /**
+     * The source of the content being delivered via CDN.
+     */
+    readonly origins: outputs.cdn.v20170402.DeepCreatedOriginResponse[];
+    /**
+     * Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
+     */
+    readonly probePath?: string;
+    /**
+     * Provisioning status of the endpoint.
+     */
+    readonly provisioningState: string;
+    /**
+     * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+     */
+    readonly queryStringCachingBehavior?: string;
+    /**
+     * Resource status of the endpoint.
+     */
+    readonly resourceState: string;
     /**
      * Resource tags.
      */

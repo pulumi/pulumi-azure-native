@@ -46,13 +46,49 @@ export interface GetLiveOutputArgs {
  */
 export interface GetLiveOutputResult {
     /**
+     * ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+     */
+    readonly archiveWindowLength: string;
+    /**
+     * The asset name.
+     */
+    readonly assetName: string;
+    /**
+     * The exact time the Live Output was created.
+     */
+    readonly created: string;
+    /**
+     * The description of the Live Output.
+     */
+    readonly description?: string;
+    /**
+     * The HLS configuration.
+     */
+    readonly hls?: outputs.media.v20180701.HlsResponse;
+    /**
+     * The exact time the Live Output was last modified.
+     */
+    readonly lastModified: string;
+    /**
+     * The manifest file name.  If not provided, the service will generate one automatically.
+     */
+    readonly manifestName?: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The Live Output properties.
+     * The output snapshot time.
      */
-    readonly properties: outputs.media.v20180701.LiveOutputPropertiesResponse;
+    readonly outputSnapTime?: number;
+    /**
+     * The provisioning state of the Live Output.
+     */
+    readonly provisioningState: string;
+    /**
+     * The resource state of the Live Output.
+     */
+    readonly resourceState: string;
     /**
      * The type of the resource.
      */

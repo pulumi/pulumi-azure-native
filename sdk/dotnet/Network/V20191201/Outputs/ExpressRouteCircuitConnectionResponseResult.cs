@@ -14,21 +14,45 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
     public sealed class ExpressRouteCircuitConnectionResponseResult
     {
         /// <summary>
+        /// /29 IP address space to carve out Customer addresses for tunnels.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
+        /// The authorization key.
+        /// </summary>
+        public readonly string? AuthorizationKey;
+        /// <summary>
+        /// Express Route Circuit connection state.
+        /// </summary>
+        public readonly string? CircuitConnectionStatus;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? ExpressRouteCircuitPeering;
         /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// IPv6 Address PrefixProperties of the express route circuit connection.
+        /// </summary>
+        public readonly Outputs.Ipv6CircuitConnectionConfigResponseResult? Ipv6CircuitConnectionConfig;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the express route circuit connection.
+        /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitConnectionPropertiesFormatResponseResult? Properties;
+        public readonly Outputs.SubResourceResponseResult? PeerExpressRouteCircuitPeering;
+        /// <summary>
+        /// The provisioning state of the express route circuit connection resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +60,38 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
 
         [OutputConstructor]
         private ExpressRouteCircuitConnectionResponseResult(
+            string? addressPrefix,
+
+            string? authorizationKey,
+
+            string? circuitConnectionStatus,
+
             string etag,
+
+            Outputs.SubResourceResponseResult? expressRouteCircuitPeering,
 
             string? id,
 
+            Outputs.Ipv6CircuitConnectionConfigResponseResult? ipv6CircuitConnectionConfig,
+
             string? name,
 
-            Outputs.ExpressRouteCircuitConnectionPropertiesFormatResponseResult? properties,
+            Outputs.SubResourceResponseResult? peerExpressRouteCircuitPeering,
+
+            string provisioningState,
 
             string type)
         {
+            AddressPrefix = addressPrefix;
+            AuthorizationKey = authorizationKey;
+            CircuitConnectionStatus = circuitConnectionStatus;
             Etag = etag;
+            ExpressRouteCircuitPeering = expressRouteCircuitPeering;
             Id = id;
+            Ipv6CircuitConnectionConfig = ipv6CircuitConnectionConfig;
             Name = name;
-            Properties = properties;
+            PeerExpressRouteCircuitPeering = peerExpressRouteCircuitPeering;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

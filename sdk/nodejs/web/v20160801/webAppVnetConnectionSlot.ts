@@ -37,6 +37,19 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
     }
 
     /**
+     * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+     * Point-To-Site VPN connection.
+     */
+    public readonly certBlob!: pulumi.Output<string | undefined>;
+    /**
+     * The client certificate thumbprint.
+     */
+    public /*out*/ readonly certThumbprint!: pulumi.Output<string>;
+    /**
+     * DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+     */
+    public readonly dnsServers!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,13 +58,21 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * VnetInfo resource specific properties
+     * <code>true</code> if a resync is required; otherwise, <code>false</code>.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.VnetInfoResponseProperties>;
+    public /*out*/ readonly resyncRequired!: pulumi.Output<boolean>;
+    /**
+     * The routes that this Virtual Network connection uses.
+     */
+    public /*out*/ readonly routes!: pulumi.Output<outputs.web.v20160801.VnetRouteResponse[]>;
     /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The Virtual Network's resource ID.
+     */
+    public readonly vnetResourceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebAppVnetConnectionSlot resource with the given unique name, arguments, and options.
@@ -82,7 +103,9 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
             inputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["certThumbprint"] = undefined /*out*/;
+            inputs["resyncRequired"] = undefined /*out*/;
+            inputs["routes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

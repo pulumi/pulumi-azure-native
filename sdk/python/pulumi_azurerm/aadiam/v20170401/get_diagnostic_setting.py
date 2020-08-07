@@ -13,24 +13,54 @@ class GetDiagnosticSettingResult:
     """
     The diagnostic setting resource.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
+        if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
+            raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
+        __self__.event_hub_authorization_rule_id = event_hub_authorization_rule_id
+        """
+        The resource Id for the event hub authorization rule.
+        """
+        if event_hub_name and not isinstance(event_hub_name, str):
+            raise TypeError("Expected argument 'event_hub_name' to be a str")
+        __self__.event_hub_name = event_hub_name
+        """
+        The name of the event hub. If none is specified, the default event hub will be selected.
+        """
+        if logs and not isinstance(logs, list):
+            raise TypeError("Expected argument 'logs' to be a list")
+        __self__.logs = logs
+        """
+        The list of logs settings.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if service_bus_rule_id and not isinstance(service_bus_rule_id, str):
+            raise TypeError("Expected argument 'service_bus_rule_id' to be a str")
+        __self__.service_bus_rule_id = service_bus_rule_id
         """
-        Properties of a Diagnostic Settings Resource.
+        The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+        """
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        __self__.storage_account_id = storage_account_id
+        """
+        The resource ID of the storage account to which you would like to send Diagnostic Logs.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Azure resource type
+        """
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError("Expected argument 'workspace_id' to be a str")
+        __self__.workspace_id = workspace_id
+        """
+        The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """
 
 
@@ -40,9 +70,14 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
         if False:
             yield self
         return GetDiagnosticSettingResult(
+            event_hub_authorization_rule_id=self.event_hub_authorization_rule_id,
+            event_hub_name=self.event_hub_name,
+            logs=self.logs,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            service_bus_rule_id=self.service_bus_rule_id,
+            storage_account_id=self.storage_account_id,
+            type=self.type,
+            workspace_id=self.workspace_id)
 
 
 def get_diagnostic_setting(name=None, opts=None):
@@ -60,6 +95,11 @@ def get_diagnostic_setting(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:aadiam/v20170401:getDiagnosticSetting', __args__, opts=opts).value
 
     return AwaitableGetDiagnosticSettingResult(
+        event_hub_authorization_rule_id=__ret__.get('eventHubAuthorizationRuleId'),
+        event_hub_name=__ret__.get('eventHubName'),
+        logs=__ret__.get('logs'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        service_bus_rule_id=__ret__.get('serviceBusRuleId'),
+        storage_account_id=__ret__.get('storageAccountId'),
+        type=__ret__.get('type'),
+        workspace_id=__ret__.get('workspaceId'))

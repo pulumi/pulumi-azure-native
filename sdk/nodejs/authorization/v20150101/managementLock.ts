@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,17 @@ export class ManagementLock extends pulumi.CustomResource {
     }
 
     /**
+     * The lock level of the management lock.
+     */
+    public readonly level!: pulumi.Output<string | undefined>;
+    /**
      * The name of the lock.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The properties of the lock.
+     * The notes of the management lock.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20150101.ManagementLockPropertiesResponse>;
+    public readonly notes!: pulumi.Output<string | undefined>;
     /**
      * The type of the lock.
      */
@@ -68,7 +70,6 @@ export class ManagementLock extends pulumi.CustomResource {
             inputs["level"] = args ? args.level : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notes"] = args ? args.notes : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -31,8 +31,14 @@ type LookupServiceEndpointPolicyResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the service end point policy.
-	Properties ServiceEndpointPolicyPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the service endpoint policy resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The resource GUID property of the service endpoint policy resource.
+	ResourceGuid string `pulumi:"resourceGuid"`
+	// A collection of service endpoint policy definitions of the service endpoint policy.
+	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionResponse `pulumi:"serviceEndpointPolicyDefinitions"`
+	// A collection of references to subnets.
+	Subnets []SubnetResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

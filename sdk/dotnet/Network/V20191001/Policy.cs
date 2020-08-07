@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20191001
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Describes custom rules inside the policy.
+        /// </summary>
+        [Output("customRules")]
+        public Output<Outputs.CustomRuleListResponseResult?> CustomRules { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+        /// </summary>
+        [Output("frontendEndpointLinks")]
+        public Output<ImmutableArray<Outputs.FrontendEndpointLinkResponseResult>> FrontendEndpointLinks { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -27,16 +39,31 @@ namespace Pulumi.AzureRM.Network.V20191001
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Describes managed rules inside the policy.
+        /// </summary>
+        [Output("managedRules")]
+        public Output<Outputs.ManagedRuleSetListResponseResult?> ManagedRules { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// Describes settings for the policy.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WebApplicationFirewallPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("policySettings")]
+        public Output<Outputs.PolicySettingsResponseResult?> PolicySettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the policy.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

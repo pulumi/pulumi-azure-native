@@ -10,6 +10,38 @@ from ... import _utilities, _tables
 
 
 class SignalR(pulumi.CustomResource):
+    cors: pulumi.Output[dict]
+    """
+    Cross-Origin Resource Sharing (CORS) settings.
+      * `allowed_origins` (`list`) - Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+    """
+    external_ip: pulumi.Output[str]
+    """
+    The publicly accessible IP of the SignalR service.
+    """
+    features: pulumi.Output[list]
+    """
+    List of SignalR featureFlags. e.g. ServiceMode.
+    
+    FeatureFlags that are not included in the parameters for the update operation will not be modified.
+    And the response will only include featureFlags that are explicitly set. 
+    When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+    But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+      * `flag` (`str`) - FeatureFlags is the supported features of Azure SignalR service.
+        - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
+        - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+      * `properties` (`dict`) - Optional properties related to this feature.
+      * `value` (`str`) - Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+    """
+    host_name: pulumi.Output[str]
+    """
+    FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+    """
+    host_name_prefix: pulumi.Output[str]
+    """
+    Prefix for the hostName of the SignalR service. Retained for future use.
+    The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+    """
     location: pulumi.Output[str]
     """
     The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
@@ -18,32 +50,17 @@ class SignalR(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the service.
-      * `cors` (`dict`) - Cross-Origin Resource Sharing (CORS) settings.
-        * `allowed_origins` (`list`) - Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
-
-      * `external_ip` (`str`) - The publicly accessible IP of the SignalR service.
-      * `features` (`list`) - List of SignalR featureFlags. e.g. ServiceMode.
-        
-        FeatureFlags that are not included in the parameters for the update operation will not be modified.
-        And the response will only include featureFlags that are explicitly set. 
-        When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
-        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        * `flag` (`str`) - FeatureFlags is the supported features of Azure SignalR service.
-          - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-          - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-        * `properties` (`dict`) - Optional properties related to this feature.
-        * `value` (`str`) - Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-
-      * `host_name` (`str`) - FQDN of the SignalR service instance. Format: xxx.service.signalr.net
-      * `host_name_prefix` (`str`) - Prefix for the hostName of the SignalR service. Retained for future use.
-        The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-      * `provisioning_state` (`str`) - Provisioning state of the resource.
-      * `public_port` (`float`) - The publicly accessible port of the SignalR service which is designed for browser/client side usage.
-      * `server_port` (`float`) - The publicly accessible port of the SignalR service which is designed for customer server side usage.
-      * `version` (`str`) - Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+    Provisioning state of the resource.
+    """
+    public_port: pulumi.Output[float]
+    """
+    The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+    """
+    server_port: pulumi.Output[float]
+    """
+    The publicly accessible port of the SignalR service which is designed for customer server side usage.
     """
     sku: pulumi.Output[dict]
     """
@@ -69,6 +86,10 @@ class SignalR(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the service - e.g. "Microsoft.SignalRService/SignalR"
+    """
+    version: pulumi.Output[str]
+    """
+    Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -149,7 +170,16 @@ class SignalR(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['cors'] = None
+            __props__['external_ip'] = None
+            __props__['features'] = None
+            __props__['host_name'] = None
+            __props__['host_name_prefix'] = None
+            __props__['provisioning_state'] = None
+            __props__['public_port'] = None
+            __props__['server_port'] = None
             __props__['type'] = None
+            __props__['version'] = None
         super(SignalR, __self__).__init__(
             'azurerm:signalrservice/v20181001:SignalR',
             resource_name,

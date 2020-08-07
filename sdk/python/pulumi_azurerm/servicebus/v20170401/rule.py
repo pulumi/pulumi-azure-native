@@ -10,35 +10,41 @@ from ... import _utilities, _tables
 
 
 class Rule(pulumi.CustomResource):
+    action: pulumi.Output[dict]
+    """
+    Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+      * `compatibility_level` (`float`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+      * `requires_preprocessing` (`bool`) - Value that indicates whether the rule action requires preprocessing.
+      * `sql_expression` (`str`) - SQL expression. e.g. MyProperty='ABC'
+    """
+    correlation_filter: pulumi.Output[dict]
+    """
+    Properties of correlationFilter
+      * `content_type` (`str`) - Content type of the message.
+      * `correlation_id` (`str`) - Identifier of the correlation.
+      * `label` (`str`) - Application specific label.
+      * `message_id` (`str`) - Identifier of the message.
+      * `properties` (`dict`) - dictionary object for custom filters
+      * `reply_to` (`str`) - Address of the queue to reply to.
+      * `reply_to_session_id` (`str`) - Session identifier to reply to.
+      * `requires_preprocessing` (`bool`) - Value that indicates whether the rule action requires preprocessing.
+      * `session_id` (`str`) - Session identifier.
+      * `to` (`str`) - Address to send to.
+    """
+    filter_type: pulumi.Output[str]
+    """
+    Filter type that is evaluated against a BrokeredMessage.
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    sql_filter: pulumi.Output[dict]
     """
-    Properties of Rule resource
-      * `action` (`dict`) - Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-        * `compatibility_level` (`float`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-        * `requires_preprocessing` (`bool`) - Value that indicates whether the rule action requires preprocessing.
-        * `sql_expression` (`str`) - SQL expression. e.g. MyProperty='ABC'
-
-      * `correlation_filter` (`dict`) - Properties of correlationFilter
-        * `content_type` (`str`) - Content type of the message.
-        * `correlation_id` (`str`) - Identifier of the correlation.
-        * `label` (`str`) - Application specific label.
-        * `message_id` (`str`) - Identifier of the message.
-        * `properties` (`dict`) - dictionary object for custom filters
-        * `reply_to` (`str`) - Address of the queue to reply to.
-        * `reply_to_session_id` (`str`) - Session identifier to reply to.
-        * `requires_preprocessing` (`bool`) - Value that indicates whether the rule action requires preprocessing.
-        * `session_id` (`str`) - Session identifier.
-        * `to` (`str`) - Address to send to.
-
-      * `filter_type` (`str`) - Filter type that is evaluated against a BrokeredMessage.
-      * `sql_filter` (`dict`) - Properties of sqlFilter
-        * `compatibility_level` (`float`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-        * `requires_preprocessing` (`bool`) - Value that indicates whether the rule action requires preprocessing.
-        * `sql_expression` (`str`) - The SQL expression. e.g. MyProperty='ABC'
+    Properties of sqlFilter
+      * `compatibility_level` (`float`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+      * `requires_preprocessing` (`bool`) - Value that indicates whether the rule action requires preprocessing.
+      * `sql_expression` (`str`) - The SQL expression. e.g. MyProperty='ABC'
     """
     type: pulumi.Output[str]
     """
@@ -121,7 +127,6 @@ class Rule(pulumi.CustomResource):
             if topic_name is None:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(Rule, __self__).__init__(
             'azurerm:servicebus/v20170401:Rule',

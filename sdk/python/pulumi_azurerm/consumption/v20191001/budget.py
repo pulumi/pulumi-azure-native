@@ -10,41 +10,56 @@ from ... import _utilities, _tables
 
 
 class Budget(pulumi.CustomResource):
+    amount: pulumi.Output[float]
+    """
+    The total amount of cost to track with the budget
+    """
+    category: pulumi.Output[str]
+    """
+    The category of the budget, whether the budget tracks cost or usage.
+    """
+    current_spend: pulumi.Output[dict]
+    """
+    The current amount of cost which is being tracked for a budget.
+      * `amount` (`float`) - The total amount of cost which is being tracked by the budget.
+      * `unit` (`str`) - The unit of measure for the budget amount.
+    """
     e_tag: pulumi.Output[str]
     """
     eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+    """
+    filter: pulumi.Output[dict]
+    """
+    May be used to filter budgets by resource group, resource, or meter.
+      * `and` (`list`) - The logical "AND" expression. Must have at least 2 items.
+        * `dimensions` (`dict`) - Has comparison expression for a dimension
+          * `name` (`str`) - The name of the column to use in comparison.
+          * `operator` (`str`) - The operator to use for comparison.
+          * `values` (`list`) - Array of values to use for comparison
+
+        * `tags` (`dict`) - Has comparison expression for a tag
+
+      * `dimensions` (`dict`) - Has comparison expression for a dimension
+      * `not` (`dict`) - The logical "NOT" expression.
+      * `tags` (`dict`) - Has comparison expression for a tag
     """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    notifications: pulumi.Output[dict]
     """
-    The properties of the budget.
-      * `amount` (`float`) - The total amount of cost to track with the budget
-      * `category` (`str`) - The category of the budget, whether the budget tracks cost or usage.
-      * `current_spend` (`dict`) - The current amount of cost which is being tracked for a budget.
-        * `amount` (`float`) - The total amount of cost which is being tracked by the budget.
-        * `unit` (`str`) - The unit of measure for the budget amount.
-
-      * `filter` (`dict`) - May be used to filter budgets by resource group, resource, or meter.
-        * `and` (`list`) - The logical "AND" expression. Must have at least 2 items.
-          * `dimensions` (`dict`) - Has comparison expression for a dimension
-            * `name` (`str`) - The name of the column to use in comparison.
-            * `operator` (`str`) - The operator to use for comparison.
-            * `values` (`list`) - Array of values to use for comparison
-
-          * `tags` (`dict`) - Has comparison expression for a tag
-
-        * `dimensions` (`dict`) - Has comparison expression for a dimension
-        * `not` (`dict`) - The logical "NOT" expression.
-        * `tags` (`dict`) - Has comparison expression for a tag
-
-      * `notifications` (`dict`) - Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-      * `time_grain` (`str`) - The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
-      * `time_period` (`dict`) - Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
-        * `end_date` (`str`) - The end date for the budget. If not provided, we default this to 10 years from the start date.
-        * `start_date` (`str`) - The start date for the budget.
+    Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+    """
+    time_grain: pulumi.Output[str]
+    """
+    The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
+    """
+    time_period: pulumi.Output[dict]
+    """
+    Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+      * `end_date` (`str`) - The end date for the budget. If not provided, we default this to 10 years from the start date.
+      * `start_date` (`str`) - The start date for the budget.
     """
     type: pulumi.Output[str]
     """
@@ -123,7 +138,7 @@ class Budget(pulumi.CustomResource):
             if time_period is None:
                 raise TypeError("Missing required property 'time_period'")
             __props__['time_period'] = time_period
-            __props__['properties'] = None
+            __props__['current_spend'] = None
             __props__['type'] = None
         super(Budget, __self__).__init__(
             'azurerm:consumption/v20191001:Budget',

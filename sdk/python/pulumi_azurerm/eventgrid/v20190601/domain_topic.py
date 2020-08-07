@@ -14,10 +14,9 @@ class DomainTopic(pulumi.CustomResource):
     """
     Name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the Domain Topic.
-      * `provisioning_state` (`str`) - Provisioning state of the domain topic.
+    Provisioning state of the domain topic.
     """
     type: pulumi.Output[str]
     """
@@ -59,7 +58,7 @@ class DomainTopic(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(DomainTopic, __self__).__init__(
             'azurerm:eventgrid/v20190601:DomainTopic',

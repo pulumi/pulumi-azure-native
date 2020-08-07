@@ -27,12 +27,26 @@ type LookupMapArgs struct {
 
 // The integration account map.
 type LookupMapResult struct {
+	// The changed time.
+	ChangedTime string `pulumi:"changedTime"`
+	// The content.
+	Content *string `pulumi:"content"`
+	// The content link.
+	ContentLink ContentLinkResponse `pulumi:"contentLink"`
+	// The content type.
+	ContentType *string `pulumi:"contentType"`
+	// The created time.
+	CreatedTime string `pulumi:"createdTime"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The map type.
+	MapType string `pulumi:"mapType"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
-	// The integration account map properties.
-	Properties IntegrationAccountMapPropertiesResponse `pulumi:"properties"`
+	// The parameters schema of integration account map.
+	ParametersSchema *IntegrationAccountMapPropertiesResponseParametersSchema `pulumi:"parametersSchema"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

@@ -52,13 +52,25 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public sealed class GetContainerResult
     {
         /// <summary>
+        /// Current status of the container.
+        /// </summary>
+        public readonly string ContainerStatus;
+        /// <summary>
+        /// The UTC time when container got created.
+        /// </summary>
+        public readonly string CreatedDateTime;
+        /// <summary>
+        /// DataFormat for Container
+        /// </summary>
+        public readonly string DataFormat;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The container properties.
+        /// Details of the refresh job on this container.
         /// </summary>
-        public readonly Outputs.ContainerPropertiesResponseResult Properties;
+        public readonly Outputs.RefreshDetailsResponseResult RefreshDetails;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -66,14 +78,23 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
 
         [OutputConstructor]
         private GetContainerResult(
+            string containerStatus,
+
+            string createdDateTime,
+
+            string dataFormat,
+
             string name,
 
-            Outputs.ContainerPropertiesResponseResult properties,
+            Outputs.RefreshDetailsResponseResult refreshDetails,
 
             string type)
         {
+            ContainerStatus = containerStatus;
+            CreatedDateTime = createdDateTime;
+            DataFormat = dataFormat;
             Name = name;
-            Properties = properties;
+            RefreshDetails = refreshDetails;
             Type = type;
         }
     }

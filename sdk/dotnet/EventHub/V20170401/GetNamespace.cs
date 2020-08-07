@@ -40,17 +40,41 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     public sealed class GetNamespaceResult
     {
         /// <summary>
+        /// The time the Namespace was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+        /// </summary>
+        public readonly bool? IsAutoInflateEnabled;
+        /// <summary>
+        /// Value that indicates whether Kafka is enabled for eventhub namespace.
+        /// </summary>
+        public readonly bool? KafkaEnabled;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+        /// </summary>
+        public readonly int? MaximumThroughputUnits;
+        /// <summary>
+        /// Identifier for Azure Insights metrics.
+        /// </summary>
+        public readonly string MetricId;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Namespace properties supplied for create namespace operation.
+        /// Provisioning state of the Namespace.
         /// </summary>
-        public readonly Outputs.EHNamespaceResponsePropertiesResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Endpoint you can use to perform Service Bus operations.
+        /// </summary>
+        public readonly string ServiceBusEndpoint;
         /// <summary>
         /// Properties of sku resource
         /// </summary>
@@ -63,27 +87,52 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The time the Namespace was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string createdAt,
+
+            bool? isAutoInflateEnabled,
+
+            bool? kafkaEnabled,
+
             string? location,
+
+            int? maximumThroughputUnits,
+
+            string metricId,
 
             string name,
 
-            Outputs.EHNamespaceResponsePropertiesResult properties,
+            string provisioningState,
+
+            string serviceBusEndpoint,
 
             Outputs.SkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string updatedAt)
         {
+            CreatedAt = createdAt;
+            IsAutoInflateEnabled = isAutoInflateEnabled;
+            KafkaEnabled = kafkaEnabled;
             Location = location;
+            MaximumThroughputUnits = maximumThroughputUnits;
+            MetricId = metricId;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
             Tags = tags;
             Type = type;
+            UpdatedAt = updatedAt;
         }
     }
 }

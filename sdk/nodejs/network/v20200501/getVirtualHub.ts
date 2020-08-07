@@ -36,9 +36,29 @@ export interface GetVirtualHubArgs {
  */
 export interface GetVirtualHubResult {
     /**
+     * Address-prefix for this VirtualHub.
+     */
+    readonly addressPrefix?: string;
+    /**
+     * The azureFirewall associated with this VirtualHub.
+     */
+    readonly azureFirewall?: outputs.network.v20200501.SubResourceResponse;
+    /**
+     * List of references to Bgp Connections.
+     */
+    readonly bgpConnections: outputs.network.v20200501.SubResourceResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The expressRouteGateway associated with this VirtualHub.
+     */
+    readonly expressRouteGateway?: outputs.network.v20200501.SubResourceResponse;
+    /**
+     * List of references to IpConfigurations.
+     */
+    readonly ipConfigurations: outputs.network.v20200501.SubResourceResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +68,33 @@ export interface GetVirtualHubResult {
      */
     readonly name: string;
     /**
-     * Properties of the virtual hub.
+     * The P2SVpnGateway associated with this VirtualHub.
      */
-    readonly properties: outputs.network.v20200501.VirtualHubPropertiesResponse;
+    readonly p2SVpnGateway?: outputs.network.v20200501.SubResourceResponse;
+    /**
+     * The provisioning state of the virtual hub resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The routeTable associated with this virtual hub.
+     */
+    readonly routeTable?: outputs.network.v20200501.VirtualHubRouteTableResponse;
+    /**
+     * The routing state.
+     */
+    readonly routingState?: string;
+    /**
+     * The securityPartnerProvider associated with this VirtualHub.
+     */
+    readonly securityPartnerProvider?: outputs.network.v20200501.SubResourceResponse;
+    /**
+     * The Security Provider name.
+     */
+    readonly securityProviderName?: string;
+    /**
+     * The sku of this VirtualHub.
+     */
+    readonly sku?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +103,24 @@ export interface GetVirtualHubResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * List of all virtual hub route table v2s associated with this VirtualHub.
+     */
+    readonly virtualHubRouteTableV2s?: outputs.network.v20200501.VirtualHubRouteTableV2Response[];
+    /**
+     * VirtualRouter ASN.
+     */
+    readonly virtualRouterAsn?: number;
+    /**
+     * VirtualRouter IPs.
+     */
+    readonly virtualRouterIps?: string[];
+    /**
+     * The VirtualWAN to which the VirtualHub belongs.
+     */
+    readonly virtualWan?: outputs.network.v20200501.SubResourceResponse;
+    /**
+     * The VpnGateway associated with this VirtualHub.
+     */
+    readonly vpnGateway?: outputs.network.v20200501.SubResourceResponse;
 }

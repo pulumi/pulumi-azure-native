@@ -41,13 +41,17 @@ export interface GetFirewallRuleArgs {
  */
 export interface GetFirewallRuleResult {
     /**
+     * highest IP address included in the range
+     */
+    readonly endIP: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * redis cache firewall rule properties
+     * lowest IP address included in the range
      */
-    readonly properties: outputs.cache.v20171001.RedisFirewallRulePropertiesResponse;
+    readonly startIP: string;
     /**
      * Resource type.
      */

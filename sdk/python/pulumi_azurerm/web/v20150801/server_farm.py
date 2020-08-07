@@ -10,6 +10,21 @@ from ... import _utilities, _tables
 
 
 class ServerFarm(pulumi.CustomResource):
+    admin_site_name: pulumi.Output[str]
+    """
+    App Service Plan administration site
+    """
+    geo_region: pulumi.Output[str]
+    """
+    Geographical location for the App Service Plan
+    """
+    hosting_environment_profile: pulumi.Output[dict]
+    """
+    Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+      * `id` (`str`) - Resource id of the hostingEnvironment (App Service Environment)
+      * `name` (`str`) - Name of the hostingEnvironment (App Service Environment) (read only)
+      * `type` (`str`) - Resource type of the hostingEnvironment (App Service Environment) (read only)
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
@@ -18,11 +33,31 @@ class ServerFarm(pulumi.CustomResource):
     """
     Resource Location
     """
+    maximum_number_of_workers: pulumi.Output[float]
+    """
+    Maximum number of instances that can be assigned to this App Service Plan
+    """
     name: pulumi.Output[str]
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    number_of_sites: pulumi.Output[float]
+    """
+    Number of web apps assigned to this App Service Plan
+    """
+    per_site_scaling: pulumi.Output[bool]
+    """
+    If True apps assigned to this App Service Plan can be scaled independently
+                If False apps assigned to this App Service Plan will scale to all instances of the plan
+    """
+    reserved: pulumi.Output[bool]
+    """
+    Enables creation of a Linux App Service Plan
+    """
+    resource_group: pulumi.Output[str]
+    """
+    Resource group of the server farm
+    """
     sku: pulumi.Output[dict]
     """
     Describes a sku for a scalable resource
@@ -32,6 +67,14 @@ class ServerFarm(pulumi.CustomResource):
       * `size` (`str`) - Size specifier of the resource sku
       * `tier` (`str`) - Service Tier of the resource sku
     """
+    status: pulumi.Output[str]
+    """
+    App Service Plan Status
+    """
+    subscription: pulumi.Output[str]
+    """
+    App Service Plan Subscription
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -39,6 +82,10 @@ class ServerFarm(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    worker_tier_name: pulumi.Output[str]
+    """
+    Target worker tier assigned to the App Service Plan
     """
     def __init__(__self__, resource_name, opts=None, admin_site_name=None, allow_pending_state=None, hosting_environment_profile=None, id=None, kind=None, location=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None, type=None, worker_tier_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -115,7 +162,11 @@ class ServerFarm(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['worker_tier_name'] = worker_tier_name
-            __props__['properties'] = None
+            __props__['geo_region'] = None
+            __props__['number_of_sites'] = None
+            __props__['resource_group'] = None
+            __props__['status'] = None
+            __props__['subscription'] = None
         super(ServerFarm, __self__).__init__(
             'azurerm:web/v20150801:ServerFarm',
             resource_name,

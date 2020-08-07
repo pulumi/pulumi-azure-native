@@ -36,19 +36,67 @@ export class Machine extends pulumi.CustomResource {
         return obj['__pulumiType'] === Machine.__pulumiType;
     }
 
+    /**
+     * The hybrid machine agent full version.
+     */
+    public /*out*/ readonly agentVersion!: pulumi.Output<string>;
+    /**
+     * Public Key that the client provides to be used during initial resource onboarding
+     */
+    public readonly clientPublicKey!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the hybrid machine display name.
+     */
+    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    /**
+     * Details about the error state.
+     */
+    public /*out*/ readonly errorDetails!: pulumi.Output<outputs.hybridcompute.v20191212.ErrorDetailResponse[]>;
+    /**
+     * Machine Extensions information
+     */
+    public readonly extensions!: pulumi.Output<outputs.hybridcompute.v20191212.MachineExtensionInstanceViewResponse[] | undefined>;
     public readonly identity!: pulumi.Output<outputs.hybridcompute.v20191212.MachineResponseIdentity | undefined>;
+    /**
+     * The time of the last status change.
+     */
+    public /*out*/ readonly lastStatusChange!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to the geographic location of the resource.
+     */
+    public readonly locationData!: pulumi.Output<outputs.hybridcompute.v20191212.LocationDataResponse | undefined>;
+    /**
+     * Specifies the hybrid machine FQDN.
+     */
+    public /*out*/ readonly machineFqdn!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Hybrid Compute Machine properties
+     * The Operating System running on the hybrid machine.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.hybridcompute.v20191212.MachineResponseProperties>;
+    public /*out*/ readonly osName!: pulumi.Output<string>;
+    /**
+     * Specifies the operating system settings for the hybrid machine.
+     */
+    public /*out*/ readonly osProfile!: pulumi.Output<outputs.hybridcompute.v20191212.MachinePropertiesResponseOsProfile | undefined>;
+    /**
+     * The version of Operating System running on the hybrid machine.
+     */
+    public /*out*/ readonly osVersion!: pulumi.Output<string>;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The status of the hybrid machine agent.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -57,6 +105,10 @@ export class Machine extends pulumi.CustomResource {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Specifies the hybrid machine unique ID.
+     */
+    public readonly vmId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Machine resource with the given unique name, arguments, and options.
@@ -89,7 +141,16 @@ export class Machine extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vmId"] = args ? args.vmId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["agentVersion"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["errorDetails"] = undefined /*out*/;
+            inputs["lastStatusChange"] = undefined /*out*/;
+            inputs["machineFqdn"] = undefined /*out*/;
+            inputs["osName"] = undefined /*out*/;
+            inputs["osProfile"] = undefined /*out*/;
+            inputs["osVersion"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

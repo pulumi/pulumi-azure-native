@@ -46,29 +46,162 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class GetRoleAssignmentResult
     {
         /// <summary>
+        /// The name of the metadata object.
+        /// </summary>
+        public readonly string AssignmentName;
+        /// <summary>
+        /// Widget types set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? ConflationPolicies;
+        /// <summary>
+        /// Connectors set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? Connectors;
+        /// <summary>
+        /// Localized description for the metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Description;
+        /// <summary>
+        /// Localized display names for the metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? DisplayName;
+        /// <summary>
+        /// Interactions set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? Interactions;
+        /// <summary>
+        /// Kpis set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? Kpis;
+        /// <summary>
+        /// Links set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? Links;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Role Assignment definition.
+        /// The principals being assigned to.
         /// </summary>
-        public readonly Outputs.RoleAssignmentResponseResult Properties;
+        public readonly ImmutableArray<Outputs.AssignmentPrincipalResponseResult> Principals;
+        /// <summary>
+        /// Profiles set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? Profiles;
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The Role assignments set for the relationship links.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? RelationshipLinks;
+        /// <summary>
+        /// The Role assignments set for the relationships.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? Relationships;
+        /// <summary>
+        /// Type of roles.
+        /// </summary>
+        public readonly string Role;
+        /// <summary>
+        /// The Role assignments set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? RoleAssignments;
+        /// <summary>
+        /// Sas Policies set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? SasPolicies;
+        /// <summary>
+        /// The Role assignments set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? Segments;
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Views set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? Views;
+        /// <summary>
+        /// Widget types set for the assignment.
+        /// </summary>
+        public readonly Outputs.ResourceSetDescriptionResponseResult? WidgetTypes;
 
         [OutputConstructor]
         private GetRoleAssignmentResult(
+            string assignmentName,
+
+            Outputs.ResourceSetDescriptionResponseResult? conflationPolicies,
+
+            Outputs.ResourceSetDescriptionResponseResult? connectors,
+
+            ImmutableDictionary<string, string>? description,
+
+            ImmutableDictionary<string, string>? displayName,
+
+            Outputs.ResourceSetDescriptionResponseResult? interactions,
+
+            Outputs.ResourceSetDescriptionResponseResult? kpis,
+
+            Outputs.ResourceSetDescriptionResponseResult? links,
+
             string name,
 
-            Outputs.RoleAssignmentResponseResult properties,
+            ImmutableArray<Outputs.AssignmentPrincipalResponseResult> principals,
 
-            string type)
+            Outputs.ResourceSetDescriptionResponseResult? profiles,
+
+            string provisioningState,
+
+            Outputs.ResourceSetDescriptionResponseResult? relationshipLinks,
+
+            Outputs.ResourceSetDescriptionResponseResult? relationships,
+
+            string role,
+
+            Outputs.ResourceSetDescriptionResponseResult? roleAssignments,
+
+            Outputs.ResourceSetDescriptionResponseResult? sasPolicies,
+
+            Outputs.ResourceSetDescriptionResponseResult? segments,
+
+            string tenantId,
+
+            string type,
+
+            Outputs.ResourceSetDescriptionResponseResult? views,
+
+            Outputs.ResourceSetDescriptionResponseResult? widgetTypes)
         {
+            AssignmentName = assignmentName;
+            ConflationPolicies = conflationPolicies;
+            Connectors = connectors;
+            Description = description;
+            DisplayName = displayName;
+            Interactions = interactions;
+            Kpis = kpis;
+            Links = links;
             Name = name;
-            Properties = properties;
+            Principals = principals;
+            Profiles = profiles;
+            ProvisioningState = provisioningState;
+            RelationshipLinks = relationshipLinks;
+            Relationships = relationships;
+            Role = role;
+            RoleAssignments = roleAssignments;
+            SasPolicies = sasPolicies;
+            Segments = segments;
+            TenantId = tenantId;
             Type = type;
+            Views = views;
+            WidgetTypes = widgetTypes;
         }
     }
 }

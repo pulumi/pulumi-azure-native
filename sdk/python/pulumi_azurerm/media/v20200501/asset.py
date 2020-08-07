@@ -10,21 +10,41 @@ from ... import _utilities, _tables
 
 
 class Asset(pulumi.CustomResource):
+    alternate_id: pulumi.Output[str]
+    """
+    The alternate ID of the Asset.
+    """
+    asset_id: pulumi.Output[str]
+    """
+    The Asset ID.
+    """
+    container: pulumi.Output[str]
+    """
+    The name of the asset blob container.
+    """
+    created: pulumi.Output[str]
+    """
+    The creation date of the Asset.
+    """
+    description: pulumi.Output[str]
+    """
+    The Asset description.
+    """
+    last_modified: pulumi.Output[str]
+    """
+    The last modified date of the Asset.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    storage_account_name: pulumi.Output[str]
     """
-    The resource properties.
-      * `alternate_id` (`str`) - The alternate ID of the Asset.
-      * `asset_id` (`str`) - The Asset ID.
-      * `container` (`str`) - The name of the asset blob container.
-      * `created` (`str`) - The creation date of the Asset.
-      * `description` (`str`) - The Asset description.
-      * `last_modified` (`str`) - The last modified date of the Asset.
-      * `storage_account_name` (`str`) - The name of the storage account.
-      * `storage_encryption_format` (`str`) - The Asset encryption format. One of None or MediaStorageEncryption.
+    The name of the storage account.
+    """
+    storage_encryption_format: pulumi.Output[str]
+    """
+    The Asset encryption format. One of None or MediaStorageEncryption.
     """
     type: pulumi.Output[str]
     """
@@ -74,7 +94,10 @@ class Asset(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_account_name'] = storage_account_name
-            __props__['properties'] = None
+            __props__['asset_id'] = None
+            __props__['created'] = None
+            __props__['last_modified'] = None
+            __props__['storage_encryption_format'] = None
             __props__['type'] = None
         super(Asset, __self__).__init__(
             'azurerm:media/v20200501:Asset',

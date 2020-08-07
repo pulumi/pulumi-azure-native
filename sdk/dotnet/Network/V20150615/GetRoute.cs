@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.Network.V20150615
     public sealed class GetRouteResult
     {
         /// <summary>
+        /// The destination CIDR to which the route applies.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -54,21 +58,38 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Route resource
+        /// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
         /// </summary>
-        public readonly Outputs.RoutePropertiesFormatResponseResult Properties;
+        public readonly string? NextHopIpAddress;
+        /// <summary>
+        /// The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
+        /// </summary>
+        public readonly string NextHopType;
+        /// <summary>
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private GetRouteResult(
+            string? addressPrefix,
+
             string? etag,
 
             string? name,
 
-            Outputs.RoutePropertiesFormatResponseResult properties)
+            string? nextHopIpAddress,
+
+            string nextHopType,
+
+            string? provisioningState)
         {
+            AddressPrefix = addressPrefix;
             Etag = etag;
             Name = name;
-            Properties = properties;
+            NextHopIpAddress = nextHopIpAddress;
+            NextHopType = nextHopType;
+            ProvisioningState = provisioningState;
         }
     }
 }

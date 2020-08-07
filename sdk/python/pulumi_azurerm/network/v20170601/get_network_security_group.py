@@ -13,7 +13,13 @@ class GetNetworkSecurityGroupResult:
     """
     NetworkSecurityGroup resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, default_security_rules=None, etag=None, location=None, name=None, network_interfaces=None, provisioning_state=None, resource_guid=None, security_rules=None, subnets=None, tags=None, type=None):
+        if default_security_rules and not isinstance(default_security_rules, list):
+            raise TypeError("Expected argument 'default_security_rules' to be a list")
+        __self__.default_security_rules = default_security_rules
+        """
+        The default security rules of network security group.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +38,35 @@ class GetNetworkSecurityGroupResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_interfaces and not isinstance(network_interfaces, list):
+            raise TypeError("Expected argument 'network_interfaces' to be a list")
+        __self__.network_interfaces = network_interfaces
         """
-        Properties of the network security group
+        A collection of references to network interfaces.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the network security group resource.
+        """
+        if security_rules and not isinstance(security_rules, list):
+            raise TypeError("Expected argument 'security_rules' to be a list")
+        __self__.security_rules = security_rules
+        """
+        A collection of security rules of the network security group.
+        """
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        __self__.subnets = subnets
+        """
+        A collection of references to subnets.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +88,15 @@ class AwaitableGetNetworkSecurityGroupResult(GetNetworkSecurityGroupResult):
         if False:
             yield self
         return GetNetworkSecurityGroupResult(
+            default_security_rules=self.default_security_rules,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_interfaces=self.network_interfaces,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
+            security_rules=self.security_rules,
+            subnets=self.subnets,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +118,14 @@ def get_network_security_group(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20170601:getNetworkSecurityGroup', __args__, opts=opts).value
 
     return AwaitableGetNetworkSecurityGroupResult(
+        default_security_rules=__ret__.get('defaultSecurityRules'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_interfaces=__ret__.get('networkInterfaces'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
+        security_rules=__ret__.get('securityRules'),
+        subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

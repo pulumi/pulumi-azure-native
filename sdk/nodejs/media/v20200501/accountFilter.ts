@@ -37,13 +37,21 @@ export class AccountFilter extends pulumi.CustomResource {
     }
 
     /**
+     * The first quality.
+     */
+    public readonly firstQuality!: pulumi.Output<outputs.media.v20200501.FirstQualityResponse | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Media Filter properties.
+     * The presentation time range.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.MediaFilterPropertiesResponse>;
+    public readonly presentationTimeRange!: pulumi.Output<outputs.media.v20200501.PresentationTimeRangeResponse | undefined>;
+    /**
+     * The tracks selection conditions.
+     */
+    public readonly tracks!: pulumi.Output<outputs.media.v20200501.FilterTrackSelectionResponse[] | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -77,7 +85,6 @@ export class AccountFilter extends pulumi.CustomResource {
             inputs["presentationTimeRange"] = args ? args.presentationTimeRange : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tracks"] = args ? args.tracks : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

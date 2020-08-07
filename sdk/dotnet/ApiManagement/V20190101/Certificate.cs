@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        [Output("expirationDate")]
+        public Output<string> ExpirationDate { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate properties details.
+        /// Subject attribute of the certificate.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CertificateContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("subject")]
+        public Output<string> Subject { get; private set; } = null!;
+
+        /// <summary>
+        /// Thumbprint of the certificate.
+        /// </summary>
+        [Output("thumbprint")]
+        public Output<string> Thumbprint { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

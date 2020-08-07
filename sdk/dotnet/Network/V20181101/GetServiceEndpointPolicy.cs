@@ -52,9 +52,21 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the service end point policy
+        /// The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.ServiceEndpointPolicyPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the service endpoint policy resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
+        /// A collection of service endpoint policy definitions of the service endpoint policy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponseResult> ServiceEndpointPolicyDefinitions;
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +84,13 @@ namespace Pulumi.AzureRM.Network.V20181101
 
             string name,
 
-            Outputs.ServiceEndpointPolicyPropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            string resourceGuid,
+
+            ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponseResult> serviceEndpointPolicyDefinitions,
+
+            ImmutableArray<Outputs.SubnetResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -81,7 +99,10 @@ namespace Pulumi.AzureRM.Network.V20181101
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
+            ServiceEndpointPolicyDefinitions = serviceEndpointPolicyDefinitions;
+            Subnets = subnets;
             Tags = tags;
             Type = type;
         }

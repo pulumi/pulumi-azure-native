@@ -36,6 +36,10 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * The cluster data ingestion URI.
+     */
+    readonly dataIngestionUri: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -44,19 +48,31 @@ export interface GetClusterResult {
      */
     readonly name: string;
     /**
-     * The cluster properties.
+     * The provisioned state of the resource.
      */
-    readonly properties: outputs.kusto.v20190121.ClusterPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * The SKU of the cluster.
      */
     readonly sku: outputs.kusto.v20190121.AzureSkuResponse;
     /**
+     * The state of the resource.
+     */
+    readonly state: string;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The cluster's external tenants.
+     */
+    readonly trustedExternalTenants?: outputs.kusto.v20190121.TrustedExternalTenantResponse[];
+    /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * The cluster URI.
+     */
+    readonly uri: string;
 }

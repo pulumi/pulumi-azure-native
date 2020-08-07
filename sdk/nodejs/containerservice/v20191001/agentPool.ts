@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,77 @@ export class AgentPool extends pulumi.CustomResource {
     }
 
     /**
+     * (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+     */
+    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    /**
+     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+     */
+    public readonly count!: pulumi.Output<number | undefined>;
+    /**
+     * Whether to enable auto-scaler
+     */
+    public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable public IP for nodes
+     */
+    public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
+    /**
+     * Maximum number of nodes for auto-scaling
+     */
+    public readonly maxCount!: pulumi.Output<number | undefined>;
+    /**
+     * Maximum number of pods that can run on a node.
+     */
+    public readonly maxPods!: pulumi.Output<number | undefined>;
+    /**
+     * Minimum number of nodes for auto-scaling
+     */
+    public readonly minCount!: pulumi.Output<number | undefined>;
+    /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of an agent pool.
+     * Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20191001.ManagedClusterAgentPoolProfilePropertiesResponse>;
+    public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
     /**
-     * Resource type
+     * Version of orchestrator specified when creating the managed cluster.
+     */
+    public readonly orchestratorVersion!: pulumi.Output<string | undefined>;
+    /**
+     * OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+     */
+    public readonly osDiskSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+     */
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * The current deployment or provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
+     */
+    public readonly scaleSetEvictionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+     */
+    public readonly scaleSetPriority!: pulumi.Output<string | undefined>;
+    /**
+     * AgentPoolType represents types of an agent pool
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Size of agent VMs.
+     */
+    public readonly vmSize!: pulumi.Output<string | undefined>;
+    /**
+     * VNet SubnetID specifies the VNet's subnet identifier.
+     */
+    public readonly vnetSubnetID!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AgentPool resource with the given unique name, arguments, and options.
@@ -90,7 +148,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

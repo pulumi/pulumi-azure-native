@@ -18,32 +18,74 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Gets or sets the host to send probe to 
+        /// </summary>
+        public readonly string? Host;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Gets or sets probing interval in seconds 
+        /// </summary>
+        public readonly int? Interval;
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of probe of application gateway
+        /// Gets or sets the relative path of probe 
         /// </summary>
-        public readonly Outputs.ApplicationGatewayProbePropertiesFormatResponseResult? Properties;
+        public readonly string? Path;
+        /// <summary>
+        /// Gets or sets the protocol
+        /// </summary>
+        public readonly string? Protocol;
+        /// <summary>
+        /// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets probing timeout in seconds 
+        /// </summary>
+        public readonly int? Timeout;
+        /// <summary>
+        /// Gets or sets probing unhealthy threshold 
+        /// </summary>
+        public readonly int? UnhealthyThreshold;
 
         [OutputConstructor]
         private ApplicationGatewayProbeResponseResult(
             string? etag,
 
+            string? host,
+
             string? id,
+
+            int? interval,
 
             string? name,
 
-            Outputs.ApplicationGatewayProbePropertiesFormatResponseResult? properties)
+            string? path,
+
+            string? protocol,
+
+            string? provisioningState,
+
+            int? timeout,
+
+            int? unhealthyThreshold)
         {
             Etag = etag;
+            Host = host;
             Id = id;
+            Interval = interval;
             Name = name;
-            Properties = properties;
+            Path = path;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            Timeout = timeout;
+            UnhealthyThreshold = unhealthyThreshold;
         }
     }
 }

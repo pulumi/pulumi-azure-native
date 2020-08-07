@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
     public partial class OpenShiftManagedCluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Configuration of OpenShift cluster VMs.
+        /// </summary>
+        [Output("agentPoolProfiles")]
+        public Output<ImmutableArray<Outputs.OpenShiftManagedClusterAgentPoolProfileResponseResult>> AgentPoolProfiles { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures OpenShift authentication.
+        /// </summary>
+        [Output("authProfile")]
+        public Output<Outputs.OpenShiftManagedClusterAuthProfileResponseResult?> AuthProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of OpenShift specified when creating the cluster.
+        /// </summary>
+        [Output("clusterVersion")]
+        public Output<string> ClusterVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Service generated FQDN for OpenShift API server loadbalancer internal hostname.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for OpenShift master VMs.
+        /// </summary>
+        [Output("masterPoolProfile")]
+        public Output<Outputs.OpenShiftManagedClusterMasterPoolProfileResponseResult?> MasterPoolProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,16 +57,40 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration for OpenShift networking.
+        /// </summary>
+        [Output("networkProfile")]
+        public Output<Outputs.NetworkProfileResponseResult?> NetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of OpenShift specified when creating the cluster.
+        /// </summary>
+        [Output("openShiftVersion")]
+        public Output<string> OpenShiftVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Define the resource plan as required by ARM for billing purposes
         /// </summary>
         [Output("plan")]
         public Output<Outputs.PurchasePlanResponseResult?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of a OpenShift managed cluster.
+        /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.OpenShiftManagedClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Service generated FQDN for OpenShift API server.
+        /// </summary>
+        [Output("publicHostname")]
+        public Output<string> PublicHostname { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for OpenShift router(s).
+        /// </summary>
+        [Output("routerProfiles")]
+        public Output<ImmutableArray<Outputs.OpenShiftRouterProfileResponseResult>> RouterProfiles { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

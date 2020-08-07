@@ -46,6 +46,14 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
+     * A list that describes the correlation of the service with other services.
+     */
+    readonly correlationScheme?: outputs.servicefabric.v20200301.ServiceCorrelationDescriptionResponse[];
+    /**
+     * Specifies the move cost for the service.
+     */
+    readonly defaultMoveCost?: string;
+    /**
      * Azure resource etag.
      */
     readonly etag: string;
@@ -58,9 +66,41 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
-     * The service resource properties.
+     * Describes how the service is partitioned.
      */
-    readonly properties: outputs.servicefabric.v20200301.ServiceResourcePropertiesResponse;
+    readonly partitionDescription?: outputs.servicefabric.v20200301.PartitionSchemeDescriptionResponse;
+    /**
+     * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+     */
+    readonly placementConstraints?: string;
+    /**
+     * The current deployment or provisioning state, which only appears in the response
+     */
+    readonly provisioningState: string;
+    /**
+     * Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
+     */
+    readonly serviceDnsName?: string;
+    /**
+     * The kind of service (Stateless or Stateful).
+     */
+    readonly serviceKind: string;
+    /**
+     * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+     */
+    readonly serviceLoadMetrics?: outputs.servicefabric.v20200301.ServiceLoadMetricDescriptionResponse[];
+    /**
+     * The activation Mode of the service package
+     */
+    readonly servicePackageActivationMode?: string;
+    /**
+     * A list that describes the correlation of the service with other services.
+     */
+    readonly servicePlacementPolicies?: outputs.servicefabric.v20200301.ServicePlacementPolicyDescriptionResponse[];
+    /**
+     * The name of the service type
+     */
+    readonly serviceTypeName?: string;
     /**
      * Azure resource tags.
      */

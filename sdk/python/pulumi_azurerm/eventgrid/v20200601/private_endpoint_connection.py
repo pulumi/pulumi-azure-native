@@ -10,23 +10,29 @@ from ... import _utilities, _tables
 
 
 class PrivateEndpointConnection(pulumi.CustomResource):
+    group_ids: pulumi.Output[list]
+    """
+    GroupIds from the private link service resource.
+    """
     name: pulumi.Output[str]
     """
     Name of the resource.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint: pulumi.Output[dict]
     """
-    Properties of the PrivateEndpointConnection.
-      * `group_ids` (`list`) - GroupIds from the private link service resource.
-      * `private_endpoint` (`dict`) - The Private Endpoint resource for this Connection.
-        * `id` (`str`) - The ARM identifier for Private Endpoint.
-
-      * `private_link_service_connection_state` (`dict`) - Details about the state of the connection.
-        * `actions_required` (`str`) - Actions required (if any).
-        * `description` (`str`) - Description of the connection state.
-        * `status` (`str`) - Status of the connection.
-
-      * `provisioning_state` (`str`) - Provisioning state of the Private Endpoint Connection.
+    The Private Endpoint resource for this Connection.
+      * `id` (`str`) - The ARM identifier for Private Endpoint.
+    """
+    private_link_service_connection_state: pulumi.Output[dict]
+    """
+    Details about the state of the connection.
+      * `actions_required` (`str`) - Actions required (if any).
+      * `description` (`str`) - Description of the connection state.
+      * `status` (`str`) - Status of the connection.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the Private Endpoint Connection.
     """
     type: pulumi.Output[str]
     """
@@ -89,7 +95,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:eventgrid/v20200601:PrivateEndpointConnection',

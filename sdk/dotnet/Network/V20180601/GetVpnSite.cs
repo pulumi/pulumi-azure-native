@@ -40,9 +40,25 @@ namespace Pulumi.AzureRM.Network.V20180601
     public sealed class GetVpnSiteResult
     {
         /// <summary>
+        /// The AddressSpace that contains an array of IP address ranges.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? AddressSpace;
+        /// <summary>
+        /// The set of bgp properties.
+        /// </summary>
+        public readonly Outputs.BgpSettingsResponseResult? BgpProperties;
+        /// <summary>
+        /// The device properties
+        /// </summary>
+        public readonly Outputs.DevicePropertiesResponseResult? DeviceProperties;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The ip-address for the vpn-site.
+        /// </summary>
+        public readonly string? IpAddress;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +68,13 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters for VpnSite
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.VpnSitePropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The key for vpn-site that can be used for connections.
+        /// </summary>
+        public readonly string? SiteKey;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +83,49 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VirtualWAN to which the vpnSite belongs
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualWAN;
 
         [OutputConstructor]
         private GetVpnSiteResult(
+            Outputs.AddressSpaceResponseResult? addressSpace,
+
+            Outputs.BgpSettingsResponseResult? bgpProperties,
+
+            Outputs.DevicePropertiesResponseResult? deviceProperties,
+
             string etag,
+
+            string? ipAddress,
 
             string location,
 
             string name,
 
-            Outputs.VpnSitePropertiesResponseResult properties,
+            string? provisioningState,
+
+            string? siteKey,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualWAN)
         {
+            AddressSpace = addressSpace;
+            BgpProperties = bgpProperties;
+            DeviceProperties = deviceProperties;
             Etag = etag;
+            IpAddress = ipAddress;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SiteKey = siteKey;
             Tags = tags;
             Type = type;
+            VirtualWAN = virtualWAN;
         }
     }
 }

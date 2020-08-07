@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public partial class Container : Pulumi.CustomResource
     {
         /// <summary>
+        /// Current status of the container.
+        /// </summary>
+        [Output("containerStatus")]
+        public Output<string> ContainerStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The UTC time when container got created.
+        /// </summary>
+        [Output("createdDateTime")]
+        public Output<string> CreatedDateTime { get; private set; } = null!;
+
+        /// <summary>
+        /// DataFormat for Container
+        /// </summary>
+        [Output("dataFormat")]
+        public Output<string> DataFormat { get; private set; } = null!;
+
+        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The container properties.
+        /// Details of the refresh job on this container.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ContainerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("refreshDetails")]
+        public Output<Outputs.RefreshDetailsResponseResult> RefreshDetails { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

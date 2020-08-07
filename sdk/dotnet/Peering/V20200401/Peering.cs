@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public partial class Peering : Pulumi.CustomResource
     {
         /// <summary>
+        /// The properties that define a direct peering.
+        /// </summary>
+        [Output("direct")]
+        public Output<Outputs.PeeringPropertiesDirectResponseResult?> Direct { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties that define an exchange peering.
+        /// </summary>
+        [Output("exchange")]
+        public Output<Outputs.PeeringPropertiesExchangeResponseResult?> Exchange { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of the peering.
         /// </summary>
         [Output("kind")]
@@ -33,10 +45,16 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties that define a peering.
+        /// The location of the peering.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PeeringPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("peeringLocation")]
+        public Output<string?> PeeringLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU that defines the tier and kind of the peering.

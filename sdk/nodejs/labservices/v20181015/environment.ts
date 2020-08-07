@@ -37,6 +37,30 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
+     * The name or email address of the user who has claimed the environment
+     */
+    public /*out*/ readonly claimedByUserName!: pulumi.Output<string>;
+    /**
+     * The AAD object Id of the user who has claimed the environment
+     */
+    public /*out*/ readonly claimedByUserObjectId!: pulumi.Output<string>;
+    /**
+     * The user principal Id of the user who has claimed the environment
+     */
+    public /*out*/ readonly claimedByUserPrincipalId!: pulumi.Output<string>;
+    /**
+     * Is the environment claimed or not
+     */
+    public /*out*/ readonly isClaimed!: pulumi.Output<boolean>;
+    /**
+     * Last known power state of the environment
+     */
+    public /*out*/ readonly lastKnownPowerState!: pulumi.Output<string>;
+    /**
+     * The details of the latest operation. ex: status, error
+     */
+    public /*out*/ readonly latestOperationResult!: pulumi.Output<outputs.labservices.v20181015.LatestOperationResultResponse>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,17 +69,37 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the Environment resource
+     * Network details of the environment
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.EnvironmentPropertiesResponse>;
+    public /*out*/ readonly networkInterface!: pulumi.Output<outputs.labservices.v20181015.NetworkInterfaceResponse>;
+    /**
+     * When the password was last reset on the environment.
+     */
+    public /*out*/ readonly passwordLastReset!: pulumi.Output<string>;
+    /**
+     * The provisioning status of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The set of a VM and the setting id it was created for
+     */
+    public readonly resourceSets!: pulumi.Output<outputs.labservices.v20181015.ResourceSetResponse | undefined>;
     /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * How long the environment has been used by a lab user
+     */
+    public /*out*/ readonly totalUsage!: pulumi.Output<string>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -95,7 +139,15 @@ export class Environment extends pulumi.CustomResource {
             inputs["resourceSets"] = args ? args.resourceSets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["claimedByUserName"] = undefined /*out*/;
+            inputs["claimedByUserObjectId"] = undefined /*out*/;
+            inputs["claimedByUserPrincipalId"] = undefined /*out*/;
+            inputs["isClaimed"] = undefined /*out*/;
+            inputs["lastKnownPowerState"] = undefined /*out*/;
+            inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["networkInterface"] = undefined /*out*/;
+            inputs["passwordLastReset"] = undefined /*out*/;
+            inputs["totalUsage"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

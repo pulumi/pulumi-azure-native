@@ -10,1375 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents the properties of a database.
-type DatabasePropertiesResponse struct {
-	// The collation of the database. If createMode is not Default, this value is ignored.
-	Collation *string `pulumi:"collation"`
-	// The containment state of the database.
-	ContainmentState int `pulumi:"containmentState"`
-	// Specifies the mode of database creation.
-	//
-	// Default: regular database creation.
-	//
-	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-	//
-	// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-	//
-	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-	//
-	// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-	//
-	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-	//
-	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-	CreateMode *string `pulumi:"createMode"`
-	// The creation date of the database (ISO8601 format).
-	CreationDate string `pulumi:"creationDate"`
-	// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
-	CurrentServiceObjectiveId string `pulumi:"currentServiceObjectiveId"`
-	// The ID of the database.
-	DatabaseId string `pulumi:"databaseId"`
-	// The default secondary region for this database.
-	DefaultSecondaryLocation string `pulumi:"defaultSecondaryLocation"`
-	// This records the earliest start date and time that restore is available for this database (ISO8601 format).
-	EarliestRestoreDate string `pulumi:"earliestRestoreDate"`
-	// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-	Edition *string `pulumi:"edition"`
-	// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	// The resource identifier of the failover group containing this database.
-	FailoverGroupId string `pulumi:"failoverGroupId"`
-	// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
-	// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
-	ReadScale *string `pulumi:"readScale"`
-	// The recommended indices for this database.
-	RecommendedIndex []RecommendedIndexResponse `pulumi:"recommendedIndex"`
-	// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-	RecoveryServicesRecoveryPointResourceId *string `pulumi:"recoveryServicesRecoveryPointResourceId"`
-	// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-	RequestedServiceObjectiveId *string `pulumi:"requestedServiceObjectiveId"`
-	// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
-	// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-	SampleName *string `pulumi:"sampleName"`
-	// The current service level objective of the database.
-	ServiceLevelObjective string `pulumi:"serviceLevelObjective"`
-	// The list of service tier advisors for this database. Expanded property
-	ServiceTierAdvisors []ServiceTierAdvisorResponse `pulumi:"serviceTierAdvisors"`
-	// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
-	// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
-	// The status of the database.
-	Status string `pulumi:"status"`
-	// The transparent data encryption info for this database.
-	TransparentDataEncryption []TransparentDataEncryptionResponse `pulumi:"transparentDataEncryption"`
-	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
-}
-
-// DatabasePropertiesResponseInput is an input type that accepts DatabasePropertiesResponseArgs and DatabasePropertiesResponseOutput values.
-// You can construct a concrete instance of `DatabasePropertiesResponseInput` via:
-//
-//          DatabasePropertiesResponseArgs{...}
-type DatabasePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDatabasePropertiesResponseOutput() DatabasePropertiesResponseOutput
-	ToDatabasePropertiesResponseOutputWithContext(context.Context) DatabasePropertiesResponseOutput
-}
-
-// Represents the properties of a database.
-type DatabasePropertiesResponseArgs struct {
-	// The collation of the database. If createMode is not Default, this value is ignored.
-	Collation pulumi.StringPtrInput `pulumi:"collation"`
-	// The containment state of the database.
-	ContainmentState pulumi.IntInput `pulumi:"containmentState"`
-	// Specifies the mode of database creation.
-	//
-	// Default: regular database creation.
-	//
-	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-	//
-	// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-	//
-	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-	//
-	// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-	//
-	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-	//
-	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// The creation date of the database (ISO8601 format).
-	CreationDate pulumi.StringInput `pulumi:"creationDate"`
-	// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
-	CurrentServiceObjectiveId pulumi.StringInput `pulumi:"currentServiceObjectiveId"`
-	// The ID of the database.
-	DatabaseId pulumi.StringInput `pulumi:"databaseId"`
-	// The default secondary region for this database.
-	DefaultSecondaryLocation pulumi.StringInput `pulumi:"defaultSecondaryLocation"`
-	// This records the earliest start date and time that restore is available for this database (ISO8601 format).
-	EarliestRestoreDate pulumi.StringInput `pulumi:"earliestRestoreDate"`
-	// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-	Edition pulumi.StringPtrInput `pulumi:"edition"`
-	// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
-	// The resource identifier of the failover group containing this database.
-	FailoverGroupId pulumi.StringInput `pulumi:"failoverGroupId"`
-	// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-	MaxSizeBytes pulumi.StringPtrInput `pulumi:"maxSizeBytes"`
-	// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
-	ReadScale pulumi.StringPtrInput `pulumi:"readScale"`
-	// The recommended indices for this database.
-	RecommendedIndex RecommendedIndexResponseArrayInput `pulumi:"recommendedIndex"`
-	// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-	RecoveryServicesRecoveryPointResourceId pulumi.StringPtrInput `pulumi:"recoveryServicesRecoveryPointResourceId"`
-	// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-	RequestedServiceObjectiveId pulumi.StringPtrInput `pulumi:"requestedServiceObjectiveId"`
-	// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-	RequestedServiceObjectiveName pulumi.StringPtrInput `pulumi:"requestedServiceObjectiveName"`
-	// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-	RestorePointInTime pulumi.StringPtrInput `pulumi:"restorePointInTime"`
-	// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-	SampleName pulumi.StringPtrInput `pulumi:"sampleName"`
-	// The current service level objective of the database.
-	ServiceLevelObjective pulumi.StringInput `pulumi:"serviceLevelObjective"`
-	// The list of service tier advisors for this database. Expanded property
-	ServiceTierAdvisors ServiceTierAdvisorResponseArrayInput `pulumi:"serviceTierAdvisors"`
-	// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-	SourceDatabaseDeletionDate pulumi.StringPtrInput `pulumi:"sourceDatabaseDeletionDate"`
-	// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-	SourceDatabaseId pulumi.StringPtrInput `pulumi:"sourceDatabaseId"`
-	// The status of the database.
-	Status pulumi.StringInput `pulumi:"status"`
-	// The transparent data encryption info for this database.
-	TransparentDataEncryption TransparentDataEncryptionResponseArrayInput `pulumi:"transparentDataEncryption"`
-	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-	ZoneRedundant pulumi.BoolPtrInput `pulumi:"zoneRedundant"`
-}
-
-func (DatabasePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePropertiesResponse)(nil)).Elem()
-}
-
-func (i DatabasePropertiesResponseArgs) ToDatabasePropertiesResponseOutput() DatabasePropertiesResponseOutput {
-	return i.ToDatabasePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DatabasePropertiesResponseArgs) ToDatabasePropertiesResponseOutputWithContext(ctx context.Context) DatabasePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePropertiesResponseOutput)
-}
-
-func (i DatabasePropertiesResponseArgs) ToDatabasePropertiesResponsePtrOutput() DatabasePropertiesResponsePtrOutput {
-	return i.ToDatabasePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DatabasePropertiesResponseArgs) ToDatabasePropertiesResponsePtrOutputWithContext(ctx context.Context) DatabasePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePropertiesResponseOutput).ToDatabasePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// DatabasePropertiesResponsePtrInput is an input type that accepts DatabasePropertiesResponseArgs, DatabasePropertiesResponsePtr and DatabasePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `DatabasePropertiesResponsePtrInput` via:
-//
-//          DatabasePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DatabasePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToDatabasePropertiesResponsePtrOutput() DatabasePropertiesResponsePtrOutput
-	ToDatabasePropertiesResponsePtrOutputWithContext(context.Context) DatabasePropertiesResponsePtrOutput
-}
-
-type databasePropertiesResponsePtrType DatabasePropertiesResponseArgs
-
-func DatabasePropertiesResponsePtr(v *DatabasePropertiesResponseArgs) DatabasePropertiesResponsePtrInput {
-	return (*databasePropertiesResponsePtrType)(v)
-}
-
-func (*databasePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabasePropertiesResponse)(nil)).Elem()
-}
-
-func (i *databasePropertiesResponsePtrType) ToDatabasePropertiesResponsePtrOutput() DatabasePropertiesResponsePtrOutput {
-	return i.ToDatabasePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *databasePropertiesResponsePtrType) ToDatabasePropertiesResponsePtrOutputWithContext(ctx context.Context) DatabasePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePropertiesResponsePtrOutput)
-}
-
-// Represents the properties of a database.
-type DatabasePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DatabasePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePropertiesResponse)(nil)).Elem()
-}
-
-func (o DatabasePropertiesResponseOutput) ToDatabasePropertiesResponseOutput() DatabasePropertiesResponseOutput {
-	return o
-}
-
-func (o DatabasePropertiesResponseOutput) ToDatabasePropertiesResponseOutputWithContext(ctx context.Context) DatabasePropertiesResponseOutput {
-	return o
-}
-
-func (o DatabasePropertiesResponseOutput) ToDatabasePropertiesResponsePtrOutput() DatabasePropertiesResponsePtrOutput {
-	return o.ToDatabasePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DatabasePropertiesResponseOutput) ToDatabasePropertiesResponsePtrOutputWithContext(ctx context.Context) DatabasePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *DatabasePropertiesResponse {
-		return &v
-	}).(DatabasePropertiesResponsePtrOutput)
-}
-
-// The collation of the database. If createMode is not Default, this value is ignored.
-func (o DatabasePropertiesResponseOutput) Collation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.Collation }).(pulumi.StringPtrOutput)
-}
-
-// The containment state of the database.
-func (o DatabasePropertiesResponseOutput) ContainmentState() pulumi.IntOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) int { return v.ContainmentState }).(pulumi.IntOutput)
-}
-
-// Specifies the mode of database creation.
-//
-// Default: regular database creation.
-//
-// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-//
-// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-//
-// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-//
-// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-//
-// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-//
-// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-//
-// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-func (o DatabasePropertiesResponseOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the database (ISO8601 format).
-func (o DatabasePropertiesResponseOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) string { return v.CreationDate }).(pulumi.StringOutput)
-}
-
-// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
-func (o DatabasePropertiesResponseOutput) CurrentServiceObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) string { return v.CurrentServiceObjectiveId }).(pulumi.StringOutput)
-}
-
-// The ID of the database.
-func (o DatabasePropertiesResponseOutput) DatabaseId() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) string { return v.DatabaseId }).(pulumi.StringOutput)
-}
-
-// The default secondary region for this database.
-func (o DatabasePropertiesResponseOutput) DefaultSecondaryLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) string { return v.DefaultSecondaryLocation }).(pulumi.StringOutput)
-}
-
-// This records the earliest start date and time that restore is available for this database (ISO8601 format).
-func (o DatabasePropertiesResponseOutput) EarliestRestoreDate() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) string { return v.EarliestRestoreDate }).(pulumi.StringOutput)
-}
-
-// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-//
-// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-func (o DatabasePropertiesResponseOutput) Edition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.Edition }).(pulumi.StringPtrOutput)
-}
-
-// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-func (o DatabasePropertiesResponseOutput) ElasticPoolName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.ElasticPoolName }).(pulumi.StringPtrOutput)
-}
-
-// The resource identifier of the failover group containing this database.
-func (o DatabasePropertiesResponseOutput) FailoverGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) string { return v.FailoverGroupId }).(pulumi.StringOutput)
-}
-
-// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-func (o DatabasePropertiesResponseOutput) MaxSizeBytes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.MaxSizeBytes }).(pulumi.StringPtrOutput)
-}
-
-// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
-func (o DatabasePropertiesResponseOutput) ReadScale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.ReadScale }).(pulumi.StringPtrOutput)
-}
-
-// The recommended indices for this database.
-func (o DatabasePropertiesResponseOutput) RecommendedIndex() RecommendedIndexResponseArrayOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) []RecommendedIndexResponse { return v.RecommendedIndex }).(RecommendedIndexResponseArrayOutput)
-}
-
-// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-func (o DatabasePropertiesResponseOutput) RecoveryServicesRecoveryPointResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.RecoveryServicesRecoveryPointResourceId }).(pulumi.StringPtrOutput)
-}
-
-// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-//
-// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-func (o DatabasePropertiesResponseOutput) RequestedServiceObjectiveId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.RequestedServiceObjectiveId }).(pulumi.StringPtrOutput)
-}
-
-// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property.
-//
-// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-func (o DatabasePropertiesResponseOutput) RequestedServiceObjectiveName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.RequestedServiceObjectiveName }).(pulumi.StringPtrOutput)
-}
-
-// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-func (o DatabasePropertiesResponseOutput) RestorePointInTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.RestorePointInTime }).(pulumi.StringPtrOutput)
-}
-
-// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-func (o DatabasePropertiesResponseOutput) SampleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.SampleName }).(pulumi.StringPtrOutput)
-}
-
-// The current service level objective of the database.
-func (o DatabasePropertiesResponseOutput) ServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) string { return v.ServiceLevelObjective }).(pulumi.StringOutput)
-}
-
-// The list of service tier advisors for this database. Expanded property
-func (o DatabasePropertiesResponseOutput) ServiceTierAdvisors() ServiceTierAdvisorResponseArrayOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) []ServiceTierAdvisorResponse { return v.ServiceTierAdvisors }).(ServiceTierAdvisorResponseArrayOutput)
-}
-
-// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-func (o DatabasePropertiesResponseOutput) SourceDatabaseDeletionDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.SourceDatabaseDeletionDate }).(pulumi.StringPtrOutput)
-}
-
-// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-func (o DatabasePropertiesResponseOutput) SourceDatabaseId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *string { return v.SourceDatabaseId }).(pulumi.StringPtrOutput)
-}
-
-// The status of the database.
-func (o DatabasePropertiesResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-// The transparent data encryption info for this database.
-func (o DatabasePropertiesResponseOutput) TransparentDataEncryption() TransparentDataEncryptionResponseArrayOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) []TransparentDataEncryptionResponse {
-		return v.TransparentDataEncryption
-	}).(TransparentDataEncryptionResponseArrayOutput)
-}
-
-// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-func (o DatabasePropertiesResponseOutput) ZoneRedundant() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatabasePropertiesResponse) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
-}
-
-type DatabasePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DatabasePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabasePropertiesResponse)(nil)).Elem()
-}
-
-func (o DatabasePropertiesResponsePtrOutput) ToDatabasePropertiesResponsePtrOutput() DatabasePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DatabasePropertiesResponsePtrOutput) ToDatabasePropertiesResponsePtrOutputWithContext(ctx context.Context) DatabasePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DatabasePropertiesResponsePtrOutput) Elem() DatabasePropertiesResponseOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) DatabasePropertiesResponse { return *v }).(DatabasePropertiesResponseOutput)
-}
-
-// The collation of the database. If createMode is not Default, this value is ignored.
-func (o DatabasePropertiesResponsePtrOutput) Collation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Collation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The containment state of the database.
-func (o DatabasePropertiesResponsePtrOutput) ContainmentState() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.ContainmentState
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the mode of database creation.
-//
-// Default: regular database creation.
-//
-// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-//
-// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-//
-// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-//
-// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-//
-// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-//
-// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-//
-// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-func (o DatabasePropertiesResponsePtrOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreateMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the database (ISO8601 format).
-func (o DatabasePropertiesResponsePtrOutput) CreationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
-func (o DatabasePropertiesResponsePtrOutput) CurrentServiceObjectiveId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CurrentServiceObjectiveId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the database.
-func (o DatabasePropertiesResponsePtrOutput) DatabaseId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DatabaseId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The default secondary region for this database.
-func (o DatabasePropertiesResponsePtrOutput) DefaultSecondaryLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DefaultSecondaryLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-// This records the earliest start date and time that restore is available for this database (ISO8601 format).
-func (o DatabasePropertiesResponsePtrOutput) EarliestRestoreDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EarliestRestoreDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-//
-// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-func (o DatabasePropertiesResponsePtrOutput) Edition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Edition
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-func (o DatabasePropertiesResponsePtrOutput) ElasticPoolName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ElasticPoolName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource identifier of the failover group containing this database.
-func (o DatabasePropertiesResponsePtrOutput) FailoverGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FailoverGroupId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-func (o DatabasePropertiesResponsePtrOutput) MaxSizeBytes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MaxSizeBytes
-	}).(pulumi.StringPtrOutput)
-}
-
-// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
-func (o DatabasePropertiesResponsePtrOutput) ReadScale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReadScale
-	}).(pulumi.StringPtrOutput)
-}
-
-// The recommended indices for this database.
-func (o DatabasePropertiesResponsePtrOutput) RecommendedIndex() RecommendedIndexResponseArrayOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) []RecommendedIndexResponse {
-		if v == nil {
-			return nil
-		}
-		return v.RecommendedIndex
-	}).(RecommendedIndexResponseArrayOutput)
-}
-
-// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-func (o DatabasePropertiesResponsePtrOutput) RecoveryServicesRecoveryPointResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecoveryServicesRecoveryPointResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-//
-// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-func (o DatabasePropertiesResponsePtrOutput) RequestedServiceObjectiveId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RequestedServiceObjectiveId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property.
-//
-// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-func (o DatabasePropertiesResponsePtrOutput) RequestedServiceObjectiveName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RequestedServiceObjectiveName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-func (o DatabasePropertiesResponsePtrOutput) RestorePointInTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RestorePointInTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-func (o DatabasePropertiesResponsePtrOutput) SampleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SampleName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The current service level objective of the database.
-func (o DatabasePropertiesResponsePtrOutput) ServiceLevelObjective() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ServiceLevelObjective
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of service tier advisors for this database. Expanded property
-func (o DatabasePropertiesResponsePtrOutput) ServiceTierAdvisors() ServiceTierAdvisorResponseArrayOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) []ServiceTierAdvisorResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceTierAdvisors
-	}).(ServiceTierAdvisorResponseArrayOutput)
-}
-
-// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-func (o DatabasePropertiesResponsePtrOutput) SourceDatabaseDeletionDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceDatabaseDeletionDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-func (o DatabasePropertiesResponsePtrOutput) SourceDatabaseId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceDatabaseId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The status of the database.
-func (o DatabasePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// The transparent data encryption info for this database.
-func (o DatabasePropertiesResponsePtrOutput) TransparentDataEncryption() TransparentDataEncryptionResponseArrayOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) []TransparentDataEncryptionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.TransparentDataEncryption
-	}).(TransparentDataEncryptionResponseArrayOutput)
-}
-
-// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-func (o DatabasePropertiesResponsePtrOutput) ZoneRedundant() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DatabasePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ZoneRedundant
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Represents the properties of a disaster recovery configuration.
-type DisasterRecoveryConfigurationPropertiesResponse struct {
-	// Whether or not failover can be done automatically.
-	AutoFailover string `pulumi:"autoFailover"`
-	// How aggressive the automatic failover should be.
-	FailoverPolicy string `pulumi:"failoverPolicy"`
-	// Logical name of the server.
-	LogicalServerName string `pulumi:"logicalServerName"`
-	// Logical name of the partner server.
-	PartnerLogicalServerName string `pulumi:"partnerLogicalServerName"`
-	// Id of the partner server.
-	PartnerServerId string `pulumi:"partnerServerId"`
-	// The role of the current server in the disaster recovery configuration.
-	Role string `pulumi:"role"`
-	// The status of the disaster recovery configuration.
-	Status string `pulumi:"status"`
-}
-
-// DisasterRecoveryConfigurationPropertiesResponseInput is an input type that accepts DisasterRecoveryConfigurationPropertiesResponseArgs and DisasterRecoveryConfigurationPropertiesResponseOutput values.
-// You can construct a concrete instance of `DisasterRecoveryConfigurationPropertiesResponseInput` via:
-//
-//          DisasterRecoveryConfigurationPropertiesResponseArgs{...}
-type DisasterRecoveryConfigurationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDisasterRecoveryConfigurationPropertiesResponseOutput() DisasterRecoveryConfigurationPropertiesResponseOutput
-	ToDisasterRecoveryConfigurationPropertiesResponseOutputWithContext(context.Context) DisasterRecoveryConfigurationPropertiesResponseOutput
-}
-
-// Represents the properties of a disaster recovery configuration.
-type DisasterRecoveryConfigurationPropertiesResponseArgs struct {
-	// Whether or not failover can be done automatically.
-	AutoFailover pulumi.StringInput `pulumi:"autoFailover"`
-	// How aggressive the automatic failover should be.
-	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
-	// Logical name of the server.
-	LogicalServerName pulumi.StringInput `pulumi:"logicalServerName"`
-	// Logical name of the partner server.
-	PartnerLogicalServerName pulumi.StringInput `pulumi:"partnerLogicalServerName"`
-	// Id of the partner server.
-	PartnerServerId pulumi.StringInput `pulumi:"partnerServerId"`
-	// The role of the current server in the disaster recovery configuration.
-	Role pulumi.StringInput `pulumi:"role"`
-	// The status of the disaster recovery configuration.
-	Status pulumi.StringInput `pulumi:"status"`
-}
-
-func (DisasterRecoveryConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DisasterRecoveryConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i DisasterRecoveryConfigurationPropertiesResponseArgs) ToDisasterRecoveryConfigurationPropertiesResponseOutput() DisasterRecoveryConfigurationPropertiesResponseOutput {
-	return i.ToDisasterRecoveryConfigurationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DisasterRecoveryConfigurationPropertiesResponseArgs) ToDisasterRecoveryConfigurationPropertiesResponseOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigurationPropertiesResponseOutput)
-}
-
-func (i DisasterRecoveryConfigurationPropertiesResponseArgs) ToDisasterRecoveryConfigurationPropertiesResponsePtrOutput() DisasterRecoveryConfigurationPropertiesResponsePtrOutput {
-	return i.ToDisasterRecoveryConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DisasterRecoveryConfigurationPropertiesResponseArgs) ToDisasterRecoveryConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigurationPropertiesResponseOutput).ToDisasterRecoveryConfigurationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// DisasterRecoveryConfigurationPropertiesResponsePtrInput is an input type that accepts DisasterRecoveryConfigurationPropertiesResponseArgs, DisasterRecoveryConfigurationPropertiesResponsePtr and DisasterRecoveryConfigurationPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `DisasterRecoveryConfigurationPropertiesResponsePtrInput` via:
-//
-//          DisasterRecoveryConfigurationPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DisasterRecoveryConfigurationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToDisasterRecoveryConfigurationPropertiesResponsePtrOutput() DisasterRecoveryConfigurationPropertiesResponsePtrOutput
-	ToDisasterRecoveryConfigurationPropertiesResponsePtrOutputWithContext(context.Context) DisasterRecoveryConfigurationPropertiesResponsePtrOutput
-}
-
-type disasterRecoveryConfigurationPropertiesResponsePtrType DisasterRecoveryConfigurationPropertiesResponseArgs
-
-func DisasterRecoveryConfigurationPropertiesResponsePtr(v *DisasterRecoveryConfigurationPropertiesResponseArgs) DisasterRecoveryConfigurationPropertiesResponsePtrInput {
-	return (*disasterRecoveryConfigurationPropertiesResponsePtrType)(v)
-}
-
-func (*disasterRecoveryConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DisasterRecoveryConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *disasterRecoveryConfigurationPropertiesResponsePtrType) ToDisasterRecoveryConfigurationPropertiesResponsePtrOutput() DisasterRecoveryConfigurationPropertiesResponsePtrOutput {
-	return i.ToDisasterRecoveryConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *disasterRecoveryConfigurationPropertiesResponsePtrType) ToDisasterRecoveryConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigurationPropertiesResponsePtrOutput)
-}
-
-// Represents the properties of a disaster recovery configuration.
-type DisasterRecoveryConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DisasterRecoveryConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DisasterRecoveryConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) ToDisasterRecoveryConfigurationPropertiesResponseOutput() DisasterRecoveryConfigurationPropertiesResponseOutput {
-	return o
-}
-
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) ToDisasterRecoveryConfigurationPropertiesResponseOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationPropertiesResponseOutput {
-	return o
-}
-
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) ToDisasterRecoveryConfigurationPropertiesResponsePtrOutput() DisasterRecoveryConfigurationPropertiesResponsePtrOutput {
-	return o.ToDisasterRecoveryConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) ToDisasterRecoveryConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DisasterRecoveryConfigurationPropertiesResponse) *DisasterRecoveryConfigurationPropertiesResponse {
-		return &v
-	}).(DisasterRecoveryConfigurationPropertiesResponsePtrOutput)
-}
-
-// Whether or not failover can be done automatically.
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) AutoFailover() pulumi.StringOutput {
-	return o.ApplyT(func(v DisasterRecoveryConfigurationPropertiesResponse) string { return v.AutoFailover }).(pulumi.StringOutput)
-}
-
-// How aggressive the automatic failover should be.
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) FailoverPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v DisasterRecoveryConfigurationPropertiesResponse) string { return v.FailoverPolicy }).(pulumi.StringOutput)
-}
-
-// Logical name of the server.
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) LogicalServerName() pulumi.StringOutput {
-	return o.ApplyT(func(v DisasterRecoveryConfigurationPropertiesResponse) string { return v.LogicalServerName }).(pulumi.StringOutput)
-}
-
-// Logical name of the partner server.
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) PartnerLogicalServerName() pulumi.StringOutput {
-	return o.ApplyT(func(v DisasterRecoveryConfigurationPropertiesResponse) string { return v.PartnerLogicalServerName }).(pulumi.StringOutput)
-}
-
-// Id of the partner server.
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) PartnerServerId() pulumi.StringOutput {
-	return o.ApplyT(func(v DisasterRecoveryConfigurationPropertiesResponse) string { return v.PartnerServerId }).(pulumi.StringOutput)
-}
-
-// The role of the current server in the disaster recovery configuration.
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) Role() pulumi.StringOutput {
-	return o.ApplyT(func(v DisasterRecoveryConfigurationPropertiesResponse) string { return v.Role }).(pulumi.StringOutput)
-}
-
-// The status of the disaster recovery configuration.
-func (o DisasterRecoveryConfigurationPropertiesResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v DisasterRecoveryConfigurationPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
-type DisasterRecoveryConfigurationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DisasterRecoveryConfigurationPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DisasterRecoveryConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) ToDisasterRecoveryConfigurationPropertiesResponsePtrOutput() DisasterRecoveryConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) ToDisasterRecoveryConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) Elem() DisasterRecoveryConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *DisasterRecoveryConfigurationPropertiesResponse) DisasterRecoveryConfigurationPropertiesResponse {
-		return *v
-	}).(DisasterRecoveryConfigurationPropertiesResponseOutput)
-}
-
-// Whether or not failover can be done automatically.
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) AutoFailover() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DisasterRecoveryConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AutoFailover
-	}).(pulumi.StringPtrOutput)
-}
-
-// How aggressive the automatic failover should be.
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) FailoverPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DisasterRecoveryConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FailoverPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// Logical name of the server.
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) LogicalServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DisasterRecoveryConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LogicalServerName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Logical name of the partner server.
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) PartnerLogicalServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DisasterRecoveryConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PartnerLogicalServerName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Id of the partner server.
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) PartnerServerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DisasterRecoveryConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PartnerServerId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The role of the current server in the disaster recovery configuration.
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) Role() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DisasterRecoveryConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Role
-	}).(pulumi.StringPtrOutput)
-}
-
-// The status of the disaster recovery configuration.
-func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DisasterRecoveryConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// Represents the properties of an elastic pool.
-type ElasticPoolPropertiesResponse struct {
-	// The creation date of the elastic pool (ISO8601 format).
-	CreationDate string `pulumi:"creationDate"`
-	// The maximum DTU any one database can consume.
-	DatabaseDtuMax *int `pulumi:"databaseDtuMax"`
-	// The minimum DTU all databases are guaranteed.
-	DatabaseDtuMin *int `pulumi:"databaseDtuMin"`
-	// The total shared DTU for the database elastic pool.
-	Dtu *int `pulumi:"dtu"`
-	// The edition of the elastic pool.
-	Edition *string `pulumi:"edition"`
-	// The state of the elastic pool.
-	State string `pulumi:"state"`
-	// Gets storage limit for the database elastic pool in MB.
-	StorageMB *int `pulumi:"storageMB"`
-	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
-}
-
-// ElasticPoolPropertiesResponseInput is an input type that accepts ElasticPoolPropertiesResponseArgs and ElasticPoolPropertiesResponseOutput values.
-// You can construct a concrete instance of `ElasticPoolPropertiesResponseInput` via:
-//
-//          ElasticPoolPropertiesResponseArgs{...}
-type ElasticPoolPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToElasticPoolPropertiesResponseOutput() ElasticPoolPropertiesResponseOutput
-	ToElasticPoolPropertiesResponseOutputWithContext(context.Context) ElasticPoolPropertiesResponseOutput
-}
-
-// Represents the properties of an elastic pool.
-type ElasticPoolPropertiesResponseArgs struct {
-	// The creation date of the elastic pool (ISO8601 format).
-	CreationDate pulumi.StringInput `pulumi:"creationDate"`
-	// The maximum DTU any one database can consume.
-	DatabaseDtuMax pulumi.IntPtrInput `pulumi:"databaseDtuMax"`
-	// The minimum DTU all databases are guaranteed.
-	DatabaseDtuMin pulumi.IntPtrInput `pulumi:"databaseDtuMin"`
-	// The total shared DTU for the database elastic pool.
-	Dtu pulumi.IntPtrInput `pulumi:"dtu"`
-	// The edition of the elastic pool.
-	Edition pulumi.StringPtrInput `pulumi:"edition"`
-	// The state of the elastic pool.
-	State pulumi.StringInput `pulumi:"state"`
-	// Gets storage limit for the database elastic pool in MB.
-	StorageMB pulumi.IntPtrInput `pulumi:"storageMB"`
-	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-	ZoneRedundant pulumi.BoolPtrInput `pulumi:"zoneRedundant"`
-}
-
-func (ElasticPoolPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPoolPropertiesResponse)(nil)).Elem()
-}
-
-func (i ElasticPoolPropertiesResponseArgs) ToElasticPoolPropertiesResponseOutput() ElasticPoolPropertiesResponseOutput {
-	return i.ToElasticPoolPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ElasticPoolPropertiesResponseArgs) ToElasticPoolPropertiesResponseOutputWithContext(ctx context.Context) ElasticPoolPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPropertiesResponseOutput)
-}
-
-func (i ElasticPoolPropertiesResponseArgs) ToElasticPoolPropertiesResponsePtrOutput() ElasticPoolPropertiesResponsePtrOutput {
-	return i.ToElasticPoolPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ElasticPoolPropertiesResponseArgs) ToElasticPoolPropertiesResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPropertiesResponseOutput).ToElasticPoolPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ElasticPoolPropertiesResponsePtrInput is an input type that accepts ElasticPoolPropertiesResponseArgs, ElasticPoolPropertiesResponsePtr and ElasticPoolPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ElasticPoolPropertiesResponsePtrInput` via:
-//
-//          ElasticPoolPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ElasticPoolPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToElasticPoolPropertiesResponsePtrOutput() ElasticPoolPropertiesResponsePtrOutput
-	ToElasticPoolPropertiesResponsePtrOutputWithContext(context.Context) ElasticPoolPropertiesResponsePtrOutput
-}
-
-type elasticPoolPropertiesResponsePtrType ElasticPoolPropertiesResponseArgs
-
-func ElasticPoolPropertiesResponsePtr(v *ElasticPoolPropertiesResponseArgs) ElasticPoolPropertiesResponsePtrInput {
-	return (*elasticPoolPropertiesResponsePtrType)(v)
-}
-
-func (*elasticPoolPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ElasticPoolPropertiesResponse)(nil)).Elem()
-}
-
-func (i *elasticPoolPropertiesResponsePtrType) ToElasticPoolPropertiesResponsePtrOutput() ElasticPoolPropertiesResponsePtrOutput {
-	return i.ToElasticPoolPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *elasticPoolPropertiesResponsePtrType) ToElasticPoolPropertiesResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPropertiesResponsePtrOutput)
-}
-
-// Represents the properties of an elastic pool.
-type ElasticPoolPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ElasticPoolPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPoolPropertiesResponse)(nil)).Elem()
-}
-
-func (o ElasticPoolPropertiesResponseOutput) ToElasticPoolPropertiesResponseOutput() ElasticPoolPropertiesResponseOutput {
-	return o
-}
-
-func (o ElasticPoolPropertiesResponseOutput) ToElasticPoolPropertiesResponseOutputWithContext(ctx context.Context) ElasticPoolPropertiesResponseOutput {
-	return o
-}
-
-func (o ElasticPoolPropertiesResponseOutput) ToElasticPoolPropertiesResponsePtrOutput() ElasticPoolPropertiesResponsePtrOutput {
-	return o.ToElasticPoolPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ElasticPoolPropertiesResponseOutput) ToElasticPoolPropertiesResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ElasticPoolPropertiesResponse) *ElasticPoolPropertiesResponse {
-		return &v
-	}).(ElasticPoolPropertiesResponsePtrOutput)
-}
-
-// The creation date of the elastic pool (ISO8601 format).
-func (o ElasticPoolPropertiesResponseOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v ElasticPoolPropertiesResponse) string { return v.CreationDate }).(pulumi.StringOutput)
-}
-
-// The maximum DTU any one database can consume.
-func (o ElasticPoolPropertiesResponseOutput) DatabaseDtuMax() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ElasticPoolPropertiesResponse) *int { return v.DatabaseDtuMax }).(pulumi.IntPtrOutput)
-}
-
-// The minimum DTU all databases are guaranteed.
-func (o ElasticPoolPropertiesResponseOutput) DatabaseDtuMin() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ElasticPoolPropertiesResponse) *int { return v.DatabaseDtuMin }).(pulumi.IntPtrOutput)
-}
-
-// The total shared DTU for the database elastic pool.
-func (o ElasticPoolPropertiesResponseOutput) Dtu() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ElasticPoolPropertiesResponse) *int { return v.Dtu }).(pulumi.IntPtrOutput)
-}
-
-// The edition of the elastic pool.
-func (o ElasticPoolPropertiesResponseOutput) Edition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ElasticPoolPropertiesResponse) *string { return v.Edition }).(pulumi.StringPtrOutput)
-}
-
-// The state of the elastic pool.
-func (o ElasticPoolPropertiesResponseOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v ElasticPoolPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
-}
-
-// Gets storage limit for the database elastic pool in MB.
-func (o ElasticPoolPropertiesResponseOutput) StorageMB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ElasticPoolPropertiesResponse) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
-}
-
-// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-func (o ElasticPoolPropertiesResponseOutput) ZoneRedundant() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ElasticPoolPropertiesResponse) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
-}
-
-type ElasticPoolPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ElasticPoolPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ElasticPoolPropertiesResponse)(nil)).Elem()
-}
-
-func (o ElasticPoolPropertiesResponsePtrOutput) ToElasticPoolPropertiesResponsePtrOutput() ElasticPoolPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ElasticPoolPropertiesResponsePtrOutput) ToElasticPoolPropertiesResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ElasticPoolPropertiesResponsePtrOutput) Elem() ElasticPoolPropertiesResponseOutput {
-	return o.ApplyT(func(v *ElasticPoolPropertiesResponse) ElasticPoolPropertiesResponse { return *v }).(ElasticPoolPropertiesResponseOutput)
-}
-
-// The creation date of the elastic pool (ISO8601 format).
-func (o ElasticPoolPropertiesResponsePtrOutput) CreationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum DTU any one database can consume.
-func (o ElasticPoolPropertiesResponsePtrOutput) DatabaseDtuMax() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseDtuMax
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minimum DTU all databases are guaranteed.
-func (o ElasticPoolPropertiesResponsePtrOutput) DatabaseDtuMin() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseDtuMin
-	}).(pulumi.IntPtrOutput)
-}
-
-// The total shared DTU for the database elastic pool.
-func (o ElasticPoolPropertiesResponsePtrOutput) Dtu() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Dtu
-	}).(pulumi.IntPtrOutput)
-}
-
-// The edition of the elastic pool.
-func (o ElasticPoolPropertiesResponsePtrOutput) Edition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Edition
-	}).(pulumi.StringPtrOutput)
-}
-
-// The state of the elastic pool.
-func (o ElasticPoolPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets storage limit for the database elastic pool in MB.
-func (o ElasticPoolPropertiesResponsePtrOutput) StorageMB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.StorageMB
-	}).(pulumi.IntPtrOutput)
-}
-
-// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-func (o ElasticPoolPropertiesResponsePtrOutput) ZoneRedundant() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ZoneRedundant
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Represents the properties of a server firewall rule.
-type FirewallRulePropertiesResponse struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	StartIpAddress string `pulumi:"startIpAddress"`
-}
-
-// FirewallRulePropertiesResponseInput is an input type that accepts FirewallRulePropertiesResponseArgs and FirewallRulePropertiesResponseOutput values.
-// You can construct a concrete instance of `FirewallRulePropertiesResponseInput` via:
-//
-//          FirewallRulePropertiesResponseArgs{...}
-type FirewallRulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToFirewallRulePropertiesResponseOutput() FirewallRulePropertiesResponseOutput
-	ToFirewallRulePropertiesResponseOutputWithContext(context.Context) FirewallRulePropertiesResponseOutput
-}
-
-// Represents the properties of a server firewall rule.
-type FirewallRulePropertiesResponseArgs struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
-	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
-}
-
-func (FirewallRulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i FirewallRulePropertiesResponseArgs) ToFirewallRulePropertiesResponseOutput() FirewallRulePropertiesResponseOutput {
-	return i.ToFirewallRulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i FirewallRulePropertiesResponseArgs) ToFirewallRulePropertiesResponseOutputWithContext(ctx context.Context) FirewallRulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRulePropertiesResponseOutput)
-}
-
-func (i FirewallRulePropertiesResponseArgs) ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput {
-	return i.ToFirewallRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FirewallRulePropertiesResponseArgs) ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx context.Context) FirewallRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRulePropertiesResponseOutput).ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// FirewallRulePropertiesResponsePtrInput is an input type that accepts FirewallRulePropertiesResponseArgs, FirewallRulePropertiesResponsePtr and FirewallRulePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `FirewallRulePropertiesResponsePtrInput` via:
-//
-//          FirewallRulePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FirewallRulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput
-	ToFirewallRulePropertiesResponsePtrOutputWithContext(context.Context) FirewallRulePropertiesResponsePtrOutput
-}
-
-type firewallRulePropertiesResponsePtrType FirewallRulePropertiesResponseArgs
-
-func FirewallRulePropertiesResponsePtr(v *FirewallRulePropertiesResponseArgs) FirewallRulePropertiesResponsePtrInput {
-	return (*firewallRulePropertiesResponsePtrType)(v)
-}
-
-func (*firewallRulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *firewallRulePropertiesResponsePtrType) ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput {
-	return i.ToFirewallRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *firewallRulePropertiesResponsePtrType) ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx context.Context) FirewallRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRulePropertiesResponsePtrOutput)
-}
-
-// Represents the properties of a server firewall rule.
-type FirewallRulePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (FirewallRulePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o FirewallRulePropertiesResponseOutput) ToFirewallRulePropertiesResponseOutput() FirewallRulePropertiesResponseOutput {
-	return o
-}
-
-func (o FirewallRulePropertiesResponseOutput) ToFirewallRulePropertiesResponseOutputWithContext(ctx context.Context) FirewallRulePropertiesResponseOutput {
-	return o
-}
-
-func (o FirewallRulePropertiesResponseOutput) ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput {
-	return o.ToFirewallRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FirewallRulePropertiesResponseOutput) ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx context.Context) FirewallRulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FirewallRulePropertiesResponse) *FirewallRulePropertiesResponse {
-		return &v
-	}).(FirewallRulePropertiesResponsePtrOutput)
-}
-
-// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-func (o FirewallRulePropertiesResponseOutput) EndIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRulePropertiesResponse) string { return v.EndIpAddress }).(pulumi.StringOutput)
-}
-
-// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-func (o FirewallRulePropertiesResponseOutput) StartIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRulePropertiesResponse) string { return v.StartIpAddress }).(pulumi.StringOutput)
-}
-
-type FirewallRulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallRulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o FirewallRulePropertiesResponsePtrOutput) ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FirewallRulePropertiesResponsePtrOutput) ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx context.Context) FirewallRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FirewallRulePropertiesResponsePtrOutput) Elem() FirewallRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *FirewallRulePropertiesResponse) FirewallRulePropertiesResponse { return *v }).(FirewallRulePropertiesResponseOutput)
-}
-
-// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-func (o FirewallRulePropertiesResponsePtrOutput) EndIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FirewallRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-func (o FirewallRulePropertiesResponsePtrOutput) StartIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FirewallRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
 // The impact of an operation, both in absolute and relative terms.
 type OperationImpactResponse struct {
 	// The absolute impact to dimension.
@@ -1506,8 +137,8 @@ func (o OperationImpactResponseArrayOutput) Index(i pulumi.IntInput) OperationIm
 	}).(OperationImpactResponseOutput)
 }
 
-// Represents the properties of a database recommended index.
-type RecommendedIndexPropertiesResponse struct {
+// Represents a database recommended index.
+type RecommendedIndexResponse struct {
 	// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
 	Action string `pulumi:"action"`
 	// Columns over which to build index
@@ -1516,6 +147,8 @@ type RecommendedIndexPropertiesResponse struct {
 	Created string `pulumi:"created"`
 	// The estimated impact of doing recommended index action.
 	EstimatedImpact []OperationImpactResponse `pulumi:"estimatedImpact"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The list of column names to be included in the index
 	IncludedColumns []string `pulumi:"includedColumns"`
 	// The full build index script
@@ -1524,6 +157,8 @@ type RecommendedIndexPropertiesResponse struct {
 	IndexType string `pulumi:"indexType"`
 	// The UTC datetime of when was this resource last changed (ISO8601 format).
 	LastModified string `pulumi:"lastModified"`
+	// Resource name.
+	Name string `pulumi:"name"`
 	// The values reported after index action is complete.
 	ReportedImpact []OperationImpactResponse `pulumi:"reportedImpact"`
 	// The schema where table to build index over resides
@@ -1532,142 +167,6 @@ type RecommendedIndexPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// The table on which to build index.
 	Table string `pulumi:"table"`
-}
-
-// RecommendedIndexPropertiesResponseInput is an input type that accepts RecommendedIndexPropertiesResponseArgs and RecommendedIndexPropertiesResponseOutput values.
-// You can construct a concrete instance of `RecommendedIndexPropertiesResponseInput` via:
-//
-//          RecommendedIndexPropertiesResponseArgs{...}
-type RecommendedIndexPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToRecommendedIndexPropertiesResponseOutput() RecommendedIndexPropertiesResponseOutput
-	ToRecommendedIndexPropertiesResponseOutputWithContext(context.Context) RecommendedIndexPropertiesResponseOutput
-}
-
-// Represents the properties of a database recommended index.
-type RecommendedIndexPropertiesResponseArgs struct {
-	// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Columns over which to build index
-	Columns pulumi.StringArrayInput `pulumi:"columns"`
-	// The UTC datetime showing when this resource was created (ISO8601 format).
-	Created pulumi.StringInput `pulumi:"created"`
-	// The estimated impact of doing recommended index action.
-	EstimatedImpact OperationImpactResponseArrayInput `pulumi:"estimatedImpact"`
-	// The list of column names to be included in the index
-	IncludedColumns pulumi.StringArrayInput `pulumi:"includedColumns"`
-	// The full build index script
-	IndexScript pulumi.StringInput `pulumi:"indexScript"`
-	// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
-	IndexType pulumi.StringInput `pulumi:"indexType"`
-	// The UTC datetime of when was this resource last changed (ISO8601 format).
-	LastModified pulumi.StringInput `pulumi:"lastModified"`
-	// The values reported after index action is complete.
-	ReportedImpact OperationImpactResponseArrayInput `pulumi:"reportedImpact"`
-	// The schema where table to build index over resides
-	Schema pulumi.StringInput `pulumi:"schema"`
-	// The current recommendation state.
-	State pulumi.StringInput `pulumi:"state"`
-	// The table on which to build index.
-	Table pulumi.StringInput `pulumi:"table"`
-}
-
-func (RecommendedIndexPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendedIndexPropertiesResponse)(nil)).Elem()
-}
-
-func (i RecommendedIndexPropertiesResponseArgs) ToRecommendedIndexPropertiesResponseOutput() RecommendedIndexPropertiesResponseOutput {
-	return i.ToRecommendedIndexPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i RecommendedIndexPropertiesResponseArgs) ToRecommendedIndexPropertiesResponseOutputWithContext(ctx context.Context) RecommendedIndexPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendedIndexPropertiesResponseOutput)
-}
-
-// Represents the properties of a database recommended index.
-type RecommendedIndexPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (RecommendedIndexPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendedIndexPropertiesResponse)(nil)).Elem()
-}
-
-func (o RecommendedIndexPropertiesResponseOutput) ToRecommendedIndexPropertiesResponseOutput() RecommendedIndexPropertiesResponseOutput {
-	return o
-}
-
-func (o RecommendedIndexPropertiesResponseOutput) ToRecommendedIndexPropertiesResponseOutputWithContext(ctx context.Context) RecommendedIndexPropertiesResponseOutput {
-	return o
-}
-
-// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
-func (o RecommendedIndexPropertiesResponseOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) string { return v.Action }).(pulumi.StringOutput)
-}
-
-// Columns over which to build index
-func (o RecommendedIndexPropertiesResponseOutput) Columns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
-}
-
-// The UTC datetime showing when this resource was created (ISO8601 format).
-func (o RecommendedIndexPropertiesResponseOutput) Created() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) string { return v.Created }).(pulumi.StringOutput)
-}
-
-// The estimated impact of doing recommended index action.
-func (o RecommendedIndexPropertiesResponseOutput) EstimatedImpact() OperationImpactResponseArrayOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) []OperationImpactResponse { return v.EstimatedImpact }).(OperationImpactResponseArrayOutput)
-}
-
-// The list of column names to be included in the index
-func (o RecommendedIndexPropertiesResponseOutput) IncludedColumns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) []string { return v.IncludedColumns }).(pulumi.StringArrayOutput)
-}
-
-// The full build index script
-func (o RecommendedIndexPropertiesResponseOutput) IndexScript() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) string { return v.IndexScript }).(pulumi.StringOutput)
-}
-
-// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
-func (o RecommendedIndexPropertiesResponseOutput) IndexType() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) string { return v.IndexType }).(pulumi.StringOutput)
-}
-
-// The UTC datetime of when was this resource last changed (ISO8601 format).
-func (o RecommendedIndexPropertiesResponseOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) string { return v.LastModified }).(pulumi.StringOutput)
-}
-
-// The values reported after index action is complete.
-func (o RecommendedIndexPropertiesResponseOutput) ReportedImpact() OperationImpactResponseArrayOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) []OperationImpactResponse { return v.ReportedImpact }).(OperationImpactResponseArrayOutput)
-}
-
-// The schema where table to build index over resides
-func (o RecommendedIndexPropertiesResponseOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) string { return v.Schema }).(pulumi.StringOutput)
-}
-
-// The current recommendation state.
-func (o RecommendedIndexPropertiesResponseOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
-}
-
-// The table on which to build index.
-func (o RecommendedIndexPropertiesResponseOutput) Table() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexPropertiesResponse) string { return v.Table }).(pulumi.StringOutput)
-}
-
-// Represents a database recommended index.
-type RecommendedIndexResponse struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties representing the resource.
-	Properties RecommendedIndexPropertiesResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -1685,12 +184,34 @@ type RecommendedIndexResponseInput interface {
 
 // Represents a database recommended index.
 type RecommendedIndexResponseArgs struct {
+	// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Columns over which to build index
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// The UTC datetime showing when this resource was created (ISO8601 format).
+	Created pulumi.StringInput `pulumi:"created"`
+	// The estimated impact of doing recommended index action.
+	EstimatedImpact OperationImpactResponseArrayInput `pulumi:"estimatedImpact"`
 	// Resource ID.
 	Id pulumi.StringInput `pulumi:"id"`
+	// The list of column names to be included in the index
+	IncludedColumns pulumi.StringArrayInput `pulumi:"includedColumns"`
+	// The full build index script
+	IndexScript pulumi.StringInput `pulumi:"indexScript"`
+	// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
+	IndexType pulumi.StringInput `pulumi:"indexType"`
+	// The UTC datetime of when was this resource last changed (ISO8601 format).
+	LastModified pulumi.StringInput `pulumi:"lastModified"`
 	// Resource name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The properties representing the resource.
-	Properties RecommendedIndexPropertiesResponseInput `pulumi:"properties"`
+	// The values reported after index action is complete.
+	ReportedImpact OperationImpactResponseArrayInput `pulumi:"reportedImpact"`
+	// The schema where table to build index over resides
+	Schema pulumi.StringInput `pulumi:"schema"`
+	// The current recommendation state.
+	State pulumi.StringInput `pulumi:"state"`
+	// The table on which to build index.
+	Table pulumi.StringInput `pulumi:"table"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1747,9 +268,49 @@ func (o RecommendedIndexResponseOutput) ToRecommendedIndexResponseOutputWithCont
 	return o
 }
 
+// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
+func (o RecommendedIndexResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Columns over which to build index
+func (o RecommendedIndexResponseOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// The UTC datetime showing when this resource was created (ISO8601 format).
+func (o RecommendedIndexResponseOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// The estimated impact of doing recommended index action.
+func (o RecommendedIndexResponseOutput) EstimatedImpact() OperationImpactResponseArrayOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) []OperationImpactResponse { return v.EstimatedImpact }).(OperationImpactResponseArrayOutput)
+}
+
 // Resource ID.
 func (o RecommendedIndexResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The list of column names to be included in the index
+func (o RecommendedIndexResponseOutput) IncludedColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) []string { return v.IncludedColumns }).(pulumi.StringArrayOutput)
+}
+
+// The full build index script
+func (o RecommendedIndexResponseOutput) IndexScript() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.IndexScript }).(pulumi.StringOutput)
+}
+
+// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
+func (o RecommendedIndexResponseOutput) IndexType() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.IndexType }).(pulumi.StringOutput)
+}
+
+// The UTC datetime of when was this resource last changed (ISO8601 format).
+func (o RecommendedIndexResponseOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
 // Resource name.
@@ -1757,9 +318,24 @@ func (o RecommendedIndexResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties representing the resource.
-func (o RecommendedIndexResponseOutput) Properties() RecommendedIndexPropertiesResponseOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) RecommendedIndexPropertiesResponse { return v.Properties }).(RecommendedIndexPropertiesResponseOutput)
+// The values reported after index action is complete.
+func (o RecommendedIndexResponseOutput) ReportedImpact() OperationImpactResponseArrayOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) []OperationImpactResponse { return v.ReportedImpact }).(OperationImpactResponseArrayOutput)
+}
+
+// The schema where table to build index over resides
+func (o RecommendedIndexResponseOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+// The current recommendation state.
+func (o RecommendedIndexResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The table on which to build index.
+func (o RecommendedIndexResponseOutput) Table() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Table }).(pulumi.StringOutput)
 }
 
 // Resource type.
@@ -1787,602 +363,8 @@ func (o RecommendedIndexResponseArrayOutput) Index(i pulumi.IntInput) Recommende
 	}).(RecommendedIndexResponseOutput)
 }
 
-// The properties of an server Administrator.
-type ServerAdministratorPropertiesResponse struct {
-	// The type of administrator.
-	AdministratorType string `pulumi:"administratorType"`
-	// The server administrator login value.
-	Login string `pulumi:"login"`
-	// The server administrator Sid (Secure ID).
-	Sid string `pulumi:"sid"`
-	// The server Active Directory Administrator tenant id.
-	TenantId string `pulumi:"tenantId"`
-}
-
-// ServerAdministratorPropertiesResponseInput is an input type that accepts ServerAdministratorPropertiesResponseArgs and ServerAdministratorPropertiesResponseOutput values.
-// You can construct a concrete instance of `ServerAdministratorPropertiesResponseInput` via:
-//
-//          ServerAdministratorPropertiesResponseArgs{...}
-type ServerAdministratorPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToServerAdministratorPropertiesResponseOutput() ServerAdministratorPropertiesResponseOutput
-	ToServerAdministratorPropertiesResponseOutputWithContext(context.Context) ServerAdministratorPropertiesResponseOutput
-}
-
-// The properties of an server Administrator.
-type ServerAdministratorPropertiesResponseArgs struct {
-	// The type of administrator.
-	AdministratorType pulumi.StringInput `pulumi:"administratorType"`
-	// The server administrator login value.
-	Login pulumi.StringInput `pulumi:"login"`
-	// The server administrator Sid (Secure ID).
-	Sid pulumi.StringInput `pulumi:"sid"`
-	// The server Active Directory Administrator tenant id.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-}
-
-func (ServerAdministratorPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAdministratorPropertiesResponse)(nil)).Elem()
-}
-
-func (i ServerAdministratorPropertiesResponseArgs) ToServerAdministratorPropertiesResponseOutput() ServerAdministratorPropertiesResponseOutput {
-	return i.ToServerAdministratorPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ServerAdministratorPropertiesResponseArgs) ToServerAdministratorPropertiesResponseOutputWithContext(ctx context.Context) ServerAdministratorPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorPropertiesResponseOutput)
-}
-
-func (i ServerAdministratorPropertiesResponseArgs) ToServerAdministratorPropertiesResponsePtrOutput() ServerAdministratorPropertiesResponsePtrOutput {
-	return i.ToServerAdministratorPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServerAdministratorPropertiesResponseArgs) ToServerAdministratorPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerAdministratorPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorPropertiesResponseOutput).ToServerAdministratorPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ServerAdministratorPropertiesResponsePtrInput is an input type that accepts ServerAdministratorPropertiesResponseArgs, ServerAdministratorPropertiesResponsePtr and ServerAdministratorPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ServerAdministratorPropertiesResponsePtrInput` via:
-//
-//          ServerAdministratorPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ServerAdministratorPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToServerAdministratorPropertiesResponsePtrOutput() ServerAdministratorPropertiesResponsePtrOutput
-	ToServerAdministratorPropertiesResponsePtrOutputWithContext(context.Context) ServerAdministratorPropertiesResponsePtrOutput
-}
-
-type serverAdministratorPropertiesResponsePtrType ServerAdministratorPropertiesResponseArgs
-
-func ServerAdministratorPropertiesResponsePtr(v *ServerAdministratorPropertiesResponseArgs) ServerAdministratorPropertiesResponsePtrInput {
-	return (*serverAdministratorPropertiesResponsePtrType)(v)
-}
-
-func (*serverAdministratorPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerAdministratorPropertiesResponse)(nil)).Elem()
-}
-
-func (i *serverAdministratorPropertiesResponsePtrType) ToServerAdministratorPropertiesResponsePtrOutput() ServerAdministratorPropertiesResponsePtrOutput {
-	return i.ToServerAdministratorPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serverAdministratorPropertiesResponsePtrType) ToServerAdministratorPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerAdministratorPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorPropertiesResponsePtrOutput)
-}
-
-// The properties of an server Administrator.
-type ServerAdministratorPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerAdministratorPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAdministratorPropertiesResponse)(nil)).Elem()
-}
-
-func (o ServerAdministratorPropertiesResponseOutput) ToServerAdministratorPropertiesResponseOutput() ServerAdministratorPropertiesResponseOutput {
-	return o
-}
-
-func (o ServerAdministratorPropertiesResponseOutput) ToServerAdministratorPropertiesResponseOutputWithContext(ctx context.Context) ServerAdministratorPropertiesResponseOutput {
-	return o
-}
-
-func (o ServerAdministratorPropertiesResponseOutput) ToServerAdministratorPropertiesResponsePtrOutput() ServerAdministratorPropertiesResponsePtrOutput {
-	return o.ToServerAdministratorPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServerAdministratorPropertiesResponseOutput) ToServerAdministratorPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerAdministratorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ServerAdministratorPropertiesResponse) *ServerAdministratorPropertiesResponse {
-		return &v
-	}).(ServerAdministratorPropertiesResponsePtrOutput)
-}
-
-// The type of administrator.
-func (o ServerAdministratorPropertiesResponseOutput) AdministratorType() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerAdministratorPropertiesResponse) string { return v.AdministratorType }).(pulumi.StringOutput)
-}
-
-// The server administrator login value.
-func (o ServerAdministratorPropertiesResponseOutput) Login() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerAdministratorPropertiesResponse) string { return v.Login }).(pulumi.StringOutput)
-}
-
-// The server administrator Sid (Secure ID).
-func (o ServerAdministratorPropertiesResponseOutput) Sid() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerAdministratorPropertiesResponse) string { return v.Sid }).(pulumi.StringOutput)
-}
-
-// The server Active Directory Administrator tenant id.
-func (o ServerAdministratorPropertiesResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerAdministratorPropertiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
-}
-
-type ServerAdministratorPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServerAdministratorPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerAdministratorPropertiesResponse)(nil)).Elem()
-}
-
-func (o ServerAdministratorPropertiesResponsePtrOutput) ToServerAdministratorPropertiesResponsePtrOutput() ServerAdministratorPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ServerAdministratorPropertiesResponsePtrOutput) ToServerAdministratorPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerAdministratorPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ServerAdministratorPropertiesResponsePtrOutput) Elem() ServerAdministratorPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServerAdministratorPropertiesResponse) ServerAdministratorPropertiesResponse { return *v }).(ServerAdministratorPropertiesResponseOutput)
-}
-
-// The type of administrator.
-func (o ServerAdministratorPropertiesResponsePtrOutput) AdministratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerAdministratorPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AdministratorType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The server administrator login value.
-func (o ServerAdministratorPropertiesResponsePtrOutput) Login() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerAdministratorPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Login
-	}).(pulumi.StringPtrOutput)
-}
-
-// The server administrator Sid (Secure ID).
-func (o ServerAdministratorPropertiesResponsePtrOutput) Sid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerAdministratorPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Sid
-	}).(pulumi.StringPtrOutput)
-}
-
-// The server Active Directory Administrator tenant id.
-func (o ServerAdministratorPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerAdministratorPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of a server communication link.
-type ServerCommunicationLinkPropertiesResponse struct {
-	// The name of the partner server.
-	PartnerServer string `pulumi:"partnerServer"`
-	// The state.
-	State string `pulumi:"state"`
-}
-
-// ServerCommunicationLinkPropertiesResponseInput is an input type that accepts ServerCommunicationLinkPropertiesResponseArgs and ServerCommunicationLinkPropertiesResponseOutput values.
-// You can construct a concrete instance of `ServerCommunicationLinkPropertiesResponseInput` via:
-//
-//          ServerCommunicationLinkPropertiesResponseArgs{...}
-type ServerCommunicationLinkPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToServerCommunicationLinkPropertiesResponseOutput() ServerCommunicationLinkPropertiesResponseOutput
-	ToServerCommunicationLinkPropertiesResponseOutputWithContext(context.Context) ServerCommunicationLinkPropertiesResponseOutput
-}
-
-// The properties of a server communication link.
-type ServerCommunicationLinkPropertiesResponseArgs struct {
-	// The name of the partner server.
-	PartnerServer pulumi.StringInput `pulumi:"partnerServer"`
-	// The state.
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (ServerCommunicationLinkPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCommunicationLinkPropertiesResponse)(nil)).Elem()
-}
-
-func (i ServerCommunicationLinkPropertiesResponseArgs) ToServerCommunicationLinkPropertiesResponseOutput() ServerCommunicationLinkPropertiesResponseOutput {
-	return i.ToServerCommunicationLinkPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ServerCommunicationLinkPropertiesResponseArgs) ToServerCommunicationLinkPropertiesResponseOutputWithContext(ctx context.Context) ServerCommunicationLinkPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCommunicationLinkPropertiesResponseOutput)
-}
-
-func (i ServerCommunicationLinkPropertiesResponseArgs) ToServerCommunicationLinkPropertiesResponsePtrOutput() ServerCommunicationLinkPropertiesResponsePtrOutput {
-	return i.ToServerCommunicationLinkPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServerCommunicationLinkPropertiesResponseArgs) ToServerCommunicationLinkPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerCommunicationLinkPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCommunicationLinkPropertiesResponseOutput).ToServerCommunicationLinkPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ServerCommunicationLinkPropertiesResponsePtrInput is an input type that accepts ServerCommunicationLinkPropertiesResponseArgs, ServerCommunicationLinkPropertiesResponsePtr and ServerCommunicationLinkPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ServerCommunicationLinkPropertiesResponsePtrInput` via:
-//
-//          ServerCommunicationLinkPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ServerCommunicationLinkPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToServerCommunicationLinkPropertiesResponsePtrOutput() ServerCommunicationLinkPropertiesResponsePtrOutput
-	ToServerCommunicationLinkPropertiesResponsePtrOutputWithContext(context.Context) ServerCommunicationLinkPropertiesResponsePtrOutput
-}
-
-type serverCommunicationLinkPropertiesResponsePtrType ServerCommunicationLinkPropertiesResponseArgs
-
-func ServerCommunicationLinkPropertiesResponsePtr(v *ServerCommunicationLinkPropertiesResponseArgs) ServerCommunicationLinkPropertiesResponsePtrInput {
-	return (*serverCommunicationLinkPropertiesResponsePtrType)(v)
-}
-
-func (*serverCommunicationLinkPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerCommunicationLinkPropertiesResponse)(nil)).Elem()
-}
-
-func (i *serverCommunicationLinkPropertiesResponsePtrType) ToServerCommunicationLinkPropertiesResponsePtrOutput() ServerCommunicationLinkPropertiesResponsePtrOutput {
-	return i.ToServerCommunicationLinkPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serverCommunicationLinkPropertiesResponsePtrType) ToServerCommunicationLinkPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerCommunicationLinkPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCommunicationLinkPropertiesResponsePtrOutput)
-}
-
-// The properties of a server communication link.
-type ServerCommunicationLinkPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerCommunicationLinkPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCommunicationLinkPropertiesResponse)(nil)).Elem()
-}
-
-func (o ServerCommunicationLinkPropertiesResponseOutput) ToServerCommunicationLinkPropertiesResponseOutput() ServerCommunicationLinkPropertiesResponseOutput {
-	return o
-}
-
-func (o ServerCommunicationLinkPropertiesResponseOutput) ToServerCommunicationLinkPropertiesResponseOutputWithContext(ctx context.Context) ServerCommunicationLinkPropertiesResponseOutput {
-	return o
-}
-
-func (o ServerCommunicationLinkPropertiesResponseOutput) ToServerCommunicationLinkPropertiesResponsePtrOutput() ServerCommunicationLinkPropertiesResponsePtrOutput {
-	return o.ToServerCommunicationLinkPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServerCommunicationLinkPropertiesResponseOutput) ToServerCommunicationLinkPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerCommunicationLinkPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ServerCommunicationLinkPropertiesResponse) *ServerCommunicationLinkPropertiesResponse {
-		return &v
-	}).(ServerCommunicationLinkPropertiesResponsePtrOutput)
-}
-
-// The name of the partner server.
-func (o ServerCommunicationLinkPropertiesResponseOutput) PartnerServer() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerCommunicationLinkPropertiesResponse) string { return v.PartnerServer }).(pulumi.StringOutput)
-}
-
-// The state.
-func (o ServerCommunicationLinkPropertiesResponseOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerCommunicationLinkPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
-}
-
-type ServerCommunicationLinkPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServerCommunicationLinkPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerCommunicationLinkPropertiesResponse)(nil)).Elem()
-}
-
-func (o ServerCommunicationLinkPropertiesResponsePtrOutput) ToServerCommunicationLinkPropertiesResponsePtrOutput() ServerCommunicationLinkPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ServerCommunicationLinkPropertiesResponsePtrOutput) ToServerCommunicationLinkPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerCommunicationLinkPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ServerCommunicationLinkPropertiesResponsePtrOutput) Elem() ServerCommunicationLinkPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServerCommunicationLinkPropertiesResponse) ServerCommunicationLinkPropertiesResponse {
-		return *v
-	}).(ServerCommunicationLinkPropertiesResponseOutput)
-}
-
-// The name of the partner server.
-func (o ServerCommunicationLinkPropertiesResponsePtrOutput) PartnerServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerCommunicationLinkPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PartnerServer
-	}).(pulumi.StringPtrOutput)
-}
-
-// The state.
-func (o ServerCommunicationLinkPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerCommunicationLinkPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// Represents the properties of a server.
-type ServerPropertiesResponse struct {
-	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-	ExternalAdministratorLogin string `pulumi:"externalAdministratorLogin"`
-	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-	ExternalAdministratorSid string `pulumi:"externalAdministratorSid"`
-	// The fully qualified domain name of the server.
-	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
-	// The state of the server.
-	State string `pulumi:"state"`
-	// The version of the server.
-	Version *string `pulumi:"version"`
-}
-
-// ServerPropertiesResponseInput is an input type that accepts ServerPropertiesResponseArgs and ServerPropertiesResponseOutput values.
-// You can construct a concrete instance of `ServerPropertiesResponseInput` via:
-//
-//          ServerPropertiesResponseArgs{...}
-type ServerPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToServerPropertiesResponseOutput() ServerPropertiesResponseOutput
-	ToServerPropertiesResponseOutputWithContext(context.Context) ServerPropertiesResponseOutput
-}
-
-// Represents the properties of a server.
-type ServerPropertiesResponseArgs struct {
-	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin pulumi.StringPtrInput `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrInput `pulumi:"administratorLoginPassword"`
-	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-	ExternalAdministratorLogin pulumi.StringInput `pulumi:"externalAdministratorLogin"`
-	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-	ExternalAdministratorSid pulumi.StringInput `pulumi:"externalAdministratorSid"`
-	// The fully qualified domain name of the server.
-	FullyQualifiedDomainName pulumi.StringInput `pulumi:"fullyQualifiedDomainName"`
-	// The state of the server.
-	State pulumi.StringInput `pulumi:"state"`
-	// The version of the server.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ServerPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPropertiesResponse)(nil)).Elem()
-}
-
-func (i ServerPropertiesResponseArgs) ToServerPropertiesResponseOutput() ServerPropertiesResponseOutput {
-	return i.ToServerPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ServerPropertiesResponseArgs) ToServerPropertiesResponseOutputWithContext(ctx context.Context) ServerPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesResponseOutput)
-}
-
-func (i ServerPropertiesResponseArgs) ToServerPropertiesResponsePtrOutput() ServerPropertiesResponsePtrOutput {
-	return i.ToServerPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServerPropertiesResponseArgs) ToServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesResponseOutput).ToServerPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ServerPropertiesResponsePtrInput is an input type that accepts ServerPropertiesResponseArgs, ServerPropertiesResponsePtr and ServerPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ServerPropertiesResponsePtrInput` via:
-//
-//          ServerPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ServerPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToServerPropertiesResponsePtrOutput() ServerPropertiesResponsePtrOutput
-	ToServerPropertiesResponsePtrOutputWithContext(context.Context) ServerPropertiesResponsePtrOutput
-}
-
-type serverPropertiesResponsePtrType ServerPropertiesResponseArgs
-
-func ServerPropertiesResponsePtr(v *ServerPropertiesResponseArgs) ServerPropertiesResponsePtrInput {
-	return (*serverPropertiesResponsePtrType)(v)
-}
-
-func (*serverPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerPropertiesResponse)(nil)).Elem()
-}
-
-func (i *serverPropertiesResponsePtrType) ToServerPropertiesResponsePtrOutput() ServerPropertiesResponsePtrOutput {
-	return i.ToServerPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serverPropertiesResponsePtrType) ToServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesResponsePtrOutput)
-}
-
-// Represents the properties of a server.
-type ServerPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPropertiesResponse)(nil)).Elem()
-}
-
-func (o ServerPropertiesResponseOutput) ToServerPropertiesResponseOutput() ServerPropertiesResponseOutput {
-	return o
-}
-
-func (o ServerPropertiesResponseOutput) ToServerPropertiesResponseOutputWithContext(ctx context.Context) ServerPropertiesResponseOutput {
-	return o
-}
-
-func (o ServerPropertiesResponseOutput) ToServerPropertiesResponsePtrOutput() ServerPropertiesResponsePtrOutput {
-	return o.ToServerPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServerPropertiesResponseOutput) ToServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ServerPropertiesResponse) *ServerPropertiesResponse {
-		return &v
-	}).(ServerPropertiesResponsePtrOutput)
-}
-
-// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
-func (o ServerPropertiesResponseOutput) AdministratorLogin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesResponse) *string { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
-}
-
-// The administrator login password (required for server creation).
-func (o ServerPropertiesResponseOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesResponse) *string { return v.AdministratorLoginPassword }).(pulumi.StringPtrOutput)
-}
-
-// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-func (o ServerPropertiesResponseOutput) ExternalAdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPropertiesResponse) string { return v.ExternalAdministratorLogin }).(pulumi.StringOutput)
-}
-
-// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-func (o ServerPropertiesResponseOutput) ExternalAdministratorSid() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPropertiesResponse) string { return v.ExternalAdministratorSid }).(pulumi.StringOutput)
-}
-
-// The fully qualified domain name of the server.
-func (o ServerPropertiesResponseOutput) FullyQualifiedDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPropertiesResponse) string { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
-}
-
-// The state of the server.
-func (o ServerPropertiesResponseOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
-}
-
-// The version of the server.
-func (o ServerPropertiesResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type ServerPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServerPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerPropertiesResponse)(nil)).Elem()
-}
-
-func (o ServerPropertiesResponsePtrOutput) ToServerPropertiesResponsePtrOutput() ServerPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ServerPropertiesResponsePtrOutput) ToServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ServerPropertiesResponsePtrOutput) Elem() ServerPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServerPropertiesResponse) ServerPropertiesResponse { return *v }).(ServerPropertiesResponseOutput)
-}
-
-// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
-func (o ServerPropertiesResponsePtrOutput) AdministratorLogin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AdministratorLogin
-	}).(pulumi.StringPtrOutput)
-}
-
-// The administrator login password (required for server creation).
-func (o ServerPropertiesResponsePtrOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AdministratorLoginPassword
-	}).(pulumi.StringPtrOutput)
-}
-
-// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-func (o ServerPropertiesResponsePtrOutput) ExternalAdministratorLogin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ExternalAdministratorLogin
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-func (o ServerPropertiesResponsePtrOutput) ExternalAdministratorSid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ExternalAdministratorSid
-	}).(pulumi.StringPtrOutput)
-}
-
-// The fully qualified domain name of the server.
-func (o ServerPropertiesResponsePtrOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FullyQualifiedDomainName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The state of the server.
-func (o ServerPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the server.
-func (o ServerPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-// Represents the properties of a Service Tier Advisor.
-type ServiceTierAdvisorPropertiesResponse struct {
+// Represents a Service Tier Advisor.
+type ServiceTierAdvisorResponse struct {
 	// The activeTimeRatio for service tier advisor.
 	ActiveTimeRatio float64 `pulumi:"activeTimeRatio"`
 	// Gets or sets avgDtu for service tier advisor.
@@ -2401,12 +383,16 @@ type ServiceTierAdvisorPropertiesResponse struct {
 	DisasterPlanBasedRecommendationServiceLevelObjective string `pulumi:"disasterPlanBasedRecommendationServiceLevelObjective"`
 	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
 	DisasterPlanBasedRecommendationServiceLevelObjectiveId string `pulumi:"disasterPlanBasedRecommendationServiceLevelObjectiveId"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Gets or sets maxDtu for service tier advisor.
 	MaxDtu float64 `pulumi:"maxDtu"`
 	// Gets or sets maxSizeInGB for service tier advisor.
 	MaxSizeInGB float64 `pulumi:"maxSizeInGB"`
 	// Gets or sets minDtu for service tier advisor.
 	MinDtu float64 `pulumi:"minDtu"`
+	// Resource name.
+	Name string `pulumi:"name"`
 	// The observation period start (ISO8601 format).
 	ObservationPeriodEnd string `pulumi:"observationPeriodEnd"`
 	// The observation period start (ISO8601 format).
@@ -2417,25 +403,27 @@ type ServiceTierAdvisorPropertiesResponse struct {
 	OverallRecommendationServiceLevelObjectiveId string `pulumi:"overallRecommendationServiceLevelObjectiveId"`
 	// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
 	ServiceLevelObjectiveUsageMetrics []SloUsageMetricResponse `pulumi:"serviceLevelObjectiveUsageMetrics"`
+	// Resource type.
+	Type string `pulumi:"type"`
 	// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
 	UsageBasedRecommendationServiceLevelObjective string `pulumi:"usageBasedRecommendationServiceLevelObjective"`
 	// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
 	UsageBasedRecommendationServiceLevelObjectiveId string `pulumi:"usageBasedRecommendationServiceLevelObjectiveId"`
 }
 
-// ServiceTierAdvisorPropertiesResponseInput is an input type that accepts ServiceTierAdvisorPropertiesResponseArgs and ServiceTierAdvisorPropertiesResponseOutput values.
-// You can construct a concrete instance of `ServiceTierAdvisorPropertiesResponseInput` via:
+// ServiceTierAdvisorResponseInput is an input type that accepts ServiceTierAdvisorResponseArgs and ServiceTierAdvisorResponseOutput values.
+// You can construct a concrete instance of `ServiceTierAdvisorResponseInput` via:
 //
-//          ServiceTierAdvisorPropertiesResponseArgs{...}
-type ServiceTierAdvisorPropertiesResponseInput interface {
+//          ServiceTierAdvisorResponseArgs{...}
+type ServiceTierAdvisorResponseInput interface {
 	pulumi.Input
 
-	ToServiceTierAdvisorPropertiesResponseOutput() ServiceTierAdvisorPropertiesResponseOutput
-	ToServiceTierAdvisorPropertiesResponseOutputWithContext(context.Context) ServiceTierAdvisorPropertiesResponseOutput
+	ToServiceTierAdvisorResponseOutput() ServiceTierAdvisorResponseOutput
+	ToServiceTierAdvisorResponseOutputWithContext(context.Context) ServiceTierAdvisorResponseOutput
 }
 
-// Represents the properties of a Service Tier Advisor.
-type ServiceTierAdvisorPropertiesResponseArgs struct {
+// Represents a Service Tier Advisor.
+type ServiceTierAdvisorResponseArgs struct {
 	// The activeTimeRatio for service tier advisor.
 	ActiveTimeRatio pulumi.Float64Input `pulumi:"activeTimeRatio"`
 	// Gets or sets avgDtu for service tier advisor.
@@ -2454,12 +442,16 @@ type ServiceTierAdvisorPropertiesResponseArgs struct {
 	DisasterPlanBasedRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"disasterPlanBasedRecommendationServiceLevelObjective"`
 	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
 	DisasterPlanBasedRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"disasterPlanBasedRecommendationServiceLevelObjectiveId"`
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
 	// Gets or sets maxDtu for service tier advisor.
 	MaxDtu pulumi.Float64Input `pulumi:"maxDtu"`
 	// Gets or sets maxSizeInGB for service tier advisor.
 	MaxSizeInGB pulumi.Float64Input `pulumi:"maxSizeInGB"`
 	// Gets or sets minDtu for service tier advisor.
 	MinDtu pulumi.Float64Input `pulumi:"minDtu"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
 	// The observation period start (ISO8601 format).
 	ObservationPeriodEnd pulumi.StringInput `pulumi:"observationPeriodEnd"`
 	// The observation period start (ISO8601 format).
@@ -2470,185 +462,12 @@ type ServiceTierAdvisorPropertiesResponseArgs struct {
 	OverallRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"overallRecommendationServiceLevelObjectiveId"`
 	// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
 	ServiceLevelObjectiveUsageMetrics SloUsageMetricResponseArrayInput `pulumi:"serviceLevelObjectiveUsageMetrics"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
 	// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
 	UsageBasedRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"usageBasedRecommendationServiceLevelObjective"`
 	// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
 	UsageBasedRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"usageBasedRecommendationServiceLevelObjectiveId"`
-}
-
-func (ServiceTierAdvisorPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTierAdvisorPropertiesResponse)(nil)).Elem()
-}
-
-func (i ServiceTierAdvisorPropertiesResponseArgs) ToServiceTierAdvisorPropertiesResponseOutput() ServiceTierAdvisorPropertiesResponseOutput {
-	return i.ToServiceTierAdvisorPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceTierAdvisorPropertiesResponseArgs) ToServiceTierAdvisorPropertiesResponseOutputWithContext(ctx context.Context) ServiceTierAdvisorPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTierAdvisorPropertiesResponseOutput)
-}
-
-// Represents the properties of a Service Tier Advisor.
-type ServiceTierAdvisorPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ServiceTierAdvisorPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTierAdvisorPropertiesResponse)(nil)).Elem()
-}
-
-func (o ServiceTierAdvisorPropertiesResponseOutput) ToServiceTierAdvisorPropertiesResponseOutput() ServiceTierAdvisorPropertiesResponseOutput {
-	return o
-}
-
-func (o ServiceTierAdvisorPropertiesResponseOutput) ToServiceTierAdvisorPropertiesResponseOutputWithContext(ctx context.Context) ServiceTierAdvisorPropertiesResponseOutput {
-	return o
-}
-
-// The activeTimeRatio for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) ActiveTimeRatio() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) float64 { return v.ActiveTimeRatio }).(pulumi.Float64Output)
-}
-
-// Gets or sets avgDtu for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) AvgDtu() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) float64 { return v.AvgDtu }).(pulumi.Float64Output)
-}
-
-// Gets or sets confidence for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) Confidence() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) float64 { return v.Confidence }).(pulumi.Float64Output)
-}
-
-// Gets or sets currentServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) CurrentServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string { return v.CurrentServiceLevelObjective }).(pulumi.StringOutput)
-}
-
-// Gets or sets currentServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) CurrentServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string { return v.CurrentServiceLevelObjectiveId }).(pulumi.StringOutput)
-}
-
-// Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) DatabaseSizeBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string {
-		return v.DatabaseSizeBasedRecommendationServiceLevelObjective
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) DatabaseSizeBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string {
-		return v.DatabaseSizeBasedRecommendationServiceLevelObjectiveId
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) DisasterPlanBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string {
-		return v.DisasterPlanBasedRecommendationServiceLevelObjective
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) DisasterPlanBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string {
-		return v.DisasterPlanBasedRecommendationServiceLevelObjectiveId
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets maxDtu for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) MaxDtu() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) float64 { return v.MaxDtu }).(pulumi.Float64Output)
-}
-
-// Gets or sets maxSizeInGB for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) MaxSizeInGB() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) float64 { return v.MaxSizeInGB }).(pulumi.Float64Output)
-}
-
-// Gets or sets minDtu for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) MinDtu() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) float64 { return v.MinDtu }).(pulumi.Float64Output)
-}
-
-// The observation period start (ISO8601 format).
-func (o ServiceTierAdvisorPropertiesResponseOutput) ObservationPeriodEnd() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string { return v.ObservationPeriodEnd }).(pulumi.StringOutput)
-}
-
-// The observation period start (ISO8601 format).
-func (o ServiceTierAdvisorPropertiesResponseOutput) ObservationPeriodStart() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string { return v.ObservationPeriodStart }).(pulumi.StringOutput)
-}
-
-// Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) OverallRecommendationServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string {
-		return v.OverallRecommendationServiceLevelObjective
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) OverallRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string {
-		return v.OverallRecommendationServiceLevelObjectiveId
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) ServiceLevelObjectiveUsageMetrics() SloUsageMetricResponseArrayOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) []SloUsageMetricResponse {
-		return v.ServiceLevelObjectiveUsageMetrics
-	}).(SloUsageMetricResponseArrayOutput)
-}
-
-// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) UsageBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string {
-		return v.UsageBasedRecommendationServiceLevelObjective
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorPropertiesResponseOutput) UsageBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorPropertiesResponse) string {
-		return v.UsageBasedRecommendationServiceLevelObjectiveId
-	}).(pulumi.StringOutput)
-}
-
-// Represents a Service Tier Advisor.
-type ServiceTierAdvisorResponse struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties representing the resource.
-	Properties ServiceTierAdvisorPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ServiceTierAdvisorResponseInput is an input type that accepts ServiceTierAdvisorResponseArgs and ServiceTierAdvisorResponseOutput values.
-// You can construct a concrete instance of `ServiceTierAdvisorResponseInput` via:
-//
-//          ServiceTierAdvisorResponseArgs{...}
-type ServiceTierAdvisorResponseInput interface {
-	pulumi.Input
-
-	ToServiceTierAdvisorResponseOutput() ServiceTierAdvisorResponseOutput
-	ToServiceTierAdvisorResponseOutputWithContext(context.Context) ServiceTierAdvisorResponseOutput
-}
-
-// Represents a Service Tier Advisor.
-type ServiceTierAdvisorResponseArgs struct {
-	// Resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties representing the resource.
-	Properties ServiceTierAdvisorPropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServiceTierAdvisorResponseArgs) ElementType() reflect.Type {
@@ -2703,9 +522,77 @@ func (o ServiceTierAdvisorResponseOutput) ToServiceTierAdvisorResponseOutputWith
 	return o
 }
 
+// The activeTimeRatio for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) ActiveTimeRatio() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.ActiveTimeRatio }).(pulumi.Float64Output)
+}
+
+// Gets or sets avgDtu for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) AvgDtu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.AvgDtu }).(pulumi.Float64Output)
+}
+
+// Gets or sets confidence for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) Confidence() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.Confidence }).(pulumi.Float64Output)
+}
+
+// Gets or sets currentServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) CurrentServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.CurrentServiceLevelObjective }).(pulumi.StringOutput)
+}
+
+// Gets or sets currentServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) CurrentServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.CurrentServiceLevelObjectiveId }).(pulumi.StringOutput)
+}
+
+// Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) DatabaseSizeBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string {
+		return v.DatabaseSizeBasedRecommendationServiceLevelObjective
+	}).(pulumi.StringOutput)
+}
+
+// Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) DatabaseSizeBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string {
+		return v.DatabaseSizeBasedRecommendationServiceLevelObjectiveId
+	}).(pulumi.StringOutput)
+}
+
+// Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) DisasterPlanBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string {
+		return v.DisasterPlanBasedRecommendationServiceLevelObjective
+	}).(pulumi.StringOutput)
+}
+
+// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) DisasterPlanBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string {
+		return v.DisasterPlanBasedRecommendationServiceLevelObjectiveId
+	}).(pulumi.StringOutput)
+}
+
 // Resource ID.
 func (o ServiceTierAdvisorResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets maxDtu for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) MaxDtu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.MaxDtu }).(pulumi.Float64Output)
+}
+
+// Gets or sets maxSizeInGB for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) MaxSizeInGB() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.MaxSizeInGB }).(pulumi.Float64Output)
+}
+
+// Gets or sets minDtu for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) MinDtu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.MinDtu }).(pulumi.Float64Output)
 }
 
 // Resource name.
@@ -2713,14 +600,46 @@ func (o ServiceTierAdvisorResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties representing the resource.
-func (o ServiceTierAdvisorResponseOutput) Properties() ServiceTierAdvisorPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) ServiceTierAdvisorPropertiesResponse { return v.Properties }).(ServiceTierAdvisorPropertiesResponseOutput)
+// The observation period start (ISO8601 format).
+func (o ServiceTierAdvisorResponseOutput) ObservationPeriodEnd() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.ObservationPeriodEnd }).(pulumi.StringOutput)
+}
+
+// The observation period start (ISO8601 format).
+func (o ServiceTierAdvisorResponseOutput) ObservationPeriodStart() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.ObservationPeriodStart }).(pulumi.StringOutput)
+}
+
+// Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) OverallRecommendationServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.OverallRecommendationServiceLevelObjective }).(pulumi.StringOutput)
+}
+
+// Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) OverallRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.OverallRecommendationServiceLevelObjectiveId }).(pulumi.StringOutput)
+}
+
+// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) ServiceLevelObjectiveUsageMetrics() SloUsageMetricResponseArrayOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) []SloUsageMetricResponse {
+		return v.ServiceLevelObjectiveUsageMetrics
+	}).(SloUsageMetricResponseArrayOutput)
 }
 
 // Resource type.
 func (o ServiceTierAdvisorResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) UsageBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.UsageBasedRecommendationServiceLevelObjective }).(pulumi.StringOutput)
+}
+
+// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorResponseOutput) UsageBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.UsageBasedRecommendationServiceLevelObjectiveId }).(pulumi.StringOutput)
 }
 
 type ServiceTierAdvisorResponseArrayOutput struct{ *pulumi.OutputState }
@@ -2861,142 +780,6 @@ func (o SloUsageMetricResponseArrayOutput) Index(i pulumi.IntInput) SloUsageMetr
 	}).(SloUsageMetricResponseOutput)
 }
 
-// Represents the properties of a database transparent data encryption.
-type TransparentDataEncryptionPropertiesResponse struct {
-	// The status of the database transparent data encryption.
-	Status *string `pulumi:"status"`
-}
-
-// TransparentDataEncryptionPropertiesResponseInput is an input type that accepts TransparentDataEncryptionPropertiesResponseArgs and TransparentDataEncryptionPropertiesResponseOutput values.
-// You can construct a concrete instance of `TransparentDataEncryptionPropertiesResponseInput` via:
-//
-//          TransparentDataEncryptionPropertiesResponseArgs{...}
-type TransparentDataEncryptionPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToTransparentDataEncryptionPropertiesResponseOutput() TransparentDataEncryptionPropertiesResponseOutput
-	ToTransparentDataEncryptionPropertiesResponseOutputWithContext(context.Context) TransparentDataEncryptionPropertiesResponseOutput
-}
-
-// Represents the properties of a database transparent data encryption.
-type TransparentDataEncryptionPropertiesResponseArgs struct {
-	// The status of the database transparent data encryption.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (TransparentDataEncryptionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransparentDataEncryptionPropertiesResponse)(nil)).Elem()
-}
-
-func (i TransparentDataEncryptionPropertiesResponseArgs) ToTransparentDataEncryptionPropertiesResponseOutput() TransparentDataEncryptionPropertiesResponseOutput {
-	return i.ToTransparentDataEncryptionPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i TransparentDataEncryptionPropertiesResponseArgs) ToTransparentDataEncryptionPropertiesResponseOutputWithContext(ctx context.Context) TransparentDataEncryptionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionPropertiesResponseOutput)
-}
-
-func (i TransparentDataEncryptionPropertiesResponseArgs) ToTransparentDataEncryptionPropertiesResponsePtrOutput() TransparentDataEncryptionPropertiesResponsePtrOutput {
-	return i.ToTransparentDataEncryptionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TransparentDataEncryptionPropertiesResponseArgs) ToTransparentDataEncryptionPropertiesResponsePtrOutputWithContext(ctx context.Context) TransparentDataEncryptionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionPropertiesResponseOutput).ToTransparentDataEncryptionPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// TransparentDataEncryptionPropertiesResponsePtrInput is an input type that accepts TransparentDataEncryptionPropertiesResponseArgs, TransparentDataEncryptionPropertiesResponsePtr and TransparentDataEncryptionPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `TransparentDataEncryptionPropertiesResponsePtrInput` via:
-//
-//          TransparentDataEncryptionPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type TransparentDataEncryptionPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToTransparentDataEncryptionPropertiesResponsePtrOutput() TransparentDataEncryptionPropertiesResponsePtrOutput
-	ToTransparentDataEncryptionPropertiesResponsePtrOutputWithContext(context.Context) TransparentDataEncryptionPropertiesResponsePtrOutput
-}
-
-type transparentDataEncryptionPropertiesResponsePtrType TransparentDataEncryptionPropertiesResponseArgs
-
-func TransparentDataEncryptionPropertiesResponsePtr(v *TransparentDataEncryptionPropertiesResponseArgs) TransparentDataEncryptionPropertiesResponsePtrInput {
-	return (*transparentDataEncryptionPropertiesResponsePtrType)(v)
-}
-
-func (*transparentDataEncryptionPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransparentDataEncryptionPropertiesResponse)(nil)).Elem()
-}
-
-func (i *transparentDataEncryptionPropertiesResponsePtrType) ToTransparentDataEncryptionPropertiesResponsePtrOutput() TransparentDataEncryptionPropertiesResponsePtrOutput {
-	return i.ToTransparentDataEncryptionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *transparentDataEncryptionPropertiesResponsePtrType) ToTransparentDataEncryptionPropertiesResponsePtrOutputWithContext(ctx context.Context) TransparentDataEncryptionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionPropertiesResponsePtrOutput)
-}
-
-// Represents the properties of a database transparent data encryption.
-type TransparentDataEncryptionPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (TransparentDataEncryptionPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransparentDataEncryptionPropertiesResponse)(nil)).Elem()
-}
-
-func (o TransparentDataEncryptionPropertiesResponseOutput) ToTransparentDataEncryptionPropertiesResponseOutput() TransparentDataEncryptionPropertiesResponseOutput {
-	return o
-}
-
-func (o TransparentDataEncryptionPropertiesResponseOutput) ToTransparentDataEncryptionPropertiesResponseOutputWithContext(ctx context.Context) TransparentDataEncryptionPropertiesResponseOutput {
-	return o
-}
-
-func (o TransparentDataEncryptionPropertiesResponseOutput) ToTransparentDataEncryptionPropertiesResponsePtrOutput() TransparentDataEncryptionPropertiesResponsePtrOutput {
-	return o.ToTransparentDataEncryptionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TransparentDataEncryptionPropertiesResponseOutput) ToTransparentDataEncryptionPropertiesResponsePtrOutputWithContext(ctx context.Context) TransparentDataEncryptionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v TransparentDataEncryptionPropertiesResponse) *TransparentDataEncryptionPropertiesResponse {
-		return &v
-	}).(TransparentDataEncryptionPropertiesResponsePtrOutput)
-}
-
-// The status of the database transparent data encryption.
-func (o TransparentDataEncryptionPropertiesResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TransparentDataEncryptionPropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type TransparentDataEncryptionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (TransparentDataEncryptionPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransparentDataEncryptionPropertiesResponse)(nil)).Elem()
-}
-
-func (o TransparentDataEncryptionPropertiesResponsePtrOutput) ToTransparentDataEncryptionPropertiesResponsePtrOutput() TransparentDataEncryptionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o TransparentDataEncryptionPropertiesResponsePtrOutput) ToTransparentDataEncryptionPropertiesResponsePtrOutputWithContext(ctx context.Context) TransparentDataEncryptionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o TransparentDataEncryptionPropertiesResponsePtrOutput) Elem() TransparentDataEncryptionPropertiesResponseOutput {
-	return o.ApplyT(func(v *TransparentDataEncryptionPropertiesResponse) TransparentDataEncryptionPropertiesResponse {
-		return *v
-	}).(TransparentDataEncryptionPropertiesResponseOutput)
-}
-
-// The status of the database transparent data encryption.
-func (o TransparentDataEncryptionPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TransparentDataEncryptionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
 // Represents a database transparent data encryption configuration.
 type TransparentDataEncryptionResponse struct {
 	// Resource ID.
@@ -3005,8 +788,8 @@ type TransparentDataEncryptionResponse struct {
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Represents the properties of the resource.
-	Properties *TransparentDataEncryptionPropertiesResponse `pulumi:"properties"`
+	// The status of the database transparent data encryption.
+	Status *string `pulumi:"status"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -3030,8 +813,8 @@ type TransparentDataEncryptionResponseArgs struct {
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Represents the properties of the resource.
-	Properties TransparentDataEncryptionPropertiesResponsePtrInput `pulumi:"properties"`
+	// The status of the database transparent data encryption.
+	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -3103,11 +886,9 @@ func (o TransparentDataEncryptionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TransparentDataEncryptionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Represents the properties of the resource.
-func (o TransparentDataEncryptionResponseOutput) Properties() TransparentDataEncryptionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v TransparentDataEncryptionResponse) *TransparentDataEncryptionPropertiesResponse {
-		return v.Properties
-	}).(TransparentDataEncryptionPropertiesResponsePtrOutput)
+// The status of the database transparent data encryption.
+func (o TransparentDataEncryptionResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransparentDataEncryptionResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Resource type.
@@ -3136,32 +917,14 @@ func (o TransparentDataEncryptionResponseArrayOutput) Index(i pulumi.IntInput) T
 }
 
 func init() {
-	pulumi.RegisterOutputType(DatabasePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DatabasePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DisasterRecoveryConfigurationPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DisasterRecoveryConfigurationPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ElasticPoolPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ElasticPoolPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(FirewallRulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(FirewallRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(OperationImpactResponseOutput{})
 	pulumi.RegisterOutputType(OperationImpactResponseArrayOutput{})
-	pulumi.RegisterOutputType(RecommendedIndexPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RecommendedIndexResponseOutput{})
 	pulumi.RegisterOutputType(RecommendedIndexResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServerAdministratorPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ServerAdministratorPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServerCommunicationLinkPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ServerCommunicationLinkPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServerPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ServerPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServiceTierAdvisorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServiceTierAdvisorResponseOutput{})
 	pulumi.RegisterOutputType(ServiceTierAdvisorResponseArrayOutput{})
 	pulumi.RegisterOutputType(SloUsageMetricResponseOutput{})
 	pulumi.RegisterOutputType(SloUsageMetricResponseArrayOutput{})
-	pulumi.RegisterOutputType(TransparentDataEncryptionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(TransparentDataEncryptionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransparentDataEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(TransparentDataEncryptionResponseArrayOutput{})
 }

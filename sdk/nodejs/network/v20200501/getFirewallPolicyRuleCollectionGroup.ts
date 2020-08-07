@@ -49,9 +49,17 @@ export interface GetFirewallPolicyRuleCollectionGroupResult {
      */
     readonly name?: string;
     /**
-     * The properties of the firewall policy rule collection group.
+     * Priority of the Firewall Policy Rule Collection Group resource.
      */
-    readonly properties: outputs.network.v20200501.FirewallPolicyRuleCollectionGroupPropertiesResponse;
+    readonly priority?: number;
+    /**
+     * The provisioning state of the firewall policy rule collection group resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * Group of Firewall Policy rule collections.
+     */
+    readonly ruleCollections?: outputs.network.v20200501.FirewallPolicyRuleCollectionResponse[];
     /**
      * Rule Group type.
      */

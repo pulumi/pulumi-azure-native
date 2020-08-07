@@ -13,12 +13,42 @@ class GetWatcherResult:
     """
     Definition of the watcher type.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, etag=None, execution_frequency_in_seconds=None, last_modified_by=None, last_modified_time=None, location=None, name=None, script_name=None, script_parameters=None, script_run_on=None, status=None, tags=None, type=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets or sets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets or sets the etag of the resource.
+        """
+        if execution_frequency_in_seconds and not isinstance(execution_frequency_in_seconds, float):
+            raise TypeError("Expected argument 'execution_frequency_in_seconds' to be a float")
+        __self__.execution_frequency_in_seconds = execution_frequency_in_seconds
+        """
+        Gets or sets the frequency at which the watcher is invoked.
+        """
+        if last_modified_by and not isinstance(last_modified_by, str):
+            raise TypeError("Expected argument 'last_modified_by' to be a str")
+        __self__.last_modified_by = last_modified_by
+        """
+        Details of the user who last modified the watcher.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets or sets the last modified time.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +62,29 @@ class GetWatcherResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if script_name and not isinstance(script_name, str):
+            raise TypeError("Expected argument 'script_name' to be a str")
+        __self__.script_name = script_name
         """
-        Gets or sets the watcher properties.
+        Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+        """
+        if script_parameters and not isinstance(script_parameters, dict):
+            raise TypeError("Expected argument 'script_parameters' to be a dict")
+        __self__.script_parameters = script_parameters
+        """
+        Gets or sets the parameters of the script.
+        """
+        if script_run_on and not isinstance(script_run_on, str):
+            raise TypeError("Expected argument 'script_run_on' to be a str")
+        __self__.script_run_on = script_run_on
+        """
+        Gets or sets the name of the hybrid worker group the watcher will run on.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Gets the current status of the watcher.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +106,18 @@ class AwaitableGetWatcherResult(GetWatcherResult):
         if False:
             yield self
         return GetWatcherResult(
+            creation_time=self.creation_time,
+            description=self.description,
             etag=self.etag,
+            execution_frequency_in_seconds=self.execution_frequency_in_seconds,
+            last_modified_by=self.last_modified_by,
+            last_modified_time=self.last_modified_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            script_name=self.script_name,
+            script_parameters=self.script_parameters,
+            script_run_on=self.script_run_on,
+            status=self.status,
             tags=self.tags,
             type=self.type)
 
@@ -85,9 +141,17 @@ def get_watcher(automation_account_name=None, name=None, resource_group_name=Non
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getWatcher', __args__, opts=opts).value
 
     return AwaitableGetWatcherResult(
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
         etag=__ret__.get('etag'),
+        execution_frequency_in_seconds=__ret__.get('executionFrequencyInSeconds'),
+        last_modified_by=__ret__.get('lastModifiedBy'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        script_name=__ret__.get('scriptName'),
+        script_parameters=__ret__.get('scriptParameters'),
+        script_run_on=__ret__.get('scriptRunOn'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

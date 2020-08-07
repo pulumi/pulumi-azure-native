@@ -25,15 +25,27 @@ type LookupSiteVNETConnectionArgs struct {
 
 // VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
 type LookupSiteVNETConnectionResult struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	//             Point-To-Site VPN connection.
+	CertBlob *string `pulumi:"certBlob"`
+	// The client certificate thumbprint
+	CertThumbprint *string `pulumi:"certThumbprint"`
+	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+	DnsServers *string `pulumi:"dnsServers"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                    `pulumi:"name"`
-	Properties VnetInfoResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Flag to determine if a resync is required
+	ResyncRequired *bool `pulumi:"resyncRequired"`
+	// The routes that this virtual network connection uses.
+	Routes []VnetRouteResponse `pulumi:"routes"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The vnet resource id
+	VnetResourceId *string `pulumi:"vnetResourceId"`
 }

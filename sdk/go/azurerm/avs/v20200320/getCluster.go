@@ -27,10 +27,16 @@ type LookupClusterArgs struct {
 
 // A cluster resource
 type LookupClusterResult struct {
+	// The identity
+	ClusterId int `pulumi:"clusterId"`
+	// The cluster size
+	ClusterSize int `pulumi:"clusterSize"`
+	// The hosts
+	Hosts []string `pulumi:"hosts"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties of a cluster resource
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
+	// The state of the cluster provisioning
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The cluster SKU
 	Sku SkuResponse `pulumi:"sku"`
 	// Resource type.

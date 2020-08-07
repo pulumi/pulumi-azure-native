@@ -14,12 +14,22 @@ import (
 type BackupSchedule struct {
 	pulumi.CustomResourceState
 
+	// The type of backup which needs to be taken.
+	BackupType pulumi.StringOutput `pulumi:"backupType"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// The last successful backup run which was triggered for the schedule.
+	LastSuccessfulRun pulumi.StringOutput `pulumi:"lastSuccessfulRun"`
 	// The name of the object.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the backup schedule.
-	Properties BackupSchedulePropertiesResponseOutput `pulumi:"properties"`
+	// The number of backups to be retained.
+	RetentionCount pulumi.IntOutput `pulumi:"retentionCount"`
+	// The schedule recurrence.
+	ScheduleRecurrence ScheduleRecurrenceResponseOutput `pulumi:"scheduleRecurrence"`
+	// The schedule status.
+	ScheduleStatus pulumi.StringOutput `pulumi:"scheduleStatus"`
+	// The start time of the schedule.
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -82,23 +92,43 @@ func GetBackupSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupSchedule resources.
 type backupScheduleState struct {
+	// The type of backup which needs to be taken.
+	BackupType *string `pulumi:"backupType"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
+	// The last successful backup run which was triggered for the schedule.
+	LastSuccessfulRun *string `pulumi:"lastSuccessfulRun"`
 	// The name of the object.
 	Name *string `pulumi:"name"`
-	// The properties of the backup schedule.
-	Properties *BackupSchedulePropertiesResponse `pulumi:"properties"`
+	// The number of backups to be retained.
+	RetentionCount *int `pulumi:"retentionCount"`
+	// The schedule recurrence.
+	ScheduleRecurrence *ScheduleRecurrenceResponse `pulumi:"scheduleRecurrence"`
+	// The schedule status.
+	ScheduleStatus *string `pulumi:"scheduleStatus"`
+	// The start time of the schedule.
+	StartTime *string `pulumi:"startTime"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
 
 type BackupScheduleState struct {
+	// The type of backup which needs to be taken.
+	BackupType pulumi.StringPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput
+	// The last successful backup run which was triggered for the schedule.
+	LastSuccessfulRun pulumi.StringPtrInput
 	// The name of the object.
 	Name pulumi.StringPtrInput
-	// The properties of the backup schedule.
-	Properties BackupSchedulePropertiesResponsePtrInput
+	// The number of backups to be retained.
+	RetentionCount pulumi.IntPtrInput
+	// The schedule recurrence.
+	ScheduleRecurrence ScheduleRecurrenceResponsePtrInput
+	// The schedule status.
+	ScheduleStatus pulumi.StringPtrInput
+	// The start time of the schedule.
+	StartTime pulumi.StringPtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

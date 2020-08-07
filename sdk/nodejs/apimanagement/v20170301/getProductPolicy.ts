@@ -50,9 +50,9 @@ export interface GetProductPolicyResult {
      */
     readonly name: string;
     /**
-     * Properties of the Policy.
+     * Json escaped Xml Encoded contents of the Policy.
      */
-    readonly properties: outputs.apimanagement.v20170301.PolicyContractPropertiesResponse;
+    readonly policyContent: string;
     /**
      * Resource type for API Management resource.
      */

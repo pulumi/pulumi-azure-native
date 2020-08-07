@@ -49,9 +49,13 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the virtual network link to the Private DNS zone.
+     * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180901.VirtualNetworkLinkPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+     */
+    public readonly registrationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +64,14 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
      * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The reference of the virtual network.
+     */
+    public readonly virtualNetwork!: pulumi.Output<outputs.network.v20180901.SubResourceResponse | undefined>;
+    /**
+     * The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly virtualNetworkLinkState!: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkLink resource with the given unique name, arguments, and options.
@@ -91,8 +103,9 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualNetworkLinkState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

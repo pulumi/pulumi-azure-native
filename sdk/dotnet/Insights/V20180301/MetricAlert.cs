@@ -15,6 +15,42 @@ namespace Pulumi.AzureRM.Insights.V20180301
     public partial class MetricAlert : Pulumi.CustomResource
     {
         /// <summary>
+        /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        /// </summary>
+        [Output("actions")]
+        public Output<ImmutableArray<Outputs.MetricAlertActionResponseResult>> Actions { get; private set; } = null!;
+
+        /// <summary>
+        /// the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        /// </summary>
+        [Output("autoMitigate")]
+        public Output<bool?> AutoMitigate { get; private set; } = null!;
+
+        /// <summary>
+        /// the description of the metric alert that will be included in the alert email.
+        /// </summary>
+        [Output("description")]
+        public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// the flag that indicates whether the metric alert is enabled.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// how often the metric alert is evaluated represented in ISO 8601 duration format.
+        /// </summary>
+        [Output("evaluationFrequency")]
+        public Output<string> EvaluationFrequency { get; private set; } = null!;
+
+        /// <summary>
+        /// Last time the rule was updated in ISO8601 format.
+        /// </summary>
+        [Output("lastUpdatedTime")]
+        public Output<string> LastUpdatedTime { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +63,16 @@ namespace Pulumi.AzureRM.Insights.V20180301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The alert rule properties of the resource.
+        /// the list of resource id's that this metric alert is scoped to.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.MetricAlertPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("scopes")]
+        public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
+
+        /// <summary>
+        /// Alert severity {0, 1, 2, 3, 4}
+        /// </summary>
+        [Output("severity")]
+        public Output<int> Severity { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -39,10 +81,28 @@ namespace Pulumi.AzureRM.Insights.V20180301
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// </summary>
+        [Output("targetResourceRegion")]
+        public Output<string?> TargetResourceRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// </summary>
+        [Output("targetResourceType")]
+        public Output<string?> TargetResourceType { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+        /// </summary>
+        [Output("windowSize")]
+        public Output<string> WindowSize { get; private set; } = null!;
 
 
         /// <summary>

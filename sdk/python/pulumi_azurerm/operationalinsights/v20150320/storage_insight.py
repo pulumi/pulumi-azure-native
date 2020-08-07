@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class StorageInsight(pulumi.CustomResource):
+    containers: pulumi.Output[list]
+    """
+    The names of the blob containers that the workspace should read
+    """
     e_tag: pulumi.Output[str]
     """
     The ETag of the storage insight.
@@ -18,19 +22,21 @@ class StorageInsight(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    status: pulumi.Output[dict]
     """
-    Storage insight properties.
-      * `containers` (`list`) - The names of the blob containers that the workspace should read
-      * `status` (`dict`) - The status of the storage insight
-        * `description` (`str`) - Description of the state of the storage insight.
-        * `state` (`str`) - The state of the storage insight connection to the workspace
-
-      * `storage_account` (`dict`) - The storage account connection details
-        * `id` (`str`) - The Azure Resource Manager ID of the storage account resource.
-        * `key` (`str`) - The storage account key.
-
-      * `tables` (`list`) - The names of the Azure tables that the workspace should read
+    The status of the storage insight
+      * `description` (`str`) - Description of the state of the storage insight.
+      * `state` (`str`) - The state of the storage insight connection to the workspace
+    """
+    storage_account: pulumi.Output[dict]
+    """
+    The storage account connection details
+      * `id` (`str`) - The Azure Resource Manager ID of the storage account resource.
+      * `key` (`str`) - The storage account key.
+    """
+    tables: pulumi.Output[list]
+    """
+    The names of the Azure tables that the workspace should read
     """
     tags: pulumi.Output[dict]
     """
@@ -93,7 +99,7 @@ class StorageInsight(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(StorageInsight, __self__).__init__(
             'azurerm:operationalinsights/v20150320:StorageInsight',

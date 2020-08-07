@@ -37,9 +37,41 @@ export class ContainerGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The containers within the container group.
+     */
+    public readonly containers!: pulumi.Output<outputs.containerinstance.v20191201.ContainerResponse[]>;
+    /**
+     * The diagnostic information for a container group.
+     */
+    public readonly diagnostics!: pulumi.Output<outputs.containerinstance.v20191201.ContainerGroupDiagnosticsResponse | undefined>;
+    /**
+     * The DNS config information for a container group.
+     */
+    public readonly dnsConfig!: pulumi.Output<outputs.containerinstance.v20191201.DnsConfigurationResponse | undefined>;
+    /**
+     * The encryption properties for a container group.
+     */
+    public readonly encryptionProperties!: pulumi.Output<outputs.containerinstance.v20191201.EncryptionPropertiesResponse | undefined>;
+    /**
      * The identity of the container group, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.containerinstance.v20191201.ContainerGroupIdentityResponse | undefined>;
+    /**
+     * The image registry credentials by which the container group is created from.
+     */
+    public readonly imageRegistryCredentials!: pulumi.Output<outputs.containerinstance.v20191201.ImageRegistryCredentialResponse[] | undefined>;
+    /**
+     * The init containers for a container group.
+     */
+    public readonly initContainers!: pulumi.Output<outputs.containerinstance.v20191201.InitContainerDefinitionResponse[] | undefined>;
+    /**
+     * The instance view of the container group. Only valid in response.
+     */
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.v20191201.ContainerGroupResponseInstanceView>;
+    /**
+     * The IP address type of the container group.
+     */
+    public readonly ipAddress!: pulumi.Output<outputs.containerinstance.v20191201.IpAddressResponse | undefined>;
     /**
      * The resource location.
      */
@@ -49,9 +81,28 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The container group properties
+     * The network profile information for a container group.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerinstance.v20191201.ContainerGroupResponseProperties>;
+    public readonly networkProfile!: pulumi.Output<outputs.containerinstance.v20191201.ContainerGroupNetworkProfileResponse | undefined>;
+    /**
+     * The operating system type required by the containers in the container group.
+     */
+    public readonly osType!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the container group. This only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Restart policy for all containers within the container group. 
+     * - `Always` Always restart
+     * - `OnFailure` Restart on failure
+     * - `Never` Never restart
+     */
+    public readonly restartPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * The SKU for a container group.
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * The resource tags.
      */
@@ -60,6 +111,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The list of volumes that can be mounted by containers in this container group.
+     */
+    public readonly volumes!: pulumi.Output<outputs.containerinstance.v20191201.VolumeResponse[] | undefined>;
 
     /**
      * Create a ContainerGroup resource with the given unique name, arguments, and options.
@@ -103,7 +158,8 @@ export class ContainerGroup extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["volumes"] = args ? args.volumes : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["instanceView"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,17 +37,49 @@ export class CustomImage extends pulumi.CustomResource {
     }
 
     /**
+     * The author of the custom image.
+     */
+    public readonly author!: pulumi.Output<string | undefined>;
+    /**
+     * The creation date of the custom image.
+     */
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * Storage information about the plan related to this custom image
+     */
+    public readonly customImagePlan!: pulumi.Output<outputs.devtestlab.v20180915.CustomImagePropertiesFromPlanResponse | undefined>;
+    /**
+     * Storage information about the data disks present in the custom image
+     */
+    public readonly dataDiskStorageInfo!: pulumi.Output<outputs.devtestlab.v20180915.DataDiskStorageTypeInfoResponse[] | undefined>;
+    /**
+     * The description of the custom image.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+     */
+    public readonly isPlanAuthorized!: pulumi.Output<boolean | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The Managed Image Id backing the custom image.
+     */
+    public readonly managedImageId!: pulumi.Output<string | undefined>;
+    /**
+     * The Managed Snapshot Id backing the custom image.
+     */
+    public readonly managedSnapshotId!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.CustomImagePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +88,18 @@ export class CustomImage extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    /**
+     * The VHD from which the image is to be created.
+     */
+    public readonly vhd!: pulumi.Output<outputs.devtestlab.v20180915.CustomImagePropertiesCustomResponse | undefined>;
+    /**
+     * The virtual machine from which the image is to be created.
+     */
+    public readonly vm!: pulumi.Output<outputs.devtestlab.v20180915.CustomImagePropertiesFromVmResponse | undefined>;
 
     /**
      * Create a CustomImage resource with the given unique name, arguments, and options.
@@ -93,8 +137,10 @@ export class CustomImage extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vhd"] = args ? args.vhd : undefined;
             inputs["vm"] = args ? args.vm : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

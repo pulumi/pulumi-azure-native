@@ -13,7 +13,19 @@ class GetServiceResult:
     """
     The description of the Windows IoT Device Service.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, admin_domain_name=None, billing_domain_name=None, etag=None, location=None, name=None, notes=None, quantity=None, start_date=None, tags=None, type=None):
+        if admin_domain_name and not isinstance(admin_domain_name, str):
+            raise TypeError("Expected argument 'admin_domain_name' to be a str")
+        __self__.admin_domain_name = admin_domain_name
+        """
+        Windows IoT Device Service OEM AAD domain
+        """
+        if billing_domain_name and not isinstance(billing_domain_name, str):
+            raise TypeError("Expected argument 'billing_domain_name' to be a str")
+        __self__.billing_domain_name = billing_domain_name
+        """
+        Windows IoT Device Service ODM AAD domain
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +44,23 @@ class GetServiceResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        __self__.notes = notes
         """
-        The properties of a Windows IoT Device Service.
+        Windows IoT Device Service notes.
+        """
+        if quantity and not isinstance(quantity, float):
+            raise TypeError("Expected argument 'quantity' to be a float")
+        __self__.quantity = quantity
+        """
+        Windows IoT Device Service device allocation,
+        """
+        if start_date and not isinstance(start_date, str):
+            raise TypeError("Expected argument 'start_date' to be a str")
+        __self__.start_date = start_date
+        """
+        Windows IoT Device Service start date,
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +82,14 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            admin_domain_name=self.admin_domain_name,
+            billing_domain_name=self.billing_domain_name,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            notes=self.notes,
+            quantity=self.quantity,
+            start_date=self.start_date,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +111,13 @@ def get_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:windowsiot/v20190601:getService', __args__, opts=opts).value
 
     return AwaitableGetServiceResult(
+        admin_domain_name=__ret__.get('adminDomainName'),
+        billing_domain_name=__ret__.get('billingDomainName'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notes=__ret__.get('notes'),
+        quantity=__ret__.get('quantity'),
+        start_date=__ret__.get('startDate'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

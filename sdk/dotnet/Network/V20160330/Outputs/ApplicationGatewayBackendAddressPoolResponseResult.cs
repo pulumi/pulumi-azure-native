@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
     public sealed class ApplicationGatewayBackendAddressPoolResponseResult
     {
         /// <summary>
+        /// Gets or sets the backend addresses
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressResponseResult> BackendAddresses;
+        /// <summary>
+        /// Gets collection of references to IPs defined in NICs
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> BackendIPConfigurations;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
@@ -26,24 +34,30 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of Backend Address Pool of application gateway
+        /// Gets or sets Provisioning state of the backend address pool resource Updating/Deleting/Failed
         /// </summary>
-        public readonly Outputs.ApplicationGatewayBackendAddressPoolPropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private ApplicationGatewayBackendAddressPoolResponseResult(
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressResponseResult> backendAddresses,
+
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> backendIPConfigurations,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayBackendAddressPoolPropertiesFormatResponseResult? properties)
+            string? provisioningState)
         {
+            BackendAddresses = backendAddresses;
+            BackendIPConfigurations = backendIPConfigurations;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

@@ -33,8 +33,10 @@ type LookupServerCommunicationLinkResult struct {
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties of resource.
-	Properties ServerCommunicationLinkPropertiesResponse `pulumi:"properties"`
+	// The name of the partner server.
+	PartnerServer string `pulumi:"partnerServer"`
+	// The state.
+	State string `pulumi:"state"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

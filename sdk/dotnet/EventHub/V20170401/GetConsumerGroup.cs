@@ -52,29 +52,43 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     public sealed class GetConsumerGroupResult
     {
         /// <summary>
+        /// Exact time the message was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Single item in List or Get Consumer group operation
-        /// </summary>
-        public readonly Outputs.ConsumerGroupResponsePropertiesResult Properties;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
+        /// <summary>
+        /// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+        /// </summary>
+        public readonly string? UserMetadata;
 
         [OutputConstructor]
         private GetConsumerGroupResult(
+            string createdAt,
+
             string name,
 
-            Outputs.ConsumerGroupResponsePropertiesResult properties,
+            string type,
 
-            string type)
+            string updatedAt,
+
+            string? userMetadata)
         {
+            CreatedAt = createdAt;
             Name = name;
-            Properties = properties;
             Type = type;
+            UpdatedAt = updatedAt;
+            UserMetadata = userMetadata;
         }
     }
 }

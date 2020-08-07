@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20200501
     public partial class HubRouteTable : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of all connections associated with this route table.
+        /// </summary>
+        [Output("associatedConnections")]
+        public Output<ImmutableArray<string>> AssociatedConnections { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// List of labels associated with this route table.
+        /// </summary>
+        [Output("labels")]
+        public Output<ImmutableArray<string>> Labels { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -27,10 +39,22 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the RouteTable resource.
+        /// List of all connections that advertise to this route table.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HubRouteTablePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("propagatingConnections")]
+        public Output<ImmutableArray<string>> PropagatingConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the RouteTable resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all routes.
+        /// </summary>
+        [Output("routes")]
+        public Output<ImmutableArray<Outputs.HubRouteResponseResult>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -48,13 +48,25 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Premier add on Marketplace offer.
+        /// </summary>
+        public readonly string? MarketplaceOffer;
+        /// <summary>
+        /// Premier add on Marketplace publisher.
+        /// </summary>
+        public readonly string? MarketplacePublisher;
+        /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// PremierAddOn resource specific properties
+        /// Premier add on Product.
         /// </summary>
-        public readonly Outputs.PremierAddOnResponsePropertiesResult Properties;
+        public readonly string? Product;
+        /// <summary>
+        /// Premier add on SKU.
+        /// </summary>
+        public readonly string? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,6 +75,10 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Premier add on Vendor.
+        /// </summary>
+        public readonly string? Vendor;
 
         [OutputConstructor]
         private GetWebAppPremierAddOnResult(
@@ -70,20 +86,32 @@ namespace Pulumi.AzureRM.Web.V20181101
 
             string location,
 
+            string? marketplaceOffer,
+
+            string? marketplacePublisher,
+
             string name,
 
-            Outputs.PremierAddOnResponsePropertiesResult properties,
+            string? product,
+
+            string? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? vendor)
         {
             Kind = kind;
             Location = location;
+            MarketplaceOffer = marketplaceOffer;
+            MarketplacePublisher = marketplacePublisher;
             Name = name;
-            Properties = properties;
+            Product = product;
+            Sku = sku;
             Tags = tags;
             Type = type;
+            Vendor = vendor;
         }
     }
 }

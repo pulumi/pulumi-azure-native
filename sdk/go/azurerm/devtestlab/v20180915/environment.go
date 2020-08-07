@@ -14,16 +14,26 @@ import (
 type Environment struct {
 	pulumi.CustomResourceState
 
+	// The display name of the Azure Resource Manager template that produced the environment.
+	ArmTemplateDisplayName pulumi.StringPtrOutput `pulumi:"armTemplateDisplayName"`
+	// The creator of the environment.
+	CreatedByUser pulumi.StringOutput `pulumi:"createdByUser"`
+	// The deployment properties of the environment.
+	DeploymentProperties EnvironmentDeploymentPropertiesResponsePtrOutput `pulumi:"deploymentProperties"`
 	// The location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the resource.
-	Properties EnvironmentPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The identifier of the resource group containing the environment's resources.
+	ResourceGroupId pulumi.StringOutput `pulumi:"resourceGroupId"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -66,29 +76,49 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
+	// The display name of the Azure Resource Manager template that produced the environment.
+	ArmTemplateDisplayName *string `pulumi:"armTemplateDisplayName"`
+	// The creator of the environment.
+	CreatedByUser *string `pulumi:"createdByUser"`
+	// The deployment properties of the environment.
+	DeploymentProperties *EnvironmentDeploymentPropertiesResponse `pulumi:"deploymentProperties"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *EnvironmentPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The identifier of the resource group containing the environment's resources.
+	ResourceGroupId *string `pulumi:"resourceGroupId"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type EnvironmentState struct {
+	// The display name of the Azure Resource Manager template that produced the environment.
+	ArmTemplateDisplayName pulumi.StringPtrInput
+	// The creator of the environment.
+	CreatedByUser pulumi.StringPtrInput
+	// The deployment properties of the environment.
+	DeploymentProperties EnvironmentDeploymentPropertiesResponsePtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the resource.
-	Properties EnvironmentPropertiesResponsePtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The identifier of the resource group containing the environment's resources.
+	ResourceGroupId pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {

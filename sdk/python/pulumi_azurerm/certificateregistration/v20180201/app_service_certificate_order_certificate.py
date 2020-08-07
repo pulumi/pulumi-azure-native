@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
+    key_vault_id: pulumi.Output[str]
+    """
+    Key Vault resource Id.
+    """
+    key_vault_secret_name: pulumi.Output[str]
+    """
+    Key Vault secret name.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -22,12 +30,9 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Core resource properties
-      * `key_vault_id` (`str`) - Key Vault resource Id.
-      * `key_vault_secret_name` (`str`) - Key Vault secret name.
-      * `provisioning_state` (`str`) - Status of the Key Vault secret.
+    Status of the Key Vault secret.
     """
     tags: pulumi.Output[dict]
     """
@@ -85,7 +90,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(AppServiceCertificateOrderCertificate, __self__).__init__(
             'azurerm:certificateregistration/v20180201:AppServiceCertificateOrderCertificate',

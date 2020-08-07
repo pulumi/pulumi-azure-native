@@ -27,10 +27,14 @@ type LookupAccountFilterArgs struct {
 
 // An Account Filter.
 type LookupAccountFilterResult struct {
+	// The first quality.
+	FirstQuality *FirstQualityResponse `pulumi:"firstQuality"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponse `pulumi:"properties"`
+	// The presentation time range.
+	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
+	// The tracks selection conditions.
+	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

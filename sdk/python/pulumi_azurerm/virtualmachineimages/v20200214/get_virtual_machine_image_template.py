@@ -13,12 +13,36 @@ class GetVirtualMachineImageTemplateResult:
     """
     Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, build_timeout_in_minutes=None, customize=None, distribute=None, identity=None, last_run_status=None, location=None, name=None, provisioning_error=None, provisioning_state=None, source=None, tags=None, type=None, vm_profile=None):
+        if build_timeout_in_minutes and not isinstance(build_timeout_in_minutes, float):
+            raise TypeError("Expected argument 'build_timeout_in_minutes' to be a float")
+        __self__.build_timeout_in_minutes = build_timeout_in_minutes
+        """
+        Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        """
+        if customize and not isinstance(customize, list):
+            raise TypeError("Expected argument 'customize' to be a list")
+        __self__.customize = customize
+        """
+        Specifies the properties used to describe the customization steps of the image, like Image source etc
+        """
+        if distribute and not isinstance(distribute, list):
+            raise TypeError("Expected argument 'distribute' to be a list")
+        __self__.distribute = distribute
+        """
+        The distribution targets where the image output needs to go to.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The identity of the image template, if configured.
+        """
+        if last_run_status and not isinstance(last_run_status, dict):
+            raise TypeError("Expected argument 'last_run_status' to be a dict")
+        __self__.last_run_status = last_run_status
+        """
+        State of 'run' that is currently executing or was last executed.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +56,23 @@ class GetVirtualMachineImageTemplateResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_error and not isinstance(provisioning_error, dict):
+            raise TypeError("Expected argument 'provisioning_error' to be a dict")
+        __self__.provisioning_error = provisioning_error
         """
-        The properties of the image template
+        Provisioning error, if any
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the resource
+        """
+        if source and not isinstance(source, dict):
+            raise TypeError("Expected argument 'source' to be a dict")
+        __self__.source = source
+        """
+        Specifies the properties used to describe the source image.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +86,12 @@ class GetVirtualMachineImageTemplateResult:
         """
         Resource type
         """
+        if vm_profile and not isinstance(vm_profile, dict):
+            raise TypeError("Expected argument 'vm_profile' to be a dict")
+        __self__.vm_profile = vm_profile
+        """
+        Describes how virtual machine is set up to build images
+        """
 
 
 class AwaitableGetVirtualMachineImageTemplateResult(GetVirtualMachineImageTemplateResult):
@@ -58,12 +100,19 @@ class AwaitableGetVirtualMachineImageTemplateResult(GetVirtualMachineImageTempla
         if False:
             yield self
         return GetVirtualMachineImageTemplateResult(
+            build_timeout_in_minutes=self.build_timeout_in_minutes,
+            customize=self.customize,
+            distribute=self.distribute,
             identity=self.identity,
+            last_run_status=self.last_run_status,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_error=self.provisioning_error,
+            provisioning_state=self.provisioning_state,
+            source=self.source,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            vm_profile=self.vm_profile)
 
 
 def get_virtual_machine_image_template(name=None, resource_group_name=None, opts=None):
@@ -83,9 +132,16 @@ def get_virtual_machine_image_template(name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:virtualmachineimages/v20200214:getVirtualMachineImageTemplate', __args__, opts=opts).value
 
     return AwaitableGetVirtualMachineImageTemplateResult(
+        build_timeout_in_minutes=__ret__.get('buildTimeoutInMinutes'),
+        customize=__ret__.get('customize'),
+        distribute=__ret__.get('distribute'),
         identity=__ret__.get('identity'),
+        last_run_status=__ret__.get('lastRunStatus'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_error=__ret__.get('provisioningError'),
+        provisioning_state=__ret__.get('provisioningState'),
+        source=__ret__.get('source'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        vm_profile=__ret__.get('vmProfile'))

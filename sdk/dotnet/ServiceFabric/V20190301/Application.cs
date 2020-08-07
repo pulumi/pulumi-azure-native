@@ -27,16 +27,46 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+        /// </summary>
+        [Output("maximumNodes")]
+        public Output<int?> MaximumNodes { get; private set; } = null!;
+
+        /// <summary>
+        /// List of application capacity metric description.
+        /// </summary>
+        [Output("metrics")]
+        public Output<ImmutableArray<Outputs.ApplicationMetricDescriptionResponseResult>> Metrics { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+        /// </summary>
+        [Output("minimumNodes")]
+        public Output<int?> MinimumNodes { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The application resource properties.
+        /// List of application parameters with overridden values from their default values specified in the application manifest.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Remove the current application capacity settings.
+        /// </summary>
+        [Output("removeApplicationCapacity")]
+        public Output<bool?> RemoveApplicationCapacity { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.
@@ -49,6 +79,24 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The application type name as defined in the application manifest.
+        /// </summary>
+        [Output("typeName")]
+        public Output<string?> TypeName { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the application type as defined in the application manifest.
+        /// </summary>
+        [Output("typeVersion")]
+        public Output<string?> TypeVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the policy for a monitored application upgrade.
+        /// </summary>
+        [Output("upgradePolicy")]
+        public Output<Outputs.ApplicationUpgradePolicyResponseResult?> UpgradePolicy { get; private set; } = null!;
 
 
         /// <summary>

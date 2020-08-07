@@ -10,24 +10,41 @@ from ... import _utilities, _tables
 
 
 class DisasterRecoveryConfiguration(pulumi.CustomResource):
+    auto_failover: pulumi.Output[str]
+    """
+    Whether or not failover can be done automatically.
+    """
+    failover_policy: pulumi.Output[str]
+    """
+    How aggressive the automatic failover should be.
+    """
     location: pulumi.Output[str]
     """
     Location of the server that contains this disaster recovery configuration.
+    """
+    logical_server_name: pulumi.Output[str]
+    """
+    Logical name of the server.
     """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    partner_logical_server_name: pulumi.Output[str]
     """
-    The properties representing the resource.
-      * `auto_failover` (`str`) - Whether or not failover can be done automatically.
-      * `failover_policy` (`str`) - How aggressive the automatic failover should be.
-      * `logical_server_name` (`str`) - Logical name of the server.
-      * `partner_logical_server_name` (`str`) - Logical name of the partner server.
-      * `partner_server_id` (`str`) - Id of the partner server.
-      * `role` (`str`) - The role of the current server in the disaster recovery configuration.
-      * `status` (`str`) - The status of the disaster recovery configuration.
+    Logical name of the partner server.
+    """
+    partner_server_id: pulumi.Output[str]
+    """
+    Id of the partner server.
+    """
+    role: pulumi.Output[str]
+    """
+    The role of the current server in the disaster recovery configuration.
+    """
+    status: pulumi.Output[str]
+    """
+    The status of the disaster recovery configuration.
     """
     type: pulumi.Output[str]
     """
@@ -69,8 +86,14 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
+            __props__['auto_failover'] = None
+            __props__['failover_policy'] = None
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['logical_server_name'] = None
+            __props__['partner_logical_server_name'] = None
+            __props__['partner_server_id'] = None
+            __props__['role'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(DisasterRecoveryConfiguration, __self__).__init__(
             'azurerm:sql/v20140401:DisasterRecoveryConfiguration',

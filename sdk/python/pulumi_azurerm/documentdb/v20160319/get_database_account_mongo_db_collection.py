@@ -13,7 +13,13 @@ class GetDatabaseAccountMongoDBCollectionResult:
     """
     An Azure Cosmos DB MongoDB collection.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, indexes=None, location=None, name=None, shard_key=None, tags=None, type=None):
+        if indexes and not isinstance(indexes, list):
+            raise TypeError("Expected argument 'indexes' to be a list")
+        __self__.indexes = indexes
+        """
+        List of index keys
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,11 @@ class GetDatabaseAccountMongoDBCollectionResult:
         """
         The name of the database account.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if shard_key and not isinstance(shard_key, dict):
+            raise TypeError("Expected argument 'shard_key' to be a dict")
+        __self__.shard_key = shard_key
         """
-        The properties of an Azure Cosmos DB MongoDB collection
+        A key-value pair of shard keys to be applied for the request.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +58,10 @@ class AwaitableGetDatabaseAccountMongoDBCollectionResult(GetDatabaseAccountMongo
         if False:
             yield self
         return GetDatabaseAccountMongoDBCollectionResult(
+            indexes=self.indexes,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            shard_key=self.shard_key,
             tags=self.tags,
             type=self.type)
 
@@ -80,8 +87,9 @@ def get_database_account_mongo_db_collection(account_name=None, database_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20160319:getDatabaseAccountMongoDBCollection', __args__, opts=opts).value
 
     return AwaitableGetDatabaseAccountMongoDBCollectionResult(
+        indexes=__ret__.get('indexes'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        shard_key=__ret__.get('shardKey'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

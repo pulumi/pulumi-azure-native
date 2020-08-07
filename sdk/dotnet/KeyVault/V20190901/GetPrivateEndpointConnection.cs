@@ -54,9 +54,17 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource properties.
+        /// Properties of the private endpoint object.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult Properties;
+        public readonly Outputs.PrivateEndpointResponseResult? PrivateEndpoint;
+        /// <summary>
+        /// Approval state of the private link connection.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// Provisioning state of the private endpoint connection.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Tags assigned to the key vault resource.
         /// </summary>
@@ -72,7 +80,11 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
 
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponseResult properties,
+            Outputs.PrivateEndpointResponseResult? privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStateResponseResult? privateLinkServiceConnectionState,
+
+            string? provisioningState,
 
             ImmutableDictionary<string, string> tags,
 
@@ -80,7 +92,9 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

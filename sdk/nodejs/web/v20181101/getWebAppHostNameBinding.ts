@@ -36,6 +36,26 @@ export interface GetWebAppHostNameBindingArgs {
  */
 export interface GetWebAppHostNameBindingResult {
     /**
+     * Azure resource name.
+     */
+    readonly azureResourceName?: string;
+    /**
+     * Azure resource type.
+     */
+    readonly azureResourceType?: string;
+    /**
+     * Custom DNS record type.
+     */
+    readonly customHostNameDnsRecordType?: string;
+    /**
+     * Fully qualified ARM domain resource URI.
+     */
+    readonly domainId?: string;
+    /**
+     * Hostname type.
+     */
+    readonly hostNameType?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -44,11 +64,23 @@ export interface GetWebAppHostNameBindingResult {
      */
     readonly name: string;
     /**
-     * HostNameBinding resource specific properties
+     * App Service app name.
      */
-    readonly properties: outputs.web.v20181101.HostNameBindingResponseProperties;
+    readonly siteName?: string;
+    /**
+     * SSL type
+     */
+    readonly sslState?: string;
+    /**
+     * SSL certificate thumbprint
+     */
+    readonly thumbprint?: string;
     /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Virtual IP address assigned to the hostname if IP based SSL is enabled.
+     */
+    readonly virtualIP: string;
 }

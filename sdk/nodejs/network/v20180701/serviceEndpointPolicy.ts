@@ -49,9 +49,17 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the service end point policy
+     * The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180701.ServiceEndpointPolicyPropertiesFormatResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The resource GUID property of the service endpoint policy resource.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * A collection of service endpoint policy definitions of the service endpoint policy.
+     */
+    public readonly serviceEndpointPolicyDefinitions!: pulumi.Output<outputs.network.v20180701.ServiceEndpointPolicyDefinitionResponse[] | undefined>;
     /**
      * Resource tags.
      */
@@ -89,7 +97,6 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["serviceEndpointPolicyDefinitions"] = args ? args.serviceEndpointPolicyDefinitions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

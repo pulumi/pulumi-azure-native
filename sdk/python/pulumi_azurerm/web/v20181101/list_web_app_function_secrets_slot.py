@@ -13,7 +13,13 @@ class ListWebAppFunctionSecretsSlotResult:
     """
     Function secrets.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, key=None, kind=None, name=None, trigger_url=None, type=None):
+        if key and not isinstance(key, str):
+            raise TypeError("Expected argument 'key' to be a str")
+        __self__.key = key
+        """
+        Secret key.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +32,11 @@ class ListWebAppFunctionSecretsSlotResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if trigger_url and not isinstance(trigger_url, str):
+            raise TypeError("Expected argument 'trigger_url' to be a str")
+        __self__.trigger_url = trigger_url
         """
-        FunctionSecrets resource specific properties
+        Trigger URL.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +52,10 @@ class AwaitableListWebAppFunctionSecretsSlotResult(ListWebAppFunctionSecretsSlot
         if False:
             yield self
         return ListWebAppFunctionSecretsSlotResult(
+            key=self.key,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            trigger_url=self.trigger_url,
             type=self.type)
 
 
@@ -71,7 +78,8 @@ def list_web_app_function_secrets_slot(name=None, resource_group_name=None, slot
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:listWebAppFunctionSecretsSlot', __args__, opts=opts).value
 
     return AwaitableListWebAppFunctionSecretsSlotResult(
+        key=__ret__.get('key'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        trigger_url=__ret__.get('trigger_url'),
         type=__ret__.get('type'))

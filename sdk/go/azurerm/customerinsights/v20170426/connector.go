@@ -14,10 +14,30 @@ import (
 type Connector struct {
 	pulumi.CustomResourceState
 
+	// ID of the connector.
+	ConnectorId pulumi.IntOutput `pulumi:"connectorId"`
+	// Name of the connector.
+	ConnectorName pulumi.StringPtrOutput `pulumi:"connectorName"`
+	// The connector properties.
+	ConnectorProperties pulumi.MapMapOutput `pulumi:"connectorProperties"`
+	// Type of connector.
+	ConnectorType pulumi.StringOutput `pulumi:"connectorType"`
+	// The created time.
+	Created pulumi.StringOutput `pulumi:"created"`
+	// Description of the connector.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Display name of the connector.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// If this is an internal connector.
+	IsInternal pulumi.BoolPtrOutput `pulumi:"isInternal"`
+	// The last modified time.
+	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of connector.
-	Properties ConnectorResponseOutput `pulumi:"properties"`
+	// State of connector.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The hub name.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +85,59 @@ func GetConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connector resources.
 type connectorState struct {
+	// ID of the connector.
+	ConnectorId *int `pulumi:"connectorId"`
+	// Name of the connector.
+	ConnectorName *string `pulumi:"connectorName"`
+	// The connector properties.
+	ConnectorProperties map[string]map[string]interface{} `pulumi:"connectorProperties"`
+	// Type of connector.
+	ConnectorType *string `pulumi:"connectorType"`
+	// The created time.
+	Created *string `pulumi:"created"`
+	// Description of the connector.
+	Description *string `pulumi:"description"`
+	// Display name of the connector.
+	DisplayName *string `pulumi:"displayName"`
+	// If this is an internal connector.
+	IsInternal *bool `pulumi:"isInternal"`
+	// The last modified time.
+	LastModified *string `pulumi:"lastModified"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of connector.
-	Properties *ConnectorResponse `pulumi:"properties"`
+	// State of connector.
+	State *string `pulumi:"state"`
+	// The hub name.
+	TenantId *string `pulumi:"tenantId"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type ConnectorState struct {
+	// ID of the connector.
+	ConnectorId pulumi.IntPtrInput
+	// Name of the connector.
+	ConnectorName pulumi.StringPtrInput
+	// The connector properties.
+	ConnectorProperties pulumi.MapMapInput
+	// Type of connector.
+	ConnectorType pulumi.StringPtrInput
+	// The created time.
+	Created pulumi.StringPtrInput
+	// Description of the connector.
+	Description pulumi.StringPtrInput
+	// Display name of the connector.
+	DisplayName pulumi.StringPtrInput
+	// If this is an internal connector.
+	IsInternal pulumi.BoolPtrInput
+	// The last modified time.
+	LastModified pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of connector.
-	Properties ConnectorResponsePtrInput
+	// State of connector.
+	State pulumi.StringPtrInput
+	// The hub name.
+	TenantId pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

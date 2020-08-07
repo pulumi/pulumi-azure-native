@@ -14,12 +14,27 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// Endpoint for the domain.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+	InboundIpRules InboundIpRuleResponseArrayOutput `pulumi:"inboundIpRules"`
+	// This determines the format that Event Grid should expect for incoming events published to the domain.
+	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
+	// Information about the InputSchemaMapping which specified the info about mapping event payload.
+	InputSchemaMapping InputSchemaMappingResponsePtrOutput `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Metric resource id for the domain.
+	MetricResourceId pulumi.StringOutput `pulumi:"metricResourceId"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the domain.
-	Properties DomainPropertiesResponseOutput `pulumi:"properties"`
+	// List of private endpoint connections.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	// Provisioning state of the domain.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the resource.
@@ -63,12 +78,27 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
+	// Endpoint for the domain.
+	Endpoint *string `pulumi:"endpoint"`
+	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+	InboundIpRules []InboundIpRuleResponse `pulumi:"inboundIpRules"`
+	// This determines the format that Event Grid should expect for incoming events published to the domain.
+	InputSchema *string `pulumi:"inputSchema"`
+	// Information about the InputSchemaMapping which specified the info about mapping event payload.
+	InputSchemaMapping *InputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
+	// Metric resource id for the domain.
+	MetricResourceId *string `pulumi:"metricResourceId"`
 	// Name of the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the domain.
-	Properties *DomainPropertiesResponse `pulumi:"properties"`
+	// List of private endpoint connections.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Provisioning state of the domain.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.
@@ -76,12 +106,27 @@ type domainState struct {
 }
 
 type DomainState struct {
+	// Endpoint for the domain.
+	Endpoint pulumi.StringPtrInput
+	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+	InboundIpRules InboundIpRuleResponseArrayInput
+	// This determines the format that Event Grid should expect for incoming events published to the domain.
+	InputSchema pulumi.StringPtrInput
+	// Information about the InputSchemaMapping which specified the info about mapping event payload.
+	InputSchemaMapping InputSchemaMappingResponsePtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
+	// Metric resource id for the domain.
+	MetricResourceId pulumi.StringPtrInput
 	// Name of the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the domain.
-	Properties DomainPropertiesResponsePtrInput
+	// List of private endpoint connections.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
+	// Provisioning state of the domain.
+	ProvisioningState pulumi.StringPtrInput
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
+	PublicNetworkAccess pulumi.StringPtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
 	// Type of the resource.

@@ -40,6 +40,38 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class GetWorkflowResult
     {
         /// <summary>
+        /// The access control configuration.
+        /// </summary>
+        public readonly Outputs.FlowAccessControlConfigurationResponseResult? AccessControl;
+        /// <summary>
+        /// Gets the access endpoint.
+        /// </summary>
+        public readonly string AccessEndpoint;
+        /// <summary>
+        /// Gets the changed time.
+        /// </summary>
+        public readonly string ChangedTime;
+        /// <summary>
+        /// Gets the created time.
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
+        /// The definition.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Definition;
+        /// <summary>
+        /// The endpoints configuration.
+        /// </summary>
+        public readonly Outputs.FlowEndpointsConfigurationResponseResult? EndpointsConfiguration;
+        /// <summary>
+        /// The integration account.
+        /// </summary>
+        public readonly Outputs.ResourceReferenceResponseResult? IntegrationAccount;
+        /// <summary>
+        /// The integration service environment.
+        /// </summary>
+        public readonly Outputs.ResourceReferenceResponseResult? IntegrationServiceEnvironment;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -48,9 +80,21 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The workflow properties.
+        /// The parameters.
         /// </summary>
-        public readonly Outputs.WorkflowPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? Parameters;
+        /// <summary>
+        /// Gets the provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The sku.
+        /// </summary>
+        public readonly Outputs.SkuResponseResult Sku;
+        /// <summary>
+        /// The state.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -59,24 +103,64 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// Gets the resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Gets the version.
+        /// </summary>
+        public readonly string Version;
 
         [OutputConstructor]
         private GetWorkflowResult(
+            Outputs.FlowAccessControlConfigurationResponseResult? accessControl,
+
+            string accessEndpoint,
+
+            string changedTime,
+
+            string createdTime,
+
+            ImmutableDictionary<string, object>? definition,
+
+            Outputs.FlowEndpointsConfigurationResponseResult? endpointsConfiguration,
+
+            Outputs.ResourceReferenceResponseResult? integrationAccount,
+
+            Outputs.ResourceReferenceResponseResult? integrationServiceEnvironment,
+
             string? location,
 
             string name,
 
-            Outputs.WorkflowPropertiesResponseResult properties,
+            ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? parameters,
+
+            string provisioningState,
+
+            Outputs.SkuResponseResult sku,
+
+            string? state,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string version)
         {
+            AccessControl = accessControl;
+            AccessEndpoint = accessEndpoint;
+            ChangedTime = changedTime;
+            CreatedTime = createdTime;
+            Definition = definition;
+            EndpointsConfiguration = endpointsConfiguration;
+            IntegrationAccount = integrationAccount;
+            IntegrationServiceEnvironment = integrationServiceEnvironment;
             Location = location;
             Name = name;
-            Properties = properties;
+            Parameters = parameters;
+            ProvisioningState = provisioningState;
+            Sku = sku;
+            State = state;
             Tags = tags;
             Type = type;
+            Version = version;
         }
     }
 }

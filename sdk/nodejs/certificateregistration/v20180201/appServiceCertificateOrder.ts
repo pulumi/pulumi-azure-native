@@ -37,9 +37,53 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
     }
 
     /**
+     * Reasons why App Service Certificate is not renewable at the current moment.
+     */
+    public /*out*/ readonly appServiceCertificateNotRenewableReasons!: pulumi.Output<string[]>;
+    /**
+     * <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+     */
+    public readonly autoRenew!: pulumi.Output<boolean | undefined>;
+    /**
+     * State of the Key Vault secret.
+     */
+    public readonly certificates!: pulumi.Output<{[key: string]: outputs.certificateregistration.v20180201.AppServiceCertificateResponse} | undefined>;
+    /**
+     * Last CSR that was created for this order.
+     */
+    public readonly csr!: pulumi.Output<string | undefined>;
+    /**
+     * Certificate distinguished name.
+     */
+    public readonly distinguishedName!: pulumi.Output<string | undefined>;
+    /**
+     * Domain verification token.
+     */
+    public /*out*/ readonly domainVerificationToken!: pulumi.Output<string>;
+    /**
+     * Certificate expiration time.
+     */
+    public /*out*/ readonly expirationTime!: pulumi.Output<string>;
+    /**
+     * Intermediate certificate.
+     */
+    public /*out*/ readonly intermediate!: pulumi.Output<outputs.certificateregistration.v20180201.CertificateDetailsResponse>;
+    /**
+     * <code>true</code> if private key is external; otherwise, <code>false</code>.
+     */
+    public /*out*/ readonly isPrivateKeyExternal!: pulumi.Output<boolean>;
+    /**
+     * Certificate key size.
+     */
+    public readonly keySize!: pulumi.Output<number | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * Certificate last issuance time.
+     */
+    public /*out*/ readonly lastCertificateIssuanceTime!: pulumi.Output<string>;
     /**
      * Resource Location.
      */
@@ -49,9 +93,33 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * AppServiceCertificateOrder resource specific properties
+     * Time stamp when the certificate would be auto renewed next
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.certificateregistration.v20180201.AppServiceCertificateOrderResponseProperties>;
+    public /*out*/ readonly nextAutoRenewalTimeStamp!: pulumi.Output<string>;
+    /**
+     * Certificate product type.
+     */
+    public readonly productType!: pulumi.Output<string>;
+    /**
+     * Status of certificate order.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Root certificate.
+     */
+    public /*out*/ readonly root!: pulumi.Output<outputs.certificateregistration.v20180201.CertificateDetailsResponse>;
+    /**
+     * Current serial number of the certificate.
+     */
+    public /*out*/ readonly serialNumber!: pulumi.Output<string>;
+    /**
+     * Signed certificate.
+     */
+    public /*out*/ readonly signedCertificate!: pulumi.Output<outputs.certificateregistration.v20180201.CertificateDetailsResponse>;
+    /**
+     * Current order status.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -60,6 +128,10 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Duration in years (must be between 1 and 3).
+     */
+    public readonly validityInYears!: pulumi.Output<number | undefined>;
 
     /**
      * Create a AppServiceCertificateOrder resource with the given unique name, arguments, and options.
@@ -98,7 +170,18 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["validityInYears"] = args ? args.validityInYears : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
+            inputs["domainVerificationToken"] = undefined /*out*/;
+            inputs["expirationTime"] = undefined /*out*/;
+            inputs["intermediate"] = undefined /*out*/;
+            inputs["isPrivateKeyExternal"] = undefined /*out*/;
+            inputs["lastCertificateIssuanceTime"] = undefined /*out*/;
+            inputs["nextAutoRenewalTimeStamp"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["root"] = undefined /*out*/;
+            inputs["serialNumber"] = undefined /*out*/;
+            inputs["signedCertificate"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

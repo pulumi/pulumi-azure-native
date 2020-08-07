@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
     public sealed class PublicIPAddressResponseResult
     {
         /// <summary>
+        /// The DDoS protection custom policy associated with the public IP address.
+        /// </summary>
+        public readonly Outputs.DdosSettingsResponseResult? DdosSettings;
+        /// <summary>
+        /// The FQDN of the DNS record associated with the public IP address.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressDnsSettingsResponseResult? DnsSettings;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -21,6 +29,22 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The idle timeout of the public IP address.
+        /// </summary>
+        public readonly int? IdleTimeoutInMinutes;
+        /// <summary>
+        /// The IP address associated with the public IP address resource.
+        /// </summary>
+        public readonly string? IpAddress;
+        /// <summary>
+        /// The IP configuration associated with the public IP address.
+        /// </summary>
+        public readonly Outputs.IPConfigurationResponseResult IpConfiguration;
+        /// <summary>
+        /// The list of tags associated with the public IP address.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpTagResponseResult> IpTags;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -30,9 +54,25 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Public IP address properties.
+        /// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.PublicIPAddressPropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The public IP address version.
+        /// </summary>
+        public readonly string? PublicIPAddressVersion;
+        /// <summary>
+        /// The public IP address allocation method.
+        /// </summary>
+        public readonly string? PublicIPAllocationMethod;
+        /// <summary>
+        /// The Public IP Prefix this Public IP Address should be allocated from.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PublicIPPrefix;
+        /// <summary>
+        /// The resource GUID property of the public IP resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
         /// <summary>
         /// The public IP address SKU.
         /// </summary>
@@ -52,15 +92,35 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
 
         [OutputConstructor]
         private PublicIPAddressResponseResult(
+            Outputs.DdosSettingsResponseResult? ddosSettings,
+
+            Outputs.PublicIPAddressDnsSettingsResponseResult? dnsSettings,
+
             string? etag,
 
             string? id,
+
+            int? idleTimeoutInMinutes,
+
+            string? ipAddress,
+
+            Outputs.IPConfigurationResponseResult ipConfiguration,
+
+            ImmutableArray<Outputs.IpTagResponseResult> ipTags,
 
             string? location,
 
             string name,
 
-            Outputs.PublicIPAddressPropertiesFormatResponseResult? properties,
+            string? provisioningState,
+
+            string? publicIPAddressVersion,
+
+            string? publicIPAllocationMethod,
+
+            Outputs.SubResourceResponseResult? publicIPPrefix,
+
+            string? resourceGuid,
 
             Outputs.PublicIPAddressSkuResponseResult? sku,
 
@@ -70,11 +130,21 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
 
             ImmutableArray<string> zones)
         {
+            DdosSettings = ddosSettings;
+            DnsSettings = dnsSettings;
             Etag = etag;
             Id = id;
+            IdleTimeoutInMinutes = idleTimeoutInMinutes;
+            IpAddress = ipAddress;
+            IpConfiguration = ipConfiguration;
+            IpTags = ipTags;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublicIPAddressVersion = publicIPAddressVersion;
+            PublicIPAllocationMethod = publicIPAllocationMethod;
+            PublicIPPrefix = publicIPPrefix;
+            ResourceGuid = resourceGuid;
             Sku = sku;
             Tags = tags;
             Type = type;

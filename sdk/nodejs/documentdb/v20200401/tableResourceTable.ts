@@ -44,10 +44,8 @@ export class TableResourceTable extends pulumi.CustomResource {
      * The name of the ARM resource.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The properties of an Azure Cosmos DB Table
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20200401.TableGetPropertiesResponse>;
+    public readonly options!: pulumi.Output<outputs.documentdb.v20200401.TableGetPropertiesResponseOptions | undefined>;
+    public readonly resource!: pulumi.Output<outputs.documentdb.v20200401.TableGetPropertiesResponseResource | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -92,7 +90,6 @@ export class TableResourceTable extends pulumi.CustomResource {
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

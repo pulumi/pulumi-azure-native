@@ -16,6 +16,24 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
     public partial class Task : Pulumi.CustomResource
     {
         /// <summary>
+        /// The machine configuration of the run agent.
+        /// </summary>
+        [Output("agentConfiguration")]
+        public Output<Outputs.AgentPropertiesResponseResult?> AgentConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation date of task.
+        /// </summary>
+        [Output("creationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties that describes a set of credentials that will be used when this run is invoked.
+        /// </summary>
+        [Output("credentials")]
+        public Output<Outputs.CredentialsResponseResult?> Credentials { get; private set; } = null!;
+
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
@@ -34,16 +52,46 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of a task.
+        /// The platform properties against which the run has to happen.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TaskPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("platform")]
+        public Output<Outputs.PlatformPropertiesResponseResult> Platform { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the task.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The current status of task.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties of a task step.
+        /// </summary>
+        [Output("step")]
+        public Output<Outputs.TaskStepPropertiesResponseResult> Step { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Run timeout in seconds.
+        /// </summary>
+        [Output("timeout")]
+        public Output<int?> Timeout { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties that describe all triggers for the task.
+        /// </summary>
+        [Output("trigger")]
+        public Output<Outputs.TriggerPropertiesResponseResult?> Trigger { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

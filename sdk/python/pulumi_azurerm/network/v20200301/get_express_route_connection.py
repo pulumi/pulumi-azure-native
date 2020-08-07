@@ -13,18 +13,42 @@ class GetExpressRouteConnectionResult:
     """
     ExpressRouteConnection resource.
     """
-    def __init__(__self__, name=None, properties=None):
+    def __init__(__self__, authorization_key=None, enable_internet_security=None, express_route_circuit_peering=None, name=None, provisioning_state=None, routing_weight=None):
+        if authorization_key and not isinstance(authorization_key, str):
+            raise TypeError("Expected argument 'authorization_key' to be a str")
+        __self__.authorization_key = authorization_key
+        """
+        Authorization key to establish the connection.
+        """
+        if enable_internet_security and not isinstance(enable_internet_security, bool):
+            raise TypeError("Expected argument 'enable_internet_security' to be a bool")
+        __self__.enable_internet_security = enable_internet_security
+        """
+        Enable internet security.
+        """
+        if express_route_circuit_peering and not isinstance(express_route_circuit_peering, dict):
+            raise TypeError("Expected argument 'express_route_circuit_peering' to be a dict")
+        __self__.express_route_circuit_peering = express_route_circuit_peering
+        """
+        The ExpressRoute circuit peering.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the express route connection.
+        The provisioning state of the express route connection resource.
+        """
+        if routing_weight and not isinstance(routing_weight, float):
+            raise TypeError("Expected argument 'routing_weight' to be a float")
+        __self__.routing_weight = routing_weight
+        """
+        The routing weight associated to the connection.
         """
 
 
@@ -34,8 +58,12 @@ class AwaitableGetExpressRouteConnectionResult(GetExpressRouteConnectionResult):
         if False:
             yield self
         return GetExpressRouteConnectionResult(
+            authorization_key=self.authorization_key,
+            enable_internet_security=self.enable_internet_security,
+            express_route_circuit_peering=self.express_route_circuit_peering,
             name=self.name,
-            properties=self.properties)
+            provisioning_state=self.provisioning_state,
+            routing_weight=self.routing_weight)
 
 
 def get_express_route_connection(express_route_gateway_name=None, name=None, resource_group_name=None, opts=None):
@@ -57,5 +85,9 @@ def get_express_route_connection(express_route_gateway_name=None, name=None, res
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200301:getExpressRouteConnection', __args__, opts=opts).value
 
     return AwaitableGetExpressRouteConnectionResult(
+        authorization_key=__ret__.get('authorizationKey'),
+        enable_internet_security=__ret__.get('enableInternetSecurity'),
+        express_route_circuit_peering=__ret__.get('expressRouteCircuitPeering'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        provisioning_state=__ret__.get('provisioningState'),
+        routing_weight=__ret__.get('routingWeight'))

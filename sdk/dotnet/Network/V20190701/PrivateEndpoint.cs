@@ -27,16 +27,40 @@ namespace Pulumi.AzureRM.Network.V20190701
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        /// </summary>
+        [Output("manualPrivateLinkServiceConnections")]
+        public Output<ImmutableArray<Outputs.PrivateLinkServiceConnectionResponseResult>> ManualPrivateLinkServiceConnections { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the private endpoint.
+        /// An array of references to the network interfaces created for this private endpoint.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkInterfaces")]
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseResult>> NetworkInterfaces { get; private set; } = null!;
+
+        /// <summary>
+        /// A grouping of information about the connection to the remote resource.
+        /// </summary>
+        [Output("privateLinkServiceConnections")]
+        public Output<ImmutableArray<Outputs.PrivateLinkServiceConnectionResponseResult>> PrivateLinkServiceConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the private endpoint resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the subnet from which the private IP will be allocated.
+        /// </summary>
+        [Output("subnet")]
+        public Output<Outputs.SubnetResponseResult?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -29,9 +29,14 @@ type LookupCustomDomainArgs struct {
 
 // CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
 type LookupCustomDomainResult struct {
+	// The host name of the custom domain. Must be a domain name.
+	HostName string `pulumi:"hostName"`
 	// Resource name
-	Name       string                         `pulumi:"name"`
-	Properties CustomDomainPropertiesResponse `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Provisioning status of the custom domain.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the custom domain.
+	ResourceState string `pulumi:"resourceState"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

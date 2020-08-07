@@ -18,18 +18,21 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     Name of the key vault resource.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint: pulumi.Output[dict]
     """
-    Resource properties.
-      * `private_endpoint` (`dict`) - Properties of the private endpoint object.
-        * `id` (`str`) - Full identifier of the private endpoint resource.
-
-      * `private_link_service_connection_state` (`dict`) - Approval state of the private link connection.
-        * `action_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-        * `description` (`str`) - The reason for approval or rejection.
-        * `status` (`str`) - Indicates whether the connection has been approved, rejected or removed by the key vault owner.
-
-      * `provisioning_state` (`str`) - Provisioning state of the private endpoint connection.
+    Properties of the private endpoint object.
+      * `id` (`str`) - Full identifier of the private endpoint resource.
+    """
+    private_link_service_connection_state: pulumi.Output[dict]
+    """
+    Approval state of the private link connection.
+      * `action_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+      * `description` (`str`) - The reason for approval or rejection.
+      * `status` (`str`) - Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the private endpoint connection.
     """
     tags: pulumi.Output[dict]
     """
@@ -86,7 +89,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['private_endpoint'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(

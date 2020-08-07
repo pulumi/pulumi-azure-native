@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.Authorization.V20160401
     public partial class PolicyAssignment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties for the policy assignment.
+        /// The ID of the policy definition.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PolicyAssignmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("policyDefinitionId")]
+        public Output<string?> PolicyDefinitionId { get; private set; } = null!;
+
+        /// <summary>
+        /// The scope for the policy assignment.
+        /// </summary>
+        [Output("scope")]
+        public Output<string?> Scope { get; private set; } = null!;
 
         /// <summary>
         /// The type of the policy assignment.

@@ -37,13 +37,33 @@ export class OriginGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Health probe settings to the origin that is used to determine the health of the origin.
+     */
+    public readonly healthProbeSettings!: pulumi.Output<outputs.cdn.v20200331.HealthProbeParametersResponse | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The JSON object that contains the properties of the origin group.
+     * The source of the content being delivered via CDN within given origin group.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20200331.OriginGroupPropertiesResponse>;
+    public readonly origins!: pulumi.Output<outputs.cdn.v20200331.ResourceReferenceResponse[]>;
+    /**
+     * Provisioning status of the origin group.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource status of the origin group.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    /**
+     * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+     */
+    public readonly responseBasedOriginErrorDetectionSettings!: pulumi.Output<outputs.cdn.v20200331.ResponseBasedOriginErrorDetectionParametersResponse | undefined>;
+    /**
+     * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+     */
+    public readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes!: pulumi.Output<number | undefined>;
     /**
      * Resource type.
      */
@@ -85,7 +105,8 @@ export class OriginGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["responseBasedOriginErrorDetectionSettings"] = args ? args.responseBasedOriginErrorDetectionSettings : undefined;
             inputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

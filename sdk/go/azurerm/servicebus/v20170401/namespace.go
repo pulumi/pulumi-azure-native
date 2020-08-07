@@ -14,18 +14,26 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
+	// The time the namespace was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Identifier for Azure Insights metrics
+	MetricId pulumi.StringOutput `pulumi:"metricId"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the namespace.
-	Properties SBNamespacePropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the namespace.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
 	// Properties of Sku
 	Sku SBSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -65,33 +73,49 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
+	// The time the namespace was created.
+	CreatedAt *string `pulumi:"createdAt"`
 	// The Geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// Identifier for Azure Insights metrics
+	MetricId *string `pulumi:"metricId"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of the namespace.
-	Properties *SBNamespacePropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the namespace.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
 	// Properties of Sku
 	Sku *SBSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type NamespaceState struct {
+	// The time the namespace was created.
+	CreatedAt pulumi.StringPtrInput
 	// The Geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// Identifier for Azure Insights metrics
+	MetricId pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of the namespace.
-	Properties SBNamespacePropertiesResponsePtrInput
+	// Provisioning state of the namespace.
+	ProvisioningState pulumi.StringPtrInput
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint pulumi.StringPtrInput
 	// Properties of Sku
 	Sku SBSkuResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {

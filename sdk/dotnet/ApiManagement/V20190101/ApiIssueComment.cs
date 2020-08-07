@@ -15,22 +15,34 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public partial class ApiIssueComment : Pulumi.CustomResource
     {
         /// <summary>
+        /// Date and time when the comment was created.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string?> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Issue Comment.
+        /// Comment text.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IssueCommentContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("text")]
+        public Output<string> Text { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A resource identifier for the user who left the comment.
+        /// </summary>
+        [Output("userId")]
+        public Output<string> UserId { get; private set; } = null!;
 
 
         /// <summary>

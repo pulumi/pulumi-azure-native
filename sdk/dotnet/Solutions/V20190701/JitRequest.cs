@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Solutions.V20190701
     public partial class JitRequest : Pulumi.CustomResource
     {
         /// <summary>
+        /// The parent application id.
+        /// </summary>
+        [Output("applicationResourceId")]
+        public Output<string> ApplicationResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The client entity that created the JIT request.
+        /// </summary>
+        [Output("createdBy")]
+        public Output<Outputs.ApplicationClientDetailsResponseResult> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The JIT authorization policies.
+        /// </summary>
+        [Output("jitAuthorizationPolicies")]
+        public Output<ImmutableArray<Outputs.JitAuthorizationPoliciesResponseResult>> JitAuthorizationPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// The JIT request state.
+        /// </summary>
+        [Output("jitRequestState")]
+        public Output<string> JitRequestState { get; private set; } = null!;
+
+        /// <summary>
+        /// The JIT request properties.
+        /// </summary>
+        [Output("jitSchedulingPolicy")]
+        public Output<Outputs.JitSchedulingPolicyResponseResult> JitSchedulingPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +57,16 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The JIT request properties.
+        /// The JIT request provisioning state.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.JitRequestPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The publisher tenant id.
+        /// </summary>
+        [Output("publisherTenantId")]
+        public Output<string> PublisherTenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -43,6 +79,12 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The client entity that last updated the JIT request.
+        /// </summary>
+        [Output("updatedBy")]
+        public Output<Outputs.ApplicationClientDetailsResponseResult> UpdatedBy { get; private set; } = null!;
 
 
         /// <summary>

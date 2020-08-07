@@ -46,13 +46,21 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public sealed class GetAuthorizationResult
     {
         /// <summary>
+        /// The ID of the ExpressRoute Circuit Authorization
+        /// </summary>
+        public readonly string ExpressRouteAuthorizationId;
+        /// <summary>
+        /// The key of the ExpressRoute Circuit Authorization
+        /// </summary>
+        public readonly string ExpressRouteAuthorizationKey;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of an ExpressRoute Circuit Authorization resource
+        /// The state of the  ExpressRoute Circuit Authorization provisioning
         /// </summary>
-        public readonly Outputs.ExpressRouteAuthorizationPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -60,14 +68,20 @@ namespace Pulumi.AzureRM.AVS.V20200320
 
         [OutputConstructor]
         private GetAuthorizationResult(
+            string expressRouteAuthorizationId,
+
+            string expressRouteAuthorizationKey,
+
             string name,
 
-            Outputs.ExpressRouteAuthorizationPropertiesResponseResult properties,
+            string provisioningState,
 
             string type)
         {
+            ExpressRouteAuthorizationId = expressRouteAuthorizationId;
+            ExpressRouteAuthorizationKey = expressRouteAuthorizationKey;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

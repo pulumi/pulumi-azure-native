@@ -41,6 +41,18 @@ export interface GetGalleryApplicationArgs {
  */
 export interface GetGalleryApplicationResult {
     /**
+     * The description of this gallery Application Definition resource. This property is updatable.
+     */
+    readonly description?: string;
+    /**
+     * The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+     */
+    readonly endOfLifeDate?: string;
+    /**
+     * The Eula agreement for the gallery Application Definition.
+     */
+    readonly eula?: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -49,9 +61,17 @@ export interface GetGalleryApplicationResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of a gallery Application Definition.
+     * The privacy statement uri.
      */
-    readonly properties: outputs.compute.v20190301.GalleryApplicationPropertiesResponse;
+    readonly privacyStatementUri?: string;
+    /**
+     * The release note uri.
+     */
+    readonly releaseNoteUri?: string;
+    /**
+     * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     */
+    readonly supportedOSType: string;
     /**
      * Resource tags
      */

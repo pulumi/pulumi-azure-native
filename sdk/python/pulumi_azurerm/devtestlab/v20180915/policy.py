@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class Policy(pulumi.CustomResource):
+    created_date: pulumi.Output[str]
+    """
+    The creation date of the policy.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the policy.
+    """
+    evaluator_type: pulumi.Output[str]
+    """
+    The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+    """
+    fact_data: pulumi.Output[str]
+    """
+    The fact data of the policy.
+    """
+    fact_name: pulumi.Output[str]
+    """
+    The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,26 +38,29 @@ class Policy(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `created_date` (`str`) - The creation date of the policy.
-      * `description` (`str`) - The description of the policy.
-      * `evaluator_type` (`str`) - The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-      * `fact_data` (`str`) - The fact data of the policy.
-      * `fact_name` (`str`) - The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `status` (`str`) - The status of the policy.
-      * `threshold` (`str`) - The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    The provisioning status of the resource.
+    """
+    status: pulumi.Output[str]
+    """
+    The status of the policy.
     """
     tags: pulumi.Output[dict]
     """
     The tags of the resource.
     """
+    threshold: pulumi.Output[str]
+    """
+    The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+    """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, lab_name=None, location=None, name=None, policy_set_name=None, resource_group_name=None, status=None, tags=None, threshold=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -95,8 +118,10 @@ class Policy(pulumi.CustomResource):
             __props__['status'] = status
             __props__['tags'] = tags
             __props__['threshold'] = threshold
-            __props__['properties'] = None
+            __props__['created_date'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['unique_identifier'] = None
         super(Policy, __self__).__init__(
             'azurerm:devtestlab/v20180915:Policy',
             resource_name,

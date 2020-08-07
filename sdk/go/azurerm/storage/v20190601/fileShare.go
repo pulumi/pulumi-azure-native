@@ -14,14 +14,38 @@ import (
 type FileShare struct {
 	pulumi.CustomResourceState
 
+	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+	AccessTier pulumi.StringPtrOutput `pulumi:"accessTier"`
+	// Indicates the last modification time for share access tier.
+	AccessTierChangeTime pulumi.StringOutput `pulumi:"accessTierChangeTime"`
+	// Indicates if there is a pending transition for access tier.
+	AccessTierStatus pulumi.StringOutput `pulumi:"accessTierStatus"`
+	// Indicates whether the share was deleted.
+	Deleted pulumi.BoolOutput `pulumi:"deleted"`
+	// The deleted time if the share was deleted.
+	DeletedTime pulumi.StringOutput `pulumi:"deletedTime"`
+	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
+	EnabledProtocols pulumi.StringPtrOutput `pulumi:"enabledProtocols"`
 	// Resource Etag.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Returns the date and time the share was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// A name-value pair to associate with the share as metadata.
+	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the file share.
-	Properties FileSharePropertiesResponseOutput `pulumi:"properties"`
+	// Remaining retention days for share that was soft deleted.
+	RemainingRetentionDays pulumi.IntOutput `pulumi:"remainingRetentionDays"`
+	// The property is for NFS share only. The default is NoRootSquash.
+	RootSquash pulumi.StringPtrOutput `pulumi:"rootSquash"`
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+	ShareQuota pulumi.IntPtrOutput `pulumi:"shareQuota"`
+	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
+	ShareUsageBytes pulumi.IntOutput `pulumi:"shareUsageBytes"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The version of the share.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewFileShare registers a new resource with the given unique name, arguments, and options.
@@ -61,25 +85,73 @@ func GetFileShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileShare resources.
 type fileShareState struct {
+	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+	AccessTier *string `pulumi:"accessTier"`
+	// Indicates the last modification time for share access tier.
+	AccessTierChangeTime *string `pulumi:"accessTierChangeTime"`
+	// Indicates if there is a pending transition for access tier.
+	AccessTierStatus *string `pulumi:"accessTierStatus"`
+	// Indicates whether the share was deleted.
+	Deleted *bool `pulumi:"deleted"`
+	// The deleted time if the share was deleted.
+	DeletedTime *string `pulumi:"deletedTime"`
+	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
+	EnabledProtocols *string `pulumi:"enabledProtocols"`
 	// Resource Etag.
 	Etag *string `pulumi:"etag"`
+	// Returns the date and time the share was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// A name-value pair to associate with the share as metadata.
+	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Properties of the file share.
-	Properties *FileSharePropertiesResponse `pulumi:"properties"`
+	// Remaining retention days for share that was soft deleted.
+	RemainingRetentionDays *int `pulumi:"remainingRetentionDays"`
+	// The property is for NFS share only. The default is NoRootSquash.
+	RootSquash *string `pulumi:"rootSquash"`
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+	ShareQuota *int `pulumi:"shareQuota"`
+	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
+	ShareUsageBytes *int `pulumi:"shareUsageBytes"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// The version of the share.
+	Version *string `pulumi:"version"`
 }
 
 type FileShareState struct {
+	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+	AccessTier pulumi.StringPtrInput
+	// Indicates the last modification time for share access tier.
+	AccessTierChangeTime pulumi.StringPtrInput
+	// Indicates if there is a pending transition for access tier.
+	AccessTierStatus pulumi.StringPtrInput
+	// Indicates whether the share was deleted.
+	Deleted pulumi.BoolPtrInput
+	// The deleted time if the share was deleted.
+	DeletedTime pulumi.StringPtrInput
+	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
+	EnabledProtocols pulumi.StringPtrInput
 	// Resource Etag.
 	Etag pulumi.StringPtrInput
+	// Returns the date and time the share was last modified.
+	LastModifiedTime pulumi.StringPtrInput
+	// A name-value pair to associate with the share as metadata.
+	Metadata pulumi.StringMapInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Properties of the file share.
-	Properties FileSharePropertiesResponsePtrInput
+	// Remaining retention days for share that was soft deleted.
+	RemainingRetentionDays pulumi.IntPtrInput
+	// The property is for NFS share only. The default is NoRootSquash.
+	RootSquash pulumi.StringPtrInput
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+	ShareQuota pulumi.IntPtrInput
+	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
+	ShareUsageBytes pulumi.IntPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// The version of the share.
+	Version pulumi.StringPtrInput
 }
 
 func (FileShareState) ElementType() reflect.Type {

@@ -10,42 +10,60 @@ from ... import _utilities, _tables
 
 
 class Pipeline(pulumi.CustomResource):
+    activities: pulumi.Output[list]
+    """
+    List of activities in pipeline.
+      * `depends_on` (`list`) - Activity depends on condition.
+        * `activity` (`str`) - Activity name.
+        * `dependency_conditions` (`list`) - Match-Condition for the dependency.
+
+      * `description` (`str`) - Activity description.
+      * `name` (`str`) - Activity name.
+      * `type` (`str`) - Type of activity.
+      * `user_properties` (`list`) - Activity user properties.
+        * `name` (`str`) - User property name.
+        * `value` (`dict`) - User property value. Type: string (or Expression with resultType string).
+    """
+    annotations: pulumi.Output[list]
+    """
+    List of tags that can be used for describing the Pipeline.
+    """
+    concurrency: pulumi.Output[float]
+    """
+    The max number of concurrent runs for the pipeline.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the pipeline.
+    """
     etag: pulumi.Output[str]
     """
     Etag identifies change in the resource.
+    """
+    folder: pulumi.Output[dict]
+    """
+    The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+      * `name` (`str`) - The name of the folder that this Pipeline is in.
     """
     name: pulumi.Output[str]
     """
     The resource name.
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[dict]
     """
-    Properties of the pipeline.
-      * `activities` (`list`) - List of activities in pipeline.
-        * `depends_on` (`list`) - Activity depends on condition.
-          * `activity` (`str`) - Activity name.
-          * `dependency_conditions` (`list`) - Match-Condition for the dependency.
-
-        * `description` (`str`) - Activity description.
-        * `name` (`str`) - Activity name.
-        * `type` (`str`) - Type of activity.
-        * `user_properties` (`list`) - Activity user properties.
-          * `name` (`str`) - User property name.
-          * `value` (`dict`) - User property value. Type: string (or Expression with resultType string).
-
-      * `annotations` (`list`) - List of tags that can be used for describing the Pipeline.
-      * `concurrency` (`float`) - The max number of concurrent runs for the pipeline.
-      * `description` (`str`) - The description of the pipeline.
-      * `folder` (`dict`) - The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-        * `name` (`str`) - The name of the folder that this Pipeline is in.
-
-      * `parameters` (`dict`) - List of parameters for pipeline.
-      * `run_dimensions` (`dict`) - Dimensions emitted by Pipeline.
-      * `variables` (`dict`) - List of variables for pipeline.
+    List of parameters for pipeline.
+    """
+    run_dimensions: pulumi.Output[dict]
+    """
+    Dimensions emitted by Pipeline.
     """
     type: pulumi.Output[str]
     """
     The resource type.
+    """
+    variables: pulumi.Output[dict]
+    """
+    List of variables for pipeline.
     """
     def __init__(__self__, resource_name, opts=None, activities=None, annotations=None, concurrency=None, description=None, factory_name=None, folder=None, name=None, parameters=None, resource_group_name=None, run_dimensions=None, variables=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -117,7 +135,6 @@ class Pipeline(pulumi.CustomResource):
             __props__['run_dimensions'] = run_dimensions
             __props__['variables'] = variables
             __props__['etag'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(Pipeline, __self__).__init__(
             'azurerm:datafactory/v20180601:Pipeline',

@@ -41,15 +41,27 @@ export interface GetWorkspaceConnectionArgs {
  */
 export interface GetWorkspaceConnectionResult {
     /**
+     * Authorization type of the workspace connection.
+     */
+    readonly authType?: string;
+    /**
+     * Category of the workspace connection.
+     */
+    readonly category?: string;
+    /**
      * Friendly name of the workspace connection.
      */
     readonly name: string;
     /**
-     * Properties of workspace connection.
+     * Target of the workspace connection.
      */
-    readonly properties: outputs.machinelearningservices.v20200601.WorkspaceConnectionPropsResponse;
+    readonly target?: string;
     /**
      * Resource type of workspace connection.
      */
     readonly type: string;
+    /**
+     * Value details of the workspace connection.
+     */
+    readonly value?: string;
 }

@@ -18,6 +18,10 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -26,9 +30,21 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the private link service connection.
+        /// A collection of read-only information about the state of the connection to the remote resource.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionPropertiesResponseResult? Properties;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// The resource id of private link service.
+        /// </summary>
+        public readonly string? PrivateLinkServiceId;
+        /// <summary>
+        /// The provisioning state of the private link service connection.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+        /// </summary>
+        public readonly string? RequestMessage;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -38,18 +54,30 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
         private PrivateLinkServiceConnectionResponseResult(
             string etag,
 
+            ImmutableArray<string> groupIds,
+
             string? id,
 
             string? name,
 
-            Outputs.PrivateLinkServiceConnectionPropertiesResponseResult? properties,
+            Outputs.PrivateLinkServiceConnectionStateResponseResult? privateLinkServiceConnectionState,
+
+            string? privateLinkServiceId,
+
+            string? provisioningState,
+
+            string? requestMessage,
 
             string type)
         {
             Etag = etag;
+            GroupIds = groupIds;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            PrivateLinkServiceId = privateLinkServiceId;
+            ProvisioningState = provisioningState;
+            RequestMessage = requestMessage;
             Type = type;
         }
     }

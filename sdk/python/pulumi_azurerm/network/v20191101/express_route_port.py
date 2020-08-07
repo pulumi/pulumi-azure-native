@@ -10,9 +10,30 @@ from ... import _utilities, _tables
 
 
 class ExpressRoutePort(pulumi.CustomResource):
+    allocation_date: pulumi.Output[str]
+    """
+    Date of the physical port allocation to be used in Letter of Authorization.
+    """
+    bandwidth_in_gbps: pulumi.Output[float]
+    """
+    Bandwidth of procured ports in Gbps.
+    """
+    circuits: pulumi.Output[list]
+    """
+    Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
+      * `id` (`str`) - Resource ID.
+    """
+    encapsulation: pulumi.Output[str]
+    """
+    Encapsulation method on physical ports.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    ether_type: pulumi.Output[str]
+    """
+    Ether type of the physical port.
     """
     identity: pulumi.Output[dict]
     """
@@ -22,47 +43,52 @@ class ExpressRoutePort(pulumi.CustomResource):
       * `type` (`str`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
       * `user_assigned_identities` (`dict`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
+    links: pulumi.Output[list]
+    """
+    The set of physical links of the ExpressRoutePort resource.
+      * `admin_state` (`str`) - Administrative state of the physical port.
+      * `connector_type` (`str`) - Physical fiber port type.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `interface_name` (`str`) - Name of Azure router interface.
+      * `mac_sec_config` (`dict`) - MacSec configuration.
+        * `cak_secret_identifier` (`str`) - Keyvault Secret Identifier URL containing Mac security CAK key.
+        * `cipher` (`str`) - Mac security cipher.
+        * `ckn_secret_identifier` (`str`) - Keyvault Secret Identifier URL containing Mac security CKN key.
+
+      * `name` (`str`) - Name of child port resource that is unique among child port resources of the parent.
+      * `patch_panel_id` (`str`) - Mapping between physical port to patch panel port.
+      * `provisioning_state` (`str`) - The provisioning state of the express route link resource.
+      * `rack_id` (`str`) - Mapping of physical patch panel to rack.
+      * `router_name` (`str`) - Name of Azure router associated with physical port.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
+    """
+    mtu: pulumi.Output[str]
+    """
+    Maximum transmission unit of the physical port pair(s).
     """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    peering_location: pulumi.Output[str]
     """
-    ExpressRoutePort properties.
-      * `allocation_date` (`str`) - Date of the physical port allocation to be used in Letter of Authorization.
-      * `bandwidth_in_gbps` (`float`) - Bandwidth of procured ports in Gbps.
-      * `circuits` (`list`) - Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
-        * `id` (`str`) - Resource ID.
-
-      * `encapsulation` (`str`) - Encapsulation method on physical ports.
-      * `ether_type` (`str`) - Ether type of the physical port.
-      * `links` (`list`) - The set of physical links of the ExpressRoutePort resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of child port resource that is unique among child port resources of the parent.
-        * `properties` (`dict`) - ExpressRouteLink properties.
-          * `admin_state` (`str`) - Administrative state of the physical port.
-          * `connector_type` (`str`) - Physical fiber port type.
-          * `interface_name` (`str`) - Name of Azure router interface.
-          * `mac_sec_config` (`dict`) - MacSec configuration.
-            * `cak_secret_identifier` (`str`) - Keyvault Secret Identifier URL containing Mac security CAK key.
-            * `cipher` (`str`) - Mac security cipher.
-            * `ckn_secret_identifier` (`str`) - Keyvault Secret Identifier URL containing Mac security CKN key.
-
-          * `patch_panel_id` (`str`) - Mapping between physical port to patch panel port.
-          * `provisioning_state` (`str`) - The provisioning state of the express route link resource.
-          * `rack_id` (`str`) - Mapping of physical patch panel to rack.
-          * `router_name` (`str`) - Name of Azure router associated with physical port.
-
-      * `mtu` (`str`) - Maximum transmission unit of the physical port pair(s).
-      * `peering_location` (`str`) - The name of the peering location that the ExpressRoutePort is mapped to physically.
-      * `provisioned_bandwidth_in_gbps` (`float`) - Aggregate Gbps of associated circuit bandwidths.
-      * `provisioning_state` (`str`) - The provisioning state of the express route port resource.
-      * `resource_guid` (`str`) - The resource GUID property of the express route port resource.
+    The name of the peering location that the ExpressRoutePort is mapped to physically.
+    """
+    provisioned_bandwidth_in_gbps: pulumi.Output[float]
+    """
+    Aggregate Gbps of associated circuit bandwidths.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the express route port resource.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    The resource GUID property of the express route port resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -135,8 +161,14 @@ class ExpressRoutePort(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['allocation_date'] = None
+            __props__['circuits'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['ether_type'] = None
+            __props__['mtu'] = None
+            __props__['provisioned_bandwidth_in_gbps'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_guid'] = None
             __props__['type'] = None
         super(ExpressRoutePort, __self__).__init__(
             'azurerm:network/v20191101:ExpressRoutePort',

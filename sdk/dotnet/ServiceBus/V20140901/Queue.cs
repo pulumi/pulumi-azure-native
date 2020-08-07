@@ -15,10 +15,106 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>
+        /// Last time a message was sent, or the last time there was a receive request to this queue.
+        /// </summary>
+        [Output("accessedAt")]
+        public Output<string> AccessedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        [Output("autoDeleteOnIdle")]
+        public Output<string?> AutoDeleteOnIdle { get; private set; } = null!;
+
+        /// <summary>
+        /// Message Count Details.
+        /// </summary>
+        [Output("countDetails")]
+        public Output<Outputs.MessageCountDetailsResponseResult> CountDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the message was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether this queue has dead letter support when a message expires.
+        /// </summary>
+        [Output("deadLetteringOnMessageExpiration")]
+        public Output<bool?> DeadLetteringOnMessageExpiration { get; private set; } = null!;
+
+        /// <summary>
+        /// The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        [Output("defaultMessageTimeToLive")]
+        public Output<string?> DefaultMessageTimeToLive { get; private set; } = null!;
+
+        /// <summary>
+        /// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        /// </summary>
+        [Output("duplicateDetectionHistoryTimeWindow")]
+        public Output<string?> DuplicateDetectionHistoryTimeWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        [Output("enableBatchedOperations")]
+        public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+        /// </summary>
+        [Output("enableExpress")]
+        public Output<bool?> EnableExpress { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether the queue is to be partitioned across multiple message brokers.
+        /// </summary>
+        [Output("enablePartitioning")]
+        public Output<bool?> EnablePartitioning { get; private set; } = null!;
+
+        /// <summary>
+        /// Entity availability status for the queue.
+        /// </summary>
+        [Output("entityAvailabilityStatus")]
+        public Output<string?> EntityAvailabilityStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether the message is accessible anonymously.
+        /// </summary>
+        [Output("isAnonymousAccessible")]
+        public Output<bool?> IsAnonymousAccessible { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
+        /// </summary>
+        [Output("lockDuration")]
+        public Output<string?> LockDuration { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
+        /// </summary>
+        [Output("maxDeliveryCount")]
+        public Output<int?> MaxDeliveryCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
+        /// </summary>
+        [Output("maxSizeInMegabytes")]
+        public Output<int?> MaxSizeInMegabytes { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of messages in the queue.
+        /// </summary>
+        [Output("messageCount")]
+        public Output<int> MessageCount { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,16 +123,46 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Queue Properties definition.
+        /// A value indicating if this queue requires duplicate detection.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.QueuePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("requiresDuplicateDetection")]
+        public Output<bool?> RequiresDuplicateDetection { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether the queue supports the concept of sessions.
+        /// </summary>
+        [Output("requiresSession")]
+        public Output<bool?> RequiresSession { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the queue, in bytes.
+        /// </summary>
+        [Output("sizeInBytes")]
+        public Output<int> SizeInBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether the queue supports ordering.
+        /// </summary>
+        [Output("supportOrdering")]
+        public Output<bool?> SupportOrdering { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

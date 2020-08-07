@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class Controller(pulumi.CustomResource):
+    data_plane_fqdn: pulumi.Output[str]
+    """
+    DNS name for accessing DataPlane services
+    """
+    host_suffix: pulumi.Output[str]
+    """
+    DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+    """
     location: pulumi.Output[str]
     """
     Region where the Azure resource is located.
@@ -18,7 +26,10 @@ class Controller(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the Azure Dev Spaces Controller.
+    """
     sku: pulumi.Output[dict]
     """
     Model representing SKU for Azure Dev Spaces Controller.
@@ -28,6 +39,18 @@ class Controller(pulumi.CustomResource):
     tags: pulumi.Output[dict]
     """
     Tags for the Azure resource.
+    """
+    target_container_host_api_server_fqdn: pulumi.Output[str]
+    """
+    DNS of the target container host's API server
+    """
+    target_container_host_credentials_base64: pulumi.Output[str]
+    """
+    Credentials of the target container host (base64).
+    """
+    target_container_host_resource_id: pulumi.Output[str]
+    """
+    Resource ID of the target container host
     """
     type: pulumi.Output[str]
     """
@@ -87,7 +110,10 @@ class Controller(pulumi.CustomResource):
             if target_container_host_resource_id is None:
                 raise TypeError("Missing required property 'target_container_host_resource_id'")
             __props__['target_container_host_resource_id'] = target_container_host_resource_id
-            __props__['properties'] = None
+            __props__['data_plane_fqdn'] = None
+            __props__['host_suffix'] = None
+            __props__['provisioning_state'] = None
+            __props__['target_container_host_api_server_fqdn'] = None
             __props__['type'] = None
         super(Controller, __self__).__init__(
             'azurerm:devspaces/v20190401:Controller',

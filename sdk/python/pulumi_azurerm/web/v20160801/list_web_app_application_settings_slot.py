@@ -13,7 +13,7 @@ class ListWebAppApplicationSettingsSlotResult:
     """
     String dictionary resource.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, name=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -25,12 +25,6 @@ class ListWebAppApplicationSettingsSlotResult:
         __self__.name = name
         """
         Resource Name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Settings.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +42,6 @@ class AwaitableListWebAppApplicationSettingsSlotResult(ListWebAppApplicationSett
         return ListWebAppApplicationSettingsSlotResult(
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -71,5 +64,4 @@ def list_web_app_application_settings_slot(name=None, resource_group_name=None, 
     return AwaitableListWebAppApplicationSettingsSlotResult(
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

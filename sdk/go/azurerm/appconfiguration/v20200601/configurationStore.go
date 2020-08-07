@@ -14,14 +14,24 @@ import (
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 
+	// The creation date of configuration store.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The encryption settings of the configuration store.
+	Encryption EncryptionPropertiesResponsePtrOutput `pulumi:"encryption"`
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The managed identity information, if configured.
 	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a configuration store.
-	Properties ConfigurationStorePropertiesResponseOutput `pulumi:"properties"`
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections PrivateEndpointConnectionReferenceResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	// The provisioning state of the configuration store.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The sku of the configuration store.
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// The tags of the resource.
@@ -70,14 +80,24 @@ func GetConfigurationStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationStore resources.
 type configurationStoreState struct {
+	// The creation date of configuration store.
+	CreationDate *string `pulumi:"creationDate"`
+	// The encryption settings of the configuration store.
+	Encryption *EncryptionPropertiesResponse `pulumi:"encryption"`
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint *string `pulumi:"endpoint"`
 	// The managed identity information, if configured.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of a configuration store.
-	Properties *ConfigurationStorePropertiesResponse `pulumi:"properties"`
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections []PrivateEndpointConnectionReferenceResponse `pulumi:"privateEndpointConnections"`
+	// The provisioning state of the configuration store.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The sku of the configuration store.
 	Sku *SkuResponse `pulumi:"sku"`
 	// The tags of the resource.
@@ -87,14 +107,24 @@ type configurationStoreState struct {
 }
 
 type ConfigurationStoreState struct {
+	// The creation date of configuration store.
+	CreationDate pulumi.StringPtrInput
+	// The encryption settings of the configuration store.
+	Encryption EncryptionPropertiesResponsePtrInput
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint pulumi.StringPtrInput
 	// The managed identity information, if configured.
 	Identity ResourceIdentityResponsePtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of a configuration store.
-	Properties ConfigurationStorePropertiesResponsePtrInput
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections PrivateEndpointConnectionReferenceResponseArrayInput
+	// The provisioning state of the configuration store.
+	ProvisioningState pulumi.StringPtrInput
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The sku of the configuration store.
 	Sku SkuResponsePtrInput
 	// The tags of the resource.

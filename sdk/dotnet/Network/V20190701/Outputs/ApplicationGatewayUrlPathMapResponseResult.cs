@@ -14,6 +14,22 @@ namespace Pulumi.AzureRM.Network.V20190701.Outputs
     public sealed class ApplicationGatewayUrlPathMapResponseResult
     {
         /// <summary>
+        /// Default backend address pool resource of URL path map.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? DefaultBackendAddressPool;
+        /// <summary>
+        /// Default backend http settings resource of URL path map.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? DefaultBackendHttpSettings;
+        /// <summary>
+        /// Default redirect configuration resource of URL path map.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? DefaultRedirectConfiguration;
+        /// <summary>
+        /// Default Rewrite rule set resource of URL path map.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? DefaultRewriteRuleSet;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -26,9 +42,13 @@ namespace Pulumi.AzureRM.Network.V20190701.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway URL path map.
+        /// Path rule of URL path map resource.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayUrlPathMapPropertiesFormatResponseResult? Properties;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayPathRuleResponseResult> PathRules;
+        /// <summary>
+        /// The provisioning state of the URL path map resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +56,35 @@ namespace Pulumi.AzureRM.Network.V20190701.Outputs
 
         [OutputConstructor]
         private ApplicationGatewayUrlPathMapResponseResult(
+            Outputs.SubResourceResponseResult? defaultBackendAddressPool,
+
+            Outputs.SubResourceResponseResult? defaultBackendHttpSettings,
+
+            Outputs.SubResourceResponseResult? defaultRedirectConfiguration,
+
+            Outputs.SubResourceResponseResult? defaultRewriteRuleSet,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayUrlPathMapPropertiesFormatResponseResult? properties,
+            ImmutableArray<Outputs.ApplicationGatewayPathRuleResponseResult> pathRules,
+
+            string? provisioningState,
 
             string? type)
         {
+            DefaultBackendAddressPool = defaultBackendAddressPool;
+            DefaultBackendHttpSettings = defaultBackendHttpSettings;
+            DefaultRedirectConfiguration = defaultRedirectConfiguration;
+            DefaultRewriteRuleSet = defaultRewriteRuleSet;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PathRules = pathRules;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

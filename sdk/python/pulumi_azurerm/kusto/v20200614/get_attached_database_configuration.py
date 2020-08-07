@@ -13,7 +13,31 @@ class GetAttachedDatabaseConfigurationResult:
     """
     Class representing an attached database configuration.
     """
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, attached_database_names=None, cluster_resource_id=None, database_name=None, default_principals_modification_kind=None, location=None, name=None, provisioning_state=None, type=None):
+        if attached_database_names and not isinstance(attached_database_names, list):
+            raise TypeError("Expected argument 'attached_database_names' to be a list")
+        __self__.attached_database_names = attached_database_names
+        """
+        The list of databases from the clusterResourceId which are currently attached to the cluster.
+        """
+        if cluster_resource_id and not isinstance(cluster_resource_id, str):
+            raise TypeError("Expected argument 'cluster_resource_id' to be a str")
+        __self__.cluster_resource_id = cluster_resource_id
+        """
+        The resource id of the cluster where the databases you would like to attach reside.
+        """
+        if database_name and not isinstance(database_name, str):
+            raise TypeError("Expected argument 'database_name' to be a str")
+        __self__.database_name = database_name
+        """
+        The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        """
+        if default_principals_modification_kind and not isinstance(default_principals_modification_kind, str):
+            raise TypeError("Expected argument 'default_principals_modification_kind' to be a str")
+        __self__.default_principals_modification_kind = default_principals_modification_kind
+        """
+        The default principals modification kind
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +50,11 @@ class GetAttachedDatabaseConfigurationResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the attached database configuration.
+        The provisioned state of the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +70,13 @@ class AwaitableGetAttachedDatabaseConfigurationResult(GetAttachedDatabaseConfigu
         if False:
             yield self
         return GetAttachedDatabaseConfigurationResult(
+            attached_database_names=self.attached_database_names,
+            cluster_resource_id=self.cluster_resource_id,
+            database_name=self.database_name,
+            default_principals_modification_kind=self.default_principals_modification_kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -71,7 +99,11 @@ def get_attached_database_configuration(cluster_name=None, name=None, resource_g
     __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20200614:getAttachedDatabaseConfiguration', __args__, opts=opts).value
 
     return AwaitableGetAttachedDatabaseConfigurationResult(
+        attached_database_names=__ret__.get('attachedDatabaseNames'),
+        cluster_resource_id=__ret__.get('clusterResourceId'),
+        database_name=__ret__.get('databaseName'),
+        default_principals_modification_kind=__ret__.get('defaultPrincipalsModificationKind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public partial class RosettaNetProcessConfiguration : Pulumi.CustomResource
     {
         /// <summary>
+        /// The RosettaNet process configuration activity settings.
+        /// </summary>
+        [Output("activitySettings")]
+        public Output<Outputs.RosettaNetPipActivitySettingsResponseResult> ActivitySettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The changed time.
+        /// </summary>
+        [Output("changedTime")]
+        public Output<string> ChangedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration account RosettaNet ProcessConfiguration properties.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The RosettaNet initiator role settings.
+        /// </summary>
+        [Output("initiatorRoleSettings")]
+        public Output<Outputs.RosettaNetPipRoleSettingsResponseResult> InitiatorRoleSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Gets the resource name.
@@ -27,10 +63,28 @@ namespace Pulumi.AzureRM.Logic.V20160601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The integration account RosettaNet process configuration properties.
+        /// The integration account RosettaNet process code.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("processCode")]
+        public Output<string> ProcessCode { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration account RosettaNet process name.
+        /// </summary>
+        [Output("processName")]
+        public Output<string> ProcessName { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration account RosettaNet process version.
+        /// </summary>
+        [Output("processVersion")]
+        public Output<string> ProcessVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The RosettaNet responder role settings.
+        /// </summary>
+        [Output("responderRoleSettings")]
+        public Output<Outputs.RosettaNetPipRoleSettingsResponseResult> ResponderRoleSettings { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

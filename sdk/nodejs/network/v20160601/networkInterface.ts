@@ -37,21 +37,49 @@ export class NetworkInterface extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets DNS settings in network interface
+     */
+    public readonly dnsSettings!: pulumi.Output<outputs.network.v20160601.NetworkInterfaceDnsSettingsResponse | undefined>;
+    /**
+     * Gets or sets whether IPForwarding is enabled on the NIC
+     */
+    public readonly enableIPForwarding!: pulumi.Output<boolean | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets list of IPConfigurations of the network interface
+     */
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.v20160601.NetworkInterfaceIPConfigurationResponse[] | undefined>;
     /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Gets the MAC address of the network interface
+     */
+    public readonly macAddress!: pulumi.Output<string | undefined>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * NetworkInterface properties. 
+     * Gets or sets the reference of the NetworkSecurityGroup resource
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.NetworkInterfacePropertiesFormatResponse>;
+    public readonly networkSecurityGroup!: pulumi.Output<outputs.network.v20160601.NetworkSecurityGroupResponse | undefined>;
+    /**
+     * Gets whether this is a primary NIC on a virtual machine
+     */
+    public readonly primary!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets resource guid property of the network interface resource
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -60,6 +88,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Gets or sets the reference of a VirtualMachine
+     */
+    public readonly virtualMachine!: pulumi.Output<outputs.network.v20160601.SubResourceResponse | undefined>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -95,7 +127,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualMachine"] = args ? args.virtualMachine : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

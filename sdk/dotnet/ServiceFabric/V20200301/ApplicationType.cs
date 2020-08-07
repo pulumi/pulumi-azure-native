@@ -33,10 +33,10 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The application type name properties
+        /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationTypeResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

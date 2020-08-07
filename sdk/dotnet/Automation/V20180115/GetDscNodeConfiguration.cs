@@ -46,13 +46,33 @@ namespace Pulumi.AzureRM.Automation.V20180115
     public sealed class GetDscNodeConfigurationResult
     {
         /// <summary>
+        /// Gets or sets the configuration of the node.
+        /// </summary>
+        public readonly Outputs.DscConfigurationAssociationPropertyResponseResult? Configuration;
+        /// <summary>
+        /// Gets or sets creation time.
+        /// </summary>
+        public readonly string? CreationTime;
+        /// <summary>
+        /// If a new build version of NodeConfiguration is required.
+        /// </summary>
+        public readonly bool? IncrementNodeConfigurationBuild;
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        public readonly string? LastModifiedTime;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the configuration properties.
+        /// Number of nodes with this node configuration assigned
         /// </summary>
-        public readonly Outputs.DscNodeConfigurationPropertiesResponseResult Properties;
+        public readonly int? NodeCount;
+        /// <summary>
+        /// Source of node configuration.
+        /// </summary>
+        public readonly string? Source;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -60,14 +80,29 @@ namespace Pulumi.AzureRM.Automation.V20180115
 
         [OutputConstructor]
         private GetDscNodeConfigurationResult(
+            Outputs.DscConfigurationAssociationPropertyResponseResult? configuration,
+
+            string? creationTime,
+
+            bool? incrementNodeConfigurationBuild,
+
+            string? lastModifiedTime,
+
             string name,
 
-            Outputs.DscNodeConfigurationPropertiesResponseResult properties,
+            int? nodeCount,
+
+            string? source,
 
             string type)
         {
+            Configuration = configuration;
+            CreationTime = creationTime;
+            IncrementNodeConfigurationBuild = incrementNodeConfigurationBuild;
+            LastModifiedTime = lastModifiedTime;
             Name = name;
-            Properties = properties;
+            NodeCount = nodeCount;
+            Source = source;
             Type = type;
         }
     }

@@ -45,9 +45,17 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The properties of the firewall policy rule collection group.
+     * Priority of the Firewall Policy Rule Collection Group resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.FirewallPolicyRuleCollectionGroupPropertiesResponse>;
+    public readonly priority!: pulumi.Output<number | undefined>;
+    /**
+     * The provisioning state of the firewall policy rule collection group resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Group of Firewall Policy rule collections.
+     */
+    public readonly ruleCollections!: pulumi.Output<outputs.network.v20200501.FirewallPolicyRuleCollectionResponse[] | undefined>;
     /**
      * Rule Group type.
      */
@@ -82,7 +90,7 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["ruleCollections"] = args ? args.ruleCollections : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

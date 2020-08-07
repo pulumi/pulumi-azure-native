@@ -20,8 +20,10 @@ type ServerCommunicationLink struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of resource.
-	Properties ServerCommunicationLinkPropertiesResponseOutput `pulumi:"properties"`
+	// The name of the partner server.
+	PartnerServer pulumi.StringOutput `pulumi:"partnerServer"`
+	// The state.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -72,8 +74,10 @@ type serverCommunicationLinkState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of resource.
-	Properties *ServerCommunicationLinkPropertiesResponse `pulumi:"properties"`
+	// The name of the partner server.
+	PartnerServer *string `pulumi:"partnerServer"`
+	// The state.
+	State *string `pulumi:"state"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -85,8 +89,10 @@ type ServerCommunicationLinkState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of resource.
-	Properties ServerCommunicationLinkPropertiesResponsePtrInput
+	// The name of the partner server.
+	PartnerServer pulumi.StringPtrInput
+	// The state.
+	State pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

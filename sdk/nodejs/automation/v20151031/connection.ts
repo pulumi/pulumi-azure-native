@@ -37,13 +37,29 @@ export class Connection extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the connectionType of the connection.
+     */
+    public readonly connectionType!: pulumi.Output<outputs.automation.v20151031.ConnectionTypeAssociationPropertyResponse | undefined>;
+    /**
+     * Gets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Gets or sets the description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the field definition values of the connection.
+     */
+    public readonly fieldDefinitionValues!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Gets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Gets or sets the properties of the connection.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.ConnectionPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -80,7 +96,8 @@ export class Connection extends pulumi.CustomResource {
             inputs["fieldDefinitionValues"] = args ? args.fieldDefinitionValues : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

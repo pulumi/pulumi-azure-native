@@ -40,6 +40,22 @@ namespace Pulumi.AzureRM.Web.V20180201
     public sealed class ListWebAppBackupConfigurationResult
     {
         /// <summary>
+        /// Name of the backup.
+        /// </summary>
+        public readonly string? BackupName;
+        /// <summary>
+        /// Schedule for the backup if it is executed periodically.
+        /// </summary>
+        public readonly Outputs.BackupScheduleResponseResult? BackupSchedule;
+        /// <summary>
+        /// Databases included in the backup.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> Databases;
+        /// <summary>
+        /// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -48,9 +64,9 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// BackupRequest resource specific properties
+        /// SAS URL to the container.
         /// </summary>
-        public readonly Outputs.BackupRequestResponsePropertiesResult Properties;
+        public readonly string StorageAccountUrl;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -58,17 +74,29 @@ namespace Pulumi.AzureRM.Web.V20180201
 
         [OutputConstructor]
         private ListWebAppBackupConfigurationResult(
+            string? backupName,
+
+            Outputs.BackupScheduleResponseResult? backupSchedule,
+
+            ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> databases,
+
+            bool? enabled,
+
             string? kind,
 
             string name,
 
-            Outputs.BackupRequestResponsePropertiesResult properties,
+            string storageAccountUrl,
 
             string type)
         {
+            BackupName = backupName;
+            BackupSchedule = backupSchedule;
+            Databases = databases;
+            Enabled = enabled;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            StorageAccountUrl = storageAccountUrl;
             Type = type;
         }
     }

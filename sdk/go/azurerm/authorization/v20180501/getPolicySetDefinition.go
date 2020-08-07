@@ -23,10 +23,20 @@ type LookupPolicySetDefinitionArgs struct {
 
 // The policy set definition.
 type LookupPolicySetDefinitionResult struct {
+	// The policy set definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy set definition.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy set definition metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the policy set definition.
 	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponse `pulumi:"properties"`
+	// The policy set definition parameters that can be used in policy definition references.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// An array of policy definition references.
+	PolicyDefinitions []PolicyDefinitionReferenceResponse `pulumi:"policyDefinitions"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type string `pulumi:"type"`
 }

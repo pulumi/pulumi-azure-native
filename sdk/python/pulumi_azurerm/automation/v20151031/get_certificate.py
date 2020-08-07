@@ -13,18 +13,48 @@ class GetCertificateResult:
     """
     Definition of the certificate.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, expiry_time=None, is_exportable=None, last_modified_time=None, name=None, thumbprint=None, type=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
+        if expiry_time and not isinstance(expiry_time, str):
+            raise TypeError("Expected argument 'expiry_time' to be a str")
+        __self__.expiry_time = expiry_time
+        """
+        Gets the expiry time of the certificate.
+        """
+        if is_exportable and not isinstance(is_exportable, bool):
+            raise TypeError("Expected argument 'is_exportable' to be a bool")
+        __self__.is_exportable = is_exportable
+        """
+        Gets the is exportable flag of the certificate.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets the last modified time.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        __self__.thumbprint = thumbprint
         """
-        Gets or sets the properties of the certificate.
+        Gets the thumbprint of the certificate.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +70,13 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         if False:
             yield self
         return GetCertificateResult(
+            creation_time=self.creation_time,
+            description=self.description,
+            expiry_time=self.expiry_time,
+            is_exportable=self.is_exportable,
+            last_modified_time=self.last_modified_time,
             name=self.name,
-            properties=self.properties,
+            thumbprint=self.thumbprint,
             type=self.type)
 
 
@@ -64,6 +99,11 @@ def get_certificate(automation_account_name=None, name=None, resource_group_name
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getCertificate', __args__, opts=opts).value
 
     return AwaitableGetCertificateResult(
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
+        expiry_time=__ret__.get('expiryTime'),
+        is_exportable=__ret__.get('isExportable'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        thumbprint=__ret__.get('thumbprint'),
         type=__ret__.get('type'))

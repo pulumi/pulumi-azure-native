@@ -10,97 +10,143 @@ from ... import _utilities, _tables
 
 
 class AppServiceEnvironment(pulumi.CustomResource):
+    allowed_multi_sizes: pulumi.Output[str]
+    """
+    List of comma separated strings describing which VM sizes are allowed for front-ends.
+    """
+    allowed_worker_sizes: pulumi.Output[str]
+    """
+    List of comma separated strings describing which VM sizes are allowed for workers.
+    """
+    api_management_account_id: pulumi.Output[str]
+    """
+    API Management Account associated with the App Service Environment.
+    """
+    cluster_settings: pulumi.Output[list]
+    """
+    Custom settings for changing the behavior of the App Service Environment.
+      * `name` (`str`) - Pair name.
+      * `value` (`str`) - Pair value.
+    """
+    database_edition: pulumi.Output[str]
+    """
+    Edition of the metadata database for the App Service Environment, e.g. "Standard".
+    """
+    database_service_objective: pulumi.Output[str]
+    """
+    Service objective of the metadata database for the App Service Environment, e.g. "S0".
+    """
+    default_front_end_scale_factor: pulumi.Output[float]
+    """
+    Default Scale Factor for FrontEnds.
+    """
+    dns_suffix: pulumi.Output[str]
+    """
+    DNS suffix of the App Service Environment.
+    """
+    dynamic_cache_enabled: pulumi.Output[bool]
+    """
+    True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+    (most likely because NSG blocked the incoming traffic).
+    """
+    environment_capacities: pulumi.Output[list]
+    """
+    Current total, used, and available worker capacities.
+      * `available_capacity` (`float`) - Available capacity (# of machines, bytes of storage etc...).
+      * `compute_mode` (`str`) - Shared/dedicated workers.
+      * `exclude_from_capacity_allocation` (`bool`) - If <code>true</code>, it includes basic apps.
+        Basic apps are not used for capacity allocation.
+      * `is_applicable_for_all_compute_modes` (`bool`) - <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
+      * `name` (`str`) - Name of the stamp.
+      * `site_mode` (`str`) - Shared or Dedicated.
+      * `total_capacity` (`float`) - Total capacity (# of machines, bytes of storage etc...).
+      * `unit` (`str`) - Name of the unit.
+      * `worker_size` (`str`) - Size of the machines.
+      * `worker_size_id` (`float`) - Size ID of machines: 
+        0 - Small
+        1 - Medium
+        2 - Large
+    """
+    environment_is_healthy: pulumi.Output[bool]
+    """
+    True/false indicating whether the App Service Environment is healthy.
+    """
+    environment_status: pulumi.Output[str]
+    """
+    Detailed message about with results of the last check of the App Service Environment.
+    """
+    front_end_scale_factor: pulumi.Output[float]
+    """
+    Scale factor for front-ends.
+    """
+    internal_load_balancing_mode: pulumi.Output[str]
+    """
+    Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+    """
+    ipssl_address_count: pulumi.Output[float]
+    """
+    Number of IP SSL addresses reserved for the App Service Environment.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
+    """
+    last_action: pulumi.Output[str]
+    """
+    Last deployment action on the App Service Environment.
+    """
+    last_action_result: pulumi.Output[str]
+    """
+    Result of the last deployment action on the App Service Environment.
     """
     location: pulumi.Output[str]
     """
     Resource Location.
     """
+    maximum_number_of_machines: pulumi.Output[float]
+    """
+    Maximum number of VMs in the App Service Environment.
+    """
+    multi_role_count: pulumi.Output[float]
+    """
+    Number of front-end instances.
+    """
+    multi_size: pulumi.Output[str]
+    """
+    Front-end VM size, e.g. "Medium", "Large".
+    """
     name: pulumi.Output[str]
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    network_access_control_list: pulumi.Output[list]
     """
-    Core resource properties
-      * `allowed_multi_sizes` (`str`) - List of comma separated strings describing which VM sizes are allowed for front-ends.
-      * `allowed_worker_sizes` (`str`) - List of comma separated strings describing which VM sizes are allowed for workers.
-      * `api_management_account_id` (`str`) - API Management Account associated with the App Service Environment.
-      * `cluster_settings` (`list`) - Custom settings for changing the behavior of the App Service Environment.
-        * `name` (`str`) - Pair name.
-        * `value` (`str`) - Pair value.
-
-      * `database_edition` (`str`) - Edition of the metadata database for the App Service Environment, e.g. "Standard".
-      * `database_service_objective` (`str`) - Service objective of the metadata database for the App Service Environment, e.g. "S0".
-      * `default_front_end_scale_factor` (`float`) - Default Scale Factor for FrontEnds.
-      * `dns_suffix` (`str`) - DNS suffix of the App Service Environment.
-      * `dynamic_cache_enabled` (`bool`) - True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-        (most likely because NSG blocked the incoming traffic).
-      * `environment_capacities` (`list`) - Current total, used, and available worker capacities.
-        * `available_capacity` (`float`) - Available capacity (# of machines, bytes of storage etc...).
-        * `compute_mode` (`str`) - Shared/dedicated workers.
-        * `exclude_from_capacity_allocation` (`bool`) - If <code>true</code>, it includes basic apps.
-          Basic apps are not used for capacity allocation.
-        * `is_applicable_for_all_compute_modes` (`bool`) - <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
-        * `name` (`str`) - Name of the stamp.
-        * `site_mode` (`str`) - Shared or Dedicated.
-        * `total_capacity` (`float`) - Total capacity (# of machines, bytes of storage etc...).
-        * `unit` (`str`) - Name of the unit.
-        * `worker_size` (`str`) - Size of the machines.
-        * `worker_size_id` (`float`) - Size ID of machines: 
-          0 - Small
-          1 - Medium
-          2 - Large
-
-      * `environment_is_healthy` (`bool`) - True/false indicating whether the App Service Environment is healthy.
-      * `environment_status` (`str`) - Detailed message about with results of the last check of the App Service Environment.
-      * `front_end_scale_factor` (`float`) - Scale factor for front-ends.
-      * `internal_load_balancing_mode` (`str`) - Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-      * `ipssl_address_count` (`float`) - Number of IP SSL addresses reserved for the App Service Environment.
-      * `last_action` (`str`) - Last deployment action on the App Service Environment.
-      * `last_action_result` (`str`) - Result of the last deployment action on the App Service Environment.
-      * `location` (`str`) - Location of the App Service Environment, e.g. "West US".
-      * `maximum_number_of_machines` (`float`) - Maximum number of VMs in the App Service Environment.
-      * `multi_role_count` (`float`) - Number of front-end instances.
-      * `multi_size` (`str`) - Front-end VM size, e.g. "Medium", "Large".
-      * `name` (`str`) - Name of the App Service Environment.
-      * `network_access_control_list` (`list`) - Access control list for controlling traffic to the App Service Environment.
-        * `action` (`str`) - Action object.
-        * `description` (`str`) - Description of network access control entry.
-        * `order` (`float`) - Order of precedence.
-        * `remote_subnet` (`str`) - Remote subnet.
-
-      * `provisioning_state` (`str`) - Provisioning state of the App Service Environment.
-      * `resource_group` (`str`) - Resource group of the App Service Environment.
-      * `status` (`str`) - Current status of the App Service Environment.
-      * `subscription_id` (`str`) - Subscription of the App Service Environment.
-      * `suspended` (`bool`) - <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-         (most likely because NSG blocked the incoming traffic).
-      * `upgrade_domains` (`float`) - Number of upgrade domains of the App Service Environment.
-      * `user_whitelisted_ip_ranges` (`list`) - User added ip ranges to whitelist on ASE db
-      * `vip_mappings` (`list`) - Description of IP SSL mapping for the App Service Environment.
-        * `in_use` (`bool`) - Is virtual IP mapping in use.
-        * `internal_http_port` (`float`) - Internal HTTP port.
-        * `internal_https_port` (`float`) - Internal HTTPS port.
-        * `virtual_ip` (`str`) - Virtual IP address.
-
-      * `virtual_network` (`dict`) - Description of the Virtual Network.
-        * `id` (`str`) - Resource id of the Virtual Network.
-        * `name` (`str`) - Name of the Virtual Network (read-only).
-        * `subnet` (`str`) - Subnet within the Virtual Network.
-        * `type` (`str`) - Resource type of the Virtual Network (read-only).
-
-      * `vnet_name` (`str`) - Name of the Virtual Network for the App Service Environment.
-      * `vnet_resource_group_name` (`str`) - Resource group of the Virtual Network.
-      * `vnet_subnet_name` (`str`) - Subnet of the Virtual Network.
-      * `worker_pools` (`list`) - Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-        * `compute_mode` (`str`) - Shared or dedicated app hosting.
-        * `instance_names` (`list`) - Names of all instances in the worker pool (read only).
-        * `worker_count` (`float`) - Number of instances in the worker pool.
-        * `worker_size` (`str`) - VM size of the worker pool instances.
-        * `worker_size_id` (`float`) - Worker size ID for referencing this worker pool.
+    Access control list for controlling traffic to the App Service Environment.
+      * `action` (`str`) - Action object.
+      * `description` (`str`) - Description of network access control entry.
+      * `order` (`float`) - Order of precedence.
+      * `remote_subnet` (`str`) - Remote subnet.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the App Service Environment.
+    """
+    resource_group: pulumi.Output[str]
+    """
+    Resource group of the App Service Environment.
+    """
+    status: pulumi.Output[str]
+    """
+    Current status of the App Service Environment.
+    """
+    subscription_id: pulumi.Output[str]
+    """
+    Subscription of the App Service Environment.
+    """
+    suspended: pulumi.Output[bool]
+    """
+    <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+     (most likely because NSG blocked the incoming traffic).
     """
     tags: pulumi.Output[dict]
     """
@@ -109,6 +155,51 @@ class AppServiceEnvironment(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    upgrade_domains: pulumi.Output[float]
+    """
+    Number of upgrade domains of the App Service Environment.
+    """
+    user_whitelisted_ip_ranges: pulumi.Output[list]
+    """
+    User added ip ranges to whitelist on ASE db
+    """
+    vip_mappings: pulumi.Output[list]
+    """
+    Description of IP SSL mapping for the App Service Environment.
+      * `in_use` (`bool`) - Is virtual IP mapping in use.
+      * `internal_http_port` (`float`) - Internal HTTP port.
+      * `internal_https_port` (`float`) - Internal HTTPS port.
+      * `virtual_ip` (`str`) - Virtual IP address.
+    """
+    virtual_network: pulumi.Output[dict]
+    """
+    Description of the Virtual Network.
+      * `id` (`str`) - Resource id of the Virtual Network.
+      * `name` (`str`) - Name of the Virtual Network (read-only).
+      * `subnet` (`str`) - Subnet within the Virtual Network.
+      * `type` (`str`) - Resource type of the Virtual Network (read-only).
+    """
+    vnet_name: pulumi.Output[str]
+    """
+    Name of the Virtual Network for the App Service Environment.
+    """
+    vnet_resource_group_name: pulumi.Output[str]
+    """
+    Resource group of the Virtual Network.
+    """
+    vnet_subnet_name: pulumi.Output[str]
+    """
+    Subnet of the Virtual Network.
+    """
+    worker_pools: pulumi.Output[list]
+    """
+    Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+      * `compute_mode` (`str`) - Shared or dedicated app hosting.
+      * `instance_names` (`list`) - Names of all instances in the worker pool (read only).
+      * `worker_count` (`float`) - Number of instances in the worker pool.
+      * `worker_size` (`str`) - VM size of the worker pool instances.
+      * `worker_size_id` (`float`) - Worker size ID for referencing this worker pool.
     """
     def __init__(__self__, resource_name, opts=None, api_management_account_id=None, cluster_settings=None, dns_suffix=None, dynamic_cache_enabled=None, front_end_scale_factor=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, location=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, resource_group_name=None, suspended=None, tags=None, user_whitelisted_ip_ranges=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -214,8 +305,24 @@ class AppServiceEnvironment(pulumi.CustomResource):
             if worker_pools is None:
                 raise TypeError("Missing required property 'worker_pools'")
             __props__['worker_pools'] = worker_pools
-            __props__['properties'] = None
+            __props__['allowed_multi_sizes'] = None
+            __props__['allowed_worker_sizes'] = None
+            __props__['database_edition'] = None
+            __props__['database_service_objective'] = None
+            __props__['default_front_end_scale_factor'] = None
+            __props__['environment_capacities'] = None
+            __props__['environment_is_healthy'] = None
+            __props__['environment_status'] = None
+            __props__['last_action'] = None
+            __props__['last_action_result'] = None
+            __props__['maximum_number_of_machines'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_group'] = None
+            __props__['status'] = None
+            __props__['subscription_id'] = None
             __props__['type'] = None
+            __props__['upgrade_domains'] = None
+            __props__['vip_mappings'] = None
         super(AppServiceEnvironment, __self__).__init__(
             'azurerm:web/v20160901:AppServiceEnvironment',
             resource_name,

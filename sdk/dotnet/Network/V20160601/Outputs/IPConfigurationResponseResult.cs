@@ -26,9 +26,25 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of IPConfiguration
+        /// Gets or sets the privateIPAddress of the IP Configuration
         /// </summary>
-        public readonly Outputs.IPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// Gets or sets PrivateIP allocation method
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the reference of the PublicIP resource
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Gets or sets the reference of the subnet resource
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
 
         [OutputConstructor]
         private IPConfigurationResponseResult(
@@ -38,12 +54,24 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
 
             string? name,
 
-            Outputs.IPConfigurationPropertiesFormatResponseResult? properties)
+            string? privateIPAddress,
+
+            string? privateIPAllocationMethod,
+
+            string? provisioningState,
+
+            Outputs.PublicIPAddressResponseResult? publicIPAddress,
+
+            Outputs.SubnetResponseResult? subnet)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
         }
     }
 }

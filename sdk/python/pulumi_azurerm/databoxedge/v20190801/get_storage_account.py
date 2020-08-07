@@ -13,18 +13,48 @@ class GetStorageAccountResult:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, blob_endpoint=None, container_count=None, data_policy=None, description=None, name=None, storage_account_credential_id=None, storage_account_status=None, type=None):
+        if blob_endpoint and not isinstance(blob_endpoint, str):
+            raise TypeError("Expected argument 'blob_endpoint' to be a str")
+        __self__.blob_endpoint = blob_endpoint
+        """
+        BlobEndpoint of Storage Account
+        """
+        if container_count and not isinstance(container_count, float):
+            raise TypeError("Expected argument 'container_count' to be a float")
+        __self__.container_count = container_count
+        """
+        The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+        """
+        if data_policy and not isinstance(data_policy, str):
+            raise TypeError("Expected argument 'data_policy' to be a str")
+        __self__.data_policy = data_policy
+        """
+        Data policy of the storage Account.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description for the storage Account.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The object name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if storage_account_credential_id and not isinstance(storage_account_credential_id, str):
+            raise TypeError("Expected argument 'storage_account_credential_id' to be a str")
+        __self__.storage_account_credential_id = storage_account_credential_id
         """
-        The Storage Account properties.
+        Storage Account Credential Id
+        """
+        if storage_account_status and not isinstance(storage_account_status, str):
+            raise TypeError("Expected argument 'storage_account_status' to be a str")
+        __self__.storage_account_status = storage_account_status
+        """
+        Current status of the storage account
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +70,13 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
         if False:
             yield self
         return GetStorageAccountResult(
+            blob_endpoint=self.blob_endpoint,
+            container_count=self.container_count,
+            data_policy=self.data_policy,
+            description=self.description,
             name=self.name,
-            properties=self.properties,
+            storage_account_credential_id=self.storage_account_credential_id,
+            storage_account_status=self.storage_account_status,
             type=self.type)
 
 
@@ -64,6 +99,11 @@ def get_storage_account(device_name=None, name=None, resource_group_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190801:getStorageAccount', __args__, opts=opts).value
 
     return AwaitableGetStorageAccountResult(
+        blob_endpoint=__ret__.get('blobEndpoint'),
+        container_count=__ret__.get('containerCount'),
+        data_policy=__ret__.get('dataPolicy'),
+        description=__ret__.get('description'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        storage_account_credential_id=__ret__.get('storageAccountCredentialId'),
+        storage_account_status=__ret__.get('storageAccountStatus'),
         type=__ret__.get('type'))

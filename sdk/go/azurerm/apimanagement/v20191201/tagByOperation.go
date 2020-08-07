@@ -14,10 +14,10 @@ import (
 type TagByOperation struct {
 	pulumi.CustomResourceState
 
+	// Tag name.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +65,19 @@ func GetTagByOperation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagByOperation resources.
 type tagByOperationState struct {
+	// Tag name.
+	DisplayName *string `pulumi:"displayName"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties *TagContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type TagByOperationState struct {
+	// Tag name.
+	DisplayName pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

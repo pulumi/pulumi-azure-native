@@ -40,13 +40,29 @@ namespace Pulumi.AzureRM.Authorization.V20161201
     public sealed class GetPolicyAssignmentResult
     {
         /// <summary>
+        /// This message will be part of response in case of policy violation.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties for the policy assignment.
+        /// Required if a parameter is used in policy rule.
         /// </summary>
-        public readonly Outputs.PolicyAssignmentPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, object>? Parameters;
+        /// <summary>
+        /// The ID of the policy definition.
+        /// </summary>
+        public readonly string? PolicyDefinitionId;
+        /// <summary>
+        /// The scope for the policy assignment.
+        /// </summary>
+        public readonly string? Scope;
         /// <summary>
         /// The type of the policy assignment.
         /// </summary>
@@ -54,14 +70,26 @@ namespace Pulumi.AzureRM.Authorization.V20161201
 
         [OutputConstructor]
         private GetPolicyAssignmentResult(
+            string? description,
+
+            string? displayName,
+
             string? name,
 
-            Outputs.PolicyAssignmentPropertiesResponseResult properties,
+            ImmutableDictionary<string, object>? parameters,
+
+            string? policyDefinitionId,
+
+            string? scope,
 
             string? type)
         {
+            Description = description;
+            DisplayName = displayName;
             Name = name;
-            Properties = properties;
+            Parameters = parameters;
+            PolicyDefinitionId = policyDefinitionId;
+            Scope = scope;
             Type = type;
         }
     }

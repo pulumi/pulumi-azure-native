@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Network.V20191101
     public partial class Experiment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The description of the details or intents of the Experiment
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of the Experiment
+        /// </summary>
+        [Output("enabledState")]
+        public Output<string?> EnabledState { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint A of an experiment
+        /// </summary>
+        [Output("endpointA")]
+        public Output<Outputs.EndpointResponseResult?> EndpointA { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint B of an experiment
+        /// </summary>
+        [Output("endpointB")]
+        public Output<Outputs.EndpointResponseResult?> EndpointB { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +51,22 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of an Experiment
+        /// Resource status.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExperimentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("resourceState")]
+        public Output<string?> ResourceState { get; private set; } = null!;
+
+        /// <summary>
+        /// The uri to the Script used in the Experiment
+        /// </summary>
+        [Output("scriptFileUri")]
+        public Output<string> ScriptFileUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of Experiment status from the server side
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -36,21 +36,57 @@ export interface GetOpenShiftManagedClusterArgs {
  */
 export interface GetOpenShiftManagedClusterResult {
     /**
+     * Configuration of OpenShift cluster VMs.
+     */
+    readonly agentPoolProfiles?: outputs.containerservice.v20190430.OpenShiftManagedClusterAgentPoolProfileResponse[];
+    /**
+     * Configures OpenShift authentication.
+     */
+    readonly authProfile?: outputs.containerservice.v20190430.OpenShiftManagedClusterAuthProfileResponse;
+    /**
+     * Version of OpenShift specified when creating the cluster.
+     */
+    readonly clusterVersion: string;
+    /**
+     * Service generated FQDN for OpenShift API server loadbalancer internal hostname.
+     */
+    readonly fqdn: string;
+    /**
      * Resource location
      */
     readonly location: string;
+    /**
+     * Configuration for OpenShift master VMs.
+     */
+    readonly masterPoolProfile?: outputs.containerservice.v20190430.OpenShiftManagedClusterMasterPoolProfileResponse;
     /**
      * Resource name
      */
     readonly name: string;
     /**
+     * Configuration for OpenShift networking.
+     */
+    readonly networkProfile?: outputs.containerservice.v20190430.NetworkProfileResponse;
+    /**
+     * Version of OpenShift specified when creating the cluster.
+     */
+    readonly openShiftVersion: string;
+    /**
      * Define the resource plan as required by ARM for billing purposes
      */
     readonly plan?: outputs.containerservice.v20190430.PurchasePlanResponse;
     /**
-     * Properties of a OpenShift managed cluster.
+     * The current deployment or provisioning state, which only appears in the response.
      */
-    readonly properties: outputs.containerservice.v20190430.OpenShiftManagedClusterPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Service generated FQDN for OpenShift API server.
+     */
+    readonly publicHostname: string;
+    /**
+     * Configuration for OpenShift router(s).
+     */
+    readonly routerProfiles?: outputs.containerservice.v20190430.OpenShiftRouterProfileResponse[];
     /**
      * Resource tags
      */

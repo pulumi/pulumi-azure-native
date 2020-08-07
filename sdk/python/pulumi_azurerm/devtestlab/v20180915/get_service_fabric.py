@@ -13,7 +13,25 @@ class GetServiceFabricResult:
     """
     A Service Fabric.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, applicable_schedule=None, environment_id=None, external_service_fabric_id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
+        if applicable_schedule and not isinstance(applicable_schedule, dict):
+            raise TypeError("Expected argument 'applicable_schedule' to be a dict")
+        __self__.applicable_schedule = applicable_schedule
+        """
+        The applicable schedule for the virtual machine.
+        """
+        if environment_id and not isinstance(environment_id, str):
+            raise TypeError("Expected argument 'environment_id' to be a str")
+        __self__.environment_id = environment_id
+        """
+        The resource id of the environment under which the service fabric resource is present
+        """
+        if external_service_fabric_id and not isinstance(external_service_fabric_id, str):
+            raise TypeError("Expected argument 'external_service_fabric_id' to be a str")
+        __self__.external_service_fabric_id = external_service_fabric_id
+        """
+        The backing service fabric resource's id
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +44,11 @@ class GetServiceFabricResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +62,12 @@ class GetServiceFabricResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
 
 
 class AwaitableGetServiceFabricResult(GetServiceFabricResult):
@@ -52,11 +76,15 @@ class AwaitableGetServiceFabricResult(GetServiceFabricResult):
         if False:
             yield self
         return GetServiceFabricResult(
+            applicable_schedule=self.applicable_schedule,
+            environment_id=self.environment_id,
+            external_service_fabric_id=self.external_service_fabric_id,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_service_fabric(lab_name=None, name=None, resource_group_name=None, user_name=None, opts=None):
@@ -80,8 +108,12 @@ def get_service_fabric(lab_name=None, name=None, resource_group_name=None, user_
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getServiceFabric', __args__, opts=opts).value
 
     return AwaitableGetServiceFabricResult(
+        applicable_schedule=__ret__.get('applicableSchedule'),
+        environment_id=__ret__.get('environmentId'),
+        external_service_fabric_id=__ret__.get('externalServiceFabricId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.NetApp.V20190601
     public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation date of the snapshot
+        /// </summary>
+        [Output("creationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// UUID v4 used to identify the FileSystem
+        /// </summary>
+        [Output("fileSystemId")]
+        public Output<string?> FileSystemId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,16 +39,16 @@ namespace Pulumi.AzureRM.NetApp.V20190601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Snapshot Properties
+        /// Azure lifecycle management
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SnapshotPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// UUID v4 used to identify the Snapshot
         /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        [Output("snapshotId")]
+        public Output<string> SnapshotId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

@@ -13,12 +13,30 @@ class GetExportResult:
     """
     An export resource.
     """
-    def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
+    def __init__(__self__, definition=None, delivery_info=None, e_tag=None, format=None, name=None, next_run_time_estimate=None, run_history=None, schedule=None, type=None):
+        if definition and not isinstance(definition, dict):
+            raise TypeError("Expected argument 'definition' to be a dict")
+        __self__.definition = definition
+        """
+        Has the definition for the export.
+        """
+        if delivery_info and not isinstance(delivery_info, dict):
+            raise TypeError("Expected argument 'delivery_info' to be a dict")
+        __self__.delivery_info = delivery_info
+        """
+        Has delivery information for the export.
+        """
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         __self__.e_tag = e_tag
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        """
+        if format and not isinstance(format, str):
+            raise TypeError("Expected argument 'format' to be a str")
+        __self__.format = format
+        """
+        The format of the export being delivered. Currently only 'Csv' is supported.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +44,23 @@ class GetExportResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if next_run_time_estimate and not isinstance(next_run_time_estimate, str):
+            raise TypeError("Expected argument 'next_run_time_estimate' to be a str")
+        __self__.next_run_time_estimate = next_run_time_estimate
         """
-        The properties of the export.
+        If the export has an active schedule, provides an estimate of the next execution time.
+        """
+        if run_history and not isinstance(run_history, dict):
+            raise TypeError("Expected argument 'run_history' to be a dict")
+        __self__.run_history = run_history
+        """
+        If requested, has the most recent execution history for the export.
+        """
+        if schedule and not isinstance(schedule, dict):
+            raise TypeError("Expected argument 'schedule' to be a dict")
+        __self__.schedule = schedule
+        """
+        Has schedule information for the export.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +76,14 @@ class AwaitableGetExportResult(GetExportResult):
         if False:
             yield self
         return GetExportResult(
+            definition=self.definition,
+            delivery_info=self.delivery_info,
             e_tag=self.e_tag,
+            format=self.format,
             name=self.name,
-            properties=self.properties,
+            next_run_time_estimate=self.next_run_time_estimate,
+            run_history=self.run_history,
+            schedule=self.schedule,
             type=self.type)
 
 
@@ -69,7 +104,12 @@ def get_export(name=None, scope=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:costmanagement/v20200601:getExport', __args__, opts=opts).value
 
     return AwaitableGetExportResult(
+        definition=__ret__.get('definition'),
+        delivery_info=__ret__.get('deliveryInfo'),
         e_tag=__ret__.get('eTag'),
+        format=__ret__.get('format'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        next_run_time_estimate=__ret__.get('nextRunTimeEstimate'),
+        run_history=__ret__.get('runHistory'),
+        schedule=__ret__.get('schedule'),
         type=__ret__.get('type'))

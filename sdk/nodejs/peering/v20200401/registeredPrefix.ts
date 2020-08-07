@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,29 @@ export class RegisteredPrefix extends pulumi.CustomResource {
     }
 
     /**
+     * The error message associated with the validation state, if any.
+     */
+    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties that define a registered prefix.
+     * The peering service prefix key that is to be shared with the customer.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringRegisteredPrefixPropertiesResponse>;
+    public /*out*/ readonly peeringServicePrefixKey!: pulumi.Output<string>;
+    /**
+     * The customer's prefix from which traffic originates.
+     */
+    public readonly prefix!: pulumi.Output<string | undefined>;
+    /**
+     * The prefix validation state.
+     */
+    public /*out*/ readonly prefixValidationState!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -75,7 +89,10 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["prefix"] = args ? args.prefix : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["errorMessage"] = undefined /*out*/;
+            inputs["peeringServicePrefixKey"] = undefined /*out*/;
+            inputs["prefixValidationState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

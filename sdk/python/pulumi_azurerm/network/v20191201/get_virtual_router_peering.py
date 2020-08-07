@@ -13,7 +13,7 @@ class GetVirtualRouterPeeringResult:
     """
     Virtual Router Peering resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +26,23 @@ class GetVirtualRouterPeeringResult:
         """
         Name of the virtual router peering that is unique within a virtual router.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peer_asn and not isinstance(peer_asn, float):
+            raise TypeError("Expected argument 'peer_asn' to be a float")
+        __self__.peer_asn = peer_asn
         """
-        The properties of the Virtual Router Peering.
+        Peer ASN.
+        """
+        if peer_ip and not isinstance(peer_ip, str):
+            raise TypeError("Expected argument 'peer_ip' to be a str")
+        __self__.peer_ip = peer_ip
+        """
+        Peer IP.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +60,9 @@ class AwaitableGetVirtualRouterPeeringResult(GetVirtualRouterPeeringResult):
         return GetVirtualRouterPeeringResult(
             etag=self.etag,
             name=self.name,
-            properties=self.properties,
+            peer_asn=self.peer_asn,
+            peer_ip=self.peer_ip,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -73,5 +87,7 @@ def get_virtual_router_peering(name=None, resource_group_name=None, virtual_rout
     return AwaitableGetVirtualRouterPeeringResult(
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peer_asn=__ret__.get('peerAsn'),
+        peer_ip=__ret__.get('peerIp'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

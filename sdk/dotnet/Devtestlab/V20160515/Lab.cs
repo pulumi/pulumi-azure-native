@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public partial class Lab : Pulumi.CustomResource
     {
         /// <summary>
+        /// The lab's artifact storage account.
+        /// </summary>
+        [Output("artifactsStorageAccount")]
+        public Output<string> ArtifactsStorageAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation date of the lab.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The lab's default premium storage account.
+        /// </summary>
+        [Output("defaultPremiumStorageAccount")]
+        public Output<string> DefaultPremiumStorageAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// The lab's default storage account.
+        /// </summary>
+        [Output("defaultStorageAccount")]
+        public Output<string> DefaultStorageAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        /// </summary>
+        [Output("labStorageType")]
+        public Output<string?> LabStorageType { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +57,24 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The lab's premium data disk storage account.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LabPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("premiumDataDiskStorageAccount")]
+        public Output<string> PremiumDataDiskStorageAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// The setting to enable usage of premium data disks.
+        /// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+        /// When its value is 'Disabled', only creation of standard data disks is allowed.
+        /// </summary>
+        [Output("premiumDataDisks")]
+        public Output<string?> PremiumDataDisks { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +87,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The lab's Key vault.
+        /// </summary>
+        [Output("vaultName")]
+        public Output<string> VaultName { get; private set; } = null!;
 
 
         /// <summary>

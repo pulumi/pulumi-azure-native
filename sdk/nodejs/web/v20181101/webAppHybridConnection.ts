@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The hostname of the endpoint.
+     */
+    public readonly hostname!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,9 +47,34 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * HybridConnection resource specific properties
+     * The port of the endpoint.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20181101.HybridConnectionResponseProperties>;
+    public readonly port!: pulumi.Output<number | undefined>;
+    /**
+     * The ARM URI to the Service Bus relay.
+     */
+    public readonly relayArmUri!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Service Bus relay.
+     */
+    public /*out*/ readonly relayName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+     */
+    public readonly sendKeyName!: pulumi.Output<string | undefined>;
+    /**
+     * The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+     * normally, use the POST /listKeys API instead.
+     */
+    public readonly sendKeyValue!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Service Bus namespace.
+     */
+    public readonly serviceBusNamespace!: pulumi.Output<string | undefined>;
+    /**
+     * The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+     */
+    public readonly serviceBusSuffix!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -86,7 +113,7 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
             inputs["sendKeyValue"] = args ? args.sendKeyValue : undefined;
             inputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
             inputs["serviceBusSuffix"] = args ? args.serviceBusSuffix : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["relayName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

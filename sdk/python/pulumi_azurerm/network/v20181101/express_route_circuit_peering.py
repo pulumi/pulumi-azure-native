@@ -10,15 +10,258 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
+    azure_asn: pulumi.Output[float]
+    """
+    The Azure ASN.
+    """
+    connections: pulumi.Output[list]
+    """
+    The list of circuit connections associated with Azure Private Peering for this circuit.
+      * `address_prefix` (`str`) - /29 IP address space to carve out Customer addresses for tunnels.
+      * `authorization_key` (`str`) - The authorization key.
+      * `circuit_connection_status` (`str`) - Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        * `id` (`str`) - Resource ID.
+
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `peer_express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+      * `provisioning_state` (`str`) - Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    express_route_connection: pulumi.Output[dict]
+    """
+    The ExpressRoute connection.
+      * `id` (`str`) - The ID of the ExpressRouteConnection.
+    """
+    gateway_manager_etag: pulumi.Output[str]
+    """
+    The GatewayManager Etag.
+    """
+    ipv6_peering_config: pulumi.Output[dict]
+    """
+    The IPv6 peering configuration.
+      * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
+        * `advertised_communities` (`list`) - The communities of bgp peering. Specified for microsoft peering
+        * `advertised_public_prefixes` (`list`) - The reference of AdvertisedPublicPrefixes.
+        * `advertised_public_prefixes_state` (`str`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
+        * `customer_asn` (`float`) - The CustomerASN of the peering.
+        * `legacy_mode` (`float`) - The legacy mode of the peering.
+        * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
+
+      * `primary_peer_address_prefix` (`str`) - The primary address prefix.
+      * `route_filter` (`dict`) - The reference of the RouteFilter resource.
+        * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
+        * `id` (`str`) - Resource ID.
+        * `location` (`str`) - Resource location.
+        * `name` (`str`) - Resource name.
+        * `peerings` (`list`) - A collection of references to express route circuit peerings.
+          * `azure_asn` (`float`) - The Azure ASN.
+          * `connections` (`list`) - The list of circuit connections associated with Azure Private Peering for this circuit.
+            * `address_prefix` (`str`) - /29 IP address space to carve out Customer addresses for tunnels.
+            * `authorization_key` (`str`) - The authorization key.
+            * `circuit_connection_status` (`str`) - Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
+            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+            * `express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+              * `id` (`str`) - Resource ID.
+
+            * `id` (`str`) - Resource ID.
+            * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+            * `peer_express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+            * `provisioning_state` (`str`) - Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+
+          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+          * `express_route_connection` (`dict`) - The ExpressRoute connection.
+            * `id` (`str`) - The ID of the ExpressRouteConnection.
+
+          * `gateway_manager_etag` (`str`) - The GatewayManager Etag.
+          * `id` (`str`) - Resource ID.
+          * `ipv6_peering_config` (`dict`) - The IPv6 peering configuration.
+          * `last_modified_by` (`str`) - Gets whether the provider or the customer last modified the peering.
+          * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
+          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `peer_asn` (`float`) - The peer ASN.
+          * `peering_type` (`str`) - The peering type.
+          * `primary_azure_port` (`str`) - The primary port.
+          * `primary_peer_address_prefix` (`str`) - The primary address prefix.
+          * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+          * `route_filter` (`dict`) - The reference of the RouteFilter resource.
+          * `secondary_azure_port` (`str`) - The secondary port.
+          * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
+          * `shared_key` (`str`) - The shared key.
+          * `state` (`str`) - The peering state.
+          * `stats` (`dict`) - Gets peering stats.
+            * `primarybytes_in` (`float`) - Gets BytesIn of the peering.
+            * `primarybytes_out` (`float`) - Gets BytesOut of the peering.
+            * `secondarybytes_in` (`float`) - Gets BytesIn of the peering.
+            * `secondarybytes_out` (`float`) - Gets BytesOut of the peering.
+
+          * `vlan_id` (`float`) - The VLAN ID.
+
+        * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+        * `rules` (`list`) - Collection of RouteFilterRules contained within a route filter.
+          * `access` (`str`) - The access type of the rule. Valid values are: 'Allow', 'Deny'
+          * `communities` (`list`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+          * `id` (`str`) - Resource ID.
+          * `location` (`str`) - Resource location.
+          * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+          * `route_filter_rule_type` (`str`) - The rule type of the rule. Valid value is: 'Community'
+
+        * `tags` (`dict`) - Resource tags.
+        * `type` (`str`) - Resource type.
+
+      * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
+      * `state` (`str`) - The state of peering. Possible values are: 'Disabled' and 'Enabled'
+    """
+    last_modified_by: pulumi.Output[str]
+    """
+    Gets whether the provider or the customer last modified the peering.
+    """
+    microsoft_peering_config: pulumi.Output[dict]
+    """
+    The Microsoft peering configuration.
+      * `advertised_communities` (`list`) - The communities of bgp peering. Specified for microsoft peering
+      * `advertised_public_prefixes` (`list`) - The reference of AdvertisedPublicPrefixes.
+      * `advertised_public_prefixes_state` (`str`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
+      * `customer_asn` (`float`) - The CustomerASN of the peering.
+      * `legacy_mode` (`float`) - The legacy mode of the peering.
+      * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
     """
     name: pulumi.Output[str]
     """
     Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    peer_asn: pulumi.Output[float]
+    """
+    The peer ASN.
+    """
+    peering_type: pulumi.Output[str]
+    """
+    The peering type.
+    """
+    primary_azure_port: pulumi.Output[str]
+    """
+    The primary port.
+    """
+    primary_peer_address_prefix: pulumi.Output[str]
+    """
+    The primary address prefix.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    route_filter: pulumi.Output[dict]
+    """
+    The reference of the RouteFilter resource.
+      * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `location` (`str`) - Resource location.
+      * `name` (`str`) - Resource name.
+      * `peerings` (`list`) - A collection of references to express route circuit peerings.
+        * `azure_asn` (`float`) - The Azure ASN.
+        * `connections` (`list`) - The list of circuit connections associated with Azure Private Peering for this circuit.
+          * `address_prefix` (`str`) - /29 IP address space to carve out Customer addresses for tunnels.
+          * `authorization_key` (`str`) - The authorization key.
+          * `circuit_connection_status` (`str`) - Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
+          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+          * `express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+            * `id` (`str`) - Resource ID.
+
+          * `id` (`str`) - Resource ID.
+          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `peer_express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+          * `provisioning_state` (`str`) - Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `express_route_connection` (`dict`) - The ExpressRoute connection.
+          * `id` (`str`) - The ID of the ExpressRouteConnection.
+
+        * `gateway_manager_etag` (`str`) - The GatewayManager Etag.
+        * `id` (`str`) - Resource ID.
+        * `ipv6_peering_config` (`dict`) - The IPv6 peering configuration.
+          * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
+            * `advertised_communities` (`list`) - The communities of bgp peering. Specified for microsoft peering
+            * `advertised_public_prefixes` (`list`) - The reference of AdvertisedPublicPrefixes.
+            * `advertised_public_prefixes_state` (`str`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
+            * `customer_asn` (`float`) - The CustomerASN of the peering.
+            * `legacy_mode` (`float`) - The legacy mode of the peering.
+            * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
+
+          * `primary_peer_address_prefix` (`str`) - The primary address prefix.
+          * `route_filter` (`dict`) - The reference of the RouteFilter resource.
+          * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
+          * `state` (`str`) - The state of peering. Possible values are: 'Disabled' and 'Enabled'
+
+        * `last_modified_by` (`str`) - Gets whether the provider or the customer last modified the peering.
+        * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
+        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `peer_asn` (`float`) - The peer ASN.
+        * `peering_type` (`str`) - The peering type.
+        * `primary_azure_port` (`str`) - The primary port.
+        * `primary_peer_address_prefix` (`str`) - The primary address prefix.
+        * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        * `route_filter` (`dict`) - The reference of the RouteFilter resource.
+        * `secondary_azure_port` (`str`) - The secondary port.
+        * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
+        * `shared_key` (`str`) - The shared key.
+        * `state` (`str`) - The peering state.
+        * `stats` (`dict`) - Gets peering stats.
+          * `primarybytes_in` (`float`) - Gets BytesIn of the peering.
+          * `primarybytes_out` (`float`) - Gets BytesOut of the peering.
+          * `secondarybytes_in` (`float`) - Gets BytesIn of the peering.
+          * `secondarybytes_out` (`float`) - Gets BytesOut of the peering.
+
+        * `vlan_id` (`float`) - The VLAN ID.
+
+      * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+      * `rules` (`list`) - Collection of RouteFilterRules contained within a route filter.
+        * `access` (`str`) - The access type of the rule. Valid values are: 'Allow', 'Deny'
+        * `communities` (`list`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `id` (`str`) - Resource ID.
+        * `location` (`str`) - Resource location.
+        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+        * `route_filter_rule_type` (`str`) - The rule type of the rule. Valid value is: 'Community'
+
+      * `tags` (`dict`) - Resource tags.
+      * `type` (`str`) - Resource type.
+    """
+    secondary_azure_port: pulumi.Output[str]
+    """
+    The secondary port.
+    """
+    secondary_peer_address_prefix: pulumi.Output[str]
+    """
+    The secondary address prefix.
+    """
+    shared_key: pulumi.Output[str]
+    """
+    The shared key.
+    """
+    state: pulumi.Output[str]
+    """
+    The peering state.
+    """
+    stats: pulumi.Output[dict]
+    """
+    Gets peering stats.
+      * `primarybytes_in` (`float`) - Gets BytesIn of the peering.
+      * `primarybytes_out` (`float`) - Gets BytesOut of the peering.
+      * `secondarybytes_in` (`float`) - Gets BytesIn of the peering.
+      * `secondarybytes_out` (`float`) - Gets BytesOut of the peering.
+    """
+    vlan_id: pulumi.Output[float]
+    """
+    The VLAN ID.
+    """
     def __init__(__self__, resource_name, opts=None, azure_asn=None, circuit_name=None, connections=None, gateway_manager_etag=None, id=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, resource_group_name=None, route_filter=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Peering in an ExpressRouteCircuit resource.
@@ -159,7 +402,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__['stats'] = stats
             __props__['vlan_id'] = vlan_id
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['express_route_connection'] = None
         super(ExpressRouteCircuitPeering, __self__).__init__(
             'azurerm:network/v20181101:ExpressRouteCircuitPeering',
             resource_name,

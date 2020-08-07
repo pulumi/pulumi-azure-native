@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,45 @@ export class FileShare extends pulumi.CustomResource {
     }
 
     /**
+     * The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+     */
+    public readonly adminUser!: pulumi.Output<string>;
+    /**
+     * The data policy
+     */
+    public readonly dataPolicy!: pulumi.Output<string>;
+    /**
+     * Description for file share
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The local used capacity in Bytes.
+     */
+    public /*out*/ readonly localUsedCapacityInBytes!: pulumi.Output<number>;
+    /**
+     * The monitoring status
+     */
+    public readonly monitoringStatus!: pulumi.Output<string>;
+    /**
      * The name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties.
+     * The total provisioned capacity in Bytes
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.FileSharePropertiesResponse>;
+    public readonly provisionedCapacityInBytes!: pulumi.Output<number>;
+    /**
+     * The Share Status
+     */
+    public readonly shareStatus!: pulumi.Output<string>;
     /**
      * The type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The used capacity in Bytes.
+     */
+    public /*out*/ readonly usedCapacityInBytes!: pulumi.Output<number>;
 
     /**
      * Create a FileShare resource with the given unique name, arguments, and options.
@@ -103,8 +129,9 @@ export class FileShare extends pulumi.CustomResource {
             inputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareStatus"] = args ? args.shareStatus : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["localUsedCapacityInBytes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["usedCapacityInBytes"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

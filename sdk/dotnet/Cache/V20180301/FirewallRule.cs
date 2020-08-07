@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.Cache.V20180301
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// highest IP address included in the range
+        /// </summary>
+        [Output("endIP")]
+        public Output<string> EndIP { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// redis cache firewall rule properties
+        /// lowest IP address included in the range
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RedisFirewallRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("startIP")]
+        public Output<string> StartIP { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

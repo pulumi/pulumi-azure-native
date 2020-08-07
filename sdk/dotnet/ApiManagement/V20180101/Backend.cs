@@ -15,22 +15,70 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public partial class Backend : Pulumi.CustomResource
     {
         /// <summary>
+        /// Backend Credentials Contract Properties
+        /// </summary>
+        [Output("credentials")]
+        public Output<Outputs.BackendCredentialsContractResponseResult?> Credentials { get; private set; } = null!;
+
+        /// <summary>
+        /// Backend Description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Backend entity contract properties.
+        /// Backend Properties contract
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BackendContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.BackendPropertiesResponseResult> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Backend communication protocol.
+        /// </summary>
+        [Output("protocol")]
+        public Output<string> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// Backend Proxy Contract Properties
+        /// </summary>
+        [Output("proxy")]
+        public Output<Outputs.BackendProxyContractResponseResult?> Proxy { get; private set; } = null!;
+
+        /// <summary>
+        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        /// </summary>
+        [Output("resourceId")]
+        public Output<string?> ResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Backend Title.
+        /// </summary>
+        [Output("title")]
+        public Output<string?> Title { get; private set; } = null!;
+
+        /// <summary>
+        /// Backend TLS Properties
+        /// </summary>
+        [Output("tls")]
+        public Output<Outputs.BackendTlsPropertiesResponseResult?> Tls { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Runtime Url of the Backend.
+        /// </summary>
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
 
 
         /// <summary>

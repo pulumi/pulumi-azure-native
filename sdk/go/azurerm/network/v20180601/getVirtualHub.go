@@ -25,16 +25,22 @@ type LookupVirtualHubArgs struct {
 
 // VirtualHub Resource.
 type LookupVirtualHubResult struct {
+	// Address-prefix for this VirtualHub.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// list of all vnet connections with this VirtualHub.
+	HubVirtualNetworkConnections []HubVirtualNetworkConnectionResponse `pulumi:"hubVirtualNetworkConnections"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Parameters for VirtualHub
-	Properties VirtualHubPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The VirtualWAN to which the VirtualHub belongs
+	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
 }

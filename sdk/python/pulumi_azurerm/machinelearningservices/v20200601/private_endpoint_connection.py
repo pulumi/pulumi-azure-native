@@ -26,18 +26,21 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     Specifies the name of the resource.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint: pulumi.Output[dict]
     """
-    Resource properties.
-      * `private_endpoint` (`dict`) - The resource of private end point.
-        * `id` (`str`) - The ARM identifier for Private Endpoint
-
-      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
-        * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-        * `description` (`str`) - The reason for approval/rejection of the connection.
-        * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-      * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
+    The resource of private end point.
+      * `id` (`str`) - The ARM identifier for Private Endpoint
+    """
+    private_link_service_connection_state: pulumi.Output[dict]
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+      * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+      * `description` (`str`) - The reason for approval/rejection of the connection.
+      * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the private endpoint connection resource.
     """
     sku: pulumi.Output[dict]
     """
@@ -118,7 +121,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
+            __props__['private_endpoint'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:machinelearningservices/v20200601:PrivateEndpointConnection',

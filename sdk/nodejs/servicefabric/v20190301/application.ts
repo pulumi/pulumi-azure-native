@@ -45,13 +45,33 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+     */
+    public readonly maximumNodes!: pulumi.Output<number | undefined>;
+    /**
+     * List of application capacity metric description.
+     */
+    public readonly metrics!: pulumi.Output<outputs.servicefabric.v20190301.ApplicationMetricDescriptionResponse[] | undefined>;
+    /**
+     * The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+     */
+    public readonly minimumNodes!: pulumi.Output<number | undefined>;
+    /**
      * Azure resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The application resource properties.
+     * List of application parameters with overridden values from their default values specified in the application manifest.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20190301.ApplicationResourcePropertiesResponse>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The current deployment or provisioning state, which only appears in the response
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Remove the current application capacity settings.
+     */
+    public readonly removeApplicationCapacity!: pulumi.Output<boolean | undefined>;
     /**
      * Azure resource tags.
      */
@@ -60,6 +80,18 @@ export class Application extends pulumi.CustomResource {
      * Azure resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The application type name as defined in the application manifest.
+     */
+    public readonly typeName!: pulumi.Output<string | undefined>;
+    /**
+     * The version of the application type as defined in the application manifest.
+     */
+    public readonly typeVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Describes the policy for a monitored application upgrade.
+     */
+    public readonly upgradePolicy!: pulumi.Output<outputs.servicefabric.v20190301.ApplicationUpgradePolicyResponse | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -97,7 +129,7 @@ export class Application extends pulumi.CustomResource {
             inputs["typeVersion"] = args ? args.typeVersion : undefined;
             inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

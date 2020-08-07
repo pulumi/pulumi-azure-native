@@ -48,9 +48,21 @@ export interface GetServiceEndpointPolicyResult {
      */
     readonly name: string;
     /**
-     * Properties of the service end point policy
+     * The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly properties: outputs.network.v20181001.ServiceEndpointPolicyPropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * The resource GUID property of the service endpoint policy resource.
+     */
+    readonly resourceGuid: string;
+    /**
+     * A collection of service endpoint policy definitions of the service endpoint policy.
+     */
+    readonly serviceEndpointPolicyDefinitions?: outputs.network.v20181001.ServiceEndpointPolicyDefinitionResponse[];
+    /**
+     * A collection of references to subnets.
+     */
+    readonly subnets: outputs.network.v20181001.SubnetResponse[];
     /**
      * Resource tags.
      */

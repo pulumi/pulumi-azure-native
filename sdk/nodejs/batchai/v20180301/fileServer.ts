@@ -36,18 +36,36 @@ export class FileServer extends pulumi.CustomResource {
         return obj['__pulumiType'] === FileServer.__pulumiType;
     }
 
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Settings for the data disk which would be created for the File Server.
+     */
+    public readonly dataDisks!: pulumi.Output<outputs.batchai.v20180301.DataDisksResponse | undefined>;
     /**
      * The location of the resource
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Details of the File Server.
+     */
+    public /*out*/ readonly mountSettings!: pulumi.Output<outputs.batchai.v20180301.MountSettingsResponse>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties associated with the File Server.
+     * Possible values: creating - The File Server is getting created. updating - The File Server creation has been accepted and it is getting updated. deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted. failed - The File Server creation has failed with the specified errorCode. Details about the error code are specified in the message field. succeeded - The File Server creation has succeeded.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.batchai.v20180301.FileServerPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningStateTransitionTime!: pulumi.Output<string>;
+    /**
+     * SSH configuration settings for the VM
+     */
+    public readonly sshConfiguration!: pulumi.Output<outputs.batchai.v20180301.SshConfigurationResponse | undefined>;
+    /**
+     * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+     */
+    public readonly subnet!: pulumi.Output<outputs.batchai.v20180301.ResourceIdResponse | undefined>;
     /**
      * The tags of the resource
      */
@@ -56,6 +74,10 @@ export class FileServer extends pulumi.CustomResource {
      * The type of the resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * For information about available VM sizes for File Server from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+     */
+    public readonly vmSize!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FileServer resource with the given unique name, arguments, and options.
@@ -96,7 +118,10 @@ export class FileServer extends pulumi.CustomResource {
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["mountSettings"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

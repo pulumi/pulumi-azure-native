@@ -10,6 +10,42 @@ from ... import _utilities, _tables
 
 
 class Application(pulumi.CustomResource):
+    application_definition_id: pulumi.Output[str]
+    """
+    The fully qualified path of managed application definition Id.
+    """
+    artifacts: pulumi.Output[list]
+    """
+    The collection of managed application artifacts.
+      * `name` (`str`) - The managed application artifact name.
+      * `type` (`str`) - The managed application artifact type.
+      * `uri` (`str`) - The managed application artifact blob uri.
+    """
+    authorizations: pulumi.Output[list]
+    """
+    The  read-only authorizations property that is retrieved from the application package.
+      * `principal_id` (`str`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
+      * `role_definition_id` (`str`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+    """
+    billing_details: pulumi.Output[dict]
+    """
+    The managed application billing details.
+      * `resource_usage_id` (`str`) - The managed application resource usage Id.
+    """
+    created_by: pulumi.Output[dict]
+    """
+    The client entity that created the JIT request.
+      * `application_id` (`str`) - The client application Id.
+      * `oid` (`str`) - The client Oid.
+      * `puid` (`str`) - The client Puid
+    """
+    customer_support: pulumi.Output[dict]
+    """
+    The read-only customer support property that is retrieved from the application package.
+      * `contact_name` (`str`) - The contact name.
+      * `email` (`str`) - The contact email.
+      * `phone` (`str`) - The contact phone number.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the resource.
@@ -17,6 +53,18 @@ class Application(pulumi.CustomResource):
       * `tenant_id` (`str`) - The tenant ID of resource.
       * `type` (`str`) - The identity type.
       * `user_assigned_identities` (`dict`) - The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
+    jit_access_policy: pulumi.Output[dict]
+    """
+    The managed application Jit access policy.
+      * `jit_access_enabled` (`bool`) - Whether the JIT access is enabled.
+      * `jit_approval_mode` (`str`) - JIT approval mode.
+      * `jit_approvers` (`list`) - The JIT approvers
+        * `display_name` (`str`) - The approver display name.
+        * `id` (`str`) - The approver service principal Id.
+        * `type` (`str`) - The approver type.
+
+      * `maximum_jit_access_duration` (`str`) - The maximum duration JIT access is granted. This is an ISO8601 time period value.
     """
     kind: pulumi.Output[str]
     """
@@ -30,9 +78,25 @@ class Application(pulumi.CustomResource):
     """
     ID of the resource that manages this resource.
     """
+    managed_resource_group_id: pulumi.Output[str]
+    """
+    The managed resource group Id.
+    """
+    management_mode: pulumi.Output[str]
+    """
+    The managed application management mode.
+    """
     name: pulumi.Output[str]
     """
     Resource name
+    """
+    outputs: pulumi.Output[dict]
+    """
+    Name and value pairs that define the managed application outputs.
+    """
+    parameters: pulumi.Output[dict]
+    """
+    Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
     """
     plan: pulumi.Output[dict]
     """
@@ -43,53 +107,13 @@ class Application(pulumi.CustomResource):
       * `publisher` (`str`) - The publisher ID.
       * `version` (`str`) - The plan's version.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The managed application properties.
-      * `application_definition_id` (`str`) - The fully qualified path of managed application definition Id.
-      * `artifacts` (`list`) - The collection of managed application artifacts.
-        * `name` (`str`) - The managed application artifact name.
-        * `type` (`str`) - The managed application artifact type.
-        * `uri` (`str`) - The managed application artifact blob uri.
-
-      * `authorizations` (`list`) - The  read-only authorizations property that is retrieved from the application package.
-        * `principal_id` (`str`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-        * `role_definition_id` (`str`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-
-      * `billing_details` (`dict`) - The managed application billing details.
-        * `resource_usage_id` (`str`) - The managed application resource usage Id.
-
-      * `created_by` (`dict`) - The client entity that created the JIT request.
-        * `application_id` (`str`) - The client application Id.
-        * `oid` (`str`) - The client Oid.
-        * `puid` (`str`) - The client Puid
-
-      * `customer_support` (`dict`) - The read-only customer support property that is retrieved from the application package.
-        * `contact_name` (`str`) - The contact name.
-        * `email` (`str`) - The contact email.
-        * `phone` (`str`) - The contact phone number.
-
-      * `jit_access_policy` (`dict`) - The managed application Jit access policy.
-        * `jit_access_enabled` (`bool`) - Whether the JIT access is enabled.
-        * `jit_approval_mode` (`str`) - JIT approval mode.
-        * `jit_approvers` (`list`) - The JIT approvers
-          * `display_name` (`str`) - The approver display name.
-          * `id` (`str`) - The approver service principal Id.
-          * `type` (`str`) - The approver type.
-
-        * `maximum_jit_access_duration` (`str`) - The maximum duration JIT access is granted. This is an ISO8601 time period value.
-
-      * `managed_resource_group_id` (`str`) - The managed resource group Id.
-      * `management_mode` (`str`) - The managed application management mode.
-      * `outputs` (`dict`) - Name and value pairs that define the managed application outputs.
-      * `parameters` (`dict`) - Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-      * `provisioning_state` (`str`) - The managed application provisioning state.
-      * `publisher_tenant_id` (`str`) - The publisher tenant Id.
-      * `support_urls` (`dict`) - The read-only support URLs property that is retrieved from the application package.
-        * `government_cloud` (`str`) - The government cloud support URL.
-        * `public_azure` (`str`) - The public azure support URL.
-
-      * `updated_by` (`dict`) - The client entity that last updated the JIT request.
+    The managed application provisioning state.
+    """
+    publisher_tenant_id: pulumi.Output[str]
+    """
+    The publisher tenant Id.
     """
     sku: pulumi.Output[dict]
     """
@@ -101,6 +125,12 @@ class Application(pulumi.CustomResource):
       * `size` (`str`) - The SKU size.
       * `tier` (`str`) - The SKU tier.
     """
+    support_urls: pulumi.Output[dict]
+    """
+    The read-only support URLs property that is retrieved from the application package.
+      * `government_cloud` (`str`) - The government cloud support URL.
+      * `public_azure` (`str`) - The public azure support URL.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -108,6 +138,13 @@ class Application(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_by: pulumi.Output[dict]
+    """
+    The client entity that last updated the JIT request.
+      * `application_id` (`str`) - The client application Id.
+      * `oid` (`str`) - The client Oid.
+      * `puid` (`str`) - The client Puid
     """
     def __init__(__self__, resource_name, opts=None, application_definition_id=None, identity=None, jit_access_policy=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, name=None, parameters=None, plan=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -197,8 +234,18 @@ class Application(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['artifacts'] = None
+            __props__['authorizations'] = None
+            __props__['billing_details'] = None
+            __props__['created_by'] = None
+            __props__['customer_support'] = None
+            __props__['management_mode'] = None
+            __props__['outputs'] = None
+            __props__['provisioning_state'] = None
+            __props__['publisher_tenant_id'] = None
+            __props__['support_urls'] = None
             __props__['type'] = None
+            __props__['updated_by'] = None
         super(Application, __self__).__init__(
             'azurerm:solutions/v20190701:Application',
             resource_name,

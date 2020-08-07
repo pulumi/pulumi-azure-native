@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class ConfigurationStore(pulumi.CustomResource):
+    creation_date: pulumi.Output[str]
+    """
+    The creation date of configuration store.
+    """
+    endpoint: pulumi.Output[str]
+    """
+    The DNS endpoint where the configuration store API will be available.
+    """
     identity: pulumi.Output[dict]
     """
     The managed identity information, if configured.
@@ -26,12 +34,9 @@ class ConfigurationStore(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of a configuration store.
-      * `creation_date` (`str`) - The creation date of configuration store.
-      * `endpoint` (`str`) - The DNS endpoint where the configuration store API will be available.
-      * `provisioning_state` (`str`) - The provisioning state of the configuration store.
+    The provisioning state of the configuration store.
     """
     sku: pulumi.Output[dict]
     """
@@ -98,7 +103,9 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_date'] = None
+            __props__['endpoint'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ConfigurationStore, __self__).__init__(
             'azurerm:appconfiguration/v20191001:ConfigurationStore',

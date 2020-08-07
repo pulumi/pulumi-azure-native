@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the P2S connection configuration.
+        /// The provisioning state of the P2SConnectionConfiguration resource.
         /// </summary>
-        public readonly Outputs.P2SConnectionConfigurationPropertiesResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The reference to the address space resource which represents Address space for P2S VpnClient.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? VpnClientAddressPool;
 
         [OutputConstructor]
         private P2SConnectionConfigurationResponseResult(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
 
             string? name,
 
-            Outputs.P2SConnectionConfigurationPropertiesResponseResult? properties)
+            string provisioningState,
+
+            Outputs.AddressSpaceResponseResult? vpnClientAddressPool)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            VpnClientAddressPool = vpnClientAddressPool;
         }
     }
 }

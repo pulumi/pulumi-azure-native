@@ -41,6 +41,18 @@ export interface GetHubVirtualNetworkConnectionArgs {
  */
 export interface GetHubVirtualNetworkConnectionResult {
     /**
+     * Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+     */
+    readonly allowHubToRemoteVnetTransit?: boolean;
+    /**
+     * Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+     */
+    readonly allowRemoteVnetToUseHubVnetGateways?: boolean;
+    /**
+     * Enable internet security.
+     */
+    readonly enableInternetSecurity?: boolean;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -49,7 +61,15 @@ export interface GetHubVirtualNetworkConnectionResult {
      */
     readonly name?: string;
     /**
-     * Properties of the hub virtual network connection.
+     * The provisioning state of the hub virtual network connection resource.
      */
-    readonly properties: outputs.network.v20200501.HubVirtualNetworkConnectionPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Reference to the remote virtual network.
+     */
+    readonly remoteVirtualNetwork?: outputs.network.v20200501.SubResourceResponse;
+    /**
+     * The Routing Configuration indicating the associated and propagated route tables on this connection.
+     */
+    readonly routingConfiguration?: outputs.network.v20200501.RoutingConfigurationResponse;
 }

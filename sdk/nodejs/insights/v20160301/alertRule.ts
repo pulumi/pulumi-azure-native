@@ -37,6 +37,22 @@ export class AlertRule extends pulumi.CustomResource {
     }
 
     /**
+     * the condition that results in the alert rule being activated.
+     */
+    public readonly condition!: pulumi.Output<outputs.insights.v20160301.RuleConditionResponse>;
+    /**
+     * the description of the alert rule that will be included in the alert email.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * the flag that indicates whether the alert rule is enabled.
+     */
+    public readonly isEnabled!: pulumi.Output<boolean>;
+    /**
+     * Last time the rule was updated in ISO8601 format.
+     */
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -44,10 +60,6 @@ export class AlertRule extends pulumi.CustomResource {
      * Azure resource name
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The alert rule properties of the resource.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20160301.AlertRuleResponse>;
     /**
      * Resource tags
      */
@@ -92,7 +104,7 @@ export class AlertRule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

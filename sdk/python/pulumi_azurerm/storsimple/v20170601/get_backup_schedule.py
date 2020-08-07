@@ -13,12 +13,24 @@ class GetBackupScheduleResult:
     """
     The backup schedule.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, backup_type=None, kind=None, last_successful_run=None, name=None, retention_count=None, schedule_recurrence=None, schedule_status=None, start_time=None, type=None):
+        if backup_type and not isinstance(backup_type, str):
+            raise TypeError("Expected argument 'backup_type' to be a str")
+        __self__.backup_type = backup_type
+        """
+        The type of backup which needs to be taken.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         The Kind of the object. Currently only Series8000 is supported
+        """
+        if last_successful_run and not isinstance(last_successful_run, str):
+            raise TypeError("Expected argument 'last_successful_run' to be a str")
+        __self__.last_successful_run = last_successful_run
+        """
+        The last successful backup run which was triggered for the schedule.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +38,29 @@ class GetBackupScheduleResult:
         """
         The name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if retention_count and not isinstance(retention_count, float):
+            raise TypeError("Expected argument 'retention_count' to be a float")
+        __self__.retention_count = retention_count
         """
-        The properties of the backup schedule.
+        The number of backups to be retained.
+        """
+        if schedule_recurrence and not isinstance(schedule_recurrence, dict):
+            raise TypeError("Expected argument 'schedule_recurrence' to be a dict")
+        __self__.schedule_recurrence = schedule_recurrence
+        """
+        The schedule recurrence.
+        """
+        if schedule_status and not isinstance(schedule_status, str):
+            raise TypeError("Expected argument 'schedule_status' to be a str")
+        __self__.schedule_status = schedule_status
+        """
+        The schedule status.
+        """
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        __self__.start_time = start_time
+        """
+        The start time of the schedule.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +76,14 @@ class AwaitableGetBackupScheduleResult(GetBackupScheduleResult):
         if False:
             yield self
         return GetBackupScheduleResult(
+            backup_type=self.backup_type,
             kind=self.kind,
+            last_successful_run=self.last_successful_run,
             name=self.name,
-            properties=self.properties,
+            retention_count=self.retention_count,
+            schedule_recurrence=self.schedule_recurrence,
+            schedule_status=self.schedule_status,
+            start_time=self.start_time,
             type=self.type)
 
 
@@ -75,7 +110,12 @@ def get_backup_schedule(backup_policy_name=None, device_name=None, manager_name=
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:getBackupSchedule', __args__, opts=opts).value
 
     return AwaitableGetBackupScheduleResult(
+        backup_type=__ret__.get('backupType'),
         kind=__ret__.get('kind'),
+        last_successful_run=__ret__.get('lastSuccessfulRun'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        retention_count=__ret__.get('retentionCount'),
+        schedule_recurrence=__ret__.get('scheduleRecurrence'),
+        schedule_status=__ret__.get('scheduleStatus'),
+        start_time=__ret__.get('startTime'),
         type=__ret__.get('type'))

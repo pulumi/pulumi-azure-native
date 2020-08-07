@@ -36,6 +36,14 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * The creation time for this workspace resource.
+     */
+    readonly creationTime: string;
+    /**
+     * The key vault identifier used for encrypted workspaces.
+     */
+    readonly keyVaultIdentifierId?: string;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: string;
@@ -44,9 +52,13 @@ export interface GetWorkspaceResult {
      */
     readonly name: string;
     /**
-     * The properties of the machine learning workspace.
+     * The email id of the owner for this workspace.
      */
-    readonly properties: outputs.machinelearning.v20160401.WorkspacePropertiesResponse;
+    readonly ownerEmail: string;
+    /**
+     * The regional endpoint for the machine learning studio service which hosts this workspace.
+     */
+    readonly studioEndpoint: string;
     /**
      * The tags of the resource.
      */
@@ -55,4 +67,20 @@ export interface GetWorkspaceResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The fully qualified arm id of the storage account associated with this workspace.
+     */
+    readonly userStorageAccountId: string;
+    /**
+     * The immutable id associated with this workspace.
+     */
+    readonly workspaceId: string;
+    /**
+     * The current state of workspace resource.
+     */
+    readonly workspaceState: string;
+    /**
+     * The type of this workspace.
+     */
+    readonly workspaceType: string;
 }

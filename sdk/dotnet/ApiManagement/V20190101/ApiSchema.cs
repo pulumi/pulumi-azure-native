@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public partial class ApiSchema : Pulumi.CustomResource
     {
         /// <summary>
+        /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`. 
+        /// </summary>
+        [Output("contentType")]
+        public Output<string> ContentType { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of the Schema Document.
+        /// </summary>
+        [Output("document")]
+        public Output<ImmutableDictionary<string, object>?> Document { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Properties of the Schema.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SchemaContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

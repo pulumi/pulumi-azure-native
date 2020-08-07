@@ -13,12 +13,42 @@ class GetNamespaceAuthorizationRuleResult:
     """
     Description of a Namespace AuthorizationRules.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, claim_type=None, claim_value=None, created_time=None, key_name=None, location=None, modified_time=None, name=None, primary_key=None, revision=None, rights=None, secondary_key=None, sku=None, tags=None, type=None):
+        if claim_type and not isinstance(claim_type, str):
+            raise TypeError("Expected argument 'claim_type' to be a str")
+        __self__.claim_type = claim_type
+        """
+        A string that describes the claim type
+        """
+        if claim_value and not isinstance(claim_value, str):
+            raise TypeError("Expected argument 'claim_value' to be a str")
+        __self__.claim_value = claim_value
+        """
+        A string that describes the claim value
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        The created time for this rule
+        """
+        if key_name and not isinstance(key_name, str):
+            raise TypeError("Expected argument 'key_name' to be a str")
+        __self__.key_name = key_name
+        """
+        A string that describes the authorization rule.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if modified_time and not isinstance(modified_time, str):
+            raise TypeError("Expected argument 'modified_time' to be a str")
+        __self__.modified_time = modified_time
+        """
+        The last modified time for this rule
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +56,29 @@ class GetNamespaceAuthorizationRuleResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if primary_key and not isinstance(primary_key, str):
+            raise TypeError("Expected argument 'primary_key' to be a str")
+        __self__.primary_key = primary_key
         """
-        Properties of the Namespace AuthorizationRule.
+        A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        """
+        if revision and not isinstance(revision, float):
+            raise TypeError("Expected argument 'revision' to be a float")
+        __self__.revision = revision
+        """
+        The revision number for the rule
+        """
+        if rights and not isinstance(rights, list):
+            raise TypeError("Expected argument 'rights' to be a list")
+        __self__.rights = rights
+        """
+        The rights associated with the rule.
+        """
+        if secondary_key and not isinstance(secondary_key, str):
+            raise TypeError("Expected argument 'secondary_key' to be a str")
+        __self__.secondary_key = secondary_key
+        """
+        A base64-encoded 256-bit primary key for signing and validating the SAS token.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -58,9 +106,17 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
         if False:
             yield self
         return GetNamespaceAuthorizationRuleResult(
+            claim_type=self.claim_type,
+            claim_value=self.claim_value,
+            created_time=self.created_time,
+            key_name=self.key_name,
             location=self.location,
+            modified_time=self.modified_time,
             name=self.name,
-            properties=self.properties,
+            primary_key=self.primary_key,
+            revision=self.revision,
+            rights=self.rights,
+            secondary_key=self.secondary_key,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -85,9 +141,17 @@ def get_namespace_authorization_rule(name=None, namespace_name=None, resource_gr
     __ret__ = pulumi.runtime.invoke('azurerm:notificationhubs/v20170401:getNamespaceAuthorizationRule', __args__, opts=opts).value
 
     return AwaitableGetNamespaceAuthorizationRuleResult(
+        claim_type=__ret__.get('claimType'),
+        claim_value=__ret__.get('claimValue'),
+        created_time=__ret__.get('createdTime'),
+        key_name=__ret__.get('keyName'),
         location=__ret__.get('location'),
+        modified_time=__ret__.get('modifiedTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        primary_key=__ret__.get('primaryKey'),
+        revision=__ret__.get('revision'),
+        rights=__ret__.get('rights'),
+        secondary_key=__ret__.get('secondaryKey'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

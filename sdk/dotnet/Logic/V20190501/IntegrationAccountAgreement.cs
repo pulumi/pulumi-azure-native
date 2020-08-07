@@ -15,22 +15,70 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public partial class IntegrationAccountAgreement : Pulumi.CustomResource
     {
         /// <summary>
+        /// The agreement type.
+        /// </summary>
+        [Output("agreementType")]
+        public Output<string> AgreementType { get; private set; } = null!;
+
+        /// <summary>
+        /// The changed time.
+        /// </summary>
+        [Output("changedTime")]
+        public Output<string> ChangedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The agreement content.
+        /// </summary>
+        [Output("content")]
+        public Output<Outputs.AgreementContentResponseResult> Content { get; private set; } = null!;
+
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The business identity of the guest partner.
+        /// </summary>
+        [Output("guestIdentity")]
+        public Output<Outputs.BusinessIdentityResponseResult> GuestIdentity { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration account partner that is set as guest partner for this agreement.
+        /// </summary>
+        [Output("guestPartner")]
+        public Output<string> GuestPartner { get; private set; } = null!;
+
+        /// <summary>
+        /// The business identity of the host partner.
+        /// </summary>
+        [Output("hostIdentity")]
+        public Output<Outputs.BusinessIdentityResponseResult> HostIdentity { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration account partner that is set as host partner for this agreement.
+        /// </summary>
+        [Output("hostPartner")]
+        public Output<string> HostPartner { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// Gets the resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The integration account agreement properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IntegrationAccountAgreementPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

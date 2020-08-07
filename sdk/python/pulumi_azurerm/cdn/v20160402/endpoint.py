@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class Endpoint(pulumi.CustomResource):
+    content_types_to_compress: pulumi.Output[list]
+    """
+    List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+    """
+    host_name: pulumi.Output[str]
+    """
+    The host name of the endpoint {endpointName}.{DNSZone}
+    """
+    is_compression_enabled: pulumi.Output[bool]
+    """
+    Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+    """
+    is_http_allowed: pulumi.Output[bool]
+    """
+    Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+    """
+    is_https_allowed: pulumi.Output[bool]
+    """
+    Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,7 +38,34 @@ class Endpoint(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    origin_host_header: pulumi.Output[str]
+    """
+    The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+    """
+    origin_path: pulumi.Output[str]
+    """
+    The path used for origin requests.
+    """
+    origins: pulumi.Output[list]
+    """
+    The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+      * `host_name` (`str`) - The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+      * `http_port` (`float`) - The value of the HTTP port. Must be between 1 and 65535
+      * `https_port` (`float`) - The value of the HTTPS port. Must be between 1 and 65535
+      * `name` (`str`) - Origin name
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning status of the endpoint.
+    """
+    query_string_caching_behavior: pulumi.Output[str]
+    """
+    Defines the query string caching behavior.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the endpoint.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -94,7 +141,9 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['host_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(Endpoint, __self__).__init__(
             'azurerm:cdn/v20160402:Endpoint',

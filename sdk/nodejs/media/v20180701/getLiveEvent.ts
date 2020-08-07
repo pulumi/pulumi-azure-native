@@ -41,6 +41,30 @@ export interface GetLiveEventArgs {
  */
 export interface GetLiveEventResult {
     /**
+     * The exact time the Live Event was created.
+     */
+    readonly created: string;
+    /**
+     * The Live Event access policies.
+     */
+    readonly crossSiteAccessPolicies?: outputs.media.v20180701.CrossSiteAccessPoliciesResponse;
+    /**
+     * The Live Event description.
+     */
+    readonly description?: string;
+    /**
+     * The Live Event encoding.
+     */
+    readonly encoding?: outputs.media.v20180701.LiveEventEncodingResponse;
+    /**
+     * The Live Event input.
+     */
+    readonly input: outputs.media.v20180701.LiveEventInputResponse;
+    /**
+     * The exact time the Live Event was last modified.
+     */
+    readonly lastModified: string;
+    /**
      * The Azure Region of the resource.
      */
     readonly location?: string;
@@ -49,9 +73,21 @@ export interface GetLiveEventResult {
      */
     readonly name: string;
     /**
-     * The Live Event properties.
+     * The Live Event preview.
      */
-    readonly properties: outputs.media.v20180701.LiveEventPropertiesResponse;
+    readonly preview?: outputs.media.v20180701.LiveEventPreviewResponse;
+    /**
+     * The provisioning state of the Live Event.
+     */
+    readonly provisioningState: string;
+    /**
+     * The resource state of the Live Event.
+     */
+    readonly resourceState: string;
+    /**
+     * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+     */
+    readonly streamOptions?: string[];
     /**
      * Resource tags.
      */
@@ -60,4 +96,8 @@ export interface GetLiveEventResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+     */
+    readonly vanityUrl?: boolean;
 }

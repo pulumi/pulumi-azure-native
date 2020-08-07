@@ -13,12 +13,90 @@ class GetBlobContainerResult:
     """
     Properties of the blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, default_encryption_scope=None, deleted=None, deleted_time=None, deny_encryption_scope_override=None, etag=None, has_immutability_policy=None, has_legal_hold=None, immutability_policy=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, legal_hold=None, metadata=None, name=None, public_access=None, remaining_retention_days=None, type=None, version=None):
+        if default_encryption_scope and not isinstance(default_encryption_scope, str):
+            raise TypeError("Expected argument 'default_encryption_scope' to be a str")
+        __self__.default_encryption_scope = default_encryption_scope
+        """
+        Default the container to use specified encryption scope for all writes.
+        """
+        if deleted and not isinstance(deleted, bool):
+            raise TypeError("Expected argument 'deleted' to be a bool")
+        __self__.deleted = deleted
+        """
+        Indicates whether the blob container was deleted.
+        """
+        if deleted_time and not isinstance(deleted_time, str):
+            raise TypeError("Expected argument 'deleted_time' to be a str")
+        __self__.deleted_time = deleted_time
+        """
+        Blob container deletion time.
+        """
+        if deny_encryption_scope_override and not isinstance(deny_encryption_scope_override, bool):
+            raise TypeError("Expected argument 'deny_encryption_scope_override' to be a bool")
+        __self__.deny_encryption_scope_override = deny_encryption_scope_override
+        """
+        Block override of encryption scope from the container default.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Resource Etag.
+        """
+        if has_immutability_policy and not isinstance(has_immutability_policy, bool):
+            raise TypeError("Expected argument 'has_immutability_policy' to be a bool")
+        __self__.has_immutability_policy = has_immutability_policy
+        """
+        The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+        """
+        if has_legal_hold and not isinstance(has_legal_hold, bool):
+            raise TypeError("Expected argument 'has_legal_hold' to be a bool")
+        __self__.has_legal_hold = has_legal_hold
+        """
+        The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+        """
+        if immutability_policy and not isinstance(immutability_policy, dict):
+            raise TypeError("Expected argument 'immutability_policy' to be a dict")
+        __self__.immutability_policy = immutability_policy
+        """
+        The ImmutabilityPolicy property of the container.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Returns the date and time the container was last modified.
+        """
+        if lease_duration and not isinstance(lease_duration, str):
+            raise TypeError("Expected argument 'lease_duration' to be a str")
+        __self__.lease_duration = lease_duration
+        """
+        Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+        """
+        if lease_state and not isinstance(lease_state, str):
+            raise TypeError("Expected argument 'lease_state' to be a str")
+        __self__.lease_state = lease_state
+        """
+        Lease state of the container.
+        """
+        if lease_status and not isinstance(lease_status, str):
+            raise TypeError("Expected argument 'lease_status' to be a str")
+        __self__.lease_status = lease_status
+        """
+        The lease status of the container.
+        """
+        if legal_hold and not isinstance(legal_hold, dict):
+            raise TypeError("Expected argument 'legal_hold' to be a dict")
+        __self__.legal_hold = legal_hold
+        """
+        The LegalHold property of the container.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        A name-value pair to associate with the container as metadata.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +104,29 @@ class GetBlobContainerResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if public_access and not isinstance(public_access, str):
+            raise TypeError("Expected argument 'public_access' to be a str")
+        __self__.public_access = public_access
         """
-        Properties of the blob container.
+        Specifies whether data in the container may be accessed publicly and the level of access.
+        """
+        if remaining_retention_days and not isinstance(remaining_retention_days, float):
+            raise TypeError("Expected argument 'remaining_retention_days' to be a float")
+        __self__.remaining_retention_days = remaining_retention_days
+        """
+        Remaining retention days for soft deleted blob container.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        The version of the deleted blob container.
         """
 
 
@@ -46,10 +136,25 @@ class AwaitableGetBlobContainerResult(GetBlobContainerResult):
         if False:
             yield self
         return GetBlobContainerResult(
+            default_encryption_scope=self.default_encryption_scope,
+            deleted=self.deleted,
+            deleted_time=self.deleted_time,
+            deny_encryption_scope_override=self.deny_encryption_scope_override,
             etag=self.etag,
+            has_immutability_policy=self.has_immutability_policy,
+            has_legal_hold=self.has_legal_hold,
+            immutability_policy=self.immutability_policy,
+            last_modified_time=self.last_modified_time,
+            lease_duration=self.lease_duration,
+            lease_state=self.lease_state,
+            lease_status=self.lease_status,
+            legal_hold=self.legal_hold,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            public_access=self.public_access,
+            remaining_retention_days=self.remaining_retention_days,
+            type=self.type,
+            version=self.version)
 
 
 def get_blob_container(account_name=None, name=None, resource_group_name=None, opts=None):
@@ -71,7 +176,22 @@ def get_blob_container(account_name=None, name=None, resource_group_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190601:getBlobContainer', __args__, opts=opts).value
 
     return AwaitableGetBlobContainerResult(
+        default_encryption_scope=__ret__.get('defaultEncryptionScope'),
+        deleted=__ret__.get('deleted'),
+        deleted_time=__ret__.get('deletedTime'),
+        deny_encryption_scope_override=__ret__.get('denyEncryptionScopeOverride'),
         etag=__ret__.get('etag'),
+        has_immutability_policy=__ret__.get('hasImmutabilityPolicy'),
+        has_legal_hold=__ret__.get('hasLegalHold'),
+        immutability_policy=__ret__.get('immutabilityPolicy'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
+        lease_duration=__ret__.get('leaseDuration'),
+        lease_state=__ret__.get('leaseState'),
+        lease_status=__ret__.get('leaseStatus'),
+        legal_hold=__ret__.get('legalHold'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        public_access=__ret__.get('publicAccess'),
+        remaining_retention_days=__ret__.get('remainingRetentionDays'),
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

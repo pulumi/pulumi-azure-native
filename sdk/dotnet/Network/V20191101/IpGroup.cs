@@ -21,6 +21,18 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// List of references to Azure resources that this IpGroups is associated with.
+        /// </summary>
+        [Output("firewalls")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Firewalls { get; private set; } = null!;
+
+        /// <summary>
+        /// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+        /// </summary>
+        [Output("ipAddresses")]
+        public Output<ImmutableArray<string>> IpAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -33,10 +45,10 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the IpGroups.
+        /// The provisioning state of the IpGroups resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IpGroupPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

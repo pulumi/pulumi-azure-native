@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public sealed class GetProximityPlacementGroupResult
     {
         /// <summary>
+        /// A list of references to all availability sets in the proximity placement group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> AvailabilitySets;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +52,9 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a Proximity Placement Group.
+        /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
         /// </summary>
-        public readonly Outputs.ProximityPlacementGroupPropertiesResponseResult Properties;
+        public readonly string? ProximityPlacementGroupType;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -59,24 +63,41 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A list of references to all virtual machine scale sets in the proximity placement group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualMachineScaleSets;
+        /// <summary>
+        /// A list of references to all virtual machines in the proximity placement group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualMachines;
 
         [OutputConstructor]
         private GetProximityPlacementGroupResult(
+            ImmutableArray<Outputs.SubResourceResponseResult> availabilitySets,
+
             string location,
 
             string name,
 
-            Outputs.ProximityPlacementGroupPropertiesResponseResult properties,
+            string? proximityPlacementGroupType,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> virtualMachineScaleSets,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> virtualMachines)
         {
+            AvailabilitySets = availabilitySets;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProximityPlacementGroupType = proximityPlacementGroupType;
             Tags = tags;
             Type = type;
+            VirtualMachineScaleSets = virtualMachineScaleSets;
+            VirtualMachines = virtualMachines;
         }
     }
 }

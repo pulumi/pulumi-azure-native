@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Compute.V20200601
     public partial class DedicatedHost : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+        /// </summary>
+        [Output("autoReplaceOnFailure")]
+        public Output<bool?> AutoReplaceOnFailure { get; private set; } = null!;
+
+        /// <summary>
+        /// A unique id generated and assigned to the dedicated host by the platform. &lt;br&gt;&lt;br&gt; Does not change throughout the lifetime of the host.
+        /// </summary>
+        [Output("hostId")]
+        public Output<string> HostId { get; private set; } = null!;
+
+        /// <summary>
+        /// The dedicated host instance view.
+        /// </summary>
+        [Output("instanceView")]
+        public Output<Outputs.DedicatedHostInstanceViewResponseResult> InstanceView { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
+        /// </summary>
+        [Output("licenseType")]
+        public Output<string?> LicenseType { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +51,22 @@ namespace Pulumi.AzureRM.Compute.V20200601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the dedicated host.
+        /// Fault domain of the dedicated host within a dedicated host group.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DedicatedHostPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("platformFaultDomain")]
+        public Output<int?> PlatformFaultDomain { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The date when the host was first provisioned.
+        /// </summary>
+        [Output("provisioningTime")]
+        public Output<string> ProvisioningTime { get; private set; } = null!;
 
         /// <summary>
         /// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
@@ -49,6 +85,12 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of references to all virtual machines in the Dedicated Host.
+        /// </summary>
+        [Output("virtualMachines")]
+        public Output<ImmutableArray<Outputs.SubResourceReadOnlyResponseResult>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>

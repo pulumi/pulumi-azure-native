@@ -36,6 +36,14 @@ export interface GetExpressRouteCircuitArgs {
  */
 export interface GetExpressRouteCircuitResult {
     /**
+     * The list of authorizations.
+     */
+    readonly authorizations?: outputs.network.v20150615.ExpressRouteCircuitAuthorizationResponse[];
+    /**
+     * The CircuitProvisioningState state of the resource.
+     */
+    readonly circuitProvisioningState?: string;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
@@ -48,9 +56,29 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly name: string;
     /**
-     * Properties of ExpressRouteCircuit.
+     * The list of peerings.
      */
-    readonly properties: outputs.network.v20150615.ExpressRouteCircuitPropertiesFormatResponse;
+    readonly peerings?: outputs.network.v20150615.ExpressRouteCircuitPeeringResponse[];
+    /**
+     * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState?: string;
+    /**
+     * The ServiceKey.
+     */
+    readonly serviceKey?: string;
+    /**
+     * The ServiceProviderNotes.
+     */
+    readonly serviceProviderNotes?: string;
+    /**
+     * The ServiceProviderProperties.
+     */
+    readonly serviceProviderProperties?: outputs.network.v20150615.ExpressRouteCircuitServiceProviderPropertiesResponse;
+    /**
+     * The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+     */
+    readonly serviceProviderProvisioningState?: string;
     /**
      * The SKU.
      */

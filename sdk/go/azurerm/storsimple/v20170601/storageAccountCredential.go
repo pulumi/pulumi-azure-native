@@ -14,14 +14,20 @@ import (
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 
+	// The details of the storage account password.
+	AccessKey AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"accessKey"`
+	// The storage endpoint
+	EndPoint pulumi.StringOutput `pulumi:"endPoint"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The name of the object.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesResponseOutput `pulumi:"properties"`
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus pulumi.StringOutput `pulumi:"sslStatus"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The count of volumes using this storage account credential.
+	VolumesCount pulumi.IntOutput `pulumi:"volumesCount"`
 }
 
 // NewStorageAccountCredential registers a new resource with the given unique name, arguments, and options.
@@ -67,25 +73,37 @@ func GetStorageAccountCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccountCredential resources.
 type storageAccountCredentialState struct {
+	// The details of the storage account password.
+	AccessKey *AsymmetricEncryptedSecretResponse `pulumi:"accessKey"`
+	// The storage endpoint
+	EndPoint *string `pulumi:"endPoint"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The name of the object.
 	Name *string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties *StorageAccountCredentialPropertiesResponse `pulumi:"properties"`
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus *string `pulumi:"sslStatus"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
+	// The count of volumes using this storage account credential.
+	VolumesCount *int `pulumi:"volumesCount"`
 }
 
 type StorageAccountCredentialState struct {
+	// The details of the storage account password.
+	AccessKey AsymmetricEncryptedSecretResponsePtrInput
+	// The storage endpoint
+	EndPoint pulumi.StringPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput
 	// The name of the object.
 	Name pulumi.StringPtrInput
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesResponsePtrInput
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus pulumi.StringPtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
+	// The count of volumes using this storage account credential.
+	VolumesCount pulumi.IntPtrInput
 }
 
 func (StorageAccountCredentialState) ElementType() reflect.Type {

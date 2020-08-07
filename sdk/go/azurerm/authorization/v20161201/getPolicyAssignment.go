@@ -25,10 +25,18 @@ type LookupPolicyAssignmentArgs struct {
 
 // The policy assignment.
 type LookupPolicyAssignmentResult struct {
+	// This message will be part of response in case of policy violation.
+	Description *string `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponse `pulumi:"properties"`
+	// Required if a parameter is used in policy rule.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The ID of the policy definition.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope *string `pulumi:"scope"`
 	// The type of the policy assignment.
 	Type *string `pulumi:"type"`
 }

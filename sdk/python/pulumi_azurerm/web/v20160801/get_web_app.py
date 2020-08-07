@@ -13,12 +13,105 @@ class GetWebAppResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, identity=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, cloning_info=None, container_size=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, identity=None, is_default_container=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, snapshot_info=None, state=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
+        if availability_state and not isinstance(availability_state, str):
+            raise TypeError("Expected argument 'availability_state' to be a str")
+        __self__.availability_state = availability_state
+        """
+        Management information availability state for the app.
+        """
+        if client_affinity_enabled and not isinstance(client_affinity_enabled, bool):
+            raise TypeError("Expected argument 'client_affinity_enabled' to be a bool")
+        __self__.client_affinity_enabled = client_affinity_enabled
+        """
+        <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
+        """
+        if client_cert_enabled and not isinstance(client_cert_enabled, bool):
+            raise TypeError("Expected argument 'client_cert_enabled' to be a bool")
+        __self__.client_cert_enabled = client_cert_enabled
+        """
+        <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
+        """
+        if cloning_info and not isinstance(cloning_info, dict):
+            raise TypeError("Expected argument 'cloning_info' to be a dict")
+        __self__.cloning_info = cloning_info
+        """
+        If specified during app creation, the app is cloned from a source app.
+        """
+        if container_size and not isinstance(container_size, float):
+            raise TypeError("Expected argument 'container_size' to be a float")
+        __self__.container_size = container_size
+        """
+        Size of the function container.
+        """
+        if daily_memory_time_quota and not isinstance(daily_memory_time_quota, float):
+            raise TypeError("Expected argument 'daily_memory_time_quota' to be a float")
+        __self__.daily_memory_time_quota = daily_memory_time_quota
+        """
+        Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+        """
+        if default_host_name and not isinstance(default_host_name, str):
+            raise TypeError("Expected argument 'default_host_name' to be a str")
+        __self__.default_host_name = default_host_name
+        """
+        Default hostname of the app. Read-only.
+        """
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+        """
+        if enabled_host_names and not isinstance(enabled_host_names, list):
+            raise TypeError("Expected argument 'enabled_host_names' to be a list")
+        __self__.enabled_host_names = enabled_host_names
+        """
+        Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
+        the app is not served on those hostnames.
+        """
+        if host_name_ssl_states and not isinstance(host_name_ssl_states, list):
+            raise TypeError("Expected argument 'host_name_ssl_states' to be a list")
+        __self__.host_name_ssl_states = host_name_ssl_states
+        """
+        Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+        """
+        if host_names and not isinstance(host_names, list):
+            raise TypeError("Expected argument 'host_names' to be a list")
+        __self__.host_names = host_names
+        """
+        Hostnames associated with the app.
+        """
+        if host_names_disabled and not isinstance(host_names_disabled, bool):
+            raise TypeError("Expected argument 'host_names_disabled' to be a bool")
+        __self__.host_names_disabled = host_names_disabled
+        """
+        <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+         If <code>true</code>, the app is only accessible via API management process.
+        """
+        if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
+            raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
+        __self__.hosting_environment_profile = hosting_environment_profile
+        """
+        App Service Environment to use for the app.
+        """
+        if https_only and not isinstance(https_only, bool):
+            raise TypeError("Expected argument 'https_only' to be a bool")
+        __self__.https_only = https_only
+        """
+        HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+        http requests
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         Managed service identity.
+        """
+        if is_default_container and not isinstance(is_default_container, bool):
+            raise TypeError("Expected argument 'is_default_container' to be a bool")
+        __self__.is_default_container = is_default_container
+        """
+        <code>true</code> if the app is a default container; otherwise, <code>false</code>.
         """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -26,11 +119,24 @@ class GetWebAppResult:
         """
         Kind of resource.
         """
+        if last_modified_time_utc and not isinstance(last_modified_time_utc, str):
+            raise TypeError("Expected argument 'last_modified_time_utc' to be a str")
+        __self__.last_modified_time_utc = last_modified_time_utc
+        """
+        Last time the app was modified, in UTC. Read-only.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource Location.
+        """
+        if max_number_of_workers and not isinstance(max_number_of_workers, float):
+            raise TypeError("Expected argument 'max_number_of_workers' to be a float")
+        __self__.max_number_of_workers = max_number_of_workers
+        """
+        Maximum number of workers.
+        This only applies to Functions container.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -38,11 +144,77 @@ class GetWebAppResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if outbound_ip_addresses and not isinstance(outbound_ip_addresses, str):
+            raise TypeError("Expected argument 'outbound_ip_addresses' to be a str")
+        __self__.outbound_ip_addresses = outbound_ip_addresses
         """
-        Site resource specific properties
+        List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.
+        """
+        if possible_outbound_ip_addresses and not isinstance(possible_outbound_ip_addresses, str):
+            raise TypeError("Expected argument 'possible_outbound_ip_addresses' to be a str")
+        __self__.possible_outbound_ip_addresses = possible_outbound_ip_addresses
+        """
+        List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants. Read-only.
+        """
+        if repository_site_name and not isinstance(repository_site_name, str):
+            raise TypeError("Expected argument 'repository_site_name' to be a str")
+        __self__.repository_site_name = repository_site_name
+        """
+        Name of the repository site.
+        """
+        if reserved and not isinstance(reserved, bool):
+            raise TypeError("Expected argument 'reserved' to be a bool")
+        __self__.reserved = reserved
+        """
+        <code>true</code> if reserved; otherwise, <code>false</code>.
+        """
+        if resource_group and not isinstance(resource_group, str):
+            raise TypeError("Expected argument 'resource_group' to be a str")
+        __self__.resource_group = resource_group
+        """
+        Name of the resource group the app belongs to. Read-only.
+        """
+        if scm_site_also_stopped and not isinstance(scm_site_also_stopped, bool):
+            raise TypeError("Expected argument 'scm_site_also_stopped' to be a bool")
+        __self__.scm_site_also_stopped = scm_site_also_stopped
+        """
+        <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
+        """
+        if server_farm_id and not isinstance(server_farm_id, str):
+            raise TypeError("Expected argument 'server_farm_id' to be a str")
+        __self__.server_farm_id = server_farm_id
+        """
+        Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        """
+        if site_config and not isinstance(site_config, dict):
+            raise TypeError("Expected argument 'site_config' to be a dict")
+        __self__.site_config = site_config
+        """
+        Configuration of the app.
+        """
+        if slot_swap_status and not isinstance(slot_swap_status, dict):
+            raise TypeError("Expected argument 'slot_swap_status' to be a dict")
+        __self__.slot_swap_status = slot_swap_status
+        """
+        Status of the last deployment slot swap operation.
+        """
+        if snapshot_info and not isinstance(snapshot_info, dict):
+            raise TypeError("Expected argument 'snapshot_info' to be a dict")
+        __self__.snapshot_info = snapshot_info
+        """
+        If specified during app creation, the app is created from a previous snapshot.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        Current state of the app.
+        """
+        if suspended_till and not isinstance(suspended_till, str):
+            raise TypeError("Expected argument 'suspended_till' to be a str")
+        __self__.suspended_till = suspended_till
+        """
+        App suspended till in case memory-time quota is exceeded.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,11 +222,29 @@ class GetWebAppResult:
         """
         Resource tags.
         """
+        if target_swap_slot and not isinstance(target_swap_slot, str):
+            raise TypeError("Expected argument 'target_swap_slot' to be a str")
+        __self__.target_swap_slot = target_swap_slot
+        """
+        Specifies which deployment slot this app will swap into. Read-only.
+        """
+        if traffic_manager_host_names and not isinstance(traffic_manager_host_names, list):
+            raise TypeError("Expected argument 'traffic_manager_host_names' to be a list")
+        __self__.traffic_manager_host_names = traffic_manager_host_names
+        """
+        Azure Traffic Manager hostnames associated with the app. Read-only.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if usage_state and not isinstance(usage_state, str):
+            raise TypeError("Expected argument 'usage_state' to be a str")
+        __self__.usage_state = usage_state
+        """
+        State indicating whether the app has exceeded its quota usage. Read-only.
         """
 
 
@@ -64,13 +254,44 @@ class AwaitableGetWebAppResult(GetWebAppResult):
         if False:
             yield self
         return GetWebAppResult(
+            availability_state=self.availability_state,
+            client_affinity_enabled=self.client_affinity_enabled,
+            client_cert_enabled=self.client_cert_enabled,
+            cloning_info=self.cloning_info,
+            container_size=self.container_size,
+            daily_memory_time_quota=self.daily_memory_time_quota,
+            default_host_name=self.default_host_name,
+            enabled=self.enabled,
+            enabled_host_names=self.enabled_host_names,
+            host_name_ssl_states=self.host_name_ssl_states,
+            host_names=self.host_names,
+            host_names_disabled=self.host_names_disabled,
+            hosting_environment_profile=self.hosting_environment_profile,
+            https_only=self.https_only,
             identity=self.identity,
+            is_default_container=self.is_default_container,
             kind=self.kind,
+            last_modified_time_utc=self.last_modified_time_utc,
             location=self.location,
+            max_number_of_workers=self.max_number_of_workers,
             name=self.name,
-            properties=self.properties,
+            outbound_ip_addresses=self.outbound_ip_addresses,
+            possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
+            repository_site_name=self.repository_site_name,
+            reserved=self.reserved,
+            resource_group=self.resource_group,
+            scm_site_also_stopped=self.scm_site_also_stopped,
+            server_farm_id=self.server_farm_id,
+            site_config=self.site_config,
+            slot_swap_status=self.slot_swap_status,
+            snapshot_info=self.snapshot_info,
+            state=self.state,
+            suspended_till=self.suspended_till,
             tags=self.tags,
-            type=self.type)
+            target_swap_slot=self.target_swap_slot,
+            traffic_manager_host_names=self.traffic_manager_host_names,
+            type=self.type,
+            usage_state=self.usage_state)
 
 
 def get_web_app(name=None, resource_group_name=None, opts=None):
@@ -90,10 +311,41 @@ def get_web_app(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20160801:getWebApp', __args__, opts=opts).value
 
     return AwaitableGetWebAppResult(
+        availability_state=__ret__.get('availabilityState'),
+        client_affinity_enabled=__ret__.get('clientAffinityEnabled'),
+        client_cert_enabled=__ret__.get('clientCertEnabled'),
+        cloning_info=__ret__.get('cloningInfo'),
+        container_size=__ret__.get('containerSize'),
+        daily_memory_time_quota=__ret__.get('dailyMemoryTimeQuota'),
+        default_host_name=__ret__.get('defaultHostName'),
+        enabled=__ret__.get('enabled'),
+        enabled_host_names=__ret__.get('enabledHostNames'),
+        host_name_ssl_states=__ret__.get('hostNameSslStates'),
+        host_names=__ret__.get('hostNames'),
+        host_names_disabled=__ret__.get('hostNamesDisabled'),
+        hosting_environment_profile=__ret__.get('hostingEnvironmentProfile'),
+        https_only=__ret__.get('httpsOnly'),
         identity=__ret__.get('identity'),
+        is_default_container=__ret__.get('isDefaultContainer'),
         kind=__ret__.get('kind'),
+        last_modified_time_utc=__ret__.get('lastModifiedTimeUtc'),
         location=__ret__.get('location'),
+        max_number_of_workers=__ret__.get('maxNumberOfWorkers'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        outbound_ip_addresses=__ret__.get('outboundIpAddresses'),
+        possible_outbound_ip_addresses=__ret__.get('possibleOutboundIpAddresses'),
+        repository_site_name=__ret__.get('repositorySiteName'),
+        reserved=__ret__.get('reserved'),
+        resource_group=__ret__.get('resourceGroup'),
+        scm_site_also_stopped=__ret__.get('scmSiteAlsoStopped'),
+        server_farm_id=__ret__.get('serverFarmId'),
+        site_config=__ret__.get('siteConfig'),
+        slot_swap_status=__ret__.get('slotSwapStatus'),
+        snapshot_info=__ret__.get('snapshotInfo'),
+        state=__ret__.get('state'),
+        suspended_till=__ret__.get('suspendedTill'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        target_swap_slot=__ret__.get('targetSwapSlot'),
+        traffic_manager_host_names=__ret__.get('trafficManagerHostNames'),
+        type=__ret__.get('type'),
+        usage_state=__ret__.get('usageState'))

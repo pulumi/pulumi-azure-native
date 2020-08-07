@@ -13,18 +13,36 @@ class GetBandwidthScheduleResult:
     """
     The bandwidth schedule details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, days=None, name=None, rate_in_mbps=None, start=None, stop=None, type=None):
+        if days and not isinstance(days, list):
+            raise TypeError("Expected argument 'days' to be a list")
+        __self__.days = days
+        """
+        The days of the week when this schedule is applicable.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The object name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if rate_in_mbps and not isinstance(rate_in_mbps, float):
+            raise TypeError("Expected argument 'rate_in_mbps' to be a float")
+        __self__.rate_in_mbps = rate_in_mbps
         """
-        The properties of the bandwidth schedule.
+        The bandwidth rate in Mbps.
+        """
+        if start and not isinstance(start, str):
+            raise TypeError("Expected argument 'start' to be a str")
+        __self__.start = start
+        """
+        The start time of the schedule in UTC.
+        """
+        if stop and not isinstance(stop, str):
+            raise TypeError("Expected argument 'stop' to be a str")
+        __self__.stop = stop
+        """
+        The stop time of the schedule in UTC.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetBandwidthScheduleResult(GetBandwidthScheduleResult):
         if False:
             yield self
         return GetBandwidthScheduleResult(
+            days=self.days,
             name=self.name,
-            properties=self.properties,
+            rate_in_mbps=self.rate_in_mbps,
+            start=self.start,
+            stop=self.stop,
             type=self.type)
 
 
@@ -64,6 +85,9 @@ def get_bandwidth_schedule(device_name=None, name=None, resource_group_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190701:getBandwidthSchedule', __args__, opts=opts).value
 
     return AwaitableGetBandwidthScheduleResult(
+        days=__ret__.get('days'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        rate_in_mbps=__ret__.get('rateInMbps'),
+        start=__ret__.get('start'),
+        stop=__ret__.get('stop'),
         type=__ret__.get('type'))

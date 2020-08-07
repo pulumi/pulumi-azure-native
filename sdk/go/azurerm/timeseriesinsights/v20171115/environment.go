@@ -14,14 +14,28 @@ import (
 type Environment struct {
 	pulumi.CustomResourceState
 
+	// The time the resource was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessFqdn pulumi.StringOutput `pulumi:"dataAccessFqdn"`
+	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessId pulumi.StringOutput `pulumi:"dataAccessId"`
+	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+	DataRetentionTime pulumi.StringOutput `pulumi:"dataRetentionTime"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the environment.
-	Properties EnvironmentResourcePropertiesResponseOutput `pulumi:"properties"`
+	// The list of partition keys according to which the data in the environment will be ordered.
+	PartitionKeyProperties PartitionKeyPropertyResponseArrayOutput `pulumi:"partitionKeyProperties"`
+	// Provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+	Status EnvironmentStatusResponsePtrOutput `pulumi:"status"`
+	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+	StorageLimitExceededBehavior pulumi.StringPtrOutput `pulumi:"storageLimitExceededBehavior"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -71,14 +85,28 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
+	// The time the resource was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessFqdn *string `pulumi:"dataAccessFqdn"`
+	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessId *string `pulumi:"dataAccessId"`
+	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+	DataRetentionTime *string `pulumi:"dataRetentionTime"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of the environment.
-	Properties *EnvironmentResourcePropertiesResponse `pulumi:"properties"`
+	// The list of partition keys according to which the data in the environment will be ordered.
+	PartitionKeyProperties []PartitionKeyPropertyResponse `pulumi:"partitionKeyProperties"`
+	// Provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 	Sku *SkuResponse `pulumi:"sku"`
+	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+	Status *EnvironmentStatusResponse `pulumi:"status"`
+	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+	StorageLimitExceededBehavior *string `pulumi:"storageLimitExceededBehavior"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -86,14 +114,28 @@ type environmentState struct {
 }
 
 type EnvironmentState struct {
+	// The time the resource was created.
+	CreationTime pulumi.StringPtrInput
+	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessFqdn pulumi.StringPtrInput
+	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessId pulumi.StringPtrInput
+	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+	DataRetentionTime pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of the environment.
-	Properties EnvironmentResourcePropertiesResponsePtrInput
+	// The list of partition keys according to which the data in the environment will be ordered.
+	PartitionKeyProperties PartitionKeyPropertyResponseArrayInput
+	// Provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 	Sku SkuResponsePtrInput
+	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+	Status EnvironmentStatusResponsePtrInput
+	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+	StorageLimitExceededBehavior pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

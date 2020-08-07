@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /**
+     * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     */
+    public readonly endIpAddress!: pulumi.Output<string>;
+    /**
      * Kind of server that contains this firewall rule.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
@@ -49,9 +51,9 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties representing the resource.
+     * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.FirewallRulePropertiesResponse>;
+    public readonly startIpAddress!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -92,7 +94,6 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

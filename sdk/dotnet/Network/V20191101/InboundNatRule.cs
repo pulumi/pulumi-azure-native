@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Network.V20191101
     public partial class InboundNatRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+        /// </summary>
+        [Output("backendIPConfiguration")]
+        public Output<Outputs.NetworkInterfaceIPConfigurationResponseResult> BackendIPConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+        /// </summary>
+        [Output("backendPort")]
+        public Output<int?> BackendPort { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+        /// </summary>
+        [Output("enableFloatingIP")]
+        public Output<bool?> EnableFloatingIP { get; private set; } = null!;
+
+        /// <summary>
+        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        /// </summary>
+        [Output("enableTcpReset")]
+        public Output<bool?> EnableTcpReset { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// A reference to frontend IP addresses.
+        /// </summary>
+        [Output("frontendIPConfiguration")]
+        public Output<Outputs.SubResourceResponseResult?> FrontendIPConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+        /// </summary>
+        [Output("frontendPort")]
+        public Output<int?> FrontendPort { get; private set; } = null!;
+
+        /// <summary>
+        /// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        /// </summary>
+        [Output("idleTimeoutInMinutes")]
+        public Output<int?> IdleTimeoutInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
@@ -27,10 +69,16 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of load balancer inbound nat rule.
+        /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.InboundNatRulePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("protocol")]
+        public Output<string?> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the inbound NAT rule resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

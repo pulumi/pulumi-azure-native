@@ -10,9 +10,29 @@ from ... import _utilities, _tables
 
 
 class Watcher(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Gets or sets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
     etag: pulumi.Output[str]
     """
     Gets or sets the etag of the resource.
+    """
+    execution_frequency_in_seconds: pulumi.Output[float]
+    """
+    Gets or sets the frequency at which the watcher is invoked.
+    """
+    last_modified_by: pulumi.Output[str]
+    """
+    Details of the user who last modified the watcher.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets or sets the last modified time.
     """
     location: pulumi.Output[str]
     """
@@ -22,18 +42,21 @@ class Watcher(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    script_name: pulumi.Output[str]
     """
-    Gets or sets the watcher properties.
-      * `creation_time` (`str`) - Gets or sets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `execution_frequency_in_seconds` (`float`) - Gets or sets the frequency at which the watcher is invoked.
-      * `last_modified_by` (`str`) - Details of the user who last modified the watcher.
-      * `last_modified_time` (`str`) - Gets or sets the last modified time.
-      * `script_name` (`str`) - Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
-      * `script_parameters` (`dict`) - Gets or sets the parameters of the script.
-      * `script_run_on` (`str`) - Gets or sets the name of the hybrid worker group the watcher will run on.
-      * `status` (`str`) - Gets the current status of the watcher.
+    Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+    """
+    script_parameters: pulumi.Output[dict]
+    """
+    Gets or sets the parameters of the script.
+    """
+    script_run_on: pulumi.Output[str]
+    """
+    Gets or sets the name of the hybrid worker group the watcher will run on.
+    """
+    status: pulumi.Output[str]
+    """
+    Gets the current status of the watcher.
     """
     tags: pulumi.Output[dict]
     """
@@ -95,7 +118,10 @@ class Watcher(pulumi.CustomResource):
             __props__['script_parameters'] = script_parameters
             __props__['script_run_on'] = script_run_on
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['last_modified_by'] = None
+            __props__['last_modified_time'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(Watcher, __self__).__init__(
             'azurerm:automation/v20151031:Watcher',

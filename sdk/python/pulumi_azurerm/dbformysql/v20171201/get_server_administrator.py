@@ -13,18 +13,36 @@ class GetServerAdministratorResult:
     """
     Represents a and external administrator to be created.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, administrator_type=None, login=None, name=None, sid=None, tenant_id=None, type=None):
+        if administrator_type and not isinstance(administrator_type, str):
+            raise TypeError("Expected argument 'administrator_type' to be a str")
+        __self__.administrator_type = administrator_type
+        """
+        The type of administrator.
+        """
+        if login and not isinstance(login, str):
+            raise TypeError("Expected argument 'login' to be a str")
+        __self__.login = login
+        """
+        The server administrator login account name.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if sid and not isinstance(sid, str):
+            raise TypeError("Expected argument 'sid' to be a str")
+        __self__.sid = sid
         """
-        Properties of the server AAD administrator.
+        The server administrator Sid (Secure ID).
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The server Active Directory Administrator tenant id.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetServerAdministratorResult(GetServerAdministratorResult):
         if False:
             yield self
         return GetServerAdministratorResult(
+            administrator_type=self.administrator_type,
+            login=self.login,
             name=self.name,
-            properties=self.properties,
+            sid=self.sid,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -62,6 +83,9 @@ def get_server_administrator(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:dbformysql/v20171201:getServerAdministrator', __args__, opts=opts).value
 
     return AwaitableGetServerAdministratorResult(
+        administrator_type=__ret__.get('administratorType'),
+        login=__ret__.get('login'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        sid=__ret__.get('sid'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

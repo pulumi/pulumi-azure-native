@@ -10,6 +10,19 @@ from ... import _utilities, _tables
 
 
 class NotificationChannel(pulumi.CustomResource):
+    created_date: pulumi.Output[str]
+    """
+    The creation date of the notification channel.
+    """
+    description: pulumi.Output[str]
+    """
+    Description of notification.
+    """
+    events: pulumi.Output[list]
+    """
+    The list of event for which this notification is enabled.
+      * `event_name` (`str`) - The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,17 +31,9 @@ class NotificationChannel(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `created_date` (`str`) - The creation date of the notification channel.
-      * `description` (`str`) - Description of notification.
-      * `events` (`list`) - The list of event for which this notification is enabled.
-        * `event_name` (`str`) - The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
-
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-      * `web_hook_url` (`str`) - The webhook URL to send notifications to.
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -37,6 +42,14 @@ class NotificationChannel(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
+    """
+    web_hook_url: pulumi.Output[str]
+    """
+    The webhook URL to send notifications to.
     """
     def __init__(__self__, resource_name, opts=None, description=None, events=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, web_hook_url=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -92,7 +105,7 @@ class NotificationChannel(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
             __props__['web_hook_url'] = web_hook_url
-            __props__['properties'] = None
+            __props__['created_date'] = None
             __props__['type'] = None
         super(NotificationChannel, __self__).__init__(
             'azurerm:devtestlab/v20160515:NotificationChannel',

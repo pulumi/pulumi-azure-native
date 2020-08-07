@@ -10,33 +10,44 @@ from ... import _utilities, _tables
 
 
 class OriginGroup(pulumi.CustomResource):
+    health_probe_settings: pulumi.Output[dict]
+    """
+    Health probe settings to the origin that is used to determine the health of the origin.
+      * `probe_interval_in_seconds` (`float`) - The number of seconds between health probes.Default is 240sec.
+      * `probe_path` (`str`) - The path relative to the origin that is used to determine the health of the origin.
+      * `probe_protocol` (`str`) - Protocol to use for health probe.
+      * `probe_request_type` (`str`) - The type of health probe request that is made.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    origins: pulumi.Output[list]
     """
-    The JSON object that contains the properties of the origin group.
-      * `health_probe_settings` (`dict`) - Health probe settings to the origin that is used to determine the health of the origin.
-        * `probe_interval_in_seconds` (`float`) - The number of seconds between health probes.Default is 240sec.
-        * `probe_path` (`str`) - The path relative to the origin that is used to determine the health of the origin.
-        * `probe_protocol` (`str`) - Protocol to use for health probe.
-        * `probe_request_type` (`str`) - The type of health probe request that is made.
+    The source of the content being delivered via CDN within given origin group.
+      * `id` (`str`) - Resource ID.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning status of the origin group.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the origin group.
+    """
+    response_based_origin_error_detection_settings: pulumi.Output[dict]
+    """
+    The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+      * `http_error_ranges` (`list`) - The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+        * `begin` (`float`) - The inclusive start of the http status code range.
+        * `end` (`float`) - The inclusive end of the http status code range.
 
-      * `origins` (`list`) - The source of the content being delivered via CDN within given origin group.
-        * `id` (`str`) - Resource ID.
-
-      * `provisioning_state` (`str`) - Provisioning status of the origin group.
-      * `resource_state` (`str`) - Resource status of the origin group.
-      * `response_based_origin_error_detection_settings` (`dict`) - The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        * `http_error_ranges` (`list`) - The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
-          * `begin` (`float`) - The inclusive start of the http status code range.
-          * `end` (`float`) - The inclusive end of the http status code range.
-
-        * `response_based_detected_error_types` (`str`) - Type of response errors for real user requests for which origin will be deemed unhealthy
-        * `response_based_failover_threshold_percentage` (`float`) - The percentage of failed requests in the sample where failover should trigger.
-
-      * `traffic_restoration_time_to_healed_or_new_endpoints_in_minutes` (`float`) - Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+      * `response_based_detected_error_types` (`str`) - Type of response errors for real user requests for which origin will be deemed unhealthy
+      * `response_based_failover_threshold_percentage` (`float`) - The percentage of failed requests in the sample where failover should trigger.
+    """
+    traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: pulumi.Output[float]
+    """
+    Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
     """
     type: pulumi.Output[str]
     """
@@ -112,7 +123,8 @@ class OriginGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['response_based_origin_error_detection_settings'] = response_based_origin_error_detection_settings
             __props__['traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'] = traffic_restoration_time_to_healed_or_new_endpoints_in_minutes
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(OriginGroup, __self__).__init__(
             'azurerm:cdn/v20200331:OriginGroup',

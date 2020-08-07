@@ -36,6 +36,14 @@ export interface GetHubArgs {
  */
 export interface GetHubResult {
     /**
+     * API endpoint URL of the hub.
+     */
+    readonly apiEndpoint: string;
+    /**
+     * Billing settings of the hub.
+     */
+    readonly hubBillingInfo?: outputs.customerinsights.v20170426.HubBillingInfoFormatResponse;
+    /**
      * Resource location.
      */
     readonly location?: string;
@@ -44,15 +52,23 @@ export interface GetHubResult {
      */
     readonly name: string;
     /**
-     * Properties of hub.
+     * Provisioning state of the hub.
      */
-    readonly properties: outputs.customerinsights.v20170426.HubPropertiesFormatResponse;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+     */
+    readonly tenantFeatures?: number;
+    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Web endpoint URL of the hub.
+     */
+    readonly webEndpoint: string;
 }

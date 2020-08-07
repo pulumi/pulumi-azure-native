@@ -15,16 +15,106 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public partial class AuthorizationServer : Pulumi.CustomResource
     {
         /// <summary>
+        /// OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
+        /// </summary>
+        [Output("authorizationEndpoint")]
+        public Output<string> AuthorizationEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+        /// </summary>
+        [Output("authorizationMethods")]
+        public Output<ImmutableArray<string>> AuthorizationMethods { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the mechanism by which access token is passed to the API. 
+        /// </summary>
+        [Output("bearerTokenSendingMethods")]
+        public Output<ImmutableArray<string>> BearerTokenSendingMethods { get; private set; } = null!;
+
+        /// <summary>
+        /// Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
+        /// </summary>
+        [Output("clientAuthenticationMethod")]
+        public Output<ImmutableArray<string>> ClientAuthenticationMethod { get; private set; } = null!;
+
+        /// <summary>
+        /// Client or app id registered with this authorization server.
+        /// </summary>
+        [Output("clientId")]
+        public Output<string> ClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
+        /// </summary>
+        [Output("clientRegistrationEndpoint")]
+        public Output<string> ClientRegistrationEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Client or app secret registered with this authorization server.
+        /// </summary>
+        [Output("clientSecret")]
+        public Output<string?> ClientSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
+        /// </summary>
+        [Output("defaultScope")]
+        public Output<string?> DefaultScope { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the authorization server. Can contain HTML formatting tags.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// User-friendly authorization server name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Form of an authorization grant, which the client uses to request the access token.
+        /// </summary>
+        [Output("grantTypes")]
+        public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the External OAuth authorization server Contract.
+        /// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AuthorizationServerContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("resourceOwnerPassword")]
+        public Output<string?> ResourceOwnerPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
+        /// </summary>
+        [Output("resourceOwnerUsername")]
+        public Output<string?> ResourceOwnerUsername { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
+        /// </summary>
+        [Output("supportState")]
+        public Output<bool?> SupportState { get; private set; } = null!;
+
+        /// <summary>
+        /// Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
+        /// </summary>
+        [Output("tokenBodyParameters")]
+        public Output<ImmutableArray<Outputs.TokenBodyParameterContractResponseResult>> TokenBodyParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// OAuth token endpoint. Contains absolute URI to entity being referenced.
+        /// </summary>
+        [Output("tokenEndpoint")]
+        public Output<string?> TokenEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

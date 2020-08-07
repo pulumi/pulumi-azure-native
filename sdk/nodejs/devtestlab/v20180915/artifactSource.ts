@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,26 @@ export class ArtifactSource extends pulumi.CustomResource {
     }
 
     /**
+     * The folder containing Azure Resource Manager templates.
+     */
+    public readonly armTemplateFolderPath!: pulumi.Output<string | undefined>;
+    /**
+     * The artifact source's branch reference.
+     */
+    public readonly branchRef!: pulumi.Output<string | undefined>;
+    /**
+     * The artifact source's creation date.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The artifact source's display name.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The folder containing artifacts.
+     */
+    public readonly folderPath!: pulumi.Output<string | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +63,21 @@ export class ArtifactSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.ArtifactSourcePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The security token to authenticate to the artifact source.
+     */
+    public readonly securityToken!: pulumi.Output<string | undefined>;
+    /**
+     * The artifact source's type.
+     */
+    public readonly sourceType!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates if the artifact source is enabled (values: Enabled, Disabled).
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +86,14 @@ export class ArtifactSource extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    /**
+     * The artifact source's URI.
+     */
+    public readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ArtifactSource resource with the given unique name, arguments, and options.
@@ -92,8 +130,10 @@ export class ArtifactSource extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uri"] = args ? args.uri : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

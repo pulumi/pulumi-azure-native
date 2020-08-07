@@ -13,7 +13,31 @@ class GetExperimentResult:
     """
     Defines the properties of an Experiment
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, description=None, enabled_state=None, endpoint_a=None, endpoint_b=None, location=None, name=None, resource_state=None, script_file_uri=None, status=None, tags=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the details or intents of the Experiment
+        """
+        if enabled_state and not isinstance(enabled_state, str):
+            raise TypeError("Expected argument 'enabled_state' to be a str")
+        __self__.enabled_state = enabled_state
+        """
+        The state of the Experiment
+        """
+        if endpoint_a and not isinstance(endpoint_a, dict):
+            raise TypeError("Expected argument 'endpoint_a' to be a dict")
+        __self__.endpoint_a = endpoint_a
+        """
+        The endpoint A of an experiment
+        """
+        if endpoint_b and not isinstance(endpoint_b, dict):
+            raise TypeError("Expected argument 'endpoint_b' to be a dict")
+        __self__.endpoint_b = endpoint_b
+        """
+        The endpoint B of an experiment
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +50,23 @@ class GetExperimentResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
         """
-        The properties of an Experiment
+        Resource status.
+        """
+        if script_file_uri and not isinstance(script_file_uri, str):
+            raise TypeError("Expected argument 'script_file_uri' to be a str")
+        __self__.script_file_uri = script_file_uri
+        """
+        The uri to the Script used in the Experiment
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The description of Experiment status from the server side
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +88,15 @@ class AwaitableGetExperimentResult(GetExperimentResult):
         if False:
             yield self
         return GetExperimentResult(
+            description=self.description,
+            enabled_state=self.enabled_state,
+            endpoint_a=self.endpoint_a,
+            endpoint_b=self.endpoint_b,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            resource_state=self.resource_state,
+            script_file_uri=self.script_file_uri,
+            status=self.status,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +120,14 @@ def get_experiment(name=None, profile_name=None, resource_group_name=None, opts=
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20191101:getExperiment', __args__, opts=opts).value
 
     return AwaitableGetExperimentResult(
+        description=__ret__.get('description'),
+        enabled_state=__ret__.get('enabledState'),
+        endpoint_a=__ret__.get('endpointA'),
+        endpoint_b=__ret__.get('endpointB'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        resource_state=__ret__.get('resourceState'),
+        script_file_uri=__ret__.get('scriptFileUri'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

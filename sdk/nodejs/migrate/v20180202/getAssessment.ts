@@ -46,19 +46,99 @@ export interface GetAssessmentArgs {
  */
 export interface GetAssessmentResult {
     /**
+     * AHUB discount on windows virtual machines.
+     */
+    readonly azureHybridUseBenefit: string;
+    /**
+     * Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+     */
+    readonly azureLocation: string;
+    /**
+     * Offer code according to which cost estimation is done.
+     */
+    readonly azureOfferCode: string;
+    /**
+     * Pricing tier for Size evaluation.
+     */
+    readonly azurePricingTier: string;
+    /**
+     * Storage Redundancy type offered by Azure.
+     */
+    readonly azureStorageRedundancy: string;
+    /**
+     * Confidence rating percentage for assessment. Can be in the range [0, 100].
+     */
+    readonly confidenceRatingInPercentage: number;
+    /**
+     * Time when this project was created. Date-Time represented in ISO-8601 format.
+     */
+    readonly createdTimestamp: string;
+    /**
+     * Currency to report prices in.
+     */
+    readonly currency: string;
+    /**
+     * Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+     */
+    readonly discountPercentage: number;
+    /**
      * For optimistic concurrency control.
      */
     readonly eTag?: string;
+    /**
+     * Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+     */
+    readonly monthlyBandwidthCost: number;
+    /**
+     * Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+     */
+    readonly monthlyComputeCost: number;
+    /**
+     * Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+     */
+    readonly monthlyStorageCost: number;
     /**
      * Unique name of an assessment.
      */
     readonly name: string;
     /**
-     * Properties of the assessment.
+     * Number of assessed machines part of this assessment.
      */
-    readonly properties: outputs.migrate.v20180202.AssessmentPropertiesResponse;
+    readonly numberOfMachines: number;
+    /**
+     * Percentile of performance data used to recommend Azure size.
+     */
+    readonly percentile: string;
+    /**
+     * Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+     */
+    readonly pricesTimestamp: string;
+    /**
+     * Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+     */
+    readonly scalingFactor: number;
+    /**
+     * Assessment sizing criterion.
+     */
+    readonly sizingCriterion: string;
+    /**
+     * User configurable setting that describes the status of the assessment.
+     */
+    readonly stage: string;
+    /**
+     * Whether the assessment has been created and is valid.
+     */
+    readonly status: string;
+    /**
+     * Time range of performance data used to recommend a size.
+     */
+    readonly timeRange: string;
     /**
      * Type of the object = [Microsoft.Migrate/projects/groups/assessments].
      */
     readonly type: string;
+    /**
+     * Time when this project was last updated. Date-Time represented in ISO-8601 format.
+     */
+    readonly updatedTimestamp: string;
 }

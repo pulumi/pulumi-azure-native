@@ -13,18 +13,48 @@ class GetDscNodeConfigurationResult:
     """
     Definition of the dsc node configuration.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, configuration=None, creation_time=None, increment_node_configuration_build=None, last_modified_time=None, name=None, node_count=None, source=None, type=None):
+        if configuration and not isinstance(configuration, dict):
+            raise TypeError("Expected argument 'configuration' to be a dict")
+        __self__.configuration = configuration
+        """
+        Gets or sets the configuration of the node.
+        """
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets or sets creation time.
+        """
+        if increment_node_configuration_build and not isinstance(increment_node_configuration_build, bool):
+            raise TypeError("Expected argument 'increment_node_configuration_build' to be a bool")
+        __self__.increment_node_configuration_build = increment_node_configuration_build
+        """
+        If a new build version of NodeConfiguration is required.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets or sets the last modified time.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if node_count and not isinstance(node_count, float):
+            raise TypeError("Expected argument 'node_count' to be a float")
+        __self__.node_count = node_count
         """
-        Gets or sets the configuration properties.
+        Number of nodes with this node configuration assigned
+        """
+        if source and not isinstance(source, str):
+            raise TypeError("Expected argument 'source' to be a str")
+        __self__.source = source
+        """
+        Source of node configuration.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +70,13 @@ class AwaitableGetDscNodeConfigurationResult(GetDscNodeConfigurationResult):
         if False:
             yield self
         return GetDscNodeConfigurationResult(
+            configuration=self.configuration,
+            creation_time=self.creation_time,
+            increment_node_configuration_build=self.increment_node_configuration_build,
+            last_modified_time=self.last_modified_time,
             name=self.name,
-            properties=self.properties,
+            node_count=self.node_count,
+            source=self.source,
             type=self.type)
 
 
@@ -64,6 +99,11 @@ def get_dsc_node_configuration(automation_account_name=None, name=None, resource
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20180115:getDscNodeConfiguration', __args__, opts=opts).value
 
     return AwaitableGetDscNodeConfigurationResult(
+        configuration=__ret__.get('configuration'),
+        creation_time=__ret__.get('creationTime'),
+        increment_node_configuration_build=__ret__.get('incrementNodeConfigurationBuild'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        node_count=__ret__.get('nodeCount'),
+        source=__ret__.get('source'),
         type=__ret__.get('type'))

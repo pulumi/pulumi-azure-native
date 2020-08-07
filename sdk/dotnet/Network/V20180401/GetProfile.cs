@@ -40,21 +40,45 @@ namespace Pulumi.AzureRM.Network.V20180401
     public sealed class GetProfileResult
     {
         /// <summary>
+        /// The DNS settings of the Traffic Manager profile.
+        /// </summary>
+        public readonly Outputs.DnsConfigResponseResult? DnsConfig;
+        /// <summary>
+        /// The list of endpoints in the Traffic Manager profile.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EndpointResponseResult> Endpoints;
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Maximum number of endpoints to be returned for MultiValue routing type.
+        /// </summary>
+        public readonly int? MaxReturn;
+        /// <summary>
+        /// The endpoint monitoring settings of the Traffic Manager profile.
+        /// </summary>
+        public readonly Outputs.MonitorConfigResponseResult? MonitorConfig;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the Traffic Manager profile.
+        /// The status of the Traffic Manager profile.
         /// </summary>
-        public readonly Outputs.ProfilePropertiesResponseResult Properties;
+        public readonly string? ProfileStatus;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The traffic routing method of the Traffic Manager profile.
+        /// </summary>
+        public readonly string? TrafficRoutingMethod;
+        /// <summary>
+        /// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+        /// </summary>
+        public readonly string? TrafficViewEnrollmentStatus;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         /// </summary>
@@ -62,20 +86,38 @@ namespace Pulumi.AzureRM.Network.V20180401
 
         [OutputConstructor]
         private GetProfileResult(
+            Outputs.DnsConfigResponseResult? dnsConfig,
+
+            ImmutableArray<Outputs.EndpointResponseResult> endpoints,
+
             string? location,
+
+            int? maxReturn,
+
+            Outputs.MonitorConfigResponseResult? monitorConfig,
 
             string? name,
 
-            Outputs.ProfilePropertiesResponseResult properties,
+            string? profileStatus,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? trafficRoutingMethod,
+
+            string? trafficViewEnrollmentStatus,
+
             string? type)
         {
+            DnsConfig = dnsConfig;
+            Endpoints = endpoints;
             Location = location;
+            MaxReturn = maxReturn;
+            MonitorConfig = monitorConfig;
             Name = name;
-            Properties = properties;
+            ProfileStatus = profileStatus;
             Tags = tags;
+            TrafficRoutingMethod = trafficRoutingMethod;
+            TrafficViewEnrollmentStatus = trafficViewEnrollmentStatus;
             Type = type;
         }
     }

@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Application(pulumi.CustomResource):
+    application_definition_id: pulumi.Output[str]
+    """
+    The fully qualified path of managed application definition Id.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the resource.
@@ -29,9 +33,21 @@ class Application(pulumi.CustomResource):
     """
     ID of the resource that manages this resource.
     """
+    managed_resource_group_id: pulumi.Output[str]
+    """
+    The managed resource group Id.
+    """
     name: pulumi.Output[str]
     """
     Resource name
+    """
+    outputs: pulumi.Output[dict]
+    """
+    Name and value pairs that define the managed application outputs.
+    """
+    parameters: pulumi.Output[dict]
+    """
+    Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
     """
     plan: pulumi.Output[dict]
     """
@@ -42,14 +58,9 @@ class Application(pulumi.CustomResource):
       * `publisher` (`str`) - The publisher ID.
       * `version` (`str`) - The plan's version.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The managed application properties.
-      * `application_definition_id` (`str`) - The fully qualified path of managed application definition Id.
-      * `managed_resource_group_id` (`str`) - The managed resource group Id.
-      * `outputs` (`dict`) - Name and value pairs that define the managed application outputs.
-      * `parameters` (`dict`) - Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-      * `provisioning_state` (`str`) - The managed application provisioning state.
+    The managed application provisioning state.
     """
     sku: pulumi.Output[dict]
     """
@@ -146,7 +157,8 @@ class Application(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['outputs'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Application, __self__).__init__(
             'azurerm:solutions/v20180601:Application',

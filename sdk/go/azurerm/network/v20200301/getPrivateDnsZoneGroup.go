@@ -31,6 +31,8 @@ type LookupPrivateDnsZoneGroupResult struct {
 	Etag string `pulumi:"etag"`
 	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the private dns zone group.
-	Properties PrivateDnsZoneGroupPropertiesFormatResponse `pulumi:"properties"`
+	// A collection of private dns zone configurations of the private dns zone group.
+	PrivateDnsZoneConfigs []PrivateDnsZoneConfigResponse `pulumi:"privateDnsZoneConfigs"`
+	// The provisioning state of the private dns zone group resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 }

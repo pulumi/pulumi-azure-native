@@ -21,10 +21,10 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of BackupScheduleGroup
+        /// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BackupScheduleGroupPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("startTime")]
+        public Output<Outputs.TimeResponseResult> StartTime { get; private set; } = null!;
 
         /// <summary>
         /// The type.

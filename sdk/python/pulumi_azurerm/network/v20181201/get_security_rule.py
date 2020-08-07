@@ -13,7 +13,55 @@ class GetSecurityRuleResult:
     """
     Network security rule.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_groups=None, destination_port_range=None, destination_port_ranges=None, direction=None, etag=None, name=None, priority=None, protocol=None, provisioning_state=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_groups=None, source_port_range=None, source_port_ranges=None):
+        if access and not isinstance(access, str):
+            raise TypeError("Expected argument 'access' to be a str")
+        __self__.access = access
+        """
+        The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        if destination_address_prefix and not isinstance(destination_address_prefix, str):
+            raise TypeError("Expected argument 'destination_address_prefix' to be a str")
+        __self__.destination_address_prefix = destination_address_prefix
+        """
+        The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        """
+        if destination_address_prefixes and not isinstance(destination_address_prefixes, list):
+            raise TypeError("Expected argument 'destination_address_prefixes' to be a list")
+        __self__.destination_address_prefixes = destination_address_prefixes
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        if destination_application_security_groups and not isinstance(destination_application_security_groups, list):
+            raise TypeError("Expected argument 'destination_application_security_groups' to be a list")
+        __self__.destination_application_security_groups = destination_application_security_groups
+        """
+        The application security group specified as destination.
+        """
+        if destination_port_range and not isinstance(destination_port_range, str):
+            raise TypeError("Expected argument 'destination_port_range' to be a str")
+        __self__.destination_port_range = destination_port_range
+        """
+        The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        if destination_port_ranges and not isinstance(destination_port_ranges, list):
+            raise TypeError("Expected argument 'destination_port_ranges' to be a list")
+        __self__.destination_port_ranges = destination_port_ranges
+        """
+        The destination port ranges.
+        """
+        if direction and not isinstance(direction, str):
+            raise TypeError("Expected argument 'direction' to be a str")
+        __self__.direction = direction
+        """
+        The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +74,53 @@ class GetSecurityRuleResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if priority and not isinstance(priority, float):
+            raise TypeError("Expected argument 'priority' to be a float")
+        __self__.priority = priority
         """
-        Properties of the security rule
+        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        if protocol and not isinstance(protocol, str):
+            raise TypeError("Expected argument 'protocol' to be a str")
+        __self__.protocol = protocol
+        """
+        Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if source_address_prefix and not isinstance(source_address_prefix, str):
+            raise TypeError("Expected argument 'source_address_prefix' to be a str")
+        __self__.source_address_prefix = source_address_prefix
+        """
+        The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        """
+        if source_address_prefixes and not isinstance(source_address_prefixes, list):
+            raise TypeError("Expected argument 'source_address_prefixes' to be a list")
+        __self__.source_address_prefixes = source_address_prefixes
+        """
+        The CIDR or source IP ranges.
+        """
+        if source_application_security_groups and not isinstance(source_application_security_groups, list):
+            raise TypeError("Expected argument 'source_application_security_groups' to be a list")
+        __self__.source_application_security_groups = source_application_security_groups
+        """
+        The application security group specified as source.
+        """
+        if source_port_range and not isinstance(source_port_range, str):
+            raise TypeError("Expected argument 'source_port_range' to be a str")
+        __self__.source_port_range = source_port_range
+        """
+        The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        if source_port_ranges and not isinstance(source_port_ranges, list):
+            raise TypeError("Expected argument 'source_port_ranges' to be a list")
+        __self__.source_port_ranges = source_port_ranges
+        """
+        The source port ranges.
         """
 
 
@@ -40,9 +130,24 @@ class AwaitableGetSecurityRuleResult(GetSecurityRuleResult):
         if False:
             yield self
         return GetSecurityRuleResult(
+            access=self.access,
+            description=self.description,
+            destination_address_prefix=self.destination_address_prefix,
+            destination_address_prefixes=self.destination_address_prefixes,
+            destination_application_security_groups=self.destination_application_security_groups,
+            destination_port_range=self.destination_port_range,
+            destination_port_ranges=self.destination_port_ranges,
+            direction=self.direction,
             etag=self.etag,
             name=self.name,
-            properties=self.properties)
+            priority=self.priority,
+            protocol=self.protocol,
+            provisioning_state=self.provisioning_state,
+            source_address_prefix=self.source_address_prefix,
+            source_address_prefixes=self.source_address_prefixes,
+            source_application_security_groups=self.source_application_security_groups,
+            source_port_range=self.source_port_range,
+            source_port_ranges=self.source_port_ranges)
 
 
 def get_security_rule(name=None, network_security_group_name=None, resource_group_name=None, opts=None):
@@ -64,6 +169,21 @@ def get_security_rule(name=None, network_security_group_name=None, resource_grou
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20181201:getSecurityRule', __args__, opts=opts).value
 
     return AwaitableGetSecurityRuleResult(
+        access=__ret__.get('access'),
+        description=__ret__.get('description'),
+        destination_address_prefix=__ret__.get('destinationAddressPrefix'),
+        destination_address_prefixes=__ret__.get('destinationAddressPrefixes'),
+        destination_application_security_groups=__ret__.get('destinationApplicationSecurityGroups'),
+        destination_port_range=__ret__.get('destinationPortRange'),
+        destination_port_ranges=__ret__.get('destinationPortRanges'),
+        direction=__ret__.get('direction'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        priority=__ret__.get('priority'),
+        protocol=__ret__.get('protocol'),
+        provisioning_state=__ret__.get('provisioningState'),
+        source_address_prefix=__ret__.get('sourceAddressPrefix'),
+        source_address_prefixes=__ret__.get('sourceAddressPrefixes'),
+        source_application_security_groups=__ret__.get('sourceApplicationSecurityGroups'),
+        source_port_range=__ret__.get('sourcePortRange'),
+        source_port_ranges=__ret__.get('sourcePortRanges'))

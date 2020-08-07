@@ -46,6 +46,14 @@ export interface GetConsumerGroupArgs {
  */
 export interface GetConsumerGroupResult {
     /**
+     * Exact time the message was created.
+     */
+    readonly createdAt: string;
+    /**
+     * The path of the Event Hub.
+     */
+    readonly eventHubPath: string;
+    /**
      * Resource location
      */
     readonly location?: string;
@@ -54,11 +62,15 @@ export interface GetConsumerGroupResult {
      */
     readonly name: string;
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
-     */
-    readonly properties: outputs.eventhub.v20150801.ConsumerGroupPropertiesResponse;
-    /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * The exact time the message was updated.
+     */
+    readonly updatedAt: string;
+    /**
+     * The user metadata.
+     */
+    readonly userMetadata?: string;
 }

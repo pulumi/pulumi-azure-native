@@ -13,7 +13,19 @@ class GetHubResult:
     """
     Hub resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, api_endpoint=None, hub_billing_info=None, location=None, name=None, provisioning_state=None, tags=None, tenant_features=None, type=None, web_endpoint=None):
+        if api_endpoint and not isinstance(api_endpoint, str):
+            raise TypeError("Expected argument 'api_endpoint' to be a str")
+        __self__.api_endpoint = api_endpoint
+        """
+        API endpoint URL of the hub.
+        """
+        if hub_billing_info and not isinstance(hub_billing_info, dict):
+            raise TypeError("Expected argument 'hub_billing_info' to be a dict")
+        __self__.hub_billing_info = hub_billing_info
+        """
+        Billing settings of the hub.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +38,11 @@ class GetHubResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of hub.
+        Provisioning state of the hub.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -38,11 +50,23 @@ class GetHubResult:
         """
         Resource tags.
         """
+        if tenant_features and not isinstance(tenant_features, float):
+            raise TypeError("Expected argument 'tenant_features' to be a float")
+        __self__.tenant_features = tenant_features
+        """
+        The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if web_endpoint and not isinstance(web_endpoint, str):
+            raise TypeError("Expected argument 'web_endpoint' to be a str")
+        __self__.web_endpoint = web_endpoint
+        """
+        Web endpoint URL of the hub.
         """
 
 
@@ -52,11 +76,15 @@ class AwaitableGetHubResult(GetHubResult):
         if False:
             yield self
         return GetHubResult(
+            api_endpoint=self.api_endpoint,
+            hub_billing_info=self.hub_billing_info,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            tenant_features=self.tenant_features,
+            type=self.type,
+            web_endpoint=self.web_endpoint)
 
 
 def get_hub(name=None, resource_group_name=None, opts=None):
@@ -76,8 +104,12 @@ def get_hub(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:customerinsights/v20170101:getHub', __args__, opts=opts).value
 
     return AwaitableGetHubResult(
+        api_endpoint=__ret__.get('apiEndpoint'),
+        hub_billing_info=__ret__.get('hubBillingInfo'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        tenant_features=__ret__.get('tenantFeatures'),
+        type=__ret__.get('type'),
+        web_endpoint=__ret__.get('webEndpoint'))

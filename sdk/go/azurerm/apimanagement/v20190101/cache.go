@@ -14,10 +14,14 @@ import (
 type Cache struct {
 	pulumi.CustomResourceState
 
+	// Runtime connection string to cache
+	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// Cache description
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Cache properties details.
-	Properties CacheContractPropertiesResponseOutput `pulumi:"properties"`
+	// Original uri of entity in external system cache points to
+	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +66,27 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
+	// Runtime connection string to cache
+	ConnectionString *string `pulumi:"connectionString"`
+	// Cache description
+	Description *string `pulumi:"description"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Cache properties details.
-	Properties *CacheContractPropertiesResponse `pulumi:"properties"`
+	// Original uri of entity in external system cache points to
+	ResourceId *string `pulumi:"resourceId"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type CacheState struct {
+	// Runtime connection string to cache
+	ConnectionString pulumi.StringPtrInput
+	// Cache description
+	Description pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Cache properties details.
-	Properties CacheContractPropertiesResponsePtrInput
+	// Original uri of entity in external system cache points to
+	ResourceId pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

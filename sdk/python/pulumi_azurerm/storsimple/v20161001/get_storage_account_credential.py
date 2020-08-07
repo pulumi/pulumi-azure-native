@@ -13,18 +13,48 @@ class GetStorageAccountCredentialResult:
     """
     The storage account credential
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, access_key=None, cloud_type=None, enable_ssl=None, end_point=None, location=None, login=None, name=None, type=None):
+        if access_key and not isinstance(access_key, dict):
+            raise TypeError("Expected argument 'access_key' to be a dict")
+        __self__.access_key = access_key
+        """
+        The details of the storage account password
+        """
+        if cloud_type and not isinstance(cloud_type, str):
+            raise TypeError("Expected argument 'cloud_type' to be a str")
+        __self__.cloud_type = cloud_type
+        """
+        The cloud service provider
+        """
+        if enable_ssl and not isinstance(enable_ssl, str):
+            raise TypeError("Expected argument 'enable_ssl' to be a str")
+        __self__.enable_ssl = enable_ssl
+        """
+        SSL needs to be enabled or not
+        """
+        if end_point and not isinstance(end_point, str):
+            raise TypeError("Expected argument 'end_point' to be a str")
+        __self__.end_point = end_point
+        """
+        The storage endpoint
+        """
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        __self__.location = location
+        """
+        The storage account's geo location
+        """
+        if login and not isinstance(login, str):
+            raise TypeError("Expected argument 'login' to be a str")
+        __self__.login = login
+        """
+        The storage account login
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Credential properties
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +70,13 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
         if False:
             yield self
         return GetStorageAccountCredentialResult(
+            access_key=self.access_key,
+            cloud_type=self.cloud_type,
+            enable_ssl=self.enable_ssl,
+            end_point=self.end_point,
+            location=self.location,
+            login=self.login,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -64,6 +99,11 @@ def get_storage_account_credential(manager_name=None, name=None, resource_group_
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getStorageAccountCredential', __args__, opts=opts).value
 
     return AwaitableGetStorageAccountCredentialResult(
+        access_key=__ret__.get('accessKey'),
+        cloud_type=__ret__.get('cloudType'),
+        enable_ssl=__ret__.get('enableSSL'),
+        end_point=__ret__.get('endPoint'),
+        location=__ret__.get('location'),
+        login=__ret__.get('login'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

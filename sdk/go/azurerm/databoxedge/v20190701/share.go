@@ -14,12 +14,30 @@ import (
 type Share struct {
 	pulumi.CustomResourceState
 
+	// Access protocol to be used by the share.
+	AccessProtocol pulumi.StringOutput `pulumi:"accessProtocol"`
+	// Azure container mapping for the share.
+	AzureContainerInfo AzureContainerInfoResponsePtrOutput `pulumi:"azureContainerInfo"`
+	// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+	ClientAccessRights ClientAccessRightResponseArrayOutput `pulumi:"clientAccessRights"`
+	// Data policy of the share.
+	DataPolicy pulumi.StringPtrOutput `pulumi:"dataPolicy"`
+	// Description for the share.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Current monitoring status of the share.
+	MonitoringStatus pulumi.StringOutput `pulumi:"monitoringStatus"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The share properties.
-	Properties SharePropertiesResponseOutput `pulumi:"properties"`
+	// Details of the refresh job on this share.
+	RefreshDetails RefreshDetailsResponsePtrOutput `pulumi:"refreshDetails"`
+	// Share mount point to the role.
+	ShareMappings MountPointMapResponseArrayOutput `pulumi:"shareMappings"`
+	// Current status of the share.
+	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Mapping of users and corresponding access rights on the share (required for SMB protocol).
+	UserAccessRights UserAccessRightResponseArrayOutput `pulumi:"userAccessRights"`
 }
 
 // NewShare registers a new resource with the given unique name, arguments, and options.
@@ -68,21 +86,57 @@ func GetShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Share resources.
 type shareState struct {
+	// Access protocol to be used by the share.
+	AccessProtocol *string `pulumi:"accessProtocol"`
+	// Azure container mapping for the share.
+	AzureContainerInfo *AzureContainerInfoResponse `pulumi:"azureContainerInfo"`
+	// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+	ClientAccessRights []ClientAccessRightResponse `pulumi:"clientAccessRights"`
+	// Data policy of the share.
+	DataPolicy *string `pulumi:"dataPolicy"`
+	// Description for the share.
+	Description *string `pulumi:"description"`
+	// Current monitoring status of the share.
+	MonitoringStatus *string `pulumi:"monitoringStatus"`
 	// The object name.
 	Name *string `pulumi:"name"`
-	// The share properties.
-	Properties *SharePropertiesResponse `pulumi:"properties"`
+	// Details of the refresh job on this share.
+	RefreshDetails *RefreshDetailsResponse `pulumi:"refreshDetails"`
+	// Share mount point to the role.
+	ShareMappings []MountPointMapResponse `pulumi:"shareMappings"`
+	// Current status of the share.
+	ShareStatus *string `pulumi:"shareStatus"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
+	// Mapping of users and corresponding access rights on the share (required for SMB protocol).
+	UserAccessRights []UserAccessRightResponse `pulumi:"userAccessRights"`
 }
 
 type ShareState struct {
+	// Access protocol to be used by the share.
+	AccessProtocol pulumi.StringPtrInput
+	// Azure container mapping for the share.
+	AzureContainerInfo AzureContainerInfoResponsePtrInput
+	// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+	ClientAccessRights ClientAccessRightResponseArrayInput
+	// Data policy of the share.
+	DataPolicy pulumi.StringPtrInput
+	// Description for the share.
+	Description pulumi.StringPtrInput
+	// Current monitoring status of the share.
+	MonitoringStatus pulumi.StringPtrInput
 	// The object name.
 	Name pulumi.StringPtrInput
-	// The share properties.
-	Properties SharePropertiesResponsePtrInput
+	// Details of the refresh job on this share.
+	RefreshDetails RefreshDetailsResponsePtrInput
+	// Share mount point to the role.
+	ShareMappings MountPointMapResponseArrayInput
+	// Current status of the share.
+	ShareStatus pulumi.StringPtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
+	// Mapping of users and corresponding access rights on the share (required for SMB protocol).
+	UserAccessRights UserAccessRightResponseArrayInput
 }
 
 func (ShareState) ElementType() reflect.Type {

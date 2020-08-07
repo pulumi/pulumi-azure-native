@@ -46,6 +46,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class GetScheduleResult
     {
         /// <summary>
+        /// The creation date of the schedule.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// If the schedule will occur once each day of the week, specify the daily recurrence.
+        /// </summary>
+        public readonly Outputs.DayDetailsResponseResult? DailyRecurrence;
+        /// <summary>
+        /// If the schedule will occur multiple times a day, specify the hourly recurrence.
+        /// </summary>
+        public readonly Outputs.HourDetailsResponseResult? HourlyRecurrence;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -54,35 +66,93 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// Notification settings.
         /// </summary>
-        public readonly Outputs.SchedulePropertiesResponseResult Properties;
+        public readonly Outputs.NotificationSettingsResponseResult? NotificationSettings;
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The status of the schedule (i.e. Enabled, Disabled)
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The resource ID to which the schedule belongs
+        /// </summary>
+        public readonly string? TargetResourceId;
+        /// <summary>
+        /// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        /// </summary>
+        public readonly string? TaskType;
+        /// <summary>
+        /// The time zone ID (e.g. Pacific Standard time).
+        /// </summary>
+        public readonly string? TimeZoneId;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
+        /// <summary>
+        /// If the schedule will occur only some days of the week, specify the weekly recurrence.
+        /// </summary>
+        public readonly Outputs.WeekDetailsResponseResult? WeeklyRecurrence;
 
         [OutputConstructor]
         private GetScheduleResult(
+            string createdDate,
+
+            Outputs.DayDetailsResponseResult? dailyRecurrence,
+
+            Outputs.HourDetailsResponseResult? hourlyRecurrence,
+
             string? location,
 
             string name,
 
-            Outputs.SchedulePropertiesResponseResult properties,
+            Outputs.NotificationSettingsResponseResult? notificationSettings,
+
+            string? provisioningState,
+
+            string? status,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? targetResourceId,
+
+            string? taskType,
+
+            string? timeZoneId,
+
+            string type,
+
+            string? uniqueIdentifier,
+
+            Outputs.WeekDetailsResponseResult? weeklyRecurrence)
         {
+            CreatedDate = createdDate;
+            DailyRecurrence = dailyRecurrence;
+            HourlyRecurrence = hourlyRecurrence;
             Location = location;
             Name = name;
-            Properties = properties;
+            NotificationSettings = notificationSettings;
+            ProvisioningState = provisioningState;
+            Status = status;
             Tags = tags;
+            TargetResourceId = targetResourceId;
+            TaskType = taskType;
+            TimeZoneId = timeZoneId;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
+            WeeklyRecurrence = weeklyRecurrence;
         }
     }
 }

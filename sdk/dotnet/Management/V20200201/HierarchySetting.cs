@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.Management.V20200201
     public partial class HierarchySetting : Pulumi.CustomResource
     {
         /// <summary>
+        /// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+        /// </summary>
+        [Output("defaultManagementGroup")]
+        public Output<string?> DefaultManagementGroup { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the object. In this case, default.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The generic properties of hierarchy settings.
+        /// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HierarchySettingsPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("requireAuthorizationForGroupCreation")]
+        public Output<bool?> RequireAuthorizationForGroupCreation { get; private set; } = null!;
+
+        /// <summary>
+        /// The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.  For example, Microsoft.Management/managementGroups/settings.

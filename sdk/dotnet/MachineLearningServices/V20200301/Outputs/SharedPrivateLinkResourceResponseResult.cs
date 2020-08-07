@@ -14,22 +14,43 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200301.Outputs
     public sealed class SharedPrivateLinkResourceResponseResult
     {
         /// <summary>
+        /// The private link resource group id.
+        /// </summary>
+        public readonly string? GroupId;
+        /// <summary>
         /// Unique name of the private link.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Resource properties.
+        /// The resource id that private link links to.
         /// </summary>
-        public readonly Outputs.SharedPrivateLinkResourcePropertyResponseResult? Properties;
+        public readonly string? PrivateLinkResourceId;
+        /// <summary>
+        /// Request message.
+        /// </summary>
+        public readonly string? RequestMessage;
+        /// <summary>
+        /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        /// </summary>
+        public readonly string? Status;
 
         [OutputConstructor]
         private SharedPrivateLinkResourceResponseResult(
+            string? groupId,
+
             string? name,
 
-            Outputs.SharedPrivateLinkResourcePropertyResponseResult? properties)
+            string? privateLinkResourceId,
+
+            string? requestMessage,
+
+            string? status)
         {
+            GroupId = groupId;
             Name = name;
-            Properties = properties;
+            PrivateLinkResourceId = privateLinkResourceId;
+            RequestMessage = requestMessage;
+            Status = status;
         }
     }
 }

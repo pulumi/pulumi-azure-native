@@ -18,8 +18,12 @@ type FirewallPolicyRuleGroup struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties of the firewall policy rule group.
-	Properties FirewallPolicyRuleGroupPropertiesResponseOutput `pulumi:"properties"`
+	// Priority of the Firewall Policy Rule Group resource.
+	Priority pulumi.IntPtrOutput `pulumi:"priority"`
+	// The provisioning state of the firewall policy rule group resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Group of Firewall Policy rules.
+	Rules FirewallPolicyRuleResponseArrayOutput `pulumi:"rules"`
 	// Rule Group type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,8 +69,12 @@ type firewallPolicyRuleGroupState struct {
 	Etag *string `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the firewall policy rule group.
-	Properties *FirewallPolicyRuleGroupPropertiesResponse `pulumi:"properties"`
+	// Priority of the Firewall Policy Rule Group resource.
+	Priority *int `pulumi:"priority"`
+	// The provisioning state of the firewall policy rule group resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Group of Firewall Policy rules.
+	Rules []FirewallPolicyRuleResponse `pulumi:"rules"`
 	// Rule Group type.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +84,12 @@ type FirewallPolicyRuleGroupState struct {
 	Etag pulumi.StringPtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the firewall policy rule group.
-	Properties FirewallPolicyRuleGroupPropertiesResponsePtrInput
+	// Priority of the Firewall Policy Rule Group resource.
+	Priority pulumi.IntPtrInput
+	// The provisioning state of the firewall policy rule group resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Group of Firewall Policy rules.
+	Rules FirewallPolicyRuleResponseArrayInput
 	// Rule Group type.
 	Type pulumi.StringPtrInput
 }

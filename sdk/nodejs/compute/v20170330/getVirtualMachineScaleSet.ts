@@ -48,13 +48,21 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly name: string;
     /**
+     * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+     */
+    readonly overprovision?: boolean;
+    /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
     readonly plan?: outputs.compute.v20170330.PlanResponse;
     /**
-     * Describes the properties of a Virtual Machine Scale Set.
+     * The provisioning state, which only appears in the response.
      */
-    readonly properties: outputs.compute.v20170330.VirtualMachineScaleSetPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+     */
+    readonly singlePlacementGroup?: boolean;
     /**
      * The virtual machine scale set sku.
      */
@@ -67,6 +75,18 @@ export interface GetVirtualMachineScaleSetResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
+     */
+    readonly uniqueId: string;
+    /**
+     * The upgrade policy.
+     */
+    readonly upgradePolicy?: outputs.compute.v20170330.UpgradePolicyResponse;
+    /**
+     * The virtual machine profile.
+     */
+    readonly virtualMachineProfile?: outputs.compute.v20170330.VirtualMachineScaleSetVMProfileResponse;
     /**
      * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
      */

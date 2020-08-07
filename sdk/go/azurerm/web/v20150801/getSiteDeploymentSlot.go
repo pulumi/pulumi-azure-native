@@ -27,13 +27,30 @@ type LookupSiteDeploymentSlotArgs struct {
 
 // Represents user credentials used for publishing activity
 type LookupSiteDeploymentSlotResult struct {
+	// Active
+	Active *bool `pulumi:"active"`
+	// Author
+	Author *string `pulumi:"author"`
+	// AuthorEmail
+	Author_email *string `pulumi:"author_email"`
+	// Deployer
+	Deployer *string `pulumi:"deployer"`
+	// Detail
+	Details *string `pulumi:"details"`
+	// EndTime
+	End_time *string `pulumi:"end_time"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
+	// Message
+	Message *string `pulumi:"message"`
 	// Resource Name
-	Name       *string                      `pulumi:"name"`
-	Properties DeploymentResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// StartTime
+	Start_time *string `pulumi:"start_time"`
+	// Status
+	Status *int `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

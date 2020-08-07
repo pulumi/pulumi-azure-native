@@ -40,9 +40,29 @@ namespace Pulumi.AzureRM.Network.V20190801
     public sealed class GetPrivateLinkServiceResult
     {
         /// <summary>
+        /// The alias of the private link service.
+        /// </summary>
+        public readonly string Alias;
+        /// <summary>
+        /// The auto-approval list of the private link service.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServicePropertiesResponseAutoApprovalResult? AutoApproval;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// The list of Fqdn.
+        /// </summary>
+        public readonly ImmutableArray<string> Fqdns;
+        /// <summary>
+        /// An array of private link service IP configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponseResult> IpConfigurations;
+        /// <summary>
+        /// An array of references to the load balancer IP configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponseResult> LoadBalancerFrontendIpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +72,17 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the private link service.
+        /// An array of references to the network interfaces created for this private link service.
         /// </summary>
-        public readonly Outputs.PrivateLinkServicePropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceResponseResult> NetworkInterfaces;
+        /// <summary>
+        /// An array of list about connections to the private endpoint.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        /// <summary>
+        /// The provisioning state of the private link service resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +91,55 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The visibility list of the private link service.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServicePropertiesResponseVisibilityResult? Visibility;
 
         [OutputConstructor]
         private GetPrivateLinkServiceResult(
+            string alias,
+
+            Outputs.PrivateLinkServicePropertiesResponseAutoApprovalResult? autoApproval,
+
             string? etag,
+
+            ImmutableArray<string> fqdns,
+
+            ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponseResult> ipConfigurations,
+
+            ImmutableArray<Outputs.FrontendIPConfigurationResponseResult> loadBalancerFrontendIpConfigurations,
 
             string? location,
 
             string name,
 
-            Outputs.PrivateLinkServicePropertiesResponseResult properties,
+            ImmutableArray<Outputs.NetworkInterfaceResponseResult> networkInterfaces,
+
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.PrivateLinkServicePropertiesResponseVisibilityResult? visibility)
         {
+            Alias = alias;
+            AutoApproval = autoApproval;
             Etag = etag;
+            Fqdns = fqdns;
+            IpConfigurations = ipConfigurations;
+            LoadBalancerFrontendIpConfigurations = loadBalancerFrontendIpConfigurations;
             Location = location;
             Name = name;
-            Properties = properties;
+            NetworkInterfaces = networkInterfaces;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            Visibility = visibility;
         }
     }
 }

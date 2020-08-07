@@ -13,7 +13,7 @@ class GetZoneResult:
     """
     Describes a DNS zone.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, max_number_of_record_sets=None, name=None, name_servers=None, number_of_record_sets=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,17 +26,29 @@ class GetZoneResult:
         """
         The geo-location where the resource lives
         """
+        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
+            raise TypeError("Expected argument 'max_number_of_record_sets' to be a float")
+        __self__.max_number_of_record_sets = max_number_of_record_sets
+        """
+        The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if name_servers and not isinstance(name_servers, list):
+            raise TypeError("Expected argument 'name_servers' to be a list")
+        __self__.name_servers = name_servers
         """
-        The properties of the zone.
+        The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+        """
+        if number_of_record_sets and not isinstance(number_of_record_sets, float):
+            raise TypeError("Expected argument 'number_of_record_sets' to be a float")
+        __self__.number_of_record_sets = number_of_record_sets
+        """
+        The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -60,8 +72,10 @@ class AwaitableGetZoneResult(GetZoneResult):
         return GetZoneResult(
             etag=self.etag,
             location=self.location,
+            max_number_of_record_sets=self.max_number_of_record_sets,
             name=self.name,
-            properties=self.properties,
+            name_servers=self.name_servers,
+            number_of_record_sets=self.number_of_record_sets,
             tags=self.tags,
             type=self.type)
 
@@ -85,7 +99,9 @@ def get_zone(name=None, resource_group_name=None, opts=None):
     return AwaitableGetZoneResult(
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
+        max_number_of_record_sets=__ret__.get('maxNumberOfRecordSets'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        name_servers=__ret__.get('nameServers'),
+        number_of_record_sets=__ret__.get('numberOfRecordSets'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

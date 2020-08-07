@@ -13,7 +13,25 @@ class GetHubVirtualNetworkConnectionResult:
     """
     HubVirtualNetworkConnection Resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, allow_hub_to_remote_vnet_transit=None, allow_remote_vnet_to_use_hub_vnet_gateways=None, enable_internet_security=None, etag=None, name=None, provisioning_state=None, remote_virtual_network=None, routing_configuration=None):
+        if allow_hub_to_remote_vnet_transit and not isinstance(allow_hub_to_remote_vnet_transit, bool):
+            raise TypeError("Expected argument 'allow_hub_to_remote_vnet_transit' to be a bool")
+        __self__.allow_hub_to_remote_vnet_transit = allow_hub_to_remote_vnet_transit
+        """
+        Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+        """
+        if allow_remote_vnet_to_use_hub_vnet_gateways and not isinstance(allow_remote_vnet_to_use_hub_vnet_gateways, bool):
+            raise TypeError("Expected argument 'allow_remote_vnet_to_use_hub_vnet_gateways' to be a bool")
+        __self__.allow_remote_vnet_to_use_hub_vnet_gateways = allow_remote_vnet_to_use_hub_vnet_gateways
+        """
+        Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+        """
+        if enable_internet_security and not isinstance(enable_internet_security, bool):
+            raise TypeError("Expected argument 'enable_internet_security' to be a bool")
+        __self__.enable_internet_security = enable_internet_security
+        """
+        Enable internet security.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +44,23 @@ class GetHubVirtualNetworkConnectionResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the hub virtual network connection.
+        The provisioning state of the hub virtual network connection resource.
+        """
+        if remote_virtual_network and not isinstance(remote_virtual_network, dict):
+            raise TypeError("Expected argument 'remote_virtual_network' to be a dict")
+        __self__.remote_virtual_network = remote_virtual_network
+        """
+        Reference to the remote virtual network.
+        """
+        if routing_configuration and not isinstance(routing_configuration, dict):
+            raise TypeError("Expected argument 'routing_configuration' to be a dict")
+        __self__.routing_configuration = routing_configuration
+        """
+        The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
 
 
@@ -40,9 +70,14 @@ class AwaitableGetHubVirtualNetworkConnectionResult(GetHubVirtualNetworkConnecti
         if False:
             yield self
         return GetHubVirtualNetworkConnectionResult(
+            allow_hub_to_remote_vnet_transit=self.allow_hub_to_remote_vnet_transit,
+            allow_remote_vnet_to_use_hub_vnet_gateways=self.allow_remote_vnet_to_use_hub_vnet_gateways,
+            enable_internet_security=self.enable_internet_security,
             etag=self.etag,
             name=self.name,
-            properties=self.properties)
+            provisioning_state=self.provisioning_state,
+            remote_virtual_network=self.remote_virtual_network,
+            routing_configuration=self.routing_configuration)
 
 
 def get_hub_virtual_network_connection(name=None, resource_group_name=None, virtual_hub_name=None, opts=None):
@@ -64,6 +99,11 @@ def get_hub_virtual_network_connection(name=None, resource_group_name=None, virt
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getHubVirtualNetworkConnection', __args__, opts=opts).value
 
     return AwaitableGetHubVirtualNetworkConnectionResult(
+        allow_hub_to_remote_vnet_transit=__ret__.get('allowHubToRemoteVnetTransit'),
+        allow_remote_vnet_to_use_hub_vnet_gateways=__ret__.get('allowRemoteVnetToUseHubVnetGateways'),
+        enable_internet_security=__ret__.get('enableInternetSecurity'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        provisioning_state=__ret__.get('provisioningState'),
+        remote_virtual_network=__ret__.get('remoteVirtualNetwork'),
+        routing_configuration=__ret__.get('routingConfiguration'))

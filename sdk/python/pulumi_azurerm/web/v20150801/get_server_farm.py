@@ -13,7 +13,25 @@ class GetServerFarmResult:
     """
     App Service Plan Model
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, admin_site_name=None, geo_region=None, hosting_environment_profile=None, kind=None, location=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, reserved=None, resource_group=None, sku=None, status=None, subscription=None, tags=None, type=None, worker_tier_name=None):
+        if admin_site_name and not isinstance(admin_site_name, str):
+            raise TypeError("Expected argument 'admin_site_name' to be a str")
+        __self__.admin_site_name = admin_site_name
+        """
+        App Service Plan administration site
+        """
+        if geo_region and not isinstance(geo_region, str):
+            raise TypeError("Expected argument 'geo_region' to be a str")
+        __self__.geo_region = geo_region
+        """
+        Geographical location for the App Service Plan
+        """
+        if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
+            raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
+        __self__.hosting_environment_profile = hosting_environment_profile
+        """
+        Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,20 +44,60 @@ class GetServerFarmResult:
         """
         Resource Location
         """
+        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, float):
+            raise TypeError("Expected argument 'maximum_number_of_workers' to be a float")
+        __self__.maximum_number_of_workers = maximum_number_of_workers
+        """
+        Maximum number of instances that can be assigned to this App Service Plan
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if number_of_sites and not isinstance(number_of_sites, float):
+            raise TypeError("Expected argument 'number_of_sites' to be a float")
+        __self__.number_of_sites = number_of_sites
+        """
+        Number of web apps assigned to this App Service Plan
+        """
+        if per_site_scaling and not isinstance(per_site_scaling, bool):
+            raise TypeError("Expected argument 'per_site_scaling' to be a bool")
+        __self__.per_site_scaling = per_site_scaling
+        """
+        If True apps assigned to this App Service Plan can be scaled independently
+                    If False apps assigned to this App Service Plan will scale to all instances of the plan
+        """
+        if reserved and not isinstance(reserved, bool):
+            raise TypeError("Expected argument 'reserved' to be a bool")
+        __self__.reserved = reserved
+        """
+        Enables creation of a Linux App Service Plan
+        """
+        if resource_group and not isinstance(resource_group, str):
+            raise TypeError("Expected argument 'resource_group' to be a str")
+        __self__.resource_group = resource_group
+        """
+        Resource group of the server farm
+        """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         Describes a sku for a scalable resource
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        App Service Plan Status
+        """
+        if subscription and not isinstance(subscription, str):
+            raise TypeError("Expected argument 'subscription' to be a str")
+        __self__.subscription = subscription
+        """
+        App Service Plan Subscription
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -53,6 +111,12 @@ class GetServerFarmResult:
         """
         Resource type
         """
+        if worker_tier_name and not isinstance(worker_tier_name, str):
+            raise TypeError("Expected argument 'worker_tier_name' to be a str")
+        __self__.worker_tier_name = worker_tier_name
+        """
+        Target worker tier assigned to the App Service Plan
+        """
 
 
 class AwaitableGetServerFarmResult(GetServerFarmResult):
@@ -61,13 +125,23 @@ class AwaitableGetServerFarmResult(GetServerFarmResult):
         if False:
             yield self
         return GetServerFarmResult(
+            admin_site_name=self.admin_site_name,
+            geo_region=self.geo_region,
+            hosting_environment_profile=self.hosting_environment_profile,
             kind=self.kind,
             location=self.location,
+            maximum_number_of_workers=self.maximum_number_of_workers,
             name=self.name,
-            properties=self.properties,
+            number_of_sites=self.number_of_sites,
+            per_site_scaling=self.per_site_scaling,
+            reserved=self.reserved,
+            resource_group=self.resource_group,
             sku=self.sku,
+            status=self.status,
+            subscription=self.subscription,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            worker_tier_name=self.worker_tier_name)
 
 
 def get_server_farm(name=None, resource_group_name=None, opts=None):
@@ -87,10 +161,20 @@ def get_server_farm(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getServerFarm', __args__, opts=opts).value
 
     return AwaitableGetServerFarmResult(
+        admin_site_name=__ret__.get('adminSiteName'),
+        geo_region=__ret__.get('geoRegion'),
+        hosting_environment_profile=__ret__.get('hostingEnvironmentProfile'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
+        maximum_number_of_workers=__ret__.get('maximumNumberOfWorkers'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        number_of_sites=__ret__.get('numberOfSites'),
+        per_site_scaling=__ret__.get('perSiteScaling'),
+        reserved=__ret__.get('reserved'),
+        resource_group=__ret__.get('resourceGroup'),
         sku=__ret__.get('sku'),
+        status=__ret__.get('status'),
+        subscription=__ret__.get('subscription'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        worker_tier_name=__ret__.get('workerTierName'))

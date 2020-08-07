@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -41,17 +39,21 @@ export class AlertRuleAction extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+     */
+    public readonly logicAppResourceId!: pulumi.Output<string>;
+    /**
      * Azure resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Action properties for get request
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20200101.ActionResponsePropertiesResponse>;
-    /**
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The name of the logic app's workflow.
+     */
+    public /*out*/ readonly workflowId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AlertRuleAction resource with the given unique name, arguments, and options.
@@ -88,8 +90,8 @@ export class AlertRuleAction extends pulumi.CustomResource {
             inputs["ruleId"] = args ? args.ruleId : undefined;
             inputs["triggerUri"] = args ? args.triggerUri : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["workflowId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

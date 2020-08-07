@@ -26,9 +26,25 @@ namespace Pulumi.AzureRM.Network.V20180801.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the IP configuration
+        /// The private IP address of the IP configuration.
         /// </summary>
-        public readonly Outputs.IPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// The private IP allocation method. Possible values are 'Static' and 'Dynamic'.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The reference of the public IP resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponseResult? PublicIPAddress;
+        /// <summary>
+        /// The reference of the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
 
         [OutputConstructor]
         private IPConfigurationResponseResult(
@@ -38,12 +54,24 @@ namespace Pulumi.AzureRM.Network.V20180801.Outputs
 
             string? name,
 
-            Outputs.IPConfigurationPropertiesFormatResponseResult? properties)
+            string? privateIPAddress,
+
+            string? privateIPAllocationMethod,
+
+            string? provisioningState,
+
+            Outputs.PublicIPAddressResponseResult? publicIPAddress,
+
+            Outputs.SubnetResponseResult? subnet)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
         }
     }
 }

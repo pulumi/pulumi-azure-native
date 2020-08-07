@@ -50,9 +50,17 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of a private endpoint connection.
+        /// The resource of private endpoint.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult Properties;
+        public readonly Outputs.PrivateEndpointResponseResult? PrivateEndpoint;
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// The current provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -62,12 +70,18 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         private GetPrivateEndpointConnectionResult(
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponseResult properties,
+            Outputs.PrivateEndpointResponseResult? privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStateResponseResult privateLinkServiceConnectionState,
+
+            string provisioningState,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

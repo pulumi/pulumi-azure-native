@@ -13,7 +13,7 @@ class GetNamespaceAuthorizationRuleResult:
     """
     Description of a namespace authorization rule.
     """
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, location=None, name=None, rights=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +26,11 @@ class GetNamespaceAuthorizationRuleResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if rights and not isinstance(rights, list):
+            raise TypeError("Expected argument 'rights' to be a list")
+        __self__.rights = rights
         """
-        SharedAccessAuthorizationRule properties.
+        The rights associated with the rule.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +48,7 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
         return GetNamespaceAuthorizationRuleResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            rights=self.rights,
             type=self.type)
 
 
@@ -73,5 +73,5 @@ def get_namespace_authorization_rule(name=None, namespace_name=None, resource_gr
     return AwaitableGetNamespaceAuthorizationRuleResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        rights=__ret__.get('rights'),
         type=__ret__.get('type'))

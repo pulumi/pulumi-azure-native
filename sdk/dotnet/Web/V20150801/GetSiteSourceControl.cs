@@ -40,6 +40,22 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetSiteSourceControlResult
     {
         /// <summary>
+        /// Name of branch to use for deployment
+        /// </summary>
+        public readonly string? Branch;
+        /// <summary>
+        /// Whether to manual or continuous integration
+        /// </summary>
+        public readonly bool? DeploymentRollbackEnabled;
+        /// <summary>
+        /// Whether to manual or continuous integration
+        /// </summary>
+        public readonly bool? IsManualIntegration;
+        /// <summary>
+        /// Mercurial or Git repository type
+        /// </summary>
+        public readonly bool? IsMercurial;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -51,7 +67,10 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.SiteSourceControlResponsePropertiesResult Properties;
+        /// <summary>
+        /// Repository or source control url
+        /// </summary>
+        public readonly string? RepoUrl;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,22 +82,34 @@ namespace Pulumi.AzureRM.Web.V20150801
 
         [OutputConstructor]
         private GetSiteSourceControlResult(
+            string? branch,
+
+            bool? deploymentRollbackEnabled,
+
+            bool? isManualIntegration,
+
+            bool? isMercurial,
+
             string? kind,
 
             string location,
 
             string? name,
 
-            Outputs.SiteSourceControlResponsePropertiesResult properties,
+            string? repoUrl,
 
             ImmutableDictionary<string, string>? tags,
 
             string? type)
         {
+            Branch = branch;
+            DeploymentRollbackEnabled = deploymentRollbackEnabled;
+            IsManualIntegration = isManualIntegration;
+            IsMercurial = isMercurial;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            RepoUrl = repoUrl;
             Tags = tags;
             Type = type;
         }

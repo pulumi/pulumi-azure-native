@@ -25,10 +25,18 @@ type LookupEventSubscriptionArgs struct {
 
 // Event Subscription
 type LookupEventSubscriptionResult struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	Destination *EventSubscriptionDestinationResponse `pulumi:"destination"`
+	// Information about the filter for the event subscription.
+	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
+	// List of user defined labels.
+	Labels []string `pulumi:"labels"`
 	// Name of the resource
 	Name string `pulumi:"name"`
-	// Properties of the event subscription
-	Properties EventSubscriptionPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the event subscription.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Name of the topic of the event subscription.
+	Topic string `pulumi:"topic"`
 	// Type of the resource
 	Type string `pulumi:"type"`
 }

@@ -37,13 +37,69 @@ export class ConnectorMapping extends pulumi.CustomResource {
     }
 
     /**
+     * The connector mapping name
+     */
+    public /*out*/ readonly connectorMappingName!: pulumi.Output<string>;
+    /**
+     * The connector name.
+     */
+    public readonly connectorName!: pulumi.Output<string>;
+    /**
+     * Type of connector.
+     */
+    public readonly connectorType!: pulumi.Output<string | undefined>;
+    /**
+     * The created time.
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * The DataFormat ID.
+     */
+    public /*out*/ readonly dataFormatId!: pulumi.Output<string>;
+    /**
+     * The description of the connector mapping.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Display name for the connector mapping.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * Defines which entity type the file should map to.
+     */
+    public readonly entityType!: pulumi.Output<string>;
+    /**
+     * The mapping entity name.
+     */
+    public readonly entityTypeName!: pulumi.Output<string>;
+    /**
+     * The last modified time.
+     */
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
+     * The properties of the mapping.
+     */
+    public readonly mappingProperties!: pulumi.Output<outputs.customerinsights.v20170101.ConnectorMappingPropertiesResponse>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The connector mapping definition.
+     * The next run time based on customer's settings.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.ConnectorMappingResponse>;
+    public /*out*/ readonly nextRunTime!: pulumi.Output<string>;
+    /**
+     * The RunId.
+     */
+    public /*out*/ readonly runId!: pulumi.Output<string>;
+    /**
+     * State of connector mapping.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * The hub name.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -93,7 +149,14 @@ export class ConnectorMapping extends pulumi.CustomResource {
             inputs["mappingProperties"] = args ? args.mappingProperties : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["connectorMappingName"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["dataFormatId"] = undefined /*out*/;
+            inputs["lastModified"] = undefined /*out*/;
+            inputs["nextRunTime"] = undefined /*out*/;
+            inputs["runId"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

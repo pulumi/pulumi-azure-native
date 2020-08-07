@@ -13,18 +13,24 @@ class GetManagementLockResult:
     """
     Management lock information.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, level=None, name=None, notes=None, type=None):
+        if level and not isinstance(level, str):
+            raise TypeError("Expected argument 'level' to be a str")
+        __self__.level = level
+        """
+        The lock level of the management lock.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the lock.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        __self__.notes = notes
         """
-        The properties of the lock.
+        The notes of the management lock.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +46,9 @@ class AwaitableGetManagementLockResult(GetManagementLockResult):
         if False:
             yield self
         return GetManagementLockResult(
+            level=self.level,
             name=self.name,
-            properties=self.properties,
+            notes=self.notes,
             type=self.type)
 
 
@@ -60,6 +67,7 @@ def get_management_lock(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20150101:getManagementLock', __args__, opts=opts).value
 
     return AwaitableGetManagementLockResult(
+        level=__ret__.get('level'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notes=__ret__.get('notes'),
         type=__ret__.get('type'))

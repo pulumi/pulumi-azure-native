@@ -10,30 +10,58 @@ from ... import _utilities, _tables
 
 
 class Webhook(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Gets or sets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
+    expiry_time: pulumi.Output[str]
+    """
+    Gets or sets the expiry time.
+    """
+    is_enabled: pulumi.Output[bool]
+    """
+    Gets or sets the value of the enabled flag of the webhook.
+    """
+    last_invoked_time: pulumi.Output[str]
+    """
+    Gets or sets the last invoked time.
+    """
+    last_modified_by: pulumi.Output[str]
+    """
+    Details of the user who last modified the Webhook
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets or sets the last modified time.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[dict]
     """
-    Gets or sets the webhook properties.
-      * `creation_time` (`str`) - Gets or sets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `expiry_time` (`str`) - Gets or sets the expiry time.
-      * `is_enabled` (`bool`) - Gets or sets the value of the enabled flag of the webhook.
-      * `last_invoked_time` (`str`) - Gets or sets the last invoked time.
-      * `last_modified_by` (`str`) - Details of the user who last modified the Webhook
-      * `last_modified_time` (`str`) - Gets or sets the last modified time.
-      * `parameters` (`dict`) - Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-      * `run_on` (`str`) - Gets or sets the name of the hybrid worker group the webhook job will run on.
-      * `runbook` (`dict`) - Gets or sets the runbook the webhook is associated with.
-        * `name` (`str`) - Gets or sets the name of the runbook.
-
-      * `uri` (`str`) - Gets or sets the webhook uri.
+    Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
+    """
+    run_on: pulumi.Output[str]
+    """
+    Gets or sets the name of the hybrid worker group the webhook job will run on.
+    """
+    runbook: pulumi.Output[dict]
+    """
+    Gets or sets the runbook the webhook is associated with.
+      * `name` (`str`) - Gets or sets the name of the runbook.
     """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    uri: pulumi.Output[str]
+    """
+    Gets or sets the webhook uri.
     """
     def __init__(__self__, resource_name, opts=None, automation_account_name=None, expiry_time=None, is_enabled=None, name=None, parameters=None, resource_group_name=None, run_on=None, runbook=None, uri=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -87,7 +115,11 @@ class Webhook(pulumi.CustomResource):
             __props__['run_on'] = run_on
             __props__['runbook'] = runbook
             __props__['uri'] = uri
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['description'] = None
+            __props__['last_invoked_time'] = None
+            __props__['last_modified_by'] = None
+            __props__['last_modified_time'] = None
             __props__['type'] = None
         super(Webhook, __self__).__init__(
             'azurerm:automation/v20151031:Webhook',

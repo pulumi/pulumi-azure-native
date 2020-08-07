@@ -10,9 +10,59 @@ from ... import _utilities, _tables
 
 
 class VirtualNetworkGateway(pulumi.CustomResource):
+    active_active: pulumi.Output[bool]
+    """
+    ActiveActive flag.
+    """
+    bgp_settings: pulumi.Output[dict]
+    """
+    Virtual network gateway's BGP speaker settings.
+      * `asn` (`float`) - The BGP speaker's ASN.
+      * `bgp_peering_address` (`str`) - The BGP peering address and BGP identifier of this BGP speaker.
+      * `peer_weight` (`float`) - The weight added to routes learned from this BGP speaker.
+    """
+    custom_routes: pulumi.Output[dict]
+    """
+    The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+      * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
+    """
+    enable_bgp: pulumi.Output[bool]
+    """
+    Whether BGP is enabled for this virtual network gateway or not.
+    """
+    enable_dns_forwarding: pulumi.Output[bool]
+    """
+    Whether dns forwarding is enabled or not.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    gateway_default_site: pulumi.Output[dict]
+    """
+    The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+      * `id` (`str`) - Resource ID.
+    """
+    gateway_type: pulumi.Output[str]
+    """
+    The type of this virtual network gateway.
+    """
+    inbound_dns_forwarding_endpoint: pulumi.Output[str]
+    """
+    The IP address allocated by the gateway to which dns requests can be sent.
+    """
+    ip_configurations: pulumi.Output[list]
+    """
+    IP configurations for virtual network gateway.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `private_ip_allocation_method` (`str`) - The private IP address allocation method.
+      * `provisioning_state` (`str`) - The provisioning state of the virtual network gateway IP configuration resource.
+      * `public_ip_address` (`dict`) - The reference to the public IP resource.
+        * `id` (`str`) - Resource ID.
+
+      * `subnet` (`dict`) - The reference to the subnet resource.
     """
     location: pulumi.Output[str]
     """
@@ -22,78 +72,20 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the virtual network gateway.
-      * `active_active` (`bool`) - ActiveActive flag.
-      * `bgp_settings` (`dict`) - Virtual network gateway's BGP speaker settings.
-        * `asn` (`float`) - The BGP speaker's ASN.
-        * `bgp_peering_address` (`str`) - The BGP peering address and BGP identifier of this BGP speaker.
-        * `peer_weight` (`float`) - The weight added to routes learned from this BGP speaker.
-
-      * `custom_routes` (`dict`) - The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
-        * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
-
-      * `enable_bgp` (`bool`) - Whether BGP is enabled for this virtual network gateway or not.
-      * `enable_dns_forwarding` (`bool`) - Whether dns forwarding is enabled or not.
-      * `gateway_default_site` (`dict`) - The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
-        * `id` (`str`) - Resource ID.
-
-      * `gateway_type` (`str`) - The type of this virtual network gateway.
-      * `inbound_dns_forwarding_endpoint` (`str`) - The IP address allocated by the gateway to which dns requests can be sent.
-      * `ip_configurations` (`list`) - IP configurations for virtual network gateway.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the virtual network gateway ip configuration.
-          * `private_ip_allocation_method` (`str`) - The private IP address allocation method.
-          * `provisioning_state` (`str`) - The provisioning state of the virtual network gateway IP configuration resource.
-          * `public_ip_address` (`dict`) - The reference to the public IP resource.
-          * `subnet` (`dict`) - The reference to the subnet resource.
-
-      * `provisioning_state` (`str`) - The provisioning state of the virtual network gateway resource.
-      * `resource_guid` (`str`) - The resource GUID property of the virtual network gateway resource.
-      * `sku` (`dict`) - The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
-        * `capacity` (`float`) - The capacity.
-        * `name` (`str`) - Gateway SKU name.
-        * `tier` (`str`) - Gateway SKU tier.
-
-      * `vpn_client_configuration` (`dict`) - The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-        * `aad_audience` (`str`) - The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
-        * `aad_issuer` (`str`) - The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
-        * `aad_tenant` (`str`) - The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
-        * `radius_server_address` (`str`) - The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
-        * `radius_server_secret` (`str`) - The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
-        * `vpn_client_address_pool` (`dict`) - The reference to the address space resource which represents Address space for P2S VpnClient.
-        * `vpn_client_ipsec_policies` (`list`) - VpnClientIpsecPolicies for virtual network gateway P2S client.
-          * `dh_group` (`str`) - The DH Group used in IKE Phase 1 for initial SA.
-          * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
-          * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
-          * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
-          * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
-          * `pfs_group` (`str`) - The Pfs Group used in IKE Phase 2 for new child SA.
-          * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-          * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-
-        * `vpn_client_protocols` (`list`) - VpnClientProtocols for Virtual network gateway.
-        * `vpn_client_revoked_certificates` (`list`) - VpnClientRevokedCertificate for Virtual network gateway.
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`str`) - Resource ID.
-          * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`dict`) - Properties of the vpn client revoked certificate.
-            * `provisioning_state` (`str`) - The provisioning state of the VPN client revoked certificate resource.
-            * `thumbprint` (`str`) - The revoked VPN client certificate thumbprint.
-
-        * `vpn_client_root_certificates` (`list`) - VpnClientRootCertificate for virtual network gateway.
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `id` (`str`) - Resource ID.
-          * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`dict`) - Properties of the vpn client root certificate.
-            * `provisioning_state` (`str`) - The provisioning state of the VPN client root certificate resource.
-            * `public_cert_data` (`str`) - The certificate public data.
-
-      * `vpn_gateway_generation` (`str`) - The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
-      * `vpn_type` (`str`) - The type of this virtual network gateway.
+    The provisioning state of the virtual network gateway resource.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    The resource GUID property of the virtual network gateway resource.
+    """
+    sku: pulumi.Output[dict]
+    """
+    The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+      * `capacity` (`float`) - The capacity.
+      * `name` (`str`) - Gateway SKU name.
+      * `tier` (`str`) - Gateway SKU tier.
     """
     tags: pulumi.Output[dict]
     """
@@ -102,6 +94,50 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    vpn_client_configuration: pulumi.Output[dict]
+    """
+    The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+      * `aad_audience` (`str`) - The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+      * `aad_issuer` (`str`) - The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+      * `aad_tenant` (`str`) - The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+      * `radius_server_address` (`str`) - The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
+      * `radius_server_secret` (`str`) - The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
+      * `vpn_client_address_pool` (`dict`) - The reference to the address space resource which represents Address space for P2S VpnClient.
+        * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
+
+      * `vpn_client_ipsec_policies` (`list`) - VpnClientIpsecPolicies for virtual network gateway P2S client.
+        * `dh_group` (`str`) - The DH Group used in IKE Phase 1 for initial SA.
+        * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
+        * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
+        * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
+        * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
+        * `pfs_group` (`str`) - The Pfs Group used in IKE Phase 2 for new child SA.
+        * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+        * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+
+      * `vpn_client_protocols` (`list`) - VpnClientProtocols for Virtual network gateway.
+      * `vpn_client_revoked_certificates` (`list`) - VpnClientRevokedCertificate for Virtual network gateway.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `id` (`str`) - Resource ID.
+        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `provisioning_state` (`str`) - The provisioning state of the VPN client revoked certificate resource.
+        * `thumbprint` (`str`) - The revoked VPN client certificate thumbprint.
+
+      * `vpn_client_root_certificates` (`list`) - VpnClientRootCertificate for virtual network gateway.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `id` (`str`) - Resource ID.
+        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `provisioning_state` (`str`) - The provisioning state of the VPN client root certificate resource.
+        * `public_cert_data` (`str`) - The certificate public data.
+    """
+    vpn_gateway_generation: pulumi.Output[str]
+    """
+    The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+    """
+    vpn_type: pulumi.Output[str]
+    """
+    The type of this virtual network gateway.
     """
     def __init__(__self__, resource_name, opts=None, active_active=None, bgp_settings=None, custom_routes=None, enable_bgp=None, enable_dns_forwarding=None, gateway_default_site=None, gateway_type=None, id=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -222,7 +258,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__['vpn_gateway_generation'] = vpn_gateway_generation
             __props__['vpn_type'] = vpn_type
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['inbound_dns_forwarding_endpoint'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_guid'] = None
             __props__['type'] = None
         super(VirtualNetworkGateway, __self__).__init__(
             'azurerm:network/v20191101:VirtualNetworkGateway',

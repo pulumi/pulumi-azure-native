@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,22 @@ export class Origin extends pulumi.CustomResource {
     }
 
     /**
+     * Origin is enabled for load balancing or not
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+     */
+    public readonly hostName!: pulumi.Output<string>;
+    /**
+     * The value of the HTTP port. Must be between 1 and 65535.
+     */
+    public readonly httpPort!: pulumi.Output<number | undefined>;
+    /**
+     * The value of the HTTPS port. Must be between 1 and 65535.
+     */
+    public readonly httpsPort!: pulumi.Output<number | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +59,41 @@ export class Origin extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The JSON object that contains the properties of the origin.
+     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20200415.OriginPropertiesResponse>;
+    public readonly originHostHeader!: pulumi.Output<string | undefined>;
+    /**
+     * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+     */
+    public readonly priority!: pulumi.Output<number | undefined>;
+    /**
+     * The approval status for the connection to the Private Link
+     */
+    public /*out*/ readonly privateEndpointStatus!: pulumi.Output<string>;
+    /**
+     * The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
+     */
+    public readonly privateLinkAlias!: pulumi.Output<string | undefined>;
+    /**
+     * A custom message to be included in the approval request to connect to the Private Link.
+     */
+    public readonly privateLinkApprovalMessage!: pulumi.Output<string | undefined>;
+    /**
+     * The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
+     */
+    public readonly privateLinkLocation!: pulumi.Output<string | undefined>;
+    /**
+     * The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+     */
+    public readonly privateLinkResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * Provisioning status of the origin.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource status of the origin.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -56,6 +102,10 @@ export class Origin extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+     */
+    public readonly weight!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Origin resource with the given unique name, arguments, and options.
@@ -105,7 +155,9 @@ export class Origin extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["weight"] = args ? args.weight : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["privateEndpointStatus"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

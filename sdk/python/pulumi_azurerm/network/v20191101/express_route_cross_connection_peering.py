@@ -10,47 +10,93 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
+    azure_asn: pulumi.Output[float]
+    """
+    The Azure ASN.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    gateway_manager_etag: pulumi.Output[str]
+    """
+    The GatewayManager Etag.
+    """
+    ipv6_peering_config: pulumi.Output[dict]
+    """
+    The IPv6 peering configuration.
+      * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
+        * `advertised_communities` (`list`) - The communities of bgp peering. Specified for microsoft peering.
+        * `advertised_public_prefixes` (`list`) - The reference to AdvertisedPublicPrefixes.
+        * `advertised_public_prefixes_state` (`str`) - The advertised public prefix state of the Peering resource.
+        * `customer_asn` (`float`) - The CustomerASN of the peering.
+        * `legacy_mode` (`float`) - The legacy mode of the peering.
+        * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
+
+      * `primary_peer_address_prefix` (`str`) - The primary address prefix.
+      * `route_filter` (`dict`) - The reference to the RouteFilter resource.
+        * `id` (`str`) - Resource ID.
+
+      * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
+      * `state` (`str`) - The state of peering.
+    """
+    last_modified_by: pulumi.Output[str]
+    """
+    Who was the last to modify the peering.
+    """
+    microsoft_peering_config: pulumi.Output[dict]
+    """
+    The Microsoft peering configuration.
+      * `advertised_communities` (`list`) - The communities of bgp peering. Specified for microsoft peering.
+      * `advertised_public_prefixes` (`list`) - The reference to AdvertisedPublicPrefixes.
+      * `advertised_public_prefixes_state` (`str`) - The advertised public prefix state of the Peering resource.
+      * `customer_asn` (`float`) - The CustomerASN of the peering.
+      * `legacy_mode` (`float`) - The legacy mode of the peering.
+      * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
     """
     name: pulumi.Output[str]
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    peer_asn: pulumi.Output[float]
     """
-    Properties of the express route cross connection peering.
-      * `azure_asn` (`float`) - The Azure ASN.
-      * `gateway_manager_etag` (`str`) - The GatewayManager Etag.
-      * `ipv6_peering_config` (`dict`) - The IPv6 peering configuration.
-        * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
-          * `advertised_communities` (`list`) - The communities of bgp peering. Specified for microsoft peering.
-          * `advertised_public_prefixes` (`list`) - The reference to AdvertisedPublicPrefixes.
-          * `advertised_public_prefixes_state` (`str`) - The advertised public prefix state of the Peering resource.
-          * `customer_asn` (`float`) - The CustomerASN of the peering.
-          * `legacy_mode` (`float`) - The legacy mode of the peering.
-          * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
-
-        * `primary_peer_address_prefix` (`str`) - The primary address prefix.
-        * `route_filter` (`dict`) - The reference to the RouteFilter resource.
-          * `id` (`str`) - Resource ID.
-
-        * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
-        * `state` (`str`) - The state of peering.
-
-      * `last_modified_by` (`str`) - Who was the last to modify the peering.
-      * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
-      * `peer_asn` (`float`) - The peer ASN.
-      * `peering_type` (`str`) - The peering type.
-      * `primary_azure_port` (`str`) - The primary port.
-      * `primary_peer_address_prefix` (`str`) - The primary address prefix.
-      * `provisioning_state` (`str`) - The provisioning state of the express route cross connection peering resource.
-      * `secondary_azure_port` (`str`) - The secondary port.
-      * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
-      * `shared_key` (`str`) - The shared key.
-      * `state` (`str`) - The peering state.
-      * `vlan_id` (`float`) - The VLAN ID.
+    The peer ASN.
+    """
+    peering_type: pulumi.Output[str]
+    """
+    The peering type.
+    """
+    primary_azure_port: pulumi.Output[str]
+    """
+    The primary port.
+    """
+    primary_peer_address_prefix: pulumi.Output[str]
+    """
+    The primary address prefix.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the express route cross connection peering resource.
+    """
+    secondary_azure_port: pulumi.Output[str]
+    """
+    The secondary port.
+    """
+    secondary_peer_address_prefix: pulumi.Output[str]
+    """
+    The secondary address prefix.
+    """
+    shared_key: pulumi.Output[str]
+    """
+    The shared key.
+    """
+    state: pulumi.Output[str]
+    """
+    The peering state.
+    """
+    vlan_id: pulumi.Output[float]
+    """
+    The VLAN ID.
     """
     def __init__(__self__, resource_name, opts=None, cross_connection_name=None, gateway_manager_etag=None, id=None, ipv6_peering_config=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_peer_address_prefix=None, resource_group_name=None, secondary_peer_address_prefix=None, shared_key=None, state=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -126,8 +172,12 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
             __props__['shared_key'] = shared_key
             __props__['state'] = state
             __props__['vlan_id'] = vlan_id
+            __props__['azure_asn'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['last_modified_by'] = None
+            __props__['primary_azure_port'] = None
+            __props__['provisioning_state'] = None
+            __props__['secondary_azure_port'] = None
         super(ExpressRouteCrossConnectionPeering, __self__).__init__(
             'azurerm:network/v20191101:ExpressRouteCrossConnectionPeering',
             resource_name,

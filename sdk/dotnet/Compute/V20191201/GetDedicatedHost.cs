@@ -46,6 +46,22 @@ namespace Pulumi.AzureRM.Compute.V20191201
     public sealed class GetDedicatedHostResult
     {
         /// <summary>
+        /// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+        /// </summary>
+        public readonly bool? AutoReplaceOnFailure;
+        /// <summary>
+        /// A unique id generated and assigned to the dedicated host by the platform. &lt;br&gt;&lt;br&gt; Does not change throughout the lifetime of the host.
+        /// </summary>
+        public readonly string HostId;
+        /// <summary>
+        /// The dedicated host instance view.
+        /// </summary>
+        public readonly Outputs.DedicatedHostInstanceViewResponseResult InstanceView;
+        /// <summary>
+        /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
+        /// </summary>
+        public readonly string? LicenseType;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -54,9 +70,17 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the dedicated host.
+        /// Fault domain of the dedicated host within a dedicated host group.
         /// </summary>
-        public readonly Outputs.DedicatedHostPropertiesResponseResult Properties;
+        public readonly int? PlatformFaultDomain;
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The date when the host was first provisioned.
+        /// </summary>
+        public readonly string ProvisioningTime;
         /// <summary>
         /// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         /// </summary>
@@ -69,27 +93,52 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A list of references to all virtual machines in the Dedicated Host.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponseResult> VirtualMachines;
 
         [OutputConstructor]
         private GetDedicatedHostResult(
+            bool? autoReplaceOnFailure,
+
+            string hostId,
+
+            Outputs.DedicatedHostInstanceViewResponseResult instanceView,
+
+            string? licenseType,
+
             string location,
 
             string name,
 
-            Outputs.DedicatedHostPropertiesResponseResult properties,
+            int? platformFaultDomain,
+
+            string provisioningState,
+
+            string provisioningTime,
 
             Outputs.SkuResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.SubResourceReadOnlyResponseResult> virtualMachines)
         {
+            AutoReplaceOnFailure = autoReplaceOnFailure;
+            HostId = hostId;
+            InstanceView = instanceView;
+            LicenseType = licenseType;
             Location = location;
             Name = name;
-            Properties = properties;
+            PlatformFaultDomain = platformFaultDomain;
+            ProvisioningState = provisioningState;
+            ProvisioningTime = provisioningTime;
             Sku = sku;
             Tags = tags;
             Type = type;
+            VirtualMachines = virtualMachines;
         }
     }
 }

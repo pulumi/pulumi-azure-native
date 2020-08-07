@@ -10,21 +10,29 @@ from ... import _utilities, _tables
 
 
 class WorkspaceConnection(pulumi.CustomResource):
+    auth_type: pulumi.Output[str]
+    """
+    Authorization type of the workspace connection.
+    """
+    category: pulumi.Output[str]
+    """
+    Category of the workspace connection.
+    """
     name: pulumi.Output[str]
     """
     Friendly name of the workspace connection.
     """
-    properties: pulumi.Output[dict]
+    target: pulumi.Output[str]
     """
-    Properties of workspace connection.
-      * `auth_type` (`str`) - Authorization type of the workspace connection.
-      * `category` (`str`) - Category of the workspace connection.
-      * `target` (`str`) - Target of the workspace connection.
-      * `value` (`str`) - Value details of the workspace connection.
+    Target of the workspace connection.
     """
     type: pulumi.Output[str]
     """
     Resource type of workspace connection.
+    """
+    value: pulumi.Output[str]
+    """
+    Value details of the workspace connection.
     """
     def __init__(__self__, resource_name, opts=None, auth_type=None, category=None, name=None, resource_group_name=None, target=None, value=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -70,7 +78,6 @@ class WorkspaceConnection(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(WorkspaceConnection, __self__).__init__(
             'azurerm:machinelearningservices/v20200601:WorkspaceConnection',

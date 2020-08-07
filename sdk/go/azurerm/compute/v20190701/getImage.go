@@ -25,12 +25,18 @@ type LookupImageArgs struct {
 
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
 type LookupImageResult struct {
+	// Gets the HyperVGenerationType of the VirtualMachine created from the image
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Describes the properties of an Image.
-	Properties ImagePropertiesResponse `pulumi:"properties"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The source virtual machine from which Image is created.
+	SourceVirtualMachine *SubResourceResponse `pulumi:"sourceVirtualMachine"`
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile *ImageStorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

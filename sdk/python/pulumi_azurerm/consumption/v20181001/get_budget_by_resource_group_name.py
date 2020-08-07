@@ -13,12 +13,36 @@ class GetBudgetByResourceGroupNameResult:
     """
     A budget resource.
     """
-    def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
+    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, filters=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
+        if amount and not isinstance(amount, float):
+            raise TypeError("Expected argument 'amount' to be a float")
+        __self__.amount = amount
+        """
+        The total amount of cost to track with the budget
+        """
+        if category and not isinstance(category, str):
+            raise TypeError("Expected argument 'category' to be a str")
+        __self__.category = category
+        """
+        The category of the budget, whether the budget tracks cost or usage.
+        """
+        if current_spend and not isinstance(current_spend, dict):
+            raise TypeError("Expected argument 'current_spend' to be a dict")
+        __self__.current_spend = current_spend
+        """
+        The current amount of cost which is being tracked for a budget.
+        """
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         __self__.e_tag = e_tag
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        """
+        if filters and not isinstance(filters, dict):
+            raise TypeError("Expected argument 'filters' to be a dict")
+        __self__.filters = filters
+        """
+        May be used to filter budgets by resource group, resource, or meter.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +50,23 @@ class GetBudgetByResourceGroupNameResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notifications and not isinstance(notifications, dict):
+            raise TypeError("Expected argument 'notifications' to be a dict")
+        __self__.notifications = notifications
         """
-        The properties of the budget.
+        Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+        """
+        if time_grain and not isinstance(time_grain, str):
+            raise TypeError("Expected argument 'time_grain' to be a str")
+        __self__.time_grain = time_grain
+        """
+        The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+        """
+        if time_period and not isinstance(time_period, dict):
+            raise TypeError("Expected argument 'time_period' to be a dict")
+        __self__.time_period = time_period
+        """
+        Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +82,15 @@ class AwaitableGetBudgetByResourceGroupNameResult(GetBudgetByResourceGroupNameRe
         if False:
             yield self
         return GetBudgetByResourceGroupNameResult(
+            amount=self.amount,
+            category=self.category,
+            current_spend=self.current_spend,
             e_tag=self.e_tag,
+            filters=self.filters,
             name=self.name,
-            properties=self.properties,
+            notifications=self.notifications,
+            time_grain=self.time_grain,
+            time_period=self.time_period,
             type=self.type)
 
 
@@ -69,7 +111,13 @@ def get_budget_by_resource_group_name(name=None, resource_group_name=None, opts=
     __ret__ = pulumi.runtime.invoke('azurerm:consumption/v20181001:getBudgetByResourceGroupName', __args__, opts=opts).value
 
     return AwaitableGetBudgetByResourceGroupNameResult(
+        amount=__ret__.get('amount'),
+        category=__ret__.get('category'),
+        current_spend=__ret__.get('currentSpend'),
         e_tag=__ret__.get('eTag'),
+        filters=__ret__.get('filters'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notifications=__ret__.get('notifications'),
+        time_grain=__ret__.get('timeGrain'),
+        time_period=__ret__.get('timePeriod'),
         type=__ret__.get('type'))

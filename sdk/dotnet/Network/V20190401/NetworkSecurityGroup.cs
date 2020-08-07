@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20190401
     public partial class NetworkSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// The default security rules of network security group.
+        /// </summary>
+        [Output("defaultSecurityRules")]
+        public Output<ImmutableArray<Outputs.SecurityRuleResponseResult>> DefaultSecurityRules { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +39,34 @@ namespace Pulumi.AzureRM.Network.V20190401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the network security group.
+        /// A collection of references to network interfaces.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NetworkSecurityGroupPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("networkInterfaces")]
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseResult>> NetworkInterfaces { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the network security group resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of security rules of the network security group.
+        /// </summary>
+        [Output("securityRules")]
+        public Output<ImmutableArray<Outputs.SecurityRuleResponseResult>> SecurityRules { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        [Output("subnets")]
+        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

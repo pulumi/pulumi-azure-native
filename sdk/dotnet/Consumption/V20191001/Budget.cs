@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.Consumption.V20191001
     public partial class Budget : Pulumi.CustomResource
     {
         /// <summary>
+        /// The total amount of cost to track with the budget
+        /// </summary>
+        [Output("amount")]
+        public Output<double> Amount { get; private set; } = null!;
+
+        /// <summary>
+        /// The category of the budget, whether the budget tracks cost or usage.
+        /// </summary>
+        [Output("category")]
+        public Output<string> Category { get; private set; } = null!;
+
+        /// <summary>
+        /// The current amount of cost which is being tracked for a budget.
+        /// </summary>
+        [Output("currentSpend")]
+        public Output<Outputs.CurrentSpendResponseResult> CurrentSpend { get; private set; } = null!;
+
+        /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// May be used to filter budgets by resource group, resource, or meter.
+        /// </summary>
+        [Output("filter")]
+        public Output<Outputs.BudgetFilterResponseResult?> Filter { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -27,10 +51,22 @@ namespace Pulumi.AzureRM.Consumption.V20191001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the budget.
+        /// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BudgetPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notifications")]
+        public Output<ImmutableDictionary<string, Outputs.NotificationResponseResult>?> Notifications { get; private set; } = null!;
+
+        /// <summary>
+        /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
+        /// </summary>
+        [Output("timeGrain")]
+        public Output<string> TimeGrain { get; private set; } = null!;
+
+        /// <summary>
+        /// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+        /// </summary>
+        [Output("timePeriod")]
+        public Output<Outputs.BudgetTimePeriodResponseResult> TimePeriod { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -25,12 +25,21 @@ type ListWebAppSitePushSettingsSlotArgs struct {
 
 // Push settings for the App.
 type ListWebAppSitePushSettingsSlotResult struct {
+	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+	DynamicTagsJson *string `pulumi:"dynamicTagsJson"`
+	// Gets or sets a flag indicating whether the Push endpoint is enabled.
+	IsPushEnabled bool `pulumi:"isPushEnabled"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// PushSettings resource specific properties
-	Properties PushSettingsResponseProperties `pulumi:"properties"`
+	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
+	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+	// Tags can consist of alphanumeric characters and the following:
+	// '_', '@', '#', '.', ':', '-'.
+	// Validation should be performed at the PushRequestHandler.
+	TagsRequiringAuth *string `pulumi:"tagsRequiringAuth"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

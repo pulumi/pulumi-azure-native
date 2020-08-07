@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class IotSecuritySolution(pulumi.CustomResource):
+    auto_discovered_resources: pulumi.Output[list]
+    """
+    List of resources that were automatically discovered as relevant to the security solution.
+    """
+    disabled_data_sources: pulumi.Output[list]
+    """
+    Disabled data sources. Disabling these data sources compromises the system.
+    """
+    display_name: pulumi.Output[str]
+    """
+    Resource display name.
+    """
+    export: pulumi.Output[list]
+    """
+    List of additional options for exporting to workspace data.
+    """
+    iot_hubs: pulumi.Output[list]
+    """
+    IoT Hub resource IDs
+    """
     location: pulumi.Output[str]
     """
     The resource location.
@@ -18,26 +38,16 @@ class IotSecuritySolution(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    recommendations_configuration: pulumi.Output[list]
     """
-    Security Solution data
-      * `auto_discovered_resources` (`list`) - List of resources that were automatically discovered as relevant to the security solution.
-      * `disabled_data_sources` (`list`) - Disabled data sources. Disabling these data sources compromises the system.
-      * `display_name` (`str`) - Resource display name.
-      * `export` (`list`) - List of additional options for exporting to workspace data.
-      * `iot_hubs` (`list`) - IoT Hub resource IDs
-      * `recommendations_configuration` (`list`) - List of the configuration status for each recommendation type.
-        * `name` (`str`)
-        * `recommendation_type` (`str`) - The type of IoT Security recommendation.
-        * `status` (`str`) - Recommendation status. When the recommendation status is disabled recommendations are not generated.
-
-      * `status` (`str`) - Status of the IoT Security solution.
-      * `unmasked_ip_logging_status` (`str`) - Unmasked IP address logging status
-      * `user_defined_resources` (`dict`) - Properties of the IoT Security solution's user defined resources.
-        * `query` (`str`) - Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-        * `query_subscriptions` (`list`) - List of Azure subscription ids on which the user defined resources query should be executed.
-
-      * `workspace` (`str`) - Workspace resource ID
+    List of the configuration status for each recommendation type.
+      * `name` (`str`)
+      * `recommendation_type` (`str`) - The type of IoT Security recommendation.
+      * `status` (`str`) - Recommendation status. When the recommendation status is disabled recommendations are not generated.
+    """
+    status: pulumi.Output[str]
+    """
+    Status of the IoT Security solution.
     """
     tags: pulumi.Output[dict]
     """
@@ -46,6 +56,20 @@ class IotSecuritySolution(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    unmasked_ip_logging_status: pulumi.Output[str]
+    """
+    Unmasked IP address logging status
+    """
+    user_defined_resources: pulumi.Output[dict]
+    """
+    Properties of the IoT Security solution's user defined resources.
+      * `query` (`str`) - Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
+      * `query_subscriptions` (`list`) - List of Azure subscription ids on which the user defined resources query should be executed.
+    """
+    workspace: pulumi.Output[str]
+    """
+    Workspace resource ID
     """
     def __init__(__self__, resource_name, opts=None, disabled_data_sources=None, display_name=None, export=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, resource_group_name=None, status=None, tags=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -115,7 +139,7 @@ class IotSecuritySolution(pulumi.CustomResource):
             __props__['unmasked_ip_logging_status'] = unmasked_ip_logging_status
             __props__['user_defined_resources'] = user_defined_resources
             __props__['workspace'] = workspace
-            __props__['properties'] = None
+            __props__['auto_discovered_resources'] = None
             __props__['type'] = None
         super(IotSecuritySolution, __self__).__init__(
             'azurerm:security/v20190801:IotSecuritySolution',

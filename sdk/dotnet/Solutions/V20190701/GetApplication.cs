@@ -40,9 +40,37 @@ namespace Pulumi.AzureRM.Solutions.V20190701
     public sealed class GetApplicationResult
     {
         /// <summary>
+        /// The fully qualified path of managed application definition Id.
+        /// </summary>
+        public readonly string? ApplicationDefinitionId;
+        /// <summary>
+        /// The collection of managed application artifacts.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationArtifactResponseResult> Artifacts;
+        /// <summary>
+        /// The  read-only authorizations property that is retrieved from the application package.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponseResult> Authorizations;
+        /// <summary>
+        /// The managed application billing details.
+        /// </summary>
+        public readonly Outputs.ApplicationBillingDetailsDefinitionResponseResult BillingDetails;
+        /// <summary>
+        /// The client entity that created the JIT request.
+        /// </summary>
+        public readonly Outputs.ApplicationClientDetailsResponseResult CreatedBy;
+        /// <summary>
+        /// The read-only customer support property that is retrieved from the application package.
+        /// </summary>
+        public readonly Outputs.ApplicationPackageContactResponseResult CustomerSupport;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponseResult? Identity;
+        /// <summary>
+        /// The managed application Jit access policy.
+        /// </summary>
+        public readonly Outputs.ApplicationJitAccessPolicyResponseResult? JitAccessPolicy;
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         /// </summary>
@@ -56,21 +84,45 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// </summary>
         public readonly string? ManagedBy;
         /// <summary>
+        /// The managed resource group Id.
+        /// </summary>
+        public readonly string? ManagedResourceGroupId;
+        /// <summary>
+        /// The managed application management mode.
+        /// </summary>
+        public readonly string ManagementMode;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Name and value pairs that define the managed application outputs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Outputs;
+        /// <summary>
+        /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// The plan information.
         /// </summary>
         public readonly Outputs.PlanResponseResult? Plan;
         /// <summary>
-        /// The managed application properties.
+        /// The managed application provisioning state.
         /// </summary>
-        public readonly Outputs.ApplicationPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The publisher tenant Id.
+        /// </summary>
+        public readonly string PublisherTenantId;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// The read-only support URLs property that is retrieved from the application package.
+        /// </summary>
+        public readonly Outputs.ApplicationPackageSupportUrlsResponseResult SupportUrls;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -79,10 +131,28 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The client entity that last updated the JIT request.
+        /// </summary>
+        public readonly Outputs.ApplicationClientDetailsResponseResult UpdatedBy;
 
         [OutputConstructor]
         private GetApplicationResult(
+            string? applicationDefinitionId,
+
+            ImmutableArray<Outputs.ApplicationArtifactResponseResult> artifacts,
+
+            ImmutableArray<Outputs.ApplicationAuthorizationResponseResult> authorizations,
+
+            Outputs.ApplicationBillingDetailsDefinitionResponseResult billingDetails,
+
+            Outputs.ApplicationClientDetailsResponseResult createdBy,
+
+            Outputs.ApplicationPackageContactResponseResult customerSupport,
+
             Outputs.IdentityResponseResult? identity,
+
+            Outputs.ApplicationJitAccessPolicyResponseResult? jitAccessPolicy,
 
             string kind,
 
@@ -90,28 +160,56 @@ namespace Pulumi.AzureRM.Solutions.V20190701
 
             string? managedBy,
 
+            string? managedResourceGroupId,
+
+            string managementMode,
+
             string name,
+
+            ImmutableDictionary<string, object> outputs,
+
+            ImmutableDictionary<string, object>? parameters,
 
             Outputs.PlanResponseResult? plan,
 
-            Outputs.ApplicationPropertiesResponseResult properties,
+            string provisioningState,
+
+            string publisherTenantId,
 
             Outputs.SkuResponseResult? sku,
 
+            Outputs.ApplicationPackageSupportUrlsResponseResult supportUrls,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.ApplicationClientDetailsResponseResult updatedBy)
         {
+            ApplicationDefinitionId = applicationDefinitionId;
+            Artifacts = artifacts;
+            Authorizations = authorizations;
+            BillingDetails = billingDetails;
+            CreatedBy = createdBy;
+            CustomerSupport = customerSupport;
             Identity = identity;
+            JitAccessPolicy = jitAccessPolicy;
             Kind = kind;
             Location = location;
             ManagedBy = managedBy;
+            ManagedResourceGroupId = managedResourceGroupId;
+            ManagementMode = managementMode;
             Name = name;
+            Outputs = outputs;
+            Parameters = parameters;
             Plan = plan;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublisherTenantId = publisherTenantId;
             Sku = sku;
+            SupportUrls = supportUrls;
             Tags = tags;
             Type = type;
+            UpdatedBy = updatedBy;
         }
     }
 }

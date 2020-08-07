@@ -10,15 +10,17 @@ from ... import _utilities, _tables
 
 
 class FirewallRule(pulumi.CustomResource):
+    end_ip_address: pulumi.Output[str]
+    """
+    The end IP address of the server firewall rule. Must be IPv4 format.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    start_ip_address: pulumi.Output[str]
     """
-    The properties of a firewall rule.
-      * `end_ip_address` (`str`) - The end IP address of the server firewall rule. Must be IPv4 format.
-      * `start_ip_address` (`str`) - The start IP address of the server firewall rule. Must be IPv4 format.
+    The start IP address of the server firewall rule. Must be IPv4 format.
     """
     type: pulumi.Output[str]
     """
@@ -68,7 +70,6 @@ class FirewallRule(pulumi.CustomResource):
             if start_ip_address is None:
                 raise TypeError("Missing required property 'start_ip_address'")
             __props__['start_ip_address'] = start_ip_address
-            __props__['properties'] = None
             __props__['type'] = None
         super(FirewallRule, __self__).__init__(
             'azurerm:dbformysql/v20171201:FirewallRule',

@@ -15,22 +15,130 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public partial class Kpi : Pulumi.CustomResource
     {
         /// <summary>
+        /// The aliases.
+        /// </summary>
+        [Output("aliases")]
+        public Output<ImmutableArray<Outputs.KpiAliasResponseResult>> Aliases { get; private set; } = null!;
+
+        /// <summary>
+        /// The calculation window.
+        /// </summary>
+        [Output("calculationWindow")]
+        public Output<string> CalculationWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of calculation window field.
+        /// </summary>
+        [Output("calculationWindowFieldName")]
+        public Output<string?> CalculationWindowFieldName { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized description for the KPI.
+        /// </summary>
+        [Output("description")]
+        public Output<ImmutableDictionary<string, string>?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized display name for the KPI.
+        /// </summary>
+        [Output("displayName")]
+        public Output<ImmutableDictionary<string, string>?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The mapping entity type.
+        /// </summary>
+        [Output("entityType")]
+        public Output<string> EntityType { get; private set; } = null!;
+
+        /// <summary>
+        /// The mapping entity name.
+        /// </summary>
+        [Output("entityTypeName")]
+        public Output<string> EntityTypeName { get; private set; } = null!;
+
+        /// <summary>
+        /// The computation expression for the KPI.
+        /// </summary>
+        [Output("expression")]
+        public Output<string> Expression { get; private set; } = null!;
+
+        /// <summary>
+        /// The KPI extracts.
+        /// </summary>
+        [Output("extracts")]
+        public Output<ImmutableArray<Outputs.KpiExtractResponseResult>> Extracts { get; private set; } = null!;
+
+        /// <summary>
+        /// The filter expression for the KPI.
+        /// </summary>
+        [Output("filter")]
+        public Output<string?> Filter { get; private set; } = null!;
+
+        /// <summary>
+        /// The computation function for the KPI.
+        /// </summary>
+        [Output("function")]
+        public Output<string> Function { get; private set; } = null!;
+
+        /// <summary>
+        /// the group by properties for the KPI.
+        /// </summary>
+        [Output("groupBy")]
+        public Output<ImmutableArray<string>> GroupBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The KPI GroupByMetadata.
+        /// </summary>
+        [Output("groupByMetadata")]
+        public Output<ImmutableArray<Outputs.KpiGroupByMetadataResponseResult>> GroupByMetadata { get; private set; } = null!;
+
+        /// <summary>
+        /// The KPI name.
+        /// </summary>
+        [Output("kpiName")]
+        public Output<string> KpiName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the KPI Threshold limits.
+        /// The participant profiles.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.KpiDefinitionResponseResult> Properties { get; private set; } = null!;
+        [Output("participantProfilesMetadata")]
+        public Output<ImmutableArray<Outputs.KpiParticipantProfilesMetadataResponseResult>> ParticipantProfilesMetadata { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// The KPI thresholds.
+        /// </summary>
+        [Output("thresHolds")]
+        public Output<Outputs.KpiThresholdsResponseResult?> ThresHolds { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unit of measurement for the KPI.
+        /// </summary>
+        [Output("unit")]
+        public Output<string?> Unit { get; private set; } = null!;
 
 
         /// <summary>

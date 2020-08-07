@@ -13,7 +13,7 @@ class ListWebAppHybridConnectionKeysSlotResult:
     """
     Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, name=None, send_key_name=None, send_key_value=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +26,17 @@ class ListWebAppHybridConnectionKeysSlotResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if send_key_name and not isinstance(send_key_name, str):
+            raise TypeError("Expected argument 'send_key_name' to be a str")
+        __self__.send_key_name = send_key_name
         """
-        HybridConnectionKey resource specific properties
+        The name of the send key.
+        """
+        if send_key_value and not isinstance(send_key_value, str):
+            raise TypeError("Expected argument 'send_key_value' to be a str")
+        __self__.send_key_value = send_key_value
+        """
+        The value of the send key.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +54,8 @@ class AwaitableListWebAppHybridConnectionKeysSlotResult(ListWebAppHybridConnecti
         return ListWebAppHybridConnectionKeysSlotResult(
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            send_key_name=self.send_key_name,
+            send_key_value=self.send_key_value,
             type=self.type)
 
 
@@ -75,5 +82,6 @@ def list_web_app_hybrid_connection_keys_slot(name=None, namespace_name=None, res
     return AwaitableListWebAppHybridConnectionKeysSlotResult(
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        send_key_name=__ret__.get('sendKeyName'),
+        send_key_value=__ret__.get('sendKeyValue'),
         type=__ret__.get('type'))

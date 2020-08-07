@@ -46,13 +46,33 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public sealed class GetStorageAccountResult
     {
         /// <summary>
+        /// BlobEndpoint of Storage Account
+        /// </summary>
+        public readonly string BlobEndpoint;
+        /// <summary>
+        /// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+        /// </summary>
+        public readonly int ContainerCount;
+        /// <summary>
+        /// Data policy of the storage Account.
+        /// </summary>
+        public readonly string? DataPolicy;
+        /// <summary>
+        /// Description for the storage Account.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Storage Account properties.
+        /// Storage Account Credential Id
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponseResult Properties;
+        public readonly string? StorageAccountCredentialId;
+        /// <summary>
+        /// Current status of the storage account
+        /// </summary>
+        public readonly string? StorageAccountStatus;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -60,14 +80,29 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
 
         [OutputConstructor]
         private GetStorageAccountResult(
+            string blobEndpoint,
+
+            int containerCount,
+
+            string? dataPolicy,
+
+            string? description,
+
             string name,
 
-            Outputs.StorageAccountPropertiesResponseResult properties,
+            string? storageAccountCredentialId,
+
+            string? storageAccountStatus,
 
             string type)
         {
+            BlobEndpoint = blobEndpoint;
+            ContainerCount = containerCount;
+            DataPolicy = dataPolicy;
+            Description = description;
             Name = name;
-            Properties = properties;
+            StorageAccountCredentialId = storageAccountCredentialId;
+            StorageAccountStatus = storageAccountStatus;
             Type = type;
         }
     }

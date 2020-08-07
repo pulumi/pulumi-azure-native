@@ -36,9 +36,37 @@ export interface GetApplicationGatewayArgs {
  */
 export interface GetApplicationGatewayResult {
     /**
+     * Authentication certificates of the application gateway resource.
+     */
+    readonly authenticationCertificates?: outputs.network.v20161201.ApplicationGatewayAuthenticationCertificateResponse[];
+    /**
+     * Backend address pool of the application gateway resource.
+     */
+    readonly backendAddressPools?: outputs.network.v20161201.ApplicationGatewayBackendAddressPoolResponse[];
+    /**
+     * Backend http settings of the application gateway resource.
+     */
+    readonly backendHttpSettingsCollection?: outputs.network.v20161201.ApplicationGatewayBackendHttpSettingsResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
+    /**
+     * Frontend IP addresses of the application gateway resource.
+     */
+    readonly frontendIPConfigurations?: outputs.network.v20161201.ApplicationGatewayFrontendIPConfigurationResponse[];
+    /**
+     * Frontend ports of the application gateway resource.
+     */
+    readonly frontendPorts?: outputs.network.v20161201.ApplicationGatewayFrontendPortResponse[];
+    /**
+     * Subnets of application the gateway resource.
+     */
+    readonly gatewayIPConfigurations?: outputs.network.v20161201.ApplicationGatewayIPConfigurationResponse[];
+    /**
+     * Http listeners of the application gateway resource.
+     */
+    readonly httpListeners?: outputs.network.v20161201.ApplicationGatewayHttpListenerResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +76,37 @@ export interface GetApplicationGatewayResult {
      */
     readonly name: string;
     /**
-     * Properties of the application gateway.
+     * Operational state of the application gateway resource. Possible values are: 'Stopped', 'Started', 'Running', and 'Stopping'.
      */
-    readonly properties: outputs.network.v20161201.ApplicationGatewayPropertiesFormatResponse;
+    readonly operationalState: string;
+    /**
+     * Probes of the application gateway resource.
+     */
+    readonly probes?: outputs.network.v20161201.ApplicationGatewayProbeResponse[];
+    /**
+     * Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState?: string;
+    /**
+     * Request routing rules of the application gateway resource.
+     */
+    readonly requestRoutingRules?: outputs.network.v20161201.ApplicationGatewayRequestRoutingRuleResponse[];
+    /**
+     * Resource GUID property of the application gateway resource.
+     */
+    readonly resourceGuid?: string;
+    /**
+     * SKU of the application gateway resource.
+     */
+    readonly sku?: outputs.network.v20161201.ApplicationGatewaySkuResponse;
+    /**
+     * SSL certificates of the application gateway resource.
+     */
+    readonly sslCertificates?: outputs.network.v20161201.ApplicationGatewaySslCertificateResponse[];
+    /**
+     * SSL policy of the application gateway resource.
+     */
+    readonly sslPolicy?: outputs.network.v20161201.ApplicationGatewaySslPolicyResponse;
     /**
      * Resource tags.
      */
@@ -59,4 +115,12 @@ export interface GetApplicationGatewayResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * URL path map of the application gateway resource.
+     */
+    readonly urlPathMaps?: outputs.network.v20161201.ApplicationGatewayUrlPathMapResponse[];
+    /**
+     * Web application firewall configuration.
+     */
+    readonly webApplicationFirewallConfiguration?: outputs.network.v20161201.ApplicationGatewayWebApplicationFirewallConfigurationResponse;
 }

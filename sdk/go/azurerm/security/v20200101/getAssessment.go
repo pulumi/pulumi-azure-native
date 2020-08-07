@@ -25,10 +25,22 @@ type LookupAssessmentArgs struct {
 
 // Security assessment on a resource
 type LookupAssessmentResult struct {
+	// Additional data regarding the assessment
+	AdditionalData map[string]string `pulumi:"additionalData"`
+	// User friendly display name of the assessment
+	DisplayName string `pulumi:"displayName"`
+	// Links relevant to the assessment
+	Links *AssessmentLinksResponse `pulumi:"links"`
+	// Describes properties of an assessment metadata.
+	Metadata *SecurityAssessmentMetadataPropertiesResponse `pulumi:"metadata"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Describes properties of an assessment.
-	Properties SecurityAssessmentPropertiesResponse `pulumi:"properties"`
+	// Data regarding 3rd party partner integration
+	PartnersData *SecurityAssessmentPartnerDataResponse `pulumi:"partnersData"`
+	// Details of the resource that was assessed
+	ResourceDetails ResourceDetailsResponse `pulumi:"resourceDetails"`
+	// The result of the assessment
+	Status AssessmentStatusResponse `pulumi:"status"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

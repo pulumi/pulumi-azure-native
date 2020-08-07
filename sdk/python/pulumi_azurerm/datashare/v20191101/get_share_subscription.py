@@ -13,24 +13,102 @@ class GetShareSubscriptionResult:
     """
     A share subscription data transfer object.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, created_at=None, invitation_id=None, name=None, provider_email=None, provider_name=None, provider_tenant_name=None, provisioning_state=None, share_description=None, share_kind=None, share_name=None, share_subscription_status=None, share_terms=None, source_share_location=None, type=None, user_email=None, user_name=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        Time at which the share subscription was created.
+        """
+        if invitation_id and not isinstance(invitation_id, str):
+            raise TypeError("Expected argument 'invitation_id' to be a str")
+        __self__.invitation_id = invitation_id
+        """
+        The invitation id.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the azure resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provider_email and not isinstance(provider_email, str):
+            raise TypeError("Expected argument 'provider_email' to be a str")
+        __self__.provider_email = provider_email
         """
-        Properties on the share subscription
+        Email of the provider who created the resource
+        """
+        if provider_name and not isinstance(provider_name, str):
+            raise TypeError("Expected argument 'provider_name' to be a str")
+        __self__.provider_name = provider_name
+        """
+        Name of the provider who created the resource
+        """
+        if provider_tenant_name and not isinstance(provider_tenant_name, str):
+            raise TypeError("Expected argument 'provider_tenant_name' to be a str")
+        __self__.provider_tenant_name = provider_tenant_name
+        """
+        Tenant name of the provider who created the resource
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the share subscription
+        """
+        if share_description and not isinstance(share_description, str):
+            raise TypeError("Expected argument 'share_description' to be a str")
+        __self__.share_description = share_description
+        """
+        Description of share
+        """
+        if share_kind and not isinstance(share_kind, str):
+            raise TypeError("Expected argument 'share_kind' to be a str")
+        __self__.share_kind = share_kind
+        """
+        Kind of share
+        """
+        if share_name and not isinstance(share_name, str):
+            raise TypeError("Expected argument 'share_name' to be a str")
+        __self__.share_name = share_name
+        """
+        Name of the share
+        """
+        if share_subscription_status and not isinstance(share_subscription_status, str):
+            raise TypeError("Expected argument 'share_subscription_status' to be a str")
+        __self__.share_subscription_status = share_subscription_status
+        """
+        Gets the current status of share subscription.
+        """
+        if share_terms and not isinstance(share_terms, str):
+            raise TypeError("Expected argument 'share_terms' to be a str")
+        __self__.share_terms = share_terms
+        """
+        Terms of a share
+        """
+        if source_share_location and not isinstance(source_share_location, str):
+            raise TypeError("Expected argument 'source_share_location' to be a str")
+        __self__.source_share_location = source_share_location
+        """
+        Source share location.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Type of the azure resource
+        """
+        if user_email and not isinstance(user_email, str):
+            raise TypeError("Expected argument 'user_email' to be a str")
+        __self__.user_email = user_email
+        """
+        Email of the user who created the resource
+        """
+        if user_name and not isinstance(user_name, str):
+            raise TypeError("Expected argument 'user_name' to be a str")
+        __self__.user_name = user_name
+        """
+        Name of the user who created the resource
         """
 
 
@@ -40,9 +118,22 @@ class AwaitableGetShareSubscriptionResult(GetShareSubscriptionResult):
         if False:
             yield self
         return GetShareSubscriptionResult(
+            created_at=self.created_at,
+            invitation_id=self.invitation_id,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provider_email=self.provider_email,
+            provider_name=self.provider_name,
+            provider_tenant_name=self.provider_tenant_name,
+            provisioning_state=self.provisioning_state,
+            share_description=self.share_description,
+            share_kind=self.share_kind,
+            share_name=self.share_name,
+            share_subscription_status=self.share_subscription_status,
+            share_terms=self.share_terms,
+            source_share_location=self.source_share_location,
+            type=self.type,
+            user_email=self.user_email,
+            user_name=self.user_name)
 
 
 def get_share_subscription(account_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +155,19 @@ def get_share_subscription(account_name=None, name=None, resource_group_name=Non
     __ret__ = pulumi.runtime.invoke('azurerm:datashare/v20191101:getShareSubscription', __args__, opts=opts).value
 
     return AwaitableGetShareSubscriptionResult(
+        created_at=__ret__.get('createdAt'),
+        invitation_id=__ret__.get('invitationId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provider_email=__ret__.get('providerEmail'),
+        provider_name=__ret__.get('providerName'),
+        provider_tenant_name=__ret__.get('providerTenantName'),
+        provisioning_state=__ret__.get('provisioningState'),
+        share_description=__ret__.get('shareDescription'),
+        share_kind=__ret__.get('shareKind'),
+        share_name=__ret__.get('shareName'),
+        share_subscription_status=__ret__.get('shareSubscriptionStatus'),
+        share_terms=__ret__.get('shareTerms'),
+        source_share_location=__ret__.get('sourceShareLocation'),
+        type=__ret__.get('type'),
+        user_email=__ret__.get('userEmail'),
+        user_name=__ret__.get('userName'))

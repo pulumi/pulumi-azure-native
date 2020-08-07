@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20181201.Outputs
     public sealed class ApplicationGatewayAuthenticationCertificateResponseResult
     {
         /// <summary>
+        /// Certificate public data.
+        /// </summary>
+        public readonly string? Data;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -26,9 +30,9 @@ namespace Pulumi.AzureRM.Network.V20181201.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Authentication certificates properties of an application gateway.
+        /// Provisioning state of the authentication certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayAuthenticationCertificatePropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +40,23 @@ namespace Pulumi.AzureRM.Network.V20181201.Outputs
 
         [OutputConstructor]
         private ApplicationGatewayAuthenticationCertificateResponseResult(
+            string? data,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayAuthenticationCertificatePropertiesFormatResponseResult? properties,
+            string? provisioningState,
 
             string? type)
         {
+            Data = data;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

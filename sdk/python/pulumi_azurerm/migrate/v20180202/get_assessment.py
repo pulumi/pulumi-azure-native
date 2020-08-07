@@ -13,12 +13,84 @@ class GetAssessmentResult:
     """
     An assessment created for a group in the Migration project.
     """
-    def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
+    def __init__(__self__, azure_hybrid_use_benefit=None, azure_location=None, azure_offer_code=None, azure_pricing_tier=None, azure_storage_redundancy=None, confidence_rating_in_percentage=None, created_timestamp=None, currency=None, discount_percentage=None, e_tag=None, monthly_bandwidth_cost=None, monthly_compute_cost=None, monthly_storage_cost=None, name=None, number_of_machines=None, percentile=None, prices_timestamp=None, scaling_factor=None, sizing_criterion=None, stage=None, status=None, time_range=None, type=None, updated_timestamp=None):
+        if azure_hybrid_use_benefit and not isinstance(azure_hybrid_use_benefit, str):
+            raise TypeError("Expected argument 'azure_hybrid_use_benefit' to be a str")
+        __self__.azure_hybrid_use_benefit = azure_hybrid_use_benefit
+        """
+        AHUB discount on windows virtual machines.
+        """
+        if azure_location and not isinstance(azure_location, str):
+            raise TypeError("Expected argument 'azure_location' to be a str")
+        __self__.azure_location = azure_location
+        """
+        Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+        """
+        if azure_offer_code and not isinstance(azure_offer_code, str):
+            raise TypeError("Expected argument 'azure_offer_code' to be a str")
+        __self__.azure_offer_code = azure_offer_code
+        """
+        Offer code according to which cost estimation is done.
+        """
+        if azure_pricing_tier and not isinstance(azure_pricing_tier, str):
+            raise TypeError("Expected argument 'azure_pricing_tier' to be a str")
+        __self__.azure_pricing_tier = azure_pricing_tier
+        """
+        Pricing tier for Size evaluation.
+        """
+        if azure_storage_redundancy and not isinstance(azure_storage_redundancy, str):
+            raise TypeError("Expected argument 'azure_storage_redundancy' to be a str")
+        __self__.azure_storage_redundancy = azure_storage_redundancy
+        """
+        Storage Redundancy type offered by Azure.
+        """
+        if confidence_rating_in_percentage and not isinstance(confidence_rating_in_percentage, float):
+            raise TypeError("Expected argument 'confidence_rating_in_percentage' to be a float")
+        __self__.confidence_rating_in_percentage = confidence_rating_in_percentage
+        """
+        Confidence rating percentage for assessment. Can be in the range [0, 100].
+        """
+        if created_timestamp and not isinstance(created_timestamp, str):
+            raise TypeError("Expected argument 'created_timestamp' to be a str")
+        __self__.created_timestamp = created_timestamp
+        """
+        Time when this project was created. Date-Time represented in ISO-8601 format.
+        """
+        if currency and not isinstance(currency, str):
+            raise TypeError("Expected argument 'currency' to be a str")
+        __self__.currency = currency
+        """
+        Currency to report prices in.
+        """
+        if discount_percentage and not isinstance(discount_percentage, float):
+            raise TypeError("Expected argument 'discount_percentage' to be a float")
+        __self__.discount_percentage = discount_percentage
+        """
+        Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+        """
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         __self__.e_tag = e_tag
         """
         For optimistic concurrency control.
+        """
+        if monthly_bandwidth_cost and not isinstance(monthly_bandwidth_cost, float):
+            raise TypeError("Expected argument 'monthly_bandwidth_cost' to be a float")
+        __self__.monthly_bandwidth_cost = monthly_bandwidth_cost
+        """
+        Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+        """
+        if monthly_compute_cost and not isinstance(monthly_compute_cost, float):
+            raise TypeError("Expected argument 'monthly_compute_cost' to be a float")
+        __self__.monthly_compute_cost = monthly_compute_cost
+        """
+        Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+        """
+        if monthly_storage_cost and not isinstance(monthly_storage_cost, float):
+            raise TypeError("Expected argument 'monthly_storage_cost' to be a float")
+        __self__.monthly_storage_cost = monthly_storage_cost
+        """
+        Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +98,65 @@ class GetAssessmentResult:
         """
         Unique name of an assessment.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if number_of_machines and not isinstance(number_of_machines, float):
+            raise TypeError("Expected argument 'number_of_machines' to be a float")
+        __self__.number_of_machines = number_of_machines
         """
-        Properties of the assessment.
+        Number of assessed machines part of this assessment.
+        """
+        if percentile and not isinstance(percentile, str):
+            raise TypeError("Expected argument 'percentile' to be a str")
+        __self__.percentile = percentile
+        """
+        Percentile of performance data used to recommend Azure size.
+        """
+        if prices_timestamp and not isinstance(prices_timestamp, str):
+            raise TypeError("Expected argument 'prices_timestamp' to be a str")
+        __self__.prices_timestamp = prices_timestamp
+        """
+        Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+        """
+        if scaling_factor and not isinstance(scaling_factor, float):
+            raise TypeError("Expected argument 'scaling_factor' to be a float")
+        __self__.scaling_factor = scaling_factor
+        """
+        Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+        """
+        if sizing_criterion and not isinstance(sizing_criterion, str):
+            raise TypeError("Expected argument 'sizing_criterion' to be a str")
+        __self__.sizing_criterion = sizing_criterion
+        """
+        Assessment sizing criterion.
+        """
+        if stage and not isinstance(stage, str):
+            raise TypeError("Expected argument 'stage' to be a str")
+        __self__.stage = stage
+        """
+        User configurable setting that describes the status of the assessment.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Whether the assessment has been created and is valid.
+        """
+        if time_range and not isinstance(time_range, str):
+            raise TypeError("Expected argument 'time_range' to be a str")
+        __self__.time_range = time_range
+        """
+        Time range of performance data used to recommend a size.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Type of the object = [Microsoft.Migrate/projects/groups/assessments].
+        """
+        if updated_timestamp and not isinstance(updated_timestamp, str):
+            raise TypeError("Expected argument 'updated_timestamp' to be a str")
+        __self__.updated_timestamp = updated_timestamp
+        """
+        Time when this project was last updated. Date-Time represented in ISO-8601 format.
         """
 
 
@@ -46,10 +166,30 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
         if False:
             yield self
         return GetAssessmentResult(
+            azure_hybrid_use_benefit=self.azure_hybrid_use_benefit,
+            azure_location=self.azure_location,
+            azure_offer_code=self.azure_offer_code,
+            azure_pricing_tier=self.azure_pricing_tier,
+            azure_storage_redundancy=self.azure_storage_redundancy,
+            confidence_rating_in_percentage=self.confidence_rating_in_percentage,
+            created_timestamp=self.created_timestamp,
+            currency=self.currency,
+            discount_percentage=self.discount_percentage,
             e_tag=self.e_tag,
+            monthly_bandwidth_cost=self.monthly_bandwidth_cost,
+            monthly_compute_cost=self.monthly_compute_cost,
+            monthly_storage_cost=self.monthly_storage_cost,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            number_of_machines=self.number_of_machines,
+            percentile=self.percentile,
+            prices_timestamp=self.prices_timestamp,
+            scaling_factor=self.scaling_factor,
+            sizing_criterion=self.sizing_criterion,
+            stage=self.stage,
+            status=self.status,
+            time_range=self.time_range,
+            type=self.type,
+            updated_timestamp=self.updated_timestamp)
 
 
 def get_assessment(group_name=None, name=None, project_name=None, resource_group_name=None, opts=None):
@@ -73,7 +213,27 @@ def get_assessment(group_name=None, name=None, project_name=None, resource_group
     __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20180202:getAssessment', __args__, opts=opts).value
 
     return AwaitableGetAssessmentResult(
+        azure_hybrid_use_benefit=__ret__.get('azureHybridUseBenefit'),
+        azure_location=__ret__.get('azureLocation'),
+        azure_offer_code=__ret__.get('azureOfferCode'),
+        azure_pricing_tier=__ret__.get('azurePricingTier'),
+        azure_storage_redundancy=__ret__.get('azureStorageRedundancy'),
+        confidence_rating_in_percentage=__ret__.get('confidenceRatingInPercentage'),
+        created_timestamp=__ret__.get('createdTimestamp'),
+        currency=__ret__.get('currency'),
+        discount_percentage=__ret__.get('discountPercentage'),
         e_tag=__ret__.get('eTag'),
+        monthly_bandwidth_cost=__ret__.get('monthlyBandwidthCost'),
+        monthly_compute_cost=__ret__.get('monthlyComputeCost'),
+        monthly_storage_cost=__ret__.get('monthlyStorageCost'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        number_of_machines=__ret__.get('numberOfMachines'),
+        percentile=__ret__.get('percentile'),
+        prices_timestamp=__ret__.get('pricesTimestamp'),
+        scaling_factor=__ret__.get('scalingFactor'),
+        sizing_criterion=__ret__.get('sizingCriterion'),
+        stage=__ret__.get('stage'),
+        status=__ret__.get('status'),
+        time_range=__ret__.get('timeRange'),
+        type=__ret__.get('type'),
+        updated_timestamp=__ret__.get('updatedTimestamp'))

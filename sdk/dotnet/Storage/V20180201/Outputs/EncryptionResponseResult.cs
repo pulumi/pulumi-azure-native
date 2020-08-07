@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Storage.V20180201.Outputs
         /// <summary>
         /// Properties provided by key vault.
         /// </summary>
-        public readonly Outputs.KeyVaultPropertiesResponseResult? Keyvaultproperties;
+        public readonly Outputs.KeyVaultPropertiesResponseResult? KeyVaultProperties;
         /// <summary>
         /// List of services which support encryption.
         /// </summary>
@@ -30,12 +30,12 @@ namespace Pulumi.AzureRM.Storage.V20180201.Outputs
         private EncryptionResponseResult(
             string keySource,
 
-            Outputs.KeyVaultPropertiesResponseResult? keyvaultproperties,
+            Outputs.KeyVaultPropertiesResponseResult? keyVaultProperties,
 
             Outputs.EncryptionServicesResponseResult? services)
         {
             KeySource = keySource;
-            Keyvaultproperties = keyvaultproperties;
+            KeyVaultProperties = keyVaultProperties;
             Services = services;
         }
     }

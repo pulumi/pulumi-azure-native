@@ -13,7 +13,127 @@ class GetVirtualMachineResult:
     """
     A virtual machine.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, allow_claim=None, applicable_schedule=None, artifact_deployment_status=None, artifacts=None, compute_id=None, compute_vm=None, created_by_user=None, created_by_user_id=None, created_date=None, custom_image_id=None, data_disk_parameters=None, disallow_public_ip_address=None, environment_id=None, expiration_date=None, fqdn=None, gallery_image_reference=None, is_authentication_with_ssh_key=None, lab_subnet_name=None, lab_virtual_network_id=None, last_known_power_state=None, location=None, name=None, network_interface=None, notes=None, os_type=None, owner_object_id=None, owner_user_principal_name=None, password=None, plan_id=None, provisioning_state=None, schedule_parameters=None, size=None, ssh_key=None, storage_type=None, tags=None, type=None, unique_identifier=None, user_name=None, virtual_machine_creation_source=None):
+        if allow_claim and not isinstance(allow_claim, bool):
+            raise TypeError("Expected argument 'allow_claim' to be a bool")
+        __self__.allow_claim = allow_claim
+        """
+        Indicates whether another user can take ownership of the virtual machine
+        """
+        if applicable_schedule and not isinstance(applicable_schedule, dict):
+            raise TypeError("Expected argument 'applicable_schedule' to be a dict")
+        __self__.applicable_schedule = applicable_schedule
+        """
+        The applicable schedule for the virtual machine.
+        """
+        if artifact_deployment_status and not isinstance(artifact_deployment_status, dict):
+            raise TypeError("Expected argument 'artifact_deployment_status' to be a dict")
+        __self__.artifact_deployment_status = artifact_deployment_status
+        """
+        The artifact deployment status for the virtual machine.
+        """
+        if artifacts and not isinstance(artifacts, list):
+            raise TypeError("Expected argument 'artifacts' to be a list")
+        __self__.artifacts = artifacts
+        """
+        The artifacts to be installed on the virtual machine.
+        """
+        if compute_id and not isinstance(compute_id, str):
+            raise TypeError("Expected argument 'compute_id' to be a str")
+        __self__.compute_id = compute_id
+        """
+        The resource identifier (Microsoft.Compute) of the virtual machine.
+        """
+        if compute_vm and not isinstance(compute_vm, dict):
+            raise TypeError("Expected argument 'compute_vm' to be a dict")
+        __self__.compute_vm = compute_vm
+        """
+        The compute virtual machine properties.
+        """
+        if created_by_user and not isinstance(created_by_user, str):
+            raise TypeError("Expected argument 'created_by_user' to be a str")
+        __self__.created_by_user = created_by_user
+        """
+        The email address of creator of the virtual machine.
+        """
+        if created_by_user_id and not isinstance(created_by_user_id, str):
+            raise TypeError("Expected argument 'created_by_user_id' to be a str")
+        __self__.created_by_user_id = created_by_user_id
+        """
+        The object identifier of the creator of the virtual machine.
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The creation date of the virtual machine.
+        """
+        if custom_image_id and not isinstance(custom_image_id, str):
+            raise TypeError("Expected argument 'custom_image_id' to be a str")
+        __self__.custom_image_id = custom_image_id
+        """
+        The custom image identifier of the virtual machine.
+        """
+        if data_disk_parameters and not isinstance(data_disk_parameters, list):
+            raise TypeError("Expected argument 'data_disk_parameters' to be a list")
+        __self__.data_disk_parameters = data_disk_parameters
+        """
+        New or existing data disks to attach to the virtual machine after creation
+        """
+        if disallow_public_ip_address and not isinstance(disallow_public_ip_address, bool):
+            raise TypeError("Expected argument 'disallow_public_ip_address' to be a bool")
+        __self__.disallow_public_ip_address = disallow_public_ip_address
+        """
+        Indicates whether the virtual machine is to be created without a public IP address.
+        """
+        if environment_id and not isinstance(environment_id, str):
+            raise TypeError("Expected argument 'environment_id' to be a str")
+        __self__.environment_id = environment_id
+        """
+        The resource ID of the environment that contains this virtual machine, if any.
+        """
+        if expiration_date and not isinstance(expiration_date, str):
+            raise TypeError("Expected argument 'expiration_date' to be a str")
+        __self__.expiration_date = expiration_date
+        """
+        The expiration date for VM.
+        """
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        __self__.fqdn = fqdn
+        """
+        The fully-qualified domain name of the virtual machine.
+        """
+        if gallery_image_reference and not isinstance(gallery_image_reference, dict):
+            raise TypeError("Expected argument 'gallery_image_reference' to be a dict")
+        __self__.gallery_image_reference = gallery_image_reference
+        """
+        The Microsoft Azure Marketplace image reference of the virtual machine.
+        """
+        if is_authentication_with_ssh_key and not isinstance(is_authentication_with_ssh_key, bool):
+            raise TypeError("Expected argument 'is_authentication_with_ssh_key' to be a bool")
+        __self__.is_authentication_with_ssh_key = is_authentication_with_ssh_key
+        """
+        Indicates whether this virtual machine uses an SSH key for authentication.
+        """
+        if lab_subnet_name and not isinstance(lab_subnet_name, str):
+            raise TypeError("Expected argument 'lab_subnet_name' to be a str")
+        __self__.lab_subnet_name = lab_subnet_name
+        """
+        The lab subnet name of the virtual machine.
+        """
+        if lab_virtual_network_id and not isinstance(lab_virtual_network_id, str):
+            raise TypeError("Expected argument 'lab_virtual_network_id' to be a str")
+        __self__.lab_virtual_network_id = lab_virtual_network_id
+        """
+        The lab virtual network identifier of the virtual machine.
+        """
+        if last_known_power_state and not isinstance(last_known_power_state, str):
+            raise TypeError("Expected argument 'last_known_power_state' to be a str")
+        __self__.last_known_power_state = last_known_power_state
+        """
+        Last known compute power state captured in DTL
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +146,77 @@ class GetVirtualMachineResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_interface and not isinstance(network_interface, dict):
+            raise TypeError("Expected argument 'network_interface' to be a dict")
+        __self__.network_interface = network_interface
         """
-        The properties of the resource.
+        The network interface properties.
+        """
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        __self__.notes = notes
+        """
+        The notes of the virtual machine.
+        """
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        __self__.os_type = os_type
+        """
+        The OS type of the virtual machine.
+        """
+        if owner_object_id and not isinstance(owner_object_id, str):
+            raise TypeError("Expected argument 'owner_object_id' to be a str")
+        __self__.owner_object_id = owner_object_id
+        """
+        The object identifier of the owner of the virtual machine.
+        """
+        if owner_user_principal_name and not isinstance(owner_user_principal_name, str):
+            raise TypeError("Expected argument 'owner_user_principal_name' to be a str")
+        __self__.owner_user_principal_name = owner_user_principal_name
+        """
+        The user principal name of the virtual machine owner.
+        """
+        if password and not isinstance(password, str):
+            raise TypeError("Expected argument 'password' to be a str")
+        __self__.password = password
+        """
+        The password of the virtual machine administrator.
+        """
+        if plan_id and not isinstance(plan_id, str):
+            raise TypeError("Expected argument 'plan_id' to be a str")
+        __self__.plan_id = plan_id
+        """
+        The id of the plan associated with the virtual machine image
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the resource.
+        """
+        if schedule_parameters and not isinstance(schedule_parameters, list):
+            raise TypeError("Expected argument 'schedule_parameters' to be a list")
+        __self__.schedule_parameters = schedule_parameters
+        """
+        Virtual Machine schedules to be created
+        """
+        if size and not isinstance(size, str):
+            raise TypeError("Expected argument 'size' to be a str")
+        __self__.size = size
+        """
+        The size of the virtual machine.
+        """
+        if ssh_key and not isinstance(ssh_key, str):
+            raise TypeError("Expected argument 'ssh_key' to be a str")
+        __self__.ssh_key = ssh_key
+        """
+        The SSH key of the virtual machine administrator.
+        """
+        if storage_type and not isinstance(storage_type, str):
+            raise TypeError("Expected argument 'storage_type' to be a str")
+        __self__.storage_type = storage_type
+        """
+        Storage type to use for virtual machine (i.e. Standard, Premium).
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +230,24 @@ class GetVirtualMachineResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if user_name and not isinstance(user_name, str):
+            raise TypeError("Expected argument 'user_name' to be a str")
+        __self__.user_name = user_name
+        """
+        The user name of the virtual machine.
+        """
+        if virtual_machine_creation_source and not isinstance(virtual_machine_creation_source, str):
+            raise TypeError("Expected argument 'virtual_machine_creation_source' to be a str")
+        __self__.virtual_machine_creation_source = virtual_machine_creation_source
+        """
+        Tells source of creation of lab virtual machine. Output property only.
+        """
 
 
 class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
@@ -52,11 +256,45 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
         if False:
             yield self
         return GetVirtualMachineResult(
+            allow_claim=self.allow_claim,
+            applicable_schedule=self.applicable_schedule,
+            artifact_deployment_status=self.artifact_deployment_status,
+            artifacts=self.artifacts,
+            compute_id=self.compute_id,
+            compute_vm=self.compute_vm,
+            created_by_user=self.created_by_user,
+            created_by_user_id=self.created_by_user_id,
+            created_date=self.created_date,
+            custom_image_id=self.custom_image_id,
+            data_disk_parameters=self.data_disk_parameters,
+            disallow_public_ip_address=self.disallow_public_ip_address,
+            environment_id=self.environment_id,
+            expiration_date=self.expiration_date,
+            fqdn=self.fqdn,
+            gallery_image_reference=self.gallery_image_reference,
+            is_authentication_with_ssh_key=self.is_authentication_with_ssh_key,
+            lab_subnet_name=self.lab_subnet_name,
+            lab_virtual_network_id=self.lab_virtual_network_id,
+            last_known_power_state=self.last_known_power_state,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_interface=self.network_interface,
+            notes=self.notes,
+            os_type=self.os_type,
+            owner_object_id=self.owner_object_id,
+            owner_user_principal_name=self.owner_user_principal_name,
+            password=self.password,
+            plan_id=self.plan_id,
+            provisioning_state=self.provisioning_state,
+            schedule_parameters=self.schedule_parameters,
+            size=self.size,
+            ssh_key=self.ssh_key,
+            storage_type=self.storage_type,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            user_name=self.user_name,
+            virtual_machine_creation_source=self.virtual_machine_creation_source)
 
 
 def get_virtual_machine(lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +316,42 @@ def get_virtual_machine(lab_name=None, name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getVirtualMachine', __args__, opts=opts).value
 
     return AwaitableGetVirtualMachineResult(
+        allow_claim=__ret__.get('allowClaim'),
+        applicable_schedule=__ret__.get('applicableSchedule'),
+        artifact_deployment_status=__ret__.get('artifactDeploymentStatus'),
+        artifacts=__ret__.get('artifacts'),
+        compute_id=__ret__.get('computeId'),
+        compute_vm=__ret__.get('computeVm'),
+        created_by_user=__ret__.get('createdByUser'),
+        created_by_user_id=__ret__.get('createdByUserId'),
+        created_date=__ret__.get('createdDate'),
+        custom_image_id=__ret__.get('customImageId'),
+        data_disk_parameters=__ret__.get('dataDiskParameters'),
+        disallow_public_ip_address=__ret__.get('disallowPublicIpAddress'),
+        environment_id=__ret__.get('environmentId'),
+        expiration_date=__ret__.get('expirationDate'),
+        fqdn=__ret__.get('fqdn'),
+        gallery_image_reference=__ret__.get('galleryImageReference'),
+        is_authentication_with_ssh_key=__ret__.get('isAuthenticationWithSshKey'),
+        lab_subnet_name=__ret__.get('labSubnetName'),
+        lab_virtual_network_id=__ret__.get('labVirtualNetworkId'),
+        last_known_power_state=__ret__.get('lastKnownPowerState'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_interface=__ret__.get('networkInterface'),
+        notes=__ret__.get('notes'),
+        os_type=__ret__.get('osType'),
+        owner_object_id=__ret__.get('ownerObjectId'),
+        owner_user_principal_name=__ret__.get('ownerUserPrincipalName'),
+        password=__ret__.get('password'),
+        plan_id=__ret__.get('planId'),
+        provisioning_state=__ret__.get('provisioningState'),
+        schedule_parameters=__ret__.get('scheduleParameters'),
+        size=__ret__.get('size'),
+        ssh_key=__ret__.get('sshKey'),
+        storage_type=__ret__.get('storageType'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        user_name=__ret__.get('userName'),
+        virtual_machine_creation_source=__ret__.get('virtualMachineCreationSource'))

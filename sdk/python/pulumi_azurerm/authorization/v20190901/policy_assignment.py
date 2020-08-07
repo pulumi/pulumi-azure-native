@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class PolicyAssignment(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    This message will be part of response in case of policy violation.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The display name of the policy assignment.
+    """
+    enforcement_mode: pulumi.Output[str]
+    """
+    The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+    """
     identity: pulumi.Output[dict]
     """
     The managed identity associated with the policy assignment.
@@ -21,21 +33,29 @@ class PolicyAssignment(pulumi.CustomResource):
     """
     The location of the policy assignment. Only required when utilizing managed identity.
     """
+    metadata: pulumi.Output[dict]
+    """
+    The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+    """
     name: pulumi.Output[str]
     """
     The name of the policy assignment.
     """
-    properties: pulumi.Output[dict]
+    not_scopes: pulumi.Output[list]
     """
-    Properties for the policy assignment.
-      * `description` (`str`) - This message will be part of response in case of policy violation.
-      * `display_name` (`str`) - The display name of the policy assignment.
-      * `enforcement_mode` (`str`) - The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
-      * `metadata` (`dict`) - The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-      * `not_scopes` (`list`) - The policy's excluded scopes.
-      * `parameters` (`dict`) - The parameter values for the assigned policy rule. The keys are the parameter names.
-      * `policy_definition_id` (`str`) - The ID of the policy definition or policy set definition being assigned.
-      * `scope` (`str`) - The scope for the policy assignment.
+    The policy's excluded scopes.
+    """
+    parameters: pulumi.Output[dict]
+    """
+    The parameter values for the assigned policy rule. The keys are the parameter names.
+    """
+    policy_definition_id: pulumi.Output[str]
+    """
+    The ID of the policy definition or policy set definition being assigned.
+    """
+    scope: pulumi.Output[str]
+    """
+    The scope for the policy assignment.
     """
     sku: pulumi.Output[dict]
     """
@@ -108,7 +128,6 @@ class PolicyAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['sku'] = sku
-            __props__['properties'] = None
             __props__['type'] = None
         super(PolicyAssignment, __self__).__init__(
             'azurerm:authorization/v20190901:PolicyAssignment',

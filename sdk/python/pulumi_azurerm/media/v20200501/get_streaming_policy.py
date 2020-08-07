@@ -13,18 +13,48 @@ class GetStreamingPolicyResult:
     """
     A Streaming Policy resource
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, common_encryption_cbcs=None, common_encryption_cenc=None, created=None, default_content_key_policy_name=None, envelope_encryption=None, name=None, no_encryption=None, type=None):
+        if common_encryption_cbcs and not isinstance(common_encryption_cbcs, dict):
+            raise TypeError("Expected argument 'common_encryption_cbcs' to be a dict")
+        __self__.common_encryption_cbcs = common_encryption_cbcs
+        """
+        Configuration of CommonEncryptionCbcs
+        """
+        if common_encryption_cenc and not isinstance(common_encryption_cenc, dict):
+            raise TypeError("Expected argument 'common_encryption_cenc' to be a dict")
+        __self__.common_encryption_cenc = common_encryption_cenc
+        """
+        Configuration of CommonEncryptionCenc
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        Creation time of Streaming Policy
+        """
+        if default_content_key_policy_name and not isinstance(default_content_key_policy_name, str):
+            raise TypeError("Expected argument 'default_content_key_policy_name' to be a str")
+        __self__.default_content_key_policy_name = default_content_key_policy_name
+        """
+        Default ContentKey used by current Streaming Policy
+        """
+        if envelope_encryption and not isinstance(envelope_encryption, dict):
+            raise TypeError("Expected argument 'envelope_encryption' to be a dict")
+        __self__.envelope_encryption = envelope_encryption
+        """
+        Configuration of EnvelopeEncryption
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if no_encryption and not isinstance(no_encryption, dict):
+            raise TypeError("Expected argument 'no_encryption' to be a dict")
+        __self__.no_encryption = no_encryption
         """
-        Class to specify properties of Streaming Policy
+        Configurations of NoEncryption
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +70,13 @@ class AwaitableGetStreamingPolicyResult(GetStreamingPolicyResult):
         if False:
             yield self
         return GetStreamingPolicyResult(
+            common_encryption_cbcs=self.common_encryption_cbcs,
+            common_encryption_cenc=self.common_encryption_cenc,
+            created=self.created,
+            default_content_key_policy_name=self.default_content_key_policy_name,
+            envelope_encryption=self.envelope_encryption,
             name=self.name,
-            properties=self.properties,
+            no_encryption=self.no_encryption,
             type=self.type)
 
 
@@ -64,6 +99,11 @@ def get_streaming_policy(account_name=None, name=None, resource_group_name=None,
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getStreamingPolicy', __args__, opts=opts).value
 
     return AwaitableGetStreamingPolicyResult(
+        common_encryption_cbcs=__ret__.get('commonEncryptionCbcs'),
+        common_encryption_cenc=__ret__.get('commonEncryptionCenc'),
+        created=__ret__.get('created'),
+        default_content_key_policy_name=__ret__.get('defaultContentKeyPolicyName'),
+        envelope_encryption=__ret__.get('envelopeEncryption'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        no_encryption=__ret__.get('noEncryption'),
         type=__ret__.get('type'))

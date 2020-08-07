@@ -21,10 +21,16 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Rules Engine Configuration.
+        /// Resource status.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RulesEnginePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("resourceState")]
+        public Output<string?> ResourceState { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of rules that define a particular Rules Engine Configuration.
+        /// </summary>
+        [Output("rules")]
+        public Output<ImmutableArray<Outputs.RulesEngineRuleResponseResult>> Rules { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

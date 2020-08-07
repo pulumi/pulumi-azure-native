@@ -37,13 +37,41 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * The DeadLetter destination of the event subscription.
+     */
+    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20190601.DeadLetterDestinationResponse | undefined>;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     */
+    public readonly destination!: pulumi.Output<outputs.eventgrid.v20190601.EventSubscriptionDestinationResponse | undefined>;
+    /**
+     * Expiration time of the event subscription.
+     */
+    public readonly expirationTimeUtc!: pulumi.Output<string | undefined>;
+    /**
+     * Information about the filter for the event subscription.
+     */
+    public readonly filter!: pulumi.Output<outputs.eventgrid.v20190601.EventSubscriptionFilterResponse | undefined>;
+    /**
+     * List of user defined labels.
+     */
+    public readonly labels!: pulumi.Output<string[] | undefined>;
+    /**
      * Name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the event subscription
+     * Provisioning state of the event subscription.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.eventgrid.v20190601.EventSubscriptionPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+     */
+    public readonly retryPolicy!: pulumi.Output<outputs.eventgrid.v20190601.RetryPolicyResponse | undefined>;
+    /**
+     * Name of the topic of the event subscription.
+     */
+    public /*out*/ readonly topic!: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
@@ -76,7 +104,8 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
             inputs["scope"] = args ? args.scope : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

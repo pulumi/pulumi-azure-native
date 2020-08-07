@@ -13,7 +13,25 @@ class GetGalleryApplicationResult:
     """
     Specifies information about the gallery Application Definition that you want to create or update.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, description=None, end_of_life_date=None, eula=None, location=None, name=None, privacy_statement_uri=None, release_note_uri=None, supported_os_type=None, tags=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of this gallery Application Definition resource. This property is updatable.
+        """
+        if end_of_life_date and not isinstance(end_of_life_date, str):
+            raise TypeError("Expected argument 'end_of_life_date' to be a str")
+        __self__.end_of_life_date = end_of_life_date
+        """
+        The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        if eula and not isinstance(eula, str):
+            raise TypeError("Expected argument 'eula' to be a str")
+        __self__.eula = eula
+        """
+        The Eula agreement for the gallery Application Definition.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +44,23 @@ class GetGalleryApplicationResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if privacy_statement_uri and not isinstance(privacy_statement_uri, str):
+            raise TypeError("Expected argument 'privacy_statement_uri' to be a str")
+        __self__.privacy_statement_uri = privacy_statement_uri
         """
-        Describes the properties of a gallery Application Definition.
+        The privacy statement uri.
+        """
+        if release_note_uri and not isinstance(release_note_uri, str):
+            raise TypeError("Expected argument 'release_note_uri' to be a str")
+        __self__.release_note_uri = release_note_uri
+        """
+        The release note uri.
+        """
+        if supported_os_type and not isinstance(supported_os_type, str):
+            raise TypeError("Expected argument 'supported_os_type' to be a str")
+        __self__.supported_os_type = supported_os_type
+        """
+        This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +82,14 @@ class AwaitableGetGalleryApplicationResult(GetGalleryApplicationResult):
         if False:
             yield self
         return GetGalleryApplicationResult(
+            description=self.description,
+            end_of_life_date=self.end_of_life_date,
+            eula=self.eula,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            privacy_statement_uri=self.privacy_statement_uri,
+            release_note_uri=self.release_note_uri,
+            supported_os_type=self.supported_os_type,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +113,13 @@ def get_gallery_application(gallery_name=None, name=None, resource_group_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190301:getGalleryApplication', __args__, opts=opts).value
 
     return AwaitableGetGalleryApplicationResult(
+        description=__ret__.get('description'),
+        end_of_life_date=__ret__.get('endOfLifeDate'),
+        eula=__ret__.get('eula'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        privacy_statement_uri=__ret__.get('privacyStatementUri'),
+        release_note_uri=__ret__.get('releaseNoteUri'),
+        supported_os_type=__ret__.get('supportedOSType'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

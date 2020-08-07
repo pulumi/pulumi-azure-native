@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,21 @@ export class HierarchySetting extends pulumi.CustomResource {
     }
 
     /**
+     * Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+     */
+    public readonly defaultManagementGroup!: pulumi.Output<string | undefined>;
+    /**
      * The name of the object. In this case, default.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The generic properties of hierarchy settings.
+     * Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.management.v20200201.HierarchySettingsPropertiesResponse>;
+    public readonly requireAuthorizationForGroupCreation!: pulumi.Output<boolean | undefined>;
+    /**
+     * The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
      */
@@ -68,7 +74,7 @@ export class HierarchySetting extends pulumi.CustomResource {
             inputs["defaultManagementGroup"] = args ? args.defaultManagementGroup : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["requireAuthorizationForGroupCreation"] = args ? args.requireAuthorizationForGroupCreation : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

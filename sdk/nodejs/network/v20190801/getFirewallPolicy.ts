@@ -36,9 +36,21 @@ export interface GetFirewallPolicyArgs {
  */
 export interface GetFirewallPolicyResult {
     /**
+     * The parent firewall policy from which rules are inherited.
+     */
+    readonly basePolicy?: outputs.network.v20190801.SubResourceResponse;
+    /**
+     * List of references to Child Firewall Policies.
+     */
+    readonly childPolicies: outputs.network.v20190801.SubResourceResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * List of references to Azure Firewalls that this Firewall Policy is associated with.
+     */
+    readonly firewalls: outputs.network.v20190801.SubResourceResponse[];
     /**
      * Resource location.
      */
@@ -48,13 +60,21 @@ export interface GetFirewallPolicyResult {
      */
     readonly name: string;
     /**
-     * Properties of the firewall policy.
+     * The provisioning state of the firewall policy resource.
      */
-    readonly properties: outputs.network.v20190801.FirewallPolicyPropertiesFormatResponse;
+    readonly provisioningState?: string;
+    /**
+     * List of references to FirewallPolicyRuleGroups.
+     */
+    readonly ruleGroups: outputs.network.v20190801.SubResourceResponse[];
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The operation mode for Threat Intelligence.
+     */
+    readonly threatIntelMode?: string;
     /**
      * Resource type.
      */

@@ -27,10 +27,12 @@ type LookupFirewallRuleArgs struct {
 
 // Represents a server firewall rule.
 type LookupFirewallRuleResult struct {
+	// The end IP address of the server firewall rule. Must be IPv4 format.
+	EndIpAddress string `pulumi:"endIpAddress"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties of a firewall rule.
-	Properties FirewallRulePropertiesResponse `pulumi:"properties"`
+	// The start IP address of the server firewall rule. Must be IPv4 format.
+	StartIpAddress string `pulumi:"startIpAddress"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

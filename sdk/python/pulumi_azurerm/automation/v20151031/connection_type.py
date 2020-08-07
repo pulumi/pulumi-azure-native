@@ -10,18 +10,29 @@ from ... import _utilities, _tables
 
 
 class ConnectionType(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Gets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
+    field_definitions: pulumi.Output[dict]
+    """
+    Gets the field definitions of the connection type.
+    """
+    is_global: pulumi.Output[bool]
+    """
+    Gets or sets a Boolean value to indicate if the connection type is global.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets or sets the last modified time.
+    """
     name: pulumi.Output[str]
     """
     Gets the name of the connection type.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Gets or sets the properties of the connection type.
-      * `creation_time` (`str`) - Gets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `field_definitions` (`dict`) - Gets the field definitions of the connection type.
-      * `is_global` (`bool`) - Gets or sets a Boolean value to indicate if the connection type is global.
-      * `last_modified_time` (`str`) - Gets or sets the last modified time.
     """
     type: pulumi.Output[str]
     """
@@ -69,7 +80,9 @@ class ConnectionType(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['description'] = None
+            __props__['last_modified_time'] = None
             __props__['type'] = None
         super(ConnectionType, __self__).__init__(
             'azurerm:automation/v20151031:ConnectionType',

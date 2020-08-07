@@ -36,9 +36,29 @@ export interface GetLoadBalancerArgs {
  */
 export interface GetLoadBalancerResult {
     /**
+     * Gets or sets Pools of backend IP addresses
+     */
+    readonly backendAddressPools?: outputs.network.v20160330.BackendAddressPoolResponse[];
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: string;
+    /**
+     * Gets or sets frontend IP addresses of the load balancer
+     */
+    readonly frontendIPConfigurations?: outputs.network.v20160330.FrontendIPConfigurationResponse[];
+    /**
+     * Gets or sets inbound NAT pools
+     */
+    readonly inboundNatPools?: outputs.network.v20160330.InboundNatPoolResponse[];
+    /**
+     * Gets or sets list of inbound rules
+     */
+    readonly inboundNatRules?: outputs.network.v20160330.InboundNatRuleResponse[];
+    /**
+     * Gets or sets load balancing rules
+     */
+    readonly loadBalancingRules?: outputs.network.v20160330.LoadBalancingRuleResponse[];
     /**
      * Resource location
      */
@@ -48,9 +68,21 @@ export interface GetLoadBalancerResult {
      */
     readonly name: string;
     /**
-     * Properties of Load Balancer
+     * Gets or sets outbound NAT rules
      */
-    readonly properties: outputs.network.v20160330.LoadBalancerPropertiesFormatResponse;
+    readonly outboundNatRules?: outputs.network.v20160330.OutboundNatRuleResponse[];
+    /**
+     * Gets or sets list of Load balancer probes
+     */
+    readonly probes?: outputs.network.v20160330.ProbeResponse[];
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: string;
+    /**
+     * Gets or sets resource GUID property of the Load balancer resource
+     */
+    readonly resourceGuid?: string;
     /**
      * Resource tags
      */

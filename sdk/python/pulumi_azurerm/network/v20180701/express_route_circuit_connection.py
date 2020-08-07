@@ -10,15 +10,40 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteCircuitConnection(pulumi.CustomResource):
+    address_prefix: pulumi.Output[str]
+    """
+    /29 IP address space to carve out Customer addresses for tunnels.
+    """
+    authorization_key: pulumi.Output[str]
+    """
+    The authorization key.
+    """
+    circuit_connection_status: pulumi.Output[str]
+    """
+    Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    express_route_circuit_peering: pulumi.Output[dict]
+    """
+    Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+      * `id` (`str`) - Resource ID.
     """
     name: pulumi.Output[str]
     """
     Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    peer_express_route_circuit_peering: pulumi.Output[dict]
+    """
+    Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+      * `id` (`str`) - Resource ID.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+    """
     def __init__(__self__, resource_name, opts=None, address_prefix=None, authorization_key=None, circuit_name=None, express_route_circuit_peering=None, id=None, name=None, peer_express_route_circuit_peering=None, peering_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
@@ -73,8 +98,9 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['circuit_connection_status'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(ExpressRouteCircuitConnection, __self__).__init__(
             'azurerm:network/v20180701:ExpressRouteCircuitConnection',
             resource_name,

@@ -13,7 +13,7 @@ class GetWebAppSwiftVirtualNetworkConnectionResult:
     """
     Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, name=None, subnet_resource_id=None, swift_supported=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +26,17 @@ class GetWebAppSwiftVirtualNetworkConnectionResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if subnet_resource_id and not isinstance(subnet_resource_id, str):
+            raise TypeError("Expected argument 'subnet_resource_id' to be a str")
+        __self__.subnet_resource_id = subnet_resource_id
         """
-        SwiftVirtualNetwork resource specific properties
+        The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+        """
+        if swift_supported and not isinstance(swift_supported, bool):
+            raise TypeError("Expected argument 'swift_supported' to be a bool")
+        __self__.swift_supported = swift_supported
+        """
+        A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +54,8 @@ class AwaitableGetWebAppSwiftVirtualNetworkConnectionResult(GetWebAppSwiftVirtua
         return GetWebAppSwiftVirtualNetworkConnectionResult(
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            subnet_resource_id=self.subnet_resource_id,
+            swift_supported=self.swift_supported,
             type=self.type)
 
 
@@ -71,5 +78,6 @@ def get_web_app_swift_virtual_network_connection(name=None, resource_group_name=
     return AwaitableGetWebAppSwiftVirtualNetworkConnectionResult(
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        subnet_resource_id=__ret__.get('subnetResourceId'),
+        swift_supported=__ret__.get('swiftSupported'),
         type=__ret__.get('type'))

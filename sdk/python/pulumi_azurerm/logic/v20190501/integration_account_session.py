@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class IntegrationAccountSession(pulumi.CustomResource):
+    changed_time: pulumi.Output[str]
+    """
+    The changed time.
+    """
+    content: pulumi.Output[dict]
+    """
+    The session content.
+    """
+    created_time: pulumi.Output[str]
+    """
+    The created time.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
@@ -17,13 +29,6 @@ class IntegrationAccountSession(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     Gets the resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The integration account session properties.
-      * `changed_time` (`str`) - The changed time.
-      * `content` (`dict`) - The session content.
-      * `created_time` (`str`) - The created time.
     """
     tags: pulumi.Output[dict]
     """
@@ -75,7 +80,8 @@ class IntegrationAccountSession(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['changed_time'] = None
+            __props__['created_time'] = None
             __props__['type'] = None
         super(IntegrationAccountSession, __self__).__init__(
             'azurerm:logic/v20190501:IntegrationAccountSession',

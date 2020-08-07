@@ -48,10 +48,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The integration account properties.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> Properties;
-        /// <summary>
         /// The sku.
         /// </summary>
         public readonly Outputs.IntegrationAccountSkuResponseResult? Sku;
@@ -70,8 +66,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
 
             string name,
 
-            ImmutableDictionary<string, object> properties,
-
             Outputs.IntegrationAccountSkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
@@ -80,7 +74,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
         {
             Location = location;
             Name = name;
-            Properties = properties;
             Sku = sku;
             Tags = tags;
             Type = type;

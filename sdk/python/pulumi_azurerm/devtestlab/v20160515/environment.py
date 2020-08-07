@@ -10,6 +10,22 @@ from ... import _utilities, _tables
 
 
 class Environment(pulumi.CustomResource):
+    arm_template_display_name: pulumi.Output[str]
+    """
+    The display name of the Azure Resource Manager template that produced the environment.
+    """
+    created_by_user: pulumi.Output[str]
+    """
+    The creator of the environment.
+    """
+    deployment_properties: pulumi.Output[dict]
+    """
+    The deployment properties of the environment.
+      * `arm_template_id` (`str`) - The Azure Resource Manager template's identifier.
+      * `parameters` (`list`) - The parameters of the Azure Resource Manager template.
+        * `name` (`str`) - The name of the template parameter.
+        * `value` (`str`) - The value of the template parameter.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,20 +34,13 @@ class Environment(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `arm_template_display_name` (`str`) - The display name of the Azure Resource Manager template that produced the environment.
-      * `created_by_user` (`str`) - The creator of the environment.
-      * `deployment_properties` (`dict`) - The deployment properties of the environment.
-        * `arm_template_id` (`str`) - The Azure Resource Manager template's identifier.
-        * `parameters` (`list`) - The parameters of the Azure Resource Manager template.
-          * `name` (`str`) - The name of the template parameter.
-          * `value` (`str`) - The value of the template parameter.
-
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `resource_group_id` (`str`) - The identifier of the resource group containing the environment's resources.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    The provisioning status of the resource.
+    """
+    resource_group_id: pulumi.Output[str]
+    """
+    The identifier of the resource group containing the environment's resources.
     """
     tags: pulumi.Output[dict]
     """
@@ -40,6 +49,10 @@ class Environment(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, arm_template_display_name=None, deployment_properties=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -100,7 +113,8 @@ class Environment(pulumi.CustomResource):
             if user_name is None:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
-            __props__['properties'] = None
+            __props__['created_by_user'] = None
+            __props__['resource_group_id'] = None
             __props__['type'] = None
         super(Environment, __self__).__init__(
             'azurerm:devtestlab/v20160515:Environment',

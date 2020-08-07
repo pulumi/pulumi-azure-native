@@ -50,13 +50,17 @@ export interface GetBlobContainerImmutabilityPolicyResult {
      */
     readonly etag: string;
     /**
+     * The immutability period for the blobs in the container since the policy creation, in days.
+     */
+    readonly immutabilityPeriodSinceCreationInDays: number;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The properties of an ImmutabilityPolicy of a blob container.
+     * The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
      */
-    readonly properties: outputs.storage.v20180201.ImmutabilityPolicyPropertyResponse;
+    readonly state: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

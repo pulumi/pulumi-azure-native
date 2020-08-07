@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class RouteFilterRule extends pulumi.CustomResource {
     }
 
     /**
+     * The access type of the rule. Valid values are: 'Allow', 'Deny'
+     */
+    public readonly access!: pulumi.Output<string>;
+    /**
+     * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+     */
+    public readonly communities!: pulumi.Output<string[]>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +55,13 @@ export class RouteFilterRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Route Filter Rule Resource
+     * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181201.RouteFilterRulePropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The rule type of the rule. Valid value is: 'Community'
+     */
+    public readonly routeFilterRuleType!: pulumi.Output<string>;
 
     /**
      * Create a RouteFilterRule resource with the given unique name, arguments, and options.
@@ -93,7 +103,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
             inputs["routeFilterName"] = args ? args.routeFilterName : undefined;
             inputs["routeFilterRuleType"] = args ? args.routeFilterRuleType : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

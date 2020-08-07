@@ -14,6 +14,18 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
     public sealed class RoutingRuleResponseResult
     {
         /// <summary>
+        /// Protocol schemes to match for this rule
+        /// </summary>
+        public readonly ImmutableArray<string> AcceptedProtocols;
+        /// <summary>
+        /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+        /// </summary>
+        public readonly string? EnabledState;
+        /// <summary>
+        /// Frontend endpoints associated with this rule
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> FrontendEndpoints;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -22,28 +34,58 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the Front Door Routing Rule
+        /// The route patterns of the rule.
         /// </summary>
-        public readonly Outputs.RoutingRulePropertiesResponseResult? Properties;
+        public readonly ImmutableArray<string> PatternsToMatch;
+        /// <summary>
+        /// Resource status.
+        /// </summary>
+        public readonly string? ResourceState;
+        /// <summary>
+        /// A reference to a specific Rules Engine Configuration to apply to this route.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RulesEngine;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Defines the Web Application Firewall policy for each routing rule (if applicable)
+        /// </summary>
+        public readonly Outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private RoutingRuleResponseResult(
+            ImmutableArray<string> acceptedProtocols,
+
+            string? enabledState,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> frontendEndpoints,
+
             string? id,
 
             string? name,
 
-            Outputs.RoutingRulePropertiesResponseResult? properties,
+            ImmutableArray<string> patternsToMatch,
 
-            string type)
+            string? resourceState,
+
+            Outputs.SubResourceResponseResult? rulesEngine,
+
+            string type,
+
+            Outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? webApplicationFirewallPolicyLink)
         {
+            AcceptedProtocols = acceptedProtocols;
+            EnabledState = enabledState;
+            FrontendEndpoints = frontendEndpoints;
             Id = id;
             Name = name;
-            Properties = properties;
+            PatternsToMatch = patternsToMatch;
+            ResourceState = resourceState;
+            RulesEngine = rulesEngine;
             Type = type;
+            WebApplicationFirewallPolicyLink = webApplicationFirewallPolicyLink;
         }
     }
 }

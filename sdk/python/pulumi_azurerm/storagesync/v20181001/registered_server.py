@@ -10,32 +10,85 @@ from ... import _utilities, _tables
 
 
 class RegisteredServer(pulumi.CustomResource):
+    agent_version: pulumi.Output[str]
+    """
+    Registered Server Agent Version
+    """
+    cluster_id: pulumi.Output[str]
+    """
+    Registered Server clusterId
+    """
+    cluster_name: pulumi.Output[str]
+    """
+    Registered Server clusterName
+    """
+    discovery_endpoint_uri: pulumi.Output[str]
+    """
+    Resource discoveryEndpointUri
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    Friendly Name
+    """
+    last_heart_beat: pulumi.Output[str]
+    """
+    Registered Server last heart beat
+    """
+    last_operation_name: pulumi.Output[str]
+    """
+    Resource Last Operation Name
+    """
+    last_workflow_id: pulumi.Output[str]
+    """
+    Registered Server lastWorkflowId
+    """
+    management_endpoint_uri: pulumi.Output[str]
+    """
+    Management Endpoint Uri
+    """
+    monitoring_configuration: pulumi.Output[str]
+    """
+    Monitoring Configuration
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    RegisteredServer properties.
-      * `agent_version` (`str`) - Registered Server Agent Version
-      * `cluster_id` (`str`) - Registered Server clusterId
-      * `cluster_name` (`str`) - Registered Server clusterName
-      * `discovery_endpoint_uri` (`str`) - Resource discoveryEndpointUri
-      * `friendly_name` (`str`) - Friendly Name
-      * `last_heart_beat` (`str`) - Registered Server last heart beat
-      * `last_operation_name` (`str`) - Resource Last Operation Name
-      * `last_workflow_id` (`str`) - Registered Server lastWorkflowId
-      * `management_endpoint_uri` (`str`) - Management Endpoint Uri
-      * `monitoring_configuration` (`str`) - Monitoring Configuration
-      * `provisioning_state` (`str`) - Registered Server Provisioning State
-      * `resource_location` (`str`) - Resource Location
-      * `server_certificate` (`str`) - Registered Server Certificate
-      * `server_id` (`str`) - Registered Server serverId
-      * `server_management_error_code` (`float`) - Registered Server Management Error Code
-      * `server_os_version` (`str`) - Registered Server OS Version
-      * `server_role` (`str`) - Registered Server serverRole
-      * `service_location` (`str`) - Service Location
-      * `storage_sync_service_uid` (`str`) - Registered Server storageSyncServiceUid
+    Registered Server Provisioning State
+    """
+    resource_location: pulumi.Output[str]
+    """
+    Resource Location
+    """
+    server_certificate: pulumi.Output[str]
+    """
+    Registered Server Certificate
+    """
+    server_id: pulumi.Output[str]
+    """
+    Registered Server serverId
+    """
+    server_management_error_code: pulumi.Output[float]
+    """
+    Registered Server Management Error Code
+    """
+    server_os_version: pulumi.Output[str]
+    """
+    Registered Server OS Version
+    """
+    server_role: pulumi.Output[str]
+    """
+    Registered Server serverRole
+    """
+    service_location: pulumi.Output[str]
+    """
+    Service Location
+    """
+    storage_sync_service_uid: pulumi.Output[str]
+    """
+    Registered Server storageSyncServiceUid
     """
     type: pulumi.Output[str]
     """
@@ -93,7 +146,17 @@ class RegisteredServer(pulumi.CustomResource):
             if storage_sync_service_name is None:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
-            __props__['properties'] = None
+            __props__['discovery_endpoint_uri'] = None
+            __props__['last_operation_name'] = None
+            __props__['last_workflow_id'] = None
+            __props__['management_endpoint_uri'] = None
+            __props__['monitoring_configuration'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_location'] = None
+            __props__['server_id'] = None
+            __props__['server_management_error_code'] = None
+            __props__['service_location'] = None
+            __props__['storage_sync_service_uid'] = None
             __props__['type'] = None
         super(RegisteredServer, __self__).__init__(
             'azurerm:storagesync/v20181001:RegisteredServer',

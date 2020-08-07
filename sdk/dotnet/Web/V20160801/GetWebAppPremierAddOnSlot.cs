@@ -54,13 +54,29 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Premier add on Marketplace offer.
+        /// </summary>
+        public readonly string? MarketplaceOffer;
+        /// <summary>
+        /// Premier add on Marketplace publisher.
+        /// </summary>
+        public readonly string? MarketplacePublisher;
+        /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// PremierAddOn resource specific properties
+        /// Premier add on Name.
         /// </summary>
-        public readonly Outputs.PremierAddOnResponsePropertiesResult Properties;
+        public readonly string? PremierAddOnName;
+        /// <summary>
+        /// Premier add on Product.
+        /// </summary>
+        public readonly string? Product;
+        /// <summary>
+        /// Premier add on SKU.
+        /// </summary>
+        public readonly string? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -69,6 +85,10 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Premier add on Vendor.
+        /// </summary>
+        public readonly string? Vendor;
 
         [OutputConstructor]
         private GetWebAppPremierAddOnSlotResult(
@@ -76,20 +96,35 @@ namespace Pulumi.AzureRM.Web.V20160801
 
             string location,
 
+            string? marketplaceOffer,
+
+            string? marketplacePublisher,
+
             string name,
 
-            Outputs.PremierAddOnResponsePropertiesResult properties,
+            string? premierAddOnName,
+
+            string? product,
+
+            string? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? vendor)
         {
             Kind = kind;
             Location = location;
+            MarketplaceOffer = marketplaceOffer;
+            MarketplacePublisher = marketplacePublisher;
             Name = name;
-            Properties = properties;
+            PremierAddOnName = premierAddOnName;
+            Product = product;
+            Sku = sku;
             Tags = tags;
             Type = type;
+            Vendor = vendor;
         }
     }
 }

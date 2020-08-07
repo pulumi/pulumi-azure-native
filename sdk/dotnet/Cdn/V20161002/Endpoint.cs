@@ -15,6 +15,42 @@ namespace Pulumi.AzureRM.Cdn.V20161002
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of content types on which compression applies. The value should be a valid MIME type.
+        /// </summary>
+        [Output("contentTypesToCompress")]
+        public Output<ImmutableArray<string>> ContentTypesToCompress { get; private set; } = null!;
+
+        /// <summary>
+        /// List of rules defining user geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+        /// </summary>
+        [Output("geoFilters")]
+        public Output<ImmutableArray<Outputs.GeoFilterResponseResult>> GeoFilters { get; private set; } = null!;
+
+        /// <summary>
+        /// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+        /// </summary>
+        [Output("isCompressionEnabled")]
+        public Output<bool?> IsCompressionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        [Output("isHttpAllowed")]
+        public Output<bool?> IsHttpAllowed { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        [Output("isHttpsAllowed")]
+        public Output<bool?> IsHttpsAllowed { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +63,46 @@ namespace Pulumi.AzureRM.Cdn.V20161002
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties required to create an endpoint.
+        /// Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EndpointPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("optimizationType")]
+        public Output<string?> OptimizationType { get; private set; } = null!;
+
+        /// <summary>
+        /// The host header CDN sends along with content requests to origin. The default value is the host name of the origin.
+        /// </summary>
+        [Output("originHostHeader")]
+        public Output<string?> OriginHostHeader { get; private set; } = null!;
+
+        /// <summary>
+        /// The path used when CDN sends request to origin.
+        /// </summary>
+        [Output("originPath")]
+        public Output<string?> OriginPath { get; private set; } = null!;
+
+        /// <summary>
+        /// The source of the content being delivered via CDN.
+        /// </summary>
+        [Output("origins")]
+        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponseResult>> Origins { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning status of the endpoint.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines the query string caching behavior
+        /// </summary>
+        [Output("queryStringCachingBehavior")]
+        public Output<string?> QueryStringCachingBehavior { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the endpoint.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

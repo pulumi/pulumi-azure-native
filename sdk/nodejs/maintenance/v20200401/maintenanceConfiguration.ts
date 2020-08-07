@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,25 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+     */
+    public readonly extensionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Gets or sets location of the resource
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+     */
+    public readonly maintenanceScope!: pulumi.Output<string | undefined>;
     /**
      * Name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets properties of the resource
+     * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.maintenance.v20200401.MaintenanceConfigurationPropertiesResponse>;
+    public readonly namespace!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets tags of the resource
      */
@@ -83,7 +89,6 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             inputs["namespace"] = args ? args.namespace : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

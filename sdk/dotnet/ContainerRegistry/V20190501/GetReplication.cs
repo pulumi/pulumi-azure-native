@@ -54,9 +54,13 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the replication.
+        /// The provisioning state of the replication at the time the operation was called.
         /// </summary>
-        public readonly Outputs.ReplicationPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The status of the replication at the time the operation was called.
+        /// </summary>
+        public readonly Outputs.StatusResponseResult Status;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -72,7 +76,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
 
             string name,
 
-            Outputs.ReplicationPropertiesResponseResult properties,
+            string provisioningState,
+
+            Outputs.StatusResponseResult status,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -80,7 +86,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Status = status;
             Tags = tags;
             Type = type;
         }

@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.Network.V20170601
     public partial class ExpressRouteCircuitPeering : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Azure ASN.
+        /// </summary>
+        [Output("azureASN")]
+        public Output<int?> AzureASN { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The GatewayManager Etag.
+        /// </summary>
+        [Output("gatewayManagerEtag")]
+        public Output<string?> GatewayManagerEtag { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv6 peering configuration.
+        /// </summary>
+        [Output("ipv6PeeringConfig")]
+        public Output<Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponseResult?> Ipv6PeeringConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets whether the provider or the customer last modified the peering.
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The Microsoft peering configuration.
+        /// </summary>
+        [Output("microsoftPeeringConfig")]
+        public Output<Outputs.ExpressRouteCircuitPeeringConfigResponseResult?> MicrosoftPeeringConfig { get; private set; } = null!;
 
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -26,8 +56,77 @@ namespace Pulumi.AzureRM.Network.V20170601
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitPeeringPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// The peer ASN.
+        /// </summary>
+        [Output("peerASN")]
+        public Output<int?> PeerASN { get; private set; } = null!;
+
+        /// <summary>
+        /// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
+        /// </summary>
+        [Output("peeringType")]
+        public Output<string?> PeeringType { get; private set; } = null!;
+
+        /// <summary>
+        /// The primary port.
+        /// </summary>
+        [Output("primaryAzurePort")]
+        public Output<string?> PrimaryAzurePort { get; private set; } = null!;
+
+        /// <summary>
+        /// The primary address prefix.
+        /// </summary>
+        [Output("primaryPeerAddressPrefix")]
+        public Output<string?> PrimaryPeerAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference of the RouteFilter resource.
+        /// </summary>
+        [Output("routeFilter")]
+        public Output<Outputs.RouteFilterResponseResult?> RouteFilter { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary port.
+        /// </summary>
+        [Output("secondaryAzurePort")]
+        public Output<string?> SecondaryAzurePort { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary address prefix.
+        /// </summary>
+        [Output("secondaryPeerAddressPrefix")]
+        public Output<string?> SecondaryPeerAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The shared key.
+        /// </summary>
+        [Output("sharedKey")]
+        public Output<string?> SharedKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of peering. Possible values are: 'Disabled' and 'Enabled'
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets peering stats.
+        /// </summary>
+        [Output("stats")]
+        public Output<Outputs.ExpressRouteCircuitStatsResponseResult?> Stats { get; private set; } = null!;
+
+        /// <summary>
+        /// The VLAN ID.
+        /// </summary>
+        [Output("vlanId")]
+        public Output<int?> VlanId { get; private set; } = null!;
 
 
         /// <summary>

@@ -51,13 +51,25 @@ export interface GetRuleArgs {
  */
 export interface GetRuleResult {
     /**
+     * Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+     */
+    readonly action?: outputs.servicebus.v20170401.ActionResponse;
+    /**
+     * Properties of correlationFilter
+     */
+    readonly correlationFilter?: outputs.servicebus.v20170401.CorrelationFilterResponse;
+    /**
+     * Filter type that is evaluated against a BrokeredMessage.
+     */
+    readonly filterType?: string;
+    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Properties of Rule resource
+     * Properties of sqlFilter
      */
-    readonly properties: outputs.servicebus.v20170401.RulepropertiesResponse;
+    readonly sqlFilter?: outputs.servicebus.v20170401.SqlFilterResponse;
     /**
      * Resource type
      */

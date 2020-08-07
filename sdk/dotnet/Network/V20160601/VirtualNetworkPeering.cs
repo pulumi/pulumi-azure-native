@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Network.V20160601
     public partial class VirtualNetworkPeering : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed
+        /// </summary>
+        [Output("allowForwardedTraffic")]
+        public Output<bool?> AllowForwardedTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets if gatewayLinks can be used in remote virtual network’s link to this virtual network
+        /// </summary>
+        [Output("allowGatewayTransit")]
+        public Output<bool?> AllowGatewayTransit { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space
+        /// </summary>
+        [Output("allowVirtualNetworkAccess")]
+        public Output<bool?> AllowVirtualNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
@@ -26,8 +44,29 @@ namespace Pulumi.AzureRM.Network.V20160601
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Gets the status of the virtual network peering
+        /// </summary>
+        [Output("peeringState")]
+        public Output<string?> PeeringState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets provisioning state of the resource
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the reference of the remote virtual network
+        /// </summary>
+        [Output("remoteVirtualNetwork")]
+        public Output<Outputs.SubResourceResponseResult?> RemoteVirtualNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        /// </summary>
+        [Output("useRemoteGateways")]
+        public Output<bool?> UseRemoteGateways { get; private set; } = null!;
 
 
         /// <summary>

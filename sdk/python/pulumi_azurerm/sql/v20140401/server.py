@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class Server(pulumi.CustomResource):
+    administrator_login: pulumi.Output[str]
+    """
+    Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+    """
+    administrator_login_password: pulumi.Output[str]
+    """
+    The administrator login password (required for server creation).
+    """
+    external_administrator_login: pulumi.Output[str]
+    """
+    The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+    """
+    external_administrator_sid: pulumi.Output[str]
+    """
+    The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+    """
+    fully_qualified_domain_name: pulumi.Output[str]
+    """
+    The fully qualified domain name of the server.
+    """
     kind: pulumi.Output[str]
     """
     Kind of sql server.  This is metadata used for the Azure portal experience.
@@ -22,16 +42,9 @@ class Server(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    state: pulumi.Output[str]
     """
-    Represents the properties of the resource.
-      * `administrator_login` (`str`) - Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
-      * `administrator_login_password` (`str`) - The administrator login password (required for server creation).
-      * `external_administrator_login` (`str`) - The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-      * `external_administrator_sid` (`str`) - The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-      * `fully_qualified_domain_name` (`str`) - The fully qualified domain name of the server.
-      * `state` (`str`) - The state of the server.
-      * `version` (`str`) - The version of the server.
+    The state of the server.
     """
     tags: pulumi.Output[dict]
     """
@@ -40,6 +53,10 @@ class Server(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    version: pulumi.Output[str]
+    """
+    The version of the server.
     """
     def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, location=None, name=None, resource_group_name=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -85,8 +102,11 @@ class Server(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['version'] = version
+            __props__['external_administrator_login'] = None
+            __props__['external_administrator_sid'] = None
+            __props__['fully_qualified_domain_name'] = None
             __props__['kind'] = None
-            __props__['properties'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(Server, __self__).__init__(
             'azurerm:sql/v20140401:Server',

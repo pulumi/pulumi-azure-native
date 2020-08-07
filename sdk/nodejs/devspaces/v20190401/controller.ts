@@ -34,6 +34,14 @@ export class Controller extends pulumi.CustomResource {
     }
 
     /**
+     * DNS name for accessing DataPlane services
+     */
+    public /*out*/ readonly dataPlaneFqdn!: pulumi.Output<string>;
+    /**
+     * DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+     */
+    public /*out*/ readonly hostSuffix!: pulumi.Output<string>;
+    /**
      * Region where the Azure resource is located.
      */
     public readonly location!: pulumi.Output<string>;
@@ -41,7 +49,10 @@ export class Controller extends pulumi.CustomResource {
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devspaces.v20190401.ControllerPropertiesResponse>;
+    /**
+     * Provisioning state of the Azure Dev Spaces Controller.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Model representing SKU for Azure Dev Spaces Controller.
      */
@@ -50,6 +61,18 @@ export class Controller extends pulumi.CustomResource {
      * Tags for the Azure resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * DNS of the target container host's API server
+     */
+    public /*out*/ readonly targetContainerHostApiServerFqdn!: pulumi.Output<string>;
+    /**
+     * Credentials of the target container host (base64).
+     */
+    public readonly targetContainerHostCredentialsBase64!: pulumi.Output<string>;
+    /**
+     * Resource ID of the target container host
+     */
+    public readonly targetContainerHostResourceId!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -93,7 +116,10 @@ export class Controller extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetContainerHostCredentialsBase64"] = args ? args.targetContainerHostCredentialsBase64 : undefined;
             inputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["dataPlaneFqdn"] = undefined /*out*/;
+            inputs["hostSuffix"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["targetContainerHostApiServerFqdn"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

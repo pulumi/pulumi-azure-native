@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.Network.V20200301
     public partial class ExpressRouteCircuitConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// /29 IP address space to carve out Customer addresses for tunnels.
+        /// </summary>
+        [Output("addressPrefix")]
+        public Output<string?> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The authorization key.
+        /// </summary>
+        [Output("authorizationKey")]
+        public Output<string?> AuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Express Route Circuit connection state.
+        /// </summary>
+        [Output("circuitConnectionStatus")]
+        public Output<string?> CircuitConnectionStatus { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        /// </summary>
+        [Output("expressRouteCircuitPeering")]
+        public Output<Outputs.SubResourceResponseResult?> ExpressRouteCircuitPeering { get; private set; } = null!;
+
+        /// <summary>
+        /// IPv6 Address PrefixProperties of the express route circuit connection.
+        /// </summary>
+        [Output("ipv6CircuitConnectionConfig")]
+        public Output<Outputs.Ipv6CircuitConnectionConfigResponseResult?> Ipv6CircuitConnectionConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -27,10 +57,16 @@ namespace Pulumi.AzureRM.Network.V20200301
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the express route circuit connection.
+        /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitConnectionPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peerExpressRouteCircuitPeering")]
+        public Output<Outputs.SubResourceResponseResult?> PeerExpressRouteCircuitPeering { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the express route circuit connection resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

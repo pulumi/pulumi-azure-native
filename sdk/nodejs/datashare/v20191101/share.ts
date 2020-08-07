@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,41 @@ export class Share extends pulumi.CustomResource {
     }
 
     /**
+     * Time at which the share was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Share description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Name of the azure resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties on the share
+     * Gets or sets the provisioning state
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datashare.v20191101.SharePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Share kind.
+     */
+    public readonly shareKind!: pulumi.Output<string | undefined>;
+    /**
+     * Share terms.
+     */
+    public readonly terms!: pulumi.Output<string | undefined>;
     /**
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Email of the user who created the resource
+     */
+    public /*out*/ readonly userEmail!: pulumi.Output<string>;
+    /**
+     * Name of the user who created the resource
+     */
+    public /*out*/ readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a Share resource with the given unique name, arguments, and options.
@@ -77,8 +99,11 @@ export class Share extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareKind"] = args ? args.shareKind : undefined;
             inputs["terms"] = args ? args.terms : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userEmail"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

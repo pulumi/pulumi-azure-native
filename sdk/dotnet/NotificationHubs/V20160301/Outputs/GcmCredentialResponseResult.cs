@@ -14,14 +14,22 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301.Outputs
     public sealed class GcmCredentialResponseResult
     {
         /// <summary>
-        /// Properties of NotificationHub GcmCredential.
+        /// The GCM endpoint.
         /// </summary>
-        public readonly Outputs.GcmCredentialPropertiesResponseResult? Properties;
+        public readonly string? GcmEndpoint;
+        /// <summary>
+        /// The Google API key.
+        /// </summary>
+        public readonly string? GoogleApiKey;
 
         [OutputConstructor]
-        private GcmCredentialResponseResult(Outputs.GcmCredentialPropertiesResponseResult? properties)
+        private GcmCredentialResponseResult(
+            string? gcmEndpoint,
+
+            string? googleApiKey)
         {
-            Properties = properties;
+            GcmEndpoint = gcmEndpoint;
+            GoogleApiKey = googleApiKey;
         }
     }
 }

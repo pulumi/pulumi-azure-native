@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Compute.V20190701
     public sealed class GetDedicatedHostGroupResult
     {
         /// <summary>
+        /// A list of references to all dedicated hosts in the dedicated host group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponseResult> Hosts;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +52,9 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Dedicated Host Group Properties.
+        /// Number of fault domains that the host group can span.
         /// </summary>
-        public readonly Outputs.DedicatedHostGroupPropertiesResponseResult Properties;
+        public readonly int PlatformFaultDomainCount;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -66,11 +70,13 @@ namespace Pulumi.AzureRM.Compute.V20190701
 
         [OutputConstructor]
         private GetDedicatedHostGroupResult(
+            ImmutableArray<Outputs.SubResourceReadOnlyResponseResult> hosts,
+
             string location,
 
             string name,
 
-            Outputs.DedicatedHostGroupPropertiesResponseResult properties,
+            int platformFaultDomainCount,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -78,9 +84,10 @@ namespace Pulumi.AzureRM.Compute.V20190701
 
             ImmutableArray<string> zones)
         {
+            Hosts = hosts;
             Location = location;
             Name = name;
-            Properties = properties;
+            PlatformFaultDomainCount = platformFaultDomainCount;
             Tags = tags;
             Type = type;
             Zones = zones;

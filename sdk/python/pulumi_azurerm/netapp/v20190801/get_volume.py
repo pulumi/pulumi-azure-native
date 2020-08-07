@@ -13,12 +13,48 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, baremetal_tenant_id=None, creation_token=None, data_protection=None, export_policy=None, file_system_id=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, service_level=None, snapshot_id=None, subnet_id=None, tags=None, type=None, usage_threshold=None, volume_type=None):
+        if baremetal_tenant_id and not isinstance(baremetal_tenant_id, str):
+            raise TypeError("Expected argument 'baremetal_tenant_id' to be a str")
+        __self__.baremetal_tenant_id = baremetal_tenant_id
+        """
+        Unique Baremetal Tenant Identifier.
+        """
+        if creation_token and not isinstance(creation_token, str):
+            raise TypeError("Expected argument 'creation_token' to be a str")
+        __self__.creation_token = creation_token
+        """
+        A unique file path for the volume. Used when creating mount targets
+        """
+        if data_protection and not isinstance(data_protection, dict):
+            raise TypeError("Expected argument 'data_protection' to be a dict")
+        __self__.data_protection = data_protection
+        """
+        DataProtection volume, can have a replication object
+        """
+        if export_policy and not isinstance(export_policy, dict):
+            raise TypeError("Expected argument 'export_policy' to be a dict")
+        __self__.export_policy = export_policy
+        """
+        Set of export policy rules
+        """
+        if file_system_id and not isinstance(file_system_id, str):
+            raise TypeError("Expected argument 'file_system_id' to be a str")
+        __self__.file_system_id = file_system_id
+        """
+        Unique FileSystem Identifier.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if mount_targets and not isinstance(mount_targets, list):
+            raise TypeError("Expected argument 'mount_targets' to be a list")
+        __self__.mount_targets = mount_targets
+        """
+        List of mount targets
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +62,35 @@ class GetVolumeResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if protocol_types and not isinstance(protocol_types, list):
+            raise TypeError("Expected argument 'protocol_types' to be a list")
+        __self__.protocol_types = protocol_types
         """
-        Volume properties
+        Set of protocol types
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Azure lifecycle management
+        """
+        if service_level and not isinstance(service_level, str):
+            raise TypeError("Expected argument 'service_level' to be a str")
+        __self__.service_level = service_level
+        """
+        The service level of the file system
+        """
+        if snapshot_id and not isinstance(snapshot_id, str):
+            raise TypeError("Expected argument 'snapshot_id' to be a str")
+        __self__.snapshot_id = snapshot_id
+        """
+        UUID v4 or resource identifier used to identify the Snapshot.
+        """
+        if subnet_id and not isinstance(subnet_id, str):
+            raise TypeError("Expected argument 'subnet_id' to be a str")
+        __self__.subnet_id = subnet_id
+        """
+        The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +104,18 @@ class GetVolumeResult:
         """
         Resource type
         """
+        if usage_threshold and not isinstance(usage_threshold, float):
+            raise TypeError("Expected argument 'usage_threshold' to be a float")
+        __self__.usage_threshold = usage_threshold
+        """
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        """
+        if volume_type and not isinstance(volume_type, str):
+            raise TypeError("Expected argument 'volume_type' to be a str")
+        __self__.volume_type = volume_type
+        """
+        What type of volume is this
+        """
 
 
 class AwaitableGetVolumeResult(GetVolumeResult):
@@ -52,11 +124,23 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
+            baremetal_tenant_id=self.baremetal_tenant_id,
+            creation_token=self.creation_token,
+            data_protection=self.data_protection,
+            export_policy=self.export_policy,
+            file_system_id=self.file_system_id,
             location=self.location,
+            mount_targets=self.mount_targets,
             name=self.name,
-            properties=self.properties,
+            protocol_types=self.protocol_types,
+            provisioning_state=self.provisioning_state,
+            service_level=self.service_level,
+            snapshot_id=self.snapshot_id,
+            subnet_id=self.subnet_id,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            usage_threshold=self.usage_threshold,
+            volume_type=self.volume_type)
 
 
 def get_volume(account_name=None, name=None, pool_name=None, resource_group_name=None, opts=None):
@@ -80,8 +164,20 @@ def get_volume(account_name=None, name=None, pool_name=None, resource_group_name
     __ret__ = pulumi.runtime.invoke('azurerm:netapp/v20190801:getVolume', __args__, opts=opts).value
 
     return AwaitableGetVolumeResult(
+        baremetal_tenant_id=__ret__.get('baremetalTenantId'),
+        creation_token=__ret__.get('creationToken'),
+        data_protection=__ret__.get('dataProtection'),
+        export_policy=__ret__.get('exportPolicy'),
+        file_system_id=__ret__.get('fileSystemId'),
         location=__ret__.get('location'),
+        mount_targets=__ret__.get('mountTargets'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        protocol_types=__ret__.get('protocolTypes'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_level=__ret__.get('serviceLevel'),
+        snapshot_id=__ret__.get('snapshotId'),
+        subnet_id=__ret__.get('subnetId'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        usage_threshold=__ret__.get('usageThreshold'),
+        volume_type=__ret__.get('volumeType'))

@@ -10,42 +10,61 @@ from ... import _utilities, _tables
 
 
 class EventSubscription(pulumi.CustomResource):
+    dead_letter_destination: pulumi.Output[dict]
+    """
+    The DeadLetter destination of the event subscription.
+      * `endpoint_type` (`str`) - Type of the endpoint for the dead letter destination
+    """
+    destination: pulumi.Output[dict]
+    """
+    Information about the destination where events have to be delivered for the event subscription.
+      * `endpoint_type` (`str`) - Type of the endpoint for the event subscription destination.
+    """
+    event_delivery_schema: pulumi.Output[str]
+    """
+    The event delivery schema for the event subscription.
+    """
+    expiration_time_utc: pulumi.Output[str]
+    """
+    Expiration time of the event subscription.
+    """
+    filter: pulumi.Output[dict]
+    """
+    Information about the filter for the event subscription.
+      * `advanced_filters` (`list`) - An array of advanced filters that are used for filtering event subscriptions.
+        * `key` (`str`) - The field/property in the event based on which you want to filter.
+        * `operator_type` (`str`) - The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+
+      * `included_event_types` (`list`) - A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+      * `is_subject_case_sensitive` (`bool`) - Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
+        should be compared in a case sensitive manner.
+      * `subject_begins_with` (`str`) - An optional string to filter events for an event subscription based on a resource path prefix.
+        The format of this depends on the publisher of the events.
+        Wildcard characters are not supported in this path.
+      * `subject_ends_with` (`str`) - An optional string to filter events for an event subscription based on a resource path suffix.
+        Wildcard characters are not supported in this path.
+    """
+    labels: pulumi.Output[list]
+    """
+    List of user defined labels.
+    """
     name: pulumi.Output[str]
     """
     Name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the event subscription.
-      * `dead_letter_destination` (`dict`) - The DeadLetter destination of the event subscription.
-        * `endpoint_type` (`str`) - Type of the endpoint for the dead letter destination
-
-      * `destination` (`dict`) - Information about the destination where events have to be delivered for the event subscription.
-        * `endpoint_type` (`str`) - Type of the endpoint for the event subscription destination.
-
-      * `event_delivery_schema` (`str`) - The event delivery schema for the event subscription.
-      * `expiration_time_utc` (`str`) - Expiration time of the event subscription.
-      * `filter` (`dict`) - Information about the filter for the event subscription.
-        * `advanced_filters` (`list`) - An array of advanced filters that are used for filtering event subscriptions.
-          * `key` (`str`) - The field/property in the event based on which you want to filter.
-          * `operator_type` (`str`) - The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-
-        * `included_event_types` (`list`) - A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
-        * `is_subject_case_sensitive` (`bool`) - Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-          should be compared in a case sensitive manner.
-        * `subject_begins_with` (`str`) - An optional string to filter events for an event subscription based on a resource path prefix.
-          The format of this depends on the publisher of the events.
-          Wildcard characters are not supported in this path.
-        * `subject_ends_with` (`str`) - An optional string to filter events for an event subscription based on a resource path suffix.
-          Wildcard characters are not supported in this path.
-
-      * `labels` (`list`) - List of user defined labels.
-      * `provisioning_state` (`str`) - Provisioning state of the event subscription.
-      * `retry_policy` (`dict`) - The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-        * `event_time_to_live_in_minutes` (`float`) - Time To Live (in minutes) for events.
-        * `max_delivery_attempts` (`float`) - Maximum number of delivery retry attempts for events.
-
-      * `topic` (`str`) - Name of the topic of the event subscription.
+    Provisioning state of the event subscription.
+    """
+    retry_policy: pulumi.Output[dict]
+    """
+    The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+      * `event_time_to_live_in_minutes` (`float`) - Time To Live (in minutes) for events.
+      * `max_delivery_attempts` (`float`) - Maximum number of delivery retry attempts for events.
+    """
+    topic: pulumi.Output[str]
+    """
+    Name of the topic of the event subscription.
     """
     type: pulumi.Output[str]
     """
@@ -125,7 +144,8 @@ class EventSubscription(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['topic'] = None
             __props__['type'] = None
         super(EventSubscription, __self__).__init__(
             'azurerm:eventgrid/v20200601:EventSubscription',

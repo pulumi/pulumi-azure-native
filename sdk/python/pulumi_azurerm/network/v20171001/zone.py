@@ -18,16 +18,21 @@ class Zone(pulumi.CustomResource):
     """
     The geo-location where the resource lives
     """
+    max_number_of_record_sets: pulumi.Output[float]
+    """
+    The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    name_servers: pulumi.Output[list]
     """
-    The properties of the zone.
-      * `max_number_of_record_sets` (`float`) - The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-      * `name_servers` (`list`) - The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-      * `number_of_record_sets` (`float`) - The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+    The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+    """
+    number_of_record_sets: pulumi.Output[float]
+    """
+    The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
     """
     tags: pulumi.Output[dict]
     """
@@ -77,7 +82,9 @@ class Zone(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['max_number_of_record_sets'] = None
+            __props__['name_servers'] = None
+            __props__['number_of_record_sets'] = None
             __props__['type'] = None
         super(Zone, __self__).__init__(
             'azurerm:network/v20171001:Zone',

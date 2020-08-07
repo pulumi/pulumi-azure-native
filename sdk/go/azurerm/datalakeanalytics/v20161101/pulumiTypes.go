@@ -237,205 +237,20 @@ func (o AddStorageAccountWithAccountParametersArrayOutput) Index(i pulumi.IntInp
 	}).(AddStorageAccountWithAccountParametersOutput)
 }
 
-// The compute policy properties.
-type ComputePolicyPropertiesResponse struct {
-	// The maximum degree of parallelism per job this user can use to submit jobs.
-	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs.
-	MinPriorityPerJob int `pulumi:"minPriorityPerJob"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId string `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType string `pulumi:"objectType"`
-}
-
-// ComputePolicyPropertiesResponseInput is an input type that accepts ComputePolicyPropertiesResponseArgs and ComputePolicyPropertiesResponseOutput values.
-// You can construct a concrete instance of `ComputePolicyPropertiesResponseInput` via:
-//
-//          ComputePolicyPropertiesResponseArgs{...}
-type ComputePolicyPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToComputePolicyPropertiesResponseOutput() ComputePolicyPropertiesResponseOutput
-	ToComputePolicyPropertiesResponseOutputWithContext(context.Context) ComputePolicyPropertiesResponseOutput
-}
-
-// The compute policy properties.
-type ComputePolicyPropertiesResponseArgs struct {
-	// The maximum degree of parallelism per job this user can use to submit jobs.
-	MaxDegreeOfParallelismPerJob pulumi.IntInput `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs.
-	MinPriorityPerJob pulumi.IntInput `pulumi:"minPriorityPerJob"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType pulumi.StringInput `pulumi:"objectType"`
-}
-
-func (ComputePolicyPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i ComputePolicyPropertiesResponseArgs) ToComputePolicyPropertiesResponseOutput() ComputePolicyPropertiesResponseOutput {
-	return i.ToComputePolicyPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ComputePolicyPropertiesResponseArgs) ToComputePolicyPropertiesResponseOutputWithContext(ctx context.Context) ComputePolicyPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyPropertiesResponseOutput)
-}
-
-func (i ComputePolicyPropertiesResponseArgs) ToComputePolicyPropertiesResponsePtrOutput() ComputePolicyPropertiesResponsePtrOutput {
-	return i.ToComputePolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ComputePolicyPropertiesResponseArgs) ToComputePolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputePolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyPropertiesResponseOutput).ToComputePolicyPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ComputePolicyPropertiesResponsePtrInput is an input type that accepts ComputePolicyPropertiesResponseArgs, ComputePolicyPropertiesResponsePtr and ComputePolicyPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ComputePolicyPropertiesResponsePtrInput` via:
-//
-//          ComputePolicyPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ComputePolicyPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToComputePolicyPropertiesResponsePtrOutput() ComputePolicyPropertiesResponsePtrOutput
-	ToComputePolicyPropertiesResponsePtrOutputWithContext(context.Context) ComputePolicyPropertiesResponsePtrOutput
-}
-
-type computePolicyPropertiesResponsePtrType ComputePolicyPropertiesResponseArgs
-
-func ComputePolicyPropertiesResponsePtr(v *ComputePolicyPropertiesResponseArgs) ComputePolicyPropertiesResponsePtrInput {
-	return (*computePolicyPropertiesResponsePtrType)(v)
-}
-
-func (*computePolicyPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputePolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i *computePolicyPropertiesResponsePtrType) ToComputePolicyPropertiesResponsePtrOutput() ComputePolicyPropertiesResponsePtrOutput {
-	return i.ToComputePolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *computePolicyPropertiesResponsePtrType) ToComputePolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputePolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyPropertiesResponsePtrOutput)
-}
-
-// The compute policy properties.
-type ComputePolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ComputePolicyPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (o ComputePolicyPropertiesResponseOutput) ToComputePolicyPropertiesResponseOutput() ComputePolicyPropertiesResponseOutput {
-	return o
-}
-
-func (o ComputePolicyPropertiesResponseOutput) ToComputePolicyPropertiesResponseOutputWithContext(ctx context.Context) ComputePolicyPropertiesResponseOutput {
-	return o
-}
-
-func (o ComputePolicyPropertiesResponseOutput) ToComputePolicyPropertiesResponsePtrOutput() ComputePolicyPropertiesResponsePtrOutput {
-	return o.ToComputePolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ComputePolicyPropertiesResponseOutput) ToComputePolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputePolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ComputePolicyPropertiesResponse) *ComputePolicyPropertiesResponse {
-		return &v
-	}).(ComputePolicyPropertiesResponsePtrOutput)
-}
-
-// The maximum degree of parallelism per job this user can use to submit jobs.
-func (o ComputePolicyPropertiesResponseOutput) MaxDegreeOfParallelismPerJob() pulumi.IntOutput {
-	return o.ApplyT(func(v ComputePolicyPropertiesResponse) int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntOutput)
-}
-
-// The minimum priority per job this user can use to submit jobs.
-func (o ComputePolicyPropertiesResponseOutput) MinPriorityPerJob() pulumi.IntOutput {
-	return o.ApplyT(func(v ComputePolicyPropertiesResponse) int { return v.MinPriorityPerJob }).(pulumi.IntOutput)
-}
-
-// The AAD object identifier for the entity to create a policy for.
-func (o ComputePolicyPropertiesResponseOutput) ObjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputePolicyPropertiesResponse) string { return v.ObjectId }).(pulumi.StringOutput)
-}
-
-// The type of AAD object the object identifier refers to.
-func (o ComputePolicyPropertiesResponseOutput) ObjectType() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputePolicyPropertiesResponse) string { return v.ObjectType }).(pulumi.StringOutput)
-}
-
-type ComputePolicyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ComputePolicyPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputePolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (o ComputePolicyPropertiesResponsePtrOutput) ToComputePolicyPropertiesResponsePtrOutput() ComputePolicyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ComputePolicyPropertiesResponsePtrOutput) ToComputePolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputePolicyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ComputePolicyPropertiesResponsePtrOutput) Elem() ComputePolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v *ComputePolicyPropertiesResponse) ComputePolicyPropertiesResponse { return *v }).(ComputePolicyPropertiesResponseOutput)
-}
-
-// The maximum degree of parallelism per job this user can use to submit jobs.
-func (o ComputePolicyPropertiesResponsePtrOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ComputePolicyPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxDegreeOfParallelismPerJob
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minimum priority per job this user can use to submit jobs.
-func (o ComputePolicyPropertiesResponsePtrOutput) MinPriorityPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ComputePolicyPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MinPriorityPerJob
-	}).(pulumi.IntPtrOutput)
-}
-
-// The AAD object identifier for the entity to create a policy for.
-func (o ComputePolicyPropertiesResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputePolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of AAD object the object identifier refers to.
-func (o ComputePolicyPropertiesResponsePtrOutput) ObjectType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputePolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ObjectType
-	}).(pulumi.StringPtrOutput)
-}
-
 // Data Lake Analytics compute policy information.
 type ComputePolicyResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
+	// The maximum degree of parallelism per job this user can use to submit jobs.
+	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
+	// The minimum priority per job this user can use to submit jobs.
+	MinPriorityPerJob int `pulumi:"minPriorityPerJob"`
 	// The resource name.
 	Name string `pulumi:"name"`
-	// The compute policy properties.
-	Properties ComputePolicyPropertiesResponse `pulumi:"properties"`
+	// The AAD object identifier for the entity to create a policy for.
+	ObjectId string `pulumi:"objectId"`
+	// The type of AAD object the object identifier refers to.
+	ObjectType string `pulumi:"objectType"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }
@@ -455,10 +270,16 @@ type ComputePolicyResponseInput interface {
 type ComputePolicyResponseArgs struct {
 	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
+	// The maximum degree of parallelism per job this user can use to submit jobs.
+	MaxDegreeOfParallelismPerJob pulumi.IntInput `pulumi:"maxDegreeOfParallelismPerJob"`
+	// The minimum priority per job this user can use to submit jobs.
+	MinPriorityPerJob pulumi.IntInput `pulumi:"minPriorityPerJob"`
 	// The resource name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The compute policy properties.
-	Properties ComputePolicyPropertiesResponseInput `pulumi:"properties"`
+	// The AAD object identifier for the entity to create a policy for.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The type of AAD object the object identifier refers to.
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
 	// The resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -520,14 +341,29 @@ func (o ComputePolicyResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputePolicyResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The maximum degree of parallelism per job this user can use to submit jobs.
+func (o ComputePolicyResponseOutput) MaxDegreeOfParallelismPerJob() pulumi.IntOutput {
+	return o.ApplyT(func(v ComputePolicyResponse) int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntOutput)
+}
+
+// The minimum priority per job this user can use to submit jobs.
+func (o ComputePolicyResponseOutput) MinPriorityPerJob() pulumi.IntOutput {
+	return o.ApplyT(func(v ComputePolicyResponse) int { return v.MinPriorityPerJob }).(pulumi.IntOutput)
+}
+
 // The resource name.
 func (o ComputePolicyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputePolicyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The compute policy properties.
-func (o ComputePolicyResponseOutput) Properties() ComputePolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v ComputePolicyResponse) ComputePolicyPropertiesResponse { return v.Properties }).(ComputePolicyPropertiesResponseOutput)
+// The AAD object identifier for the entity to create a policy for.
+func (o ComputePolicyResponseOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputePolicyResponse) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The type of AAD object the object identifier refers to.
+func (o ComputePolicyResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputePolicyResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
 // The resource type.
@@ -809,608 +645,14 @@ func (o CreateFirewallRuleWithAccountParametersArrayOutput) Index(i pulumi.IntIn
 	}).(CreateFirewallRuleWithAccountParametersOutput)
 }
 
-// The account specific properties that are associated with an underlying Data Lake Analytics account. Returned only when retrieving a specific account.
-type DataLakeAnalyticsAccountPropertiesResponse struct {
-	// The unique identifier associated with this Data Lake Analytics account.
-	AccountId string `pulumi:"accountId"`
-	// The list of compute policies associated with this account.
-	ComputePolicies []ComputePolicyResponse `pulumi:"computePolicies"`
-	// The account creation time.
-	CreationTime string `pulumi:"creationTime"`
-	// The commitment tier in use for the current month.
-	CurrentTier string `pulumi:"currentTier"`
-	// The list of Data Lake Store accounts associated with this account.
-	DataLakeStoreAccounts []DataLakeStoreAccountInformationResponse `pulumi:"dataLakeStoreAccounts"`
-	// The default Data Lake Store account associated with this account.
-	DefaultDataLakeStoreAccount string `pulumi:"defaultDataLakeStoreAccount"`
-	// The full CName endpoint for this account.
-	Endpoint string `pulumi:"endpoint"`
-	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps string `pulumi:"firewallAllowAzureIps"`
-	// The list of firewall rules associated with this account.
-	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
-	// The current state of the IP address firewall for this account.
-	FirewallState string `pulumi:"firewallState"`
-	// The account last modified time.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// The maximum supported degree of parallelism for this account.
-	MaxDegreeOfParallelism int `pulumi:"maxDegreeOfParallelism"`
-	// The maximum supported degree of parallelism per job for this account.
-	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The maximum supported jobs running under the account at the same time.
-	MaxJobCount int `pulumi:"maxJobCount"`
-	// The minimum supported priority per job for this account.
-	MinPriorityPerJob int `pulumi:"minPriorityPerJob"`
-	// The commitment tier for the next month.
-	NewTier string `pulumi:"newTier"`
-	// The provisioning status of the Data Lake Analytics account.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The number of days that job metadata is retained.
-	QueryStoreRetention int `pulumi:"queryStoreRetention"`
-	// The state of the Data Lake Analytics account.
-	State string `pulumi:"state"`
-	// The list of Azure Blob Storage accounts associated with this account.
-	StorageAccounts []StorageAccountInformationResponse `pulumi:"storageAccounts"`
-	// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
-	SystemMaxDegreeOfParallelism int `pulumi:"systemMaxDegreeOfParallelism"`
-	// The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
-	SystemMaxJobCount int `pulumi:"systemMaxJobCount"`
-}
-
-// DataLakeAnalyticsAccountPropertiesResponseInput is an input type that accepts DataLakeAnalyticsAccountPropertiesResponseArgs and DataLakeAnalyticsAccountPropertiesResponseOutput values.
-// You can construct a concrete instance of `DataLakeAnalyticsAccountPropertiesResponseInput` via:
-//
-//          DataLakeAnalyticsAccountPropertiesResponseArgs{...}
-type DataLakeAnalyticsAccountPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDataLakeAnalyticsAccountPropertiesResponseOutput() DataLakeAnalyticsAccountPropertiesResponseOutput
-	ToDataLakeAnalyticsAccountPropertiesResponseOutputWithContext(context.Context) DataLakeAnalyticsAccountPropertiesResponseOutput
-}
-
-// The account specific properties that are associated with an underlying Data Lake Analytics account. Returned only when retrieving a specific account.
-type DataLakeAnalyticsAccountPropertiesResponseArgs struct {
-	// The unique identifier associated with this Data Lake Analytics account.
-	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// The list of compute policies associated with this account.
-	ComputePolicies ComputePolicyResponseArrayInput `pulumi:"computePolicies"`
-	// The account creation time.
-	CreationTime pulumi.StringInput `pulumi:"creationTime"`
-	// The commitment tier in use for the current month.
-	CurrentTier pulumi.StringInput `pulumi:"currentTier"`
-	// The list of Data Lake Store accounts associated with this account.
-	DataLakeStoreAccounts DataLakeStoreAccountInformationResponseArrayInput `pulumi:"dataLakeStoreAccounts"`
-	// The default Data Lake Store account associated with this account.
-	DefaultDataLakeStoreAccount pulumi.StringInput `pulumi:"defaultDataLakeStoreAccount"`
-	// The full CName endpoint for this account.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps pulumi.StringInput `pulumi:"firewallAllowAzureIps"`
-	// The list of firewall rules associated with this account.
-	FirewallRules FirewallRuleResponseArrayInput `pulumi:"firewallRules"`
-	// The current state of the IP address firewall for this account.
-	FirewallState pulumi.StringInput `pulumi:"firewallState"`
-	// The account last modified time.
-	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
-	// The maximum supported degree of parallelism for this account.
-	MaxDegreeOfParallelism pulumi.IntInput `pulumi:"maxDegreeOfParallelism"`
-	// The maximum supported degree of parallelism per job for this account.
-	MaxDegreeOfParallelismPerJob pulumi.IntInput `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The maximum supported jobs running under the account at the same time.
-	MaxJobCount pulumi.IntInput `pulumi:"maxJobCount"`
-	// The minimum supported priority per job for this account.
-	MinPriorityPerJob pulumi.IntInput `pulumi:"minPriorityPerJob"`
-	// The commitment tier for the next month.
-	NewTier pulumi.StringInput `pulumi:"newTier"`
-	// The provisioning status of the Data Lake Analytics account.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The number of days that job metadata is retained.
-	QueryStoreRetention pulumi.IntInput `pulumi:"queryStoreRetention"`
-	// The state of the Data Lake Analytics account.
-	State pulumi.StringInput `pulumi:"state"`
-	// The list of Azure Blob Storage accounts associated with this account.
-	StorageAccounts StorageAccountInformationResponseArrayInput `pulumi:"storageAccounts"`
-	// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
-	SystemMaxDegreeOfParallelism pulumi.IntInput `pulumi:"systemMaxDegreeOfParallelism"`
-	// The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
-	SystemMaxJobCount pulumi.IntInput `pulumi:"systemMaxJobCount"`
-}
-
-func (DataLakeAnalyticsAccountPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeAnalyticsAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (i DataLakeAnalyticsAccountPropertiesResponseArgs) ToDataLakeAnalyticsAccountPropertiesResponseOutput() DataLakeAnalyticsAccountPropertiesResponseOutput {
-	return i.ToDataLakeAnalyticsAccountPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DataLakeAnalyticsAccountPropertiesResponseArgs) ToDataLakeAnalyticsAccountPropertiesResponseOutputWithContext(ctx context.Context) DataLakeAnalyticsAccountPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeAnalyticsAccountPropertiesResponseOutput)
-}
-
-func (i DataLakeAnalyticsAccountPropertiesResponseArgs) ToDataLakeAnalyticsAccountPropertiesResponsePtrOutput() DataLakeAnalyticsAccountPropertiesResponsePtrOutput {
-	return i.ToDataLakeAnalyticsAccountPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DataLakeAnalyticsAccountPropertiesResponseArgs) ToDataLakeAnalyticsAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) DataLakeAnalyticsAccountPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeAnalyticsAccountPropertiesResponseOutput).ToDataLakeAnalyticsAccountPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// DataLakeAnalyticsAccountPropertiesResponsePtrInput is an input type that accepts DataLakeAnalyticsAccountPropertiesResponseArgs, DataLakeAnalyticsAccountPropertiesResponsePtr and DataLakeAnalyticsAccountPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `DataLakeAnalyticsAccountPropertiesResponsePtrInput` via:
-//
-//          DataLakeAnalyticsAccountPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DataLakeAnalyticsAccountPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToDataLakeAnalyticsAccountPropertiesResponsePtrOutput() DataLakeAnalyticsAccountPropertiesResponsePtrOutput
-	ToDataLakeAnalyticsAccountPropertiesResponsePtrOutputWithContext(context.Context) DataLakeAnalyticsAccountPropertiesResponsePtrOutput
-}
-
-type dataLakeAnalyticsAccountPropertiesResponsePtrType DataLakeAnalyticsAccountPropertiesResponseArgs
-
-func DataLakeAnalyticsAccountPropertiesResponsePtr(v *DataLakeAnalyticsAccountPropertiesResponseArgs) DataLakeAnalyticsAccountPropertiesResponsePtrInput {
-	return (*dataLakeAnalyticsAccountPropertiesResponsePtrType)(v)
-}
-
-func (*dataLakeAnalyticsAccountPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataLakeAnalyticsAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (i *dataLakeAnalyticsAccountPropertiesResponsePtrType) ToDataLakeAnalyticsAccountPropertiesResponsePtrOutput() DataLakeAnalyticsAccountPropertiesResponsePtrOutput {
-	return i.ToDataLakeAnalyticsAccountPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dataLakeAnalyticsAccountPropertiesResponsePtrType) ToDataLakeAnalyticsAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) DataLakeAnalyticsAccountPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeAnalyticsAccountPropertiesResponsePtrOutput)
-}
-
-// The account specific properties that are associated with an underlying Data Lake Analytics account. Returned only when retrieving a specific account.
-type DataLakeAnalyticsAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DataLakeAnalyticsAccountPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeAnalyticsAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) ToDataLakeAnalyticsAccountPropertiesResponseOutput() DataLakeAnalyticsAccountPropertiesResponseOutput {
-	return o
-}
-
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) ToDataLakeAnalyticsAccountPropertiesResponseOutputWithContext(ctx context.Context) DataLakeAnalyticsAccountPropertiesResponseOutput {
-	return o
-}
-
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) ToDataLakeAnalyticsAccountPropertiesResponsePtrOutput() DataLakeAnalyticsAccountPropertiesResponsePtrOutput {
-	return o.ToDataLakeAnalyticsAccountPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) ToDataLakeAnalyticsAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) DataLakeAnalyticsAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) *DataLakeAnalyticsAccountPropertiesResponse {
-		return &v
-	}).(DataLakeAnalyticsAccountPropertiesResponsePtrOutput)
-}
-
-// The unique identifier associated with this Data Lake Analytics account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.AccountId }).(pulumi.StringOutput)
-}
-
-// The list of compute policies associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) ComputePolicies() ComputePolicyResponseArrayOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) []ComputePolicyResponse { return v.ComputePolicies }).(ComputePolicyResponseArrayOutput)
-}
-
-// The account creation time.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.CreationTime }).(pulumi.StringOutput)
-}
-
-// The commitment tier in use for the current month.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) CurrentTier() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.CurrentTier }).(pulumi.StringOutput)
-}
-
-// The list of Data Lake Store accounts associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) DataLakeStoreAccounts() DataLakeStoreAccountInformationResponseArrayOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) []DataLakeStoreAccountInformationResponse {
-		return v.DataLakeStoreAccounts
-	}).(DataLakeStoreAccountInformationResponseArrayOutput)
-}
-
-// The default Data Lake Store account associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) DefaultDataLakeStoreAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.DefaultDataLakeStoreAccount }).(pulumi.StringOutput)
-}
-
-// The full CName endpoint for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.Endpoint }).(pulumi.StringOutput)
-}
-
-// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) FirewallAllowAzureIps() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.FirewallAllowAzureIps }).(pulumi.StringOutput)
-}
-
-// The list of firewall rules associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) FirewallRules() FirewallRuleResponseArrayOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) []FirewallRuleResponse { return v.FirewallRules }).(FirewallRuleResponseArrayOutput)
-}
-
-// The current state of the IP address firewall for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) FirewallState() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.FirewallState }).(pulumi.StringOutput)
-}
-
-// The account last modified time.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.LastModifiedTime }).(pulumi.StringOutput)
-}
-
-// The maximum supported degree of parallelism for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) MaxDegreeOfParallelism() pulumi.IntOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) int { return v.MaxDegreeOfParallelism }).(pulumi.IntOutput)
-}
-
-// The maximum supported degree of parallelism per job for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) MaxDegreeOfParallelismPerJob() pulumi.IntOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntOutput)
-}
-
-// The maximum supported jobs running under the account at the same time.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) MaxJobCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) int { return v.MaxJobCount }).(pulumi.IntOutput)
-}
-
-// The minimum supported priority per job for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) MinPriorityPerJob() pulumi.IntOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) int { return v.MinPriorityPerJob }).(pulumi.IntOutput)
-}
-
-// The commitment tier for the next month.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) NewTier() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.NewTier }).(pulumi.StringOutput)
-}
-
-// The provisioning status of the Data Lake Analytics account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The number of days that job metadata is retained.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) QueryStoreRetention() pulumi.IntOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) int { return v.QueryStoreRetention }).(pulumi.IntOutput)
-}
-
-// The state of the Data Lake Analytics account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
-}
-
-// The list of Azure Blob Storage accounts associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) StorageAccounts() StorageAccountInformationResponseArrayOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) []StorageAccountInformationResponse {
-		return v.StorageAccounts
-	}).(StorageAccountInformationResponseArrayOutput)
-}
-
-// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) SystemMaxDegreeOfParallelism() pulumi.IntOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) int { return v.SystemMaxDegreeOfParallelism }).(pulumi.IntOutput)
-}
-
-// The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
-func (o DataLakeAnalyticsAccountPropertiesResponseOutput) SystemMaxJobCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DataLakeAnalyticsAccountPropertiesResponse) int { return v.SystemMaxJobCount }).(pulumi.IntOutput)
-}
-
-type DataLakeAnalyticsAccountPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DataLakeAnalyticsAccountPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataLakeAnalyticsAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) ToDataLakeAnalyticsAccountPropertiesResponsePtrOutput() DataLakeAnalyticsAccountPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) ToDataLakeAnalyticsAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) DataLakeAnalyticsAccountPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) Elem() DataLakeAnalyticsAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) DataLakeAnalyticsAccountPropertiesResponse {
-		return *v
-	}).(DataLakeAnalyticsAccountPropertiesResponseOutput)
-}
-
-// The unique identifier associated with this Data Lake Analytics account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccountId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of compute policies associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) ComputePolicies() ComputePolicyResponseArrayOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) []ComputePolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ComputePolicies
-	}).(ComputePolicyResponseArrayOutput)
-}
-
-// The account creation time.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreationTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The commitment tier in use for the current month.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) CurrentTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CurrentTier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of Data Lake Store accounts associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) DataLakeStoreAccounts() DataLakeStoreAccountInformationResponseArrayOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) []DataLakeStoreAccountInformationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DataLakeStoreAccounts
-	}).(DataLakeStoreAccountInformationResponseArrayOutput)
-}
-
-// The default Data Lake Store account associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) DefaultDataLakeStoreAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DefaultDataLakeStoreAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// The full CName endpoint for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Endpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) FirewallAllowAzureIps() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FirewallAllowAzureIps
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of firewall rules associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) FirewallRules() FirewallRuleResponseArrayOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) []FirewallRuleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.FirewallRules
-	}).(FirewallRuleResponseArrayOutput)
-}
-
-// The current state of the IP address firewall for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) FirewallState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FirewallState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The account last modified time.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastModifiedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum supported degree of parallelism for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) MaxDegreeOfParallelism() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxDegreeOfParallelism
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum supported degree of parallelism per job for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxDegreeOfParallelismPerJob
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum supported jobs running under the account at the same time.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) MaxJobCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxJobCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minimum supported priority per job for this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) MinPriorityPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MinPriorityPerJob
-	}).(pulumi.IntPtrOutput)
-}
-
-// The commitment tier for the next month.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) NewTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.NewTier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the Data Lake Analytics account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of days that job metadata is retained.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) QueryStoreRetention() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.QueryStoreRetention
-	}).(pulumi.IntPtrOutput)
-}
-
-// The state of the Data Lake Analytics account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of Azure Blob Storage accounts associated with this account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) StorageAccounts() StorageAccountInformationResponseArrayOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) []StorageAccountInformationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccounts
-	}).(StorageAccountInformationResponseArrayOutput)
-}
-
-// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) SystemMaxDegreeOfParallelism() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemMaxDegreeOfParallelism
-	}).(pulumi.IntPtrOutput)
-}
-
-// The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
-func (o DataLakeAnalyticsAccountPropertiesResponsePtrOutput) SystemMaxJobCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsAccountPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemMaxJobCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Data Lake Store account properties.
-type DataLakeStoreAccountInformationPropertiesResponse struct {
-	// The optional suffix for the Data Lake Store account.
-	Suffix string `pulumi:"suffix"`
-}
-
-// DataLakeStoreAccountInformationPropertiesResponseInput is an input type that accepts DataLakeStoreAccountInformationPropertiesResponseArgs and DataLakeStoreAccountInformationPropertiesResponseOutput values.
-// You can construct a concrete instance of `DataLakeStoreAccountInformationPropertiesResponseInput` via:
-//
-//          DataLakeStoreAccountInformationPropertiesResponseArgs{...}
-type DataLakeStoreAccountInformationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDataLakeStoreAccountInformationPropertiesResponseOutput() DataLakeStoreAccountInformationPropertiesResponseOutput
-	ToDataLakeStoreAccountInformationPropertiesResponseOutputWithContext(context.Context) DataLakeStoreAccountInformationPropertiesResponseOutput
-}
-
-// The Data Lake Store account properties.
-type DataLakeStoreAccountInformationPropertiesResponseArgs struct {
-	// The optional suffix for the Data Lake Store account.
-	Suffix pulumi.StringInput `pulumi:"suffix"`
-}
-
-func (DataLakeStoreAccountInformationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeStoreAccountInformationPropertiesResponse)(nil)).Elem()
-}
-
-func (i DataLakeStoreAccountInformationPropertiesResponseArgs) ToDataLakeStoreAccountInformationPropertiesResponseOutput() DataLakeStoreAccountInformationPropertiesResponseOutput {
-	return i.ToDataLakeStoreAccountInformationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DataLakeStoreAccountInformationPropertiesResponseArgs) ToDataLakeStoreAccountInformationPropertiesResponseOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStoreAccountInformationPropertiesResponseOutput)
-}
-
-// The Data Lake Store account properties.
-type DataLakeStoreAccountInformationPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DataLakeStoreAccountInformationPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeStoreAccountInformationPropertiesResponse)(nil)).Elem()
-}
-
-func (o DataLakeStoreAccountInformationPropertiesResponseOutput) ToDataLakeStoreAccountInformationPropertiesResponseOutput() DataLakeStoreAccountInformationPropertiesResponseOutput {
-	return o
-}
-
-func (o DataLakeStoreAccountInformationPropertiesResponseOutput) ToDataLakeStoreAccountInformationPropertiesResponseOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationPropertiesResponseOutput {
-	return o
-}
-
-// The optional suffix for the Data Lake Store account.
-func (o DataLakeStoreAccountInformationPropertiesResponseOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v DataLakeStoreAccountInformationPropertiesResponse) string { return v.Suffix }).(pulumi.StringOutput)
-}
-
 // Data Lake Store account information.
 type DataLakeStoreAccountInformationResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
-	// The Data Lake Store account properties.
-	Properties DataLakeStoreAccountInformationPropertiesResponse `pulumi:"properties"`
+	// The optional suffix for the Data Lake Store account.
+	Suffix string `pulumi:"suffix"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }
@@ -1432,8 +674,8 @@ type DataLakeStoreAccountInformationResponseArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// The resource name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Data Lake Store account properties.
-	Properties DataLakeStoreAccountInformationPropertiesResponseInput `pulumi:"properties"`
+	// The optional suffix for the Data Lake Store account.
+	Suffix pulumi.StringInput `pulumi:"suffix"`
 	// The resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1500,11 +742,9 @@ func (o DataLakeStoreAccountInformationResponseOutput) Name() pulumi.StringOutpu
 	return o.ApplyT(func(v DataLakeStoreAccountInformationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Data Lake Store account properties.
-func (o DataLakeStoreAccountInformationResponseOutput) Properties() DataLakeStoreAccountInformationPropertiesResponseOutput {
-	return o.ApplyT(func(v DataLakeStoreAccountInformationResponse) DataLakeStoreAccountInformationPropertiesResponse {
-		return v.Properties
-	}).(DataLakeStoreAccountInformationPropertiesResponseOutput)
+// The optional suffix for the Data Lake Store account.
+func (o DataLakeStoreAccountInformationResponseOutput) Suffix() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeStoreAccountInformationResponse) string { return v.Suffix }).(pulumi.StringOutput)
 }
 
 // The resource type.
@@ -1532,167 +772,16 @@ func (o DataLakeStoreAccountInformationResponseArrayOutput) Index(i pulumi.IntIn
 	}).(DataLakeStoreAccountInformationResponseOutput)
 }
 
-// The firewall rule properties.
-type FirewallRulePropertiesResponse struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	StartIpAddress string `pulumi:"startIpAddress"`
-}
-
-// FirewallRulePropertiesResponseInput is an input type that accepts FirewallRulePropertiesResponseArgs and FirewallRulePropertiesResponseOutput values.
-// You can construct a concrete instance of `FirewallRulePropertiesResponseInput` via:
-//
-//          FirewallRulePropertiesResponseArgs{...}
-type FirewallRulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToFirewallRulePropertiesResponseOutput() FirewallRulePropertiesResponseOutput
-	ToFirewallRulePropertiesResponseOutputWithContext(context.Context) FirewallRulePropertiesResponseOutput
-}
-
-// The firewall rule properties.
-type FirewallRulePropertiesResponseArgs struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
-}
-
-func (FirewallRulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i FirewallRulePropertiesResponseArgs) ToFirewallRulePropertiesResponseOutput() FirewallRulePropertiesResponseOutput {
-	return i.ToFirewallRulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i FirewallRulePropertiesResponseArgs) ToFirewallRulePropertiesResponseOutputWithContext(ctx context.Context) FirewallRulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRulePropertiesResponseOutput)
-}
-
-func (i FirewallRulePropertiesResponseArgs) ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput {
-	return i.ToFirewallRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FirewallRulePropertiesResponseArgs) ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx context.Context) FirewallRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRulePropertiesResponseOutput).ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// FirewallRulePropertiesResponsePtrInput is an input type that accepts FirewallRulePropertiesResponseArgs, FirewallRulePropertiesResponsePtr and FirewallRulePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `FirewallRulePropertiesResponsePtrInput` via:
-//
-//          FirewallRulePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FirewallRulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput
-	ToFirewallRulePropertiesResponsePtrOutputWithContext(context.Context) FirewallRulePropertiesResponsePtrOutput
-}
-
-type firewallRulePropertiesResponsePtrType FirewallRulePropertiesResponseArgs
-
-func FirewallRulePropertiesResponsePtr(v *FirewallRulePropertiesResponseArgs) FirewallRulePropertiesResponsePtrInput {
-	return (*firewallRulePropertiesResponsePtrType)(v)
-}
-
-func (*firewallRulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *firewallRulePropertiesResponsePtrType) ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput {
-	return i.ToFirewallRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *firewallRulePropertiesResponsePtrType) ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx context.Context) FirewallRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRulePropertiesResponsePtrOutput)
-}
-
-// The firewall rule properties.
-type FirewallRulePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (FirewallRulePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o FirewallRulePropertiesResponseOutput) ToFirewallRulePropertiesResponseOutput() FirewallRulePropertiesResponseOutput {
-	return o
-}
-
-func (o FirewallRulePropertiesResponseOutput) ToFirewallRulePropertiesResponseOutputWithContext(ctx context.Context) FirewallRulePropertiesResponseOutput {
-	return o
-}
-
-func (o FirewallRulePropertiesResponseOutput) ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput {
-	return o.ToFirewallRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FirewallRulePropertiesResponseOutput) ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx context.Context) FirewallRulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FirewallRulePropertiesResponse) *FirewallRulePropertiesResponse {
-		return &v
-	}).(FirewallRulePropertiesResponsePtrOutput)
-}
-
-// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o FirewallRulePropertiesResponseOutput) EndIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRulePropertiesResponse) string { return v.EndIpAddress }).(pulumi.StringOutput)
-}
-
-// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o FirewallRulePropertiesResponseOutput) StartIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRulePropertiesResponse) string { return v.StartIpAddress }).(pulumi.StringOutput)
-}
-
-type FirewallRulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallRulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o FirewallRulePropertiesResponsePtrOutput) ToFirewallRulePropertiesResponsePtrOutput() FirewallRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FirewallRulePropertiesResponsePtrOutput) ToFirewallRulePropertiesResponsePtrOutputWithContext(ctx context.Context) FirewallRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FirewallRulePropertiesResponsePtrOutput) Elem() FirewallRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *FirewallRulePropertiesResponse) FirewallRulePropertiesResponse { return *v }).(FirewallRulePropertiesResponseOutput)
-}
-
-// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o FirewallRulePropertiesResponsePtrOutput) EndIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FirewallRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o FirewallRulePropertiesResponsePtrOutput) StartIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FirewallRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
 // Data Lake Analytics firewall rule information.
 type FirewallRuleResponse struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress string `pulumi:"endIpAddress"`
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
-	// The firewall rule properties.
-	Properties FirewallRulePropertiesResponse `pulumi:"properties"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress string `pulumi:"startIpAddress"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }
@@ -1710,12 +799,14 @@ type FirewallRuleResponseInput interface {
 
 // Data Lake Analytics firewall rule information.
 type FirewallRuleResponseArgs struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The resource name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The firewall rule properties.
-	Properties FirewallRulePropertiesResponseInput `pulumi:"properties"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 	// The resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1772,6 +863,11 @@ func (o FirewallRuleResponseOutput) ToFirewallRuleResponseOutputWithContext(ctx 
 	return o
 }
 
+// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o FirewallRuleResponseOutput) EndIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleResponse) string { return v.EndIpAddress }).(pulumi.StringOutput)
+}
+
 // The resource identifier.
 func (o FirewallRuleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) string { return v.Id }).(pulumi.StringOutput)
@@ -1782,9 +878,9 @@ func (o FirewallRuleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The firewall rule properties.
-func (o FirewallRuleResponseOutput) Properties() FirewallRulePropertiesResponseOutput {
-	return o.ApplyT(func(v FirewallRuleResponse) FirewallRulePropertiesResponse { return v.Properties }).(FirewallRulePropertiesResponseOutput)
+// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o FirewallRuleResponseOutput) StartIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleResponse) string { return v.StartIpAddress }).(pulumi.StringOutput)
 }
 
 // The resource type.
@@ -1912,69 +1008,14 @@ func (o SasTokenInformationResponseArrayOutput) Index(i pulumi.IntInput) SasToke
 	}).(SasTokenInformationResponseOutput)
 }
 
-// The Azure Storage account properties.
-type StorageAccountInformationPropertiesResponse struct {
-	// The optional suffix for the storage account.
-	Suffix string `pulumi:"suffix"`
-}
-
-// StorageAccountInformationPropertiesResponseInput is an input type that accepts StorageAccountInformationPropertiesResponseArgs and StorageAccountInformationPropertiesResponseOutput values.
-// You can construct a concrete instance of `StorageAccountInformationPropertiesResponseInput` via:
-//
-//          StorageAccountInformationPropertiesResponseArgs{...}
-type StorageAccountInformationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToStorageAccountInformationPropertiesResponseOutput() StorageAccountInformationPropertiesResponseOutput
-	ToStorageAccountInformationPropertiesResponseOutputWithContext(context.Context) StorageAccountInformationPropertiesResponseOutput
-}
-
-// The Azure Storage account properties.
-type StorageAccountInformationPropertiesResponseArgs struct {
-	// The optional suffix for the storage account.
-	Suffix pulumi.StringInput `pulumi:"suffix"`
-}
-
-func (StorageAccountInformationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountInformationPropertiesResponse)(nil)).Elem()
-}
-
-func (i StorageAccountInformationPropertiesResponseArgs) ToStorageAccountInformationPropertiesResponseOutput() StorageAccountInformationPropertiesResponseOutput {
-	return i.ToStorageAccountInformationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i StorageAccountInformationPropertiesResponseArgs) ToStorageAccountInformationPropertiesResponseOutputWithContext(ctx context.Context) StorageAccountInformationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInformationPropertiesResponseOutput)
-}
-
-// The Azure Storage account properties.
-type StorageAccountInformationPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountInformationPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountInformationPropertiesResponse)(nil)).Elem()
-}
-
-func (o StorageAccountInformationPropertiesResponseOutput) ToStorageAccountInformationPropertiesResponseOutput() StorageAccountInformationPropertiesResponseOutput {
-	return o
-}
-
-func (o StorageAccountInformationPropertiesResponseOutput) ToStorageAccountInformationPropertiesResponseOutputWithContext(ctx context.Context) StorageAccountInformationPropertiesResponseOutput {
-	return o
-}
-
-// The optional suffix for the storage account.
-func (o StorageAccountInformationPropertiesResponseOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountInformationPropertiesResponse) string { return v.Suffix }).(pulumi.StringOutput)
-}
-
 // Azure Storage account information.
 type StorageAccountInformationResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
-	// The Azure Storage account properties.
-	Properties StorageAccountInformationPropertiesResponse `pulumi:"properties"`
+	// The optional suffix for the storage account.
+	Suffix string `pulumi:"suffix"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }
@@ -1996,8 +1037,8 @@ type StorageAccountInformationResponseArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// The resource name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Azure Storage account properties.
-	Properties StorageAccountInformationPropertiesResponseInput `pulumi:"properties"`
+	// The optional suffix for the storage account.
+	Suffix pulumi.StringInput `pulumi:"suffix"`
 	// The resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2064,11 +1105,9 @@ func (o StorageAccountInformationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountInformationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Azure Storage account properties.
-func (o StorageAccountInformationResponseOutput) Properties() StorageAccountInformationPropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountInformationResponse) StorageAccountInformationPropertiesResponse {
-		return v.Properties
-	}).(StorageAccountInformationPropertiesResponseOutput)
+// The optional suffix for the storage account.
+func (o StorageAccountInformationResponseOutput) Suffix() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountInformationResponse) string { return v.Suffix }).(pulumi.StringOutput)
 }
 
 // The resource type.
@@ -2101,26 +1140,18 @@ func init() {
 	pulumi.RegisterOutputType(AddDataLakeStoreWithAccountParametersArrayOutput{})
 	pulumi.RegisterOutputType(AddStorageAccountWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(AddStorageAccountWithAccountParametersArrayOutput{})
-	pulumi.RegisterOutputType(ComputePolicyPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ComputePolicyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ComputePolicyResponseOutput{})
 	pulumi.RegisterOutputType(ComputePolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CreateComputePolicyWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(CreateComputePolicyWithAccountParametersArrayOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersArrayOutput{})
-	pulumi.RegisterOutputType(DataLakeAnalyticsAccountPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DataLakeAnalyticsAccountPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataLakeStoreAccountInformationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeStoreAccountInformationResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeStoreAccountInformationResponseArrayOutput{})
-	pulumi.RegisterOutputType(FirewallRulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(FirewallRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SasTokenInformationResponseOutput{})
 	pulumi.RegisterOutputType(SasTokenInformationResponseArrayOutput{})
-	pulumi.RegisterOutputType(StorageAccountInformationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseArrayOutput{})
 }

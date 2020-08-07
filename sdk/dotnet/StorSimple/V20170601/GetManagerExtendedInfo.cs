@@ -40,9 +40,25 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class GetManagerExtendedInfoResult
     {
         /// <summary>
+        /// Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
+        /// </summary>
+        public readonly string Algorithm;
+        /// <summary>
+        /// Represents the CEK of the resource.
+        /// </summary>
+        public readonly string? EncryptionKey;
+        /// <summary>
+        /// Represents the Cert thumbprint that was used to encrypt the CEK.
+        /// </summary>
+        public readonly string? EncryptionKeyThumbprint;
+        /// <summary>
         /// The etag of the resource.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Represents the CIK of the resource.
+        /// </summary>
+        public readonly string IntegrityKey;
         /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
@@ -52,31 +68,50 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The extended info properties.
+        /// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
         /// </summary>
-        public readonly Outputs.ManagerExtendedInfoPropertiesResponseResult Properties;
+        public readonly string? PortalCertificateThumbprint;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The version of the extended info being persisted.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetManagerExtendedInfoResult(
+            string algorithm,
+
+            string? encryptionKey,
+
+            string? encryptionKeyThumbprint,
+
             string? etag,
+
+            string integrityKey,
 
             string? kind,
 
             string name,
 
-            Outputs.ManagerExtendedInfoPropertiesResponseResult properties,
+            string? portalCertificateThumbprint,
 
-            string type)
+            string type,
+
+            string? version)
         {
+            Algorithm = algorithm;
+            EncryptionKey = encryptionKey;
+            EncryptionKeyThumbprint = encryptionKeyThumbprint;
             Etag = etag;
+            IntegrityKey = integrityKey;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            PortalCertificateThumbprint = portalCertificateThumbprint;
             Type = type;
+            Version = version;
         }
     }
 }

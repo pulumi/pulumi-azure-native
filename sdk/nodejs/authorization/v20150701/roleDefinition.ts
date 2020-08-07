@@ -37,13 +37,29 @@ export class RoleDefinition extends pulumi.CustomResource {
     }
 
     /**
+     * Role definition assignable scopes.
+     */
+    public readonly assignableScopes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The role definition description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * The role definition name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Role definition properties.
+     * Role definition permissions.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20150701.RoleDefinitionPropertiesResponse>;
+    public readonly permissions!: pulumi.Output<outputs.authorization.v20150701.PermissionResponse[] | undefined>;
+    /**
+     * The role name.
+     */
+    public readonly roleName!: pulumi.Output<string | undefined>;
+    /**
+     * The role type.
+     */
+    public readonly roleType!: pulumi.Output<string | undefined>;
     /**
      * The role definition type.
      */
@@ -75,7 +91,6 @@ export class RoleDefinition extends pulumi.CustomResource {
             inputs["roleName"] = args ? args.roleName : undefined;
             inputs["roleType"] = args ? args.roleType : undefined;
             inputs["scope"] = args ? args.scope : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

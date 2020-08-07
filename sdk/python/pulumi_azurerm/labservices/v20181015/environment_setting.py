@@ -10,6 +10,32 @@ from ... import _utilities, _tables
 
 
 class EnvironmentSetting(pulumi.CustomResource):
+    configuration_state: pulumi.Output[str]
+    """
+    Describes the user's progress in configuring their environment setting
+    """
+    description: pulumi.Output[str]
+    """
+    Describes the environment and its resource settings
+    """
+    last_changed: pulumi.Output[str]
+    """
+    Time when the template VM was last changed.
+    """
+    last_published: pulumi.Output[str]
+    """
+    Time when the template VM was last sent for publishing.
+    """
+    latest_operation_result: pulumi.Output[dict]
+    """
+    The details of the latest operation. ex: status, error
+      * `error_code` (`str`) - Error code on failure.
+      * `error_message` (`str`) - The error message.
+      * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
+      * `operation_url` (`str`) - The URL to use to check long-running operation status
+      * `request_uri` (`str`) - Request URI of the operation.
+      * `status` (`str`) - The current status of the operation.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,50 +44,48 @@ class EnvironmentSetting(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the Environment Setting resource
-      * `configuration_state` (`str`) - Describes the user's progress in configuring their environment setting
-      * `description` (`str`) - Describes the environment and its resource settings
-      * `last_changed` (`str`) - Time when the template VM was last changed.
-      * `last_published` (`str`) - Time when the template VM was last sent for publishing.
-      * `latest_operation_result` (`dict`) - The details of the latest operation. ex: status, error
-        * `error_code` (`str`) - Error code on failure.
-        * `error_message` (`str`) - The error message.
-        * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
-        * `operation_url` (`str`) - The URL to use to check long-running operation status
-        * `request_uri` (`str`) - Request URI of the operation.
-        * `status` (`str`) - The current status of the operation.
+    The provisioning status of the resource.
+    """
+    publishing_state: pulumi.Output[str]
+    """
+    Describes the readiness of this environment setting
+    """
+    resource_settings: pulumi.Output[dict]
+    """
+    The resource specific settings
+      * `cores` (`float`) - The translated compute cores of the virtual machine
+      * `gallery_image_resource_id` (`str`) - The resource id of the gallery image used for creating the virtual machine
+      * `id` (`str`) - The unique id of the resource setting
+      * `image_name` (`str`) - The name of the image used to created the environment setting
+      * `reference_vm` (`dict`) - Details specific to Reference Vm
+        * `password` (`str`) - The password of the virtual machine. This will be set to null in GET resource API
+        * `user_name` (`str`) - The username of the virtual machine
+        * `vm_resource_id` (`str`) - VM resource Id for the environment
+        * `vm_state_details` (`dict`) - The state details for the reference virtual machine.
+          * `last_known_power_state` (`str`) - Last known compute power state captured in DTL
+          * `power_state` (`str`) - The power state of the reference virtual machine.
+          * `rdp_authority` (`str`) - The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+          * `ssh_authority` (`str`) - The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
 
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `publishing_state` (`str`) - Describes the readiness of this environment setting
-      * `resource_settings` (`dict`) - The resource specific settings
-        * `cores` (`float`) - The translated compute cores of the virtual machine
-        * `gallery_image_resource_id` (`str`) - The resource id of the gallery image used for creating the virtual machine
-        * `id` (`str`) - The unique id of the resource setting
-        * `image_name` (`str`) - The name of the image used to created the environment setting
-        * `reference_vm` (`dict`) - Details specific to Reference Vm
-          * `password` (`str`) - The password of the virtual machine. This will be set to null in GET resource API
-          * `user_name` (`str`) - The username of the virtual machine
-          * `vm_resource_id` (`str`) - VM resource Id for the environment
-          * `vm_state_details` (`dict`) - The state details for the reference virtual machine.
-            * `last_known_power_state` (`str`) - Last known compute power state captured in DTL
-            * `power_state` (`str`) - The power state of the reference virtual machine.
-            * `rdp_authority` (`str`) - The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-            * `ssh_authority` (`str`) - The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-
-        * `size` (`str`) - The size of the virtual machine
-
-      * `title` (`str`) - Brief title describing the environment and its resource settings
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+      * `size` (`str`) - The size of the virtual machine
     """
     tags: pulumi.Output[dict]
     """
     The tags of the resource.
     """
+    title: pulumi.Output[str]
+    """
+    Brief title describing the environment and its resource settings
+    """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, configuration_state=None, description=None, lab_account_name=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, resource_settings=None, tags=None, title=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -130,7 +154,10 @@ class EnvironmentSetting(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['title'] = title
             __props__['unique_identifier'] = unique_identifier
-            __props__['properties'] = None
+            __props__['last_changed'] = None
+            __props__['last_published'] = None
+            __props__['latest_operation_result'] = None
+            __props__['publishing_state'] = None
             __props__['type'] = None
         super(EnvironmentSetting, __self__).__init__(
             'azurerm:labservices/v20181015:EnvironmentSetting',

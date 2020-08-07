@@ -14,11 +14,13 @@ class Suppression(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    suppression_id: pulumi.Output[str]
     """
-    The properties of the suppression.
-      * `suppression_id` (`str`) - The GUID of the suppression.
-      * `ttl` (`str`) - The duration for which the suppression is valid.
+    The GUID of the suppression.
+    """
+    ttl: pulumi.Output[str]
+    """
+    The duration for which the suppression is valid.
     """
     type: pulumi.Output[str]
     """
@@ -64,7 +66,6 @@ class Suppression(pulumi.CustomResource):
             __props__['resource_uri'] = resource_uri
             __props__['suppression_id'] = suppression_id
             __props__['ttl'] = ttl
-            __props__['properties'] = None
             __props__['type'] = None
         super(Suppression, __self__).__init__(
             'azurerm:advisor/v20170419:Suppression',

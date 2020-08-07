@@ -13,18 +13,18 @@ class GetEventHubAuthorizationRuleResult:
     """
     Single item in a List or Get AuthorizationRule operation
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, rights=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if rights and not isinstance(rights, list):
+            raise TypeError("Expected argument 'rights' to be a list")
+        __self__.rights = rights
         """
-        Properties supplied to create or update AuthorizationRule
+        The rights associated with the rule.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +41,7 @@ class AwaitableGetEventHubAuthorizationRuleResult(GetEventHubAuthorizationRuleRe
             yield self
         return GetEventHubAuthorizationRuleResult(
             name=self.name,
-            properties=self.properties,
+            rights=self.rights,
             type=self.type)
 
 
@@ -67,5 +67,5 @@ def get_event_hub_authorization_rule(event_hub_name=None, name=None, namespace_n
 
     return AwaitableGetEventHubAuthorizationRuleResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        rights=__ret__.get('rights'),
         type=__ret__.get('type'))

@@ -10,18 +10,29 @@ from ... import _utilities, _tables
 
 
 class IscsiServer(pulumi.CustomResource):
+    backup_schedule_group_id: pulumi.Output[str]
+    """
+    The backup policy id.
+    """
+    chap_id: pulumi.Output[str]
+    """
+    The chap id.
+    """
+    description: pulumi.Output[str]
+    """
+    The description.
+    """
     name: pulumi.Output[str]
     """
     The name.
     """
-    properties: pulumi.Output[dict]
+    reverse_chap_id: pulumi.Output[str]
     """
-    The properties.
-      * `backup_schedule_group_id` (`str`) - The backup policy id.
-      * `chap_id` (`str`) - The chap id.
-      * `description` (`str`) - The description.
-      * `reverse_chap_id` (`str`) - The reverse chap id.
-      * `storage_domain_id` (`str`) - The storage domain id.
+    The reverse chap id.
+    """
+    storage_domain_id: pulumi.Output[str]
+    """
+    The storage domain id.
     """
     type: pulumi.Output[str]
     """
@@ -81,7 +92,6 @@ class IscsiServer(pulumi.CustomResource):
             if storage_domain_id is None:
                 raise TypeError("Missing required property 'storage_domain_id'")
             __props__['storage_domain_id'] = storage_domain_id
-            __props__['properties'] = None
             __props__['type'] = None
         super(IscsiServer, __self__).__init__(
             'azurerm:storsimple/v20161001:IscsiServer',

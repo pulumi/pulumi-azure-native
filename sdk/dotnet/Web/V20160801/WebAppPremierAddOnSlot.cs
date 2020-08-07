@@ -27,16 +27,40 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Premier add on Marketplace offer.
+        /// </summary>
+        [Output("marketplaceOffer")]
+        public Output<string?> MarketplaceOffer { get; private set; } = null!;
+
+        /// <summary>
+        /// Premier add on Marketplace publisher.
+        /// </summary>
+        [Output("marketplacePublisher")]
+        public Output<string?> MarketplacePublisher { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// PremierAddOn resource specific properties
+        /// Premier add on Name.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PremierAddOnResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("premierAddOnName")]
+        public Output<string?> PremierAddOnName { get; private set; } = null!;
+
+        /// <summary>
+        /// Premier add on Product.
+        /// </summary>
+        [Output("product")]
+        public Output<string?> Product { get; private set; } = null!;
+
+        /// <summary>
+        /// Premier add on SKU.
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +73,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Premier add on Vendor.
+        /// </summary>
+        [Output("vendor")]
+        public Output<string?> Vendor { get; private set; } = null!;
 
 
         /// <summary>

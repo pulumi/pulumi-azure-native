@@ -10,25 +10,45 @@ from ... import _utilities, _tables
 
 
 class FileShare(pulumi.CustomResource):
+    admin_user: pulumi.Output[str]
+    """
+    The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
+    """
+    data_policy: pulumi.Output[str]
+    """
+    The data policy
+    """
+    description: pulumi.Output[str]
+    """
+    Description for file share
+    """
+    local_used_capacity_in_bytes: pulumi.Output[float]
+    """
+    The local used capacity in Bytes.
+    """
+    monitoring_status: pulumi.Output[str]
+    """
+    The monitoring status
+    """
     name: pulumi.Output[str]
     """
     The name.
     """
-    properties: pulumi.Output[dict]
+    provisioned_capacity_in_bytes: pulumi.Output[float]
     """
-    The properties.
-      * `admin_user` (`str`) - The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
-      * `data_policy` (`str`) - The data policy
-      * `description` (`str`) - Description for file share
-      * `local_used_capacity_in_bytes` (`float`) - The local used capacity in Bytes.
-      * `monitoring_status` (`str`) - The monitoring status
-      * `provisioned_capacity_in_bytes` (`float`) - The total provisioned capacity in Bytes
-      * `share_status` (`str`) - The Share Status
-      * `used_capacity_in_bytes` (`float`) - The used capacity in Bytes.
+    The total provisioned capacity in Bytes
+    """
+    share_status: pulumi.Output[str]
+    """
+    The Share Status
     """
     type: pulumi.Output[str]
     """
     The type.
+    """
+    used_capacity_in_bytes: pulumi.Output[float]
+    """
+    The used capacity in Bytes.
     """
     def __init__(__self__, resource_name, opts=None, admin_user=None, data_policy=None, description=None, device_name=None, file_server_name=None, manager_name=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, resource_group_name=None, share_status=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -96,8 +116,9 @@ class FileShare(pulumi.CustomResource):
             if share_status is None:
                 raise TypeError("Missing required property 'share_status'")
             __props__['share_status'] = share_status
-            __props__['properties'] = None
+            __props__['local_used_capacity_in_bytes'] = None
             __props__['type'] = None
+            __props__['used_capacity_in_bytes'] = None
         super(FileShare, __self__).__init__(
             'azurerm:storsimple/v20161001:FileShare',
             resource_name,

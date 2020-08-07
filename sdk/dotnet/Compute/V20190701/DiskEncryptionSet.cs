@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Compute.V20190701
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// The key vault key which is currently used by this disk encryption set.
+        /// </summary>
+        [Output("activeKey")]
+        public Output<Outputs.KeyVaultAndKeyReferenceResponseResult?> ActiveKey { get; private set; } = null!;
+
+        /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         /// </summary>
         [Output("identity")]
@@ -32,8 +38,17 @@ namespace Pulumi.AzureRM.Compute.V20190701
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.EncryptionSetPropertiesResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
+        /// </summary>
+        [Output("previousKeys")]
+        public Output<ImmutableArray<Outputs.KeyVaultAndKeyReferenceResponseResult>> PreviousKeys { get; private set; } = null!;
+
+        /// <summary>
+        /// The disk encryption set provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

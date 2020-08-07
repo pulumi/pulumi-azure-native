@@ -28,10 +28,15 @@ type LookupDiskAccessResult struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
-	Name       string                       `pulumi:"name"`
-	Properties DiskAccessPropertiesResponse `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// The disk access resource provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The time when the disk access was created.
+	TimeCreated string `pulumi:"timeCreated"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

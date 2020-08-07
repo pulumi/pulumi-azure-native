@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,18 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
+     * A value indicating whether packages within the application may be overwritten using the same version string.
+     */
+    public readonly allowUpdates!: pulumi.Output<boolean | undefined>;
+    /**
+     * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+     */
+    public readonly defaultVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The display name for the application.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * The ETag of the resource, used for concurrency statements.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -44,10 +54,6 @@ export class Application extends pulumi.CustomResource {
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The properties associated with the Application.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20200501.ApplicationPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -82,7 +88,6 @@ export class Application extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

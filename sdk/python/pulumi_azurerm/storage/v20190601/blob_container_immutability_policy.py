@@ -10,20 +10,25 @@ from ... import _utilities, _tables
 
 
 class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
+    allow_protected_append_writes: pulumi.Output[bool]
+    """
+    This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+    """
     etag: pulumi.Output[str]
     """
     Resource Etag.
+    """
+    immutability_period_since_creation_in_days: pulumi.Output[float]
+    """
+    The immutability period for the blobs in the container since the policy creation, in days.
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    state: pulumi.Output[str]
     """
-    The properties of an ImmutabilityPolicy of a blob container.
-      * `allow_protected_append_writes` (`bool`) - This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-      * `immutability_period_since_creation_in_days` (`float`) - The immutability period for the blobs in the container since the policy creation, in days.
-      * `state` (`str`) - The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+    The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
     """
     type: pulumi.Output[str]
     """
@@ -74,7 +79,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(BlobContainerImmutabilityPolicy, __self__).__init__(
             'azurerm:storage/v20190601:BlobContainerImmutabilityPolicy',

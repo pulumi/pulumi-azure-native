@@ -37,9 +37,37 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+     */
+    public readonly applicationInsights!: pulumi.Output<string | undefined>;
+    /**
+     * ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+     */
+    public readonly containerRegistry!: pulumi.Output<string | undefined>;
+    /**
+     * The creation time of the machine learning workspace in ISO8601 format.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The description of this workspace.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Url for the discovery service to identify regional endpoints for machine learning experimentation services
+     */
+    public readonly discoveryUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The friendly name for this workspace. This name in mutable
+     */
+    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    /**
      * The identity of the resource.
      */
     public readonly identity!: pulumi.Output<outputs.machinelearningservices.v20181119.IdentityResponse | undefined>;
+    /**
+     * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+     */
+    public readonly keyVault!: pulumi.Output<string | undefined>;
     /**
      * Specifies the location of the resource.
      */
@@ -49,9 +77,13 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the machine learning workspace.
+     * The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.machinelearningservices.v20181119.WorkspacePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+     */
+    public readonly storageAccount!: pulumi.Output<string | undefined>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
@@ -60,6 +92,10 @@ export class Workspace extends pulumi.CustomResource {
      * Specifies the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The immutable id associated with this workspace.
+     */
+    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -92,8 +128,10 @@ export class Workspace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["workspaceId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

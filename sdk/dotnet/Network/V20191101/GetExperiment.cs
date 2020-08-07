@@ -46,6 +46,22 @@ namespace Pulumi.AzureRM.Network.V20191101
     public sealed class GetExperimentResult
     {
         /// <summary>
+        /// The description of the details or intents of the Experiment
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The state of the Experiment
+        /// </summary>
+        public readonly string? EnabledState;
+        /// <summary>
+        /// The endpoint A of an experiment
+        /// </summary>
+        public readonly Outputs.EndpointResponseResult? EndpointA;
+        /// <summary>
+        /// The endpoint B of an experiment
+        /// </summary>
+        public readonly Outputs.EndpointResponseResult? EndpointB;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -54,9 +70,17 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of an Experiment
+        /// Resource status.
         /// </summary>
-        public readonly Outputs.ExperimentPropertiesResponseResult Properties;
+        public readonly string? ResourceState;
+        /// <summary>
+        /// The uri to the Script used in the Experiment
+        /// </summary>
+        public readonly string ScriptFileUri;
+        /// <summary>
+        /// The description of Experiment status from the server side
+        /// </summary>
+        public readonly string Status;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -68,19 +92,37 @@ namespace Pulumi.AzureRM.Network.V20191101
 
         [OutputConstructor]
         private GetExperimentResult(
+            string? description,
+
+            string? enabledState,
+
+            Outputs.EndpointResponseResult? endpointA,
+
+            Outputs.EndpointResponseResult? endpointB,
+
             string? location,
 
             string name,
 
-            Outputs.ExperimentPropertiesResponseResult properties,
+            string? resourceState,
+
+            string scriptFileUri,
+
+            string status,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Description = description;
+            EnabledState = enabledState;
+            EndpointA = endpointA;
+            EndpointB = endpointB;
             Location = location;
             Name = name;
-            Properties = properties;
+            ResourceState = resourceState;
+            ScriptFileUri = scriptFileUri;
+            Status = status;
             Tags = tags;
             Type = type;
         }

@@ -56,9 +56,9 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// AuthorizationRule properties.
+        /// The rights associated with the rule.
         /// </summary>
-        public readonly Outputs.SBAuthorizationRuleResponsePropertiesResult Properties;
+        public readonly ImmutableArray<string> Rights;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         private GetTopicAuthorizationRuleResult(
             string name,
 
-            Outputs.SBAuthorizationRuleResponsePropertiesResult properties,
+            ImmutableArray<string> rights,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            Rights = rights;
             Type = type;
         }
     }

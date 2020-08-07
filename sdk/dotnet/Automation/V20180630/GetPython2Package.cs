@@ -46,9 +46,41 @@ namespace Pulumi.AzureRM.Automation.V20180630
     public sealed class GetPython2PackageResult
     {
         /// <summary>
+        /// Gets or sets the activity count of the module.
+        /// </summary>
+        public readonly int? ActivityCount;
+        /// <summary>
+        /// Gets or sets the contentLink of the module.
+        /// </summary>
+        public readonly Outputs.ContentLinkResponseResult? ContentLink;
+        /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        public readonly string? CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Gets or sets the error info of the module.
+        /// </summary>
+        public readonly Outputs.ModuleErrorInfoResponseResult? Error;
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Gets or sets type of module, if its composite or not.
+        /// </summary>
+        public readonly bool? IsComposite;
+        /// <summary>
+        /// Gets or sets the isGlobal flag of the module.
+        /// </summary>
+        public readonly bool? IsGlobal;
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        public readonly string? LastModifiedTime;
         /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
@@ -58,9 +90,13 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the module properties.
+        /// Gets or sets the provisioning state of the module.
         /// </summary>
-        public readonly Outputs.ModulePropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the size in bytes of the module.
+        /// </summary>
+        public readonly int? SizeInBytes;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -69,27 +105,61 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Gets or sets the version of the module.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetPython2PackageResult(
+            int? activityCount,
+
+            Outputs.ContentLinkResponseResult? contentLink,
+
+            string? creationTime,
+
+            string? description,
+
+            Outputs.ModuleErrorInfoResponseResult? error,
+
             string? etag,
+
+            bool? isComposite,
+
+            bool? isGlobal,
+
+            string? lastModifiedTime,
 
             string? location,
 
             string name,
 
-            Outputs.ModulePropertiesResponseResult properties,
+            string? provisioningState,
+
+            int? sizeInBytes,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? version)
         {
+            ActivityCount = activityCount;
+            ContentLink = contentLink;
+            CreationTime = creationTime;
+            Description = description;
+            Error = error;
             Etag = etag;
+            IsComposite = isComposite;
+            IsGlobal = isGlobal;
+            LastModifiedTime = lastModifiedTime;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SizeInBytes = sizeInBytes;
             Tags = tags;
             Type = type;
+            Version = version;
         }
     }
 }

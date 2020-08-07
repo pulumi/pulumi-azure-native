@@ -48,13 +48,29 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// User resource specific properties
+        /// Password used for publishing.
         /// </summary>
-        public readonly Outputs.UserResponsePropertiesResult Properties;
+        public readonly string? PublishingPassword;
+        /// <summary>
+        /// Password hash used for publishing.
+        /// </summary>
+        public readonly string? PublishingPasswordHash;
+        /// <summary>
+        /// Password hash salt used for publishing.
+        /// </summary>
+        public readonly string? PublishingPasswordHashSalt;
+        /// <summary>
+        /// Username used for publishing.
+        /// </summary>
+        public readonly string PublishingUserName;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Username
+        /// </summary>
+        public readonly string? UserName;
 
         [OutputConstructor]
         private ListWebAppPublishingCredentialsSlotResult(
@@ -62,14 +78,26 @@ namespace Pulumi.AzureRM.Web.V20160801
 
             string name,
 
-            Outputs.UserResponsePropertiesResult properties,
+            string? publishingPassword,
 
-            string type)
+            string? publishingPasswordHash,
+
+            string? publishingPasswordHashSalt,
+
+            string publishingUserName,
+
+            string type,
+
+            string? userName)
         {
             Kind = kind;
             Name = name;
-            Properties = properties;
+            PublishingPassword = publishingPassword;
+            PublishingPasswordHash = publishingPasswordHash;
+            PublishingPasswordHashSalt = publishingPasswordHashSalt;
+            PublishingUserName = publishingUserName;
             Type = type;
+            UserName = userName;
         }
     }
 }

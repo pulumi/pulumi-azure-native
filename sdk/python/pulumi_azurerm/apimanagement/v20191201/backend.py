@@ -10,50 +10,69 @@ from ... import _utilities, _tables
 
 
 class Backend(pulumi.CustomResource):
+    credentials: pulumi.Output[dict]
+    """
+    Backend Credentials Contract Properties
+      * `authorization` (`dict`) - Authorization header authentication
+        * `parameter` (`str`) - Authentication Parameter value.
+        * `scheme` (`str`) - Authentication Scheme name.
+
+      * `certificate` (`list`) - List of Client Certificate Thumbprint.
+      * `header` (`dict`) - Header Parameter description.
+      * `query` (`dict`) - Query Parameter description.
+    """
+    description: pulumi.Output[str]
+    """
+    Backend Description.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
     properties: pulumi.Output[dict]
     """
-    Backend entity contract properties.
-      * `credentials` (`dict`) - Backend Credentials Contract Properties
-        * `authorization` (`dict`) - Authorization header authentication
-          * `parameter` (`str`) - Authentication Parameter value.
-          * `scheme` (`str`) - Authentication Scheme name.
-
-        * `certificate` (`list`) - List of Client Certificate Thumbprint.
-        * `header` (`dict`) - Header Parameter description.
-        * `query` (`dict`) - Query Parameter description.
-
-      * `description` (`str`) - Backend Description.
-      * `properties` (`dict`) - Backend Properties contract
-        * `service_fabric_cluster` (`dict`) - Backend Service Fabric Cluster Properties
-          * `client_certificatethumbprint` (`str`) - The client certificate thumbprint for the management endpoint.
-          * `management_endpoints` (`list`) - The cluster management endpoint.
-          * `max_partition_resolution_retries` (`float`) - Maximum number of retries while attempting resolve the partition.
-          * `server_certificate_thumbprints` (`list`) - Thumbprints of certificates cluster management service uses for tls communication
-          * `server_x509_names` (`list`) - Server X509 Certificate Names Collection
-            * `issuer_certificate_thumbprint` (`str`) - Thumbprint for the Issuer of the Certificate.
-            * `name` (`str`) - Common Name of the Certificate.
-
-      * `protocol` (`str`) - Backend communication protocol.
-      * `proxy` (`dict`) - Backend Proxy Contract Properties
-        * `password` (`str`) - Password to connect to the WebProxy Server
-        * `url` (`str`) - WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-        * `username` (`str`) - Username to connect to the WebProxy server
-
-      * `resource_id` (`str`) - Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
-      * `title` (`str`) - Backend Title.
-      * `tls` (`dict`) - Backend TLS Properties
-        * `validate_certificate_chain` (`bool`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
-        * `validate_certificate_name` (`bool`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
-
-      * `url` (`str`) - Runtime Url of the Backend.
+    Backend Properties contract
+      * `service_fabric_cluster` (`dict`) - Backend Service Fabric Cluster Properties
+        * `client_certificatethumbprint` (`str`) - The client certificate thumbprint for the management endpoint.
+        * `management_endpoints` (`list`) - The cluster management endpoint.
+        * `max_partition_resolution_retries` (`float`) - Maximum number of retries while attempting resolve the partition.
+        * `server_certificate_thumbprints` (`list`) - Thumbprints of certificates cluster management service uses for tls communication
+        * `server_x509_names` (`list`) - Server X509 Certificate Names Collection
+          * `issuer_certificate_thumbprint` (`str`) - Thumbprint for the Issuer of the Certificate.
+          * `name` (`str`) - Common Name of the Certificate.
+    """
+    protocol: pulumi.Output[str]
+    """
+    Backend communication protocol.
+    """
+    proxy: pulumi.Output[dict]
+    """
+    Backend Proxy Contract Properties
+      * `password` (`str`) - Password to connect to the WebProxy Server
+      * `url` (`str`) - WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
+      * `username` (`str`) - Username to connect to the WebProxy server
+    """
+    resource_id: pulumi.Output[str]
+    """
+    Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+    """
+    title: pulumi.Output[str]
+    """
+    Backend Title.
+    """
+    tls: pulumi.Output[dict]
+    """
+    Backend TLS Properties
+      * `validate_certificate_chain` (`bool`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
+      * `validate_certificate_name` (`bool`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    url: pulumi.Output[str]
+    """
+    Runtime Url of the Backend.
     """
     def __init__(__self__, resource_name, opts=None, credentials=None, description=None, name=None, properties=None, protocol=None, proxy=None, resource_group_name=None, resource_id=None, service_name=None, title=None, tls=None, url=None, __props__=None, __name__=None, __opts__=None):
         """

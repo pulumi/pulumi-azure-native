@@ -37,9 +37,21 @@ export class FirewallPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The parent firewall policy from which rules are inherited.
+     */
+    public readonly basePolicy!: pulumi.Output<outputs.network.v20200401.SubResourceResponse | undefined>;
+    /**
+     * List of references to Child Firewall Policies.
+     */
+    public /*out*/ readonly childPolicies!: pulumi.Output<outputs.network.v20200401.SubResourceResponse[]>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * List of references to Azure Firewalls that this Firewall Policy is associated with.
+     */
+    public /*out*/ readonly firewalls!: pulumi.Output<outputs.network.v20200401.SubResourceResponse[]>;
     /**
      * Resource location.
      */
@@ -49,13 +61,25 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the firewall policy.
+     * The provisioning state of the firewall policy resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.FirewallPolicyPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * List of references to FirewallPolicyRuleGroups.
+     */
+    public /*out*/ readonly ruleGroups!: pulumi.Output<outputs.network.v20200401.SubResourceResponse[]>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The operation mode for Threat Intelligence.
+     */
+    public readonly threatIntelMode!: pulumi.Output<string | undefined>;
+    /**
+     * ThreatIntel Whitelist for Firewall Policy.
+     */
+    public readonly threatIntelWhitelist!: pulumi.Output<outputs.network.v20200401.FirewallPolicyThreatIntelWhitelistResponse | undefined>;
     /**
      * Resource type.
      */
@@ -88,8 +112,11 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             inputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
+            inputs["childPolicies"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["firewalls"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["ruleGroups"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

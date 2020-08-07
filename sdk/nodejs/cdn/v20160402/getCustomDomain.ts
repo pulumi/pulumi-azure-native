@@ -46,10 +46,21 @@ export interface GetCustomDomainArgs {
  */
 export interface GetCustomDomainResult {
     /**
+     * The host name of the custom domain. Must be a domain name.
+     */
+    readonly hostName: string;
+    /**
      * Resource name
      */
     readonly name: string;
-    readonly properties: outputs.cdn.v20160402.CustomDomainPropertiesResponse;
+    /**
+     * Provisioning status of the custom domain.
+     */
+    readonly provisioningState?: string;
+    /**
+     * Resource status of the custom domain.
+     */
+    readonly resourceState: string;
     /**
      * Resource type
      */

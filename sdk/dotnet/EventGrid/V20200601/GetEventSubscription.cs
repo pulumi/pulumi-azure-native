@@ -40,13 +40,45 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
     public sealed class GetEventSubscriptionResult
     {
         /// <summary>
+        /// The DeadLetter destination of the event subscription.
+        /// </summary>
+        public readonly Outputs.DeadLetterDestinationResponseResult? DeadLetterDestination;
+        /// <summary>
+        /// Information about the destination where events have to be delivered for the event subscription.
+        /// </summary>
+        public readonly Outputs.EventSubscriptionDestinationResponseResult? Destination;
+        /// <summary>
+        /// The event delivery schema for the event subscription.
+        /// </summary>
+        public readonly string? EventDeliverySchema;
+        /// <summary>
+        /// Expiration time of the event subscription.
+        /// </summary>
+        public readonly string? ExpirationTimeUtc;
+        /// <summary>
+        /// Information about the filter for the event subscription.
+        /// </summary>
+        public readonly Outputs.EventSubscriptionFilterResponseResult? Filter;
+        /// <summary>
+        /// List of user defined labels.
+        /// </summary>
+        public readonly ImmutableArray<string> Labels;
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the event subscription.
+        /// Provisioning state of the event subscription.
         /// </summary>
-        public readonly Outputs.EventSubscriptionPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+        /// </summary>
+        public readonly Outputs.RetryPolicyResponseResult? RetryPolicy;
+        /// <summary>
+        /// Name of the topic of the event subscription.
+        /// </summary>
+        public readonly string Topic;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -54,14 +86,38 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
+            Outputs.DeadLetterDestinationResponseResult? deadLetterDestination,
+
+            Outputs.EventSubscriptionDestinationResponseResult? destination,
+
+            string? eventDeliverySchema,
+
+            string? expirationTimeUtc,
+
+            Outputs.EventSubscriptionFilterResponseResult? filter,
+
+            ImmutableArray<string> labels,
+
             string name,
 
-            Outputs.EventSubscriptionPropertiesResponseResult properties,
+            string provisioningState,
+
+            Outputs.RetryPolicyResponseResult? retryPolicy,
+
+            string topic,
 
             string type)
         {
+            DeadLetterDestination = deadLetterDestination;
+            Destination = destination;
+            EventDeliverySchema = eventDeliverySchema;
+            ExpirationTimeUtc = expirationTimeUtc;
+            Filter = filter;
+            Labels = labels;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RetryPolicy = retryPolicy;
+            Topic = topic;
             Type = type;
         }
     }

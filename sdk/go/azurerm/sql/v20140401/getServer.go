@@ -25,16 +25,28 @@ type LookupServerArgs struct {
 
 // Represents a server.
 type LookupServerResult struct {
+	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// The administrator login password (required for server creation).
+	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+	ExternalAdministratorLogin string `pulumi:"externalAdministratorLogin"`
+	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+	ExternalAdministratorSid string `pulumi:"externalAdministratorSid"`
+	// The fully qualified domain name of the server.
+	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// Kind of sql server.  This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Represents the properties of the resource.
-	Properties ServerPropertiesResponse `pulumi:"properties"`
+	// The state of the server.
+	State string `pulumi:"state"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The version of the server.
+	Version *string `pulumi:"version"`
 }

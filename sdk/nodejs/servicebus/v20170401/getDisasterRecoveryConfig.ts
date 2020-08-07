@@ -41,13 +41,29 @@ export interface GetDisasterRecoveryConfigArgs {
  */
 export interface GetDisasterRecoveryConfigResult {
     /**
+     * Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+     */
+    readonly alternateName?: string;
+    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+     * ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
      */
-    readonly properties: outputs.servicebus.v20170401.ArmDisasterRecoveryResponseProperties;
+    readonly partnerNamespace?: string;
+    /**
+     * Number of entities pending to be replicated.
+     */
+    readonly pendingReplicationOperationsCount: number;
+    /**
+     * Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+     */
+    readonly provisioningState: string;
+    /**
+     * role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+     */
+    readonly role: string;
     /**
      * Resource type
      */

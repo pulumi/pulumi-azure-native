@@ -41,6 +41,19 @@ export interface GetWebAppVnetConnectionSlotArgs {
  */
 export interface GetWebAppVnetConnectionSlotResult {
     /**
+     * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+     * Point-To-Site VPN connection.
+     */
+    readonly certBlob?: string;
+    /**
+     * The client certificate thumbprint.
+     */
+    readonly certThumbprint: string;
+    /**
+     * DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+     */
+    readonly dnsServers?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -49,11 +62,19 @@ export interface GetWebAppVnetConnectionSlotResult {
      */
     readonly name: string;
     /**
-     * VnetInfo resource specific properties
+     * <code>true</code> if a resync is required; otherwise, <code>false</code>.
      */
-    readonly properties: outputs.web.v20160801.VnetInfoResponseProperties;
+    readonly resyncRequired: boolean;
+    /**
+     * The routes that this Virtual Network connection uses.
+     */
+    readonly routes: outputs.web.v20160801.VnetRouteResponse[];
     /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The Virtual Network's resource ID.
+     */
+    readonly vnetResourceId?: string;
 }

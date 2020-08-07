@@ -14,9 +14,21 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
     public sealed class ApplicationGatewayRequestRoutingRuleResponseResult
     {
         /// <summary>
+        /// Backend address pool resource of the application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BackendAddressPool;
+        /// <summary>
+        /// Backend http settings resource of the application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BackendHttpSettings;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Http listener resource of the application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? HttpListener;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,31 +38,75 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway request routing rule.
+        /// Priority of the request routing rule.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayRequestRoutingRulePropertiesFormatResponseResult? Properties;
+        public readonly int? Priority;
+        /// <summary>
+        /// The provisioning state of the request routing rule resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Redirect configuration resource of the application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RedirectConfiguration;
+        /// <summary>
+        /// Rewrite Rule Set resource in Basic rule of the application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RewriteRuleSet;
+        /// <summary>
+        /// Rule type.
+        /// </summary>
+        public readonly string? RuleType;
         /// <summary>
         /// Type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// URL path map resource of the application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? UrlPathMap;
 
         [OutputConstructor]
         private ApplicationGatewayRequestRoutingRuleResponseResult(
+            Outputs.SubResourceResponseResult? backendAddressPool,
+
+            Outputs.SubResourceResponseResult? backendHttpSettings,
+
             string etag,
+
+            Outputs.SubResourceResponseResult? httpListener,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayRequestRoutingRulePropertiesFormatResponseResult? properties,
+            int? priority,
 
-            string type)
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? redirectConfiguration,
+
+            Outputs.SubResourceResponseResult? rewriteRuleSet,
+
+            string? ruleType,
+
+            string type,
+
+            Outputs.SubResourceResponseResult? urlPathMap)
         {
+            BackendAddressPool = backendAddressPool;
+            BackendHttpSettings = backendHttpSettings;
             Etag = etag;
+            HttpListener = httpListener;
             Id = id;
             Name = name;
-            Properties = properties;
+            Priority = priority;
+            ProvisioningState = provisioningState;
+            RedirectConfiguration = redirectConfiguration;
+            RewriteRuleSet = rewriteRuleSet;
+            RuleType = ruleType;
             Type = type;
+            UrlPathMap = urlPathMap;
         }
     }
 }

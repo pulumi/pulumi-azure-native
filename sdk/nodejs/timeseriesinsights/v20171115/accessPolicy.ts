@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,10 +35,21 @@ export class AccessPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * An description of the access policy.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20171115.AccessPolicyResourcePropertiesResponse>;
+    /**
+     * The objectId of the principal in Azure Active Directory.
+     */
+    public readonly principalObjectId!: pulumi.Output<string | undefined>;
+    /**
+     * The list of roles the principal is assigned on the environment.
+     */
+    public readonly roles!: pulumi.Output<string[] | undefined>;
     /**
      * Resource type
      */
@@ -74,7 +83,6 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["principalObjectId"] = args ? args.principalObjectId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

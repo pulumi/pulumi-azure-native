@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.ManagedIdentity.V20181130
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {
         /// <summary>
+        /// The id of the app associated with the identity. This is a random generated UUID by MSI.
+        /// </summary>
+        [Output("clientId")]
+        public Output<string> ClientId { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -27,16 +33,22 @@ namespace Pulumi.AzureRM.ManagedIdentity.V20181130
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the identity.
+        /// The id of the service principal object associated with the created identity.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.UserAssignedIdentityPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("principalId")]
+        public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The id of the tenant which the identity belongs to.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

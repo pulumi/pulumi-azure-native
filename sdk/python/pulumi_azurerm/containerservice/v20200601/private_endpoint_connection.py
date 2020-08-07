@@ -14,17 +14,20 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     The name of the private endpoint connection.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint: pulumi.Output[dict]
     """
-    The properties of a private endpoint connection.
-      * `private_endpoint` (`dict`) - The resource of private endpoint.
-        * `id` (`str`) - The resource Id for private endpoint
-
-      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
-        * `description` (`str`) - The private link service connection description.
-        * `status` (`str`) - The private link service connection status.
-
-      * `provisioning_state` (`str`) - The current provisioning state.
+    The resource of private endpoint.
+      * `id` (`str`) - The resource Id for private endpoint
+    """
+    private_link_service_connection_state: pulumi.Output[dict]
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+      * `description` (`str`) - The private link service connection description.
+      * `status` (`str`) - The private link service connection status.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The current provisioning state.
     """
     type: pulumi.Output[str]
     """
@@ -81,7 +84,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_name_ is None:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:containerservice/v20200601:PrivateEndpointConnection',

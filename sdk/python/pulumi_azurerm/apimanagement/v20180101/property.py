@@ -10,21 +10,29 @@ from ... import _utilities, _tables
 
 
 class Property(pulumi.CustomResource):
+    display_name: pulumi.Output[str]
+    """
+    Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    secret: pulumi.Output[bool]
     """
-    Property entity contract properties.
-      * `display_name` (`str`) - Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
-      * `secret` (`bool`) - Determines whether the value is a secret and should be encrypted or not. Default value is false.
-      * `tags` (`list`) - Optional tags that when provided can be used to filter the property list.
-      * `value` (`str`) - Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+    Determines whether the value is a secret and should be encrypted or not. Default value is false.
+    """
+    tags: pulumi.Output[list]
+    """
+    Optional tags that when provided can be used to filter the property list.
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    value: pulumi.Output[str]
+    """
+    Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
     """
     def __init__(__self__, resource_name, opts=None, display_name=None, name=None, resource_group_name=None, secret=None, service_name=None, tags=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -74,7 +82,6 @@ class Property(pulumi.CustomResource):
             if value is None:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
-            __props__['properties'] = None
             __props__['type'] = None
         super(Property, __self__).__init__(
             'azurerm:apimanagement/v20180101:Property',

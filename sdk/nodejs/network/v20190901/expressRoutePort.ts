@@ -37,25 +37,65 @@ export class ExpressRoutePort extends pulumi.CustomResource {
     }
 
     /**
+     * Date of the physical port allocation to be used in Letter of Authorization.
+     */
+    public /*out*/ readonly allocationDate!: pulumi.Output<string>;
+    /**
+     * Bandwidth of procured ports in Gbps.
+     */
+    public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
+    /**
+     * Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
+     */
+    public /*out*/ readonly circuits!: pulumi.Output<outputs.network.v20190901.SubResourceResponse[]>;
+    /**
+     * Encapsulation method on physical ports.
+     */
+    public readonly encapsulation!: pulumi.Output<string | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Ether type of the physical port.
+     */
+    public /*out*/ readonly etherType!: pulumi.Output<string>;
     /**
      * The identity of ExpressRoutePort, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.network.v20190901.ManagedServiceIdentityResponse | undefined>;
     /**
+     * The set of physical links of the ExpressRoutePort resource.
+     */
+    public readonly links!: pulumi.Output<outputs.network.v20190901.ExpressRouteLinkResponse[] | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Maximum transmission unit of the physical port pair(s).
+     */
+    public /*out*/ readonly mtu!: pulumi.Output<string>;
     /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * ExpressRoutePort properties.
+     * The name of the peering location that the ExpressRoutePort is mapped to physically.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.ExpressRoutePortPropertiesFormatResponse>;
+    public readonly peeringLocation!: pulumi.Output<string | undefined>;
+    /**
+     * Aggregate Gbps of associated circuit bandwidths.
+     */
+    public /*out*/ readonly provisionedBandwidthInGbps!: pulumi.Output<number>;
+    /**
+     * The provisioning state of the express route port resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource GUID property of the express route port resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -94,8 +134,14 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             inputs["peeringLocation"] = args ? args.peeringLocation : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["allocationDate"] = undefined /*out*/;
+            inputs["circuits"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["etherType"] = undefined /*out*/;
+            inputs["mtu"] = undefined /*out*/;
+            inputs["provisionedBandwidthInGbps"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

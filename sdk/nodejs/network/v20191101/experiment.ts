@@ -37,6 +37,22 @@ export class Experiment extends pulumi.CustomResource {
     }
 
     /**
+     * The description of the details or intents of the Experiment
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The state of the Experiment
+     */
+    public readonly enabledState!: pulumi.Output<string | undefined>;
+    /**
+     * The endpoint A of an experiment
+     */
+    public readonly endpointA!: pulumi.Output<outputs.network.v20191101.EndpointResponse | undefined>;
+    /**
+     * The endpoint B of an experiment
+     */
+    public readonly endpointB!: pulumi.Output<outputs.network.v20191101.EndpointResponse | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +61,17 @@ export class Experiment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of an Experiment
+     * Resource status.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.ExperimentPropertiesResponse>;
+    public readonly resourceState!: pulumi.Output<string | undefined>;
+    /**
+     * The uri to the Script used in the Experiment
+     */
+    public /*out*/ readonly scriptFileUri!: pulumi.Output<string>;
+    /**
+     * The description of Experiment status from the server side
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -89,7 +113,8 @@ export class Experiment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["scriptFileUri"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

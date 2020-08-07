@@ -40,9 +40,29 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class GetVirtualHubResult
     {
         /// <summary>
+        /// Address-prefix for this VirtualHub.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
+        /// The azureFirewall associated with this VirtualHub.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? AzureFirewall;
+        /// <summary>
+        /// List of references to Bgp Connections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> BgpConnections;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The expressRouteGateway associated with this VirtualHub.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? ExpressRouteGateway;
+        /// <summary>
+        /// List of references to IpConfigurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +72,33 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the virtual hub.
+        /// The P2SVpnGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.VirtualHubPropertiesResponseResult Properties;
+        public readonly Outputs.SubResourceResponseResult? P2SVpnGateway;
+        /// <summary>
+        /// The provisioning state of the virtual hub resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The routeTable associated with this virtual hub.
+        /// </summary>
+        public readonly Outputs.VirtualHubRouteTableResponseResult? RouteTable;
+        /// <summary>
+        /// The routing state.
+        /// </summary>
+        public readonly string? RoutingState;
+        /// <summary>
+        /// The securityPartnerProvider associated with this VirtualHub.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? SecurityPartnerProvider;
+        /// <summary>
+        /// The Security Provider name.
+        /// </summary>
+        public readonly string? SecurityProviderName;
+        /// <summary>
+        /// The sku of this VirtualHub.
+        /// </summary>
+        public readonly string? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +107,95 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// List of all virtual hub route table v2s associated with this VirtualHub.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualHubRouteTableV2ResponseResult> VirtualHubRouteTableV2s;
+        /// <summary>
+        /// VirtualRouter ASN.
+        /// </summary>
+        public readonly int? VirtualRouterAsn;
+        /// <summary>
+        /// VirtualRouter IPs.
+        /// </summary>
+        public readonly ImmutableArray<string> VirtualRouterIps;
+        /// <summary>
+        /// The VirtualWAN to which the VirtualHub belongs.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualWan;
+        /// <summary>
+        /// The VpnGateway associated with this VirtualHub.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VpnGateway;
 
         [OutputConstructor]
         private GetVirtualHubResult(
+            string? addressPrefix,
+
+            Outputs.SubResourceResponseResult? azureFirewall,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> bgpConnections,
+
             string etag,
+
+            Outputs.SubResourceResponseResult? expressRouteGateway,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> ipConfigurations,
 
             string location,
 
             string name,
 
-            Outputs.VirtualHubPropertiesResponseResult properties,
+            Outputs.SubResourceResponseResult? p2SVpnGateway,
+
+            string provisioningState,
+
+            Outputs.VirtualHubRouteTableResponseResult? routeTable,
+
+            string? routingState,
+
+            Outputs.SubResourceResponseResult? securityPartnerProvider,
+
+            string? securityProviderName,
+
+            string? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.VirtualHubRouteTableV2ResponseResult> virtualHubRouteTableV2s,
+
+            int? virtualRouterAsn,
+
+            ImmutableArray<string> virtualRouterIps,
+
+            Outputs.SubResourceResponseResult? virtualWan,
+
+            Outputs.SubResourceResponseResult? vpnGateway)
         {
+            AddressPrefix = addressPrefix;
+            AzureFirewall = azureFirewall;
+            BgpConnections = bgpConnections;
             Etag = etag;
+            ExpressRouteGateway = expressRouteGateway;
+            IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
-            Properties = properties;
+            P2SVpnGateway = p2SVpnGateway;
+            ProvisioningState = provisioningState;
+            RouteTable = routeTable;
+            RoutingState = routingState;
+            SecurityPartnerProvider = securityPartnerProvider;
+            SecurityProviderName = securityProviderName;
+            Sku = sku;
             Tags = tags;
             Type = type;
+            VirtualHubRouteTableV2s = virtualHubRouteTableV2s;
+            VirtualRouterAsn = virtualRouterAsn;
+            VirtualRouterIps = virtualRouterIps;
+            VirtualWan = virtualWan;
+            VpnGateway = vpnGateway;
         }
     }
 }

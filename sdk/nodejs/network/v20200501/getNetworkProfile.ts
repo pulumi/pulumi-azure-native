@@ -36,6 +36,14 @@ export interface GetNetworkProfileArgs {
  */
 export interface GetNetworkProfileResult {
     /**
+     * List of chid container network interface configurations.
+     */
+    readonly containerNetworkInterfaceConfigurations?: outputs.network.v20200501.ContainerNetworkInterfaceConfigurationResponse[];
+    /**
+     * List of child container network interfaces.
+     */
+    readonly containerNetworkInterfaces: outputs.network.v20200501.ContainerNetworkInterfaceResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -48,9 +56,13 @@ export interface GetNetworkProfileResult {
      */
     readonly name: string;
     /**
-     * Network profile properties.
+     * The provisioning state of the network profile resource.
      */
-    readonly properties: outputs.network.v20200501.NetworkProfilePropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * The resource GUID property of the network profile resource.
+     */
+    readonly resourceGuid: string;
     /**
      * Resource tags.
      */

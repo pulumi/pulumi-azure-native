@@ -37,6 +37,18 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
+     * The time the namespace was created.
+     */
+    public readonly createdAt!: pulumi.Output<string | undefined>;
+    /**
+     * Whether or not the namespace is set as Critical.
+     */
+    public readonly critical!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether or not the namespace is currently enabled.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +57,37 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Namespace.
+     * The namespace type.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.notificationhubs.v20160301.NamespacePropertiesResponse>;
+    public readonly namespaceType!: pulumi.Output<string | undefined>;
+    /**
+     * Provisioning state of the Namespace.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+     */
+    public readonly region!: pulumi.Output<string | undefined>;
+    /**
+     * ScaleUnit where the namespace gets created
+     */
+    public readonly scaleUnit!: pulumi.Output<string | undefined>;
+    /**
+     * Endpoint you can use to perform NotificationHub operations.
+     */
+    public readonly serviceBusEndpoint!: pulumi.Output<string | undefined>;
     /**
      * The sku of the created namespace
      */
     public readonly sku!: pulumi.Output<outputs.notificationhubs.v20160301.SkuResponse | undefined>;
+    /**
+     * Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * The Id of the Azure subscription associated with the namespace.
+     */
+    public readonly subscriptionId!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -98,7 +134,6 @@ export class Namespace extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

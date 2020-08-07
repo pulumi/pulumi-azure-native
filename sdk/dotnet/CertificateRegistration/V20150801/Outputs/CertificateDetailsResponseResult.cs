@@ -18,6 +18,10 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Issuer
+        /// </summary>
+        public readonly string? Issuer;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -29,19 +33,52 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Outputs
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.CertificateDetailsResponsePropertiesResult? Properties;
+        /// <summary>
+        /// Valid to
+        /// </summary>
+        public readonly string? NotAfter;
+        /// <summary>
+        /// Valid from
+        /// </summary>
+        public readonly string? NotBefore;
+        /// <summary>
+        /// Raw certificate data
+        /// </summary>
+        public readonly string? RawData;
+        /// <summary>
+        /// Serial Number
+        /// </summary>
+        public readonly string? SerialNumber;
+        /// <summary>
+        /// Signature Algorithm
+        /// </summary>
+        public readonly string? SignatureAlgorithm;
+        /// <summary>
+        /// Subject
+        /// </summary>
+        public readonly string? Subject;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Thumbprint
+        /// </summary>
+        public readonly string? Thumbprint;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Version
+        /// </summary>
+        public readonly int? Version;
 
         [OutputConstructor]
         private CertificateDetailsResponseResult(
             string? id,
+
+            string? issuer,
 
             string? kind,
 
@@ -49,19 +86,41 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Outputs
 
             string? name,
 
-            Outputs.CertificateDetailsResponsePropertiesResult? properties,
+            string? notAfter,
+
+            string? notBefore,
+
+            string? rawData,
+
+            string? serialNumber,
+
+            string? signatureAlgorithm,
+
+            string? subject,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? type)
+            string? thumbprint,
+
+            string? type,
+
+            int? version)
         {
             Id = id;
+            Issuer = issuer;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            NotAfter = notAfter;
+            NotBefore = notBefore;
+            RawData = rawData;
+            SerialNumber = serialNumber;
+            SignatureAlgorithm = signatureAlgorithm;
+            Subject = subject;
             Tags = tags;
+            Thumbprint = thumbprint;
             Type = type;
+            Version = version;
         }
     }
 }

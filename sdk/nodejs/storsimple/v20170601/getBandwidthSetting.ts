@@ -49,11 +49,15 @@ export interface GetBandwidthSettingResult {
      */
     readonly name: string;
     /**
-     * The properties of the bandwidth setting.
+     * The schedules.
      */
-    readonly properties: outputs.storsimple.v20170601.BandwidthRateSettingPropertiesResponse;
+    readonly schedules: outputs.storsimple.v20170601.BandwidthScheduleResponse[];
     /**
      * The hierarchical type of the object.
      */
     readonly type: string;
+    /**
+     * The number of volumes that uses the bandwidth setting.
+     */
+    readonly volumeCount: number;
 }

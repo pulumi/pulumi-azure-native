@@ -36,9 +36,25 @@ export interface GetVirtualMachineImageTemplateArgs {
  */
 export interface GetVirtualMachineImageTemplateResult {
     /**
+     * Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+     */
+    readonly buildTimeoutInMinutes?: number;
+    /**
+     * Specifies the properties used to describe the customization steps of the image, like Image source etc
+     */
+    readonly customize?: outputs.virtualmachineimages.v20200214.ImageTemplateCustomizerResponse[];
+    /**
+     * The distribution targets where the image output needs to go to.
+     */
+    readonly distribute: outputs.virtualmachineimages.v20200214.ImageTemplateDistributorResponse[];
+    /**
      * The identity of the image template, if configured.
      */
     readonly identity: outputs.virtualmachineimages.v20200214.ImageTemplateIdentityResponse;
+    /**
+     * State of 'run' that is currently executing or was last executed.
+     */
+    readonly lastRunStatus: outputs.virtualmachineimages.v20200214.ImageTemplateLastRunStatusResponse;
     /**
      * Resource location
      */
@@ -48,9 +64,17 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly name: string;
     /**
-     * The properties of the image template
+     * Provisioning error, if any
      */
-    readonly properties: outputs.virtualmachineimages.v20200214.ImageTemplatePropertiesResponse;
+    readonly provisioningError: outputs.virtualmachineimages.v20200214.ProvisioningErrorResponse;
+    /**
+     * Provisioning state of the resource
+     */
+    readonly provisioningState: string;
+    /**
+     * Specifies the properties used to describe the source image.
+     */
+    readonly source: outputs.virtualmachineimages.v20200214.ImageTemplateSourceResponse;
     /**
      * Resource tags
      */
@@ -59,4 +83,8 @@ export interface GetVirtualMachineImageTemplateResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Describes how virtual machine is set up to build images
+     */
+    readonly vmProfile?: outputs.virtualmachineimages.v20200214.ImageTemplateVmProfileResponse;
 }

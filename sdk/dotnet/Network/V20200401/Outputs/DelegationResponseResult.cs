@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
     public sealed class DelegationResponseResult
     {
         /// <summary>
+        /// The actions permitted to the service upon delegation.
+        /// </summary>
+        public readonly ImmutableArray<string> Actions;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -26,24 +30,34 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the subnet.
+        /// The provisioning state of the service delegation resource.
         /// </summary>
-        public readonly Outputs.ServiceDelegationPropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+        /// </summary>
+        public readonly string? ServiceName;
 
         [OutputConstructor]
         private DelegationResponseResult(
+            ImmutableArray<string> actions,
+
             string etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ServiceDelegationPropertiesFormatResponseResult? properties)
+            string provisioningState,
+
+            string? serviceName)
         {
+            Actions = actions;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServiceName = serviceName;
         }
     }
 }

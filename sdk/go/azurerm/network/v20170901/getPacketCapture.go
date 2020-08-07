@@ -27,9 +27,20 @@ type LookupPacketCaptureArgs struct {
 
 // Information about packet capture session.
 type LookupPacketCaptureResult struct {
-	Etag *string `pulumi:"etag"`
+	// Number of bytes captured per packet, the remaining bytes are truncated.
+	BytesToCapturePerPacket *int                          `pulumi:"bytesToCapturePerPacket"`
+	Etag                    *string                       `pulumi:"etag"`
+	Filters                 []PacketCaptureFilterResponse `pulumi:"filters"`
 	// Name of the packet capture session.
 	Name string `pulumi:"name"`
-	// Describes the properties of a packet capture session.
-	Properties PacketCaptureResultPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the packet capture session.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Describes the storage location for a packet capture session.
+	StorageLocation PacketCaptureStorageLocationResponse `pulumi:"storageLocation"`
+	// The ID of the targeted resource, only VM is currently supported.
+	Target string `pulumi:"target"`
+	// Maximum duration of the capture session in seconds.
+	TimeLimitInSeconds *int `pulumi:"timeLimitInSeconds"`
+	// Maximum size of the capture output.
+	TotalBytesPerSession *int `pulumi:"totalBytesPerSession"`
 }

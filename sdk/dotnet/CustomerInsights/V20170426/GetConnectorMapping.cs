@@ -52,13 +52,69 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public sealed class GetConnectorMappingResult
     {
         /// <summary>
+        /// The connector mapping name
+        /// </summary>
+        public readonly string ConnectorMappingName;
+        /// <summary>
+        /// The connector name.
+        /// </summary>
+        public readonly string ConnectorName;
+        /// <summary>
+        /// Type of connector.
+        /// </summary>
+        public readonly string? ConnectorType;
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// The DataFormat ID.
+        /// </summary>
+        public readonly string DataFormatId;
+        /// <summary>
+        /// The description of the connector mapping.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Display name for the connector mapping.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Defines which entity type the file should map to.
+        /// </summary>
+        public readonly string EntityType;
+        /// <summary>
+        /// The mapping entity name.
+        /// </summary>
+        public readonly string EntityTypeName;
+        /// <summary>
+        /// The last modified time.
+        /// </summary>
+        public readonly string LastModified;
+        /// <summary>
+        /// The properties of the mapping.
+        /// </summary>
+        public readonly Outputs.ConnectorMappingPropertiesResponseResult MappingProperties;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The connector mapping definition.
+        /// The next run time based on customer's settings.
         /// </summary>
-        public readonly Outputs.ConnectorMappingResponseResult Properties;
+        public readonly string NextRunTime;
+        /// <summary>
+        /// The RunId.
+        /// </summary>
+        public readonly string RunId;
+        /// <summary>
+        /// State of connector mapping.
+        /// </summary>
+        public readonly string State;
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -66,14 +122,56 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
         [OutputConstructor]
         private GetConnectorMappingResult(
+            string connectorMappingName,
+
+            string connectorName,
+
+            string? connectorType,
+
+            string created,
+
+            string dataFormatId,
+
+            string? description,
+
+            string? displayName,
+
+            string entityType,
+
+            string entityTypeName,
+
+            string lastModified,
+
+            Outputs.ConnectorMappingPropertiesResponseResult mappingProperties,
+
             string name,
 
-            Outputs.ConnectorMappingResponseResult properties,
+            string nextRunTime,
+
+            string runId,
+
+            string state,
+
+            string tenantId,
 
             string type)
         {
+            ConnectorMappingName = connectorMappingName;
+            ConnectorName = connectorName;
+            ConnectorType = connectorType;
+            Created = created;
+            DataFormatId = dataFormatId;
+            Description = description;
+            DisplayName = displayName;
+            EntityType = entityType;
+            EntityTypeName = entityTypeName;
+            LastModified = lastModified;
+            MappingProperties = mappingProperties;
             Name = name;
-            Properties = properties;
+            NextRunTime = nextRunTime;
+            RunId = runId;
+            State = state;
+            TenantId = tenantId;
             Type = type;
         }
     }

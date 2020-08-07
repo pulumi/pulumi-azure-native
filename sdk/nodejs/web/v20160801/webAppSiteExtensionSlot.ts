@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,21 +35,89 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
     }
 
     /**
+     * List of authors.
+     */
+    public /*out*/ readonly authors!: pulumi.Output<string[] | undefined>;
+    /**
+     * Site Extension comment.
+     */
+    public /*out*/ readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * Detailed description.
+     */
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Count of downloads.
+     */
+    public /*out*/ readonly downloadCount!: pulumi.Output<number | undefined>;
+    /**
+     * Extension URL.
+     */
+    public /*out*/ readonly extensionUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Feed URL.
+     */
+    public /*out*/ readonly feedUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Icon URL.
+     */
+    public /*out*/ readonly iconUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Installer command line parameters.
+     */
+    public /*out*/ readonly installationArgs!: pulumi.Output<string | undefined>;
+    /**
+     * Installed timestamp.
+     */
+    public /*out*/ readonly installedDateTime!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource.
      */
     public /*out*/ readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * License URL.
+     */
+    public /*out*/ readonly licenseUrl!: pulumi.Output<string | undefined>;
+    /**
+     * <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+     */
+    public /*out*/ readonly localIsLatestVersion!: pulumi.Output<boolean | undefined>;
+    /**
+     * Local path.
+     */
+    public /*out*/ readonly localPath!: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * SiteExtensionInfo resource specific properties
+     * Project URL.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.SiteExtensionInfoResponseProperties>;
+    public /*out*/ readonly projectUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Published timestamp.
+     */
+    public /*out*/ readonly publishedDateTime!: pulumi.Output<string | undefined>;
+    /**
+     * Summary description.
+     */
+    public /*out*/ readonly summary!: pulumi.Output<string | undefined>;
+    /**
+     * Site extension title.
+     */
+    public /*out*/ readonly title!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Version information.
+     */
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebAppSiteExtensionSlot resource with the given unique name, arguments, and options.
@@ -78,9 +144,26 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["authors"] = undefined /*out*/;
+            inputs["comment"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["downloadCount"] = undefined /*out*/;
+            inputs["extensionUrl"] = undefined /*out*/;
+            inputs["feedUrl"] = undefined /*out*/;
+            inputs["iconUrl"] = undefined /*out*/;
+            inputs["installationArgs"] = undefined /*out*/;
+            inputs["installedDateTime"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["licenseUrl"] = undefined /*out*/;
+            inputs["localIsLatestVersion"] = undefined /*out*/;
+            inputs["localPath"] = undefined /*out*/;
+            inputs["projectUrl"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publishedDateTime"] = undefined /*out*/;
+            inputs["summary"] = undefined /*out*/;
+            inputs["title"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

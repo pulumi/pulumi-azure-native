@@ -14,14 +14,30 @@ import (
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
+	// Gets or sets Pools of backend IP addresses
+	BackendAddressPools BackendAddressPoolResponseArrayOutput `pulumi:"backendAddressPools"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Gets or sets frontend IP addresses of the load balancer
+	FrontendIPConfigurations FrontendIPConfigurationResponseArrayOutput `pulumi:"frontendIPConfigurations"`
+	// Gets or sets inbound NAT pools
+	InboundNatPools InboundNatPoolResponseArrayOutput `pulumi:"inboundNatPools"`
+	// Gets or sets list of inbound rules
+	InboundNatRules InboundNatRuleResponseArrayOutput `pulumi:"inboundNatRules"`
+	// Gets or sets load balancing rules
+	LoadBalancingRules LoadBalancingRuleResponseArrayOutput `pulumi:"loadBalancingRules"`
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of Load Balancer
-	Properties LoadBalancerPropertiesFormatResponseOutput `pulumi:"properties"`
+	// Gets or sets outbound NAT rules
+	OutboundNatRules OutboundNatRuleResponseArrayOutput `pulumi:"outboundNatRules"`
+	// Gets or sets list of Load balancer probes
+	Probes ProbeResponseArrayOutput `pulumi:"probes"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Gets or sets resource guid property of the Load balancer resource
+	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -62,14 +78,30 @@ func GetLoadBalancer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancer resources.
 type loadBalancerState struct {
+	// Gets or sets Pools of backend IP addresses
+	BackendAddressPools []BackendAddressPoolResponse `pulumi:"backendAddressPools"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Gets or sets frontend IP addresses of the load balancer
+	FrontendIPConfigurations []FrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
+	// Gets or sets inbound NAT pools
+	InboundNatPools []InboundNatPoolResponse `pulumi:"inboundNatPools"`
+	// Gets or sets list of inbound rules
+	InboundNatRules []InboundNatRuleResponse `pulumi:"inboundNatRules"`
+	// Gets or sets load balancing rules
+	LoadBalancingRules []LoadBalancingRuleResponse `pulumi:"loadBalancingRules"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of Load Balancer
-	Properties *LoadBalancerPropertiesFormatResponse `pulumi:"properties"`
+	// Gets or sets outbound NAT rules
+	OutboundNatRules []OutboundNatRuleResponse `pulumi:"outboundNatRules"`
+	// Gets or sets list of Load balancer probes
+	Probes []ProbeResponse `pulumi:"probes"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets resource guid property of the Load balancer resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -77,14 +109,30 @@ type loadBalancerState struct {
 }
 
 type LoadBalancerState struct {
+	// Gets or sets Pools of backend IP addresses
+	BackendAddressPools BackendAddressPoolResponseArrayInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
+	// Gets or sets frontend IP addresses of the load balancer
+	FrontendIPConfigurations FrontendIPConfigurationResponseArrayInput
+	// Gets or sets inbound NAT pools
+	InboundNatPools InboundNatPoolResponseArrayInput
+	// Gets or sets list of inbound rules
+	InboundNatRules InboundNatRuleResponseArrayInput
+	// Gets or sets load balancing rules
+	LoadBalancingRules LoadBalancingRuleResponseArrayInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of Load Balancer
-	Properties LoadBalancerPropertiesFormatResponsePtrInput
+	// Gets or sets outbound NAT rules
+	OutboundNatRules OutboundNatRuleResponseArrayInput
+	// Gets or sets list of Load balancer probes
+	Probes ProbeResponseArrayInput
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets resource guid property of the Load balancer resource
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

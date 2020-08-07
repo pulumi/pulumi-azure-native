@@ -53,9 +53,13 @@ export interface GetServerCommunicationLinkResult {
      */
     readonly name: string;
     /**
-     * The properties of resource.
+     * The name of the partner server.
      */
-    readonly properties: outputs.sql.v20140401.ServerCommunicationLinkPropertiesResponse;
+    readonly partnerServer: string;
+    /**
+     * The state.
+     */
+    readonly state: string;
     /**
      * Resource type.
      */

@@ -46,6 +46,18 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180901
     public sealed class GetTaskResult
     {
         /// <summary>
+        /// The machine configuration of the run agent.
+        /// </summary>
+        public readonly Outputs.AgentPropertiesResponseResult? AgentConfiguration;
+        /// <summary>
+        /// The creation date of task.
+        /// </summary>
+        public readonly string CreationDate;
+        /// <summary>
+        /// The properties that describes a set of credentials that will be used when this run is invoked.
+        /// </summary>
+        public readonly Outputs.CredentialsResponseResult? Credentials;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -54,13 +66,33 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of a task.
+        /// The platform properties against which the run has to happen.
         /// </summary>
-        public readonly Outputs.TaskPropertiesResponseResult Properties;
+        public readonly Outputs.PlatformPropertiesResponseResult Platform;
+        /// <summary>
+        /// The provisioning state of the task.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The current status of task.
+        /// </summary>
+        public readonly string? Status;
+        /// <summary>
+        /// The properties of a task step.
+        /// </summary>
+        public readonly Outputs.TaskStepPropertiesResponseResult Step;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Run timeout in seconds.
+        /// </summary>
+        public readonly int? Timeout;
+        /// <summary>
+        /// The properties that describe all triggers for the task.
+        /// </summary>
+        public readonly Outputs.TriggerPropertiesResponseResult? Trigger;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -68,20 +100,44 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180901
 
         [OutputConstructor]
         private GetTaskResult(
+            Outputs.AgentPropertiesResponseResult? agentConfiguration,
+
+            string creationDate,
+
+            Outputs.CredentialsResponseResult? credentials,
+
             string location,
 
             string name,
 
-            Outputs.TaskPropertiesResponseResult properties,
+            Outputs.PlatformPropertiesResponseResult platform,
+
+            string provisioningState,
+
+            string? status,
+
+            Outputs.TaskStepPropertiesResponseResult step,
 
             ImmutableDictionary<string, string>? tags,
 
+            int? timeout,
+
+            Outputs.TriggerPropertiesResponseResult? trigger,
+
             string type)
         {
+            AgentConfiguration = agentConfiguration;
+            CreationDate = creationDate;
+            Credentials = credentials;
             Location = location;
             Name = name;
-            Properties = properties;
+            Platform = platform;
+            ProvisioningState = provisioningState;
+            Status = status;
+            Step = step;
             Tags = tags;
+            Timeout = timeout;
+            Trigger = trigger;
             Type = type;
         }
     }

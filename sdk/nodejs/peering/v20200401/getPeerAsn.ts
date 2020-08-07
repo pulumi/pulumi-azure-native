@@ -31,15 +31,31 @@ export interface GetPeerAsnArgs {
  */
 export interface GetPeerAsnResult {
     /**
+     * The error message for the validation state
+     */
+    readonly errorMessage: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties that define a peer's ASN.
+     * The Autonomous System Number (ASN) of the peer.
      */
-    readonly properties: outputs.peering.v20200401.PeerAsnPropertiesResponse;
+    readonly peerAsn?: number;
+    /**
+     * The contact details of the peer.
+     */
+    readonly peerContactDetail?: outputs.peering.v20200401.ContactDetailResponse[];
+    /**
+     * The name of the peer.
+     */
+    readonly peerName?: string;
     /**
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The validation state of the ASN associated with the peer.
+     */
+    readonly validationState?: string;
 }

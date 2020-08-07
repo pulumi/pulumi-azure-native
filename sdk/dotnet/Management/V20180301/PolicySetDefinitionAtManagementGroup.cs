@@ -15,16 +15,46 @@ namespace Pulumi.AzureRM.Management.V20180301
     public partial class PolicySetDefinitionAtManagementGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// The policy set definition description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the policy set definition.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The policy set definition metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the policy set definition.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The policy definition properties.
+        /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PolicySetDefinitionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, object>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of policy definition references.
+        /// </summary>
+        [Output("policyDefinitions")]
+        public Output<ImmutableArray<Outputs.PolicyDefinitionReferenceResponseResult>> PolicyDefinitions { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        /// </summary>
+        [Output("policyType")]
+        public Output<string?> PolicyType { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource (Microsoft.Authorization/policySetDefinitions).

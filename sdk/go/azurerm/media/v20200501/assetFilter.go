@@ -14,10 +14,14 @@ import (
 type AssetFilter struct {
 	pulumi.CustomResourceState
 
+	// The first quality.
+	FirstQuality FirstQualityResponsePtrOutput `pulumi:"firstQuality"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponseOutput `pulumi:"properties"`
+	// The presentation time range.
+	PresentationTimeRange PresentationTimeRangeResponsePtrOutput `pulumi:"presentationTimeRange"`
+	// The tracks selection conditions.
+	Tracks FilterTrackSelectionResponseArrayOutput `pulumi:"tracks"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +66,27 @@ func GetAssetFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AssetFilter resources.
 type assetFilterState struct {
+	// The first quality.
+	FirstQuality *FirstQualityResponse `pulumi:"firstQuality"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The Media Filter properties.
-	Properties *MediaFilterPropertiesResponse `pulumi:"properties"`
+	// The presentation time range.
+	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
+	// The tracks selection conditions.
+	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type AssetFilterState struct {
+	// The first quality.
+	FirstQuality FirstQualityResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponsePtrInput
+	// The presentation time range.
+	PresentationTimeRange PresentationTimeRangeResponsePtrInput
+	// The tracks selection conditions.
+	Tracks FilterTrackSelectionResponseArrayInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

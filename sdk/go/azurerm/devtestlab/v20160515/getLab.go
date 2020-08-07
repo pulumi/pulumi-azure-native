@@ -25,14 +25,34 @@ type LookupLabArgs struct {
 
 // A lab.
 type LookupLabResult struct {
+	// The lab's artifact storage account.
+	ArtifactsStorageAccount string `pulumi:"artifactsStorageAccount"`
+	// The creation date of the lab.
+	CreatedDate string `pulumi:"createdDate"`
+	// The lab's default premium storage account.
+	DefaultPremiumStorageAccount string `pulumi:"defaultPremiumStorageAccount"`
+	// The lab's default storage account.
+	DefaultStorageAccount string `pulumi:"defaultStorageAccount"`
+	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+	LabStorageType *string `pulumi:"labStorageType"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabPropertiesResponse `pulumi:"properties"`
+	// The lab's premium data disk storage account.
+	PremiumDataDiskStorageAccount string `pulumi:"premiumDataDiskStorageAccount"`
+	// The setting to enable usage of premium data disks.
+	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+	// When its value is 'Disabled', only creation of standard data disks is allowed.
+	PremiumDataDisks *string `pulumi:"premiumDataDisks"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// The lab's Key vault.
+	VaultName string `pulumi:"vaultName"`
 }

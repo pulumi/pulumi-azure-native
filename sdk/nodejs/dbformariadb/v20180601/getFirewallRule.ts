@@ -41,13 +41,17 @@ export interface GetFirewallRuleArgs {
  */
 export interface GetFirewallRuleResult {
     /**
+     * The end IP address of the server firewall rule. Must be IPv4 format.
+     */
+    readonly endIpAddress: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The properties of a firewall rule.
+     * The start IP address of the server firewall rule. Must be IPv4 format.
      */
-    readonly properties: outputs.dbformariadb.v20180601.FirewallRulePropertiesResponse;
+    readonly startIpAddress: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

@@ -13,7 +13,7 @@ class GetSshPublicKeyResult:
     """
     Specifies information about the SSH public key.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, public_key=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +26,11 @@ class GetSshPublicKeyResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if public_key and not isinstance(public_key, str):
+            raise TypeError("Expected argument 'public_key' to be a str")
+        __self__.public_key = public_key
         """
-        Properties of the SSH public key.
+        SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -54,7 +54,7 @@ class AwaitableGetSshPublicKeyResult(GetSshPublicKeyResult):
         return GetSshPublicKeyResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            public_key=self.public_key,
             tags=self.tags,
             type=self.type)
 
@@ -78,6 +78,6 @@ def get_ssh_public_key(name=None, resource_group_name=None, opts=None):
     return AwaitableGetSshPublicKeyResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        public_key=__ret__.get('publicKey'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

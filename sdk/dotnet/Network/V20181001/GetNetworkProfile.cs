@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Network.V20181001
     public sealed class GetNetworkProfileResult
     {
         /// <summary>
+        /// List of chid container network interface configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponseResult> ContainerNetworkInterfaceConfigurations;
+        /// <summary>
+        /// List of child container network interfaces.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerNetworkInterfaceResponseResult> ContainerNetworkInterfaces;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +60,13 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network profile properties.
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.NetworkProfilePropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the network interface resource.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +78,31 @@ namespace Pulumi.AzureRM.Network.V20181001
 
         [OutputConstructor]
         private GetNetworkProfileResult(
+            ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponseResult> containerNetworkInterfaceConfigurations,
+
+            ImmutableArray<Outputs.ContainerNetworkInterfaceResponseResult> containerNetworkInterfaces,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.NetworkProfilePropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            string resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ContainerNetworkInterfaceConfigurations = containerNetworkInterfaceConfigurations;
+            ContainerNetworkInterfaces = containerNetworkInterfaces;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
         }

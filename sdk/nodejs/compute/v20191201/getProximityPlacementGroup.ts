@@ -41,6 +41,14 @@ export interface GetProximityPlacementGroupArgs {
  */
 export interface GetProximityPlacementGroupResult {
     /**
+     * A list of references to all availability sets in the proximity placement group.
+     */
+    readonly availabilitySets: outputs.compute.v20191201.SubResourceWithColocationStatusResponse[];
+    /**
+     * Describes colocation status of the Proximity Placement Group.
+     */
+    readonly colocationStatus?: outputs.compute.v20191201.InstanceViewStatusResponse;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -49,9 +57,9 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of a Proximity Placement Group.
+     * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */
-    readonly properties: outputs.compute.v20191201.ProximityPlacementGroupPropertiesResponse;
+    readonly proximityPlacementGroupType?: string;
     /**
      * Resource tags
      */
@@ -60,4 +68,12 @@ export interface GetProximityPlacementGroupResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * A list of references to all virtual machine scale sets in the proximity placement group.
+     */
+    readonly virtualMachineScaleSets: outputs.compute.v20191201.SubResourceWithColocationStatusResponse[];
+    /**
+     * A list of references to all virtual machines in the proximity placement group.
+     */
+    readonly virtualMachines: outputs.compute.v20191201.SubResourceWithColocationStatusResponse[];
 }

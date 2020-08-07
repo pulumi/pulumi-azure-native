@@ -41,13 +41,25 @@ export interface GetOutputArgs {
  */
 export interface GetOutputResult {
     /**
+     * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+     */
+    readonly datasource?: outputs.streamanalytics.v20160301.OutputDataSourceResponse;
+    /**
+     * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+     */
+    readonly diagnostics: outputs.streamanalytics.v20160301.DiagnosticsResponse;
+    /**
+     * The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+     */
+    readonly etag: string;
+    /**
      * Resource name
      */
     readonly name?: string;
     /**
-     * The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
+     * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly properties: outputs.streamanalytics.v20160301.OutputPropertiesResponse;
+    readonly serialization?: outputs.streamanalytics.v20160301.SerializationResponse;
     /**
      * Resource type
      */

@@ -25,12 +25,18 @@ type LookupDedicatedCloudServiceArgs struct {
 
 // Dedicated cloud service model
 type LookupDedicatedCloudServiceResult struct {
+	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+	GatewaySubnet string `pulumi:"gatewaySubnet"`
+	// indicates whether account onboarded or not in a given region
+	IsAccountOnboarded string `pulumi:"isAccountOnboarded"`
 	// Azure region
 	Location string `pulumi:"location"`
 	// {dedicatedCloudServiceName}
 	Name string `pulumi:"name"`
-	// The properties of Dedicated Node Service
-	Properties DedicatedCloudServicePropertiesResponse `pulumi:"properties"`
+	// total nodes purchased
+	Nodes int `pulumi:"nodes"`
+	// link to a service management web portal
+	ServiceURL string `pulumi:"serviceURL"`
 	// The list of tags
 	Tags map[string]string `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}

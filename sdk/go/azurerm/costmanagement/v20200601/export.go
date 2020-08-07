@@ -14,12 +14,22 @@ import (
 type Export struct {
 	pulumi.CustomResourceState
 
+	// Has the definition for the export.
+	Definition ExportDefinitionResponseOutput `pulumi:"definition"`
+	// Has delivery information for the export.
+	DeliveryInfo ExportDeliveryInfoResponseOutput `pulumi:"deliveryInfo"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	// The format of the export being delivered. Currently only 'Csv' is supported.
+	Format pulumi.StringPtrOutput `pulumi:"format"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the export.
-	Properties ExportPropertiesResponseOutput `pulumi:"properties"`
+	// If the export has an active schedule, provides an estimate of the next execution time.
+	NextRunTimeEstimate pulumi.StringOutput `pulumi:"nextRunTimeEstimate"`
+	// If requested, has the most recent execution history for the export.
+	RunHistory ExportExecutionListResultResponsePtrOutput `pulumi:"runHistory"`
+	// Has schedule information for the export.
+	Schedule ExportScheduleResponsePtrOutput `pulumi:"schedule"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -64,23 +74,43 @@ func GetExport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Export resources.
 type exportState struct {
+	// Has the definition for the export.
+	Definition *ExportDefinitionResponse `pulumi:"definition"`
+	// Has delivery information for the export.
+	DeliveryInfo *ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// The format of the export being delivered. Currently only 'Csv' is supported.
+	Format *string `pulumi:"format"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of the export.
-	Properties *ExportPropertiesResponse `pulumi:"properties"`
+	// If the export has an active schedule, provides an estimate of the next execution time.
+	NextRunTimeEstimate *string `pulumi:"nextRunTimeEstimate"`
+	// If requested, has the most recent execution history for the export.
+	RunHistory *ExportExecutionListResultResponse `pulumi:"runHistory"`
+	// Has schedule information for the export.
+	Schedule *ExportScheduleResponse `pulumi:"schedule"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type ExportState struct {
+	// Has the definition for the export.
+	Definition ExportDefinitionResponsePtrInput
+	// Has delivery information for the export.
+	DeliveryInfo ExportDeliveryInfoResponsePtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
+	// The format of the export being delivered. Currently only 'Csv' is supported.
+	Format pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of the export.
-	Properties ExportPropertiesResponsePtrInput
+	// If the export has an active schedule, provides an estimate of the next execution time.
+	NextRunTimeEstimate pulumi.StringPtrInput
+	// If requested, has the most recent execution history for the export.
+	RunHistory ExportExecutionListResultResponsePtrInput
+	// Has schedule information for the export.
+	Schedule ExportScheduleResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

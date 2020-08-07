@@ -46,13 +46,17 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
     public sealed class GetFirewallRuleResult
     {
         /// <summary>
+        /// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        /// </summary>
+        public readonly string EndIpAddress;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The firewall rule properties.
+        /// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         /// </summary>
-        public readonly Outputs.FirewallRulePropertiesResponseResult Properties;
+        public readonly string StartIpAddress;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -60,14 +64,17 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
 
         [OutputConstructor]
         private GetFirewallRuleResult(
+            string endIpAddress,
+
             string name,
 
-            Outputs.FirewallRulePropertiesResponseResult properties,
+            string startIpAddress,
 
             string type)
         {
+            EndIpAddress = endIpAddress;
             Name = name;
-            Properties = properties;
+            StartIpAddress = startIpAddress;
             Type = type;
         }
     }

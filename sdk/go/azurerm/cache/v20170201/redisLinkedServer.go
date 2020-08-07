@@ -14,10 +14,16 @@ import (
 type RedisLinkedServer struct {
 	pulumi.CustomResourceState
 
+	// Fully qualified resourceId of the linked redis cache.
+	LinkedRedisCacheId pulumi.StringOutput `pulumi:"linkedRedisCacheId"`
+	// Location of the linked redis cache.
+	LinkedRedisCacheLocation pulumi.StringOutput `pulumi:"linkedRedisCacheLocation"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the linked server.
-	Properties RedisLinkedServerPropertiesResponseOutput `pulumi:"properties"`
+	// Terminal state of the link between primary and secondary redis cache.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Role of the linked server.
+	ServerRole pulumi.StringOutput `pulumi:"serverRole"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +71,31 @@ func GetRedisLinkedServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RedisLinkedServer resources.
 type redisLinkedServerState struct {
+	// Fully qualified resourceId of the linked redis cache.
+	LinkedRedisCacheId *string `pulumi:"linkedRedisCacheId"`
+	// Location of the linked redis cache.
+	LinkedRedisCacheLocation *string `pulumi:"linkedRedisCacheLocation"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the linked server.
-	Properties *RedisLinkedServerPropertiesResponse `pulumi:"properties"`
+	// Terminal state of the link between primary and secondary redis cache.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Role of the linked server.
+	ServerRole *string `pulumi:"serverRole"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type RedisLinkedServerState struct {
+	// Fully qualified resourceId of the linked redis cache.
+	LinkedRedisCacheId pulumi.StringPtrInput
+	// Location of the linked redis cache.
+	LinkedRedisCacheLocation pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the linked server.
-	Properties RedisLinkedServerPropertiesResponsePtrInput
+	// Terminal state of the link between primary and secondary redis cache.
+	ProvisioningState pulumi.StringPtrInput
+	// Role of the linked server.
+	ServerRole pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

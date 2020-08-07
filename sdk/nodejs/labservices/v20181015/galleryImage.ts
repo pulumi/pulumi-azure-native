@@ -37,6 +37,42 @@ export class GalleryImage extends pulumi.CustomResource {
     }
 
     /**
+     * The author of the gallery image.
+     */
+    public /*out*/ readonly author!: pulumi.Output<string>;
+    /**
+     * The creation date of the gallery image.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The description of the gallery image.
+     */
+    public /*out*/ readonly description!: pulumi.Output<string>;
+    /**
+     * The icon of the gallery image.
+     */
+    public /*out*/ readonly icon!: pulumi.Output<string>;
+    /**
+     * The image reference of the gallery image.
+     */
+    public /*out*/ readonly imageReference!: pulumi.Output<outputs.labservices.v20181015.GalleryImageReferenceResponse>;
+    /**
+     * Indicates whether this gallery image is enabled.
+     */
+    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether this gallery has been overridden for this lab account
+     */
+    public readonly isOverride!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates if the plan has been authorized for programmatic deployment.
+     */
+    public readonly isPlanAuthorized!: pulumi.Output<boolean | undefined>;
+    /**
+     * The details of the latest operation. ex: status, error
+     */
+    public /*out*/ readonly latestOperationResult!: pulumi.Output<outputs.labservices.v20181015.LatestOperationResultResponse>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +81,13 @@ export class GalleryImage extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The gallery image properties
+     * The third party plan that applies to this image
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.GalleryImagePropertiesResponse>;
+    public /*out*/ readonly planId!: pulumi.Output<string>;
+    /**
+     * The provisioning status of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +96,10 @@ export class GalleryImage extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GalleryImage resource with the given unique name, arguments, and options.
@@ -89,7 +133,13 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["author"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["icon"] = undefined /*out*/;
+            inputs["imageReference"] = undefined /*out*/;
+            inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["planId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

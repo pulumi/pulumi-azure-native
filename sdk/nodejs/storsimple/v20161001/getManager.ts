@@ -36,6 +36,10 @@ export interface GetManagerArgs {
  */
 export interface GetManagerResult {
     /**
+     * Specifies if the Manager is Garda or Helsinki
+     */
+    readonly cisIntrinsicSettings?: outputs.storsimple.v20161001.ManagerIntrinsicSettingsResponse;
+    /**
      * ETag of the Manager
      */
     readonly etag?: string;
@@ -48,9 +52,13 @@ export interface GetManagerResult {
      */
     readonly name: string;
     /**
-     * List of properties of the Manager
+     * Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
      */
-    readonly properties: outputs.storsimple.v20161001.ManagerPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Specifies the Sku
+     */
+    readonly sku?: outputs.storsimple.v20161001.ManagerSkuResponse;
     /**
      * Tags attached to the Manager
      */

@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.Authorization.V20190901
     public sealed class GetPolicyAssignmentResult
     {
         /// <summary>
+        /// This message will be part of response in case of policy violation.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+        /// </summary>
+        public readonly string? EnforcementMode;
+        /// <summary>
         /// The managed identity associated with the policy assignment.
         /// </summary>
         public readonly Outputs.IdentityResponseResult? Identity;
@@ -48,13 +60,29 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Metadata;
+        /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties for the policy assignment.
+        /// The policy's excluded scopes.
         /// </summary>
-        public readonly Outputs.PolicyAssignmentPropertiesResponseResult Properties;
+        public readonly ImmutableArray<string> NotScopes;
+        /// <summary>
+        /// The parameter values for the assigned policy rule. The keys are the parameter names.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.ParameterValuesValueResponseResult>? Parameters;
+        /// <summary>
+        /// The ID of the policy definition or policy set definition being assigned.
+        /// </summary>
+        public readonly string? PolicyDefinitionId;
+        /// <summary>
+        /// The scope for the policy assignment.
+        /// </summary>
+        public readonly string? Scope;
         /// <summary>
         /// The policy sku. This property is optional, obsolete, and will be ignored.
         /// </summary>
@@ -66,22 +94,43 @@ namespace Pulumi.AzureRM.Authorization.V20190901
 
         [OutputConstructor]
         private GetPolicyAssignmentResult(
+            string? description,
+
+            string? displayName,
+
+            string? enforcementMode,
+
             Outputs.IdentityResponseResult? identity,
 
             string? location,
 
+            ImmutableDictionary<string, object>? metadata,
+
             string name,
 
-            Outputs.PolicyAssignmentPropertiesResponseResult properties,
+            ImmutableArray<string> notScopes,
+
+            ImmutableDictionary<string, Outputs.ParameterValuesValueResponseResult>? parameters,
+
+            string? policyDefinitionId,
+
+            string? scope,
 
             Outputs.PolicySkuResponseResult? sku,
 
             string type)
         {
+            Description = description;
+            DisplayName = displayName;
+            EnforcementMode = enforcementMode;
             Identity = identity;
             Location = location;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
+            NotScopes = notScopes;
+            Parameters = parameters;
+            PolicyDefinitionId = policyDefinitionId;
+            Scope = scope;
             Sku = sku;
             Type = type;
         }

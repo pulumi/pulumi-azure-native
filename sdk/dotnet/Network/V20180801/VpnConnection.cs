@@ -15,10 +15,58 @@ namespace Pulumi.AzureRM.Network.V20180801
     public partial class VpnConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Expected bandwidth in MBPS.
+        /// </summary>
+        [Output("connectionBandwidth")]
+        public Output<int?> ConnectionBandwidth { get; private set; } = null!;
+
+        /// <summary>
+        /// The connection status.
+        /// </summary>
+        [Output("connectionStatus")]
+        public Output<string?> ConnectionStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Egress bytes transferred.
+        /// </summary>
+        [Output("egressBytesTransferred")]
+        public Output<int> EgressBytesTransferred { get; private set; } = null!;
+
+        /// <summary>
+        /// EnableBgp flag
+        /// </summary>
+        [Output("enableBgp")]
+        public Output<bool?> EnableBgp { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable internet security
+        /// </summary>
+        [Output("enableInternetSecurity")]
+        public Output<bool?> EnableInternetSecurity { get; private set; } = null!;
+
+        /// <summary>
+        /// EnableBgp flag
+        /// </summary>
+        [Output("enableRateLimiting")]
+        public Output<bool?> EnableRateLimiting { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Ingress bytes transferred.
+        /// </summary>
+        [Output("ingressBytesTransferred")]
+        public Output<int> IngressBytesTransferred { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPSec Policies to be considered by this connection.
+        /// </summary>
+        [Output("ipsecPolicies")]
+        public Output<ImmutableArray<Outputs.IpsecPolicyResponseResult>> IpsecPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -27,10 +75,34 @@ namespace Pulumi.AzureRM.Network.V20180801
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for VpnConnection
+        /// The provisioning state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VpnConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of the connected vpn site.
+        /// </summary>
+        [Output("remoteVpnSite")]
+        public Output<Outputs.SubResourceResponseResult?> RemoteVpnSite { get; private set; } = null!;
+
+        /// <summary>
+        /// routing weight for vpn connection.
+        /// </summary>
+        [Output("routingWeight")]
+        public Output<int?> RoutingWeight { get; private set; } = null!;
+
+        /// <summary>
+        /// SharedKey for the vpn connection.
+        /// </summary>
+        [Output("sharedKey")]
+        public Output<string?> SharedKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Connection protocol used for this connection
+        /// </summary>
+        [Output("vpnConnectionProtocolType")]
+        public Output<string?> VpnConnectionProtocolType { get; private set; } = null!;
 
 
         /// <summary>

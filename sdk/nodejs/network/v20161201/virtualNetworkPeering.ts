@@ -37,6 +37,18 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     }
 
     /**
+     * Whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed.
+     */
+    public readonly allowForwardedTraffic!: pulumi.Output<boolean | undefined>;
+    /**
+     * If gateway links can be used in remote virtual networking to link to this virtual network.
+     */
+    public readonly allowGatewayTransit!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.
+     */
+    public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -44,7 +56,22 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20161201.VirtualNetworkPeeringPropertiesFormatResponse>;
+    /**
+     * The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
+     */
+    public readonly peeringState!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The reference of the remote virtual network.
+     */
+    public readonly remoteVirtualNetwork!: pulumi.Output<outputs.network.v20161201.SubResourceResponse | undefined>;
+    /**
+     * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+     */
+    public readonly useRemoteGateways!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VirtualNetworkPeering resource with the given unique name, arguments, and options.
@@ -80,7 +107,6 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

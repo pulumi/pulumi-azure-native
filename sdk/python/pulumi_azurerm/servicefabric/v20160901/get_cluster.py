@@ -13,12 +13,84 @@ class GetClusterResult:
     """
     The cluster resource
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, available_cluster_versions=None, azure_active_directory=None, certificate=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, cluster_id=None, cluster_state=None, diagnostics_storage_account_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, provisioning_state=None, reliability_level=None, reverse_proxy_certificate=None, tags=None, type=None, upgrade_description=None, upgrade_mode=None, vm_image=None):
+        if available_cluster_versions and not isinstance(available_cluster_versions, list):
+            raise TypeError("Expected argument 'available_cluster_versions' to be a list")
+        __self__.available_cluster_versions = available_cluster_versions
+        """
+        The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
+        """
+        if azure_active_directory and not isinstance(azure_active_directory, dict):
+            raise TypeError("Expected argument 'azure_active_directory' to be a dict")
+        __self__.azure_active_directory = azure_active_directory
+        """
+        The settings to enable AAD authentication on the cluster
+        """
+        if certificate and not isinstance(certificate, dict):
+            raise TypeError("Expected argument 'certificate' to be a dict")
+        __self__.certificate = certificate
+        """
+        This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+        """
+        if client_certificate_common_names and not isinstance(client_certificate_common_names, list):
+            raise TypeError("Expected argument 'client_certificate_common_names' to be a list")
+        __self__.client_certificate_common_names = client_certificate_common_names
+        """
+         List of client certificates to whitelist based on common names
+        """
+        if client_certificate_thumbprints and not isinstance(client_certificate_thumbprints, list):
+            raise TypeError("Expected argument 'client_certificate_thumbprints' to be a list")
+        __self__.client_certificate_thumbprints = client_certificate_thumbprints
+        """
+        The client thumbprint details ,it is used for client access for cluster operation
+        """
+        if cluster_code_version and not isinstance(cluster_code_version, str):
+            raise TypeError("Expected argument 'cluster_code_version' to be a str")
+        __self__.cluster_code_version = cluster_code_version
+        """
+        The ServiceFabric code version running in your cluster
+        """
+        if cluster_endpoint and not isinstance(cluster_endpoint, str):
+            raise TypeError("Expected argument 'cluster_endpoint' to be a str")
+        __self__.cluster_endpoint = cluster_endpoint
+        """
+        The endpoint for the cluster connecting to servicefabric resource provider
+        """
+        if cluster_id and not isinstance(cluster_id, str):
+            raise TypeError("Expected argument 'cluster_id' to be a str")
+        __self__.cluster_id = cluster_id
+        """
+        The unique identifier for the cluster resource
+        """
+        if cluster_state and not isinstance(cluster_state, str):
+            raise TypeError("Expected argument 'cluster_state' to be a str")
+        __self__.cluster_state = cluster_state
+        """
+        The state for the cluster
+        """
+        if diagnostics_storage_account_config and not isinstance(diagnostics_storage_account_config, dict):
+            raise TypeError("Expected argument 'diagnostics_storage_account_config' to be a dict")
+        __self__.diagnostics_storage_account_config = diagnostics_storage_account_config
+        """
+        The storage diagnostics account configuration details
+        """
+        if fabric_settings and not isinstance(fabric_settings, list):
+            raise TypeError("Expected argument 'fabric_settings' to be a list")
+        __self__.fabric_settings = fabric_settings
+        """
+        List of custom fabric settings to configure the cluster.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location.
+        """
+        if management_endpoint and not isinstance(management_endpoint, str):
+            raise TypeError("Expected argument 'management_endpoint' to be a str")
+        __self__.management_endpoint = management_endpoint
+        """
+        The http management endpoint of the cluster
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +98,29 @@ class GetClusterResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if node_types and not isinstance(node_types, list):
+            raise TypeError("Expected argument 'node_types' to be a list")
+        __self__.node_types = node_types
         """
-        The cluster resource properties
+        The list of node types that make up the cluster
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the cluster resource
+        """
+        if reliability_level and not isinstance(reliability_level, str):
+            raise TypeError("Expected argument 'reliability_level' to be a str")
+        __self__.reliability_level = reliability_level
+        """
+        Cluster reliability level indicates replica set size of system service
+        """
+        if reverse_proxy_certificate and not isinstance(reverse_proxy_certificate, dict):
+            raise TypeError("Expected argument 'reverse_proxy_certificate' to be a dict")
+        __self__.reverse_proxy_certificate = reverse_proxy_certificate
+        """
+        The server certificate used by reverse proxy
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +134,24 @@ class GetClusterResult:
         """
         Resource type.
         """
+        if upgrade_description and not isinstance(upgrade_description, dict):
+            raise TypeError("Expected argument 'upgrade_description' to be a dict")
+        __self__.upgrade_description = upgrade_description
+        """
+        The policy to use when upgrading the cluster.
+        """
+        if upgrade_mode and not isinstance(upgrade_mode, str):
+            raise TypeError("Expected argument 'upgrade_mode' to be a str")
+        __self__.upgrade_mode = upgrade_mode
+        """
+        Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+        """
+        if vm_image and not isinstance(vm_image, str):
+            raise TypeError("Expected argument 'vm_image' to be a str")
+        __self__.vm_image = vm_image
+        """
+        The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+        """
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -52,11 +160,29 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            available_cluster_versions=self.available_cluster_versions,
+            azure_active_directory=self.azure_active_directory,
+            certificate=self.certificate,
+            client_certificate_common_names=self.client_certificate_common_names,
+            client_certificate_thumbprints=self.client_certificate_thumbprints,
+            cluster_code_version=self.cluster_code_version,
+            cluster_endpoint=self.cluster_endpoint,
+            cluster_id=self.cluster_id,
+            cluster_state=self.cluster_state,
+            diagnostics_storage_account_config=self.diagnostics_storage_account_config,
+            fabric_settings=self.fabric_settings,
             location=self.location,
+            management_endpoint=self.management_endpoint,
             name=self.name,
-            properties=self.properties,
+            node_types=self.node_types,
+            provisioning_state=self.provisioning_state,
+            reliability_level=self.reliability_level,
+            reverse_proxy_certificate=self.reverse_proxy_certificate,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            upgrade_description=self.upgrade_description,
+            upgrade_mode=self.upgrade_mode,
+            vm_image=self.vm_image)
 
 
 def get_cluster(name=None, resource_group_name=None, opts=None):
@@ -76,8 +202,26 @@ def get_cluster(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20160901:getCluster', __args__, opts=opts).value
 
     return AwaitableGetClusterResult(
+        available_cluster_versions=__ret__.get('availableClusterVersions'),
+        azure_active_directory=__ret__.get('azureActiveDirectory'),
+        certificate=__ret__.get('certificate'),
+        client_certificate_common_names=__ret__.get('clientCertificateCommonNames'),
+        client_certificate_thumbprints=__ret__.get('clientCertificateThumbprints'),
+        cluster_code_version=__ret__.get('clusterCodeVersion'),
+        cluster_endpoint=__ret__.get('clusterEndpoint'),
+        cluster_id=__ret__.get('clusterId'),
+        cluster_state=__ret__.get('clusterState'),
+        diagnostics_storage_account_config=__ret__.get('diagnosticsStorageAccountConfig'),
+        fabric_settings=__ret__.get('fabricSettings'),
         location=__ret__.get('location'),
+        management_endpoint=__ret__.get('managementEndpoint'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        node_types=__ret__.get('nodeTypes'),
+        provisioning_state=__ret__.get('provisioningState'),
+        reliability_level=__ret__.get('reliabilityLevel'),
+        reverse_proxy_certificate=__ret__.get('reverseProxyCertificate'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        upgrade_description=__ret__.get('upgradeDescription'),
+        upgrade_mode=__ret__.get('upgradeMode'),
+        vm_image=__ret__.get('vmImage'))

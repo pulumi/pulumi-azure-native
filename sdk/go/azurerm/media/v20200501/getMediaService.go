@@ -25,14 +25,19 @@ type LookupMediaServiceArgs struct {
 
 // A Media Services account.
 type LookupMediaServiceResult struct {
+	// The account encryption properties.
+	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// The Media Services account ID.
+	MediaServiceId string `pulumi:"mediaServiceId"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties MediaServicePropertiesResponse `pulumi:"properties"`
+	// The storage accounts for this resource.
+	StorageAccounts       []StorageAccountResponse `pulumi:"storageAccounts"`
+	StorageAuthentication *string                  `pulumi:"storageAuthentication"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

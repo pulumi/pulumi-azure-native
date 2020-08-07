@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Cache.V20160401
     public partial class Redis : Pulumi.CustomResource
     {
         /// <summary>
+        /// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
+        /// </summary>
+        [Output("accessKeys")]
+        public Output<Outputs.RedisAccessKeysResponseResult> AccessKeys { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the non-ssl Redis server port (6379) is enabled.
+        /// </summary>
+        [Output("enableNonSslPort")]
+        public Output<bool?> EnableNonSslPort { get; private set; } = null!;
+
+        /// <summary>
+        /// Redis host name.
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,16 +45,70 @@ namespace Pulumi.AzureRM.Cache.V20160401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Redis cache properties.
+        /// Redis non-SSL port.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RedisResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("port")]
+        public Output<int> Port { get; private set; } = null!;
+
+        /// <summary>
+        /// Redis instance provisioning status.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        /// </summary>
+        [Output("redisConfiguration")]
+        public Output<ImmutableDictionary<string, string>?> RedisConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Redis version.
+        /// </summary>
+        [Output("redisVersion")]
+        public Output<string> RedisVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of shards to be created on a Premium Cluster Cache.
+        /// </summary>
+        [Output("shardCount")]
+        public Output<int?> ShardCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The SKU of the Redis cache to deploy.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Redis SSL port.
+        /// </summary>
+        [Output("sslPort")]
+        public Output<int> SslPort { get; private set; } = null!;
+
+        /// <summary>
+        /// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        /// </summary>
+        [Output("staticIP")]
+        public Output<string?> StaticIP { get; private set; } = null!;
+
+        /// <summary>
+        /// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+        /// </summary>
+        [Output("subnetId")]
+        public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// tenantSettings
+        /// </summary>
+        [Output("tenantSettings")]
+        public Output<ImmutableDictionary<string, string>?> TenantSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

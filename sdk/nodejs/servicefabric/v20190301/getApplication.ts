@@ -49,13 +49,33 @@ export interface GetApplicationResult {
      */
     readonly location?: string;
     /**
+     * The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+     */
+    readonly maximumNodes?: number;
+    /**
+     * List of application capacity metric description.
+     */
+    readonly metrics?: outputs.servicefabric.v20190301.ApplicationMetricDescriptionResponse[];
+    /**
+     * The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+     */
+    readonly minimumNodes?: number;
+    /**
      * Azure resource name.
      */
     readonly name: string;
     /**
-     * The application resource properties.
+     * List of application parameters with overridden values from their default values specified in the application manifest.
      */
-    readonly properties: outputs.servicefabric.v20190301.ApplicationResourcePropertiesResponse;
+    readonly parameters?: {[key: string]: string};
+    /**
+     * The current deployment or provisioning state, which only appears in the response
+     */
+    readonly provisioningState: string;
+    /**
+     * Remove the current application capacity settings.
+     */
+    readonly removeApplicationCapacity?: boolean;
     /**
      * Azure resource tags.
      */
@@ -64,4 +84,16 @@ export interface GetApplicationResult {
      * Azure resource type.
      */
     readonly type: string;
+    /**
+     * The application type name as defined in the application manifest.
+     */
+    readonly typeName?: string;
+    /**
+     * The version of the application type as defined in the application manifest.
+     */
+    readonly typeVersion?: string;
+    /**
+     * Describes the policy for a monitored application upgrade.
+     */
+    readonly upgradePolicy?: outputs.servicefabric.v20190301.ApplicationUpgradePolicyResponse;
 }

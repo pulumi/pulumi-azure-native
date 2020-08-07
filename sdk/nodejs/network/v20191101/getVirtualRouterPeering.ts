@@ -49,9 +49,17 @@ export interface GetVirtualRouterPeeringResult {
      */
     readonly name?: string;
     /**
-     * The properties of the Virtual Router Peering.
+     * Peer ASN.
      */
-    readonly properties: outputs.network.v20191101.VirtualRouterPeeringPropertiesResponse;
+    readonly peerAsn?: number;
+    /**
+     * Peer IP.
+     */
+    readonly peerIp?: string;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * Peering type.
      */

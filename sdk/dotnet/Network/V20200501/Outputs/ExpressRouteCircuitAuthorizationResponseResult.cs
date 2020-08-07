@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
     public sealed class ExpressRouteCircuitAuthorizationResponseResult
     {
         /// <summary>
+        /// The authorization key.
+        /// </summary>
+        public readonly string? AuthorizationKey;
+        /// <summary>
+        /// The authorization use status.
+        /// </summary>
+        public readonly string? AuthorizationUseStatus;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -26,9 +34,9 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the express route circuit authorization.
+        /// The provisioning state of the authorization resource.
         /// </summary>
-        public readonly Outputs.AuthorizationPropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +44,26 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
 
         [OutputConstructor]
         private ExpressRouteCircuitAuthorizationResponseResult(
+            string? authorizationKey,
+
+            string? authorizationUseStatus,
+
             string etag,
 
             string? id,
 
             string? name,
 
-            Outputs.AuthorizationPropertiesFormatResponseResult? properties,
+            string provisioningState,
 
             string type)
         {
+            AuthorizationKey = authorizationKey;
+            AuthorizationUseStatus = authorizationUseStatus;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

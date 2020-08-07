@@ -18,10 +18,6 @@ class IntegrationAccount(pulumi.CustomResource):
     """
     Gets the resource name.
     """
-    properties: pulumi.Output[dict]
-    """
-    The integration account properties.
-    """
     sku: pulumi.Output[dict]
     """
     The sku.
@@ -77,7 +73,6 @@ class IntegrationAccount(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(IntegrationAccount, __self__).__init__(
             'azurerm:logic/v20160601:IntegrationAccount',

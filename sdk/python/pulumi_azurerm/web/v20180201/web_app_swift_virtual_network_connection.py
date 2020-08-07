@@ -18,11 +18,13 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    subnet_resource_id: pulumi.Output[str]
     """
-    SwiftVirtualNetwork resource specific properties
-      * `subnet_resource_id` (`str`) - The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
-      * `swift_supported` (`bool`) - A flag that specifies if the scale unit this Web App is on supports Swift integration.
+    The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+    """
+    swift_supported: pulumi.Output[bool]
+    """
+    A flag that specifies if the scale unit this Web App is on supports Swift integration.
     """
     type: pulumi.Output[str]
     """
@@ -66,7 +68,6 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['subnet_resource_id'] = subnet_resource_id
             __props__['swift_supported'] = swift_supported
-            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppSwiftVirtualNetworkConnection, __self__).__init__(
             'azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnection',

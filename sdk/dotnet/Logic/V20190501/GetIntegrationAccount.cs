@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class GetIntegrationAccountResult
     {
         /// <summary>
+        /// The integration service environment.
+        /// </summary>
+        public readonly Outputs.IntegrationServiceEnvironmentResponseResult? IntegrationServiceEnvironment;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -48,13 +52,13 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The integration account properties.
-        /// </summary>
-        public readonly Outputs.IntegrationAccountPropertiesResponseResult Properties;
-        /// <summary>
         /// The sku.
         /// </summary>
         public readonly Outputs.IntegrationAccountSkuResponseResult? Sku;
+        /// <summary>
+        /// The workflow state.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -66,22 +70,25 @@ namespace Pulumi.AzureRM.Logic.V20190501
 
         [OutputConstructor]
         private GetIntegrationAccountResult(
+            Outputs.IntegrationServiceEnvironmentResponseResult? integrationServiceEnvironment,
+
             string? location,
 
             string name,
 
-            Outputs.IntegrationAccountPropertiesResponseResult properties,
-
             Outputs.IntegrationAccountSkuResponseResult? sku,
+
+            string? state,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            IntegrationServiceEnvironment = integrationServiceEnvironment;
             Location = location;
             Name = name;
-            Properties = properties;
             Sku = sku;
+            State = state;
             Tags = tags;
             Type = type;
         }

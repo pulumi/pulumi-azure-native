@@ -13,12 +13,84 @@ class GetWebAppSiteExtensionSlotResult:
     """
     Site Extension Information.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, authors=None, comment=None, description=None, download_count=None, extension_url=None, feed_url=None, icon_url=None, installation_args=None, installed_date_time=None, kind=None, license_url=None, local_is_latest_version=None, local_path=None, name=None, project_url=None, provisioning_state=None, published_date_time=None, summary=None, title=None, type=None, version=None):
+        if authors and not isinstance(authors, list):
+            raise TypeError("Expected argument 'authors' to be a list")
+        __self__.authors = authors
+        """
+        List of authors.
+        """
+        if comment and not isinstance(comment, str):
+            raise TypeError("Expected argument 'comment' to be a str")
+        __self__.comment = comment
+        """
+        Site Extension comment.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Detailed description.
+        """
+        if download_count and not isinstance(download_count, float):
+            raise TypeError("Expected argument 'download_count' to be a float")
+        __self__.download_count = download_count
+        """
+        Count of downloads.
+        """
+        if extension_url and not isinstance(extension_url, str):
+            raise TypeError("Expected argument 'extension_url' to be a str")
+        __self__.extension_url = extension_url
+        """
+        Extension URL.
+        """
+        if feed_url and not isinstance(feed_url, str):
+            raise TypeError("Expected argument 'feed_url' to be a str")
+        __self__.feed_url = feed_url
+        """
+        Feed URL.
+        """
+        if icon_url and not isinstance(icon_url, str):
+            raise TypeError("Expected argument 'icon_url' to be a str")
+        __self__.icon_url = icon_url
+        """
+        Icon URL.
+        """
+        if installation_args and not isinstance(installation_args, str):
+            raise TypeError("Expected argument 'installation_args' to be a str")
+        __self__.installation_args = installation_args
+        """
+        Installer command line parameters.
+        """
+        if installed_date_time and not isinstance(installed_date_time, str):
+            raise TypeError("Expected argument 'installed_date_time' to be a str")
+        __self__.installed_date_time = installed_date_time
+        """
+        Installed timestamp.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         Kind of resource.
+        """
+        if license_url and not isinstance(license_url, str):
+            raise TypeError("Expected argument 'license_url' to be a str")
+        __self__.license_url = license_url
+        """
+        License URL.
+        """
+        if local_is_latest_version and not isinstance(local_is_latest_version, bool):
+            raise TypeError("Expected argument 'local_is_latest_version' to be a bool")
+        __self__.local_is_latest_version = local_is_latest_version
+        """
+        <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+        """
+        if local_path and not isinstance(local_path, str):
+            raise TypeError("Expected argument 'local_path' to be a str")
+        __self__.local_path = local_path
+        """
+        Local path.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +98,47 @@ class GetWebAppSiteExtensionSlotResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if project_url and not isinstance(project_url, str):
+            raise TypeError("Expected argument 'project_url' to be a str")
+        __self__.project_url = project_url
         """
-        SiteExtensionInfo resource specific properties
+        Project URL.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state.
+        """
+        if published_date_time and not isinstance(published_date_time, str):
+            raise TypeError("Expected argument 'published_date_time' to be a str")
+        __self__.published_date_time = published_date_time
+        """
+        Published timestamp.
+        """
+        if summary and not isinstance(summary, str):
+            raise TypeError("Expected argument 'summary' to be a str")
+        __self__.summary = summary
+        """
+        Summary description.
+        """
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        __self__.title = title
+        """
+        Site extension title.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        Version information.
         """
 
 
@@ -46,10 +148,27 @@ class AwaitableGetWebAppSiteExtensionSlotResult(GetWebAppSiteExtensionSlotResult
         if False:
             yield self
         return GetWebAppSiteExtensionSlotResult(
+            authors=self.authors,
+            comment=self.comment,
+            description=self.description,
+            download_count=self.download_count,
+            extension_url=self.extension_url,
+            feed_url=self.feed_url,
+            icon_url=self.icon_url,
+            installation_args=self.installation_args,
+            installed_date_time=self.installed_date_time,
             kind=self.kind,
+            license_url=self.license_url,
+            local_is_latest_version=self.local_is_latest_version,
+            local_path=self.local_path,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            project_url=self.project_url,
+            provisioning_state=self.provisioning_state,
+            published_date_time=self.published_date_time,
+            summary=self.summary,
+            title=self.title,
+            type=self.type,
+            version=self.version)
 
 
 def get_web_app_site_extension_slot(name=None, resource_group_name=None, slot=None, opts=None):
@@ -71,7 +190,24 @@ def get_web_app_site_extension_slot(name=None, resource_group_name=None, slot=No
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20160801:getWebAppSiteExtensionSlot', __args__, opts=opts).value
 
     return AwaitableGetWebAppSiteExtensionSlotResult(
+        authors=__ret__.get('authors'),
+        comment=__ret__.get('comment'),
+        description=__ret__.get('description'),
+        download_count=__ret__.get('downloadCount'),
+        extension_url=__ret__.get('extensionUrl'),
+        feed_url=__ret__.get('feedUrl'),
+        icon_url=__ret__.get('iconUrl'),
+        installation_args=__ret__.get('installationArgs'),
+        installed_date_time=__ret__.get('installedDateTime'),
         kind=__ret__.get('kind'),
+        license_url=__ret__.get('licenseUrl'),
+        local_is_latest_version=__ret__.get('localIsLatestVersion'),
+        local_path=__ret__.get('localPath'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        project_url=__ret__.get('projectUrl'),
+        provisioning_state=__ret__.get('provisioningState'),
+        published_date_time=__ret__.get('publishedDateTime'),
+        summary=__ret__.get('summary'),
+        title=__ret__.get('title'),
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

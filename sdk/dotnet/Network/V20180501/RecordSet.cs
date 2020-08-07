@@ -15,10 +15,58 @@ namespace Pulumi.AzureRM.Network.V20180501
     public partial class RecordSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// The list of A records in the record set.
+        /// </summary>
+        [Output("ARecords")]
+        public Output<ImmutableArray<Outputs.ARecordResponseResult>> ARecords { get; private set; } = null!;
+
+        /// <summary>
+        /// The TTL (time-to-live) of the records in the record set.
+        /// </summary>
+        [Output("TTL")]
+        public Output<int?> TTL { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of AAAA records in the record set.
+        /// </summary>
+        [Output("aaaaRecords")]
+        public Output<ImmutableArray<Outputs.AaaaRecordResponseResult>> AaaaRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of CAA records in the record set.
+        /// </summary>
+        [Output("caaRecords")]
+        public Output<ImmutableArray<Outputs.CaaRecordResponseResult>> CaaRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// The CNAME record in the  record set.
+        /// </summary>
+        [Output("cnameRecord")]
+        public Output<Outputs.CnameRecordResponseResult?> CnameRecord { get; private set; } = null!;
+
+        /// <summary>
         /// The etag of the record set.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified domain name of the record set.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// The metadata attached to the record set.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of MX records in the record set.
+        /// </summary>
+        [Output("mxRecords")]
+        public Output<ImmutableArray<Outputs.MxRecordResponseResult>> MxRecords { get; private set; } = null!;
 
         /// <summary>
         /// The name of the record set.
@@ -27,10 +75,46 @@ namespace Pulumi.AzureRM.Network.V20180501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the record set.
+        /// The list of NS records in the record set.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RecordSetPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nsRecords")]
+        public Output<ImmutableArray<Outputs.NsRecordResponseResult>> NsRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// provisioning State of the record set.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of PTR records in the record set.
+        /// </summary>
+        [Output("ptrRecords")]
+        public Output<ImmutableArray<Outputs.PtrRecordResponseResult>> PtrRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// The SOA record in the record set.
+        /// </summary>
+        [Output("soaRecord")]
+        public Output<Outputs.SoaRecordResponseResult?> SoaRecord { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of SRV records in the record set.
+        /// </summary>
+        [Output("srvRecords")]
+        public Output<ImmutableArray<Outputs.SrvRecordResponseResult>> SrvRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// A reference to an azure resource from where the dns resource value is taken.
+        /// </summary>
+        [Output("targetResource")]
+        public Output<Outputs.SubResourceResponseResult?> TargetResource { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of TXT records in the record set.
+        /// </summary>
+        [Output("txtRecords")]
+        public Output<ImmutableArray<Outputs.TxtRecordResponseResult>> TxtRecords { get; private set; } = null!;
 
         /// <summary>
         /// The type of the record set.

@@ -14,17 +14,29 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
     public sealed class BackendPoolResponseResult
     {
         /// <summary>
+        /// The set of backends for this pool
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BackendResponseResult> Backends;
+        /// <summary>
+        /// L7 health probe settings for a backend pool
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? HealthProbeSettings;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Load balancing settings for a backend pool
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? LoadBalancingSettings;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the Front Door Backend Pool
+        /// Resource status.
         /// </summary>
-        public readonly Outputs.BackendPoolPropertiesResponseResult? Properties;
+        public readonly string? ResourceState;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -32,17 +44,26 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
 
         [OutputConstructor]
         private BackendPoolResponseResult(
+            ImmutableArray<Outputs.BackendResponseResult> backends,
+
+            Outputs.SubResourceResponseResult? healthProbeSettings,
+
             string? id,
+
+            Outputs.SubResourceResponseResult? loadBalancingSettings,
 
             string? name,
 
-            Outputs.BackendPoolPropertiesResponseResult? properties,
+            string? resourceState,
 
             string type)
         {
+            Backends = backends;
+            HealthProbeSettings = healthProbeSettings;
             Id = id;
+            LoadBalancingSettings = loadBalancingSettings;
             Name = name;
-            Properties = properties;
+            ResourceState = resourceState;
             Type = type;
         }
     }

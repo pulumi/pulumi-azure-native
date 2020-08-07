@@ -14,14 +14,19 @@ import (
 type MediaService struct {
 	pulumi.CustomResourceState
 
+	// The account encryption properties.
+	Encryption AccountEncryptionResponsePtrOutput `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The Media Services account ID.
+	MediaServiceId pulumi.StringOutput `pulumi:"mediaServiceId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource properties.
-	Properties MediaServicePropertiesResponseOutput `pulumi:"properties"`
+	// The storage accounts for this resource.
+	StorageAccounts       StorageAccountResponseArrayOutput `pulumi:"storageAccounts"`
+	StorageAuthentication pulumi.StringPtrOutput            `pulumi:"storageAuthentication"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -65,14 +70,19 @@ func GetMediaService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MediaService resources.
 type mediaServiceState struct {
+	// The account encryption properties.
+	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The Media Services account ID.
+	MediaServiceId *string `pulumi:"mediaServiceId"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The resource properties.
-	Properties *MediaServicePropertiesResponse `pulumi:"properties"`
+	// The storage accounts for this resource.
+	StorageAccounts       []StorageAccountResponse `pulumi:"storageAccounts"`
+	StorageAuthentication *string                  `pulumi:"storageAuthentication"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -80,14 +90,19 @@ type mediaServiceState struct {
 }
 
 type MediaServiceState struct {
+	// The account encryption properties.
+	Encryption AccountEncryptionResponsePtrInput
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The Media Services account ID.
+	MediaServiceId pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The resource properties.
-	Properties MediaServicePropertiesResponsePtrInput
+	// The storage accounts for this resource.
+	StorageAccounts       StorageAccountResponseArrayInput
+	StorageAuthentication pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

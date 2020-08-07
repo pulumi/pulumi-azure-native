@@ -37,9 +37,17 @@ export class AzureFirewall extends pulumi.CustomResource {
     }
 
     /**
+     * Collection of application rule collections used by a Azure Firewall.
+     */
+    public readonly applicationRuleCollections!: pulumi.Output<outputs.network.v20180601.AzureFirewallApplicationRuleCollectionResponse[] | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * IP configuration of the Azure Firewall resource.
+     */
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.v20180601.AzureFirewallIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +57,13 @@ export class AzureFirewall extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Azure Firewall.
+     * Collection of network rule collections used by a Azure Firewall.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180601.AzureFirewallPropertiesFormatResponse>;
+    public readonly networkRuleCollections!: pulumi.Output<outputs.network.v20180601.AzureFirewallNetworkRuleCollectionResponse[] | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -90,7 +102,6 @@ export class AzureFirewall extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

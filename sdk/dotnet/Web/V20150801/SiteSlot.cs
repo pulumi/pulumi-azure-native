@@ -15,10 +15,105 @@ namespace Pulumi.AzureRM.Web.V20150801
     public partial class SiteSlot : Pulumi.CustomResource
     {
         /// <summary>
+        /// Management information availability state for the web app. Possible values are Normal or Limited. 
+        ///             Normal means that the site is running correctly and that management information for the site is available. 
+        ///             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+        /// </summary>
+        [Output("availabilityState")]
+        public Output<string> AvailabilityState { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+        /// </summary>
+        [Output("clientAffinityEnabled")]
+        public Output<bool?> ClientAffinityEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if the client certificate is enabled for the web app
+        /// </summary>
+        [Output("clientCertEnabled")]
+        public Output<bool?> ClientCertEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// This is only valid for web app creation. If specified, web app is cloned from 
+        ///             a source web app
+        /// </summary>
+        [Output("cloningInfo")]
+        public Output<Outputs.CloningInfoResponseResult?> CloningInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// Size of a function container
+        /// </summary>
+        [Output("containerSize")]
+        public Output<int?> ContainerSize { get; private set; } = null!;
+
+        /// <summary>
+        /// Default hostname of the web app
+        /// </summary>
+        [Output("defaultHostName")]
+        public Output<string> DefaultHostName { get; private set; } = null!;
+
+        /// <summary>
+        /// True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
+        ///             the app is not served on those hostnames
+        /// </summary>
+        [Output("enabledHostNames")]
+        public Output<ImmutableArray<string>> EnabledHostNames { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of gateway app associated with web app
+        /// </summary>
+        [Output("gatewaySiteName")]
+        public Output<string?> GatewaySiteName { get; private set; } = null!;
+
+        /// <summary>
+        /// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+        /// </summary>
+        [Output("hostNameSslStates")]
+        public Output<ImmutableArray<Outputs.HostNameSslStateResponseResult>> HostNameSslStates { get; private set; } = null!;
+
+        /// <summary>
+        /// Hostnames associated with web app
+        /// </summary>
+        [Output("hostNames")]
+        public Output<ImmutableArray<string>> HostNames { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if the public hostnames are disabled the web app.
+        ///             If set to true the app is only accessible via API Management process
+        /// </summary>
+        [Output("hostNamesDisabled")]
+        public Output<bool?> HostNamesDisabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specification for the hosting environment (App Service Environment) to use for the web app
+        /// </summary>
+        [Output("hostingEnvironmentProfile")]
+        public Output<Outputs.HostingEnvironmentProfileResponseResult?> HostingEnvironmentProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Site is a default container
+        /// </summary>
+        [Output("isDefaultContainer")]
+        public Output<bool> IsDefaultContainer { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// Last time web app was modified in UTC
+        /// </summary>
+        [Output("lastModifiedTimeUtc")]
+        public Output<string> LastModifiedTimeUtc { get; private set; } = null!;
 
         /// <summary>
         /// Resource Location
@@ -27,13 +122,65 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Maximum number of workers
+        ///             This only applies to function container
+        /// </summary>
+        [Output("maxNumberOfWorkers")]
+        public Output<int?> MaxNumberOfWorkers { get; private set; } = null!;
+
+        [Output("microService")]
+        public Output<string?> MicroService { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Name
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.SiteResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+        /// </summary>
+        [Output("outboundIpAddresses")]
+        public Output<string> OutboundIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// If set indicates whether web app is deployed as a premium app
+        /// </summary>
+        [Output("premiumAppDeployed")]
+        public Output<bool> PremiumAppDeployed { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of repository site
+        /// </summary>
+        [Output("repositorySiteName")]
+        public Output<string> RepositorySiteName { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource group web app belongs to
+        /// </summary>
+        [Output("resourceGroup")]
+        public Output<string> ResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+        /// </summary>
+        [Output("scmSiteAlsoStopped")]
+        public Output<bool?> ScmSiteAlsoStopped { get; private set; } = null!;
+
+        [Output("serverFarmId")]
+        public Output<string?> ServerFarmId { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration of web app
+        /// </summary>
+        [Output("siteConfig")]
+        public Output<Outputs.SiteConfigResponseResult?> SiteConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// State of the web app
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -42,10 +189,28 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Read-only property that specifies which slot this app will swap into
+        /// </summary>
+        [Output("targetSwapSlot")]
+        public Output<string> TargetSwapSlot { get; private set; } = null!;
+
+        /// <summary>
+        /// Read-only list of Azure Traffic manager hostnames associated with web app
+        /// </summary>
+        [Output("trafficManagerHostNames")]
+        public Output<ImmutableArray<string>> TrafficManagerHostNames { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// State indicating whether web app has exceeded its quota usage
+        /// </summary>
+        [Output("usageState")]
+        public Output<string> UsageState { get; private set; } = null!;
 
 
         /// <summary>

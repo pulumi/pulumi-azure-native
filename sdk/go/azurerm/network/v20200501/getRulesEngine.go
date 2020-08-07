@@ -29,8 +29,10 @@ type LookupRulesEngineArgs struct {
 type LookupRulesEngineResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Rules Engine Configuration.
-	Properties RulesEnginePropertiesResponse `pulumi:"properties"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
+	// A list of rules that define a particular Rules Engine Configuration.
+	Rules []RulesEngineRuleResponse `pulumi:"rules"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

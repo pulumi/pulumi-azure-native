@@ -10,15 +10,72 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
+    azure_asn: pulumi.Output[float]
+    """
+    The Azure ASN.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    microsoft_peering_config: pulumi.Output[dict]
+    """
+    The Microsoft peering configuration.
+      * `advertised_public_prefixes` (`list`) - The reference of AdvertisedPublicPrefixes.
+      * `advertised_public_prefixes_state` (`str`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
+      * `customer_asn` (`float`) - The CustomerASN of the peering.
+      * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
     """
     name: pulumi.Output[str]
     """
     Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    peer_asn: pulumi.Output[float]
+    """
+    The peer ASN.
+    """
+    peering_type: pulumi.Output[str]
+    """
+    The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
+    """
+    primary_azure_port: pulumi.Output[str]
+    """
+    The primary port.
+    """
+    primary_peer_address_prefix: pulumi.Output[str]
+    """
+    The primary address prefix.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    secondary_azure_port: pulumi.Output[str]
+    """
+    The secondary port.
+    """
+    secondary_peer_address_prefix: pulumi.Output[str]
+    """
+    The secondary address prefix.
+    """
+    shared_key: pulumi.Output[str]
+    """
+    The shared key.
+    """
+    state: pulumi.Output[str]
+    """
+    The state of peering. Possible values are: 'Disabled' and 'Enabled'
+    """
+    stats: pulumi.Output[dict]
+    """
+    Gets peering stats.
+      * `bytes_in` (`float`) - Gets BytesIn of the peering.
+      * `bytes_out` (`float`) - Gets BytesOut of the peering.
+    """
+    vlan_id: pulumi.Output[float]
+    """
+    The VLAN ID.
+    """
     def __init__(__self__, resource_name, opts=None, azure_asn=None, circuit_name=None, etag=None, id=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, resource_group_name=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Peering in an ExpressRouteCircuit resource.
@@ -97,7 +154,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__['state'] = state
             __props__['stats'] = stats
             __props__['vlan_id'] = vlan_id
-            __props__['properties'] = None
         super(ExpressRouteCircuitPeering, __self__).__init__(
             'azurerm:network/v20150615:ExpressRouteCircuitPeering',
             resource_name,

@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public partial class PrivateCloud : Pulumi.CustomResource
     {
         /// <summary>
+        /// An ExpressRoute Circuit
+        /// </summary>
+        [Output("circuit")]
+        public Output<Outputs.CircuitResponseResult?> Circuit { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoints
+        /// </summary>
+        [Output("endpoints")]
+        public Output<Outputs.EndpointsResponseResult> Endpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// vCenter Single Sign On Identity Sources
+        /// </summary>
+        [Output("identitySources")]
+        public Output<ImmutableArray<Outputs.IdentitySourceResponseResult>> IdentitySources { get; private set; } = null!;
+
+        /// <summary>
+        /// Connectivity to internet is enabled or disabled
+        /// </summary>
+        [Output("internet")]
+        public Output<string?> Internet { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The default cluster used for management
+        /// </summary>
+        [Output("managementCluster")]
+        public Output<Outputs.ManagementClusterResponseResult> ManagementCluster { get; private set; } = null!;
+
+        /// <summary>
+        /// Network used to access vCenter Server and NSX-T Manager
+        /// </summary>
+        [Output("managementNetwork")]
+        public Output<string> ManagementNetwork { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -27,10 +63,34 @@ namespace Pulumi.AzureRM.AVS.V20200320
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of a private cloud resource
+        /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateCloudPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkBlock")]
+        public Output<string> NetworkBlock { get; private set; } = null!;
+
+        /// <summary>
+        /// Thumbprint of the NSX-T Manager SSL certificate
+        /// </summary>
+        [Output("nsxtCertificateThumbprint")]
+        public Output<string> NsxtCertificateThumbprint { get; private set; } = null!;
+
+        /// <summary>
+        /// Optionally, set the NSX-T Manager password when the private cloud is created
+        /// </summary>
+        [Output("nsxtPassword")]
+        public Output<string?> NsxtPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Used for virtual machine cold migration, cloning, and snapshot migration
+        /// </summary>
+        [Output("provisioningNetwork")]
+        public Output<string> ProvisioningNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The private cloud SKU
@@ -49,6 +109,24 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Thumbprint of the vCenter Server SSL certificate
+        /// </summary>
+        [Output("vcenterCertificateThumbprint")]
+        public Output<string> VcenterCertificateThumbprint { get; private set; } = null!;
+
+        /// <summary>
+        /// Optionally, set the vCenter admin password when the private cloud is created
+        /// </summary>
+        [Output("vcenterPassword")]
+        public Output<string?> VcenterPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Used for live migration of virtual machines
+        /// </summary>
+        [Output("vmotionNetwork")]
+        public Output<string> VmotionNetwork { get; private set; } = null!;
 
 
         /// <summary>

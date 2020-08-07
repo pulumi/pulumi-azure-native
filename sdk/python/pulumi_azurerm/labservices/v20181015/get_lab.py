@@ -13,12 +13,48 @@ class GetLabResult:
     """
     Represents a lab.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, created_by_object_id=None, created_by_user_principal_name=None, created_date=None, invitation_code=None, latest_operation_result=None, location=None, max_users_in_lab=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, usage_quota=None, user_access_mode=None, user_quota=None):
+        if created_by_object_id and not isinstance(created_by_object_id, str):
+            raise TypeError("Expected argument 'created_by_object_id' to be a str")
+        __self__.created_by_object_id = created_by_object_id
+        """
+        Object id of the user that created the lab.
+        """
+        if created_by_user_principal_name and not isinstance(created_by_user_principal_name, str):
+            raise TypeError("Expected argument 'created_by_user_principal_name' to be a str")
+        __self__.created_by_user_principal_name = created_by_user_principal_name
+        """
+        Lab creator name
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        Creation date for the lab
+        """
+        if invitation_code and not isinstance(invitation_code, str):
+            raise TypeError("Expected argument 'invitation_code' to be a str")
+        __self__.invitation_code = invitation_code
+        """
+        Invitation code that users can use to join a lab.
+        """
+        if latest_operation_result and not isinstance(latest_operation_result, dict):
+            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
+        __self__.latest_operation_result = latest_operation_result
+        """
+        The details of the latest operation. ex: status, error
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The location of the resource.
+        """
+        if max_users_in_lab and not isinstance(max_users_in_lab, float):
+            raise TypeError("Expected argument 'max_users_in_lab' to be a float")
+        __self__.max_users_in_lab = max_users_in_lab
+        """
+        Maximum number of users allowed in the lab.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +62,11 @@ class GetLabResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +80,30 @@ class GetLabResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if usage_quota and not isinstance(usage_quota, str):
+            raise TypeError("Expected argument 'usage_quota' to be a str")
+        __self__.usage_quota = usage_quota
+        """
+        Maximum duration a user can use an environment for in the lab.
+        """
+        if user_access_mode and not isinstance(user_access_mode, str):
+            raise TypeError("Expected argument 'user_access_mode' to be a str")
+        __self__.user_access_mode = user_access_mode
+        """
+        Lab user access mode (open to all vs. restricted to those listed on the lab).
+        """
+        if user_quota and not isinstance(user_quota, float):
+            raise TypeError("Expected argument 'user_quota' to be a float")
+        __self__.user_quota = user_quota
+        """
+        Maximum value MaxUsersInLab can be set to, as specified by the service
+        """
 
 
 class AwaitableGetLabResult(GetLabResult):
@@ -52,11 +112,21 @@ class AwaitableGetLabResult(GetLabResult):
         if False:
             yield self
         return GetLabResult(
+            created_by_object_id=self.created_by_object_id,
+            created_by_user_principal_name=self.created_by_user_principal_name,
+            created_date=self.created_date,
+            invitation_code=self.invitation_code,
+            latest_operation_result=self.latest_operation_result,
             location=self.location,
+            max_users_in_lab=self.max_users_in_lab,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            usage_quota=self.usage_quota,
+            user_access_mode=self.user_access_mode,
+            user_quota=self.user_quota)
 
 
 def get_lab(lab_account_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +148,18 @@ def get_lab(lab_account_name=None, name=None, resource_group_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getLab', __args__, opts=opts).value
 
     return AwaitableGetLabResult(
+        created_by_object_id=__ret__.get('createdByObjectId'),
+        created_by_user_principal_name=__ret__.get('createdByUserPrincipalName'),
+        created_date=__ret__.get('createdDate'),
+        invitation_code=__ret__.get('invitationCode'),
+        latest_operation_result=__ret__.get('latestOperationResult'),
         location=__ret__.get('location'),
+        max_users_in_lab=__ret__.get('maxUsersInLab'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        usage_quota=__ret__.get('usageQuota'),
+        user_access_mode=__ret__.get('userAccessMode'),
+        user_quota=__ret__.get('userQuota'))

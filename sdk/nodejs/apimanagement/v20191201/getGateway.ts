@@ -41,13 +41,17 @@ export interface GetGatewayArgs {
  */
 export interface GetGatewayResult {
     /**
+     * Gateway description
+     */
+    readonly description?: string;
+    /**
+     * Gateway location.
+     */
+    readonly locationData?: outputs.apimanagement.v20191201.ResourceLocationDataContractResponse;
+    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * Gateway details.
-     */
-    readonly properties: outputs.apimanagement.v20191201.GatewayContractPropertiesResponse;
     /**
      * Resource type for API Management resource.
      */

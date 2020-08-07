@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class App(pulumi.CustomResource):
+    application_id: pulumi.Output[str]
+    """
+    The ID of the application.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The display name of the application.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
@@ -18,22 +26,22 @@ class App(pulumi.CustomResource):
     """
     The ARM resource name.
     """
-    properties: pulumi.Output[dict]
-    """
-    The common properties of an IoT Central application.
-      * `application_id` (`str`) - The ID of the application.
-      * `display_name` (`str`) - The display name of the application.
-      * `subdomain` (`str`) - The subdomain of the application.
-      * `template` (`str`) - The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
-    """
     sku: pulumi.Output[dict]
     """
     A valid instance SKU.
       * `name` (`str`) - The name of the SKU.
     """
+    subdomain: pulumi.Output[str]
+    """
+    The subdomain of the application.
+    """
     tags: pulumi.Output[dict]
     """
     The resource tags.
+    """
+    template: pulumi.Output[str]
+    """
+    The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
     """
     type: pulumi.Output[str]
     """
@@ -91,7 +99,7 @@ class App(pulumi.CustomResource):
             __props__['subdomain'] = subdomain
             __props__['tags'] = tags
             __props__['template'] = template
-            __props__['properties'] = None
+            __props__['application_id'] = None
             __props__['type'] = None
         super(App, __self__).__init__(
             'azurerm:iotcentral/v20180901:App',

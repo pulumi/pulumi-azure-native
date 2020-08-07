@@ -37,6 +37,14 @@ export class App extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the application.
+     */
+    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The display name of the application.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,17 +53,21 @@ export class App extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The common properties of an IoT Central application.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.iotcentral.v20180901.AppPropertiesResponse>;
-    /**
      * A valid instance SKU.
      */
     public readonly sku!: pulumi.Output<outputs.iotcentral.v20180901.AppSkuInfoResponse>;
     /**
+     * The subdomain of the application.
+     */
+    public readonly subdomain!: pulumi.Output<string | undefined>;
+    /**
      * The resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+     */
+    public readonly template!: pulumi.Output<string | undefined>;
     /**
      * The resource type.
      */
@@ -94,7 +106,7 @@ export class App extends pulumi.CustomResource {
             inputs["subdomain"] = args ? args.subdomain : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["template"] = args ? args.template : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["applicationId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

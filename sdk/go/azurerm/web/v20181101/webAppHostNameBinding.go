@@ -14,14 +14,30 @@ import (
 type WebAppHostNameBinding struct {
 	pulumi.CustomResourceState
 
+	// Azure resource name.
+	AzureResourceName pulumi.StringPtrOutput `pulumi:"azureResourceName"`
+	// Azure resource type.
+	AzureResourceType pulumi.StringPtrOutput `pulumi:"azureResourceType"`
+	// Custom DNS record type.
+	CustomHostNameDnsRecordType pulumi.StringPtrOutput `pulumi:"customHostNameDnsRecordType"`
+	// Fully qualified ARM domain resource URI.
+	DomainId pulumi.StringPtrOutput `pulumi:"domainId"`
+	// Hostname type.
+	HostNameType pulumi.StringPtrOutput `pulumi:"hostNameType"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// HostNameBinding resource specific properties
-	Properties HostNameBindingResponsePropertiesOutput `pulumi:"properties"`
+	// App Service app name.
+	SiteName pulumi.StringPtrOutput `pulumi:"siteName"`
+	// SSL type
+	SslState pulumi.StringPtrOutput `pulumi:"sslState"`
+	// SSL certificate thumbprint
+	Thumbprint pulumi.StringPtrOutput `pulumi:"thumbprint"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
+	VirtualIP pulumi.StringOutput `pulumi:"virtualIP"`
 }
 
 // NewWebAppHostNameBinding registers a new resource with the given unique name, arguments, and options.
@@ -58,25 +74,57 @@ func GetWebAppHostNameBinding(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppHostNameBinding resources.
 type webAppHostNameBindingState struct {
+	// Azure resource name.
+	AzureResourceName *string `pulumi:"azureResourceName"`
+	// Azure resource type.
+	AzureResourceType *string `pulumi:"azureResourceType"`
+	// Custom DNS record type.
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
+	// Fully qualified ARM domain resource URI.
+	DomainId *string `pulumi:"domainId"`
+	// Hostname type.
+	HostNameType *string `pulumi:"hostNameType"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// HostNameBinding resource specific properties
-	Properties *HostNameBindingResponseProperties `pulumi:"properties"`
+	// App Service app name.
+	SiteName *string `pulumi:"siteName"`
+	// SSL type
+	SslState *string `pulumi:"sslState"`
+	// SSL certificate thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
+	VirtualIP *string `pulumi:"virtualIP"`
 }
 
 type WebAppHostNameBindingState struct {
+	// Azure resource name.
+	AzureResourceName pulumi.StringPtrInput
+	// Azure resource type.
+	AzureResourceType pulumi.StringPtrInput
+	// Custom DNS record type.
+	CustomHostNameDnsRecordType pulumi.StringPtrInput
+	// Fully qualified ARM domain resource URI.
+	DomainId pulumi.StringPtrInput
+	// Hostname type.
+	HostNameType pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// HostNameBinding resource specific properties
-	Properties HostNameBindingResponsePropertiesPtrInput
+	// App Service app name.
+	SiteName pulumi.StringPtrInput
+	// SSL type
+	SslState pulumi.StringPtrInput
+	// SSL certificate thumbprint
+	Thumbprint pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
+	VirtualIP pulumi.StringPtrInput
 }
 
 func (WebAppHostNameBindingState) ElementType() reflect.Type {

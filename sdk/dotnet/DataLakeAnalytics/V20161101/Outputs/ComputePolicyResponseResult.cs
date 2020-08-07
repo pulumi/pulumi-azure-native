@@ -18,13 +18,25 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The maximum degree of parallelism per job this user can use to submit jobs.
+        /// </summary>
+        public readonly int MaxDegreeOfParallelismPerJob;
+        /// <summary>
+        /// The minimum priority per job this user can use to submit jobs.
+        /// </summary>
+        public readonly int MinPriorityPerJob;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The compute policy properties.
+        /// The AAD object identifier for the entity to create a policy for.
         /// </summary>
-        public readonly Outputs.ComputePolicyPropertiesResponseResult Properties;
+        public readonly string ObjectId;
+        /// <summary>
+        /// The type of AAD object the object identifier refers to.
+        /// </summary>
+        public readonly string ObjectType;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -34,15 +46,24 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101.Outputs
         private ComputePolicyResponseResult(
             string id,
 
+            int maxDegreeOfParallelismPerJob,
+
+            int minPriorityPerJob,
+
             string name,
 
-            Outputs.ComputePolicyPropertiesResponseResult properties,
+            string objectId,
+
+            string objectType,
 
             string type)
         {
             Id = id;
+            MaxDegreeOfParallelismPerJob = maxDegreeOfParallelismPerJob;
+            MinPriorityPerJob = minPriorityPerJob;
             Name = name;
-            Properties = properties;
+            ObjectId = objectId;
+            ObjectType = objectType;
             Type = type;
         }
     }

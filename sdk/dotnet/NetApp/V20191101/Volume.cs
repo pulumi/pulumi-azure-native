@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.NetApp.V20191101
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>
+        /// Unique Baremetal Tenant Identifier.
+        /// </summary>
+        [Output("baremetalTenantId")]
+        public Output<string> BaremetalTenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// A unique file path for the volume. Used when creating mount targets
+        /// </summary>
+        [Output("creationToken")]
+        public Output<string> CreationToken { get; private set; } = null!;
+
+        /// <summary>
+        /// DataProtection type volumes include an object containing details of the replication
+        /// </summary>
+        [Output("dataProtection")]
+        public Output<Outputs.VolumePropertiesResponseDataProtectionResult?> DataProtection { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of export policy rules
+        /// </summary>
+        [Output("exportPolicy")]
+        public Output<Outputs.VolumePropertiesResponseExportPolicyResult?> ExportPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique FileSystem Identifier.
+        /// </summary>
+        [Output("fileSystemId")]
+        public Output<string> FileSystemId { get; private set; } = null!;
+
+        /// <summary>
+        /// Restoring
+        /// </summary>
+        [Output("isRestoring")]
+        public Output<bool?> IsRestoring { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// List of mount targets
+        /// </summary>
+        [Output("mountTargets")]
+        public Output<ImmutableArray<Outputs.MountTargetPropertiesResponseResult>> MountTargets { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,10 +69,34 @@ namespace Pulumi.AzureRM.NetApp.V20191101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Volume properties
+        /// Set of protocol types
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VolumePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("protocolTypes")]
+        public Output<ImmutableArray<string>> ProtocolTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure lifecycle management
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The service level of the file system
+        /// </summary>
+        [Output("serviceLevel")]
+        public Output<string?> ServiceLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// UUID v4 or resource identifier used to identify the Snapshot.
+        /// </summary>
+        [Output("snapshotId")]
+        public Output<string?> SnapshotId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        /// </summary>
+        [Output("subnetId")]
+        public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -43,6 +109,18 @@ namespace Pulumi.AzureRM.NetApp.V20191101
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        /// </summary>
+        [Output("usageThreshold")]
+        public Output<int> UsageThreshold { get; private set; } = null!;
+
+        /// <summary>
+        /// What type of volume is this
+        /// </summary>
+        [Output("volumeType")]
+        public Output<string?> VolumeType { get; private set; } = null!;
 
 
         /// <summary>

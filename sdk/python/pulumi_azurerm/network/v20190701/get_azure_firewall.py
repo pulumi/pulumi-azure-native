@@ -13,12 +13,36 @@ class GetAzureFirewallResult:
     """
     Azure Firewall resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None, zones=None):
+    def __init__(__self__, application_rule_collections=None, etag=None, firewall_policy=None, hub_ip_addresses=None, ip_configurations=None, location=None, name=None, nat_rule_collections=None, network_rule_collections=None, provisioning_state=None, tags=None, threat_intel_mode=None, type=None, virtual_hub=None, zones=None):
+        if application_rule_collections and not isinstance(application_rule_collections, list):
+            raise TypeError("Expected argument 'application_rule_collections' to be a list")
+        __self__.application_rule_collections = application_rule_collections
+        """
+        Collection of application rule collections used by Azure Firewall.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if firewall_policy and not isinstance(firewall_policy, dict):
+            raise TypeError("Expected argument 'firewall_policy' to be a dict")
+        __self__.firewall_policy = firewall_policy
+        """
+        The firewallPolicy associated with this azure firewall.
+        """
+        if hub_ip_addresses and not isinstance(hub_ip_addresses, dict):
+            raise TypeError("Expected argument 'hub_ip_addresses' to be a dict")
+        __self__.hub_ip_addresses = hub_ip_addresses
+        """
+        IP addresses associated with AzureFirewall.
+        """
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        __self__.ip_configurations = ip_configurations
+        """
+        IP configuration of the Azure Firewall resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +56,23 @@ class GetAzureFirewallResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if nat_rule_collections and not isinstance(nat_rule_collections, list):
+            raise TypeError("Expected argument 'nat_rule_collections' to be a list")
+        __self__.nat_rule_collections = nat_rule_collections
         """
-        Properties of the azure firewall.
+        Collection of NAT rule collections used by Azure Firewall.
+        """
+        if network_rule_collections and not isinstance(network_rule_collections, list):
+            raise TypeError("Expected argument 'network_rule_collections' to be a list")
+        __self__.network_rule_collections = network_rule_collections
+        """
+        Collection of network rule collections used by Azure Firewall.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the Azure firewall resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,11 +80,23 @@ class GetAzureFirewallResult:
         """
         Resource tags.
         """
+        if threat_intel_mode and not isinstance(threat_intel_mode, str):
+            raise TypeError("Expected argument 'threat_intel_mode' to be a str")
+        __self__.threat_intel_mode = threat_intel_mode
+        """
+        The operation mode for Threat Intelligence.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if virtual_hub and not isinstance(virtual_hub, dict):
+            raise TypeError("Expected argument 'virtual_hub' to be a dict")
+        __self__.virtual_hub = virtual_hub
+        """
+        The virtualHub to which the firewall belongs.
         """
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
@@ -64,12 +112,20 @@ class AwaitableGetAzureFirewallResult(GetAzureFirewallResult):
         if False:
             yield self
         return GetAzureFirewallResult(
+            application_rule_collections=self.application_rule_collections,
             etag=self.etag,
+            firewall_policy=self.firewall_policy,
+            hub_ip_addresses=self.hub_ip_addresses,
+            ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            nat_rule_collections=self.nat_rule_collections,
+            network_rule_collections=self.network_rule_collections,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
+            threat_intel_mode=self.threat_intel_mode,
             type=self.type,
+            virtual_hub=self.virtual_hub,
             zones=self.zones)
 
 
@@ -90,10 +146,18 @@ def get_azure_firewall(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getAzureFirewall', __args__, opts=opts).value
 
     return AwaitableGetAzureFirewallResult(
+        application_rule_collections=__ret__.get('applicationRuleCollections'),
         etag=__ret__.get('etag'),
+        firewall_policy=__ret__.get('firewallPolicy'),
+        hub_ip_addresses=__ret__.get('hubIpAddresses'),
+        ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        nat_rule_collections=__ret__.get('natRuleCollections'),
+        network_rule_collections=__ret__.get('networkRuleCollections'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
+        threat_intel_mode=__ret__.get('threatIntelMode'),
         type=__ret__.get('type'),
+        virtual_hub=__ret__.get('virtualHub'),
         zones=__ret__.get('zones'))

@@ -10,9 +10,31 @@ from ... import _utilities, _tables
 
 
 class FirewallPolicy(pulumi.CustomResource):
+    base_policy: pulumi.Output[dict]
+    """
+    The parent firewall policy from which rules are inherited.
+      * `id` (`str`) - Resource ID.
+    """
+    child_policies: pulumi.Output[list]
+    """
+    List of references to Child Firewall Policies.
+      * `id` (`str`) - Resource ID.
+    """
+    dns_settings: pulumi.Output[dict]
+    """
+    DNS Proxy Settings definition.
+      * `enable_proxy` (`bool`) - Enable DNS Proxy on Firewalls attached to the Firewall Policy.
+      * `require_proxy_for_network_rules` (`bool`) - FQDNs in Network Rules are supported when set to true.
+      * `servers` (`list`) - List of Custom DNS Servers.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    firewalls: pulumi.Output[list]
+    """
+    List of references to Azure Firewalls that this Firewall Policy is associated with.
+      * `id` (`str`) - Resource ID.
     """
     location: pulumi.Output[str]
     """
@@ -22,29 +44,28 @@ class FirewallPolicy(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the firewall policy.
-      * `base_policy` (`dict`) - The parent firewall policy from which rules are inherited.
-        * `id` (`str`) - Resource ID.
-
-      * `child_policies` (`list`) - List of references to Child Firewall Policies.
-      * `dns_settings` (`dict`) - DNS Proxy Settings definition.
-        * `enable_proxy` (`bool`) - Enable DNS Proxy on Firewalls attached to the Firewall Policy.
-        * `require_proxy_for_network_rules` (`bool`) - FQDNs in Network Rules are supported when set to true.
-        * `servers` (`list`) - List of Custom DNS Servers.
-
-      * `firewalls` (`list`) - List of references to Azure Firewalls that this Firewall Policy is associated with.
-      * `provisioning_state` (`str`) - The provisioning state of the firewall policy resource.
-      * `rule_collection_groups` (`list`) - List of references to FirewallPolicyRuleCollectionGroups.
-      * `threat_intel_mode` (`str`) - The operation mode for Threat Intelligence.
-      * `threat_intel_whitelist` (`dict`) - ThreatIntel Whitelist for Firewall Policy.
-        * `fqdns` (`list`) - List of FQDNs for the ThreatIntel Whitelist.
-        * `ip_addresses` (`list`) - List of IP addresses for the ThreatIntel Whitelist.
+    The provisioning state of the firewall policy resource.
+    """
+    rule_collection_groups: pulumi.Output[list]
+    """
+    List of references to FirewallPolicyRuleCollectionGroups.
+      * `id` (`str`) - Resource ID.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags.
+    """
+    threat_intel_mode: pulumi.Output[str]
+    """
+    The operation mode for Threat Intelligence.
+    """
+    threat_intel_whitelist: pulumi.Output[dict]
+    """
+    ThreatIntel Whitelist for Firewall Policy.
+      * `fqdns` (`list`) - List of FQDNs for the ThreatIntel Whitelist.
+      * `ip_addresses` (`list`) - List of IP addresses for the ThreatIntel Whitelist.
     """
     type: pulumi.Output[str]
     """
@@ -111,8 +132,11 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['threat_intel_mode'] = threat_intel_mode
             __props__['threat_intel_whitelist'] = threat_intel_whitelist
+            __props__['child_policies'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['firewalls'] = None
+            __props__['provisioning_state'] = None
+            __props__['rule_collection_groups'] = None
             __props__['type'] = None
         super(FirewallPolicy, __self__).__init__(
             'azurerm:network/v20200501:FirewallPolicy',

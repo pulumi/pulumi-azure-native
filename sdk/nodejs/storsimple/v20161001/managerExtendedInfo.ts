@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,21 +35,41 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     }
 
     /**
+     * Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+     */
+    public readonly algorithm!: pulumi.Output<string>;
+    /**
+     * Represents the CEK of the resource
+     */
+    public readonly encryptionKey!: pulumi.Output<string | undefined>;
+    /**
+     * Represents the Cert thumbprint that was used to encrypt the CEK
+     */
+    public readonly encryptionKeyThumbprint!: pulumi.Output<string | undefined>;
+    /**
      * ETag of the Resource
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Represents the CIK of the resource
+     */
+    public readonly integrityKey!: pulumi.Output<string>;
     /**
      * The name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The extended info properties.
+     * Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ManagerExtendedInfoPropertiesResponse>;
+    public readonly portalCertificateThumbprint!: pulumi.Output<string | undefined>;
     /**
      * The type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Represents the version of the ExtendedInfo object being persisted
+     */
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagerExtendedInfo resource with the given unique name, arguments, and options.
@@ -87,7 +105,6 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
             inputs["portalCertificateThumbprint"] = args ? args.portalCertificateThumbprint : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["version"] = args ? args.version : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

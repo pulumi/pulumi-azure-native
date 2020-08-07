@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -41,13 +39,17 @@ export class SyncGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * SyncGroup properties.
+     * Sync group status
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20190601.SyncGroupPropertiesResponse>;
+    public /*out*/ readonly syncGroupStatus!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Unique Id
+     */
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
      * Create a SyncGroup resource with the given unique name, arguments, and options.
@@ -74,8 +76,9 @@ export class SyncGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["syncGroupStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

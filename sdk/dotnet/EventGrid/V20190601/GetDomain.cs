@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
     public sealed class GetDomainResult
     {
         /// <summary>
+        /// Endpoint for the domain.
+        /// </summary>
+        public readonly string Endpoint;
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         public readonly string Location;
@@ -48,9 +52,9 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the domain.
+        /// Provisioning state of the domain.
         /// </summary>
-        public readonly Outputs.DomainPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Tags of the resource.
         /// </summary>
@@ -62,19 +66,22 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
 
         [OutputConstructor]
         private GetDomainResult(
+            string endpoint,
+
             string location,
 
             string name,
 
-            Outputs.DomainPropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Endpoint = endpoint;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

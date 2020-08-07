@@ -13,18 +13,42 @@ class GetApiTagDescriptionResult:
     """
     Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, display_name=None, external_docs_description=None, external_docs_url=None, name=None, tag_id=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description of the Tag.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Tag name.
+        """
+        if external_docs_description and not isinstance(external_docs_description, str):
+            raise TypeError("Expected argument 'external_docs_description' to be a str")
+        __self__.external_docs_description = external_docs_description
+        """
+        Description of the external resources describing the tag.
+        """
+        if external_docs_url and not isinstance(external_docs_url, str):
+            raise TypeError("Expected argument 'external_docs_url' to be a str")
+        __self__.external_docs_url = external_docs_url
+        """
+        Absolute URL of external resources describing the tag.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if tag_id and not isinstance(tag_id, str):
+            raise TypeError("Expected argument 'tag_id' to be a str")
+        __self__.tag_id = tag_id
         """
-        TagDescription entity contract properties.
+        Identifier of the tag in the form of /tags/{tagId}
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetApiTagDescriptionResult(GetApiTagDescriptionResult):
         if False:
             yield self
         return GetApiTagDescriptionResult(
+            description=self.description,
+            display_name=self.display_name,
+            external_docs_description=self.external_docs_description,
+            external_docs_url=self.external_docs_url,
             name=self.name,
-            properties=self.properties,
+            tag_id=self.tag_id,
             type=self.type)
 
 
@@ -66,6 +94,10 @@ def get_api_tag_description(api_id=None, name=None, resource_group_name=None, se
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getApiTagDescription', __args__, opts=opts).value
 
     return AwaitableGetApiTagDescriptionResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        external_docs_description=__ret__.get('externalDocsDescription'),
+        external_docs_url=__ret__.get('externalDocsUrl'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        tag_id=__ret__.get('tagId'),
         type=__ret__.get('type'))

@@ -13,24 +13,74 @@ class GetInvitationResult:
     """
     A Invitation data transfer object.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, invitation_id=None, invitation_status=None, name=None, responded_at=None, sent_at=None, target_active_directory_id=None, target_email=None, target_object_id=None, type=None, user_email=None, user_name=None):
+        if invitation_id and not isinstance(invitation_id, str):
+            raise TypeError("Expected argument 'invitation_id' to be a str")
+        __self__.invitation_id = invitation_id
+        """
+        unique invitation id
+        """
+        if invitation_status and not isinstance(invitation_status, str):
+            raise TypeError("Expected argument 'invitation_status' to be a str")
+        __self__.invitation_status = invitation_status
+        """
+        The status of the invitation.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the azure resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if responded_at and not isinstance(responded_at, str):
+            raise TypeError("Expected argument 'responded_at' to be a str")
+        __self__.responded_at = responded_at
         """
-        Properties on the Invitation
+        The time the recipient responded to the invitation.
+        """
+        if sent_at and not isinstance(sent_at, str):
+            raise TypeError("Expected argument 'sent_at' to be a str")
+        __self__.sent_at = sent_at
+        """
+        Gets the time at which the invitation was sent.
+        """
+        if target_active_directory_id and not isinstance(target_active_directory_id, str):
+            raise TypeError("Expected argument 'target_active_directory_id' to be a str")
+        __self__.target_active_directory_id = target_active_directory_id
+        """
+        The target Azure AD Id. Can't be combined with email.
+        """
+        if target_email and not isinstance(target_email, str):
+            raise TypeError("Expected argument 'target_email' to be a str")
+        __self__.target_email = target_email
+        """
+        The email the invitation is directed to.
+        """
+        if target_object_id and not isinstance(target_object_id, str):
+            raise TypeError("Expected argument 'target_object_id' to be a str")
+        __self__.target_object_id = target_object_id
+        """
+        The target user or application Id that invitation is being sent to.
+        Must be specified along TargetActiveDirectoryId. This enables sending
+        invitations to specific users or applications in an AD tenant.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Type of the azure resource
+        """
+        if user_email and not isinstance(user_email, str):
+            raise TypeError("Expected argument 'user_email' to be a str")
+        __self__.user_email = user_email
+        """
+        Email of the user who created the resource
+        """
+        if user_name and not isinstance(user_name, str):
+            raise TypeError("Expected argument 'user_name' to be a str")
+        __self__.user_name = user_name
+        """
+        Name of the user who created the resource
         """
 
 
@@ -40,9 +90,17 @@ class AwaitableGetInvitationResult(GetInvitationResult):
         if False:
             yield self
         return GetInvitationResult(
+            invitation_id=self.invitation_id,
+            invitation_status=self.invitation_status,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            responded_at=self.responded_at,
+            sent_at=self.sent_at,
+            target_active_directory_id=self.target_active_directory_id,
+            target_email=self.target_email,
+            target_object_id=self.target_object_id,
+            type=self.type,
+            user_email=self.user_email,
+            user_name=self.user_name)
 
 
 def get_invitation(account_name=None, name=None, resource_group_name=None, share_name=None, opts=None):
@@ -66,6 +124,14 @@ def get_invitation(account_name=None, name=None, resource_group_name=None, share
     __ret__ = pulumi.runtime.invoke('azurerm:datashare/v20191101:getInvitation', __args__, opts=opts).value
 
     return AwaitableGetInvitationResult(
+        invitation_id=__ret__.get('invitationId'),
+        invitation_status=__ret__.get('invitationStatus'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        responded_at=__ret__.get('respondedAt'),
+        sent_at=__ret__.get('sentAt'),
+        target_active_directory_id=__ret__.get('targetActiveDirectoryId'),
+        target_email=__ret__.get('targetEmail'),
+        target_object_id=__ret__.get('targetObjectId'),
+        type=__ret__.get('type'),
+        user_email=__ret__.get('userEmail'),
+        user_name=__ret__.get('userName'))

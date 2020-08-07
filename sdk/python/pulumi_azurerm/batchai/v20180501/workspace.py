@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Workspace(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Time when the Workspace was created.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource
@@ -18,12 +22,13 @@ class Workspace(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties associated with the workspace.
-      * `creation_time` (`str`) - Time when the Workspace was created.
-      * `provisioning_state` (`str`) - The provisioned state of the Workspace
-      * `provisioning_state_transition_time` (`str`) - The time at which the workspace entered its current provisioning state.
+    The provisioned state of the Workspace
+    """
+    provisioning_state_transition_time: pulumi.Output[str]
+    """
+    The time at which the workspace entered its current provisioning state.
     """
     tags: pulumi.Output[dict]
     """
@@ -71,7 +76,9 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['provisioning_state'] = None
+            __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
         super(Workspace, __self__).__init__(
             'azurerm:batchai/v20180501:Workspace',

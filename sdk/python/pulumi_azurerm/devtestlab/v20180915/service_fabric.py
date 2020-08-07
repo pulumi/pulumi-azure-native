@@ -10,6 +10,54 @@ from ... import _utilities, _tables
 
 
 class ServiceFabric(pulumi.CustomResource):
+    applicable_schedule: pulumi.Output[dict]
+    """
+    The applicable schedule for the virtual machine.
+      * `id` (`str`) - The identifier of the resource.
+      * `lab_vms_shutdown` (`dict`) - The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+        * `created_date` (`str`) - The creation date of the schedule.
+        * `daily_recurrence` (`dict`) - If the schedule will occur once each day of the week, specify the daily recurrence.
+          * `time` (`str`) - The time of day the schedule will occur.
+
+        * `hourly_recurrence` (`dict`) - If the schedule will occur multiple times a day, specify the hourly recurrence.
+          * `minute` (`float`) - Minutes of the hour the schedule will run.
+
+        * `id` (`str`) - The identifier of the resource.
+        * `location` (`str`) - The location of the resource.
+        * `name` (`str`) - The name of the resource.
+        * `notification_settings` (`dict`) - Notification settings.
+          * `email_recipient` (`str`) - The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+          * `notification_locale` (`str`) - The locale to use when sending a notification (fallback for unsupported languages is EN).
+          * `status` (`str`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+          * `time_in_minutes` (`float`) - Time in minutes before event at which notification will be sent.
+          * `webhook_url` (`str`) - The webhook URL to which the notification will be sent.
+
+        * `provisioning_state` (`str`) - The provisioning status of the resource.
+        * `status` (`str`) - The status of the schedule (i.e. Enabled, Disabled)
+        * `tags` (`dict`) - The tags of the resource.
+        * `target_resource_id` (`str`) - The resource ID to which the schedule belongs
+        * `task_type` (`str`) - The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        * `time_zone_id` (`str`) - The time zone ID (e.g. Pacific Standard time).
+        * `type` (`str`) - The type of the resource.
+        * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+        * `weekly_recurrence` (`dict`) - If the schedule will occur only some days of the week, specify the weekly recurrence.
+          * `time` (`str`) - The time of the day the schedule will occur.
+          * `weekdays` (`list`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+
+      * `lab_vms_startup` (`dict`) - The auto-startup schedule, if one has been set at the lab or lab resource level.
+      * `location` (`str`) - The location of the resource.
+      * `name` (`str`) - The name of the resource.
+      * `tags` (`dict`) - The tags of the resource.
+      * `type` (`str`) - The type of the resource.
+    """
+    environment_id: pulumi.Output[str]
+    """
+    The resource id of the environment under which the service fabric resource is present
+    """
+    external_service_fabric_id: pulumi.Output[str]
+    """
+    The backing service fabric resource's id
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,55 +66,9 @@ class ServiceFabric(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `applicable_schedule` (`dict`) - The applicable schedule for the virtual machine.
-        * `id` (`str`) - The identifier of the resource.
-        * `location` (`str`) - The location of the resource.
-        * `name` (`str`) - The name of the resource.
-        * `properties` (`dict`) - The properties of the resource.
-          * `lab_vms_shutdown` (`dict`) - The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-            * `id` (`str`) - The identifier of the resource.
-            * `location` (`str`) - The location of the resource.
-            * `name` (`str`) - The name of the resource.
-            * `properties` (`dict`) - The properties of the resource.
-              * `created_date` (`str`) - The creation date of the schedule.
-              * `daily_recurrence` (`dict`) - If the schedule will occur once each day of the week, specify the daily recurrence.
-                * `time` (`str`) - The time of day the schedule will occur.
-
-              * `hourly_recurrence` (`dict`) - If the schedule will occur multiple times a day, specify the hourly recurrence.
-                * `minute` (`float`) - Minutes of the hour the schedule will run.
-
-              * `notification_settings` (`dict`) - Notification settings.
-                * `email_recipient` (`str`) - The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-                * `notification_locale` (`str`) - The locale to use when sending a notification (fallback for unsupported languages is EN).
-                * `status` (`str`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-                * `time_in_minutes` (`float`) - Time in minutes before event at which notification will be sent.
-                * `webhook_url` (`str`) - The webhook URL to which the notification will be sent.
-
-              * `provisioning_state` (`str`) - The provisioning status of the resource.
-              * `status` (`str`) - The status of the schedule (i.e. Enabled, Disabled)
-              * `target_resource_id` (`str`) - The resource ID to which the schedule belongs
-              * `task_type` (`str`) - The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-              * `time_zone_id` (`str`) - The time zone ID (e.g. Pacific Standard time).
-              * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-              * `weekly_recurrence` (`dict`) - If the schedule will occur only some days of the week, specify the weekly recurrence.
-                * `time` (`str`) - The time of the day the schedule will occur.
-                * `weekdays` (`list`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-
-            * `tags` (`dict`) - The tags of the resource.
-            * `type` (`str`) - The type of the resource.
-
-          * `lab_vms_startup` (`dict`) - The auto-startup schedule, if one has been set at the lab or lab resource level.
-
-        * `tags` (`dict`) - The tags of the resource.
-        * `type` (`str`) - The type of the resource.
-
-      * `environment_id` (`str`) - The resource id of the environment under which the service fabric resource is present
-      * `external_service_fabric_id` (`str`) - The backing service fabric resource's id
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -75,6 +77,10 @@ class ServiceFabric(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, environment_id=None, external_service_fabric_id=None, lab_name=None, location=None, name=None, resource_group_name=None, tags=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -124,8 +130,10 @@ class ServiceFabric(pulumi.CustomResource):
             if user_name is None:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
-            __props__['properties'] = None
+            __props__['applicable_schedule'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['unique_identifier'] = None
         super(ServiceFabric, __self__).__init__(
             'azurerm:devtestlab/v20180915:ServiceFabric',
             resource_name,

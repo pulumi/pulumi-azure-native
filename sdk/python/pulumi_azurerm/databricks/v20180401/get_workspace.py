@@ -13,12 +13,36 @@ class GetWorkspaceResult:
     """
     Information about workspace.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, authorizations=None, created_by=None, created_date_time=None, location=None, managed_resource_group_id=None, name=None, parameters=None, provisioning_state=None, sku=None, storage_account_identity=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
+        if authorizations and not isinstance(authorizations, list):
+            raise TypeError("Expected argument 'authorizations' to be a list")
+        __self__.authorizations = authorizations
+        """
+        The workspace provider authorizations.
+        """
+        if created_by and not isinstance(created_by, dict):
+            raise TypeError("Expected argument 'created_by' to be a dict")
+        __self__.created_by = created_by
+        """
+        Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+        """
+        if created_date_time and not isinstance(created_date_time, str):
+            raise TypeError("Expected argument 'created_date_time' to be a str")
+        __self__.created_date_time = created_date_time
+        """
+        Specifies the date and time when the workspace is created.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The geo-location where the resource lives
+        """
+        if managed_resource_group_id and not isinstance(managed_resource_group_id, str):
+            raise TypeError("Expected argument 'managed_resource_group_id' to be a str")
+        __self__.managed_resource_group_id = managed_resource_group_id
+        """
+        The managed resource group Id.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +50,29 @@ class GetWorkspaceResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
         """
-        The workspace properties.
+        The workspace's custom parameters.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The workspace provisioning state.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The SKU of the resource.
+        """
+        if storage_account_identity and not isinstance(storage_account_identity, dict):
+            raise TypeError("Expected argument 'storage_account_identity' to be a dict")
+        __self__.storage_account_identity = storage_account_identity
+        """
+        The details of Managed Identity of Storage Account
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +86,30 @@ class GetWorkspaceResult:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        if ui_definition_uri and not isinstance(ui_definition_uri, str):
+            raise TypeError("Expected argument 'ui_definition_uri' to be a str")
+        __self__.ui_definition_uri = ui_definition_uri
+        """
+        The blob URI where the UI definition file is located.
+        """
+        if updated_by and not isinstance(updated_by, dict):
+            raise TypeError("Expected argument 'updated_by' to be a dict")
+        __self__.updated_by = updated_by
+        """
+        Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+        """
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError("Expected argument 'workspace_id' to be a str")
+        __self__.workspace_id = workspace_id
+        """
+        The unique identifier of the databricks workspace in databricks control plane.
+        """
+        if workspace_url and not isinstance(workspace_url, str):
+            raise TypeError("Expected argument 'workspace_url' to be a str")
+        __self__.workspace_url = workspace_url
+        """
+        The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+        """
 
 
 class AwaitableGetWorkspaceResult(GetWorkspaceResult):
@@ -58,12 +118,22 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            authorizations=self.authorizations,
+            created_by=self.created_by,
+            created_date_time=self.created_date_time,
             location=self.location,
+            managed_resource_group_id=self.managed_resource_group_id,
             name=self.name,
-            properties=self.properties,
+            parameters=self.parameters,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
+            storage_account_identity=self.storage_account_identity,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            ui_definition_uri=self.ui_definition_uri,
+            updated_by=self.updated_by,
+            workspace_id=self.workspace_id,
+            workspace_url=self.workspace_url)
 
 
 def get_workspace(name=None, resource_group_name=None, opts=None):
@@ -83,9 +153,19 @@ def get_workspace(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:databricks/v20180401:getWorkspace', __args__, opts=opts).value
 
     return AwaitableGetWorkspaceResult(
+        authorizations=__ret__.get('authorizations'),
+        created_by=__ret__.get('createdBy'),
+        created_date_time=__ret__.get('createdDateTime'),
         location=__ret__.get('location'),
+        managed_resource_group_id=__ret__.get('managedResourceGroupId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        parameters=__ret__.get('parameters'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
+        storage_account_identity=__ret__.get('storageAccountIdentity'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        ui_definition_uri=__ret__.get('uiDefinitionUri'),
+        updated_by=__ret__.get('updatedBy'),
+        workspace_id=__ret__.get('workspaceId'),
+        workspace_url=__ret__.get('workspaceUrl'))

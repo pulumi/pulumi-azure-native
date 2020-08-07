@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class WebAppPublicCertificateSlot(pulumi.CustomResource):
+    blob: pulumi.Output[str]
+    """
+    Public Certificate byte array
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,12 +22,13 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    public_certificate_location: pulumi.Output[str]
     """
-    PublicCertificate resource specific properties
-      * `blob` (`str`) - Public Certificate byte array
-      * `public_certificate_location` (`str`) - Public Certificate Location
-      * `thumbprint` (`str`) - Certificate Thumbprint
+    Public Certificate Location
+    """
+    thumbprint: pulumi.Output[str]
+    """
+    Certificate Thumbprint
     """
     type: pulumi.Output[str]
     """
@@ -71,7 +76,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
-            __props__['properties'] = None
+            __props__['thumbprint'] = None
             __props__['type'] = None
         super(WebAppPublicCertificateSlot, __self__).__init__(
             'azurerm:web/v20160801:WebAppPublicCertificateSlot',

@@ -40,6 +40,30 @@ namespace Pulumi.AzureRM.Insights.V20180301
     public sealed class GetMetricAlertResult
     {
         /// <summary>
+        /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MetricAlertActionResponseResult> Actions;
+        /// <summary>
+        /// the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        /// </summary>
+        public readonly bool? AutoMitigate;
+        /// <summary>
+        /// the description of the metric alert that will be included in the alert email.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
+        /// the flag that indicates whether the metric alert is enabled.
+        /// </summary>
+        public readonly bool Enabled;
+        /// <summary>
+        /// how often the metric alert is evaluated represented in ISO 8601 duration format.
+        /// </summary>
+        public readonly string EvaluationFrequency;
+        /// <summary>
+        /// Last time the rule was updated in ISO8601 format.
+        /// </summary>
+        public readonly string LastUpdatedTime;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,35 +72,81 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The alert rule properties of the resource.
+        /// the list of resource id's that this metric alert is scoped to.
         /// </summary>
-        public readonly Outputs.MetricAlertPropertiesResponseResult Properties;
+        public readonly ImmutableArray<string> Scopes;
+        /// <summary>
+        /// Alert severity {0, 1, 2, 3, 4}
+        /// </summary>
+        public readonly int Severity;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// </summary>
+        public readonly string? TargetResourceRegion;
+        /// <summary>
+        /// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// </summary>
+        public readonly string? TargetResourceType;
+        /// <summary>
         /// Azure resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+        /// </summary>
+        public readonly string WindowSize;
 
         [OutputConstructor]
         private GetMetricAlertResult(
+            ImmutableArray<Outputs.MetricAlertActionResponseResult> actions,
+
+            bool? autoMitigate,
+
+            string description,
+
+            bool enabled,
+
+            string evaluationFrequency,
+
+            string lastUpdatedTime,
+
             string location,
 
             string name,
 
-            Outputs.MetricAlertPropertiesResponseResult properties,
+            ImmutableArray<string> scopes,
+
+            int severity,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? targetResourceRegion,
+
+            string? targetResourceType,
+
+            string type,
+
+            string windowSize)
         {
+            Actions = actions;
+            AutoMitigate = autoMitigate;
+            Description = description;
+            Enabled = enabled;
+            EvaluationFrequency = evaluationFrequency;
+            LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;
-            Properties = properties;
+            Scopes = scopes;
+            Severity = severity;
             Tags = tags;
+            TargetResourceRegion = targetResourceRegion;
+            TargetResourceType = targetResourceType;
             Type = type;
+            WindowSize = windowSize;
         }
     }
 }

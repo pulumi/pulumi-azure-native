@@ -13,12 +13,36 @@ class GetDscConfigurationResult:
     """
     Definition of the configuration type.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, etag=None, job_count=None, last_modified_time=None, location=None, log_verbose=None, name=None, node_configuration_count=None, parameters=None, provisioning_state=None, source=None, state=None, tags=None, type=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets or sets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets or sets the etag of the resource.
+        """
+        if job_count and not isinstance(job_count, float):
+            raise TypeError("Expected argument 'job_count' to be a float")
+        __self__.job_count = job_count
+        """
+        Gets or sets the job count of the configuration.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets or sets the last modified time.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +50,47 @@ class GetDscConfigurationResult:
         """
         The Azure Region where the resource lives
         """
+        if log_verbose and not isinstance(log_verbose, bool):
+            raise TypeError("Expected argument 'log_verbose' to be a bool")
+        __self__.log_verbose = log_verbose
+        """
+        Gets or sets verbose log option.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if node_configuration_count and not isinstance(node_configuration_count, float):
+            raise TypeError("Expected argument 'node_configuration_count' to be a float")
+        __self__.node_configuration_count = node_configuration_count
         """
-        Gets or sets the configuration properties.
+        Gets the number of compiled node configurations.
+        """
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
+        """
+        Gets or sets the configuration parameters.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Gets or sets the provisioning state of the configuration.
+        """
+        if source and not isinstance(source, dict):
+            raise TypeError("Expected argument 'source' to be a dict")
+        __self__.source = source
+        """
+        Gets or sets the source.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        Gets or sets the state of the configuration.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +112,19 @@ class AwaitableGetDscConfigurationResult(GetDscConfigurationResult):
         if False:
             yield self
         return GetDscConfigurationResult(
+            creation_time=self.creation_time,
+            description=self.description,
             etag=self.etag,
+            job_count=self.job_count,
+            last_modified_time=self.last_modified_time,
             location=self.location,
+            log_verbose=self.log_verbose,
             name=self.name,
-            properties=self.properties,
+            node_configuration_count=self.node_configuration_count,
+            parameters=self.parameters,
+            provisioning_state=self.provisioning_state,
+            source=self.source,
+            state=self.state,
             tags=self.tags,
             type=self.type)
 
@@ -85,9 +148,18 @@ def get_dsc_configuration(automation_account_name=None, name=None, resource_grou
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getDscConfiguration', __args__, opts=opts).value
 
     return AwaitableGetDscConfigurationResult(
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
         etag=__ret__.get('etag'),
+        job_count=__ret__.get('jobCount'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         location=__ret__.get('location'),
+        log_verbose=__ret__.get('logVerbose'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        node_configuration_count=__ret__.get('nodeConfigurationCount'),
+        parameters=__ret__.get('parameters'),
+        provisioning_state=__ret__.get('provisioningState'),
+        source=__ret__.get('source'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

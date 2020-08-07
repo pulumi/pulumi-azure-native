@@ -14,17 +14,48 @@ import (
 type CertificateOrder struct {
 	pulumi.CustomResourceState
 
+	// Auto renew
+	AutoRenew pulumi.BoolPtrOutput `pulumi:"autoRenew"`
+	// State of the Key Vault secret
+	Certificates CertificateOrderCertificateResponseMapOutput `pulumi:"certificates"`
+	// Last CSR that was created for this order
+	Csr pulumi.StringPtrOutput `pulumi:"csr"`
+	// Certificate distinguished name
+	DistinguishedName pulumi.StringPtrOutput `pulumi:"distinguishedName"`
+	// Domain Verification Token
+	DomainVerificationToken pulumi.StringPtrOutput `pulumi:"domainVerificationToken"`
+	// Certificate expiration time
+	ExpirationTime pulumi.StringPtrOutput `pulumi:"expirationTime"`
+	// Intermediate certificate
+	Intermediate CertificateDetailsResponsePtrOutput `pulumi:"intermediate"`
+	// Certificate Key Size
+	KeySize pulumi.IntPtrOutput `pulumi:"keySize"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// Certificate last issuance time
+	LastCertificateIssuanceTime pulumi.StringPtrOutput `pulumi:"lastCertificateIssuanceTime"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput                   `pulumi:"name"`
-	Properties CertificateOrderResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Certificate product type
+	ProductType pulumi.StringPtrOutput `pulumi:"productType"`
+	// Status of certificate order
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Root certificate
+	Root CertificateDetailsResponsePtrOutput `pulumi:"root"`
+	// Current serial number of the certificate
+	SerialNumber pulumi.StringPtrOutput `pulumi:"serialNumber"`
+	// Signed certificate
+	SignedCertificate CertificateDetailsResponsePtrOutput `pulumi:"signedCertificate"`
+	// Current order status
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Duration in years (must be between 1 and 3)
+	ValidityInYears pulumi.IntPtrOutput `pulumi:"validityInYears"`
 }
 
 // NewCertificateOrder registers a new resource with the given unique name, arguments, and options.
@@ -64,31 +95,93 @@ func GetCertificateOrder(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificateOrder resources.
 type certificateOrderState struct {
+	// Auto renew
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// State of the Key Vault secret
+	Certificates map[string]CertificateOrderCertificateResponse `pulumi:"certificates"`
+	// Last CSR that was created for this order
+	Csr *string `pulumi:"csr"`
+	// Certificate distinguished name
+	DistinguishedName *string `pulumi:"distinguishedName"`
+	// Domain Verification Token
+	DomainVerificationToken *string `pulumi:"domainVerificationToken"`
+	// Certificate expiration time
+	ExpirationTime *string `pulumi:"expirationTime"`
+	// Intermediate certificate
+	Intermediate *CertificateDetailsResponse `pulumi:"intermediate"`
+	// Certificate Key Size
+	KeySize *int `pulumi:"keySize"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
+	// Certificate last issuance time
+	LastCertificateIssuanceTime *string `pulumi:"lastCertificateIssuanceTime"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name
-	Name       *string                             `pulumi:"name"`
-	Properties *CertificateOrderResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Certificate product type
+	ProductType *string `pulumi:"productType"`
+	// Status of certificate order
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Root certificate
+	Root *CertificateDetailsResponse `pulumi:"root"`
+	// Current serial number of the certificate
+	SerialNumber *string `pulumi:"serialNumber"`
+	// Signed certificate
+	SignedCertificate *CertificateDetailsResponse `pulumi:"signedCertificate"`
+	// Current order status
+	Status *string `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Duration in years (must be between 1 and 3)
+	ValidityInYears *int `pulumi:"validityInYears"`
 }
 
 type CertificateOrderState struct {
+	// Auto renew
+	AutoRenew pulumi.BoolPtrInput
+	// State of the Key Vault secret
+	Certificates CertificateOrderCertificateResponseMapInput
+	// Last CSR that was created for this order
+	Csr pulumi.StringPtrInput
+	// Certificate distinguished name
+	DistinguishedName pulumi.StringPtrInput
+	// Domain Verification Token
+	DomainVerificationToken pulumi.StringPtrInput
+	// Certificate expiration time
+	ExpirationTime pulumi.StringPtrInput
+	// Intermediate certificate
+	Intermediate CertificateDetailsResponsePtrInput
+	// Certificate Key Size
+	KeySize pulumi.IntPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
+	// Certificate last issuance time
+	LastCertificateIssuanceTime pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties CertificateOrderResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// Certificate product type
+	ProductType pulumi.StringPtrInput
+	// Status of certificate order
+	ProvisioningState pulumi.StringPtrInput
+	// Root certificate
+	Root CertificateDetailsResponsePtrInput
+	// Current serial number of the certificate
+	SerialNumber pulumi.StringPtrInput
+	// Signed certificate
+	SignedCertificate CertificateDetailsResponsePtrInput
+	// Current order status
+	Status pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Duration in years (must be between 1 and 3)
+	ValidityInYears pulumi.IntPtrInput
 }
 
 func (CertificateOrderState) ElementType() reflect.Type {

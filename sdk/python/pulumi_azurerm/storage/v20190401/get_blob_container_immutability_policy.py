@@ -13,12 +13,18 @@ class GetBlobContainerImmutabilityPolicyResult:
     """
     The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, immutability_period_since_creation_in_days=None, name=None, state=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Resource Etag.
+        """
+        if immutability_period_since_creation_in_days and not isinstance(immutability_period_since_creation_in_days, float):
+            raise TypeError("Expected argument 'immutability_period_since_creation_in_days' to be a float")
+        __self__.immutability_period_since_creation_in_days = immutability_period_since_creation_in_days
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +32,11 @@ class GetBlobContainerImmutabilityPolicyResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
         """
-        The properties of an ImmutabilityPolicy of a blob container.
+        The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -47,8 +53,9 @@ class AwaitableGetBlobContainerImmutabilityPolicyResult(GetBlobContainerImmutabi
             yield self
         return GetBlobContainerImmutabilityPolicyResult(
             etag=self.etag,
+            immutability_period_since_creation_in_days=self.immutability_period_since_creation_in_days,
             name=self.name,
-            properties=self.properties,
+            state=self.state,
             type=self.type)
 
 
@@ -74,6 +81,7 @@ def get_blob_container_immutability_policy(account_name=None, container_name=Non
 
     return AwaitableGetBlobContainerImmutabilityPolicyResult(
         etag=__ret__.get('etag'),
+        immutability_period_since_creation_in_days=__ret__.get('immutabilityPeriodSinceCreationInDays'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        state=__ret__.get('state'),
         type=__ret__.get('type'))

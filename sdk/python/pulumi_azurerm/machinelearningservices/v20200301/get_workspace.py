@@ -13,12 +13,78 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, container_registry=None, creation_time=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, identity=None, image_build_compute=None, key_vault=None, location=None, name=None, notebook_info=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, storage_account=None, tags=None, type=None, workspace_id=None):
+        if allow_public_access_when_behind_vnet and not isinstance(allow_public_access_when_behind_vnet, bool):
+            raise TypeError("Expected argument 'allow_public_access_when_behind_vnet' to be a bool")
+        __self__.allow_public_access_when_behind_vnet = allow_public_access_when_behind_vnet
+        """
+        The flag to indicate whether to allow public access when behind VNet.
+        """
+        if application_insights and not isinstance(application_insights, str):
+            raise TypeError("Expected argument 'application_insights' to be a str")
+        __self__.application_insights = application_insights
+        """
+        ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        """
+        if container_registry and not isinstance(container_registry, str):
+            raise TypeError("Expected argument 'container_registry' to be a str")
+        __self__.container_registry = container_registry
+        """
+        ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        """
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        The creation time of the machine learning workspace in ISO8601 format.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of this workspace.
+        """
+        if discovery_url and not isinstance(discovery_url, str):
+            raise TypeError("Expected argument 'discovery_url' to be a str")
+        __self__.discovery_url = discovery_url
+        """
+        Url for the discovery service to identify regional endpoints for machine learning experimentation services
+        """
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        __self__.encryption = encryption
+        """
+        The encryption settings of Azure ML workspace.
+        """
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        __self__.friendly_name = friendly_name
+        """
+        The friendly name for this workspace. This name in mutable
+        """
+        if hbi_workspace and not isinstance(hbi_workspace, bool):
+            raise TypeError("Expected argument 'hbi_workspace' to be a bool")
+        __self__.hbi_workspace = hbi_workspace
+        """
+        The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The identity of the resource.
+        """
+        if image_build_compute and not isinstance(image_build_compute, str):
+            raise TypeError("Expected argument 'image_build_compute' to be a str")
+        __self__.image_build_compute = image_build_compute
+        """
+        The compute name for image build
+        """
+        if key_vault and not isinstance(key_vault, str):
+            raise TypeError("Expected argument 'key_vault' to be a str")
+        __self__.key_vault = key_vault
+        """
+        ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,17 +98,53 @@ class GetWorkspaceResult:
         """
         Specifies the name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notebook_info and not isinstance(notebook_info, dict):
+            raise TypeError("Expected argument 'notebook_info' to be a dict")
+        __self__.notebook_info = notebook_info
         """
-        The properties of the machine learning workspace.
+        The notebook info of Azure ML workspace.
+        """
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
+        """
+        The list of private endpoint connections in the workspace.
+        """
+        if private_link_count and not isinstance(private_link_count, float):
+            raise TypeError("Expected argument 'private_link_count' to be a float")
+        __self__.private_link_count = private_link_count
+        """
+        Count of private connections in the workspace
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+        """
+        if service_provisioned_resource_group and not isinstance(service_provisioned_resource_group, str):
+            raise TypeError("Expected argument 'service_provisioned_resource_group' to be a str")
+        __self__.service_provisioned_resource_group = service_provisioned_resource_group
+        """
+        The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
+        """
+        if shared_private_link_resources and not isinstance(shared_private_link_resources, list):
+            raise TypeError("Expected argument 'shared_private_link_resources' to be a list")
+        __self__.shared_private_link_resources = shared_private_link_resources
+        """
+        The list of shared private link resources in this workspace.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The sku of the workspace.
+        """
+        if storage_account and not isinstance(storage_account, str):
+            raise TypeError("Expected argument 'storage_account' to be a str")
+        __self__.storage_account = storage_account
+        """
+        ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -56,6 +158,12 @@ class GetWorkspaceResult:
         """
         Specifies the type of the resource.
         """
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError("Expected argument 'workspace_id' to be a str")
+        __self__.workspace_id = workspace_id
+        """
+        The immutable id associated with this workspace.
+        """
 
 
 class AwaitableGetWorkspaceResult(GetWorkspaceResult):
@@ -64,13 +172,31 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            allow_public_access_when_behind_vnet=self.allow_public_access_when_behind_vnet,
+            application_insights=self.application_insights,
+            container_registry=self.container_registry,
+            creation_time=self.creation_time,
+            description=self.description,
+            discovery_url=self.discovery_url,
+            encryption=self.encryption,
+            friendly_name=self.friendly_name,
+            hbi_workspace=self.hbi_workspace,
             identity=self.identity,
+            image_build_compute=self.image_build_compute,
+            key_vault=self.key_vault,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            notebook_info=self.notebook_info,
+            private_endpoint_connections=self.private_endpoint_connections,
+            private_link_count=self.private_link_count,
+            provisioning_state=self.provisioning_state,
+            service_provisioned_resource_group=self.service_provisioned_resource_group,
+            shared_private_link_resources=self.shared_private_link_resources,
             sku=self.sku,
+            storage_account=self.storage_account,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            workspace_id=self.workspace_id)
 
 
 def get_workspace(name=None, resource_group_name=None, opts=None):
@@ -90,10 +216,28 @@ def get_workspace(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20200301:getWorkspace', __args__, opts=opts).value
 
     return AwaitableGetWorkspaceResult(
+        allow_public_access_when_behind_vnet=__ret__.get('allowPublicAccessWhenBehindVnet'),
+        application_insights=__ret__.get('applicationInsights'),
+        container_registry=__ret__.get('containerRegistry'),
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
+        discovery_url=__ret__.get('discoveryUrl'),
+        encryption=__ret__.get('encryption'),
+        friendly_name=__ret__.get('friendlyName'),
+        hbi_workspace=__ret__.get('hbiWorkspace'),
         identity=__ret__.get('identity'),
+        image_build_compute=__ret__.get('imageBuildCompute'),
+        key_vault=__ret__.get('keyVault'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notebook_info=__ret__.get('notebookInfo'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        private_link_count=__ret__.get('privateLinkCount'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_provisioned_resource_group=__ret__.get('serviceProvisionedResourceGroup'),
+        shared_private_link_resources=__ret__.get('sharedPrivateLinkResources'),
         sku=__ret__.get('sku'),
+        storage_account=__ret__.get('storageAccount'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        workspace_id=__ret__.get('workspaceId'))

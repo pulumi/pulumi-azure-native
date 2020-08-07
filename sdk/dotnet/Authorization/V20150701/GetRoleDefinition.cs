@@ -40,13 +40,29 @@ namespace Pulumi.AzureRM.Authorization.V20150701
     public sealed class GetRoleDefinitionResult
     {
         /// <summary>
+        /// Role definition assignable scopes.
+        /// </summary>
+        public readonly ImmutableArray<string> AssignableScopes;
+        /// <summary>
+        /// The role definition description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The role definition name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Role definition properties.
+        /// Role definition permissions.
         /// </summary>
-        public readonly Outputs.RoleDefinitionPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.PermissionResponseResult> Permissions;
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        public readonly string? RoleName;
+        /// <summary>
+        /// The role type.
+        /// </summary>
+        public readonly string? RoleType;
         /// <summary>
         /// The role definition type.
         /// </summary>
@@ -54,14 +70,26 @@ namespace Pulumi.AzureRM.Authorization.V20150701
 
         [OutputConstructor]
         private GetRoleDefinitionResult(
+            ImmutableArray<string> assignableScopes,
+
+            string? description,
+
             string name,
 
-            Outputs.RoleDefinitionPropertiesResponseResult properties,
+            ImmutableArray<Outputs.PermissionResponseResult> permissions,
+
+            string? roleName,
+
+            string? roleType,
 
             string type)
         {
+            AssignableScopes = assignableScopes;
+            Description = description;
             Name = name;
-            Properties = properties;
+            Permissions = permissions;
+            RoleName = roleName;
+            RoleType = roleType;
             Type = type;
         }
     }

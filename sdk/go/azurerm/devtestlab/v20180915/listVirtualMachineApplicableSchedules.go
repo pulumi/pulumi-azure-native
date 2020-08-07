@@ -27,12 +27,14 @@ type ListVirtualMachineApplicableSchedulesArgs struct {
 
 // Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ListVirtualMachineApplicableSchedulesResult struct {
+	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+	LabVmsShutdown *ScheduleResponse `pulumi:"labVmsShutdown"`
+	// The auto-startup schedule, if one has been set at the lab or lab resource level.
+	LabVmsStartup *ScheduleResponse `pulumi:"labVmsStartup"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ApplicableSchedulePropertiesResponse `pulumi:"properties"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

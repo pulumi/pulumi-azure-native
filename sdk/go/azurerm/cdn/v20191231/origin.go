@@ -14,16 +14,32 @@ import (
 type Origin struct {
 	pulumi.CustomResourceState
 
+	// Origin is enabled for load balancing or not
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+	HostName pulumi.StringOutput `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort pulumi.IntPtrOutput `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort pulumi.IntPtrOutput `pulumi:"httpsPort"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The JSON object that contains the properties of the origin.
-	Properties OriginPropertiesResponseOutput `pulumi:"properties"`
+	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
+	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
+	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+	Priority pulumi.IntPtrOutput `pulumi:"priority"`
+	// Provisioning status of the origin.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Resource status of the origin.
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+	Weight pulumi.IntPtrOutput `pulumi:"weight"`
 }
 
 // NewOrigin registers a new resource with the given unique name, arguments, and options.
@@ -72,29 +88,61 @@ func GetOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Origin resources.
 type originState struct {
+	// Origin is enabled for load balancing or not
+	Enabled *bool `pulumi:"enabled"`
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+	HostName *string `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort *int `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort *int `pulumi:"httpsPort"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The JSON object that contains the properties of the origin.
-	Properties *OriginPropertiesResponse `pulumi:"properties"`
+	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
+	OriginHostHeader *string `pulumi:"originHostHeader"`
+	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+	Priority *int `pulumi:"priority"`
+	// Provisioning status of the origin.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the origin.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+	Weight *int `pulumi:"weight"`
 }
 
 type OriginState struct {
+	// Origin is enabled for load balancing or not
+	Enabled pulumi.BoolPtrInput
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+	HostName pulumi.StringPtrInput
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort pulumi.IntPtrInput
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort pulumi.IntPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The JSON object that contains the properties of the origin.
-	Properties OriginPropertiesResponsePtrInput
+	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
+	OriginHostHeader pulumi.StringPtrInput
+	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+	Priority pulumi.IntPtrInput
+	// Provisioning status of the origin.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource status of the origin.
+	ResourceState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+	Weight pulumi.IntPtrInput
 }
 
 func (OriginState) ElementType() reflect.Type {

@@ -36,9 +36,17 @@ export interface GetNetworkSecurityGroupArgs {
  */
 export interface GetNetworkSecurityGroupResult {
     /**
+     * The default security rules of network security group.
+     */
+    readonly defaultSecurityRules: outputs.network.v20191201.SecurityRuleResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * A collection of references to flow log resources.
+     */
+    readonly flowLogs: outputs.network.v20191201.FlowLogResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +56,25 @@ export interface GetNetworkSecurityGroupResult {
      */
     readonly name: string;
     /**
-     * Properties of the network security group.
+     * A collection of references to network interfaces.
      */
-    readonly properties: outputs.network.v20191201.NetworkSecurityGroupPropertiesFormatResponse;
+    readonly networkInterfaces: outputs.network.v20191201.NetworkInterfaceResponse[];
+    /**
+     * The provisioning state of the network security group resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The resource GUID property of the network security group resource.
+     */
+    readonly resourceGuid: string;
+    /**
+     * A collection of security rules of the network security group.
+     */
+    readonly securityRules?: outputs.network.v20191201.SecurityRuleResponse[];
+    /**
+     * A collection of references to subnets.
+     */
+    readonly subnets: outputs.network.v20191201.SubnetResponse[];
     /**
      * Resource tags.
      */

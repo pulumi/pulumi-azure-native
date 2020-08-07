@@ -14,10 +14,18 @@ import (
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 
+	// This message will be part of response in case of policy violation.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The name of the policy assignment.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponseOutput `pulumi:"properties"`
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	// The ID of the policy definition.
+	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// The type of the policy assignment.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -56,19 +64,35 @@ func GetPolicyAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyAssignment resources.
 type policyAssignmentState struct {
+	// This message will be part of response in case of policy violation.
+	Description *string `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties *PolicyAssignmentPropertiesResponse `pulumi:"properties"`
+	// Required if a parameter is used in policy rule.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The ID of the policy definition.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope *string `pulumi:"scope"`
 	// The type of the policy assignment.
 	Type *string `pulumi:"type"`
 }
 
 type PolicyAssignmentState struct {
+	// This message will be part of response in case of policy violation.
+	Description pulumi.StringPtrInput
+	// The display name of the policy assignment.
+	DisplayName pulumi.StringPtrInput
 	// The name of the policy assignment.
 	Name pulumi.StringPtrInput
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponsePtrInput
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.MapInput
+	// The ID of the policy definition.
+	PolicyDefinitionId pulumi.StringPtrInput
+	// The scope for the policy assignment.
+	Scope pulumi.StringPtrInput
 	// The type of the policy assignment.
 	Type pulumi.StringPtrInput
 }

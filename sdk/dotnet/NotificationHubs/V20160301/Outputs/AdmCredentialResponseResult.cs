@@ -14,14 +14,29 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301.Outputs
     public sealed class AdmCredentialResponseResult
     {
         /// <summary>
-        /// Properties of NotificationHub AdmCredential.
+        /// The URL of the authorization token.
         /// </summary>
-        public readonly Outputs.AdmCredentialPropertiesResponseResult? Properties;
+        public readonly string? AuthTokenUrl;
+        /// <summary>
+        /// The client identifier.
+        /// </summary>
+        public readonly string? ClientId;
+        /// <summary>
+        /// The credential secret access key.
+        /// </summary>
+        public readonly string? ClientSecret;
 
         [OutputConstructor]
-        private AdmCredentialResponseResult(Outputs.AdmCredentialPropertiesResponseResult? properties)
+        private AdmCredentialResponseResult(
+            string? authTokenUrl,
+
+            string? clientId,
+
+            string? clientSecret)
         {
-            Properties = properties;
+            AuthTokenUrl = authTokenUrl;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
         }
     }
 }

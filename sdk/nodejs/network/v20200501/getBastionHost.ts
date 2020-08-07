@@ -36,9 +36,17 @@ export interface GetBastionHostArgs {
  */
 export interface GetBastionHostResult {
     /**
+     * FQDN for the endpoint on which bastion host is accessible.
+     */
+    readonly dnsName?: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * IP configuration of the Bastion Host resource.
+     */
+    readonly ipConfigurations?: outputs.network.v20200501.BastionHostIPConfigurationResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +56,9 @@ export interface GetBastionHostResult {
      */
     readonly name: string;
     /**
-     * Represents the bastion host resource.
+     * The provisioning state of the bastion host resource.
      */
-    readonly properties: outputs.network.v20200501.BastionHostPropertiesFormatResponse;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

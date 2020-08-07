@@ -14,10 +14,16 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
+	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+	BuiltIn pulumi.BoolOutput `pulumi:"builtIn"`
+	// Group description. Can contain HTML formatting tags.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Group name.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Group entity contract properties.
-	Properties GroupContractPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +68,31 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
+	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+	BuiltIn *bool `pulumi:"builtIn"`
+	// Group description. Can contain HTML formatting tags.
+	Description *string `pulumi:"description"`
+	// Group name.
+	DisplayName *string `pulumi:"displayName"`
+	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+	ExternalId *string `pulumi:"externalId"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Group entity contract properties.
-	Properties *GroupContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type GroupState struct {
+	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+	BuiltIn pulumi.BoolPtrInput
+	// Group description. Can contain HTML formatting tags.
+	Description pulumi.StringPtrInput
+	// Group name.
+	DisplayName pulumi.StringPtrInput
+	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+	ExternalId pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Group entity contract properties.
-	Properties GroupContractPropertiesResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

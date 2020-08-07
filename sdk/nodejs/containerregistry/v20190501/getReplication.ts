@@ -49,9 +49,13 @@ export interface GetReplicationResult {
      */
     readonly name: string;
     /**
-     * The properties of the replication.
+     * The provisioning state of the replication at the time the operation was called.
      */
-    readonly properties: outputs.containerregistry.v20190501.ReplicationPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The status of the replication at the time the operation was called.
+     */
+    readonly status: outputs.containerregistry.v20190501.StatusResponse;
     /**
      * The tags of the resource.
      */

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,26 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
+     * Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+     */
+    public readonly administratorLogin!: pulumi.Output<string | undefined>;
+    /**
+     * The administrator login password (required for server creation).
+     */
+    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+     */
+    public /*out*/ readonly externalAdministratorLogin!: pulumi.Output<string>;
+    /**
+     * The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+     */
+    public /*out*/ readonly externalAdministratorSid!: pulumi.Output<string>;
+    /**
+     * The fully qualified domain name of the server.
+     */
+    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
+    /**
      * Kind of sql server.  This is metadata used for the Azure portal experience.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
@@ -49,9 +67,9 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Represents the properties of the resource.
+     * The state of the server.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.ServerPropertiesResponse>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -60,6 +78,10 @@ export class Server extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The version of the server.
+     */
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -90,8 +112,11 @@ export class Server extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
+            inputs["externalAdministratorLogin"] = undefined /*out*/;
+            inputs["externalAdministratorSid"] = undefined /*out*/;
+            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

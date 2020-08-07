@@ -46,13 +46,33 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class GetStorageAccountCredentialResult
     {
         /// <summary>
+        /// The details of the storage account password
+        /// </summary>
+        public readonly Outputs.AsymmetricEncryptedSecretResponseResult? AccessKey;
+        /// <summary>
+        /// The cloud service provider
+        /// </summary>
+        public readonly string CloudType;
+        /// <summary>
+        /// SSL needs to be enabled or not
+        /// </summary>
+        public readonly string EnableSSL;
+        /// <summary>
+        /// The storage endpoint
+        /// </summary>
+        public readonly string EndPoint;
+        /// <summary>
+        /// The storage account's geo location
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
+        /// The storage account login
+        /// </summary>
+        public readonly string Login;
+        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Credential properties
-        /// </summary>
-        public readonly Outputs.StorageAccountCredentialPropertiesResponseResult Properties;
         /// <summary>
         /// The type.
         /// </summary>
@@ -60,14 +80,29 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 
         [OutputConstructor]
         private GetStorageAccountCredentialResult(
-            string name,
+            Outputs.AsymmetricEncryptedSecretResponseResult? accessKey,
 
-            Outputs.StorageAccountCredentialPropertiesResponseResult properties,
+            string cloudType,
+
+            string enableSSL,
+
+            string endPoint,
+
+            string? location,
+
+            string login,
+
+            string name,
 
             string type)
         {
+            AccessKey = accessKey;
+            CloudType = cloudType;
+            EnableSSL = enableSSL;
+            EndPoint = endPoint;
+            Location = location;
+            Login = login;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

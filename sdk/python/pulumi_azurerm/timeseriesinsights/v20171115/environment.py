@@ -10,6 +10,22 @@ from ... import _utilities, _tables
 
 
 class Environment(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    The time the resource was created.
+    """
+    data_access_fqdn: pulumi.Output[str]
+    """
+    The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+    """
+    data_access_id: pulumi.Output[str]
+    """
+    An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+    """
+    data_retention_time: pulumi.Output[str]
+    """
+    ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,32 +34,34 @@ class Environment(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    partition_key_properties: pulumi.Output[list]
     """
-    Properties of the environment.
-      * `creation_time` (`str`) - The time the resource was created.
-      * `data_access_fqdn` (`str`) - The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-      * `data_access_id` (`str`) - An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-      * `data_retention_time` (`str`) - ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-      * `partition_key_properties` (`list`) - The list of partition keys according to which the data in the environment will be ordered.
-        * `name` (`str`) - The name of the property.
-        * `type` (`str`) - The type of the property.
-
-      * `provisioning_state` (`str`) - Provisioning state of the resource.
-      * `status` (`dict`) - An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        * `ingress` (`dict`) - An object that represents the status of ingress on an environment.
-          * `state` (`str`) - This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-          * `state_details` (`dict`) - An object that contains the details about an environment's state.
-            * `code` (`str`) - Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-            * `message` (`str`) - A message that describes the state in detail.
-
-      * `storage_limit_exceeded_behavior` (`str`) - The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+    The list of partition keys according to which the data in the environment will be ordered.
+      * `name` (`str`) - The name of the property.
+      * `type` (`str`) - The type of the property.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the resource.
     """
     sku: pulumi.Output[dict]
     """
     The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
       * `capacity` (`float`) - The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
       * `name` (`str`) - The name of this SKU.
+    """
+    status: pulumi.Output[dict]
+    """
+    An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+      * `ingress` (`dict`) - An object that represents the status of ingress on an environment.
+        * `state` (`str`) - This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+        * `state_details` (`dict`) - An object that contains the details about an environment's state.
+          * `code` (`str`) - Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+          * `message` (`str`) - A message that describes the state in detail.
+    """
+    storage_limit_exceeded_behavior: pulumi.Output[str]
+    """
+    The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
     """
     tags: pulumi.Output[dict]
     """
@@ -113,7 +131,11 @@ class Environment(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['storage_limit_exceeded_behavior'] = storage_limit_exceeded_behavior
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['data_access_fqdn'] = None
+            __props__['data_access_id'] = None
+            __props__['provisioning_state'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(Environment, __self__).__init__(
             'azurerm:timeseriesinsights/v20171115:Environment',

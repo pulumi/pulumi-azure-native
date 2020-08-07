@@ -13,7 +13,43 @@ class GetVirtualNetworkResult:
     """
     Virtual Network resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, address_space=None, bgp_communities=None, ddos_protection_plan=None, dhcp_options=None, enable_ddos_protection=None, enable_vm_protection=None, etag=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
+        if address_space and not isinstance(address_space, dict):
+            raise TypeError("Expected argument 'address_space' to be a dict")
+        __self__.address_space = address_space
+        """
+        The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        """
+        if bgp_communities and not isinstance(bgp_communities, dict):
+            raise TypeError("Expected argument 'bgp_communities' to be a dict")
+        __self__.bgp_communities = bgp_communities
+        """
+        Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        """
+        if ddos_protection_plan and not isinstance(ddos_protection_plan, dict):
+            raise TypeError("Expected argument 'ddos_protection_plan' to be a dict")
+        __self__.ddos_protection_plan = ddos_protection_plan
+        """
+        The DDoS protection plan associated with the virtual network.
+        """
+        if dhcp_options and not isinstance(dhcp_options, dict):
+            raise TypeError("Expected argument 'dhcp_options' to be a dict")
+        __self__.dhcp_options = dhcp_options
+        """
+        The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        """
+        if enable_ddos_protection and not isinstance(enable_ddos_protection, bool):
+            raise TypeError("Expected argument 'enable_ddos_protection' to be a bool")
+        __self__.enable_ddos_protection = enable_ddos_protection
+        """
+        Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        """
+        if enable_vm_protection and not isinstance(enable_vm_protection, bool):
+            raise TypeError("Expected argument 'enable_vm_protection' to be a bool")
+        __self__.enable_vm_protection = enable_vm_protection
+        """
+        Indicates if VM protection is enabled for all the subnets in the virtual network.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +68,23 @@ class GetVirtualNetworkResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the virtual network.
+        The provisioning state of the virtual network resource.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resourceGuid property of the Virtual Network resource.
+        """
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        __self__.subnets = subnets
+        """
+        A list of subnets in a Virtual Network.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +98,12 @@ class GetVirtualNetworkResult:
         """
         Resource type.
         """
+        if virtual_network_peerings and not isinstance(virtual_network_peerings, list):
+            raise TypeError("Expected argument 'virtual_network_peerings' to be a list")
+        __self__.virtual_network_peerings = virtual_network_peerings
+        """
+        A list of peerings in a Virtual Network.
+        """
 
 
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
@@ -58,12 +112,21 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
         if False:
             yield self
         return GetVirtualNetworkResult(
+            address_space=self.address_space,
+            bgp_communities=self.bgp_communities,
+            ddos_protection_plan=self.ddos_protection_plan,
+            dhcp_options=self.dhcp_options,
+            enable_ddos_protection=self.enable_ddos_protection,
+            enable_vm_protection=self.enable_vm_protection,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
+            subnets=self.subnets,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network_peerings=self.virtual_network_peerings)
 
 
 def get_virtual_network(name=None, resource_group_name=None, opts=None):
@@ -83,9 +146,18 @@ def get_virtual_network(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190801:getVirtualNetwork', __args__, opts=opts).value
 
     return AwaitableGetVirtualNetworkResult(
+        address_space=__ret__.get('addressSpace'),
+        bgp_communities=__ret__.get('bgpCommunities'),
+        ddos_protection_plan=__ret__.get('ddosProtectionPlan'),
+        dhcp_options=__ret__.get('dhcpOptions'),
+        enable_ddos_protection=__ret__.get('enableDdosProtection'),
+        enable_vm_protection=__ret__.get('enableVmProtection'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
+        subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_network_peerings=__ret__.get('virtualNetworkPeerings'))

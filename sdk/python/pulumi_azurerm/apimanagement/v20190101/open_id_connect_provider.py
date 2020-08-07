@@ -10,18 +10,29 @@ from ... import _utilities, _tables
 
 
 class OpenIdConnectProvider(pulumi.CustomResource):
+    client_id: pulumi.Output[str]
+    """
+    Client ID of developer console which is the client application.
+    """
+    client_secret: pulumi.Output[str]
+    """
+    Client Secret of developer console which is the client application.
+    """
+    description: pulumi.Output[str]
+    """
+    User-friendly description of OpenID Connect Provider.
+    """
+    display_name: pulumi.Output[str]
+    """
+    User-friendly OpenID Connect Provider name.
+    """
+    metadata_endpoint: pulumi.Output[str]
+    """
+    Metadata endpoint URI.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    OpenId Connect Provider contract properties.
-      * `client_id` (`str`) - Client ID of developer console which is the client application.
-      * `client_secret` (`str`) - Client Secret of developer console which is the client application.
-      * `description` (`str`) - User-friendly description of OpenID Connect Provider.
-      * `display_name` (`str`) - User-friendly OpenID Connect Provider name.
-      * `metadata_endpoint` (`str`) - Metadata endpoint URI.
     """
     type: pulumi.Output[str]
     """
@@ -79,7 +90,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(OpenIdConnectProvider, __self__).__init__(
             'azurerm:apimanagement/v20190101:OpenIdConnectProvider',

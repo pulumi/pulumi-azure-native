@@ -45,9 +45,21 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Describes the properties of a gallery Image Version.
+     * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180601.GalleryImageVersionPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The publishing profile of a gallery Image Version.
+     */
+    public readonly publishingProfile!: pulumi.Output<outputs.compute.v20180601.GalleryImageVersionPublishingProfileResponse>;
+    /**
+     * This is the replication status of the gallery Image Version.
+     */
+    public /*out*/ readonly replicationStatus!: pulumi.Output<outputs.compute.v20180601.ReplicationStatusResponse>;
+    /**
+     * This is the storage profile of a gallery Image Version.
+     */
+    public /*out*/ readonly storageProfile!: pulumi.Output<outputs.compute.v20180601.GalleryImageVersionStorageProfileResponse>;
     /**
      * Resource tags
      */
@@ -95,7 +107,9 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             inputs["publishingProfile"] = args ? args.publishingProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["replicationStatus"] = undefined /*out*/;
+            inputs["storageProfile"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -21,10 +21,10 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Chap properties
+        /// The chap password.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ChapPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("password")]
+        public Output<Outputs.AsymmetricEncryptedSecretResponseResult> Password { get; private set; } = null!;
 
         /// <summary>
         /// The type.

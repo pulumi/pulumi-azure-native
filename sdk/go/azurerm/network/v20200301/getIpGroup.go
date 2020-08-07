@@ -27,12 +27,16 @@ type LookupIpGroupArgs struct {
 type LookupIpGroupResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// List of references to Azure resources that this IpGroups is associated with.
+	Firewalls []SubResourceResponse `pulumi:"firewalls"`
+	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+	IpAddresses []string `pulumi:"ipAddresses"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the IpGroups.
-	Properties IpGroupPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the IpGroups resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

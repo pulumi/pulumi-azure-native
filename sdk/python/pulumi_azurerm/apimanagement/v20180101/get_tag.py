@@ -13,18 +13,18 @@ class GetTagResult:
     """
     Tag Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, display_name=None, name=None, type=None):
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Tag name.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Tag entity contract properties.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +40,8 @@ class AwaitableGetTagResult(GetTagResult):
         if False:
             yield self
         return GetTagResult(
+            display_name=self.display_name,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -64,6 +64,6 @@ def get_tag(name=None, resource_group_name=None, service_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getTag', __args__, opts=opts).value
 
     return AwaitableGetTagResult(
+        display_name=__ret__.get('displayName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

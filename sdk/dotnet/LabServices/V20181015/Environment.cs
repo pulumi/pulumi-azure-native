@@ -15,6 +15,42 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The name or email address of the user who has claimed the environment
+        /// </summary>
+        [Output("claimedByUserName")]
+        public Output<string> ClaimedByUserName { get; private set; } = null!;
+
+        /// <summary>
+        /// The AAD object Id of the user who has claimed the environment
+        /// </summary>
+        [Output("claimedByUserObjectId")]
+        public Output<string> ClaimedByUserObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// The user principal Id of the user who has claimed the environment
+        /// </summary>
+        [Output("claimedByUserPrincipalId")]
+        public Output<string> ClaimedByUserPrincipalId { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the environment claimed or not
+        /// </summary>
+        [Output("isClaimed")]
+        public Output<bool> IsClaimed { get; private set; } = null!;
+
+        /// <summary>
+        /// Last known power state of the environment
+        /// </summary>
+        [Output("lastKnownPowerState")]
+        public Output<string> LastKnownPowerState { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        [Output("latestOperationResult")]
+        public Output<Outputs.LatestOperationResultResponseResult> LatestOperationResult { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +63,28 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the Environment resource
+        /// Network details of the environment
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EnvironmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkInterface")]
+        public Output<Outputs.NetworkInterfaceResponseResult> NetworkInterface { get; private set; } = null!;
+
+        /// <summary>
+        /// When the password was last reset on the environment.
+        /// </summary>
+        [Output("passwordLastReset")]
+        public Output<string> PasswordLastReset { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The set of a VM and the setting id it was created for
+        /// </summary>
+        [Output("resourceSets")]
+        public Output<Outputs.ResourceSetResponseResult?> ResourceSets { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -39,10 +93,22 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// How long the environment has been used by a lab user
+        /// </summary>
+        [Output("totalUsage")]
+        public Output<string> TotalUsage { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>

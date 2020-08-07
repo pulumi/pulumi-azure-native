@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public partial class ServerAzureADAdministrator : Pulumi.CustomResource
     {
         /// <summary>
+        /// The type of administrator.
+        /// </summary>
+        [Output("administratorType")]
+        public Output<string> AdministratorType { get; private set; } = null!;
+
+        /// <summary>
+        /// The server administrator login value.
+        /// </summary>
+        [Output("login")]
+        public Output<string> Login { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The server administrator Sid (Secure ID).
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServerAdministratorPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("sid")]
+        public Output<string> Sid { get; private set; } = null!;
+
+        /// <summary>
+        /// The server Active Directory Administrator tenant id.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

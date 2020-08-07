@@ -46,13 +46,53 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class GetLinkResult
     {
         /// <summary>
+        /// Localized descriptions for the Link.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Description;
+        /// <summary>
+        /// Localized display name for the Link.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? DisplayName;
+        /// <summary>
+        /// The link name.
+        /// </summary>
+        public readonly string LinkName;
+        /// <summary>
+        /// The set of properties mappings between the source and target Types.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TypePropertiesMappingResponseResult> Mappings;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The definition of Link.
+        /// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         /// </summary>
-        public readonly Outputs.LinkDefinitionResponseResult Properties;
+        public readonly string? OperationType;
+        /// <summary>
+        /// The properties that represent the participating profile.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult> ParticipantPropertyReferences;
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+        /// </summary>
+        public readonly bool? ReferenceOnly;
+        /// <summary>
+        /// Name of the source Interaction Type.
+        /// </summary>
+        public readonly string SourceInteractionType;
+        /// <summary>
+        /// Name of the target Profile Type.
+        /// </summary>
+        public readonly string TargetProfileType;
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -60,14 +100,44 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
 
         [OutputConstructor]
         private GetLinkResult(
+            ImmutableDictionary<string, string>? description,
+
+            ImmutableDictionary<string, string>? displayName,
+
+            string linkName,
+
+            ImmutableArray<Outputs.TypePropertiesMappingResponseResult> mappings,
+
             string name,
 
-            Outputs.LinkDefinitionResponseResult properties,
+            string? operationType,
+
+            ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult> participantPropertyReferences,
+
+            string provisioningState,
+
+            bool? referenceOnly,
+
+            string sourceInteractionType,
+
+            string targetProfileType,
+
+            string tenantId,
 
             string type)
         {
+            Description = description;
+            DisplayName = displayName;
+            LinkName = linkName;
+            Mappings = mappings;
             Name = name;
-            Properties = properties;
+            OperationType = operationType;
+            ParticipantPropertyReferences = participantPropertyReferences;
+            ProvisioningState = provisioningState;
+            ReferenceOnly = referenceOnly;
+            SourceInteractionType = sourceInteractionType;
+            TargetProfileType = targetProfileType;
+            TenantId = tenantId;
             Type = type;
         }
     }

@@ -48,9 +48,9 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the SSH public key.
+        /// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
         /// </summary>
-        public readonly Outputs.SshPublicKeyResourcePropertiesResponseResult Properties;
+        public readonly string? PublicKey;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
 
             string name,
 
-            Outputs.SshPublicKeyResourcePropertiesResponseResult properties,
+            string? publicKey,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            PublicKey = publicKey;
             Tags = tags;
             Type = type;
         }

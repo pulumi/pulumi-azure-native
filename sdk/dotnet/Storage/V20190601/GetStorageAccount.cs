@@ -40,29 +40,121 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public sealed class GetStorageAccountResult
     {
         /// <summary>
+        /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        /// </summary>
+        public readonly string AccessTier;
+        /// <summary>
+        /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        /// </summary>
+        public readonly bool? AllowBlobPublicAccess;
+        /// <summary>
+        /// Provides the identity based authentication settings for Azure Files.
+        /// </summary>
+        public readonly Outputs.AzureFilesIdentityBasedAuthenticationResponseResult? AzureFilesIdentityBasedAuthentication;
+        /// <summary>
+        /// Blob restore status
+        /// </summary>
+        public readonly Outputs.BlobRestoreStatusResponseResult BlobRestoreStatus;
+        /// <summary>
+        /// Gets the creation date and time of the storage account in UTC.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// Gets the custom domain the user assigned to this storage account.
+        /// </summary>
+        public readonly Outputs.CustomDomainResponseResult CustomDomain;
+        /// <summary>
+        /// Allows https traffic only to storage service if sets to true.
+        /// </summary>
+        public readonly bool? EnableHttpsTrafficOnly;
+        /// <summary>
+        /// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+        /// </summary>
+        public readonly Outputs.EncryptionResponseResult Encryption;
+        /// <summary>
+        /// If the failover is in progress, the value will be true, otherwise, it will be null.
+        /// </summary>
+        public readonly bool FailoverInProgress;
+        /// <summary>
+        /// Geo Replication Stats
+        /// </summary>
+        public readonly Outputs.GeoReplicationStatsResponseResult GeoReplicationStats;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponseResult? Identity;
+        /// <summary>
+        /// Account HierarchicalNamespace enabled if sets to true.
+        /// </summary>
+        public readonly bool? IsHnsEnabled;
         /// <summary>
         /// Gets the Kind.
         /// </summary>
         public readonly string Kind;
         /// <summary>
+        /// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+        /// </summary>
+        public readonly string? LargeFileSharesState;
+        /// <summary>
+        /// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+        /// </summary>
+        public readonly string LastGeoFailoverTime;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        /// </summary>
+        public readonly string? MinimumTlsVersion;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the storage account.
+        /// Network rule set
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponseResult Properties;
+        public readonly Outputs.NetworkRuleSetResponseResult NetworkRuleSet;
+        /// <summary>
+        /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+        /// </summary>
+        public readonly Outputs.EndpointsResponseResult PrimaryEndpoints;
+        /// <summary>
+        /// Gets the location of the primary data center for the storage account.
+        /// </summary>
+        public readonly string PrimaryLocation;
+        /// <summary>
+        /// List of private endpoint connection associated with the specified storage account
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        /// <summary>
+        /// Gets the status of the storage account at the time the operation was called.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Maintains information about the network routing choice opted by the user for data transfer
+        /// </summary>
+        public readonly Outputs.RoutingPreferenceResponseResult? RoutingPreference;
+        /// <summary>
+        /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+        /// </summary>
+        public readonly Outputs.EndpointsResponseResult SecondaryEndpoints;
+        /// <summary>
+        /// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+        /// </summary>
+        public readonly string SecondaryLocation;
         /// <summary>
         /// Gets the SKU.
         /// </summary>
         public readonly Outputs.SkuResponseResult Sku;
+        /// <summary>
+        /// Gets the status indicating whether the primary location of the storage account is available or unavailable.
+        /// </summary>
+        public readonly string StatusOfPrimary;
+        /// <summary>
+        /// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+        /// </summary>
+        public readonly string StatusOfSecondary;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -74,28 +166,97 @@ namespace Pulumi.AzureRM.Storage.V20190601
 
         [OutputConstructor]
         private GetStorageAccountResult(
+            string accessTier,
+
+            bool? allowBlobPublicAccess,
+
+            Outputs.AzureFilesIdentityBasedAuthenticationResponseResult? azureFilesIdentityBasedAuthentication,
+
+            Outputs.BlobRestoreStatusResponseResult blobRestoreStatus,
+
+            string creationTime,
+
+            Outputs.CustomDomainResponseResult customDomain,
+
+            bool? enableHttpsTrafficOnly,
+
+            Outputs.EncryptionResponseResult encryption,
+
+            bool failoverInProgress,
+
+            Outputs.GeoReplicationStatsResponseResult geoReplicationStats,
+
             Outputs.IdentityResponseResult? identity,
+
+            bool? isHnsEnabled,
 
             string kind,
 
+            string? largeFileSharesState,
+
+            string lastGeoFailoverTime,
+
             string location,
+
+            string? minimumTlsVersion,
 
             string name,
 
-            Outputs.StorageAccountPropertiesResponseResult properties,
+            Outputs.NetworkRuleSetResponseResult networkRuleSet,
+
+            Outputs.EndpointsResponseResult primaryEndpoints,
+
+            string primaryLocation,
+
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+
+            string provisioningState,
+
+            Outputs.RoutingPreferenceResponseResult? routingPreference,
+
+            Outputs.EndpointsResponseResult secondaryEndpoints,
+
+            string secondaryLocation,
 
             Outputs.SkuResponseResult sku,
+
+            string statusOfPrimary,
+
+            string statusOfSecondary,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AccessTier = accessTier;
+            AllowBlobPublicAccess = allowBlobPublicAccess;
+            AzureFilesIdentityBasedAuthentication = azureFilesIdentityBasedAuthentication;
+            BlobRestoreStatus = blobRestoreStatus;
+            CreationTime = creationTime;
+            CustomDomain = customDomain;
+            EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
+            Encryption = encryption;
+            FailoverInProgress = failoverInProgress;
+            GeoReplicationStats = geoReplicationStats;
             Identity = identity;
+            IsHnsEnabled = isHnsEnabled;
             Kind = kind;
+            LargeFileSharesState = largeFileSharesState;
+            LastGeoFailoverTime = lastGeoFailoverTime;
             Location = location;
+            MinimumTlsVersion = minimumTlsVersion;
             Name = name;
-            Properties = properties;
+            NetworkRuleSet = networkRuleSet;
+            PrimaryEndpoints = primaryEndpoints;
+            PrimaryLocation = primaryLocation;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            RoutingPreference = routingPreference;
+            SecondaryEndpoints = secondaryEndpoints;
+            SecondaryLocation = secondaryLocation;
             Sku = sku;
+            StatusOfPrimary = statusOfPrimary;
+            StatusOfSecondary = statusOfSecondary;
             Tags = tags;
             Type = type;
         }

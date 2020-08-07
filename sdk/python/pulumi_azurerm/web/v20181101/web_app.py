@@ -10,6 +10,104 @@ from ... import _utilities, _tables
 
 
 class WebApp(pulumi.CustomResource):
+    availability_state: pulumi.Output[str]
+    """
+    Management information availability state for the app.
+    """
+    client_affinity_enabled: pulumi.Output[bool]
+    """
+    <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
+    """
+    client_cert_enabled: pulumi.Output[bool]
+    """
+    <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
+    """
+    client_cert_exclusion_paths: pulumi.Output[str]
+    """
+    client certificate authentication comma-separated exclusion paths
+    """
+    cloning_info: pulumi.Output[dict]
+    """
+    If specified during app creation, the app is cloned from a source app.
+      * `app_settings_overrides` (`dict`) - Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+        from source app. Otherwise, application settings from source app are retained.
+      * `clone_custom_host_names` (`bool`) - <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
+      * `clone_source_control` (`bool`) - <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
+      * `configure_load_balancing` (`bool`) - <code>true</code> to configure load balancing for source and destination app.
+      * `correlation_id` (`str`) - Correlation ID of cloning operation. This ID ties multiple cloning operations
+        together to use the same snapshot.
+      * `hosting_environment` (`str`) - App Service Environment.
+      * `overwrite` (`bool`) - <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
+      * `source_web_app_id` (`str`) - ARM resource ID of the source app. App resource ID is of the form 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
+      * `source_web_app_location` (`str`) - Location of source app ex: West US or North Europe
+      * `traffic_manager_profile_id` (`str`) - ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
+      * `traffic_manager_profile_name` (`str`) - Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
+    """
+    container_size: pulumi.Output[float]
+    """
+    Size of the function container.
+    """
+    daily_memory_time_quota: pulumi.Output[float]
+    """
+    Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+    """
+    default_host_name: pulumi.Output[str]
+    """
+    Default hostname of the app. Read-only.
+    """
+    enabled: pulumi.Output[bool]
+    """
+    <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+    """
+    enabled_host_names: pulumi.Output[list]
+    """
+    Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
+    the app is not served on those hostnames.
+    """
+    geo_distributions: pulumi.Output[list]
+    """
+    GeoDistributions for this site
+      * `location` (`str`) - Location.
+      * `number_of_workers` (`float`) - NumberOfWorkers.
+    """
+    host_name_ssl_states: pulumi.Output[list]
+    """
+    Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+      * `host_type` (`str`) - Indicates whether the hostname is a standard or repository hostname.
+      * `name` (`str`) - Hostname.
+      * `ssl_state` (`str`) - SSL type.
+      * `thumbprint` (`str`) - SSL certificate thumbprint.
+      * `to_update` (`bool`) - Set to <code>true</code> to update existing hostname.
+      * `virtual_ip` (`str`) - Virtual IP address assigned to the hostname if IP based SSL is enabled.
+    """
+    host_names: pulumi.Output[list]
+    """
+    Hostnames associated with the app.
+    """
+    host_names_disabled: pulumi.Output[bool]
+    """
+    <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+     If <code>true</code>, the app is only accessible via API management process.
+    """
+    hosting_environment_profile: pulumi.Output[dict]
+    """
+    App Service Environment to use for the app.
+      * `id` (`str`) - Resource ID of the App Service Environment.
+      * `name` (`str`) - Name of the App Service Environment.
+      * `type` (`str`) - Resource type of the App Service Environment.
+    """
+    https_only: pulumi.Output[bool]
+    """
+    HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+    http requests
+    """
+    hyper_v: pulumi.Output[bool]
+    """
+    Hyper-V sandbox.
+    """
     identity: pulumi.Output[dict]
     """
     Managed service identity.
@@ -18,264 +116,265 @@ class WebApp(pulumi.CustomResource):
       * `type` (`str`) - Type of managed service identity.
       * `user_assigned_identities` (`dict`) - The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
     """
+    in_progress_operation_id: pulumi.Output[str]
+    """
+    Specifies an operation id if this site has a pending operation.
+    """
+    is_default_container: pulumi.Output[bool]
+    """
+    <code>true</code> if the app is a default container; otherwise, <code>false</code>.
+    """
+    is_xenon: pulumi.Output[bool]
+    """
+    Obsolete: Hyper-V sandbox.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
+    """
+    last_modified_time_utc: pulumi.Output[str]
+    """
+    Last time the app was modified, in UTC. Read-only.
     """
     location: pulumi.Output[str]
     """
     Resource Location.
     """
+    max_number_of_workers: pulumi.Output[float]
+    """
+    Maximum number of workers.
+    This only applies to Functions container.
+    """
     name: pulumi.Output[str]
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    outbound_ip_addresses: pulumi.Output[str]
     """
-    Site resource specific properties
-      * `availability_state` (`str`) - Management information availability state for the app.
-      * `client_affinity_enabled` (`bool`) - <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
-      * `client_cert_enabled` (`bool`) - <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-      * `client_cert_exclusion_paths` (`str`) - client certificate authentication comma-separated exclusion paths
-      * `cloning_info` (`dict`) - If specified during app creation, the app is cloned from a source app.
-        * `app_settings_overrides` (`dict`) - Application setting overrides for cloned app. If specified, these settings override the settings cloned 
-          from source app. Otherwise, application settings from source app are retained.
-        * `clone_custom_host_names` (`bool`) - <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
-        * `clone_source_control` (`bool`) - <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
-        * `configure_load_balancing` (`bool`) - <code>true</code> to configure load balancing for source and destination app.
-        * `correlation_id` (`str`) - Correlation ID of cloning operation. This ID ties multiple cloning operations
-          together to use the same snapshot.
-        * `hosting_environment` (`str`) - App Service Environment.
-        * `overwrite` (`bool`) - <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
-        * `source_web_app_id` (`str`) - ARM resource ID of the source app. App resource ID is of the form 
-          /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
-          /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
-        * `source_web_app_location` (`str`) - Location of source app ex: West US or North Europe
-        * `traffic_manager_profile_id` (`str`) - ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
-          /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
-        * `traffic_manager_profile_name` (`str`) - Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
+    List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.
+    """
+    possible_outbound_ip_addresses: pulumi.Output[str]
+    """
+    List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants. Read-only.
+    """
+    redundancy_mode: pulumi.Output[str]
+    """
+    Site redundancy mode
+    """
+    repository_site_name: pulumi.Output[str]
+    """
+    Name of the repository site.
+    """
+    reserved: pulumi.Output[bool]
+    """
+    <code>true</code> if reserved; otherwise, <code>false</code>.
+    """
+    resource_group: pulumi.Output[str]
+    """
+    Name of the resource group the app belongs to. Read-only.
+    """
+    scm_site_also_stopped: pulumi.Output[bool]
+    """
+    <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
+    """
+    server_farm_id: pulumi.Output[str]
+    """
+    Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+    """
+    site_config: pulumi.Output[dict]
+    """
+    Configuration of the app.
+      * `always_on` (`bool`) - <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+      * `api_definition` (`dict`) - Information about the formal API definition for the app.
+        * `url` (`str`) - The URL of the API definition.
 
-      * `container_size` (`float`) - Size of the function container.
-      * `daily_memory_time_quota` (`float`) - Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-      * `default_host_name` (`str`) - Default hostname of the app. Read-only.
-      * `enabled` (`bool`) - <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-      * `enabled_host_names` (`list`) - Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
-        the app is not served on those hostnames.
-      * `geo_distributions` (`list`) - GeoDistributions for this site
-        * `location` (`str`) - Location.
-        * `number_of_workers` (`float`) - NumberOfWorkers.
+      * `app_command_line` (`str`) - App command line to launch.
+      * `app_settings` (`list`) - Application settings.
+        * `name` (`str`) - Pair name.
+        * `value` (`str`) - Pair value.
 
-      * `host_name_ssl_states` (`list`) - Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-        * `host_type` (`str`) - Indicates whether the hostname is a standard or repository hostname.
-        * `name` (`str`) - Hostname.
-        * `ssl_state` (`str`) - SSL type.
-        * `thumbprint` (`str`) - SSL certificate thumbprint.
-        * `to_update` (`bool`) - Set to <code>true</code> to update existing hostname.
-        * `virtual_ip` (`str`) - Virtual IP address assigned to the hostname if IP based SSL is enabled.
+      * `auto_heal_enabled` (`bool`) - <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+      * `auto_heal_rules` (`dict`) - Auto Heal rules.
+        * `actions` (`dict`) - Actions to be executed when a rule is triggered.
+          * `action_type` (`str`) - Predefined action to be taken.
+          * `custom_action` (`dict`) - Custom action to be taken.
+            * `exe` (`str`) - Executable to be run.
+            * `parameters` (`str`) - Parameters for the executable.
 
-      * `host_names` (`list`) - Hostnames associated with the app.
-      * `host_names_disabled` (`bool`) - <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-         If <code>true</code>, the app is only accessible via API management process.
-      * `hosting_environment_profile` (`dict`) - App Service Environment to use for the app.
-        * `id` (`str`) - Resource ID of the App Service Environment.
-        * `name` (`str`) - Name of the App Service Environment.
-        * `type` (`str`) - Resource type of the App Service Environment.
+          * `min_process_execution_time` (`str`) - Minimum time the process must execute
+            before taking the action
 
-      * `https_only` (`bool`) - HttpsOnly: configures a web site to accept only https requests. Issues redirect for
-        http requests
-      * `hyper_v` (`bool`) - Hyper-V sandbox.
-      * `in_progress_operation_id` (`str`) - Specifies an operation id if this site has a pending operation.
-      * `is_default_container` (`bool`) - <code>true</code> if the app is a default container; otherwise, <code>false</code>.
-      * `is_xenon` (`bool`) - Obsolete: Hyper-V sandbox.
-      * `last_modified_time_utc` (`str`) - Last time the app was modified, in UTC. Read-only.
-      * `max_number_of_workers` (`float`) - Maximum number of workers.
-        This only applies to Functions container.
-      * `outbound_ip_addresses` (`str`) - List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.
-      * `possible_outbound_ip_addresses` (`str`) - List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants. Read-only.
-      * `redundancy_mode` (`str`) - Site redundancy mode
-      * `repository_site_name` (`str`) - Name of the repository site.
-      * `reserved` (`bool`) - <code>true</code> if reserved; otherwise, <code>false</code>.
-      * `resource_group` (`str`) - Name of the resource group the app belongs to. Read-only.
-      * `scm_site_also_stopped` (`bool`) - <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
-      * `server_farm_id` (`str`) - Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-      * `site_config` (`dict`) - Configuration of the app.
-        * `always_on` (`bool`) - <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
-        * `api_definition` (`dict`) - Information about the formal API definition for the app.
-          * `url` (`str`) - The URL of the API definition.
+        * `triggers` (`dict`) - Conditions that describe when to execute the auto-heal actions.
+          * `private_bytes_in_kb` (`float`) - A rule based on private bytes.
+          * `requests` (`dict`) - A rule based on total requests.
+            * `count` (`float`) - Request Count.
+            * `time_interval` (`str`) - Time interval.
 
-        * `app_command_line` (`str`) - App command line to launch.
-        * `app_settings` (`list`) - Application settings.
-          * `name` (`str`) - Pair name.
-          * `value` (`str`) - Pair value.
+          * `slow_requests` (`dict`) - A rule based on request execution time.
+            * `count` (`float`) - Request Count.
+            * `time_interval` (`str`) - Time interval.
+            * `time_taken` (`str`) - Time taken.
 
-        * `auto_heal_enabled` (`bool`) - <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
-        * `auto_heal_rules` (`dict`) - Auto Heal rules.
-          * `actions` (`dict`) - Actions to be executed when a rule is triggered.
-            * `action_type` (`str`) - Predefined action to be taken.
-            * `custom_action` (`dict`) - Custom action to be taken.
-              * `exe` (`str`) - Executable to be run.
-              * `parameters` (`str`) - Parameters for the executable.
+          * `status_codes` (`list`) - A rule based on status codes.
+            * `count` (`float`) - Request Count.
+            * `status` (`float`) - HTTP status code.
+            * `sub_status` (`float`) - Request Sub Status.
+            * `time_interval` (`str`) - Time interval.
+            * `win32_status` (`float`) - Win32 error code.
 
-            * `min_process_execution_time` (`str`) - Minimum time the process must execute
-              before taking the action
+      * `auto_swap_slot_name` (`str`) - Auto-swap slot name.
+      * `azure_storage_accounts` (`dict`) - User-provided Azure storage accounts.
+      * `connection_strings` (`list`) - Connection strings.
+        * `connection_string` (`str`) - Connection string value.
+        * `name` (`str`) - Name of connection string.
+        * `type` (`str`) - Type of database.
 
-          * `triggers` (`dict`) - Conditions that describe when to execute the auto-heal actions.
-            * `private_bytes_in_kb` (`float`) - A rule based on private bytes.
-            * `requests` (`dict`) - A rule based on total requests.
-              * `count` (`float`) - Request Count.
-              * `time_interval` (`str`) - Time interval.
+      * `cors` (`dict`) - Cross-Origin Resource Sharing (CORS) settings.
+        * `allowed_origins` (`list`) - Gets or sets the list of origins that should be allowed to make cross-origin
+          calls (for example: http://example.com:12345). Use "*" to allow all.
+        * `support_credentials` (`bool`) - Gets or sets whether CORS requests with credentials are allowed. See 
+          https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+          for more details.
 
-            * `slow_requests` (`dict`) - A rule based on request execution time.
-              * `count` (`float`) - Request Count.
-              * `time_interval` (`str`) - Time interval.
-              * `time_taken` (`str`) - Time taken.
+      * `default_documents` (`list`) - Default documents.
+      * `detailed_error_logging_enabled` (`bool`) - <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+      * `document_root` (`str`) - Document root.
+      * `experiments` (`dict`) - This is work around for polymorphic types.
+        * `ramp_up_rules` (`list`) - List of ramp-up rules.
+          * `action_host_name` (`str`) - Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
+          * `change_decision_callback_url` (`str`) - Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
+            https://www.siteextensions.net/packages/TiPCallback/
+          * `change_interval_in_minutes` (`float`) - Specifies interval in minutes to reevaluate ReroutePercentage.
+          * `change_step` (`float`) - In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches 
+            <code>MinReroutePercentage</code> or <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.
+            Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
+          * `max_reroute_percentage` (`float`) - Specifies upper boundary below which ReroutePercentage will stay.
+          * `min_reroute_percentage` (`float`) - Specifies lower boundary above which ReroutePercentage will stay.
+          * `name` (`str`) - Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+          * `reroute_percentage` (`float`) - Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
 
-            * `status_codes` (`list`) - A rule based on status codes.
-              * `count` (`float`) - Request Count.
-              * `status` (`float`) - HTTP status code.
-              * `sub_status` (`float`) - Request Sub Status.
-              * `time_interval` (`str`) - Time interval.
-              * `win32_status` (`float`) - Win32 error code.
+      * `ftps_state` (`str`) - State of FTP / FTPS service
+      * `handler_mappings` (`list`) - Handler mappings.
+        * `arguments` (`str`) - Command-line arguments to be passed to the script processor.
+        * `extension` (`str`) - Requests with this extension will be handled using the specified FastCGI application.
+        * `script_processor` (`str`) - The absolute path to the FastCGI application.
 
-        * `auto_swap_slot_name` (`str`) - Auto-swap slot name.
-        * `azure_storage_accounts` (`dict`) - User-provided Azure storage accounts.
-        * `connection_strings` (`list`) - Connection strings.
-          * `connection_string` (`str`) - Connection string value.
-          * `name` (`str`) - Name of connection string.
-          * `type` (`str`) - Type of database.
+      * `http20_enabled` (`bool`) - Http20Enabled: configures a web site to allow clients to connect over http2.0
+      * `http_logging_enabled` (`bool`) - <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+      * `ip_security_restrictions` (`list`) - IP security restrictions for main.
+        * `action` (`str`) - Allow or Deny access for this IP range.
+        * `description` (`str`) - IP restriction rule description.
+        * `ip_address` (`str`) - IP address the security restriction is valid for.
+          It can be in form of pure ipv4 address (required SubnetMask property) or
+          CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+          SubnetMask property must not be specified.
+        * `name` (`str`) - IP restriction rule name.
+        * `priority` (`float`) - Priority of IP restriction rule.
+        * `subnet_mask` (`str`) - Subnet mask for the range of IP addresses the restriction is valid for.
+        * `subnet_traffic_tag` (`float`) - (internal) Subnet traffic tag
+        * `tag` (`str`) - Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+        * `vnet_subnet_resource_id` (`str`) - Virtual network resource id
+        * `vnet_traffic_tag` (`float`) - (internal) Vnet traffic tag
 
-        * `cors` (`dict`) - Cross-Origin Resource Sharing (CORS) settings.
-          * `allowed_origins` (`list`) - Gets or sets the list of origins that should be allowed to make cross-origin
-            calls (for example: http://example.com:12345). Use "*" to allow all.
-          * `support_credentials` (`bool`) - Gets or sets whether CORS requests with credentials are allowed. See 
-            https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-            for more details.
+      * `java_container` (`str`) - Java container.
+      * `java_container_version` (`str`) - Java container version.
+      * `java_version` (`str`) - Java version.
+      * `limits` (`dict`) - Site limits.
+        * `max_disk_size_in_mb` (`float`) - Maximum allowed disk size usage in MB.
+        * `max_memory_in_mb` (`float`) - Maximum allowed memory usage in MB.
+        * `max_percentage_cpu` (`float`) - Maximum allowed CPU usage percentage.
 
-        * `default_documents` (`list`) - Default documents.
-        * `detailed_error_logging_enabled` (`bool`) - <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
-        * `document_root` (`str`) - Document root.
-        * `experiments` (`dict`) - This is work around for polymorphic types.
-          * `ramp_up_rules` (`list`) - List of ramp-up rules.
-            * `action_host_name` (`str`) - Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
-            * `change_decision_callback_url` (`str`) - Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-              https://www.siteextensions.net/packages/TiPCallback/
-            * `change_interval_in_minutes` (`float`) - Specifies interval in minutes to reevaluate ReroutePercentage.
-            * `change_step` (`float`) - In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches 
-              <code>MinReroutePercentage</code> or <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.
-              Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
-            * `max_reroute_percentage` (`float`) - Specifies upper boundary below which ReroutePercentage will stay.
-            * `min_reroute_percentage` (`float`) - Specifies lower boundary above which ReroutePercentage will stay.
-            * `name` (`str`) - Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
-            * `reroute_percentage` (`float`) - Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
+      * `linux_fx_version` (`str`) - Linux App Framework and version
+      * `load_balancing` (`str`) - Site load balancing.
+      * `local_my_sql_enabled` (`bool`) - <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+      * `logs_directory_size_limit` (`float`) - HTTP logs directory size limit.
+      * `machine_key` (`dict`) - Site MachineKey.
+        * `decryption` (`str`) - Algorithm used for decryption.
+        * `decryption_key` (`str`) - Decryption key.
+        * `validation` (`str`) - MachineKey validation.
+        * `validation_key` (`str`) - Validation key.
 
-        * `ftps_state` (`str`) - State of FTP / FTPS service
-        * `handler_mappings` (`list`) - Handler mappings.
-          * `arguments` (`str`) - Command-line arguments to be passed to the script processor.
-          * `extension` (`str`) - Requests with this extension will be handled using the specified FastCGI application.
-          * `script_processor` (`str`) - The absolute path to the FastCGI application.
+      * `managed_pipeline_mode` (`str`) - Managed pipeline mode.
+      * `managed_service_identity_id` (`float`) - Managed Service Identity Id
+      * `min_tls_version` (`str`) - MinTlsVersion: configures the minimum version of TLS required for SSL requests
+      * `net_framework_version` (`str`) - .NET Framework version.
+      * `node_version` (`str`) - Version of Node.js.
+      * `number_of_workers` (`float`) - Number of workers.
+      * `php_version` (`str`) - Version of PHP.
+      * `publishing_username` (`str`) - Publishing user name.
+      * `push` (`dict`) - Push endpoint settings.
+        * `dynamic_tags_json` (`str`) - Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+        * `id` (`str`) - Resource Id.
+        * `is_push_enabled` (`bool`) - Gets or sets a flag indicating whether the Push endpoint is enabled.
+        * `kind` (`str`) - Kind of resource.
+        * `name` (`str`) - Resource Name.
+        * `tag_whitelist_json` (`str`) - Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        * `tags_requiring_auth` (`str`) - Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+          Tags can consist of alphanumeric characters and the following:
+          '_', '@', '#', '.', ':', '-'. 
+          Validation should be performed at the PushRequestHandler.
+        * `type` (`str`) - Resource type.
 
-        * `http20_enabled` (`bool`) - Http20Enabled: configures a web site to allow clients to connect over http2.0
-        * `http_logging_enabled` (`bool`) - <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-        * `ip_security_restrictions` (`list`) - IP security restrictions for main.
-          * `action` (`str`) - Allow or Deny access for this IP range.
-          * `description` (`str`) - IP restriction rule description.
-          * `ip_address` (`str`) - IP address the security restriction is valid for.
-            It can be in form of pure ipv4 address (required SubnetMask property) or
-            CIDR notation such as ipv4/mask (leading bit match). For CIDR,
-            SubnetMask property must not be specified.
-          * `name` (`str`) - IP restriction rule name.
-          * `priority` (`float`) - Priority of IP restriction rule.
-          * `subnet_mask` (`str`) - Subnet mask for the range of IP addresses the restriction is valid for.
-          * `subnet_traffic_tag` (`float`) - (internal) Subnet traffic tag
-          * `tag` (`str`) - Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-          * `vnet_subnet_resource_id` (`str`) - Virtual network resource id
-          * `vnet_traffic_tag` (`float`) - (internal) Vnet traffic tag
-
-        * `java_container` (`str`) - Java container.
-        * `java_container_version` (`str`) - Java container version.
-        * `java_version` (`str`) - Java version.
-        * `limits` (`dict`) - Site limits.
-          * `max_disk_size_in_mb` (`float`) - Maximum allowed disk size usage in MB.
-          * `max_memory_in_mb` (`float`) - Maximum allowed memory usage in MB.
-          * `max_percentage_cpu` (`float`) - Maximum allowed CPU usage percentage.
-
-        * `linux_fx_version` (`str`) - Linux App Framework and version
-        * `load_balancing` (`str`) - Site load balancing.
-        * `local_my_sql_enabled` (`bool`) - <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
-        * `logs_directory_size_limit` (`float`) - HTTP logs directory size limit.
-        * `machine_key` (`dict`) - Site MachineKey.
-          * `decryption` (`str`) - Algorithm used for decryption.
-          * `decryption_key` (`str`) - Decryption key.
-          * `validation` (`str`) - MachineKey validation.
-          * `validation_key` (`str`) - Validation key.
-
-        * `managed_pipeline_mode` (`str`) - Managed pipeline mode.
-        * `managed_service_identity_id` (`float`) - Managed Service Identity Id
-        * `min_tls_version` (`str`) - MinTlsVersion: configures the minimum version of TLS required for SSL requests
-        * `net_framework_version` (`str`) - .NET Framework version.
-        * `node_version` (`str`) - Version of Node.js.
-        * `number_of_workers` (`float`) - Number of workers.
-        * `php_version` (`str`) - Version of PHP.
-        * `publishing_username` (`str`) - Publishing user name.
-        * `push` (`dict`) - Push endpoint settings.
-          * `id` (`str`) - Resource Id.
-          * `kind` (`str`) - Kind of resource.
-          * `name` (`str`) - Resource Name.
-          * `properties` (`dict`) - PushSettings resource specific properties
-            * `dynamic_tags_json` (`str`) - Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-            * `is_push_enabled` (`bool`) - Gets or sets a flag indicating whether the Push endpoint is enabled.
-            * `tag_whitelist_json` (`str`) - Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-            * `tags_requiring_auth` (`str`) - Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-              Tags can consist of alphanumeric characters and the following:
-              '_', '@', '#', '.', ':', '-'. 
-              Validation should be performed at the PushRequestHandler.
-
-          * `type` (`str`) - Resource type.
-
-        * `python_version` (`str`) - Version of Python.
-        * `remote_debugging_enabled` (`bool`) - <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
-        * `remote_debugging_version` (`str`) - Remote debugging version.
-        * `request_tracing_enabled` (`bool`) - <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
-        * `request_tracing_expiration_time` (`str`) - Request tracing expiration time.
-        * `reserved_instance_count` (`float`) - Number of reserved instances.
-          This setting only applies to the Consumption Plan
-        * `scm_ip_security_restrictions` (`list`) - IP security restrictions for scm.
-        * `scm_ip_security_restrictions_use_main` (`bool`) - IP security restrictions for scm to use main.
-        * `scm_type` (`str`) - SCM type.
-        * `tracing_options` (`str`) - Tracing options.
-        * `use32_bit_worker_process` (`bool`) - <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-        * `virtual_applications` (`list`) - Virtual applications.
+      * `python_version` (`str`) - Version of Python.
+      * `remote_debugging_enabled` (`bool`) - <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+      * `remote_debugging_version` (`str`) - Remote debugging version.
+      * `request_tracing_enabled` (`bool`) - <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+      * `request_tracing_expiration_time` (`str`) - Request tracing expiration time.
+      * `reserved_instance_count` (`float`) - Number of reserved instances.
+        This setting only applies to the Consumption Plan
+      * `scm_ip_security_restrictions` (`list`) - IP security restrictions for scm.
+      * `scm_ip_security_restrictions_use_main` (`bool`) - IP security restrictions for scm to use main.
+      * `scm_type` (`str`) - SCM type.
+      * `tracing_options` (`str`) - Tracing options.
+      * `use32_bit_worker_process` (`bool`) - <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+      * `virtual_applications` (`list`) - Virtual applications.
+        * `physical_path` (`str`) - Physical path.
+        * `preload_enabled` (`bool`) - <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+        * `virtual_directories` (`list`) - Virtual directories for virtual application.
           * `physical_path` (`str`) - Physical path.
-          * `preload_enabled` (`bool`) - <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-          * `virtual_directories` (`list`) - Virtual directories for virtual application.
-            * `physical_path` (`str`) - Physical path.
-            * `virtual_path` (`str`) - Path to virtual application.
+          * `virtual_path` (`str`) - Path to virtual application.
 
-          * `virtual_path` (`str`) - Virtual path.
+        * `virtual_path` (`str`) - Virtual path.
 
-        * `vnet_name` (`str`) - Virtual Network name.
-        * `web_sockets_enabled` (`bool`) - <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
-        * `windows_fx_version` (`str`) - Xenon App Framework and version
-        * `x_managed_service_identity_id` (`float`) - Explicit Managed Service Identity Id
-
-      * `slot_swap_status` (`dict`) - Status of the last deployment slot swap operation.
-        * `destination_slot_name` (`str`) - The destination slot of the last swap operation.
-        * `source_slot_name` (`str`) - The source slot of the last swap operation.
-        * `timestamp_utc` (`str`) - The time the last successful slot swap completed.
-
-      * `state` (`str`) - Current state of the app.
-      * `suspended_till` (`str`) - App suspended till in case memory-time quota is exceeded.
-      * `target_swap_slot` (`str`) - Specifies which deployment slot this app will swap into. Read-only.
-      * `traffic_manager_host_names` (`list`) - Azure Traffic Manager hostnames associated with the app. Read-only.
-      * `usage_state` (`str`) - State indicating whether the app has exceeded its quota usage. Read-only.
+      * `vnet_name` (`str`) - Virtual Network name.
+      * `web_sockets_enabled` (`bool`) - <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+      * `windows_fx_version` (`str`) - Xenon App Framework and version
+      * `x_managed_service_identity_id` (`float`) - Explicit Managed Service Identity Id
+    """
+    slot_swap_status: pulumi.Output[dict]
+    """
+    Status of the last deployment slot swap operation.
+      * `destination_slot_name` (`str`) - The destination slot of the last swap operation.
+      * `source_slot_name` (`str`) - The source slot of the last swap operation.
+      * `timestamp_utc` (`str`) - The time the last successful slot swap completed.
+    """
+    state: pulumi.Output[str]
+    """
+    Current state of the app.
+    """
+    suspended_till: pulumi.Output[str]
+    """
+    App suspended till in case memory-time quota is exceeded.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags.
     """
+    target_swap_slot: pulumi.Output[str]
+    """
+    Specifies which deployment slot this app will swap into. Read-only.
+    """
+    traffic_manager_host_names: pulumi.Output[list]
+    """
+    Azure Traffic Manager hostnames associated with the app. Read-only.
+    """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    usage_state: pulumi.Output[str]
+    """
+    State indicating whether the app has exceeded its quota usage. Read-only.
     """
     def __init__(__self__, resource_name, opts=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, cloning_info=None, container_size=None, daily_memory_time_quota=None, enabled=None, geo_distributions=None, host_name_ssl_states=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, identity=None, is_xenon=None, kind=None, location=None, name=None, redundancy_mode=None, reserved=None, resource_group_name=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -550,8 +649,25 @@ class WebApp(pulumi.CustomResource):
             __props__['server_farm_id'] = server_farm_id
             __props__['site_config'] = site_config
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['availability_state'] = None
+            __props__['default_host_name'] = None
+            __props__['enabled_host_names'] = None
+            __props__['host_names'] = None
+            __props__['in_progress_operation_id'] = None
+            __props__['is_default_container'] = None
+            __props__['last_modified_time_utc'] = None
+            __props__['max_number_of_workers'] = None
+            __props__['outbound_ip_addresses'] = None
+            __props__['possible_outbound_ip_addresses'] = None
+            __props__['repository_site_name'] = None
+            __props__['resource_group'] = None
+            __props__['slot_swap_status'] = None
+            __props__['state'] = None
+            __props__['suspended_till'] = None
+            __props__['target_swap_slot'] = None
+            __props__['traffic_manager_host_names'] = None
             __props__['type'] = None
+            __props__['usage_state'] = None
         super(WebApp, __self__).__init__(
             'azurerm:web/v20181101:WebApp',
             resource_name,

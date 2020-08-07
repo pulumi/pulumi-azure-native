@@ -13,24 +13,60 @@ class GetViewResult:
     """
     The view resource format.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, changed=None, created=None, definition=None, display_name=None, name=None, tenant_id=None, type=None, user_id=None, view_name=None):
+        if changed and not isinstance(changed, str):
+            raise TypeError("Expected argument 'changed' to be a str")
+        __self__.changed = changed
+        """
+        Date time when view was last modified.
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        Date time when view was created.
+        """
+        if definition and not isinstance(definition, str):
+            raise TypeError("Expected argument 'definition' to be a str")
+        __self__.definition = definition
+        """
+        View definition.
+        """
+        if display_name and not isinstance(display_name, dict):
+            raise TypeError("Expected argument 'display_name' to be a dict")
+        __self__.display_name = display_name
+        """
+        Localized display name for the view.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
         """
-        The view in Customer 360 web application.
+        the hub name.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if user_id and not isinstance(user_id, str):
+            raise TypeError("Expected argument 'user_id' to be a str")
+        __self__.user_id = user_id
+        """
+        the user ID.
+        """
+        if view_name and not isinstance(view_name, str):
+            raise TypeError("Expected argument 'view_name' to be a str")
+        __self__.view_name = view_name
+        """
+        Name of the view.
         """
 
 
@@ -40,9 +76,15 @@ class AwaitableGetViewResult(GetViewResult):
         if False:
             yield self
         return GetViewResult(
+            changed=self.changed,
+            created=self.created,
+            definition=self.definition,
+            display_name=self.display_name,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            tenant_id=self.tenant_id,
+            type=self.type,
+            user_id=self.user_id,
+            view_name=self.view_name)
 
 
 def get_view(hub_name=None, name=None, resource_group_name=None, user_id=None, opts=None):
@@ -66,6 +108,12 @@ def get_view(hub_name=None, name=None, resource_group_name=None, user_id=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:customerinsights/v20170101:getView', __args__, opts=opts).value
 
     return AwaitableGetViewResult(
+        changed=__ret__.get('changed'),
+        created=__ret__.get('created'),
+        definition=__ret__.get('definition'),
+        display_name=__ret__.get('displayName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        tenant_id=__ret__.get('tenantId'),
+        type=__ret__.get('type'),
+        user_id=__ret__.get('userId'),
+        view_name=__ret__.get('viewName'))

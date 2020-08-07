@@ -41,6 +41,10 @@ export interface GetServiceEndpointPolicyDefinitionArgs {
  */
 export interface GetServiceEndpointPolicyDefinitionResult {
     /**
+     * A description for this rule. Restricted to 140 chars.
+     */
+    readonly description?: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -49,7 +53,15 @@ export interface GetServiceEndpointPolicyDefinitionResult {
      */
     readonly name?: string;
     /**
-     * Properties of the service endpoint policy definition.
+     * The provisioning state of the service endpoint policy definition resource.
      */
-    readonly properties: outputs.network.v20200301.ServiceEndpointPolicyDefinitionPropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * Service endpoint name.
+     */
+    readonly service?: string;
+    /**
+     * A list of service resources.
+     */
+    readonly serviceResources?: string[];
 }

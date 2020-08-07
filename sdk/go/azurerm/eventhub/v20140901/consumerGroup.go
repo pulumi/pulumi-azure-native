@@ -14,14 +14,20 @@ import (
 type ConsumerGroup struct {
 	pulumi.CustomResourceState
 
+	// Exact time the message was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The path of the Event Hub.
+	EventHubPath pulumi.StringOutput `pulumi:"eventHubPath"`
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties supplied to the Create Or Update Consumer Group operation.
-	Properties ConsumerGroupPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// The user metadata.
+	UserMetadata pulumi.StringPtrOutput `pulumi:"userMetadata"`
 }
 
 // NewConsumerGroup registers a new resource with the given unique name, arguments, and options.
@@ -67,25 +73,37 @@ func GetConsumerGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConsumerGroup resources.
 type consumerGroupState struct {
+	// Exact time the message was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The path of the Event Hub.
+	EventHubPath *string `pulumi:"eventHubPath"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties supplied to the Create Or Update Consumer Group operation.
-	Properties *ConsumerGroupPropertiesResponse `pulumi:"properties"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
+	// The user metadata.
+	UserMetadata *string `pulumi:"userMetadata"`
 }
 
 type ConsumerGroupState struct {
+	// Exact time the message was created.
+	CreatedAt pulumi.StringPtrInput
+	// The path of the Event Hub.
+	EventHubPath pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties supplied to the Create Or Update Consumer Group operation.
-	Properties ConsumerGroupPropertiesResponsePtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The exact time the message was updated.
+	UpdatedAt pulumi.StringPtrInput
+	// The user metadata.
+	UserMetadata pulumi.StringPtrInput
 }
 
 func (ConsumerGroupState) ElementType() reflect.Type {

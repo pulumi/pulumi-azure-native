@@ -27,10 +27,22 @@ namespace Pulumi.AzureRM.Network.V20190601
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the firewall policy rule group.
+        /// Priority of the Firewall Policy Rule Group resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FirewallPolicyRuleGroupPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("priority")]
+        public Output<int?> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Group of Firewall Policy rules.
+        /// </summary>
+        [Output("rules")]
+        public Output<ImmutableArray<Outputs.FirewallPolicyRuleResponseResult>> Rules { get; private set; } = null!;
 
         /// <summary>
         /// Rule Group type.

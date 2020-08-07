@@ -40,9 +40,29 @@ namespace Pulumi.AzureRM.Network.V20190901
     public sealed class GetAzureFirewallResult
     {
         /// <summary>
+        /// The additional properties used to further config this azure firewall.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? AdditionalProperties;
+        /// <summary>
+        /// Collection of application rule collections used by Azure Firewall.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> ApplicationRuleCollections;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The firewallPolicy associated with this azure firewall.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FirewallPolicy;
+        /// <summary>
+        /// IP addresses associated with AzureFirewall.
+        /// </summary>
+        public readonly Outputs.HubIPAddressesResponseResult HubIpAddresses;
+        /// <summary>
+        /// IP configuration of the Azure Firewall resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,17 +72,37 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the azure firewall.
+        /// Collection of NAT rule collections used by Azure Firewall.
         /// </summary>
-        public readonly Outputs.AzureFirewallPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponseResult> NatRuleCollections;
+        /// <summary>
+        /// Collection of network rule collections used by Azure Firewall.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult> NetworkRuleCollections;
+        /// <summary>
+        /// The provisioning state of the Azure firewall resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The Azure Firewall Resource SKU.
+        /// </summary>
+        public readonly Outputs.AzureFirewallSkuResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The operation mode for Threat Intelligence.
+        /// </summary>
+        public readonly string? ThreatIntelMode;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The virtualHub to which the firewall belongs.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualHub;
         /// <summary>
         /// A list of availability zones denoting where the resource needs to come from.
         /// </summary>
@@ -70,26 +110,56 @@ namespace Pulumi.AzureRM.Network.V20190901
 
         [OutputConstructor]
         private GetAzureFirewallResult(
+            ImmutableDictionary<string, string>? additionalProperties,
+
+            ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> applicationRuleCollections,
+
             string etag,
+
+            Outputs.SubResourceResponseResult? firewallPolicy,
+
+            Outputs.HubIPAddressesResponseResult hubIpAddresses,
+
+            ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult> ipConfigurations,
 
             string? location,
 
             string name,
 
-            Outputs.AzureFirewallPropertiesFormatResponseResult properties,
+            ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponseResult> natRuleCollections,
+
+            ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult> networkRuleCollections,
+
+            string provisioningState,
+
+            Outputs.AzureFirewallSkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? threatIntelMode,
+
             string type,
+
+            Outputs.SubResourceResponseResult? virtualHub,
 
             ImmutableArray<string> zones)
         {
+            AdditionalProperties = additionalProperties;
+            ApplicationRuleCollections = applicationRuleCollections;
             Etag = etag;
+            FirewallPolicy = firewallPolicy;
+            HubIpAddresses = hubIpAddresses;
+            IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
-            Properties = properties;
+            NatRuleCollections = natRuleCollections;
+            NetworkRuleCollections = networkRuleCollections;
+            ProvisioningState = provisioningState;
+            Sku = sku;
             Tags = tags;
+            ThreatIntelMode = threatIntelMode;
             Type = type;
+            VirtualHub = virtualHub;
             Zones = zones;
         }
     }

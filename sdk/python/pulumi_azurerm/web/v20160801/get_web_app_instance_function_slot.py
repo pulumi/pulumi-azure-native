@@ -13,7 +13,37 @@ class GetWebAppInstanceFunctionSlotResult:
     """
     Web Job Information.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, config=None, config_href=None, files=None, function_app_id=None, href=None, kind=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, test_data=None, type=None):
+        if config and not isinstance(config, dict):
+            raise TypeError("Expected argument 'config' to be a dict")
+        __self__.config = config
+        """
+        Config information.
+        """
+        if config_href and not isinstance(config_href, str):
+            raise TypeError("Expected argument 'config_href' to be a str")
+        __self__.config_href = config_href
+        """
+        Config URI.
+        """
+        if files and not isinstance(files, dict):
+            raise TypeError("Expected argument 'files' to be a dict")
+        __self__.files = files
+        """
+        File list.
+        """
+        if function_app_id and not isinstance(function_app_id, str):
+            raise TypeError("Expected argument 'function_app_id' to be a str")
+        __self__.function_app_id = function_app_id
+        """
+        Function App ID.
+        """
+        if href and not isinstance(href, str):
+            raise TypeError("Expected argument 'href' to be a str")
+        __self__.href = href
+        """
+        Function URI.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +56,29 @@ class GetWebAppInstanceFunctionSlotResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if script_href and not isinstance(script_href, str):
+            raise TypeError("Expected argument 'script_href' to be a str")
+        __self__.script_href = script_href
         """
-        FunctionEnvelope resource specific properties
+        Script URI.
+        """
+        if script_root_path_href and not isinstance(script_root_path_href, str):
+            raise TypeError("Expected argument 'script_root_path_href' to be a str")
+        __self__.script_root_path_href = script_root_path_href
+        """
+        Script root path URI.
+        """
+        if secrets_file_href and not isinstance(secrets_file_href, str):
+            raise TypeError("Expected argument 'secrets_file_href' to be a str")
+        __self__.secrets_file_href = secrets_file_href
+        """
+        Secrets file URI.
+        """
+        if test_data and not isinstance(test_data, str):
+            raise TypeError("Expected argument 'test_data' to be a str")
+        __self__.test_data = test_data
+        """
+        Test data used when testing via the Azure Portal.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +94,17 @@ class AwaitableGetWebAppInstanceFunctionSlotResult(GetWebAppInstanceFunctionSlot
         if False:
             yield self
         return GetWebAppInstanceFunctionSlotResult(
+            config=self.config,
+            config_href=self.config_href,
+            files=self.files,
+            function_app_id=self.function_app_id,
+            href=self.href,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            script_href=self.script_href,
+            script_root_path_href=self.script_root_path_href,
+            secrets_file_href=self.secrets_file_href,
+            test_data=self.test_data,
             type=self.type)
 
 
@@ -71,7 +127,15 @@ def get_web_app_instance_function_slot(name=None, resource_group_name=None, slot
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20160801:getWebAppInstanceFunctionSlot', __args__, opts=opts).value
 
     return AwaitableGetWebAppInstanceFunctionSlotResult(
+        config=__ret__.get('config'),
+        config_href=__ret__.get('configHref'),
+        files=__ret__.get('files'),
+        function_app_id=__ret__.get('functionAppId'),
+        href=__ret__.get('href'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        script_href=__ret__.get('scriptHref'),
+        script_root_path_href=__ret__.get('scriptRootPathHref'),
+        secrets_file_href=__ret__.get('secretsFileHref'),
+        test_data=__ret__.get('testData'),
         type=__ret__.get('type'))

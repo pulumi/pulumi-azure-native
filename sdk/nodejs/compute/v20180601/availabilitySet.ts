@@ -45,13 +45,25 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The instance view of a resource.
+     * Fault Domain count.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180601.AvailabilitySetPropertiesResponse>;
+    public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
+    /**
+     * Update Domain count.
+     */
+    public readonly platformUpdateDomainCount!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+     */
+    public readonly proximityPlacementGroup!: pulumi.Output<outputs.compute.v20180601.SubResourceResponse | undefined>;
     /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */
     public readonly sku!: pulumi.Output<outputs.compute.v20180601.SkuResponse | undefined>;
+    /**
+     * The resource status information.
+     */
+    public /*out*/ readonly statuses!: pulumi.Output<outputs.compute.v20180601.InstanceViewStatusResponse[]>;
     /**
      * Resource tags
      */
@@ -60,6 +72,10 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A list of references to all virtual machines in the availability set.
+     */
+    public readonly virtualMachines!: pulumi.Output<outputs.compute.v20180601.SubResourceResponse[] | undefined>;
 
     /**
      * Create a AvailabilitySet resource with the given unique name, arguments, and options.
@@ -92,7 +108,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["statuses"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

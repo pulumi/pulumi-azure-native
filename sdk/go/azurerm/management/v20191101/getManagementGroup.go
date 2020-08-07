@@ -23,10 +23,20 @@ type LookupManagementGroupArgs struct {
 
 // The management group details.
 type LookupManagementGroupResult struct {
+	// The list of children.
+	Children []ManagementGroupChildInfoResponse `pulumi:"children"`
+	// The details of a management group.
+	Details *ManagementGroupDetailsResponse `pulumi:"details"`
+	// The friendly name of the management group.
+	DisplayName *string `pulumi:"displayName"`
 	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
 	Name string `pulumi:"name"`
-	// The generic properties of a management group.
-	Properties ManagementGroupPropertiesResponse `pulumi:"properties"`
+	// The hierarchial path from the root group to the current group.
+	Path []ManagementGroupPathElementResponse `pulumi:"path"`
+	// The role definitions associated with the management group.
+	Roles []string `pulumi:"roles"`
+	// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+	TenantId *string `pulumi:"tenantId"`
 	// The type of the resource.  For example, Microsoft.Management/managementGroups
 	Type string `pulumi:"type"`
 }

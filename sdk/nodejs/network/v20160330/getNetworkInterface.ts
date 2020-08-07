@@ -36,21 +36,49 @@ export interface GetNetworkInterfaceArgs {
  */
 export interface GetNetworkInterfaceResult {
     /**
+     * Gets or sets DNS Settings in  NetworkInterface
+     */
+    readonly dnsSettings?: outputs.network.v20160330.NetworkInterfaceDnsSettingsResponse;
+    /**
+     * Gets or sets whether IPForwarding is enabled on the NIC
+     */
+    readonly enableIPForwarding?: boolean;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: string;
+    /**
+     * Gets or sets list of IPConfigurations of the NetworkInterface
+     */
+    readonly ipConfigurations?: outputs.network.v20160330.NetworkInterfaceIPConfigurationResponse[];
     /**
      * Resource location
      */
     readonly location?: string;
     /**
+     * Gets the MAC Address of the network interface
+     */
+    readonly macAddress?: string;
+    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * NetworkInterface properties. 
+     * Gets or sets the reference of the NetworkSecurityGroup resource
      */
-    readonly properties: outputs.network.v20160330.NetworkInterfacePropertiesFormatResponse;
+    readonly networkSecurityGroup?: outputs.network.v20160330.NetworkSecurityGroupResponse;
+    /**
+     * Gets whether this is a primary NIC on a virtual machine
+     */
+    readonly primary?: boolean;
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: string;
+    /**
+     * Gets or sets resource GUID property of the network interface resource
+     */
+    readonly resourceGuid?: string;
     /**
      * Resource tags
      */
@@ -59,4 +87,8 @@ export interface GetNetworkInterfaceResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Gets or sets the reference of a VirtualMachine
+     */
+    readonly virtualMachine?: outputs.network.v20160330.SubResourceResponse;
 }

@@ -37,9 +37,33 @@ export class PublicIPAddress extends pulumi.CustomResource {
     }
 
     /**
+     * The DDoS protection custom policy associated with the public IP address.
+     */
+    public readonly ddosSettings!: pulumi.Output<outputs.network.v20200301.DdosSettingsResponse | undefined>;
+    /**
+     * The FQDN of the DNS record associated with the public IP address.
+     */
+    public readonly dnsSettings!: pulumi.Output<outputs.network.v20200301.PublicIPAddressDnsSettingsResponse | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The idle timeout of the public IP address.
+     */
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * The IP address associated with the public IP address resource.
+     */
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
+    /**
+     * The IP configuration associated with the public IP address.
+     */
+    public /*out*/ readonly ipConfiguration!: pulumi.Output<outputs.network.v20200301.IPConfigurationResponse>;
+    /**
+     * The list of tags associated with the public IP address.
+     */
+    public readonly ipTags!: pulumi.Output<outputs.network.v20200301.IpTagResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +73,25 @@ export class PublicIPAddress extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Public IP address properties.
+     * The provisioning state of the public IP address resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200301.PublicIPAddressPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The public IP address version.
+     */
+    public readonly publicIPAddressVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The public IP address allocation method.
+     */
+    public readonly publicIPAllocationMethod!: pulumi.Output<string | undefined>;
+    /**
+     * The Public IP Prefix this Public IP Address should be allocated from.
+     */
+    public readonly publicIPPrefix!: pulumi.Output<outputs.network.v20200301.SubResourceResponse | undefined>;
+    /**
+     * The resource GUID property of the public IP address resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * The public IP address SKU.
      */
@@ -104,7 +144,9 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ipConfiguration"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

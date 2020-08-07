@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public partial class BlobContainerImmutabilityPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        /// </summary>
+        [Output("allowProtectedAppendWrites")]
+        public Output<bool?> AllowProtectedAppendWrites { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The immutability period for the blobs in the container since the policy creation, in days.
+        /// </summary>
+        [Output("immutabilityPeriodSinceCreationInDays")]
+        public Output<int?> ImmutabilityPeriodSinceCreationInDays { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -27,10 +39,10 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of an ImmutabilityPolicy of a blob container.
+        /// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ImmutabilityPolicyPropertyResponseResult> Properties { get; private set; } = null!;
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

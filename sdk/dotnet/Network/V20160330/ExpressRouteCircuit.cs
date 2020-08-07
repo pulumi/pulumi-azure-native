@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Network.V20160330
     public partial class ExpressRouteCircuit : Pulumi.CustomResource
     {
         /// <summary>
+        /// allow classic operations
+        /// </summary>
+        [Output("allowClassicOperations")]
+        public Output<bool?> AllowClassicOperations { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets list of authorizations
+        /// </summary>
+        [Output("authorizations")]
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets CircuitProvisioningState state of the resource 
+        /// </summary>
+        [Output("circuitProvisioningState")]
+        public Output<string?> CircuitProvisioningState { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
@@ -33,10 +51,40 @@ namespace Pulumi.AzureRM.Network.V20160330
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of ExpressRouteCircuit
+        /// Gets or sets list of peerings
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peerings")]
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult>> Peerings { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets ServiceKey
+        /// </summary>
+        [Output("serviceKey")]
+        public Output<string?> ServiceKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets ServiceProviderNotes
+        /// </summary>
+        [Output("serviceProviderNotes")]
+        public Output<string?> ServiceProviderNotes { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets ServiceProviderProperties
+        /// </summary>
+        [Output("serviceProviderProperties")]
+        public Output<Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult?> ServiceProviderProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets ServiceProviderProvisioningState state of the resource 
+        /// </summary>
+        [Output("serviceProviderProvisioningState")]
+        public Output<string?> ServiceProviderProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets sku

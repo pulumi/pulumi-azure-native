@@ -46,17 +46,50 @@ namespace Pulumi.AzureRM.Network.V20181101
     public sealed class GetP2sVpnServerConfigurationResult
     {
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
+        /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         /// </summary>
         public readonly string? Name;
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> P2SVpnGateways;
         /// <summary>
-        /// Parameters for P2SVpnServerConfiguration
+        /// Radius client root certificate of P2SVpnServerConfiguration.
         /// </summary>
-        public readonly Outputs.P2SVpnServerConfigurationPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateResponseResult> P2SVpnServerConfigRadiusClientRootCertificates;
+        /// <summary>
+        /// Radius Server root certificate of P2SVpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateResponseResult> P2SVpnServerConfigRadiusServerRootCertificates;
+        /// <summary>
+        /// VPN client revoked certificate of P2SVpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponseResult> P2SVpnServerConfigVpnClientRevokedCertificates;
+        /// <summary>
+        /// VPN client root certificate of P2SVpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateResponseResult> P2SVpnServerConfigVpnClientRootCertificates;
+        /// <summary>
+        /// The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+        /// </summary>
+        public readonly string? RadiusServerAddress;
+        /// <summary>
+        /// The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
+        /// </summary>
+        public readonly string? RadiusServerSecret;
+        /// <summary>
+        /// VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpsecPolicyResponseResult> VpnClientIpsecPolicies;
+        /// <summary>
+        /// vpnProtocols for the P2SVpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<string> VpnProtocols;
 
         [OutputConstructor]
         private GetP2sVpnServerConfigurationResult(
@@ -64,11 +97,38 @@ namespace Pulumi.AzureRM.Network.V20181101
 
             string? name,
 
-            Outputs.P2SVpnServerConfigurationPropertiesResponseResult properties)
+            ImmutableArray<Outputs.SubResourceResponseResult> p2SVpnGateways,
+
+            ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateResponseResult> p2SVpnServerConfigRadiusClientRootCertificates,
+
+            ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateResponseResult> p2SVpnServerConfigRadiusServerRootCertificates,
+
+            ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponseResult> p2SVpnServerConfigVpnClientRevokedCertificates,
+
+            ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateResponseResult> p2SVpnServerConfigVpnClientRootCertificates,
+
+            string provisioningState,
+
+            string? radiusServerAddress,
+
+            string? radiusServerSecret,
+
+            ImmutableArray<Outputs.IpsecPolicyResponseResult> vpnClientIpsecPolicies,
+
+            ImmutableArray<string> vpnProtocols)
         {
             Etag = etag;
             Name = name;
-            Properties = properties;
+            P2SVpnGateways = p2SVpnGateways;
+            P2SVpnServerConfigRadiusClientRootCertificates = p2SVpnServerConfigRadiusClientRootCertificates;
+            P2SVpnServerConfigRadiusServerRootCertificates = p2SVpnServerConfigRadiusServerRootCertificates;
+            P2SVpnServerConfigVpnClientRevokedCertificates = p2SVpnServerConfigVpnClientRevokedCertificates;
+            P2SVpnServerConfigVpnClientRootCertificates = p2SVpnServerConfigVpnClientRootCertificates;
+            ProvisioningState = provisioningState;
+            RadiusServerAddress = radiusServerAddress;
+            RadiusServerSecret = radiusServerSecret;
+            VpnClientIpsecPolicies = vpnClientIpsecPolicies;
+            VpnProtocols = vpnProtocols;
         }
     }
 }

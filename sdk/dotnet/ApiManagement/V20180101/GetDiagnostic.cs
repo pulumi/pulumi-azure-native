@@ -46,13 +46,13 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetDiagnosticResult
     {
         /// <summary>
+        /// Indicates whether a diagnostic should receive data or not.
+        /// </summary>
+        public readonly bool Enabled;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Diagnostic entity contract properties.
-        /// </summary>
-        public readonly Outputs.DiagnosticContractPropertiesResponseResult Properties;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +60,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 
         [OutputConstructor]
         private GetDiagnosticResult(
-            string name,
+            bool enabled,
 
-            Outputs.DiagnosticContractPropertiesResponseResult properties,
+            string name,
 
             string type)
         {
+            Enabled = enabled;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

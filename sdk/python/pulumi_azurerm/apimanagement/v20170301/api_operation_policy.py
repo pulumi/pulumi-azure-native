@@ -14,10 +14,9 @@ class ApiOperationPolicy(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    policy_content: pulumi.Output[str]
     """
-    Properties of the Policy.
-      * `policy_content` (`str`) - Json escaped Xml Encoded contents of the Policy.
+    Json escaped Xml Encoded contents of the Policy.
     """
     type: pulumi.Output[str]
     """
@@ -71,7 +70,6 @@ class ApiOperationPolicy(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiOperationPolicy, __self__).__init__(
             'azurerm:apimanagement/v20170301:ApiOperationPolicy',

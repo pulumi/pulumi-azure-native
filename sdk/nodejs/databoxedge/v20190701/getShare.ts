@@ -41,15 +41,51 @@ export interface GetShareArgs {
  */
 export interface GetShareResult {
     /**
+     * Access protocol to be used by the share.
+     */
+    readonly accessProtocol: string;
+    /**
+     * Azure container mapping for the share.
+     */
+    readonly azureContainerInfo?: outputs.databoxedge.v20190701.AzureContainerInfoResponse;
+    /**
+     * List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+     */
+    readonly clientAccessRights?: outputs.databoxedge.v20190701.ClientAccessRightResponse[];
+    /**
+     * Data policy of the share.
+     */
+    readonly dataPolicy?: string;
+    /**
+     * Description for the share.
+     */
+    readonly description?: string;
+    /**
+     * Current monitoring status of the share.
+     */
+    readonly monitoringStatus: string;
+    /**
      * The object name.
      */
     readonly name: string;
     /**
-     * The share properties.
+     * Details of the refresh job on this share.
      */
-    readonly properties: outputs.databoxedge.v20190701.SharePropertiesResponse;
+    readonly refreshDetails?: outputs.databoxedge.v20190701.RefreshDetailsResponse;
+    /**
+     * Share mount point to the role.
+     */
+    readonly shareMappings: outputs.databoxedge.v20190701.MountPointMapResponse[];
+    /**
+     * Current status of the share.
+     */
+    readonly shareStatus: string;
     /**
      * The hierarchical type of the object.
      */
     readonly type: string;
+    /**
+     * Mapping of users and corresponding access rights on the share (required for SMB protocol).
+     */
+    readonly userAccessRights?: outputs.databoxedge.v20190701.UserAccessRightResponse[];
 }

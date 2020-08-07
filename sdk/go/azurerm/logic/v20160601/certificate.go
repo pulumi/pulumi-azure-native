@@ -14,12 +14,20 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	// The changed time.
+	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
+	// The created time.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The key details in the key vault.
+	Key KeyVaultKeyReferenceResponsePtrOutput `pulumi:"key"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The metadata.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The integration account certificate properties.
-	Properties IntegrationAccountCertificatePropertiesResponseOutput `pulumi:"properties"`
+	// The public certificate.
+	PublicCertificate pulumi.StringPtrOutput `pulumi:"publicCertificate"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Gets the resource type.
@@ -63,12 +71,20 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
+	// The changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// The created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The key details in the key vault.
+	Key *KeyVaultKeyReferenceResponse `pulumi:"key"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
-	// The integration account certificate properties.
-	Properties *IntegrationAccountCertificatePropertiesResponse `pulumi:"properties"`
+	// The public certificate.
+	PublicCertificate *string `pulumi:"publicCertificate"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
@@ -76,12 +92,20 @@ type certificateState struct {
 }
 
 type CertificateState struct {
+	// The changed time.
+	ChangedTime pulumi.StringPtrInput
+	// The created time.
+	CreatedTime pulumi.StringPtrInput
+	// The key details in the key vault.
+	Key KeyVaultKeyReferenceResponsePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.MapInput
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
-	// The integration account certificate properties.
-	Properties IntegrationAccountCertificatePropertiesResponsePtrInput
+	// The public certificate.
+	PublicCertificate pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// Gets the resource type.

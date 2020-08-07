@@ -13,7 +13,13 @@ class GetRouteTableResult:
     """
     Route table resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, disable_bgp_route_propagation=None, etag=None, location=None, name=None, provisioning_state=None, routes=None, subnets=None, tags=None, type=None):
+        if disable_bgp_route_propagation and not isinstance(disable_bgp_route_propagation, bool):
+            raise TypeError("Expected argument 'disable_bgp_route_propagation' to be a bool")
+        __self__.disable_bgp_route_propagation = disable_bgp_route_propagation
+        """
+        Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +38,23 @@ class GetRouteTableResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the route table.
+        The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if routes and not isinstance(routes, list):
+            raise TypeError("Expected argument 'routes' to be a list")
+        __self__.routes = routes
+        """
+        Collection of routes contained within a route table.
+        """
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        __self__.subnets = subnets
+        """
+        A collection of references to subnets.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +76,13 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
         if False:
             yield self
         return GetRouteTableResult(
+            disable_bgp_route_propagation=self.disable_bgp_route_propagation,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            routes=self.routes,
+            subnets=self.subnets,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +104,12 @@ def get_route_table(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20180401:getRouteTable', __args__, opts=opts).value
 
     return AwaitableGetRouteTableResult(
+        disable_bgp_route_propagation=__ret__.get('disableBgpRoutePropagation'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        routes=__ret__.get('routes'),
+        subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

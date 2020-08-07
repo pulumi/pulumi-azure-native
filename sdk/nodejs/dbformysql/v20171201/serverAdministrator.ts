@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,25 @@ export class ServerAdministrator extends pulumi.CustomResource {
     }
 
     /**
+     * The type of administrator.
+     */
+    public readonly administratorType!: pulumi.Output<string>;
+    /**
+     * The server administrator login account name.
+     */
+    public readonly login!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the server AAD administrator.
+     * The server administrator Sid (Secure ID).
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.dbformysql.v20171201.ServerAdministratorPropertiesResponse>;
+    public readonly sid!: pulumi.Output<string>;
+    /**
+     * The server Active Directory Administrator tenant id.
+     */
+    public readonly tenantId!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -86,7 +96,6 @@ export class ServerAdministrator extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sid"] = args ? args.sid : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

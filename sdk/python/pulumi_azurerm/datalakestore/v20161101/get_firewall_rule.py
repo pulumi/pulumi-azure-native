@@ -13,18 +13,24 @@ class GetFirewallRuleResult:
     """
     Data Lake Store firewall rule information.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, end_ip_address=None, name=None, start_ip_address=None, type=None):
+        if end_ip_address and not isinstance(end_ip_address, str):
+            raise TypeError("Expected argument 'end_ip_address' to be a str")
+        __self__.end_ip_address = end_ip_address
+        """
+        The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if start_ip_address and not isinstance(start_ip_address, str):
+            raise TypeError("Expected argument 'start_ip_address' to be a str")
+        __self__.start_ip_address = start_ip_address
         """
-        The firewall rule properties.
+        The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +46,9 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
         if False:
             yield self
         return GetFirewallRuleResult(
+            end_ip_address=self.end_ip_address,
             name=self.name,
-            properties=self.properties,
+            start_ip_address=self.start_ip_address,
             type=self.type)
 
 
@@ -64,6 +71,7 @@ def get_firewall_rule(account_name=None, name=None, resource_group_name=None, op
     __ret__ = pulumi.runtime.invoke('azurerm:datalakestore/v20161101:getFirewallRule', __args__, opts=opts).value
 
     return AwaitableGetFirewallRuleResult(
+        end_ip_address=__ret__.get('endIpAddress'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        start_ip_address=__ret__.get('startIpAddress'),
         type=__ret__.get('type'))

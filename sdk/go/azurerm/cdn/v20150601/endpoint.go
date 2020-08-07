@@ -14,11 +14,32 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
+	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+	ContentTypesToCompress pulumi.StringArrayOutput `pulumi:"contentTypesToCompress"`
+	// The host name of the endpoint {endpointName}.{DNSZone}
+	HostName pulumi.StringOutput `pulumi:"hostName"`
+	// Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+	IsCompressionEnabled pulumi.BoolPtrOutput `pulumi:"isCompressionEnabled"`
+	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpAllowed pulumi.BoolPtrOutput `pulumi:"isHttpAllowed"`
+	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpsAllowed pulumi.BoolPtrOutput `pulumi:"isHttpsAllowed"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
-	Name       pulumi.StringOutput              `pulumi:"name"`
-	Properties EndpointPropertiesResponseOutput `pulumi:"properties"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
+	// The path used for origin requests.
+	OriginPath pulumi.StringPtrOutput `pulumi:"originPath"`
+	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+	Origins DeepCreatedOriginResponseArrayOutput `pulumi:"origins"`
+	// Provisioning status of the endpoint.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Defines the query string caching behavior.
+	QueryStringCachingBehavior pulumi.StringPtrOutput `pulumi:"queryStringCachingBehavior"`
+	// Resource status of the endpoint.
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -68,11 +89,32 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
+	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
+	// The host name of the endpoint {endpointName}.{DNSZone}
+	HostName *string `pulumi:"hostName"`
+	// Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
+	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
+	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
-	Name       *string                     `pulumi:"name"`
-	Properties *EndpointPropertiesResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+	OriginHostHeader *string `pulumi:"originHostHeader"`
+	// The path used for origin requests.
+	OriginPath *string `pulumi:"originPath"`
+	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+	Origins []DeepCreatedOriginResponse `pulumi:"origins"`
+	// Provisioning status of the endpoint.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Defines the query string caching behavior.
+	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
+	// Resource status of the endpoint.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -80,11 +122,32 @@ type endpointState struct {
 }
 
 type EndpointState struct {
+	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+	ContentTypesToCompress pulumi.StringArrayInput
+	// The host name of the endpoint {endpointName}.{DNSZone}
+	HostName pulumi.StringPtrInput
+	// Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+	IsCompressionEnabled pulumi.BoolPtrInput
+	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpAllowed pulumi.BoolPtrInput
+	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpsAllowed pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
-	Name       pulumi.StringPtrInput
-	Properties EndpointPropertiesResponsePtrInput
+	Name pulumi.StringPtrInput
+	// The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+	OriginHostHeader pulumi.StringPtrInput
+	// The path used for origin requests.
+	OriginPath pulumi.StringPtrInput
+	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+	Origins DeepCreatedOriginResponseArrayInput
+	// Provisioning status of the endpoint.
+	ProvisioningState pulumi.StringPtrInput
+	// Defines the query string caching behavior.
+	QueryStringCachingBehavior pulumi.StringPtrInput
+	// Resource status of the endpoint.
+	ResourceState pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

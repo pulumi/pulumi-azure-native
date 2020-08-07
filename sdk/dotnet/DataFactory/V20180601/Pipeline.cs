@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of activities in pipeline.
+        /// </summary>
+        [Output("activities")]
+        public Output<ImmutableArray<Outputs.ActivityResponseResult>> Activities { get; private set; } = null!;
+
+        /// <summary>
+        /// List of tags that can be used for describing the Pipeline.
+        /// </summary>
+        [Output("annotations")]
+        public Output<ImmutableArray<ImmutableDictionary<string, object>>> Annotations { get; private set; } = null!;
+
+        /// <summary>
+        /// The max number of concurrent runs for the pipeline.
+        /// </summary>
+        [Output("concurrency")]
+        public Output<int?> Concurrency { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the pipeline.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Etag identifies change in the resource.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+        /// </summary>
+        [Output("folder")]
+        public Output<Outputs.PipelineResponseFolderResult?> Folder { get; private set; } = null!;
 
         /// <summary>
         /// The resource name.
@@ -27,16 +57,28 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the pipeline.
+        /// List of parameters for pipeline.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PipelineResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Dimensions emitted by Pipeline.
+        /// </summary>
+        [Output("runDimensions")]
+        public Output<ImmutableDictionary<string, ImmutableDictionary<string, object>>?> RunDimensions { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List of variables for pipeline.
+        /// </summary>
+        [Output("variables")]
+        public Output<ImmutableDictionary<string, Outputs.VariableSpecificationResponseResult>?> Variables { get; private set; } = null!;
 
 
         /// <summary>

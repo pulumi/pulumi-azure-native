@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class Namespace(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    The time the namespace was created.
+    """
+    critical: pulumi.Output[bool]
+    """
+    Whether or not the namespace is set as Critical.
+    """
+    enabled: pulumi.Output[bool]
+    """
+    Whether or not the namespace is currently enabled.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,20 +30,25 @@ class Namespace(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    namespace_type: pulumi.Output[str]
     """
-    Properties of the Namespace.
-      * `created_at` (`str`) - The time the namespace was created.
-      * `critical` (`bool`) - Whether or not the namespace is set as Critical.
-      * `enabled` (`bool`) - Whether or not the namespace is currently enabled.
-      * `name` (`str`) - The name of the namespace.
-      * `namespace_type` (`str`) - The namespace type.
-      * `provisioning_state` (`str`) - Provisioning state of the Namespace.
-      * `region` (`str`) - Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-      * `scale_unit` (`str`) - ScaleUnit where the namespace gets created
-      * `service_bus_endpoint` (`str`) - Endpoint you can use to perform NotificationHub operations.
-      * `status` (`str`) - Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-      * `subscription_id` (`str`) - The Id of the Azure subscription associated with the namespace.
+    The namespace type.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the Namespace.
+    """
+    region: pulumi.Output[str]
+    """
+    Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+    """
+    scale_unit: pulumi.Output[str]
+    """
+    ScaleUnit where the namespace gets created
+    """
+    service_bus_endpoint: pulumi.Output[str]
+    """
+    Endpoint you can use to perform NotificationHub operations.
     """
     sku: pulumi.Output[dict]
     """
@@ -41,6 +58,14 @@ class Namespace(pulumi.CustomResource):
       * `name` (`str`) - Name of the notification hub sku
       * `size` (`str`) - The Sku size
       * `tier` (`str`) - The tier of particular sku
+    """
+    status: pulumi.Output[str]
+    """
+    Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+    """
+    subscription_id: pulumi.Output[str]
+    """
+    The Id of the Azure subscription associated with the namespace.
     """
     tags: pulumi.Output[dict]
     """
@@ -118,7 +143,6 @@ class Namespace(pulumi.CustomResource):
             __props__['status'] = status
             __props__['subscription_id'] = subscription_id
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(Namespace, __self__).__init__(
             'azurerm:notificationhubs/v20160301:Namespace',

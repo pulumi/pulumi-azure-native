@@ -46,6 +46,30 @@ namespace Pulumi.AzureRM.Cdn.V20161002
     public sealed class GetEndpointResult
     {
         /// <summary>
+        /// List of content types on which compression applies. The value should be a valid MIME type.
+        /// </summary>
+        public readonly ImmutableArray<string> ContentTypesToCompress;
+        /// <summary>
+        /// List of rules defining user geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GeoFilterResponseResult> GeoFilters;
+        /// <summary>
+        /// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+        /// </summary>
+        public readonly string HostName;
+        /// <summary>
+        /// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+        /// </summary>
+        public readonly bool? IsCompressionEnabled;
+        /// <summary>
+        /// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        public readonly bool? IsHttpAllowed;
+        /// <summary>
+        /// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        public readonly bool? IsHttpsAllowed;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -54,9 +78,33 @@ namespace Pulumi.AzureRM.Cdn.V20161002
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The JSON object that contains the properties required to create an endpoint.
+        /// Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
         /// </summary>
-        public readonly Outputs.EndpointPropertiesResponseResult Properties;
+        public readonly string? OptimizationType;
+        /// <summary>
+        /// The host header CDN sends along with content requests to origin. The default value is the host name of the origin.
+        /// </summary>
+        public readonly string? OriginHostHeader;
+        /// <summary>
+        /// The path used when CDN sends request to origin.
+        /// </summary>
+        public readonly string? OriginPath;
+        /// <summary>
+        /// The source of the content being delivered via CDN.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DeepCreatedOriginResponseResult> Origins;
+        /// <summary>
+        /// Provisioning status of the endpoint.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Defines the query string caching behavior
+        /// </summary>
+        public readonly string? QueryStringCachingBehavior;
+        /// <summary>
+        /// Resource status of the endpoint.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -68,19 +116,55 @@ namespace Pulumi.AzureRM.Cdn.V20161002
 
         [OutputConstructor]
         private GetEndpointResult(
+            ImmutableArray<string> contentTypesToCompress,
+
+            ImmutableArray<Outputs.GeoFilterResponseResult> geoFilters,
+
+            string hostName,
+
+            bool? isCompressionEnabled,
+
+            bool? isHttpAllowed,
+
+            bool? isHttpsAllowed,
+
             string location,
 
             string name,
 
-            Outputs.EndpointPropertiesResponseResult properties,
+            string? optimizationType,
+
+            string? originHostHeader,
+
+            string? originPath,
+
+            ImmutableArray<Outputs.DeepCreatedOriginResponseResult> origins,
+
+            string provisioningState,
+
+            string? queryStringCachingBehavior,
+
+            string resourceState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ContentTypesToCompress = contentTypesToCompress;
+            GeoFilters = geoFilters;
+            HostName = hostName;
+            IsCompressionEnabled = isCompressionEnabled;
+            IsHttpAllowed = isHttpAllowed;
+            IsHttpsAllowed = isHttpsAllowed;
             Location = location;
             Name = name;
-            Properties = properties;
+            OptimizationType = optimizationType;
+            OriginHostHeader = originHostHeader;
+            OriginPath = originPath;
+            Origins = origins;
+            ProvisioningState = provisioningState;
+            QueryStringCachingBehavior = queryStringCachingBehavior;
+            ResourceState = resourceState;
             Tags = tags;
             Type = type;
         }

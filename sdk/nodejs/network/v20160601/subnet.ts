@@ -37,14 +37,37 @@ export class Subnet extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets Address prefix for the subnet.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * Gets array of references to the network interface IP configurations using subnet
+     */
+    public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.v20160601.IPConfigurationResponse[]>;
+    /**
      * Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.SubnetPropertiesFormatResponse>;
+    /**
+     * Gets or sets the reference of the NetworkSecurityGroup resource
+     */
+    public readonly networkSecurityGroup!: pulumi.Output<outputs.network.v20160601.NetworkSecurityGroupResponse | undefined>;
+    /**
+     * Gets provisioning state of the resource
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets array of references to the external resources using subnet
+     */
+    public readonly resourceNavigationLinks!: pulumi.Output<outputs.network.v20160601.ResourceNavigationLinkResponse[] | undefined>;
+    /**
+     * Gets or sets the reference of the RouteTable resource
+     */
+    public readonly routeTable!: pulumi.Output<outputs.network.v20160601.RouteTableResponse | undefined>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -78,7 +101,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["resourceNavigationLinks"] = args ? args.resourceNavigationLinks : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ipConfigurations"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

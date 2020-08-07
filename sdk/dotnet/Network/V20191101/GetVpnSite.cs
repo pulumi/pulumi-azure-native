@@ -40,9 +40,29 @@ namespace Pulumi.AzureRM.Network.V20191101
     public sealed class GetVpnSiteResult
     {
         /// <summary>
+        /// The AddressSpace that contains an array of IP address ranges.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? AddressSpace;
+        /// <summary>
+        /// The set of bgp properties.
+        /// </summary>
+        public readonly Outputs.BgpSettingsResponseResult? BgpProperties;
+        /// <summary>
+        /// The device properties.
+        /// </summary>
+        public readonly Outputs.DevicePropertiesResponseResult? DeviceProperties;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The ip-address for the vpn-site.
+        /// </summary>
+        public readonly string? IpAddress;
+        /// <summary>
+        /// IsSecuritySite flag.
+        /// </summary>
+        public readonly bool? IsSecuritySite;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +72,13 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the VPN site.
+        /// The provisioning state of the VPN site resource.
         /// </summary>
-        public readonly Outputs.VpnSitePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The key for vpn-site that can be used for connections.
+        /// </summary>
+        public readonly string? SiteKey;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +87,59 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VirtualWAN to which the vpnSite belongs.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualWan;
+        /// <summary>
+        /// List of all vpn site links.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnSiteLinkResponseResult> VpnSiteLinks;
 
         [OutputConstructor]
         private GetVpnSiteResult(
+            Outputs.AddressSpaceResponseResult? addressSpace,
+
+            Outputs.BgpSettingsResponseResult? bgpProperties,
+
+            Outputs.DevicePropertiesResponseResult? deviceProperties,
+
             string etag,
+
+            string? ipAddress,
+
+            bool? isSecuritySite,
 
             string location,
 
             string name,
 
-            Outputs.VpnSitePropertiesResponseResult properties,
+            string provisioningState,
+
+            string? siteKey,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualWan,
+
+            ImmutableArray<Outputs.VpnSiteLinkResponseResult> vpnSiteLinks)
         {
+            AddressSpace = addressSpace;
+            BgpProperties = bgpProperties;
+            DeviceProperties = deviceProperties;
             Etag = etag;
+            IpAddress = ipAddress;
+            IsSecuritySite = isSecuritySite;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SiteKey = siteKey;
             Tags = tags;
             Type = type;
+            VirtualWan = virtualWan;
+            VpnSiteLinks = vpnSiteLinks;
         }
     }
 }

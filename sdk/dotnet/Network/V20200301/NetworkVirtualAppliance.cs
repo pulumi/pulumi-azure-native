@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20200301
     public partial class NetworkVirtualAppliance : Pulumi.CustomResource
     {
         /// <summary>
+        /// BootStrapConfigurationBlob storage URLs.
+        /// </summary>
+        [Output("bootStrapConfigurationBlob")]
+        public Output<ImmutableArray<string>> BootStrapConfigurationBlob { get; private set; } = null!;
+
+        /// <summary>
+        /// CloudInitConfigurationBlob storage URLs.
+        /// </summary>
+        [Output("cloudInitConfigurationBlob")]
+        public Output<ImmutableArray<string>> CloudInitConfigurationBlob { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -39,10 +51,10 @@ namespace Pulumi.AzureRM.Network.V20200301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Network Virtual Appliance.
+        /// The provisioning state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NetworkVirtualAppliancePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Network Virtual Appliance SKU.
@@ -61,6 +73,24 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// VirtualAppliance ASN.
+        /// </summary>
+        [Output("virtualApplianceAsn")]
+        public Output<int?> VirtualApplianceAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Virtual Appliance Network Interfaces.
+        /// </summary>
+        [Output("virtualApplianceNics")]
+        public Output<ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult>> VirtualApplianceNics { get; private set; } = null!;
+
+        /// <summary>
+        /// The Virtual Hub where Network Virtual Appliance is being deployed.
+        /// </summary>
+        [Output("virtualHub")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
 
 
         /// <summary>

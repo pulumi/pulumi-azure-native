@@ -46,13 +46,29 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public sealed class GetMigrationConfigResult
     {
         /// <summary>
+        /// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+        /// </summary>
+        public readonly string MigrationState;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties required to the Create Migration Configuration
+        /// Number of entities pending to be replicated.
         /// </summary>
-        public readonly Outputs.MigrationConfigPropertiesResponsePropertiesResult Properties;
+        public readonly int PendingReplicationOperationsCount;
+        /// <summary>
+        /// Name to access Standard Namespace after migration
+        /// </summary>
+        public readonly string PostMigrationName;
+        /// <summary>
+        /// Provisioning state of Migration Configuration 
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+        /// </summary>
+        public readonly string TargetNamespace;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -60,14 +76,26 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 
         [OutputConstructor]
         private GetMigrationConfigResult(
+            string migrationState,
+
             string name,
 
-            Outputs.MigrationConfigPropertiesResponsePropertiesResult properties,
+            int pendingReplicationOperationsCount,
+
+            string postMigrationName,
+
+            string provisioningState,
+
+            string targetNamespace,
 
             string type)
         {
+            MigrationState = migrationState;
             Name = name;
-            Properties = properties;
+            PendingReplicationOperationsCount = pendingReplicationOperationsCount;
+            PostMigrationName = postMigrationName;
+            ProvisioningState = provisioningState;
+            TargetNamespace = targetNamespace;
             Type = type;
         }
     }

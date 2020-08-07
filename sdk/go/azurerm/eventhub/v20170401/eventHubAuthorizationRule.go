@@ -16,8 +16,8 @@ type EventHubAuthorizationRule struct {
 
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties supplied to create or update AuthorizationRule
-	Properties AuthorizationRuleResponsePropertiesOutput `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayOutput `pulumi:"rights"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -67,8 +67,8 @@ func GetEventHubAuthorizationRule(ctx *pulumi.Context,
 type eventHubAuthorizationRuleState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties supplied to create or update AuthorizationRule
-	Properties *AuthorizationRuleResponseProperties `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +76,8 @@ type eventHubAuthorizationRuleState struct {
 type EventHubAuthorizationRuleState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties supplied to create or update AuthorizationRule
-	Properties AuthorizationRuleResponsePropertiesPtrInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

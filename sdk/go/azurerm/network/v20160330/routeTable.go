@@ -20,8 +20,12 @@ type RouteTable struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Route Table resource
-	Properties RouteTablePropertiesFormatResponseOutput `pulumi:"properties"`
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Gets or sets Routes in a Route Table
+	Routes RouteResponseArrayOutput `pulumi:"routes"`
+	// Gets collection of references to subnets
+	Subnets SubnetResponseArrayOutput `pulumi:"subnets"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -68,8 +72,12 @@ type routeTableState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Route Table resource
-	Properties *RouteTablePropertiesFormatResponse `pulumi:"properties"`
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets Routes in a Route Table
+	Routes []RouteResponse `pulumi:"routes"`
+	// Gets collection of references to subnets
+	Subnets []SubnetResponse `pulumi:"subnets"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -83,8 +91,12 @@ type RouteTableState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Route Table resource
-	Properties RouteTablePropertiesFormatResponsePtrInput
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets Routes in a Route Table
+	Routes RouteResponseArrayInput
+	// Gets collection of references to subnets
+	Subnets SubnetResponseArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

@@ -14,12 +14,16 @@ import (
 type HybridUseBenefit struct {
 	pulumi.CustomResourceState
 
+	// Created date
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Indicates the revision of the hybrid use benefit
 	Etag pulumi.IntOutput `pulumi:"etag"`
+	// Last updated date
+	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Property bag for a hybrid use benefit response
-	Properties HybridUseBenefitPropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Hybrid use benefit SKU
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -63,12 +67,16 @@ func GetHybridUseBenefit(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HybridUseBenefit resources.
 type hybridUseBenefitState struct {
+	// Created date
+	CreatedDate *string `pulumi:"createdDate"`
 	// Indicates the revision of the hybrid use benefit
 	Etag *int `pulumi:"etag"`
+	// Last updated date
+	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Property bag for a hybrid use benefit response
-	Properties *HybridUseBenefitPropertiesResponse `pulumi:"properties"`
+	// Provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Hybrid use benefit SKU
 	Sku *SkuResponse `pulumi:"sku"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -76,12 +84,16 @@ type hybridUseBenefitState struct {
 }
 
 type HybridUseBenefitState struct {
+	// Created date
+	CreatedDate pulumi.StringPtrInput
 	// Indicates the revision of the hybrid use benefit
 	Etag pulumi.IntPtrInput
+	// Last updated date
+	LastUpdatedDate pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Property bag for a hybrid use benefit response
-	Properties HybridUseBenefitPropertiesResponsePtrInput
+	// Provisioning state
+	ProvisioningState pulumi.StringPtrInput
 	// Hybrid use benefit SKU
 	Sku SkuResponsePtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

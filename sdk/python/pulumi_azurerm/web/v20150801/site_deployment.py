@@ -10,6 +10,30 @@ from ... import _utilities, _tables
 
 
 class SiteDeployment(pulumi.CustomResource):
+    active: pulumi.Output[bool]
+    """
+    Active
+    """
+    author: pulumi.Output[str]
+    """
+    Author
+    """
+    author_email: pulumi.Output[str]
+    """
+    AuthorEmail
+    """
+    deployer: pulumi.Output[str]
+    """
+    Deployer
+    """
+    details: pulumi.Output[str]
+    """
+    Detail
+    """
+    end_time: pulumi.Output[str]
+    """
+    EndTime
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
@@ -18,11 +42,22 @@ class SiteDeployment(pulumi.CustomResource):
     """
     Resource Location
     """
+    message: pulumi.Output[str]
+    """
+    Message
+    """
     name: pulumi.Output[str]
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    start_time: pulumi.Output[str]
+    """
+    StartTime
+    """
+    status: pulumi.Output[float]
+    """
+    Status
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -91,7 +126,6 @@ class SiteDeployment(pulumi.CustomResource):
             __props__['status'] = status
             __props__['tags'] = tags
             __props__['type'] = type
-            __props__['properties'] = None
         super(SiteDeployment, __self__).__init__(
             'azurerm:web/v20150801:SiteDeployment',
             resource_name,

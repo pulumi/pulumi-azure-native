@@ -46,6 +46,26 @@ namespace Pulumi.AzureRM.Web.V20190801
     public sealed class GetWebAppHostNameBindingSlotResult
     {
         /// <summary>
+        /// Azure resource name.
+        /// </summary>
+        public readonly string? AzureResourceName;
+        /// <summary>
+        /// Azure resource type.
+        /// </summary>
+        public readonly string? AzureResourceType;
+        /// <summary>
+        /// Custom DNS record type.
+        /// </summary>
+        public readonly string? CustomHostNameDnsRecordType;
+        /// <summary>
+        /// Fully qualified ARM domain resource URI.
+        /// </summary>
+        public readonly string? DomainId;
+        /// <summary>
+        /// Hostname type.
+        /// </summary>
+        public readonly string? HostNameType;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -54,28 +74,64 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// HostNameBinding resource specific properties
+        /// App Service app name.
         /// </summary>
-        public readonly Outputs.HostNameBindingResponsePropertiesResult Properties;
+        public readonly string? SiteName;
+        /// <summary>
+        /// SSL type
+        /// </summary>
+        public readonly string? SslState;
+        /// <summary>
+        /// SSL certificate thumbprint
+        /// </summary>
+        public readonly string? Thumbprint;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Virtual IP address assigned to the hostname if IP based SSL is enabled.
+        /// </summary>
+        public readonly string VirtualIP;
 
         [OutputConstructor]
         private GetWebAppHostNameBindingSlotResult(
+            string? azureResourceName,
+
+            string? azureResourceType,
+
+            string? customHostNameDnsRecordType,
+
+            string? domainId,
+
+            string? hostNameType,
+
             string? kind,
 
             string name,
 
-            Outputs.HostNameBindingResponsePropertiesResult properties,
+            string? siteName,
 
-            string type)
+            string? sslState,
+
+            string? thumbprint,
+
+            string type,
+
+            string virtualIP)
         {
+            AzureResourceName = azureResourceName;
+            AzureResourceType = azureResourceType;
+            CustomHostNameDnsRecordType = customHostNameDnsRecordType;
+            DomainId = domainId;
+            HostNameType = hostNameType;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            SiteName = siteName;
+            SslState = sslState;
+            Thumbprint = thumbprint;
             Type = type;
+            VirtualIP = virtualIP;
         }
     }
 }

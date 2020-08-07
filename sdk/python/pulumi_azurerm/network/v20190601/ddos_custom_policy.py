@@ -22,20 +22,26 @@ class DdosCustomPolicy(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    protocol_custom_settings: pulumi.Output[list]
     """
-    Properties of the DDoS custom policy.
-      * `protocol_custom_settings` (`list`) - The protocol-specific DDoS policy customization parameters.
-        * `protocol` (`str`) - The protocol for which the DDoS protection policy is being customized.
-        * `source_rate_override` (`str`) - The customized DDoS protection source rate.
-        * `trigger_rate_override` (`str`) - The customized DDoS protection trigger rate.
-        * `trigger_sensitivity_override` (`str`) - The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
-
-      * `provisioning_state` (`str`) - The provisioning state of the DDoS custom policy resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-      * `public_ip_addresses` (`list`) - The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-        * `id` (`str`) - Resource ID.
-
-      * `resource_guid` (`str`) - The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+    The protocol-specific DDoS policy customization parameters.
+      * `protocol` (`str`) - The protocol for which the DDoS protection policy is being customized.
+      * `source_rate_override` (`str`) - The customized DDoS protection source rate.
+      * `trigger_rate_override` (`str`) - The customized DDoS protection trigger rate.
+      * `trigger_sensitivity_override` (`str`) - The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the DDoS custom policy resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+    """
+    public_ip_addresses: pulumi.Output[list]
+    """
+    The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
+      * `id` (`str`) - Resource ID.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
     """
     tags: pulumi.Output[dict]
     """
@@ -93,7 +99,9 @@ class DdosCustomPolicy(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['public_ip_addresses'] = None
+            __props__['resource_guid'] = None
             __props__['type'] = None
         super(DdosCustomPolicy, __self__).__init__(
             'azurerm:network/v20190601:DdosCustomPolicy',

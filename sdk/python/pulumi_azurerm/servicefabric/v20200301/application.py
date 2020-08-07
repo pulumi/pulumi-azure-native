@@ -27,65 +27,53 @@ class Application(pulumi.CustomResource):
     """
     It will be deprecated in New API, resource location depends on the parent resource.
     """
+    managed_identities: pulumi.Output[list]
+    """
+    List of user assigned identities for the application, each mapped to a friendly name.
+      * `name` (`str`) - The friendly name of user assigned identity.
+      * `principal_id` (`str`) - The principal id of user assigned identity.
+    """
+    maximum_nodes: pulumi.Output[float]
+    """
+    The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+    """
+    metrics: pulumi.Output[list]
+    """
+    List of application capacity metric description.
+      * `maximum_capacity` (`float`) - The maximum node capacity for Service Fabric application.
+        This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
+        If set to zero, capacity for this metric is unlimited on each node.
+        When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+        When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+      * `name` (`str`) - The name of the metric.
+      * `reservation_capacity` (`float`) - The node reservation capacity for Service Fabric application.
+        This is the amount of load which is reserved on nodes which have instances of this application.
+        If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
+        If set to zero, no capacity is reserved for this metric.
+        When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
+      * `total_application_capacity` (`float`) - The total metric capacity for Service Fabric application.
+        This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
+        When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
+    """
+    minimum_nodes: pulumi.Output[float]
+    """
+    The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+    """
     name: pulumi.Output[str]
     """
     Azure resource name.
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[dict]
     """
-    The application resource properties.
-      * `managed_identities` (`list`) - List of user assigned identities for the application, each mapped to a friendly name.
-        * `name` (`str`) - The friendly name of user assigned identity.
-        * `principal_id` (`str`) - The principal id of user assigned identity.
-
-      * `maximum_nodes` (`float`) - The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-      * `metrics` (`list`) - List of application capacity metric description.
-        * `maximum_capacity` (`float`) - The maximum node capacity for Service Fabric application.
-          This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
-          If set to zero, capacity for this metric is unlimited on each node.
-          When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-          When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
-        * `name` (`str`) - The name of the metric.
-        * `reservation_capacity` (`float`) - The node reservation capacity for Service Fabric application.
-          This is the amount of load which is reserved on nodes which have instances of this application.
-          If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
-          If set to zero, no capacity is reserved for this metric.
-          When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
-        * `total_application_capacity` (`float`) - The total metric capacity for Service Fabric application.
-          This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
-          When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
-
-      * `minimum_nodes` (`float`) - The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-      * `parameters` (`dict`) - List of application parameters with overridden values from their default values specified in the application manifest.
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response
-      * `remove_application_capacity` (`bool`) - Remove the current application capacity settings.
-      * `type_name` (`str`) - The application type name as defined in the application manifest.
-      * `type_version` (`str`) - The version of the application type as defined in the application manifest.
-      * `upgrade_policy` (`dict`) - Describes the policy for a monitored application upgrade.
-        * `application_health_policy` (`dict`) - Defines a health policy used to evaluate the health of an application or one of its children entities.
-          * `consider_warning_as_error` (`bool`) - Indicates whether warnings are treated with the same severity as errors.
-          * `default_service_type_health_policy` (`dict`) - The health policy used by default to evaluate the health of a service type.
-            * `max_percent_unhealthy_partitions_per_service` (`float`) - The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
-            * `max_percent_unhealthy_replicas_per_partition` (`float`) - The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
-            * `max_percent_unhealthy_services` (`float`) - The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-
-          * `max_percent_unhealthy_deployed_applications` (`float`) - The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
-            The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
-            This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
-            The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-          * `service_type_health_policy_map` (`dict`) - The map with service type health policy per service type name. The map is empty by default.
-
-        * `force_restart` (`bool`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-        * `rolling_upgrade_monitoring_policy` (`dict`) - The policy used for monitoring the application upgrade
-          * `failure_action` (`str`) - The activation Mode of the service package
-          * `health_check_retry_timeout` (`str`) - The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-          * `health_check_stable_duration` (`str`) - The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-          * `health_check_wait_duration` (`str`) - The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-          * `upgrade_domain_timeout` (`str`) - The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-          * `upgrade_timeout` (`str`) - The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
-
-        * `upgrade_mode` (`str`) - The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
-        * `upgrade_replica_set_check_timeout` (`str`) - The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
+    List of application parameters with overridden values from their default values specified in the application manifest.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The current deployment or provisioning state, which only appears in the response
+    """
+    remove_application_capacity: pulumi.Output[bool]
+    """
+    Remove the current application capacity settings.
     """
     tags: pulumi.Output[dict]
     """
@@ -94,6 +82,42 @@ class Application(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Azure resource type.
+    """
+    type_name: pulumi.Output[str]
+    """
+    The application type name as defined in the application manifest.
+    """
+    type_version: pulumi.Output[str]
+    """
+    The version of the application type as defined in the application manifest.
+    """
+    upgrade_policy: pulumi.Output[dict]
+    """
+    Describes the policy for a monitored application upgrade.
+      * `application_health_policy` (`dict`) - Defines a health policy used to evaluate the health of an application or one of its children entities.
+        * `consider_warning_as_error` (`bool`) - Indicates whether warnings are treated with the same severity as errors.
+        * `default_service_type_health_policy` (`dict`) - The health policy used by default to evaluate the health of a service type.
+          * `max_percent_unhealthy_partitions_per_service` (`float`) - The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
+          * `max_percent_unhealthy_replicas_per_partition` (`float`) - The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.
+          * `max_percent_unhealthy_services` (`float`) - The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+
+        * `max_percent_unhealthy_deployed_applications` (`float`) - The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+          The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+          This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+          The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+        * `service_type_health_policy_map` (`dict`) - The map with service type health policy per service type name. The map is empty by default.
+
+      * `force_restart` (`bool`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+      * `rolling_upgrade_monitoring_policy` (`dict`) - The policy used for monitoring the application upgrade
+        * `failure_action` (`str`) - The activation Mode of the service package
+        * `health_check_retry_timeout` (`str`) - The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
+        * `health_check_stable_duration` (`str`) - The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
+        * `health_check_wait_duration` (`str`) - The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
+        * `upgrade_domain_timeout` (`str`) - The amount of time each upgrade domain has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
+        * `upgrade_timeout` (`str`) - The amount of time the overall upgrade has to complete before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
+
+      * `upgrade_mode` (`str`) - The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+      * `upgrade_replica_set_check_timeout` (`str`) - The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
     """
     def __init__(__self__, resource_name, opts=None, cluster_name=None, identity=None, location=None, managed_identities=None, maximum_nodes=None, metrics=None, minimum_nodes=None, name=None, parameters=None, remove_application_capacity=None, resource_group_name=None, tags=None, type_name=None, type_version=None, upgrade_policy=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -209,7 +233,7 @@ class Application(pulumi.CustomResource):
             __props__['type_version'] = type_version
             __props__['upgrade_policy'] = upgrade_policy
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Application, __self__).__init__(
             'azurerm:servicefabric/v20200301:Application',

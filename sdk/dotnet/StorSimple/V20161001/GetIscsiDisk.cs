@@ -58,29 +58,78 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class GetIscsiDiskResult
     {
         /// <summary>
+        /// The access control records.
+        /// </summary>
+        public readonly ImmutableArray<string> AccessControlRecords;
+        /// <summary>
+        /// The data policy.
+        /// </summary>
+        public readonly string DataPolicy;
+        /// <summary>
+        /// The description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The disk status.
+        /// </summary>
+        public readonly string DiskStatus;
+        /// <summary>
+        /// The local used capacity in bytes.
+        /// </summary>
+        public readonly int LocalUsedCapacityInBytes;
+        /// <summary>
+        /// The monitoring.
+        /// </summary>
+        public readonly string MonitoringStatus;
+        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties.
+        /// The provisioned capacity in bytes.
         /// </summary>
-        public readonly Outputs.ISCSIDiskPropertiesResponseResult Properties;
+        public readonly int ProvisionedCapacityInBytes;
         /// <summary>
         /// The type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The used capacity in bytes.
+        /// </summary>
+        public readonly int UsedCapacityInBytes;
 
         [OutputConstructor]
         private GetIscsiDiskResult(
+            ImmutableArray<string> accessControlRecords,
+
+            string dataPolicy,
+
+            string? description,
+
+            string diskStatus,
+
+            int localUsedCapacityInBytes,
+
+            string monitoringStatus,
+
             string name,
 
-            Outputs.ISCSIDiskPropertiesResponseResult properties,
+            int provisionedCapacityInBytes,
 
-            string type)
+            string type,
+
+            int usedCapacityInBytes)
         {
+            AccessControlRecords = accessControlRecords;
+            DataPolicy = dataPolicy;
+            Description = description;
+            DiskStatus = diskStatus;
+            LocalUsedCapacityInBytes = localUsedCapacityInBytes;
+            MonitoringStatus = monitoringStatus;
             Name = name;
-            Properties = properties;
+            ProvisionedCapacityInBytes = provisionedCapacityInBytes;
             Type = type;
+            UsedCapacityInBytes = usedCapacityInBytes;
         }
     }
 }

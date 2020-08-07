@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Insights.V20170401
     public partial class ActivityLogAlert : Pulumi.CustomResource
     {
         /// <summary>
+        /// The actions that will activate when the condition is met.
+        /// </summary>
+        [Output("actions")]
+        public Output<Outputs.ActivityLogAlertActionListResponseResult> Actions { get; private set; } = null!;
+
+        /// <summary>
+        /// The condition that will cause this alert to activate.
+        /// </summary>
+        [Output("condition")]
+        public Output<Outputs.ActivityLogAlertAllOfConditionResponseResult> Condition { get; private set; } = null!;
+
+        /// <summary>
+        /// A description of this activity log alert.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +51,10 @@ namespace Pulumi.AzureRM.Insights.V20170401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The activity log alert properties of the resource.
+        /// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ActivityLogAlertResponseResult> Properties { get; private set; } = null!;
+        [Output("scopes")]
+        public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

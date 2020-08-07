@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public partial class RegisteredAsn : Pulumi.CustomResource
     {
         /// <summary>
+        /// The customer's ASN from which traffic originates.
+        /// </summary>
+        [Output("asn")]
+        public Output<int?> Asn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties that define a registered ASN.
+        /// The peering service prefix key that is to be shared with the customer.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PeeringRegisteredAsnPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("peeringServicePrefixKey")]
+        public Output<string> PeeringServicePrefixKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

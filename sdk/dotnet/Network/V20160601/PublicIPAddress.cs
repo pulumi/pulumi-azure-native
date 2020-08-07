@@ -15,10 +15,31 @@ namespace Pulumi.AzureRM.Network.V20160601
     public partial class PublicIPAddress : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets FQDN of the DNS record associated with the public IP address
+        /// </summary>
+        [Output("dnsSettings")]
+        public Output<Outputs.PublicIPAddressDnsSettingsResponseResult?> DnsSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the idle timeout of the public IP address
+        /// </summary>
+        [Output("idleTimeoutInMinutes")]
+        public Output<int?> IdleTimeoutInMinutes { get; private set; } = null!;
+
+        [Output("ipAddress")]
+        public Output<string?> IpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// IPConfiguration
+        /// </summary>
+        [Output("ipConfiguration")]
+        public Output<Outputs.IPConfigurationResponseResult> IpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -33,10 +54,28 @@ namespace Pulumi.AzureRM.Network.V20160601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// PublicIpAddress properties
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PublicIPAddressPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets PublicIP address version (IPv4/IPv6)
+        /// </summary>
+        [Output("publicIPAddressVersion")]
+        public Output<string?> PublicIPAddressVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets PublicIP allocation method (Static/Dynamic)
+        /// </summary>
+        [Output("publicIPAllocationMethod")]
+        public Output<string?> PublicIPAllocationMethod { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets resource guid property of the PublicIP resource
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

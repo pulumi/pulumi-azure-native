@@ -29,10 +29,22 @@ type LookupViewArgs struct {
 
 // The view resource format.
 type LookupViewResult struct {
+	// Date time when view was last modified.
+	Changed string `pulumi:"changed"`
+	// Date time when view was created.
+	Created string `pulumi:"created"`
+	// View definition.
+	Definition string `pulumi:"definition"`
+	// Localized display name for the view.
+	DisplayName map[string]string `pulumi:"displayName"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties ViewResponse `pulumi:"properties"`
+	// the hub name.
+	TenantId string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// the user ID.
+	UserId *string `pulumi:"userId"`
+	// Name of the view.
+	ViewName string `pulumi:"viewName"`
 }

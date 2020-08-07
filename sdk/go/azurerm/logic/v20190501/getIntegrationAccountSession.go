@@ -27,12 +27,16 @@ type LookupIntegrationAccountSessionArgs struct {
 
 // The integration account session.
 type LookupIntegrationAccountSessionResult struct {
+	// The changed time.
+	ChangedTime string `pulumi:"changedTime"`
+	// The session content.
+	Content map[string]interface{} `pulumi:"content"`
+	// The created time.
+	CreatedTime string `pulumi:"createdTime"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
-	// The integration account session properties.
-	Properties IntegrationAccountSessionPropertiesResponse `pulumi:"properties"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

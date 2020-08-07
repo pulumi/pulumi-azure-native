@@ -10,41 +10,43 @@ from ... import _utilities, _tables
 
 
 class ManagementPolicy(pulumi.CustomResource):
+    last_modified_time: pulumi.Output[str]
+    """
+    Returns the date and time the ManagementPolicies was last modified.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    policy: pulumi.Output[dict]
     """
-    Returns the Storage Account Data Policies Rules.
-      * `last_modified_time` (`str`) - Returns the date and time the ManagementPolicies was last modified.
-      * `policy` (`dict`) - The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-        * `rules` (`list`) - The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-          * `definition` (`dict`) - An object that defines the Lifecycle rule.
-            * `actions` (`dict`) - An object that defines the action set.
-              * `base_blob` (`dict`) - The management policy action for base blob
-                * `delete` (`dict`) - The function to delete the blob
-                  * `days_after_modification_greater_than` (`float`) - Value indicating the age in days after last modification
+    The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+      * `rules` (`list`) - The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        * `definition` (`dict`) - An object that defines the Lifecycle rule.
+          * `actions` (`dict`) - An object that defines the action set.
+            * `base_blob` (`dict`) - The management policy action for base blob
+              * `delete` (`dict`) - The function to delete the blob
+                * `days_after_modification_greater_than` (`float`) - Value indicating the age in days after last modification
 
-                * `tier_to_archive` (`dict`) - The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-                * `tier_to_cool` (`dict`) - The function to tier blobs to cool storage. Support blobs currently at Hot tier
+              * `tier_to_archive` (`dict`) - The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
+              * `tier_to_cool` (`dict`) - The function to tier blobs to cool storage. Support blobs currently at Hot tier
 
-              * `snapshot` (`dict`) - The management policy action for snapshot
-                * `delete` (`dict`) - The function to delete the blob snapshot
-                  * `days_after_creation_greater_than` (`float`) - Value indicating the age in days after creation
+            * `snapshot` (`dict`) - The management policy action for snapshot
+              * `delete` (`dict`) - The function to delete the blob snapshot
+                * `days_after_creation_greater_than` (`float`) - Value indicating the age in days after creation
 
-            * `filters` (`dict`) - An object that defines the filter set.
-              * `blob_index_match` (`list`) - An array of blob index tag based filters, there can be at most 10 tag filters
-                * `name` (`str`) - This is the filter tag name, it can have 1 - 128 characters
-                * `op` (`str`) - This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
-                * `value` (`str`) - This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
+          * `filters` (`dict`) - An object that defines the filter set.
+            * `blob_index_match` (`list`) - An array of blob index tag based filters, there can be at most 10 tag filters
+              * `name` (`str`) - This is the filter tag name, it can have 1 - 128 characters
+              * `op` (`str`) - This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
+              * `value` (`str`) - This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
 
-              * `blob_types` (`list`) - An array of predefined enum values. Only blockBlob is supported.
-              * `prefix_match` (`list`) - An array of strings for prefixes to be match.
+            * `blob_types` (`list`) - An array of predefined enum values. Only blockBlob is supported.
+            * `prefix_match` (`list`) - An array of strings for prefixes to be match.
 
-          * `enabled` (`bool`) - Rule is enabled if set to true.
-          * `name` (`str`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-          * `type` (`str`) - The valid value is Lifecycle
+        * `enabled` (`bool`) - Rule is enabled if set to true.
+        * `name` (`str`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        * `type` (`str`) - The valid value is Lifecycle
     """
     type: pulumi.Output[str]
     """
@@ -119,7 +121,7 @@ class ManagementPolicy(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['last_modified_time'] = None
             __props__['type'] = None
         super(ManagementPolicy, __self__).__init__(
             'azurerm:storage/v20190601:ManagementPolicy',

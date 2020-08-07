@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
+        /// The user email address, as it was specified during registration.
+        /// </summary>
+        [Output("email")]
+        public Output<string> Email { get; private set; } = null!;
+
+        /// <summary>
+        /// The user family name, as it was specified during registration.
+        /// </summary>
+        [Output("familyName")]
+        public Output<string> FamilyName { get; private set; } = null!;
+
+        /// <summary>
+        /// The user given name, as it was specified during registration.
+        /// </summary>
+        [Output("givenName")]
+        public Output<string> GivenName { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        [Output("latestOperationResult")]
+        public Output<Outputs.LatestOperationResultResponseResult> LatestOperationResult { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +51,10 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// These are the properties for the user registered under a lab.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.UserPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -39,10 +63,28 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The user tenant ID, as it was specified during registration.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// How long the user has used his VMs in this lab
+        /// </summary>
+        [Output("totalUsage")]
+        public Output<string> TotalUsage { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>

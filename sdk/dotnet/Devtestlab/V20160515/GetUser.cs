@@ -46,6 +46,14 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class GetUserResult
     {
         /// <summary>
+        /// The creation date of the user profile.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// The identity of the user.
+        /// </summary>
+        public readonly Outputs.UserIdentityResponseResult? Identity;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -54,9 +62,13 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.UserPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The secret store of the user.
+        /// </summary>
+        public readonly Outputs.UserSecretStoreResponseResult? SecretStore;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -65,24 +77,40 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
 
         [OutputConstructor]
         private GetUserResult(
+            string createdDate,
+
+            Outputs.UserIdentityResponseResult? identity,
+
             string? location,
 
             string name,
 
-            Outputs.UserPropertiesResponseResult properties,
+            string? provisioningState,
+
+            Outputs.UserSecretStoreResponseResult? secretStore,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? uniqueIdentifier)
         {
+            CreatedDate = createdDate;
+            Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SecretStore = secretStore;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

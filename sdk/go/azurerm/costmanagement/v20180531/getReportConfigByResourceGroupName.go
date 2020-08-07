@@ -25,10 +25,16 @@ type LookupReportConfigByResourceGroupNameArgs struct {
 
 // A report config resource.
 type LookupReportConfigByResourceGroupNameResult struct {
+	// Has definition for the report config.
+	Definition ReportConfigDefinitionResponse `pulumi:"definition"`
+	// Has delivery information for the report config.
+	DeliveryInfo ReportConfigDeliveryInfoResponse `pulumi:"deliveryInfo"`
+	// The format of the report being delivered.
+	Format *string `pulumi:"format"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties of the report config.
-	Properties ReportConfigPropertiesResponse `pulumi:"properties"`
+	// Has schedule information for the report config.
+	Schedule *ReportConfigScheduleResponse `pulumi:"schedule"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -51,15 +51,43 @@ export interface GetFileShareArgs {
  */
 export interface GetFileShareResult {
     /**
+     * The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+     */
+    readonly adminUser: string;
+    /**
+     * The data policy
+     */
+    readonly dataPolicy: string;
+    /**
+     * Description for file share
+     */
+    readonly description?: string;
+    /**
+     * The local used capacity in Bytes.
+     */
+    readonly localUsedCapacityInBytes: number;
+    /**
+     * The monitoring status
+     */
+    readonly monitoringStatus: string;
+    /**
      * The name.
      */
     readonly name: string;
     /**
-     * The properties.
+     * The total provisioned capacity in Bytes
      */
-    readonly properties: outputs.storsimple.v20161001.FileSharePropertiesResponse;
+    readonly provisionedCapacityInBytes: number;
+    /**
+     * The Share Status
+     */
+    readonly shareStatus: string;
     /**
      * The type.
      */
     readonly type: string;
+    /**
+     * The used capacity in Bytes.
+     */
+    readonly usedCapacityInBytes: number;
 }

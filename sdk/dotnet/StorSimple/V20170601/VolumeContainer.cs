@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public partial class VolumeContainer : Pulumi.CustomResource
     {
         /// <summary>
+        /// The bandwidth-rate set on the volume container.
+        /// </summary>
+        [Output("bandWidthRateInMbps")]
+        public Output<int?> BandWidthRateInMbps { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the bandwidth setting associated with the volume container.
+        /// </summary>
+        [Output("bandwidthSettingId")]
+        public Output<string?> BandwidthSettingId { get; private set; } = null!;
+
+        /// <summary>
+        /// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        /// </summary>
+        [Output("encryptionKey")]
+        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> EncryptionKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The flag to denote whether encryption is enabled or not.
+        /// </summary>
+        [Output("encryptionStatus")]
+        public Output<string> EncryptionStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Output("kind")]
@@ -27,16 +51,34 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The volume container properties.
+        /// The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VolumeContainerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("ownerShipStatus")]
+        public Output<string> OwnerShipStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The path ID of storage account associated with the volume container.
+        /// </summary>
+        [Output("storageAccountCredentialId")]
+        public Output<string> StorageAccountCredentialId { get; private set; } = null!;
+
+        /// <summary>
+        /// The total cloud storage for the volume container.
+        /// </summary>
+        [Output("totalCloudStorageUsageInBytes")]
+        public Output<int> TotalCloudStorageUsageInBytes { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of volumes in the volume Container.
+        /// </summary>
+        [Output("volumeCount")]
+        public Output<int> VolumeCount { get; private set; } = null!;
 
 
         /// <summary>

@@ -27,10 +27,24 @@ type LookupAssetArgs struct {
 
 // An Asset.
 type LookupAssetResult struct {
+	// The alternate ID of the Asset.
+	AlternateId *string `pulumi:"alternateId"`
+	// The Asset ID.
+	AssetId string `pulumi:"assetId"`
+	// The name of the asset blob container.
+	Container *string `pulumi:"container"`
+	// The creation date of the Asset.
+	Created string `pulumi:"created"`
+	// The Asset description.
+	Description *string `pulumi:"description"`
+	// The last modified date of the Asset.
+	LastModified string `pulumi:"lastModified"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties AssetPropertiesResponse `pulumi:"properties"`
+	// The name of the storage account.
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The Asset encryption format. One of None or MediaStorageEncryption.
+	StorageEncryptionFormat string `pulumi:"storageEncryptionFormat"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

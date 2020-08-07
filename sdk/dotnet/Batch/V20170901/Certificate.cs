@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Batch.V20170901
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// This is only returned when the certificate provisioningState is 'Failed'.
+        /// </summary>
+        [Output("deleteCertificateError")]
+        public Output<Outputs.DeleteCertificateErrorResponseResult> DeleteCertificateError { get; private set; } = null!;
+
+        /// <summary>
         /// The ETag of the resource, used for concurrency statements.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+        /// </summary>
+        [Output("format")]
+        public Output<string?> Format { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -27,10 +39,44 @@ namespace Pulumi.AzureRM.Batch.V20170901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the certificate.
+        /// The previous provisioned state of the resource
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CertificatePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("previousProvisioningState")]
+        public Output<string> PreviousProvisioningState { get; private set; } = null!;
+
+        [Output("previousProvisioningStateTransitionTime")]
+        public Output<string> PreviousProvisioningStateTransitionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Values are:
+        /// 
+        ///  Succeeded - The certificate is available for use in pools.
+        ///  Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
+        ///  Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        [Output("provisioningStateTransitionTime")]
+        public Output<string> ProvisioningStateTransitionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The public key of the certificate.
+        /// </summary>
+        [Output("publicData")]
+        public Output<string> PublicData { get; private set; } = null!;
+
+        /// <summary>
+        /// This must match the thumbprint from the name.
+        /// </summary>
+        [Output("thumbprint")]
+        public Output<string?> Thumbprint { get; private set; } = null!;
+
+        /// <summary>
+        /// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+        /// </summary>
+        [Output("thumbprintAlgorithm")]
+        public Output<string?> ThumbprintAlgorithm { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

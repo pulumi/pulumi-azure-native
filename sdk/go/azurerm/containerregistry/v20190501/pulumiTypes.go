@@ -1044,7 +1044,7 @@ type IPRuleResponse struct {
 	// The action of IP ACL rule.
 	Action *string `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	Value string `pulumi:"value"`
+	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
 }
 
 // IPRuleResponseInput is an input type that accepts IPRuleResponseArgs and IPRuleResponseOutput values.
@@ -1063,7 +1063,7 @@ type IPRuleResponseArgs struct {
 	// The action of IP ACL rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	Value pulumi.StringInput `pulumi:"value"`
+	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
 
 func (IPRuleResponseArgs) ElementType() reflect.Type {
@@ -1124,8 +1124,8 @@ func (o IPRuleResponseOutput) Action() pulumi.StringPtrOutput {
 }
 
 // Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-func (o IPRuleResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPRuleResponse) string { return v.Value }).(pulumi.StringOutput)
+func (o IPRuleResponseOutput) IPAddressOrRange() pulumi.StringOutput {
+	return o.ApplyT(func(v IPRuleResponse) string { return v.IPAddressOrRange }).(pulumi.StringOutput)
 }
 
 type IPRuleResponseArrayOutput struct{ *pulumi.OutputState }
@@ -2211,426 +2211,6 @@ func (o RegistryPasswordResponseArrayOutput) Index(i pulumi.IntInput) RegistryPa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryPasswordResponse {
 		return vs[0].([]RegistryPasswordResponse)[vs[1].(int)]
 	}).(RegistryPasswordResponseOutput)
-}
-
-// The properties of a container registry.
-type RegistryPropertiesResponse struct {
-	// The value that indicates whether the admin user is enabled.
-	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
-	// The creation date of the container registry in ISO8601 format.
-	CreationDate string `pulumi:"creationDate"`
-	// The URL that can be used to log into the container registry.
-	LoginServer string `pulumi:"loginServer"`
-	// The network rule set for a container registry.
-	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
-	// The policies for a container registry.
-	Policies *PoliciesResponse `pulumi:"policies"`
-	// The provisioning state of the container registry at the time the operation was called.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The status of the container registry at the time the operation was called.
-	Status StatusResponse `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
-}
-
-// RegistryPropertiesResponseInput is an input type that accepts RegistryPropertiesResponseArgs and RegistryPropertiesResponseOutput values.
-// You can construct a concrete instance of `RegistryPropertiesResponseInput` via:
-//
-//          RegistryPropertiesResponseArgs{...}
-type RegistryPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToRegistryPropertiesResponseOutput() RegistryPropertiesResponseOutput
-	ToRegistryPropertiesResponseOutputWithContext(context.Context) RegistryPropertiesResponseOutput
-}
-
-// The properties of a container registry.
-type RegistryPropertiesResponseArgs struct {
-	// The value that indicates whether the admin user is enabled.
-	AdminUserEnabled pulumi.BoolPtrInput `pulumi:"adminUserEnabled"`
-	// The creation date of the container registry in ISO8601 format.
-	CreationDate pulumi.StringInput `pulumi:"creationDate"`
-	// The URL that can be used to log into the container registry.
-	LoginServer pulumi.StringInput `pulumi:"loginServer"`
-	// The network rule set for a container registry.
-	NetworkRuleSet NetworkRuleSetResponsePtrInput `pulumi:"networkRuleSet"`
-	// The policies for a container registry.
-	Policies PoliciesResponsePtrInput `pulumi:"policies"`
-	// The provisioning state of the container registry at the time the operation was called.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The status of the container registry at the time the operation was called.
-	Status StatusResponseInput `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount StorageAccountPropertiesResponsePtrInput `pulumi:"storageAccount"`
-}
-
-func (RegistryPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryPropertiesResponse)(nil)).Elem()
-}
-
-func (i RegistryPropertiesResponseArgs) ToRegistryPropertiesResponseOutput() RegistryPropertiesResponseOutput {
-	return i.ToRegistryPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i RegistryPropertiesResponseArgs) ToRegistryPropertiesResponseOutputWithContext(ctx context.Context) RegistryPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryPropertiesResponseOutput)
-}
-
-func (i RegistryPropertiesResponseArgs) ToRegistryPropertiesResponsePtrOutput() RegistryPropertiesResponsePtrOutput {
-	return i.ToRegistryPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RegistryPropertiesResponseArgs) ToRegistryPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistryPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryPropertiesResponseOutput).ToRegistryPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// RegistryPropertiesResponsePtrInput is an input type that accepts RegistryPropertiesResponseArgs, RegistryPropertiesResponsePtr and RegistryPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `RegistryPropertiesResponsePtrInput` via:
-//
-//          RegistryPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RegistryPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToRegistryPropertiesResponsePtrOutput() RegistryPropertiesResponsePtrOutput
-	ToRegistryPropertiesResponsePtrOutputWithContext(context.Context) RegistryPropertiesResponsePtrOutput
-}
-
-type registryPropertiesResponsePtrType RegistryPropertiesResponseArgs
-
-func RegistryPropertiesResponsePtr(v *RegistryPropertiesResponseArgs) RegistryPropertiesResponsePtrInput {
-	return (*registryPropertiesResponsePtrType)(v)
-}
-
-func (*registryPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryPropertiesResponse)(nil)).Elem()
-}
-
-func (i *registryPropertiesResponsePtrType) ToRegistryPropertiesResponsePtrOutput() RegistryPropertiesResponsePtrOutput {
-	return i.ToRegistryPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *registryPropertiesResponsePtrType) ToRegistryPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistryPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryPropertiesResponsePtrOutput)
-}
-
-// The properties of a container registry.
-type RegistryPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (RegistryPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryPropertiesResponse)(nil)).Elem()
-}
-
-func (o RegistryPropertiesResponseOutput) ToRegistryPropertiesResponseOutput() RegistryPropertiesResponseOutput {
-	return o
-}
-
-func (o RegistryPropertiesResponseOutput) ToRegistryPropertiesResponseOutputWithContext(ctx context.Context) RegistryPropertiesResponseOutput {
-	return o
-}
-
-func (o RegistryPropertiesResponseOutput) ToRegistryPropertiesResponsePtrOutput() RegistryPropertiesResponsePtrOutput {
-	return o.ToRegistryPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RegistryPropertiesResponseOutput) ToRegistryPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistryPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RegistryPropertiesResponse) *RegistryPropertiesResponse {
-		return &v
-	}).(RegistryPropertiesResponsePtrOutput)
-}
-
-// The value that indicates whether the admin user is enabled.
-func (o RegistryPropertiesResponseOutput) AdminUserEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RegistryPropertiesResponse) *bool { return v.AdminUserEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// The creation date of the container registry in ISO8601 format.
-func (o RegistryPropertiesResponseOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryPropertiesResponse) string { return v.CreationDate }).(pulumi.StringOutput)
-}
-
-// The URL that can be used to log into the container registry.
-func (o RegistryPropertiesResponseOutput) LoginServer() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryPropertiesResponse) string { return v.LoginServer }).(pulumi.StringOutput)
-}
-
-// The network rule set for a container registry.
-func (o RegistryPropertiesResponseOutput) NetworkRuleSet() NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v RegistryPropertiesResponse) *NetworkRuleSetResponse { return v.NetworkRuleSet }).(NetworkRuleSetResponsePtrOutput)
-}
-
-// The policies for a container registry.
-func (o RegistryPropertiesResponseOutput) Policies() PoliciesResponsePtrOutput {
-	return o.ApplyT(func(v RegistryPropertiesResponse) *PoliciesResponse { return v.Policies }).(PoliciesResponsePtrOutput)
-}
-
-// The provisioning state of the container registry at the time the operation was called.
-func (o RegistryPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The status of the container registry at the time the operation was called.
-func (o RegistryPropertiesResponseOutput) Status() StatusResponseOutput {
-	return o.ApplyT(func(v RegistryPropertiesResponse) StatusResponse { return v.Status }).(StatusResponseOutput)
-}
-
-// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-func (o RegistryPropertiesResponseOutput) StorageAccount() StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RegistryPropertiesResponse) *StorageAccountPropertiesResponse { return v.StorageAccount }).(StorageAccountPropertiesResponsePtrOutput)
-}
-
-type RegistryPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RegistryPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryPropertiesResponse)(nil)).Elem()
-}
-
-func (o RegistryPropertiesResponsePtrOutput) ToRegistryPropertiesResponsePtrOutput() RegistryPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RegistryPropertiesResponsePtrOutput) ToRegistryPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistryPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RegistryPropertiesResponsePtrOutput) Elem() RegistryPropertiesResponseOutput {
-	return o.ApplyT(func(v *RegistryPropertiesResponse) RegistryPropertiesResponse { return *v }).(RegistryPropertiesResponseOutput)
-}
-
-// The value that indicates whether the admin user is enabled.
-func (o RegistryPropertiesResponsePtrOutput) AdminUserEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RegistryPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AdminUserEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The creation date of the container registry in ISO8601 format.
-func (o RegistryPropertiesResponsePtrOutput) CreationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistryPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URL that can be used to log into the container registry.
-func (o RegistryPropertiesResponsePtrOutput) LoginServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistryPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LoginServer
-	}).(pulumi.StringPtrOutput)
-}
-
-// The network rule set for a container registry.
-func (o RegistryPropertiesResponsePtrOutput) NetworkRuleSet() NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v *RegistryPropertiesResponse) *NetworkRuleSetResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkRuleSet
-	}).(NetworkRuleSetResponsePtrOutput)
-}
-
-// The policies for a container registry.
-func (o RegistryPropertiesResponsePtrOutput) Policies() PoliciesResponsePtrOutput {
-	return o.ApplyT(func(v *RegistryPropertiesResponse) *PoliciesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Policies
-	}).(PoliciesResponsePtrOutput)
-}
-
-// The provisioning state of the container registry at the time the operation was called.
-func (o RegistryPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistryPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The status of the container registry at the time the operation was called.
-func (o RegistryPropertiesResponsePtrOutput) Status() StatusResponsePtrOutput {
-	return o.ApplyT(func(v *RegistryPropertiesResponse) *StatusResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(StatusResponsePtrOutput)
-}
-
-// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-func (o RegistryPropertiesResponsePtrOutput) StorageAccount() StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *RegistryPropertiesResponse) *StorageAccountPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccount
-	}).(StorageAccountPropertiesResponsePtrOutput)
-}
-
-// The properties of a replication.
-type ReplicationPropertiesResponse struct {
-	// The provisioning state of the replication at the time the operation was called.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The status of the replication at the time the operation was called.
-	Status StatusResponse `pulumi:"status"`
-}
-
-// ReplicationPropertiesResponseInput is an input type that accepts ReplicationPropertiesResponseArgs and ReplicationPropertiesResponseOutput values.
-// You can construct a concrete instance of `ReplicationPropertiesResponseInput` via:
-//
-//          ReplicationPropertiesResponseArgs{...}
-type ReplicationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToReplicationPropertiesResponseOutput() ReplicationPropertiesResponseOutput
-	ToReplicationPropertiesResponseOutputWithContext(context.Context) ReplicationPropertiesResponseOutput
-}
-
-// The properties of a replication.
-type ReplicationPropertiesResponseArgs struct {
-	// The provisioning state of the replication at the time the operation was called.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The status of the replication at the time the operation was called.
-	Status StatusResponseInput `pulumi:"status"`
-}
-
-func (ReplicationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationPropertiesResponse)(nil)).Elem()
-}
-
-func (i ReplicationPropertiesResponseArgs) ToReplicationPropertiesResponseOutput() ReplicationPropertiesResponseOutput {
-	return i.ToReplicationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ReplicationPropertiesResponseArgs) ToReplicationPropertiesResponseOutputWithContext(ctx context.Context) ReplicationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationPropertiesResponseOutput)
-}
-
-func (i ReplicationPropertiesResponseArgs) ToReplicationPropertiesResponsePtrOutput() ReplicationPropertiesResponsePtrOutput {
-	return i.ToReplicationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReplicationPropertiesResponseArgs) ToReplicationPropertiesResponsePtrOutputWithContext(ctx context.Context) ReplicationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationPropertiesResponseOutput).ToReplicationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ReplicationPropertiesResponsePtrInput is an input type that accepts ReplicationPropertiesResponseArgs, ReplicationPropertiesResponsePtr and ReplicationPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ReplicationPropertiesResponsePtrInput` via:
-//
-//          ReplicationPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ReplicationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToReplicationPropertiesResponsePtrOutput() ReplicationPropertiesResponsePtrOutput
-	ToReplicationPropertiesResponsePtrOutputWithContext(context.Context) ReplicationPropertiesResponsePtrOutput
-}
-
-type replicationPropertiesResponsePtrType ReplicationPropertiesResponseArgs
-
-func ReplicationPropertiesResponsePtr(v *ReplicationPropertiesResponseArgs) ReplicationPropertiesResponsePtrInput {
-	return (*replicationPropertiesResponsePtrType)(v)
-}
-
-func (*replicationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *replicationPropertiesResponsePtrType) ToReplicationPropertiesResponsePtrOutput() ReplicationPropertiesResponsePtrOutput {
-	return i.ToReplicationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *replicationPropertiesResponsePtrType) ToReplicationPropertiesResponsePtrOutputWithContext(ctx context.Context) ReplicationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationPropertiesResponsePtrOutput)
-}
-
-// The properties of a replication.
-type ReplicationPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ReplicationPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationPropertiesResponse)(nil)).Elem()
-}
-
-func (o ReplicationPropertiesResponseOutput) ToReplicationPropertiesResponseOutput() ReplicationPropertiesResponseOutput {
-	return o
-}
-
-func (o ReplicationPropertiesResponseOutput) ToReplicationPropertiesResponseOutputWithContext(ctx context.Context) ReplicationPropertiesResponseOutput {
-	return o
-}
-
-func (o ReplicationPropertiesResponseOutput) ToReplicationPropertiesResponsePtrOutput() ReplicationPropertiesResponsePtrOutput {
-	return o.ToReplicationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationPropertiesResponseOutput) ToReplicationPropertiesResponsePtrOutputWithContext(ctx context.Context) ReplicationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ReplicationPropertiesResponse) *ReplicationPropertiesResponse {
-		return &v
-	}).(ReplicationPropertiesResponsePtrOutput)
-}
-
-// The provisioning state of the replication at the time the operation was called.
-func (o ReplicationPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicationPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The status of the replication at the time the operation was called.
-func (o ReplicationPropertiesResponseOutput) Status() StatusResponseOutput {
-	return o.ApplyT(func(v ReplicationPropertiesResponse) StatusResponse { return v.Status }).(StatusResponseOutput)
-}
-
-type ReplicationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicationPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationPropertiesResponse)(nil)).Elem()
-}
-
-func (o ReplicationPropertiesResponsePtrOutput) ToReplicationPropertiesResponsePtrOutput() ReplicationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ReplicationPropertiesResponsePtrOutput) ToReplicationPropertiesResponsePtrOutputWithContext(ctx context.Context) ReplicationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ReplicationPropertiesResponsePtrOutput) Elem() ReplicationPropertiesResponseOutput {
-	return o.ApplyT(func(v *ReplicationPropertiesResponse) ReplicationPropertiesResponse { return *v }).(ReplicationPropertiesResponseOutput)
-}
-
-// The provisioning state of the replication at the time the operation was called.
-func (o ReplicationPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReplicationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The status of the replication at the time the operation was called.
-func (o ReplicationPropertiesResponsePtrOutput) Status() StatusResponsePtrOutput {
-	return o.ApplyT(func(v *ReplicationPropertiesResponse) *StatusResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(StatusResponsePtrOutput)
 }
 
 // The request that generated the event.
@@ -4754,7 +4334,7 @@ type VirtualNetworkRuleResponse struct {
 	// The action of virtual network rule.
 	Action *string `pulumi:"action"`
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	Id string `pulumi:"id"`
+	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
 }
 
 // VirtualNetworkRuleResponseInput is an input type that accepts VirtualNetworkRuleResponseArgs and VirtualNetworkRuleResponseOutput values.
@@ -4773,7 +4353,7 @@ type VirtualNetworkRuleResponseArgs struct {
 	// The action of virtual network rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	Id pulumi.StringInput `pulumi:"id"`
+	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
 
 func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
@@ -4834,8 +4414,8 @@ func (o VirtualNetworkRuleResponseOutput) Action() pulumi.StringPtrOutput {
 }
 
 // Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-func (o VirtualNetworkRuleResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o VirtualNetworkRuleResponseOutput) VirtualNetworkResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.VirtualNetworkResourceId }).(pulumi.StringOutput)
 }
 
 type VirtualNetworkRuleResponseArrayOutput struct{ *pulumi.OutputState }
@@ -4856,197 +4436,6 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkRuleResponse {
 		return vs[0].([]VirtualNetworkRuleResponse)[vs[1].(int)]
 	}).(VirtualNetworkRuleResponseOutput)
-}
-
-// The properties of a webhook.
-type WebhookPropertiesResponse struct {
-	// The list of actions that trigger the webhook to post notifications.
-	Actions []string `pulumi:"actions"`
-	// The provisioning state of the webhook at the time the operation was called.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-	Scope *string `pulumi:"scope"`
-	// The status of the webhook at the time the operation was called.
-	Status *string `pulumi:"status"`
-}
-
-// WebhookPropertiesResponseInput is an input type that accepts WebhookPropertiesResponseArgs and WebhookPropertiesResponseOutput values.
-// You can construct a concrete instance of `WebhookPropertiesResponseInput` via:
-//
-//          WebhookPropertiesResponseArgs{...}
-type WebhookPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToWebhookPropertiesResponseOutput() WebhookPropertiesResponseOutput
-	ToWebhookPropertiesResponseOutputWithContext(context.Context) WebhookPropertiesResponseOutput
-}
-
-// The properties of a webhook.
-type WebhookPropertiesResponseArgs struct {
-	// The list of actions that trigger the webhook to post notifications.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The provisioning state of the webhook at the time the operation was called.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// The status of the webhook at the time the operation was called.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (WebhookPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookPropertiesResponse)(nil)).Elem()
-}
-
-func (i WebhookPropertiesResponseArgs) ToWebhookPropertiesResponseOutput() WebhookPropertiesResponseOutput {
-	return i.ToWebhookPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i WebhookPropertiesResponseArgs) ToWebhookPropertiesResponseOutputWithContext(ctx context.Context) WebhookPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookPropertiesResponseOutput)
-}
-
-func (i WebhookPropertiesResponseArgs) ToWebhookPropertiesResponsePtrOutput() WebhookPropertiesResponsePtrOutput {
-	return i.ToWebhookPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WebhookPropertiesResponseArgs) ToWebhookPropertiesResponsePtrOutputWithContext(ctx context.Context) WebhookPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookPropertiesResponseOutput).ToWebhookPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// WebhookPropertiesResponsePtrInput is an input type that accepts WebhookPropertiesResponseArgs, WebhookPropertiesResponsePtr and WebhookPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `WebhookPropertiesResponsePtrInput` via:
-//
-//          WebhookPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type WebhookPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToWebhookPropertiesResponsePtrOutput() WebhookPropertiesResponsePtrOutput
-	ToWebhookPropertiesResponsePtrOutputWithContext(context.Context) WebhookPropertiesResponsePtrOutput
-}
-
-type webhookPropertiesResponsePtrType WebhookPropertiesResponseArgs
-
-func WebhookPropertiesResponsePtr(v *WebhookPropertiesResponseArgs) WebhookPropertiesResponsePtrInput {
-	return (*webhookPropertiesResponsePtrType)(v)
-}
-
-func (*webhookPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebhookPropertiesResponse)(nil)).Elem()
-}
-
-func (i *webhookPropertiesResponsePtrType) ToWebhookPropertiesResponsePtrOutput() WebhookPropertiesResponsePtrOutput {
-	return i.ToWebhookPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *webhookPropertiesResponsePtrType) ToWebhookPropertiesResponsePtrOutputWithContext(ctx context.Context) WebhookPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookPropertiesResponsePtrOutput)
-}
-
-// The properties of a webhook.
-type WebhookPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (WebhookPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookPropertiesResponse)(nil)).Elem()
-}
-
-func (o WebhookPropertiesResponseOutput) ToWebhookPropertiesResponseOutput() WebhookPropertiesResponseOutput {
-	return o
-}
-
-func (o WebhookPropertiesResponseOutput) ToWebhookPropertiesResponseOutputWithContext(ctx context.Context) WebhookPropertiesResponseOutput {
-	return o
-}
-
-func (o WebhookPropertiesResponseOutput) ToWebhookPropertiesResponsePtrOutput() WebhookPropertiesResponsePtrOutput {
-	return o.ToWebhookPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WebhookPropertiesResponseOutput) ToWebhookPropertiesResponsePtrOutputWithContext(ctx context.Context) WebhookPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v WebhookPropertiesResponse) *WebhookPropertiesResponse {
-		return &v
-	}).(WebhookPropertiesResponsePtrOutput)
-}
-
-// The list of actions that trigger the webhook to post notifications.
-func (o WebhookPropertiesResponseOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WebhookPropertiesResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
-}
-
-// The provisioning state of the webhook at the time the operation was called.
-func (o WebhookPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v WebhookPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-func (o WebhookPropertiesResponseOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookPropertiesResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
-}
-
-// The status of the webhook at the time the operation was called.
-func (o WebhookPropertiesResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookPropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type WebhookPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (WebhookPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebhookPropertiesResponse)(nil)).Elem()
-}
-
-func (o WebhookPropertiesResponsePtrOutput) ToWebhookPropertiesResponsePtrOutput() WebhookPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o WebhookPropertiesResponsePtrOutput) ToWebhookPropertiesResponsePtrOutputWithContext(ctx context.Context) WebhookPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o WebhookPropertiesResponsePtrOutput) Elem() WebhookPropertiesResponseOutput {
-	return o.ApplyT(func(v *WebhookPropertiesResponse) WebhookPropertiesResponse { return *v }).(WebhookPropertiesResponseOutput)
-}
-
-// The list of actions that trigger the webhook to post notifications.
-func (o WebhookPropertiesResponsePtrOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WebhookPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(pulumi.StringArrayOutput)
-}
-
-// The provisioning state of the webhook at the time the operation was called.
-func (o WebhookPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebhookPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-func (o WebhookPropertiesResponsePtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebhookPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Scope
-	}).(pulumi.StringPtrOutput)
-}
-
-// The status of the webhook at the time the operation was called.
-func (o WebhookPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebhookPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -5078,10 +4467,6 @@ func init() {
 	pulumi.RegisterOutputType(QuarantinePolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(RegistryPasswordResponseOutput{})
 	pulumi.RegisterOutputType(RegistryPasswordResponseArrayOutput{})
-	pulumi.RegisterOutputType(RegistryPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(RegistryPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ReplicationPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ReplicationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RequestResponseOutput{})
 	pulumi.RegisterOutputType(RequestResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyOutput{})
@@ -5110,6 +4495,4 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(WebhookPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(WebhookPropertiesResponsePtrOutput{})
 }

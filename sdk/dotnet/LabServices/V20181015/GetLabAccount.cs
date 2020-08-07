@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class GetLabAccountResult
     {
         /// <summary>
+        /// Represents if region selection is enabled
+        /// </summary>
+        public readonly bool? EnabledRegionSelection;
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -48,9 +56,13 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.LabAccountPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Represents the size configuration under the lab account
+        /// </summary>
+        public readonly Outputs.SizeConfigurationPropertiesResponseResult SizeConfiguration;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -59,24 +71,40 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
 
         [OutputConstructor]
         private GetLabAccountResult(
+            bool? enabledRegionSelection,
+
+            Outputs.LatestOperationResultResponseResult latestOperationResult,
+
             string? location,
 
             string name,
 
-            Outputs.LabAccountPropertiesResponseResult properties,
+            string? provisioningState,
+
+            Outputs.SizeConfigurationPropertiesResponseResult sizeConfiguration,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? uniqueIdentifier)
         {
+            EnabledRegionSelection = enabledRegionSelection;
+            LatestOperationResult = latestOperationResult;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SizeConfiguration = sizeConfiguration;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

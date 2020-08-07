@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     public partial class Factory : Pulumi.CustomResource
     {
         /// <summary>
+        /// Time the factory was created in ISO8601 format.
+        /// </summary>
+        [Output("createTime")]
+        public Output<string> CreateTime { get; private set; } = null!;
+
+        /// <summary>
         /// Etag identifies change in the resource.
         /// </summary>
         [Output("eTag")]
         public Output<string> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// List of parameters for factory.
+        /// </summary>
+        [Output("globalParameters")]
+        public Output<ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponseResult>?> GlobalParameters { get; private set; } = null!;
 
         /// <summary>
         /// Managed service identity of the factory.
@@ -39,10 +51,16 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the factory.
+        /// Factory provisioning state, example Succeeded.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FactoryPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Git repo information of the factory.
+        /// </summary>
+        [Output("repoConfiguration")]
+        public Output<Outputs.FactoryRepoConfigurationResponseResult?> RepoConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -55,6 +73,12 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of the factory.
+        /// </summary>
+        [Output("version")]
+        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>

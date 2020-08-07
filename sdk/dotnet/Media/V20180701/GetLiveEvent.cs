@@ -46,6 +46,30 @@ namespace Pulumi.AzureRM.Media.V20180701
     public sealed class GetLiveEventResult
     {
         /// <summary>
+        /// The exact time the Live Event was created.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// The Live Event access policies.
+        /// </summary>
+        public readonly Outputs.CrossSiteAccessPoliciesResponseResult? CrossSiteAccessPolicies;
+        /// <summary>
+        /// The Live Event description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The Live Event encoding.
+        /// </summary>
+        public readonly Outputs.LiveEventEncodingResponseResult? Encoding;
+        /// <summary>
+        /// The Live Event input.
+        /// </summary>
+        public readonly Outputs.LiveEventInputResponseResult Input;
+        /// <summary>
+        /// The exact time the Live Event was last modified.
+        /// </summary>
+        public readonly string LastModified;
+        /// <summary>
         /// The Azure Region of the resource.
         /// </summary>
         public readonly string? Location;
@@ -54,9 +78,21 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Live Event properties.
+        /// The Live Event preview.
         /// </summary>
-        public readonly Outputs.LiveEventPropertiesResponseResult Properties;
+        public readonly Outputs.LiveEventPreviewResponseResult? Preview;
+        /// <summary>
+        /// The provisioning state of the Live Event.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource state of the Live Event.
+        /// </summary>
+        public readonly string ResourceState;
+        /// <summary>
+        /// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+        /// </summary>
+        public readonly ImmutableArray<string> StreamOptions;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -65,24 +101,58 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+        /// </summary>
+        public readonly bool? VanityUrl;
 
         [OutputConstructor]
         private GetLiveEventResult(
+            string created,
+
+            Outputs.CrossSiteAccessPoliciesResponseResult? crossSiteAccessPolicies,
+
+            string? description,
+
+            Outputs.LiveEventEncodingResponseResult? encoding,
+
+            Outputs.LiveEventInputResponseResult input,
+
+            string lastModified,
+
             string? location,
 
             string name,
 
-            Outputs.LiveEventPropertiesResponseResult properties,
+            Outputs.LiveEventPreviewResponseResult? preview,
+
+            string provisioningState,
+
+            string resourceState,
+
+            ImmutableArray<string> streamOptions,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            bool? vanityUrl)
         {
+            Created = created;
+            CrossSiteAccessPolicies = crossSiteAccessPolicies;
+            Description = description;
+            Encoding = encoding;
+            Input = input;
+            LastModified = lastModified;
             Location = location;
             Name = name;
-            Properties = properties;
+            Preview = preview;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
+            StreamOptions = streamOptions;
             Tags = tags;
             Type = type;
+            VanityUrl = vanityUrl;
         }
     }
 }

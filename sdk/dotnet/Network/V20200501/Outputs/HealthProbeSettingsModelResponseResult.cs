@@ -14,17 +14,37 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
     public sealed class HealthProbeSettingsModelResponseResult
     {
         /// <summary>
+        /// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
+        /// </summary>
+        public readonly string? EnabledState;
+        /// <summary>
+        /// Configures which HTTP method to use to probe the backends defined under backendPools.
+        /// </summary>
+        public readonly string? HealthProbeMethod;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The number of seconds between health probes.
+        /// </summary>
+        public readonly int? IntervalInSeconds;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the health probe settings
+        /// The path to use for the health probe. Default is /
         /// </summary>
-        public readonly Outputs.HealthProbeSettingsPropertiesResponseResult? Properties;
+        public readonly string? Path;
+        /// <summary>
+        /// Protocol scheme to use for this probe
+        /// </summary>
+        public readonly string? Protocol;
+        /// <summary>
+        /// Resource status.
+        /// </summary>
+        public readonly string? ResourceState;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -32,17 +52,32 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
 
         [OutputConstructor]
         private HealthProbeSettingsModelResponseResult(
+            string? enabledState,
+
+            string? healthProbeMethod,
+
             string? id,
+
+            int? intervalInSeconds,
 
             string? name,
 
-            Outputs.HealthProbeSettingsPropertiesResponseResult? properties,
+            string? path,
+
+            string? protocol,
+
+            string? resourceState,
 
             string type)
         {
+            EnabledState = enabledState;
+            HealthProbeMethod = healthProbeMethod;
             Id = id;
+            IntervalInSeconds = intervalInSeconds;
             Name = name;
-            Properties = properties;
+            Path = path;
+            Protocol = protocol;
+            ResourceState = resourceState;
             Type = type;
         }
     }

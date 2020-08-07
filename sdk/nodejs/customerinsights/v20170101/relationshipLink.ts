@@ -37,13 +37,53 @@ export class RelationshipLink extends pulumi.CustomResource {
     }
 
     /**
+     * Localized descriptions for the Relationship Link.
+     */
+    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Localized display name for the Relationship Link.
+     */
+    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The InteractionType associated with the Relationship Link.
+     */
+    public readonly interactionType!: pulumi.Output<string>;
+    /**
+     * The name of the Relationship Link.
+     */
+    public /*out*/ readonly linkName!: pulumi.Output<string>;
+    /**
+     * The mappings between Interaction and Relationship fields.
+     */
+    public readonly mappings!: pulumi.Output<outputs.customerinsights.v20170101.RelationshipLinkFieldMappingResponse[] | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The definition of relationship link.
+     * The property references for the Profile of the Relationship.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.RelationshipLinkDefinitionResponse>;
+    public readonly profilePropertyReferences!: pulumi.Output<outputs.customerinsights.v20170101.ParticipantPropertyReferenceResponse[]>;
+    /**
+     * Provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The property references for the Related Profile of the Relationship.
+     */
+    public readonly relatedProfilePropertyReferences!: pulumi.Output<outputs.customerinsights.v20170101.ParticipantPropertyReferenceResponse[]>;
+    /**
+     * The relationship guid id.
+     */
+    public /*out*/ readonly relationshipGuidId!: pulumi.Output<string>;
+    /**
+     * The Relationship associated with the Link.
+     */
+    public readonly relationshipName!: pulumi.Output<string>;
+    /**
+     * The hub name.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -93,7 +133,10 @@ export class RelationshipLink extends pulumi.CustomResource {
             inputs["relatedProfilePropertyReferences"] = args ? args.relatedProfilePropertyReferences : undefined;
             inputs["relationshipName"] = args ? args.relationshipName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["linkName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["relationshipGuidId"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

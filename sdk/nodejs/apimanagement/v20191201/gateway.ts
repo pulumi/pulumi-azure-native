@@ -37,13 +37,17 @@ export class Gateway extends pulumi.CustomResource {
     }
 
     /**
+     * Gateway description
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Gateway location.
+     */
+    public readonly locationData!: pulumi.Output<outputs.apimanagement.v20191201.ResourceLocationDataContractResponse | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Gateway details.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.GatewayContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -76,7 +80,6 @@ export class Gateway extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

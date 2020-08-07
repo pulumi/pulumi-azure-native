@@ -37,9 +37,25 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     }
 
     /**
+     * allow classic operations
+     */
+    public readonly allowClassicOperations!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets or sets list of authorizations
+     */
+    public readonly authorizations!: pulumi.Output<outputs.network.v20160601.ExpressRouteCircuitAuthorizationResponse[] | undefined>;
+    /**
+     * Gets or sets CircuitProvisioningState state of the resource 
+     */
+    public readonly circuitProvisioningState!: pulumi.Output<string | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the GatewayManager Etag
+     */
+    public readonly gatewayManagerEtag!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
@@ -49,9 +65,29 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of ExpressRouteCircuit
+     * Gets or sets list of peerings
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.ExpressRouteCircuitPropertiesFormatResponse>;
+    public readonly peerings!: pulumi.Output<outputs.network.v20160601.ExpressRouteCircuitPeeringResponse[] | undefined>;
+    /**
+     * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets ServiceKey
+     */
+    public readonly serviceKey!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets ServiceProviderNotes
+     */
+    public readonly serviceProviderNotes!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets ServiceProviderProperties
+     */
+    public readonly serviceProviderProperties!: pulumi.Output<outputs.network.v20160601.ExpressRouteCircuitServiceProviderPropertiesResponse | undefined>;
+    /**
+     * Gets or sets ServiceProviderProvisioningState state of the resource 
+     */
+    public readonly serviceProviderProvisioningState!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets sku
      */
@@ -101,7 +137,6 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

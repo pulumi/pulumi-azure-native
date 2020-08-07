@@ -49,9 +49,13 @@ export interface ListAppServicePlanHybridConnectionKeysResult {
      */
     readonly name: string;
     /**
-     * HybridConnectionKey resource specific properties
+     * The name of the send key.
      */
-    readonly properties: outputs.web.v20160901.HybridConnectionKeyResponseProperties;
+    readonly sendKeyName: string;
+    /**
+     * The value of the send key.
+     */
+    readonly sendKeyValue: string;
     /**
      * Resource type.
      */

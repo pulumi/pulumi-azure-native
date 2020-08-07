@@ -13,7 +13,37 @@ class GetPolicyResult:
     """
     A Policy.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, created_date=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, location=None, name=None, provisioning_state=None, status=None, tags=None, threshold=None, type=None, unique_identifier=None):
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The creation date of the policy.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the policy.
+        """
+        if evaluator_type and not isinstance(evaluator_type, str):
+            raise TypeError("Expected argument 'evaluator_type' to be a str")
+        __self__.evaluator_type = evaluator_type
+        """
+        The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+        """
+        if fact_data and not isinstance(fact_data, str):
+            raise TypeError("Expected argument 'fact_data' to be a str")
+        __self__.fact_data = fact_data
+        """
+        The fact data of the policy.
+        """
+        if fact_name and not isinstance(fact_name, str):
+            raise TypeError("Expected argument 'fact_name' to be a str")
+        __self__.fact_name = fact_name
+        """
+        The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,17 @@ class GetPolicyResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of the policy.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -38,11 +74,23 @@ class GetPolicyResult:
         """
         The tags of the resource.
         """
+        if threshold and not isinstance(threshold, str):
+            raise TypeError("Expected argument 'threshold' to be a str")
+        __self__.threshold = threshold
+        """
+        The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource.
+        """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
         """
 
 
@@ -52,11 +100,19 @@ class AwaitableGetPolicyResult(GetPolicyResult):
         if False:
             yield self
         return GetPolicyResult(
+            created_date=self.created_date,
+            description=self.description,
+            evaluator_type=self.evaluator_type,
+            fact_data=self.fact_data,
+            fact_name=self.fact_name,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            threshold=self.threshold,
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_policy(lab_name=None, name=None, policy_set_name=None, resource_group_name=None, opts=None):
@@ -80,8 +136,16 @@ def get_policy(lab_name=None, name=None, policy_set_name=None, resource_group_na
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getPolicy', __args__, opts=opts).value
 
     return AwaitableGetPolicyResult(
+        created_date=__ret__.get('createdDate'),
+        description=__ret__.get('description'),
+        evaluator_type=__ret__.get('evaluatorType'),
+        fact_data=__ret__.get('factData'),
+        fact_name=__ret__.get('factName'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        threshold=__ret__.get('threshold'),
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

@@ -48,9 +48,13 @@ export interface GetDdosProtectionPlanResult {
      */
     readonly name: string;
     /**
-     * Properties of the DDoS protection plan.
+     * The provisioning state of the DDoS protection plan resource.
      */
-    readonly properties: outputs.network.v20191101.DdosProtectionPlanPropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+     */
+    readonly resourceGuid: string;
     /**
      * Resource tags.
      */
@@ -59,4 +63,8 @@ export interface GetDdosProtectionPlanResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+     */
+    readonly virtualNetworks: outputs.network.v20191101.SubResourceResponse[];
 }

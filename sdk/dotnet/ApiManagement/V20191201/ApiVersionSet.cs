@@ -15,22 +15,46 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class ApiVersionSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// Description of API Version Set.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of API Version Set
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Api VersionSet contract properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApiVersionSetContractPropertiesResponseResult> Properties { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+        /// </summary>
+        [Output("versionHeaderName")]
+        public Output<string?> VersionHeaderName { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+        /// </summary>
+        [Output("versionQueryName")]
+        public Output<string?> VersionQueryName { get; private set; } = null!;
+
+        /// <summary>
+        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// </summary>
+        [Output("versioningScheme")]
+        public Output<string> VersioningScheme { get; private set; } = null!;
 
 
         /// <summary>

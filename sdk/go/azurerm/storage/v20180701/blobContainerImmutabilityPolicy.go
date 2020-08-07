@@ -16,10 +16,12 @@ type BlobContainerImmutabilityPolicy struct {
 
 	// Resource Etag.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntOutput `pulumi:"immutabilityPeriodSinceCreationInDays"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyPropertyResponseOutput `pulumi:"properties"`
+	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+	State pulumi.StringOutput `pulumi:"state"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -69,10 +71,12 @@ func GetBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 type blobContainerImmutabilityPolicyState struct {
 	// Resource Etag.
 	Etag *string `pulumi:"etag"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties *ImmutabilityPolicyPropertyResponse `pulumi:"properties"`
+	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+	State *string `pulumi:"state"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
@@ -80,10 +84,12 @@ type blobContainerImmutabilityPolicyState struct {
 type BlobContainerImmutabilityPolicyState struct {
 	// Resource Etag.
 	Etag pulumi.StringPtrInput
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyPropertyResponsePtrInput
+	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+	State pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

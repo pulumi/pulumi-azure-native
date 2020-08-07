@@ -41,6 +41,14 @@ export interface GetConnectionMonitorArgs {
  */
 export interface GetConnectionMonitorResult {
     /**
+     * Determines if the connection monitor will start automatically once created.
+     */
+    readonly autoStart?: boolean;
+    /**
+     * Describes the destination of connection monitor.
+     */
+    readonly destination: outputs.network.v20190901.ConnectionMonitorDestinationResponse;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
@@ -49,13 +57,29 @@ export interface GetConnectionMonitorResult {
      */
     readonly location?: string;
     /**
+     * Monitoring interval in seconds.
+     */
+    readonly monitoringIntervalInSeconds?: number;
+    /**
+     * The monitoring status of the connection monitor.
+     */
+    readonly monitoringStatus?: string;
+    /**
      * Name of the connection monitor.
      */
     readonly name: string;
     /**
-     * Properties of the connection monitor result.
+     * The provisioning state of the connection monitor.
      */
-    readonly properties: outputs.network.v20190901.ConnectionMonitorResultPropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * Describes the source of connection monitor.
+     */
+    readonly source: outputs.network.v20190901.ConnectionMonitorSourceResponse;
+    /**
+     * The date and time when the connection monitor was started.
+     */
+    readonly startTime?: string;
     /**
      * Connection monitor tags.
      */

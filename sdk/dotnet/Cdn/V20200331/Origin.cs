@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Cdn.V20200331
     public partial class Origin : Pulumi.CustomResource
     {
         /// <summary>
+        /// Origin is enabled for load balancing or not
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// The value of the HTTP port. Must be between 1 and 65535.
+        /// </summary>
+        [Output("httpPort")]
+        public Output<int?> HttpPort { get; private set; } = null!;
+
+        /// <summary>
+        /// The value of the HTTPS port. Must be between 1 and 65535.
+        /// </summary>
+        [Output("httpsPort")]
+        public Output<int?> HttpsPort { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +51,28 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties of the origin.
+        /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.OriginPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("originHostHeader")]
+        public Output<string?> OriginHostHeader { get; private set; } = null!;
+
+        /// <summary>
+        /// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+        /// </summary>
+        [Output("priority")]
+        public Output<int?> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning status of the origin.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the origin.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -43,6 +85,12 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        /// </summary>
+        [Output("weight")]
+        public Output<int?> Weight { get; private set; } = null!;
 
 
         /// <summary>

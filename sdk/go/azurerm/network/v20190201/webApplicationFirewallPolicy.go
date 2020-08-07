@@ -14,14 +14,22 @@ import (
 type WebApplicationFirewallPolicy struct {
 	pulumi.CustomResourceState
 
+	// A collection of references to application gateways.
+	ApplicationGateways ApplicationGatewayResponseArrayOutput `pulumi:"applicationGateways"`
+	// Describes custom rules inside the policy
+	CustomRules WebApplicationFirewallCustomRuleResponseArrayOutput `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesFormatResponseOutput `pulumi:"properties"`
+	// Describes  policySettings for policy
+	PolicySettings PolicySettingsResponsePtrOutput `pulumi:"policySettings"`
+	// Provisioning state of the WebApplicationFirewallPolicy.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Resource status of the policy.
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,14 +70,22 @@ func GetWebApplicationFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebApplicationFirewallPolicy resources.
 type webApplicationFirewallPolicyState struct {
+	// A collection of references to application gateways.
+	ApplicationGateways []ApplicationGatewayResponse `pulumi:"applicationGateways"`
+	// Describes custom rules inside the policy
+	CustomRules []WebApplicationFirewallCustomRuleResponse `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties *WebApplicationFirewallPolicyPropertiesFormatResponse `pulumi:"properties"`
+	// Describes  policySettings for policy
+	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	// Provisioning state of the WebApplicationFirewallPolicy.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the policy.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -77,14 +93,22 @@ type webApplicationFirewallPolicyState struct {
 }
 
 type WebApplicationFirewallPolicyState struct {
+	// A collection of references to application gateways.
+	ApplicationGateways ApplicationGatewayResponseArrayInput
+	// Describes custom rules inside the policy
+	CustomRules WebApplicationFirewallCustomRuleResponseArrayInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesFormatResponsePtrInput
+	// Describes  policySettings for policy
+	PolicySettings PolicySettingsResponsePtrInput
+	// Provisioning state of the WebApplicationFirewallPolicy.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource status of the policy.
+	ResourceState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

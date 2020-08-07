@@ -36,6 +36,14 @@ export interface GetVirtualNetworkArgs {
  */
 export interface GetVirtualNetworkResult {
     /**
+     * Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+     */
+    readonly addressSpace?: outputs.network.v20160330.AddressSpaceResponse;
+    /**
+     * Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+     */
+    readonly dhcpOptions?: outputs.network.v20160330.DhcpOptionsResponse;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: string;
@@ -47,7 +55,18 @@ export interface GetVirtualNetworkResult {
      * Resource name
      */
     readonly name: string;
-    readonly properties: outputs.network.v20160330.VirtualNetworkPropertiesFormatResponse;
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: string;
+    /**
+     * Gets or sets resource GUID property of the VirtualNetwork resource
+     */
+    readonly resourceGuid?: string;
+    /**
+     * Gets or sets List of subnets in a VirtualNetwork
+     */
+    readonly subnets?: outputs.network.v20160330.SubnetResponse[];
     /**
      * Resource tags
      */

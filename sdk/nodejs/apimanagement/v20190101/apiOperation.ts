@@ -37,17 +37,45 @@ export class ApiOperation extends pulumi.CustomResource {
     }
 
     /**
+     * Description of the operation. May include HTML formatting tags.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Operation Name.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
+     * A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+     */
+    public readonly method!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Operation Contract.
+     * Operation Policies
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.OperationContractPropertiesResponse>;
+    public readonly policies!: pulumi.Output<string | undefined>;
+    /**
+     * An entity containing request details.
+     */
+    public readonly request!: pulumi.Output<outputs.apimanagement.v20190101.RequestContractResponse | undefined>;
+    /**
+     * Array of Operation responses.
+     */
+    public readonly responses!: pulumi.Output<outputs.apimanagement.v20190101.ResponseContractResponse[] | undefined>;
+    /**
+     * Collection of URL template parameters.
+     */
+    public readonly templateParameters!: pulumi.Output<outputs.apimanagement.v20190101.ParameterContractResponse[] | undefined>;
     /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+     */
+    public readonly urlTemplate!: pulumi.Output<string>;
 
     /**
      * Create a ApiOperation resource with the given unique name, arguments, and options.
@@ -95,7 +123,6 @@ export class ApiOperation extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["templateParameters"] = args ? args.templateParameters : undefined;
             inputs["urlTemplate"] = args ? args.urlTemplate : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

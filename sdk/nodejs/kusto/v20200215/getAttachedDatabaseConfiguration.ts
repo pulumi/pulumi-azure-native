@@ -41,6 +41,22 @@ export interface GetAttachedDatabaseConfigurationArgs {
  */
 export interface GetAttachedDatabaseConfigurationResult {
     /**
+     * The list of databases from the clusterResourceId which are currently attached to the cluster.
+     */
+    readonly attachedDatabaseNames: string[];
+    /**
+     * The resource id of the cluster where the databases you would like to attach reside.
+     */
+    readonly clusterResourceId: string;
+    /**
+     * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+     */
+    readonly databaseName: string;
+    /**
+     * The default principals modification kind
+     */
+    readonly defaultPrincipalsModificationKind: string;
+    /**
      * Resource location.
      */
     readonly location?: string;
@@ -49,9 +65,9 @@ export interface GetAttachedDatabaseConfigurationResult {
      */
     readonly name: string;
     /**
-     * The properties of the attached database configuration.
+     * The provisioned state of the resource.
      */
-    readonly properties: outputs.kusto.v20200215.AttachedDatabaseConfigurationPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

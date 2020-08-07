@@ -13,7 +13,26 @@ class GetSiteVNETConnectionSlotResult:
     """
     VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, kind=None, location=None, name=None, resync_required=None, routes=None, tags=None, type=None, vnet_resource_id=None):
+        if cert_blob and not isinstance(cert_blob, str):
+            raise TypeError("Expected argument 'cert_blob' to be a str")
+        __self__.cert_blob = cert_blob
+        """
+        A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+                    Point-To-Site VPN connection.
+        """
+        if cert_thumbprint and not isinstance(cert_thumbprint, str):
+            raise TypeError("Expected argument 'cert_thumbprint' to be a str")
+        __self__.cert_thumbprint = cert_thumbprint
+        """
+        The client certificate thumbprint
+        """
+        if dns_servers and not isinstance(dns_servers, str):
+            raise TypeError("Expected argument 'dns_servers' to be a str")
+        __self__.dns_servers = dns_servers
+        """
+        Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,9 +51,18 @@ class GetSiteVNETConnectionSlotResult:
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if resync_required and not isinstance(resync_required, bool):
+            raise TypeError("Expected argument 'resync_required' to be a bool")
+        __self__.resync_required = resync_required
+        """
+        Flag to determine if a resync is required
+        """
+        if routes and not isinstance(routes, list):
+            raise TypeError("Expected argument 'routes' to be a list")
+        __self__.routes = routes
+        """
+        The routes that this virtual network connection uses.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -47,6 +75,12 @@ class GetSiteVNETConnectionSlotResult:
         """
         Resource type
         """
+        if vnet_resource_id and not isinstance(vnet_resource_id, str):
+            raise TypeError("Expected argument 'vnet_resource_id' to be a str")
+        __self__.vnet_resource_id = vnet_resource_id
+        """
+        The vnet resource id
+        """
 
 
 class AwaitableGetSiteVNETConnectionSlotResult(GetSiteVNETConnectionSlotResult):
@@ -55,12 +89,17 @@ class AwaitableGetSiteVNETConnectionSlotResult(GetSiteVNETConnectionSlotResult):
         if False:
             yield self
         return GetSiteVNETConnectionSlotResult(
+            cert_blob=self.cert_blob,
+            cert_thumbprint=self.cert_thumbprint,
+            dns_servers=self.dns_servers,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            resync_required=self.resync_required,
+            routes=self.routes,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            vnet_resource_id=self.vnet_resource_id)
 
 
 def get_site_vnet_connection_slot(name=None, resource_group_name=None, slot=None, opts=None):
@@ -82,9 +121,14 @@ def get_site_vnet_connection_slot(name=None, resource_group_name=None, slot=None
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getSiteVNETConnectionSlot', __args__, opts=opts).value
 
     return AwaitableGetSiteVNETConnectionSlotResult(
+        cert_blob=__ret__.get('certBlob'),
+        cert_thumbprint=__ret__.get('certThumbprint'),
+        dns_servers=__ret__.get('dnsServers'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        resync_required=__ret__.get('resyncRequired'),
+        routes=__ret__.get('routes'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        vnet_resource_id=__ret__.get('vnetResourceId'))

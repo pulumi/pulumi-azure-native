@@ -13,7 +13,37 @@ class GetEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, content_types_to_compress=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, origin_host_header=None, origin_path=None, origins=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, tags=None, type=None):
+        if content_types_to_compress and not isinstance(content_types_to_compress, list):
+            raise TypeError("Expected argument 'content_types_to_compress' to be a list")
+        __self__.content_types_to_compress = content_types_to_compress
+        """
+        List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+        """
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        The host name of the endpoint {endpointName}.{DNSZone}
+        """
+        if is_compression_enabled and not isinstance(is_compression_enabled, bool):
+            raise TypeError("Expected argument 'is_compression_enabled' to be a bool")
+        __self__.is_compression_enabled = is_compression_enabled
+        """
+        Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+        """
+        if is_http_allowed and not isinstance(is_http_allowed, bool):
+            raise TypeError("Expected argument 'is_http_allowed' to be a bool")
+        __self__.is_http_allowed = is_http_allowed
+        """
+        Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        """
+        if is_https_allowed and not isinstance(is_https_allowed, bool):
+            raise TypeError("Expected argument 'is_https_allowed' to be a bool")
+        __self__.is_https_allowed = is_https_allowed
+        """
+        Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,9 +56,42 @@ class GetEndpointResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if origin_host_header and not isinstance(origin_host_header, str):
+            raise TypeError("Expected argument 'origin_host_header' to be a str")
+        __self__.origin_host_header = origin_host_header
+        """
+        The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+        """
+        if origin_path and not isinstance(origin_path, str):
+            raise TypeError("Expected argument 'origin_path' to be a str")
+        __self__.origin_path = origin_path
+        """
+        The path used for origin requests.
+        """
+        if origins and not isinstance(origins, list):
+            raise TypeError("Expected argument 'origins' to be a list")
+        __self__.origins = origins
+        """
+        The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning status of the endpoint.
+        """
+        if query_string_caching_behavior and not isinstance(query_string_caching_behavior, str):
+            raise TypeError("Expected argument 'query_string_caching_behavior' to be a str")
+        __self__.query_string_caching_behavior = query_string_caching_behavior
+        """
+        Defines the query string caching behavior.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the endpoint.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -49,9 +112,19 @@ class AwaitableGetEndpointResult(GetEndpointResult):
         if False:
             yield self
         return GetEndpointResult(
+            content_types_to_compress=self.content_types_to_compress,
+            host_name=self.host_name,
+            is_compression_enabled=self.is_compression_enabled,
+            is_http_allowed=self.is_http_allowed,
+            is_https_allowed=self.is_https_allowed,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            origin_host_header=self.origin_host_header,
+            origin_path=self.origin_path,
+            origins=self.origins,
+            provisioning_state=self.provisioning_state,
+            query_string_caching_behavior=self.query_string_caching_behavior,
+            resource_state=self.resource_state,
             tags=self.tags,
             type=self.type)
 
@@ -75,8 +148,18 @@ def get_endpoint(name=None, profile_name=None, resource_group_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20150601:getEndpoint', __args__, opts=opts).value
 
     return AwaitableGetEndpointResult(
+        content_types_to_compress=__ret__.get('contentTypesToCompress'),
+        host_name=__ret__.get('hostName'),
+        is_compression_enabled=__ret__.get('isCompressionEnabled'),
+        is_http_allowed=__ret__.get('isHttpAllowed'),
+        is_https_allowed=__ret__.get('isHttpsAllowed'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        origin_host_header=__ret__.get('originHostHeader'),
+        origin_path=__ret__.get('originPath'),
+        origins=__ret__.get('origins'),
+        provisioning_state=__ret__.get('provisioningState'),
+        query_string_caching_behavior=__ret__.get('queryStringCachingBehavior'),
+        resource_state=__ret__.get('resourceState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -13,7 +13,13 @@ class GetMediaServiceResult:
     """
     The properties of a Media Service resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, api_endpoints=None, location=None, name=None, storage_accounts=None, tags=None, type=None):
+        if api_endpoints and not isinstance(api_endpoints, list):
+            raise TypeError("Expected argument 'api_endpoints' to be a list")
+        __self__.api_endpoints = api_endpoints
+        """
+        Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,11 @@ class GetMediaServiceResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if storage_accounts and not isinstance(storage_accounts, list):
+            raise TypeError("Expected argument 'storage_accounts' to be a list")
+        __self__.storage_accounts = storage_accounts
         """
-        The additional properties of a Media Service resource.
+        The storage accounts for this resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +58,10 @@ class AwaitableGetMediaServiceResult(GetMediaServiceResult):
         if False:
             yield self
         return GetMediaServiceResult(
+            api_endpoints=self.api_endpoints,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            storage_accounts=self.storage_accounts,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +83,9 @@ def get_media_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20151001:getMediaService', __args__, opts=opts).value
 
     return AwaitableGetMediaServiceResult(
+        api_endpoints=__ret__.get('apiEndpoints'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        storage_accounts=__ret__.get('storageAccounts'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

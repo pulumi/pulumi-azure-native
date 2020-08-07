@@ -10,6 +10,40 @@ from ... import _utilities, _tables
 
 
 class ManagedCluster(pulumi.CustomResource):
+    agent_pool_profiles: pulumi.Output[list]
+    """
+    Properties of the agent pool.
+      * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+      * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the agent pool.
+      * `fqdn` (`str`) - FQDN for the agent pool.
+      * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
+      * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+      * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+      * `ports` (`list`) - Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
+      * `storage_profile` (`str`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
+      * `vm_size` (`str`) - Size of agent VMs.
+      * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
+    """
+    dns_prefix: pulumi.Output[str]
+    """
+    DNS prefix specified when creating the managed cluster.
+    """
+    fqdn: pulumi.Output[str]
+    """
+    FQDN for the master pool.
+    """
+    kubernetes_version: pulumi.Output[str]
+    """
+    Version of Kubernetes specified when creating the managed cluster.
+    """
+    linux_profile: pulumi.Output[dict]
+    """
+    Profile for Linux VMs in the container service cluster.
+      * `admin_username` (`str`) - The administrator username to use for Linux VMs.
+      * `ssh` (`dict`) - SSH configuration for Linux-based VMs running on Azure.
+        * `public_keys` (`list`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+          * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,39 +52,20 @@ class ManagedCluster(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of a managed cluster.
-      * `agent_pool_profiles` (`list`) - Properties of the agent pool.
-        * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the agent pool.
-        * `fqdn` (`str`) - FQDN for the agent pool.
-        * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-        * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        * `ports` (`list`) - Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-        * `storage_profile` (`str`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-        * `vm_size` (`str`) - Size of agent VMs.
-        * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
+    The current deployment or provisioning state, which only appears in the response.
+    """
+    service_principal_profile: pulumi.Output[dict]
+    """
+    Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+      * `client_id` (`str`) - The ID for the service principal.
+      * `key_vault_secret_ref` (`dict`) - Reference to a secret stored in Azure Key Vault.
+        * `secret_name` (`str`) - The secret name.
+        * `vault_id` (`str`) - Key vault identifier.
+        * `version` (`str`) - The secret version.
 
-      * `dns_prefix` (`str`) - DNS prefix specified when creating the managed cluster.
-      * `fqdn` (`str`) - FQDN for the master pool.
-      * `kubernetes_version` (`str`) - Version of Kubernetes specified when creating the managed cluster.
-      * `linux_profile` (`dict`) - Profile for Linux VMs in the container service cluster.
-        * `admin_username` (`str`) - The administrator username to use for Linux VMs.
-        * `ssh` (`dict`) - SSH configuration for Linux-based VMs running on Azure.
-          * `public_keys` (`list`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
-            * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
-      * `service_principal_profile` (`dict`) - Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
-        * `client_id` (`str`) - The ID for the service principal.
-        * `key_vault_secret_ref` (`dict`) - Reference to a secret stored in Azure Key Vault.
-          * `secret_name` (`str`) - The secret name.
-          * `vault_id` (`str`) - Key vault identifier.
-          * `version` (`str`) - The secret version.
-
-        * `secret` (`str`) - The secret password associated with the service principal in plain text.
+      * `secret` (`str`) - The secret password associated with the service principal in plain text.
     """
     tags: pulumi.Output[dict]
     """
@@ -137,7 +152,8 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['fqdn'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ManagedCluster, __self__).__init__(
             'azurerm:containerservice/v20170831:ManagedCluster',

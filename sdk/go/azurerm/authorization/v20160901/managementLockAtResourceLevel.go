@@ -14,10 +14,14 @@ import (
 type ManagementLockAtResourceLevel struct {
 	pulumi.CustomResourceState
 
+	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+	Level pulumi.StringOutput `pulumi:"level"`
 	// The name of the lock.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the lock.
-	Properties ManagementLockPropertiesResponseOutput `pulumi:"properties"`
+	// Notes about the lock. Maximum of 512 characters.
+	Notes pulumi.StringPtrOutput `pulumi:"notes"`
+	// The owners of the lock.
+	Owners ManagementLockOwnerResponseArrayOutput `pulumi:"owners"`
 	// The resource type of the lock - Microsoft.Authorization/locks.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,19 +75,27 @@ func GetManagementLockAtResourceLevel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagementLockAtResourceLevel resources.
 type managementLockAtResourceLevelState struct {
+	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+	Level *string `pulumi:"level"`
 	// The name of the lock.
 	Name *string `pulumi:"name"`
-	// The properties of the lock.
-	Properties *ManagementLockPropertiesResponse `pulumi:"properties"`
+	// Notes about the lock. Maximum of 512 characters.
+	Notes *string `pulumi:"notes"`
+	// The owners of the lock.
+	Owners []ManagementLockOwnerResponse `pulumi:"owners"`
 	// The resource type of the lock - Microsoft.Authorization/locks.
 	Type *string `pulumi:"type"`
 }
 
 type ManagementLockAtResourceLevelState struct {
+	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+	Level pulumi.StringPtrInput
 	// The name of the lock.
 	Name pulumi.StringPtrInput
-	// The properties of the lock.
-	Properties ManagementLockPropertiesResponsePtrInput
+	// Notes about the lock. Maximum of 512 characters.
+	Notes pulumi.StringPtrInput
+	// The owners of the lock.
+	Owners ManagementLockOwnerResponseArrayInput
 	// The resource type of the lock - Microsoft.Authorization/locks.
 	Type pulumi.StringPtrInput
 }

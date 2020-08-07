@@ -14,12 +14,18 @@ import (
 type Webhook struct {
 	pulumi.CustomResourceState
 
+	// The list of actions that trigger the webhook to post notifications.
+	Actions pulumi.StringArrayOutput `pulumi:"actions"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the webhook.
-	Properties WebhookPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning state of the webhook at the time the operation was called.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	Scope pulumi.StringPtrOutput `pulumi:"scope"`
+	// The status of the webhook at the time the operation was called.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -72,12 +78,18 @@ func GetWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Webhook resources.
 type webhookState struct {
+	// The list of actions that trigger the webhook to post notifications.
+	Actions []string `pulumi:"actions"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the webhook.
-	Properties *WebhookPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the webhook at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	Scope *string `pulumi:"scope"`
+	// The status of the webhook at the time the operation was called.
+	Status *string `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -85,12 +97,18 @@ type webhookState struct {
 }
 
 type WebhookState struct {
+	// The list of actions that trigger the webhook to post notifications.
+	Actions pulumi.StringArrayInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the webhook.
-	Properties WebhookPropertiesResponsePtrInput
+	// The provisioning state of the webhook at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput
+	// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	Scope pulumi.StringPtrInput
+	// The status of the webhook at the time the operation was called.
+	Status pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.

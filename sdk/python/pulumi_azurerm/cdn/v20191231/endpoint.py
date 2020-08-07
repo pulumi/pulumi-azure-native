@@ -10,6 +10,52 @@ from ... import _utilities, _tables
 
 
 class Endpoint(pulumi.CustomResource):
+    content_types_to_compress: pulumi.Output[list]
+    """
+    List of content types on which compression applies. The value should be a valid MIME type.
+    """
+    default_origin_group: pulumi.Output[dict]
+    """
+    A reference to the origin group.
+      * `id` (`str`) - Resource ID.
+    """
+    delivery_policy: pulumi.Output[dict]
+    """
+    A policy that specifies the delivery rules to be used for an endpoint.
+      * `description` (`str`) - User-friendly description of the policy.
+      * `rules` (`list`) - A list of the delivery rules.
+        * `actions` (`list`) - A list of actions that are executed when all the conditions of a rule are satisfied.
+          * `name` (`str`) - The name of the action for the delivery rule.
+
+        * `conditions` (`list`) - A list of conditions that must be matched for the actions to be executed
+          * `name` (`str`) - The name of the condition for the delivery rule.
+
+        * `name` (`str`) - Name of the rule
+        * `order` (`float`) - The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+    """
+    geo_filters: pulumi.Output[list]
+    """
+    List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+      * `action` (`str`) - Action of the geo filter, i.e. allow or block access.
+      * `country_codes` (`list`) - Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+      * `relative_path` (`str`) - Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+    """
+    host_name: pulumi.Output[str]
+    """
+    The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+    """
+    is_compression_enabled: pulumi.Output[bool]
+    """
+    Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+    """
+    is_http_allowed: pulumi.Output[bool]
+    """
+    Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+    """
+    is_https_allowed: pulumi.Output[bool]
+    """
+    Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,72 +64,68 @@ class Endpoint(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    optimization_type: pulumi.Output[str]
     """
-    The JSON object that contains the properties required to create an endpoint.
-      * `content_types_to_compress` (`list`) - List of content types on which compression applies. The value should be a valid MIME type.
-      * `default_origin_group` (`dict`) - A reference to the origin group.
+    Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
+    """
+    origin_groups: pulumi.Output[list]
+    """
+    The origin groups comprising of origins that are used for load balancing the traffic based on availability.
+      * `health_probe_settings` (`dict`) - Health probe settings to the origin that is used to determine the health of the origin.
+        * `probe_interval_in_seconds` (`float`) - The number of seconds between health probes.Default is 240sec.
+        * `probe_path` (`str`) - The path relative to the origin that is used to determine the health of the origin.
+        * `probe_protocol` (`str`) - Protocol to use for health probe.
+        * `probe_request_type` (`str`) - The type of health probe request that is made.
+
+      * `name` (`str`) - Origin group name which must be unique within the endpoint.
+      * `origins` (`list`) - The source of the content being delivered via CDN within given origin group.
         * `id` (`str`) - Resource ID.
 
-      * `delivery_policy` (`dict`) - A policy that specifies the delivery rules to be used for an endpoint.
-        * `description` (`str`) - User-friendly description of the policy.
-        * `rules` (`list`) - A list of the delivery rules.
-          * `actions` (`list`) - A list of actions that are executed when all the conditions of a rule are satisfied.
-            * `name` (`str`) - The name of the action for the delivery rule.
+      * `response_based_origin_error_detection_settings` (`dict`) - The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+        * `http_error_ranges` (`list`) - The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+          * `begin` (`float`) - The inclusive start of the http status code range.
+          * `end` (`float`) - The inclusive end of the http status code range.
 
-          * `conditions` (`list`) - A list of conditions that must be matched for the actions to be executed
-            * `name` (`str`) - The name of the condition for the delivery rule.
+        * `response_based_detected_error_types` (`str`) - Type of response errors for real user requests for which origin will be deemed unhealthy
+        * `response_based_failover_threshold_percentage` (`float`) - The percentage of failed requests in the sample where failover should trigger.
 
-          * `name` (`str`) - Name of the rule
-          * `order` (`float`) - The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-
-      * `geo_filters` (`list`) - List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-        * `action` (`str`) - Action of the geo filter, i.e. allow or block access.
-        * `country_codes` (`list`) - Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
-        * `relative_path` (`str`) - Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-
-      * `host_name` (`str`) - The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
-      * `is_compression_enabled` (`bool`) - Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-      * `is_http_allowed` (`bool`) - Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-      * `is_https_allowed` (`bool`) - Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-      * `optimization_type` (`str`) - Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-      * `origin_groups` (`list`) - The origin groups comprising of origins that are used for load balancing the traffic based on availability.
-        * `name` (`str`) - Origin group name which must be unique within the endpoint.
-        * `properties` (`dict`) - Properties of the origin group created on the CDN endpoint.
-          * `health_probe_settings` (`dict`) - Health probe settings to the origin that is used to determine the health of the origin.
-            * `probe_interval_in_seconds` (`float`) - The number of seconds between health probes.Default is 240sec.
-            * `probe_path` (`str`) - The path relative to the origin that is used to determine the health of the origin.
-            * `probe_protocol` (`str`) - Protocol to use for health probe.
-            * `probe_request_type` (`str`) - The type of health probe request that is made.
-
-          * `origins` (`list`) - The source of the content being delivered via CDN within given origin group.
-          * `response_based_origin_error_detection_settings` (`dict`) - The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-            * `http_error_ranges` (`list`) - The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
-              * `begin` (`float`) - The inclusive start of the http status code range.
-              * `end` (`float`) - The inclusive end of the http status code range.
-
-            * `response_based_detected_error_types` (`str`) - Type of response errors for real user requests for which origin will be deemed unhealthy
-            * `response_based_failover_threshold_percentage` (`float`) - The percentage of failed requests in the sample where failover should trigger.
-
-          * `traffic_restoration_time_to_healed_or_new_endpoints_in_minutes` (`float`) - Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-
-      * `origin_host_header` (`str`) - The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-      * `origin_path` (`str`) - A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-      * `origins` (`list`) - The source of the content being delivered via CDN.
-        * `name` (`str`) - Origin name which must be unique within the endpoint. 
-        * `properties` (`dict`) - Properties of the origin created on the CDN endpoint.
-          * `enabled` (`bool`) - Origin is enabled for load balancing or not. By default, origin is always enabled.
-          * `host_name` (`str`) - The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
-          * `http_port` (`float`) - The value of the HTTP port. Must be between 1 and 65535.
-          * `https_port` (`float`) - The value of the HTTPS port. Must be between 1 and 65535.
-          * `origin_host_header` (`str`) - The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-          * `priority` (`float`) - Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
-          * `weight` (`float`) - Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-
-      * `probe_path` (`str`) - Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
-      * `provisioning_state` (`str`) - Provisioning status of the endpoint.
-      * `query_string_caching_behavior` (`str`) - Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-      * `resource_state` (`str`) - Resource status of the endpoint.
+      * `traffic_restoration_time_to_healed_or_new_endpoints_in_minutes` (`float`) - Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+    """
+    origin_host_header: pulumi.Output[str]
+    """
+    The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+    """
+    origin_path: pulumi.Output[str]
+    """
+    A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+    """
+    origins: pulumi.Output[list]
+    """
+    The source of the content being delivered via CDN.
+      * `enabled` (`bool`) - Origin is enabled for load balancing or not. By default, origin is always enabled.
+      * `host_name` (`str`) - The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
+      * `http_port` (`float`) - The value of the HTTP port. Must be between 1 and 65535.
+      * `https_port` (`float`) - The value of the HTTPS port. Must be between 1 and 65535.
+      * `name` (`str`) - Origin name which must be unique within the endpoint. 
+      * `origin_host_header` (`str`) - The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
+      * `priority` (`float`) - Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+      * `weight` (`float`) - Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+    """
+    probe_path: pulumi.Output[str]
+    """
+    Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning status of the endpoint.
+    """
+    query_string_caching_behavior: pulumi.Output[str]
+    """
+    Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the endpoint.
     """
     tags: pulumi.Output[dict]
     """
@@ -219,7 +261,9 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['host_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(Endpoint, __self__).__init__(
             'azurerm:cdn/v20191231:Endpoint',

@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.EventGrid.V20200601.Outputs
     public sealed class PrivateEndpointConnectionResponseResult
     {
         /// <summary>
+        /// GroupIds from the private link service resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Fully qualified identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -22,9 +26,17 @@ namespace Pulumi.AzureRM.EventGrid.V20200601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the PrivateEndpointConnection.
+        /// The Private Endpoint resource for this Connection.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult? Properties;
+        public readonly Outputs.PrivateEndpointResponseResult? PrivateEndpoint;
+        /// <summary>
+        /// Details about the state of the connection.
+        /// </summary>
+        public readonly Outputs.ConnectionStateResponseResult? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// Provisioning state of the Private Endpoint Connection.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -32,17 +44,26 @@ namespace Pulumi.AzureRM.EventGrid.V20200601.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponseResult(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponseResult? properties,
+            Outputs.PrivateEndpointResponseResult? privateEndpoint,
+
+            Outputs.ConnectionStateResponseResult? privateLinkServiceConnectionState,
+
+            string? provisioningState,
 
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

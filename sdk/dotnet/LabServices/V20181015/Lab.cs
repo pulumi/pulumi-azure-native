@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public partial class Lab : Pulumi.CustomResource
     {
         /// <summary>
+        /// Object id of the user that created the lab.
+        /// </summary>
+        [Output("createdByObjectId")]
+        public Output<string> CreatedByObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// Lab creator name
+        /// </summary>
+        [Output("createdByUserPrincipalName")]
+        public Output<string> CreatedByUserPrincipalName { get; private set; } = null!;
+
+        /// <summary>
+        /// Creation date for the lab
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Invitation code that users can use to join a lab.
+        /// </summary>
+        [Output("invitationCode")]
+        public Output<string> InvitationCode { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        [Output("latestOperationResult")]
+        public Output<Outputs.LatestOperationResultResponseResult> LatestOperationResult { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum number of users allowed in the lab.
+        /// </summary>
+        [Output("maxUsersInLab")]
+        public Output<int?> MaxUsersInLab { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -27,10 +63,10 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LabPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +79,30 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum duration a user can use an environment for in the lab.
+        /// </summary>
+        [Output("usageQuota")]
+        public Output<string?> UsageQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// Lab user access mode (open to all vs. restricted to those listed on the lab).
+        /// </summary>
+        [Output("userAccessMode")]
+        public Output<string?> UserAccessMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum value MaxUsersInLab can be set to, as specified by the service
+        /// </summary>
+        [Output("userQuota")]
+        public Output<int> UserQuota { get; private set; } = null!;
 
 
         /// <summary>

@@ -40,21 +40,61 @@ namespace Pulumi.AzureRM.Network.V20181001
     public sealed class GetExpressRoutePortResult
     {
         /// <summary>
+        /// Date of the physical port allocation to be used in Letter of Authorization.
+        /// </summary>
+        public readonly string AllocationDate;
+        /// <summary>
+        /// Bandwidth of procured ports in Gbps
+        /// </summary>
+        public readonly int? BandwidthInGbps;
+        /// <summary>
+        /// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Circuits;
+        /// <summary>
+        /// Encapsulation method on physical ports.
+        /// </summary>
+        public readonly string? Encapsulation;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Ether type of the physical port.
+        /// </summary>
+        public readonly string EtherType;
+        /// <summary>
+        /// The set of physical links of the ExpressRoutePort resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ExpressRouteLinkResponseResult> Links;
         /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Maximum transmission unit of the physical port pair(s)
+        /// </summary>
+        public readonly string Mtu;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// ExpressRoutePort properties
+        /// The name of the peering location that the ExpressRoutePort is mapped to physically.
         /// </summary>
-        public readonly Outputs.ExpressRoutePortPropertiesFormatResponseResult Properties;
+        public readonly string? PeeringLocation;
+        /// <summary>
+        /// Aggregate Gbps of associated circuit bandwidths.
+        /// </summary>
+        public readonly double ProvisionedBandwidthInGbps;
+        /// <summary>
+        /// The provisioning state of the ExpressRoutePort resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the ExpressRoutePort resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +106,52 @@ namespace Pulumi.AzureRM.Network.V20181001
 
         [OutputConstructor]
         private GetExpressRoutePortResult(
+            string allocationDate,
+
+            int? bandwidthInGbps,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> circuits,
+
+            string? encapsulation,
+
             string etag,
+
+            string etherType,
+
+            ImmutableArray<Outputs.ExpressRouteLinkResponseResult> links,
 
             string? location,
 
+            string mtu,
+
             string name,
 
-            Outputs.ExpressRoutePortPropertiesFormatResponseResult properties,
+            string? peeringLocation,
+
+            double provisionedBandwidthInGbps,
+
+            string provisioningState,
+
+            string? resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AllocationDate = allocationDate;
+            BandwidthInGbps = bandwidthInGbps;
+            Circuits = circuits;
+            Encapsulation = encapsulation;
             Etag = etag;
+            EtherType = etherType;
+            Links = links;
             Location = location;
+            Mtu = mtu;
             Name = name;
-            Properties = properties;
+            PeeringLocation = peeringLocation;
+            ProvisionedBandwidthInGbps = provisionedBandwidthInGbps;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
         }

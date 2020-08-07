@@ -13,12 +13,54 @@ class GetIntegrationAccountMapResult:
     """
     The integration account map.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, changed_time=None, content=None, content_link=None, content_type=None, created_time=None, location=None, map_type=None, metadata=None, name=None, parameters_schema=None, tags=None, type=None):
+        if changed_time and not isinstance(changed_time, str):
+            raise TypeError("Expected argument 'changed_time' to be a str")
+        __self__.changed_time = changed_time
+        """
+        The changed time.
+        """
+        if content and not isinstance(content, str):
+            raise TypeError("Expected argument 'content' to be a str")
+        __self__.content = content
+        """
+        The content.
+        """
+        if content_link and not isinstance(content_link, dict):
+            raise TypeError("Expected argument 'content_link' to be a dict")
+        __self__.content_link = content_link
+        """
+        The content link.
+        """
+        if content_type and not isinstance(content_type, str):
+            raise TypeError("Expected argument 'content_type' to be a str")
+        __self__.content_type = content_type
+        """
+        The content type.
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        The created time.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The resource location.
+        """
+        if map_type and not isinstance(map_type, str):
+            raise TypeError("Expected argument 'map_type' to be a str")
+        __self__.map_type = map_type
+        """
+        The map type.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The metadata.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +68,11 @@ class GetIntegrationAccountMapResult:
         """
         Gets the resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters_schema and not isinstance(parameters_schema, dict):
+            raise TypeError("Expected argument 'parameters_schema' to be a dict")
+        __self__.parameters_schema = parameters_schema
         """
-        The integration account map properties.
+        The parameters schema of integration account map.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +94,16 @@ class AwaitableGetIntegrationAccountMapResult(GetIntegrationAccountMapResult):
         if False:
             yield self
         return GetIntegrationAccountMapResult(
+            changed_time=self.changed_time,
+            content=self.content,
+            content_link=self.content_link,
+            content_type=self.content_type,
+            created_time=self.created_time,
             location=self.location,
+            map_type=self.map_type,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            parameters_schema=self.parameters_schema,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +127,15 @@ def get_integration_account_map(integration_account_name=None, name=None, resour
     __ret__ = pulumi.runtime.invoke('azurerm:logic/v20190501:getIntegrationAccountMap', __args__, opts=opts).value
 
     return AwaitableGetIntegrationAccountMapResult(
+        changed_time=__ret__.get('changedTime'),
+        content=__ret__.get('content'),
+        content_link=__ret__.get('contentLink'),
+        content_type=__ret__.get('contentType'),
+        created_time=__ret__.get('createdTime'),
         location=__ret__.get('location'),
+        map_type=__ret__.get('mapType'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        parameters_schema=__ret__.get('parametersSchema'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

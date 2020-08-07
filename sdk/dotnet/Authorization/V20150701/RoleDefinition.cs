@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.Authorization.V20150701
     public partial class RoleDefinition : Pulumi.CustomResource
     {
         /// <summary>
+        /// Role definition assignable scopes.
+        /// </summary>
+        [Output("assignableScopes")]
+        public Output<ImmutableArray<string>> AssignableScopes { get; private set; } = null!;
+
+        /// <summary>
+        /// The role definition description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// The role definition name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Role definition properties.
+        /// Role definition permissions.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RoleDefinitionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("permissions")]
+        public Output<ImmutableArray<Outputs.PermissionResponseResult>> Permissions { get; private set; } = null!;
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Output("roleName")]
+        public Output<string?> RoleName { get; private set; } = null!;
+
+        /// <summary>
+        /// The role type.
+        /// </summary>
+        [Output("roleType")]
+        public Output<string?> RoleType { get; private set; } = null!;
 
         /// <summary>
         /// The role definition type.

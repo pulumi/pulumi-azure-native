@@ -14,18 +14,30 @@ import (
 type P2sVpnGateway struct {
 	pulumi.CustomResourceState
 
+	// List of all customer specified DNS servers IP addresses.
+	CustomDnsServers pulumi.StringArrayOutput `pulumi:"customDnsServers"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the P2SVpnGateway.
-	Properties P2SVpnGatewayPropertiesResponseOutput `pulumi:"properties"`
+	// List of all p2s connection configurations of the gateway.
+	P2SConnectionConfigurations P2SConnectionConfigurationResponseArrayOutput `pulumi:"p2SConnectionConfigurations"`
+	// The provisioning state of the P2S VPN gateway resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The VirtualHub to which the gateway belongs.
+	VirtualHub SubResourceResponsePtrOutput `pulumi:"virtualHub"`
+	// All P2S VPN clients' connection health status.
+	VpnClientConnectionHealth VpnClientConnectionHealthResponseOutput `pulumi:"vpnClientConnectionHealth"`
+	// The scale unit for this p2s vpn gateway.
+	VpnGatewayScaleUnit pulumi.IntPtrOutput `pulumi:"vpnGatewayScaleUnit"`
+	// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+	VpnServerConfiguration SubResourceResponsePtrOutput `pulumi:"vpnServerConfiguration"`
 }
 
 // NewP2sVpnGateway registers a new resource with the given unique name, arguments, and options.
@@ -65,33 +77,57 @@ func GetP2sVpnGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering P2sVpnGateway resources.
 type p2sVpnGatewayState struct {
+	// List of all customer specified DNS servers IP addresses.
+	CustomDnsServers []string `pulumi:"customDnsServers"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the P2SVpnGateway.
-	Properties *P2SVpnGatewayPropertiesResponse `pulumi:"properties"`
+	// List of all p2s connection configurations of the gateway.
+	P2SConnectionConfigurations []P2SConnectionConfigurationResponse `pulumi:"p2SConnectionConfigurations"`
+	// The provisioning state of the P2S VPN gateway resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The VirtualHub to which the gateway belongs.
+	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+	// All P2S VPN clients' connection health status.
+	VpnClientConnectionHealth *VpnClientConnectionHealthResponse `pulumi:"vpnClientConnectionHealth"`
+	// The scale unit for this p2s vpn gateway.
+	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
+	// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+	VpnServerConfiguration *SubResourceResponse `pulumi:"vpnServerConfiguration"`
 }
 
 type P2sVpnGatewayState struct {
+	// List of all customer specified DNS servers IP addresses.
+	CustomDnsServers pulumi.StringArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the P2SVpnGateway.
-	Properties P2SVpnGatewayPropertiesResponsePtrInput
+	// List of all p2s connection configurations of the gateway.
+	P2SConnectionConfigurations P2SConnectionConfigurationResponseArrayInput
+	// The provisioning state of the P2S VPN gateway resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The VirtualHub to which the gateway belongs.
+	VirtualHub SubResourceResponsePtrInput
+	// All P2S VPN clients' connection health status.
+	VpnClientConnectionHealth VpnClientConnectionHealthResponsePtrInput
+	// The scale unit for this p2s vpn gateway.
+	VpnGatewayScaleUnit pulumi.IntPtrInput
+	// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+	VpnServerConfiguration SubResourceResponsePtrInput
 }
 
 func (P2sVpnGatewayState) ElementType() reflect.Type {

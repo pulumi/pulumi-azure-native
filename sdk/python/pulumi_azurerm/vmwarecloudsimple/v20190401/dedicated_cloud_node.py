@@ -10,34 +10,57 @@ from ... import _utilities, _tables
 
 
 class DedicatedCloudNode(pulumi.CustomResource):
+    availability_zone_id: pulumi.Output[str]
+    """
+    Availability Zone id, e.g. "az1"
+    """
+    availability_zone_name: pulumi.Output[str]
+    """
+    Availability Zone name, e.g. "Availability Zone 1"
+    """
+    cloud_rack_name: pulumi.Output[str]
+    """
+    VMWare Cloud Rack Name
+    """
+    created: pulumi.Output[dict]
+    """
+    date time the resource was created
+    """
     location: pulumi.Output[str]
     """
     Azure region
     """
     name: pulumi.Output[str]
     """
-    {dedicatedCloudNodeName}
+    SKU's name
     """
-    properties: pulumi.Output[dict]
+    nodes_count: pulumi.Output[float]
     """
-    Dedicated Cloud Nodes properties
-      * `availability_zone_id` (`str`) - Availability Zone id, e.g. "az1"
-      * `availability_zone_name` (`str`) - Availability Zone name, e.g. "Availability Zone 1"
-      * `cloud_rack_name` (`str`) - VMWare Cloud Rack Name
-      * `created` (`dict`) - date time the resource was created
-      * `nodes_count` (`float`) - count of nodes to create
-      * `placement_group_id` (`str`) - Placement Group id, e.g. "n1"
-      * `placement_group_name` (`str`) - Placement Name, e.g. "Placement Group 1"
-      * `private_cloud_id` (`str`) - Private Cloud Id
-      * `private_cloud_name` (`str`) - Resource Pool Name
-      * `provisioning_state` (`str`) - The provisioning status of the resource
-      * `purchase_id` (`str`) - purchase id
-      * `sku_description` (`dict`) - Dedicated Cloud Nodes SKU's description
-        * `id` (`str`) - SKU's id
-        * `name` (`str`) - SKU's name
-
-      * `status` (`str`) - Node status, indicates is private cloud set up on this node or not
-      * `vmware_cluster_name` (`str`) - VMWare Cluster Name
+    count of nodes to create
+    """
+    placement_group_id: pulumi.Output[str]
+    """
+    Placement Group id, e.g. "n1"
+    """
+    placement_group_name: pulumi.Output[str]
+    """
+    Placement Name, e.g. "Placement Group 1"
+    """
+    private_cloud_id: pulumi.Output[str]
+    """
+    Private Cloud Id
+    """
+    private_cloud_name: pulumi.Output[str]
+    """
+    Resource Pool Name
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning status of the resource
+    """
+    purchase_id: pulumi.Output[str]
+    """
+    purchase id
     """
     sku: pulumi.Output[dict]
     """
@@ -48,6 +71,10 @@ class DedicatedCloudNode(pulumi.CustomResource):
       * `name` (`str`) - The name of the SKU for VMWare CloudSimple Node
       * `tier` (`str`) - The tier of the SKU
     """
+    status: pulumi.Output[str]
+    """
+    Node status, indicates is private cloud set up on this node or not
+    """
     tags: pulumi.Output[dict]
     """
     Dedicated Cloud Nodes tags
@@ -55,6 +82,10 @@ class DedicatedCloudNode(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     {resourceProviderNamespace}/{resourceType}
+    """
+    vmware_cluster_name: pulumi.Output[str]
+    """
+    VMWare Cluster Name
     """
     def __init__(__self__, resource_name, opts=None, referer=None, availability_zone_id=None, id=None, location=None, name=None, nodes_count=None, placement_group_id=None, purchase_id=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -128,8 +159,16 @@ class DedicatedCloudNode(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['availability_zone_name'] = None
+            __props__['cloud_rack_name'] = None
+            __props__['created'] = None
+            __props__['placement_group_name'] = None
+            __props__['private_cloud_id'] = None
+            __props__['private_cloud_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['status'] = None
             __props__['type'] = None
+            __props__['vmware_cluster_name'] = None
         super(DedicatedCloudNode, __self__).__init__(
             'azurerm:vmwarecloudsimple/v20190401:DedicatedCloudNode',
             resource_name,

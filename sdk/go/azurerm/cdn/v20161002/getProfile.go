@@ -29,8 +29,10 @@ type LookupProfileResult struct {
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The JSON object that contains the properties required to create a profile.
-	Properties ProfilePropertiesResponse `pulumi:"properties"`
+	// Provisioning status of the profile.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource status of the profile.
+	ResourceState string `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 	Sku SkuResponse `pulumi:"sku"`
 	// Resource tags.

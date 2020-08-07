@@ -34,13 +34,21 @@ namespace Pulumi.AzureRM.Management.V20200201
     public sealed class GetHierarchySettingResult
     {
         /// <summary>
+        /// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+        /// </summary>
+        public readonly string? DefaultManagementGroup;
+        /// <summary>
         /// The name of the object. In this case, default.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The generic properties of hierarchy settings.
+        /// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         /// </summary>
-        public readonly Outputs.HierarchySettingsPropertiesResponseResult Properties;
+        public readonly bool? RequireAuthorizationForGroupCreation;
+        /// <summary>
+        /// The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
+        /// </summary>
+        public readonly string? TenantId;
         /// <summary>
         /// The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
         /// </summary>
@@ -48,14 +56,20 @@ namespace Pulumi.AzureRM.Management.V20200201
 
         [OutputConstructor]
         private GetHierarchySettingResult(
+            string? defaultManagementGroup,
+
             string name,
 
-            Outputs.HierarchySettingsPropertiesResponseResult properties,
+            bool? requireAuthorizationForGroupCreation,
+
+            string? tenantId,
 
             string type)
         {
+            DefaultManagementGroup = defaultManagementGroup;
             Name = name;
-            Properties = properties;
+            RequireAuthorizationForGroupCreation = requireAuthorizationForGroupCreation;
+            TenantId = tenantId;
             Type = type;
         }
     }

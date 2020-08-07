@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class StorageSyncService(pulumi.CustomResource):
+    incoming_traffic_policy: pulumi.Output[str]
+    """
+    Incoming Traffic Policy
+    """
+    last_operation_name: pulumi.Output[str]
+    """
+    Resource Last Operation Name
+    """
+    last_workflow_id: pulumi.Output[str]
+    """
+    StorageSyncService lastWorkflowId
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
@@ -18,31 +30,33 @@ class StorageSyncService(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    private_endpoint_connections: pulumi.Output[list]
     """
-    Storage Sync Service properties.
-      * `incoming_traffic_policy` (`str`) - Incoming Traffic Policy
-      * `last_operation_name` (`str`) - Resource Last Operation Name
-      * `last_workflow_id` (`str`) - StorageSyncService lastWorkflowId
-      * `private_endpoint_connections` (`list`) - List of private endpoint connection associated with the specified storage sync service
-        * `id` (`str`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        * `name` (`str`) - The name of the resource
-        * `properties` (`dict`) - Resource properties.
-          * `private_endpoint` (`dict`) - The resource of private end point.
-            * `id` (`str`) - The ARM identifier for Private Endpoint
+    List of private endpoint connection associated with the specified storage sync service
+      * `id` (`str`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+      * `name` (`str`) - The name of the resource
+      * `private_endpoint` (`dict`) - The resource of private end point.
+        * `id` (`str`) - The ARM identifier for Private Endpoint
 
-          * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
-            * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-            * `description` (`str`) - The reason for approval/rejection of the connection.
-            * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
+        * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+        * `description` (`str`) - The reason for approval/rejection of the connection.
+        * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 
-          * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
-
-        * `type` (`str`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-      * `provisioning_state` (`str`) - StorageSyncService Provisioning State
-      * `storage_sync_service_status` (`float`) - Storage Sync service status.
-      * `storage_sync_service_uid` (`str`) - Storage Sync service Uid
+      * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
+      * `type` (`str`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    StorageSyncService Provisioning State
+    """
+    storage_sync_service_status: pulumi.Output[float]
+    """
+    Storage Sync service status.
+    """
+    storage_sync_service_uid: pulumi.Output[str]
+    """
+    Storage Sync service Uid
     """
     tags: pulumi.Output[dict]
     """
@@ -92,7 +106,12 @@ class StorageSyncService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['last_operation_name'] = None
+            __props__['last_workflow_id'] = None
+            __props__['private_endpoint_connections'] = None
+            __props__['provisioning_state'] = None
+            __props__['storage_sync_service_status'] = None
+            __props__['storage_sync_service_uid'] = None
             __props__['type'] = None
         super(StorageSyncService, __self__).__init__(
             'azurerm:storagesync/v20200301:StorageSyncService',

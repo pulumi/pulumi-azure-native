@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
+        /// Time when the Workspace was created.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource
         /// </summary>
         [Output("location")]
@@ -27,10 +33,16 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the workspace.
+        /// The provisioned state of the Workspace
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WorkspacePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The time at which the workspace entered its current provisioning state.
+        /// </summary>
+        [Output("provisioningStateTransitionTime")]
+        public Output<string> ProvisioningStateTransitionTime { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource

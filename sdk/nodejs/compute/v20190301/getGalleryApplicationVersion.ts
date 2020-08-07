@@ -54,9 +54,17 @@ export interface GetGalleryApplicationVersionResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of a gallery Image Version.
+     * The provisioning state, which only appears in the response.
      */
-    readonly properties: outputs.compute.v20190301.GalleryApplicationVersionPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The publishing profile of a gallery Image Version.
+     */
+    readonly publishingProfile: outputs.compute.v20190301.GalleryApplicationVersionPublishingProfileResponse;
+    /**
+     * This is the replication status of the gallery Image Version.
+     */
+    readonly replicationStatus: outputs.compute.v20190301.ReplicationStatusResponse;
     /**
      * Resource tags
      */

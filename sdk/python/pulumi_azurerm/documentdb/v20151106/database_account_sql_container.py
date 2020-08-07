@@ -10,6 +10,46 @@ from ... import _utilities, _tables
 
 
 class DatabaseAccountSqlContainer(pulumi.CustomResource):
+    _etag: pulumi.Output[str]
+    """
+    A system generated property representing the resource etag required for optimistic concurrency control.
+    """
+    _rid: pulumi.Output[str]
+    """
+    A system generated property. A unique identifier.
+    """
+    _ts: pulumi.Output[dict]
+    """
+    A system generated property that denotes the last updated timestamp of the resource.
+    """
+    conflict_resolution_policy: pulumi.Output[dict]
+    """
+    The conflict resolution policy for the container.
+      * `conflict_resolution_path` (`str`) - The conflict resolution path in the case of LastWriterWins mode.
+      * `conflict_resolution_procedure` (`str`) - The procedure to resolve conflicts in the case of custom mode.
+      * `mode` (`str`) - Indicates the conflict resolution mode.
+    """
+    default_ttl: pulumi.Output[float]
+    """
+    Default time to live
+    """
+    indexing_policy: pulumi.Output[dict]
+    """
+    The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+      * `automatic` (`bool`) - Indicates if the indexing policy is automatic
+      * `excluded_paths` (`list`) - List of paths to exclude from indexing
+        * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+
+      * `included_paths` (`list`) - List of paths to include in the indexing
+        * `indexes` (`list`) - List of indexes for this path
+          * `data_type` (`str`) - The datatype for which the indexing behavior is applied to.
+          * `kind` (`str`) - Indicates the type of index.
+          * `precision` (`float`) - The precision of the index. -1 is maximum precision.
+
+        * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+
+      * `indexing_mode` (`str`) - Indicates the indexing mode.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource group to which the resource belongs.
@@ -18,41 +58,11 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
     """
     The name of the database account.
     """
-    properties: pulumi.Output[dict]
+    partition_key: pulumi.Output[dict]
     """
-    The properties of an Azure Cosmos DB container
-      * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
-      * `_rid` (`str`) - A system generated property. A unique identifier.
-      * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
-      * `conflict_resolution_policy` (`dict`) - The conflict resolution policy for the container.
-        * `conflict_resolution_path` (`str`) - The conflict resolution path in the case of LastWriterWins mode.
-        * `conflict_resolution_procedure` (`str`) - The procedure to resolve conflicts in the case of custom mode.
-        * `mode` (`str`) - Indicates the conflict resolution mode.
-
-      * `default_ttl` (`float`) - Default time to live
-      * `id` (`str`) - Name of the Cosmos DB SQL container
-      * `indexing_policy` (`dict`) - The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-        * `automatic` (`bool`) - Indicates if the indexing policy is automatic
-        * `excluded_paths` (`list`) - List of paths to exclude from indexing
-          * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-        * `included_paths` (`list`) - List of paths to include in the indexing
-          * `indexes` (`list`) - List of indexes for this path
-            * `data_type` (`str`) - The datatype for which the indexing behavior is applied to.
-            * `kind` (`str`) - Indicates the type of index.
-            * `precision` (`float`) - The precision of the index. -1 is maximum precision.
-
-          * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-        * `indexing_mode` (`str`) - Indicates the indexing mode.
-
-      * `partition_key` (`dict`) - The configuration of the partition key to be used for partitioning data into multiple partitions
-        * `kind` (`str`) - Indicates the kind of algorithm used for partitioning
-        * `paths` (`list`) - List of paths using which data within the container can be partitioned
-
-      * `unique_key_policy` (`dict`) - The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-        * `unique_keys` (`list`) - List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
-          * `paths` (`list`) - List of paths must be unique for each document in the Azure Cosmos DB service
+    The configuration of the partition key to be used for partitioning data into multiple partitions
+      * `kind` (`str`) - Indicates the kind of algorithm used for partitioning
+      * `paths` (`list`) - List of paths using which data within the container can be partitioned
     """
     tags: pulumi.Output[dict]
     """
@@ -61,6 +71,12 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of Azure resource.
+    """
+    unique_key_policy: pulumi.Output[dict]
+    """
+    The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+      * `unique_keys` (`list`) - List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        * `paths` (`list`) - List of paths must be unique for each document in the Azure Cosmos DB service
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, name=None, options=None, resource=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -142,10 +158,17 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['_etag'] = None
+            __props__['_rid'] = None
+            __props__['_ts'] = None
+            __props__['conflict_resolution_policy'] = None
+            __props__['default_ttl'] = None
+            __props__['indexing_policy'] = None
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['partition_key'] = None
             __props__['tags'] = None
             __props__['type'] = None
+            __props__['unique_key_policy'] = None
         super(DatabaseAccountSqlContainer, __self__).__init__(
             'azurerm:documentdb/v20151106:DatabaseAccountSqlContainer',
             resource_name,

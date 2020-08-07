@@ -54,13 +54,33 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+        /// </summary>
+        public readonly int? MaximumNodes;
+        /// <summary>
+        /// List of application capacity metric description.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationMetricDescriptionResponseResult> Metrics;
+        /// <summary>
+        /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+        /// </summary>
+        public readonly int? MinimumNodes;
+        /// <summary>
         /// Azure resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The application resource properties.
+        /// List of application parameters with overridden values from their default values specified in the application manifest.
         /// </summary>
-        public readonly Outputs.ApplicationResourcePropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, string>? Parameters;
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Remove the current application capacity settings.
+        /// </summary>
+        public readonly bool? RemoveApplicationCapacity;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -69,6 +89,18 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         /// Azure resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The application type name as defined in the application manifest.
+        /// </summary>
+        public readonly string? TypeName;
+        /// <summary>
+        /// The version of the application type as defined in the application manifest.
+        /// </summary>
+        public readonly string? TypeVersion;
+        /// <summary>
+        /// Describes the policy for a monitored application upgrade.
+        /// </summary>
+        public readonly Outputs.ApplicationUpgradePolicyResponseResult? UpgradePolicy;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -76,20 +108,44 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
 
             string? location,
 
+            int? maximumNodes,
+
+            ImmutableArray<Outputs.ApplicationMetricDescriptionResponseResult> metrics,
+
+            int? minimumNodes,
+
             string name,
 
-            Outputs.ApplicationResourcePropertiesResponseResult properties,
+            ImmutableDictionary<string, string>? parameters,
+
+            string provisioningState,
+
+            bool? removeApplicationCapacity,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? typeName,
+
+            string? typeVersion,
+
+            Outputs.ApplicationUpgradePolicyResponseResult? upgradePolicy)
         {
             Etag = etag;
             Location = location;
+            MaximumNodes = maximumNodes;
+            Metrics = metrics;
+            MinimumNodes = minimumNodes;
             Name = name;
-            Properties = properties;
+            Parameters = parameters;
+            ProvisioningState = provisioningState;
+            RemoveApplicationCapacity = removeApplicationCapacity;
             Tags = tags;
             Type = type;
+            TypeName = typeName;
+            TypeVersion = typeVersion;
+            UpgradePolicy = upgradePolicy;
         }
     }
 }

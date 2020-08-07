@@ -33,10 +33,16 @@ namespace Pulumi.AzureRM.Network.V20180801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for P2SVpnGateway
+        /// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.P2SVpnGatewayPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("p2SVpnServerConfiguration")]
+        public Output<Outputs.SubResourceResponseResult?> P2SVpnServerConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +55,30 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The VirtualHub to which the gateway belongs
+        /// </summary>
+        [Output("virtualHub")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference of the address space resource which represents Address space for P2S VpnClient.
+        /// </summary>
+        [Output("vpnClientAddressPool")]
+        public Output<Outputs.AddressSpaceResponseResult?> VpnClientAddressPool { get; private set; } = null!;
+
+        /// <summary>
+        /// All P2S VPN clients' connection health status.
+        /// </summary>
+        [Output("vpnClientConnectionHealth")]
+        public Output<Outputs.VpnClientConnectionHealthResponseResult> VpnClientConnectionHealth { get; private set; } = null!;
+
+        /// <summary>
+        /// The scale unit for this p2s vpn gateway.
+        /// </summary>
+        [Output("vpnGatewayScaleUnit")]
+        public Output<int?> VpnGatewayScaleUnit { get; private set; } = null!;
 
 
         /// <summary>

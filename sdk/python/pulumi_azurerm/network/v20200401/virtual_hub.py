@@ -10,9 +10,23 @@ from ... import _utilities, _tables
 
 
 class VirtualHub(pulumi.CustomResource):
+    address_prefix: pulumi.Output[str]
+    """
+    Address-prefix for this VirtualHub.
+    """
+    azure_firewall: pulumi.Output[dict]
+    """
+    The azureFirewall associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    express_route_gateway: pulumi.Output[dict]
+    """
+    The expressRouteGateway associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
     """
     location: pulumi.Output[str]
     """
@@ -22,61 +36,34 @@ class VirtualHub(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    p2_s_vpn_gateway: pulumi.Output[dict]
     """
-    Properties of the virtual hub.
-      * `address_prefix` (`str`) - Address-prefix for this VirtualHub.
-      * `azure_firewall` (`dict`) - The azureFirewall associated with this VirtualHub.
-        * `id` (`str`) - Resource ID.
-
-      * `express_route_gateway` (`dict`) - The expressRouteGateway associated with this VirtualHub.
-      * `p2_s_vpn_gateway` (`dict`) - The P2SVpnGateway associated with this VirtualHub.
-      * `provisioning_state` (`str`) - The provisioning state of the virtual hub resource.
-      * `route_table` (`dict`) - The routeTable associated with this virtual hub.
-        * `routes` (`list`) - List of all routes.
-          * `address_prefixes` (`list`) - List of all addressPrefixes.
-          * `next_hop_ip_address` (`str`) - NextHop ip address.
-
-      * `security_partner_provider` (`dict`) - The securityPartnerProvider associated with this VirtualHub.
-      * `security_provider_name` (`str`) - The Security Provider name.
-      * `sku` (`str`) - The sku of this VirtualHub.
-      * `virtual_hub_route_table_v2s` (`list`) - List of all virtual hub route table v2s associated with this VirtualHub.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the virtual hub route table v2.
-          * `attached_connections` (`list`) - List of all connections attached to this route table v2.
-          * `provisioning_state` (`str`) - The provisioning state of the virtual hub route table v2 resource.
-          * `routes` (`list`) - List of all routes.
-            * `destination_type` (`str`) - The type of destinations.
-            * `destinations` (`list`) - List of all destinations.
-            * `next_hop_type` (`str`) - The type of next hops.
-            * `next_hops` (`list`) - NextHops ip address.
-
-      * `virtual_network_connections` (`list`) - List of all vnet connections with this VirtualHub.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the hub virtual network connection.
-          * `allow_hub_to_remote_vnet_transit` (`bool`) - VirtualHub to RemoteVnet transit to enabled or not.
-          * `allow_remote_vnet_to_use_hub_vnet_gateways` (`bool`) - Allow RemoteVnet to use Virtual Hub's gateways.
-          * `enable_internet_security` (`bool`) - Enable internet security.
-          * `provisioning_state` (`str`) - The provisioning state of the hub virtual network connection resource.
-          * `remote_virtual_network` (`dict`) - Reference to the remote virtual network.
-          * `routing_configuration` (`dict`) - The Routing Configuration indicating the associated and propagated route tables on this connection.
-            * `associated_route_table` (`dict`) - The resource id RouteTable associated with this RoutingConfiguration.
-            * `propagated_route_tables` (`dict`) - The list of RouteTables to advertise the routes to.
-              * `ids` (`list`) - The list of resource ids of all the RouteTables.
-              * `labels` (`list`) - The list of labels.
-
-            * `vnet_routes` (`dict`) - List of routes that control routing from VirtualHub into a virtual network connection.
-              * `static_routes` (`list`) - List of all Static Routes.
-                * `address_prefixes` (`list`) - List of all address prefixes.
-                * `name` (`str`) - The name of the StaticRoute that is unique within a VnetRoute.
-                * `next_hop_ip_address` (`str`) - The ip address of the next hop.
-
-      * `virtual_wan` (`dict`) - The VirtualWAN to which the VirtualHub belongs.
-      * `vpn_gateway` (`dict`) - The VpnGateway associated with this VirtualHub.
+    The P2SVpnGateway associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the virtual hub resource.
+    """
+    route_table: pulumi.Output[dict]
+    """
+    The routeTable associated with this virtual hub.
+      * `routes` (`list`) - List of all routes.
+        * `address_prefixes` (`list`) - List of all addressPrefixes.
+        * `next_hop_ip_address` (`str`) - NextHop ip address.
+    """
+    security_partner_provider: pulumi.Output[dict]
+    """
+    The securityPartnerProvider associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
+    """
+    security_provider_name: pulumi.Output[str]
+    """
+    The Security Provider name.
+    """
+    sku: pulumi.Output[str]
+    """
+    The sku of this VirtualHub.
     """
     tags: pulumi.Output[dict]
     """
@@ -85,6 +72,55 @@ class VirtualHub(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_hub_route_table_v2s: pulumi.Output[list]
+    """
+    List of all virtual hub route table v2s associated with this VirtualHub.
+      * `attached_connections` (`list`) - List of all connections attached to this route table v2.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - The provisioning state of the virtual hub route table v2 resource.
+      * `routes` (`list`) - List of all routes.
+        * `destination_type` (`str`) - The type of destinations.
+        * `destinations` (`list`) - List of all destinations.
+        * `next_hop_type` (`str`) - The type of next hops.
+        * `next_hops` (`list`) - NextHops ip address.
+    """
+    virtual_network_connections: pulumi.Output[list]
+    """
+    List of all vnet connections with this VirtualHub.
+      * `allow_hub_to_remote_vnet_transit` (`bool`) - VirtualHub to RemoteVnet transit to enabled or not.
+      * `allow_remote_vnet_to_use_hub_vnet_gateways` (`bool`) - Allow RemoteVnet to use Virtual Hub's gateways.
+      * `enable_internet_security` (`bool`) - Enable internet security.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - The provisioning state of the hub virtual network connection resource.
+      * `remote_virtual_network` (`dict`) - Reference to the remote virtual network.
+        * `id` (`str`) - Resource ID.
+
+      * `routing_configuration` (`dict`) - The Routing Configuration indicating the associated and propagated route tables on this connection.
+        * `associated_route_table` (`dict`) - The resource id RouteTable associated with this RoutingConfiguration.
+        * `propagated_route_tables` (`dict`) - The list of RouteTables to advertise the routes to.
+          * `ids` (`list`) - The list of resource ids of all the RouteTables.
+          * `labels` (`list`) - The list of labels.
+
+        * `vnet_routes` (`dict`) - List of routes that control routing from VirtualHub into a virtual network connection.
+          * `static_routes` (`list`) - List of all Static Routes.
+            * `address_prefixes` (`list`) - List of all address prefixes.
+            * `name` (`str`) - The name of the StaticRoute that is unique within a VnetRoute.
+            * `next_hop_ip_address` (`str`) - The ip address of the next hop.
+    """
+    virtual_wan: pulumi.Output[dict]
+    """
+    The VirtualWAN to which the VirtualHub belongs.
+      * `id` (`str`) - Resource ID.
+    """
+    vpn_gateway: pulumi.Output[dict]
+    """
+    The VpnGateway associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
     """
     def __init__(__self__, resource_name, opts=None, address_prefix=None, azure_firewall=None, express_route_gateway=None, id=None, location=None, name=None, p2_s_vpn_gateway=None, resource_group_name=None, route_table=None, security_partner_provider=None, security_provider_name=None, sku=None, tags=None, virtual_hub_route_table_v2s=None, virtual_network_connections=None, virtual_wan=None, vpn_gateway=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -192,7 +228,7 @@ class VirtualHub(pulumi.CustomResource):
             __props__['virtual_wan'] = virtual_wan
             __props__['vpn_gateway'] = vpn_gateway
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(VirtualHub, __self__).__init__(
             'azurerm:network/v20200401:VirtualHub',

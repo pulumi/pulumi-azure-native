@@ -36,6 +36,10 @@ export interface GetIntegrationAccountArgs {
  */
 export interface GetIntegrationAccountResult {
     /**
+     * The integration service environment.
+     */
+    readonly integrationServiceEnvironment?: outputs.logic.v20190501.IntegrationServiceEnvironmentResponse;
+    /**
      * The resource location.
      */
     readonly location?: string;
@@ -44,13 +48,13 @@ export interface GetIntegrationAccountResult {
      */
     readonly name: string;
     /**
-     * The integration account properties.
-     */
-    readonly properties: outputs.logic.v20190501.IntegrationAccountPropertiesResponse;
-    /**
      * The sku.
      */
     readonly sku?: outputs.logic.v20190501.IntegrationAccountSkuResponse;
+    /**
+     * The workflow state.
+     */
+    readonly state?: string;
     /**
      * The resource tags.
      */

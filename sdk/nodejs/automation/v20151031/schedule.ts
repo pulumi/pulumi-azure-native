@@ -37,13 +37,65 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the advanced schedule.
+     */
+    public readonly advancedSchedule!: pulumi.Output<outputs.automation.v20151031.AdvancedScheduleResponse | undefined>;
+    /**
+     * Gets or sets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the end time of the schedule.
+     */
+    public readonly expiryTime!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the expiry time's offset in minutes.
+     */
+    public /*out*/ readonly expiryTimeOffsetMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * Gets or sets the frequency of the schedule.
+     */
+    public readonly frequency!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the interval of the schedule.
+     */
+    public readonly interval!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Gets or sets a value indicating whether this schedule is enabled.
+     */
+    public /*out*/ readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets or sets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the properties of the schedule.
+     * Gets or sets the next run time of the schedule.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.SchedulePropertiesResponse>;
+    public /*out*/ readonly nextRun!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the next run time's offset in minutes.
+     */
+    public /*out*/ readonly nextRunOffsetMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * Gets or sets the start time of the schedule.
+     */
+    public readonly startTime!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the start time's offset in minutes.
+     */
+    public /*out*/ readonly startTimeOffsetMinutes!: pulumi.Output<number>;
+    /**
+     * Gets or sets the time zone of the schedule.
+     */
+    public readonly timeZone!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
@@ -87,7 +139,13 @@ export class Schedule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["timeZone"] = args ? args.timeZone : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["expiryTimeOffsetMinutes"] = undefined /*out*/;
+            inputs["isEnabled"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["nextRun"] = undefined /*out*/;
+            inputs["nextRunOffsetMinutes"] = undefined /*out*/;
+            inputs["startTimeOffsetMinutes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

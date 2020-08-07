@@ -13,12 +13,60 @@ class GetViewByScopeResult:
     """
     States and configurations of Cost Analysis.
     """
-    def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
+    def __init__(__self__, accumulated=None, chart=None, created_on=None, dataset=None, display_name=None, e_tag=None, kpis=None, metric=None, modified_on=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None):
+        if accumulated and not isinstance(accumulated, str):
+            raise TypeError("Expected argument 'accumulated' to be a str")
+        __self__.accumulated = accumulated
+        """
+        Show costs accumulated over time.
+        """
+        if chart and not isinstance(chart, str):
+            raise TypeError("Expected argument 'chart' to be a str")
+        __self__.chart = chart
+        """
+        Chart type of the main view in Cost Analysis. Required.
+        """
+        if created_on and not isinstance(created_on, str):
+            raise TypeError("Expected argument 'created_on' to be a str")
+        __self__.created_on = created_on
+        """
+        Date the user created this view.
+        """
+        if dataset and not isinstance(dataset, dict):
+            raise TypeError("Expected argument 'dataset' to be a dict")
+        __self__.dataset = dataset
+        """
+        Has definition for data in this report config.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        User input name of the view. Required.
+        """
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         __self__.e_tag = e_tag
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        """
+        if kpis and not isinstance(kpis, list):
+            raise TypeError("Expected argument 'kpis' to be a list")
+        __self__.kpis = kpis
+        """
+        List of KPIs to show in Cost Analysis UI.
+        """
+        if metric and not isinstance(metric, str):
+            raise TypeError("Expected argument 'metric' to be a str")
+        __self__.metric = metric
+        """
+        Metric to use when displaying costs.
+        """
+        if modified_on and not isinstance(modified_on, str):
+            raise TypeError("Expected argument 'modified_on' to be a str")
+        __self__.modified_on = modified_on
+        """
+        Date when the user last modified this view.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +74,29 @@ class GetViewByScopeResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if pivots and not isinstance(pivots, list):
+            raise TypeError("Expected argument 'pivots' to be a list")
+        __self__.pivots = pivots
         """
-        The properties of the view.
+        Configuration of 3 sub-views in the Cost Analysis UI.
+        """
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        __self__.scope = scope
+        """
+        Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        """
+        if time_period and not isinstance(time_period, dict):
+            raise TypeError("Expected argument 'time_period' to be a dict")
+        __self__.time_period = time_period
+        """
+        Has time period for pulling data for the report.
+        """
+        if timeframe and not isinstance(timeframe, str):
+            raise TypeError("Expected argument 'timeframe' to be a str")
+        __self__.timeframe = timeframe
+        """
+        The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +112,20 @@ class AwaitableGetViewByScopeResult(GetViewByScopeResult):
         if False:
             yield self
         return GetViewByScopeResult(
+            accumulated=self.accumulated,
+            chart=self.chart,
+            created_on=self.created_on,
+            dataset=self.dataset,
+            display_name=self.display_name,
             e_tag=self.e_tag,
+            kpis=self.kpis,
+            metric=self.metric,
+            modified_on=self.modified_on,
             name=self.name,
-            properties=self.properties,
+            pivots=self.pivots,
+            scope=self.scope,
+            time_period=self.time_period,
+            timeframe=self.timeframe,
             type=self.type)
 
 
@@ -69,7 +146,18 @@ def get_view_by_scope(name=None, scope=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:costmanagement/v20191101:getViewByScope', __args__, opts=opts).value
 
     return AwaitableGetViewByScopeResult(
+        accumulated=__ret__.get('accumulated'),
+        chart=__ret__.get('chart'),
+        created_on=__ret__.get('createdOn'),
+        dataset=__ret__.get('dataset'),
+        display_name=__ret__.get('displayName'),
         e_tag=__ret__.get('eTag'),
+        kpis=__ret__.get('kpis'),
+        metric=__ret__.get('metric'),
+        modified_on=__ret__.get('modifiedOn'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        pivots=__ret__.get('pivots'),
+        scope=__ret__.get('scope'),
+        time_period=__ret__.get('timePeriod'),
+        timeframe=__ret__.get('timeframe'),
         type=__ret__.get('type'))

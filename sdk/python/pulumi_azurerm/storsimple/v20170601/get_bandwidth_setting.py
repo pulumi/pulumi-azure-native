@@ -13,7 +13,7 @@ class GetBandwidthSettingResult:
     """
     The bandwidth setting.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, name=None, schedules=None, type=None, volume_count=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +26,23 @@ class GetBandwidthSettingResult:
         """
         The name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if schedules and not isinstance(schedules, list):
+            raise TypeError("Expected argument 'schedules' to be a list")
+        __self__.schedules = schedules
         """
-        The properties of the bandwidth setting.
+        The schedules.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The hierarchical type of the object.
+        """
+        if volume_count and not isinstance(volume_count, float):
+            raise TypeError("Expected argument 'volume_count' to be a float")
+        __self__.volume_count = volume_count
+        """
+        The number of volumes that uses the bandwidth setting.
         """
 
 
@@ -48,8 +54,9 @@ class AwaitableGetBandwidthSettingResult(GetBandwidthSettingResult):
         return GetBandwidthSettingResult(
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            schedules=self.schedules,
+            type=self.type,
+            volume_count=self.volume_count)
 
 
 def get_bandwidth_setting(manager_name=None, name=None, resource_group_name=None, opts=None):
@@ -73,5 +80,6 @@ def get_bandwidth_setting(manager_name=None, name=None, resource_group_name=None
     return AwaitableGetBandwidthSettingResult(
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        schedules=__ret__.get('schedules'),
+        type=__ret__.get('type'),
+        volume_count=__ret__.get('volumeCount'))

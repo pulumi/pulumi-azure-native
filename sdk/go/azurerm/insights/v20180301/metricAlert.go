@@ -14,16 +14,36 @@ import (
 type MetricAlert struct {
 	pulumi.CustomResourceState
 
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions MetricAlertActionResponseArrayOutput `pulumi:"actions"`
+	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
+	AutoMitigate pulumi.BoolPtrOutput `pulumi:"autoMitigate"`
+	// the description of the metric alert that will be included in the alert email.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// the flag that indicates whether the metric alert is enabled.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// how often the metric alert is evaluated represented in ISO 8601 duration format.
+	EvaluationFrequency pulumi.StringOutput `pulumi:"evaluationFrequency"`
+	// Last time the rule was updated in ISO8601 format.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties MetricAlertPropertiesResponseOutput `pulumi:"properties"`
+	// the list of resource id's that this metric alert is scoped to.
+	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
+	// Alert severity {0, 1, 2, 3, 4}
+	Severity pulumi.IntOutput `pulumi:"severity"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceRegion pulumi.StringPtrOutput `pulumi:"targetResourceRegion"`
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceType pulumi.StringPtrOutput `pulumi:"targetResourceType"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+	WindowSize pulumi.StringOutput `pulumi:"windowSize"`
 }
 
 // NewMetricAlert registers a new resource with the given unique name, arguments, and options.
@@ -78,29 +98,69 @@ func GetMetricAlert(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MetricAlert resources.
 type metricAlertState struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions []MetricAlertActionResponse `pulumi:"actions"`
+	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
+	AutoMitigate *bool `pulumi:"autoMitigate"`
+	// the description of the metric alert that will be included in the alert email.
+	Description *string `pulumi:"description"`
+	// the flag that indicates whether the metric alert is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// how often the metric alert is evaluated represented in ISO 8601 duration format.
+	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	// Last time the rule was updated in ISO8601 format.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties *MetricAlertPropertiesResponse `pulumi:"properties"`
+	// the list of resource id's that this metric alert is scoped to.
+	Scopes []string `pulumi:"scopes"`
+	// Alert severity {0, 1, 2, 3, 4}
+	Severity *int `pulumi:"severity"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceRegion *string `pulumi:"targetResourceRegion"`
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceType *string `pulumi:"targetResourceType"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+	WindowSize *string `pulumi:"windowSize"`
 }
 
 type MetricAlertState struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions MetricAlertActionResponseArrayInput
+	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
+	AutoMitigate pulumi.BoolPtrInput
+	// the description of the metric alert that will be included in the alert email.
+	Description pulumi.StringPtrInput
+	// the flag that indicates whether the metric alert is enabled.
+	Enabled pulumi.BoolPtrInput
+	// how often the metric alert is evaluated represented in ISO 8601 duration format.
+	EvaluationFrequency pulumi.StringPtrInput
+	// Last time the rule was updated in ISO8601 format.
+	LastUpdatedTime pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// The alert rule properties of the resource.
-	Properties MetricAlertPropertiesResponsePtrInput
+	// the list of resource id's that this metric alert is scoped to.
+	Scopes pulumi.StringArrayInput
+	// Alert severity {0, 1, 2, 3, 4}
+	Severity pulumi.IntPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceRegion pulumi.StringPtrInput
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceType pulumi.StringPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+	WindowSize pulumi.StringPtrInput
 }
 
 func (MetricAlertState) ElementType() reflect.Type {

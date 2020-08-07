@@ -27,10 +27,30 @@ type LookupConnectorArgs struct {
 
 // The connector resource format.
 type LookupConnectorResult struct {
+	// ID of the connector.
+	ConnectorId int `pulumi:"connectorId"`
+	// Name of the connector.
+	ConnectorName *string `pulumi:"connectorName"`
+	// The connector properties.
+	ConnectorProperties map[string]map[string]interface{} `pulumi:"connectorProperties"`
+	// Type of connector.
+	ConnectorType string `pulumi:"connectorType"`
+	// The created time.
+	Created string `pulumi:"created"`
+	// Description of the connector.
+	Description *string `pulumi:"description"`
+	// Display name of the connector.
+	DisplayName *string `pulumi:"displayName"`
+	// If this is an internal connector.
+	IsInternal *bool `pulumi:"isInternal"`
+	// The last modified time.
+	LastModified string `pulumi:"lastModified"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of connector.
-	Properties ConnectorResponse `pulumi:"properties"`
+	// State of connector.
+	State string `pulumi:"state"`
+	// The hub name.
+	TenantId string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

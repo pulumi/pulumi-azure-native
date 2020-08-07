@@ -45,9 +45,13 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The JSON object that contains the properties required to create a profile.
+     * Provisioning status of the profile.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20190615.ProfilePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource status of the profile.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
      */
@@ -91,7 +95,8 @@ export class Profile extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

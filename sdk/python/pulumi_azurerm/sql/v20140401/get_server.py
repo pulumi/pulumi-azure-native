@@ -13,7 +13,37 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, external_administrator_login=None, external_administrator_sid=None, fully_qualified_domain_name=None, kind=None, location=None, name=None, state=None, tags=None, type=None, version=None):
+        if administrator_login and not isinstance(administrator_login, str):
+            raise TypeError("Expected argument 'administrator_login' to be a str")
+        __self__.administrator_login = administrator_login
+        """
+        Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        """
+        if administrator_login_password and not isinstance(administrator_login_password, str):
+            raise TypeError("Expected argument 'administrator_login_password' to be a str")
+        __self__.administrator_login_password = administrator_login_password
+        """
+        The administrator login password (required for server creation).
+        """
+        if external_administrator_login and not isinstance(external_administrator_login, str):
+            raise TypeError("Expected argument 'external_administrator_login' to be a str")
+        __self__.external_administrator_login = external_administrator_login
+        """
+        The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+        """
+        if external_administrator_sid and not isinstance(external_administrator_sid, str):
+            raise TypeError("Expected argument 'external_administrator_sid' to be a str")
+        __self__.external_administrator_sid = external_administrator_sid
+        """
+        The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+        """
+        if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
+            raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
+        __self__.fully_qualified_domain_name = fully_qualified_domain_name
+        """
+        The fully qualified domain name of the server.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,11 +62,11 @@ class GetServerResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
         """
-        Represents the properties of the resource.
+        The state of the server.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +80,12 @@ class GetServerResult:
         """
         Resource type.
         """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        The version of the server.
+        """
 
 
 class AwaitableGetServerResult(GetServerResult):
@@ -58,12 +94,18 @@ class AwaitableGetServerResult(GetServerResult):
         if False:
             yield self
         return GetServerResult(
+            administrator_login=self.administrator_login,
+            administrator_login_password=self.administrator_login_password,
+            external_administrator_login=self.external_administrator_login,
+            external_administrator_sid=self.external_administrator_sid,
+            fully_qualified_domain_name=self.fully_qualified_domain_name,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            state=self.state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            version=self.version)
 
 
 def get_server(name=None, resource_group_name=None, opts=None):
@@ -83,9 +125,15 @@ def get_server(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getServer', __args__, opts=opts).value
 
     return AwaitableGetServerResult(
+        administrator_login=__ret__.get('administratorLogin'),
+        administrator_login_password=__ret__.get('administratorLoginPassword'),
+        external_administrator_login=__ret__.get('externalAdministratorLogin'),
+        external_administrator_sid=__ret__.get('externalAdministratorSid'),
+        fully_qualified_domain_name=__ret__.get('fullyQualifiedDomainName'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

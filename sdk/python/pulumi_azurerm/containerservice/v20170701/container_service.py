@@ -10,70 +10,80 @@ from ... import _utilities, _tables
 
 
 class ContainerService(pulumi.CustomResource):
+    agent_pool_profiles: pulumi.Output[list]
+    """
+    Properties of the agent pool.
+      * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+      * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the agent pool.
+      * `fqdn` (`str`) - FQDN for the agent pool.
+      * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
+      * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+      * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+      * `ports` (`list`) - Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
+      * `storage_profile` (`str`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
+      * `vm_size` (`str`) - Size of agent VMs.
+      * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
+    """
+    custom_profile: pulumi.Output[dict]
+    """
+    Properties to configure a custom container service cluster.
+      * `orchestrator` (`str`) - The name of the custom orchestrator to use.
+    """
+    diagnostics_profile: pulumi.Output[dict]
+    """
+    Profile for diagnostics in the container service cluster.
+      * `vm_diagnostics` (`dict`) - Profile for diagnostics on the container service VMs.
+        * `enabled` (`bool`) - Whether the VM diagnostic agent is provisioned on the VM.
+        * `storage_uri` (`str`) - The URI of the storage account where diagnostics are stored.
+    """
+    linux_profile: pulumi.Output[dict]
+    """
+    Profile for Linux VMs in the container service cluster.
+      * `admin_username` (`str`) - The administrator username to use for Linux VMs.
+      * `ssh` (`dict`) - SSH configuration for Linux-based VMs running on Azure.
+        * `public_keys` (`list`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+          * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    master_profile: pulumi.Output[dict]
+    """
+    Profile for the container service master.
+      * `count` (`float`) - Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
+      * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the master pool.
+      * `first_consecutive_static_ip` (`str`) - FirstConsecutiveStaticIP used to specify the first static ip of masters.
+      * `fqdn` (`str`) - FQDN for the master pool.
+      * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+      * `storage_profile` (`str`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
+      * `vm_size` (`str`) - Size of agent VMs.
+      * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    orchestrator_profile: pulumi.Output[dict]
     """
-    Properties of the container service.
-      * `agent_pool_profiles` (`list`) - Properties of the agent pool.
-        * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the agent pool.
-        * `fqdn` (`str`) - FQDN for the agent pool.
-        * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-        * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        * `ports` (`list`) - Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-        * `storage_profile` (`str`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-        * `vm_size` (`str`) - Size of agent VMs.
-        * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
+    Profile for the container service orchestrator.
+      * `orchestrator_type` (`str`) - The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
+      * `orchestrator_version` (`str`) - The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The current deployment or provisioning state, which only appears in the response.
+    """
+    service_principal_profile: pulumi.Output[dict]
+    """
+    Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+      * `client_id` (`str`) - The ID for the service principal.
+      * `key_vault_secret_ref` (`dict`) - Reference to a secret stored in Azure Key Vault.
+        * `secret_name` (`str`) - The secret name.
+        * `vault_id` (`str`) - Key vault identifier.
+        * `version` (`str`) - The secret version.
 
-      * `custom_profile` (`dict`) - Properties to configure a custom container service cluster.
-        * `orchestrator` (`str`) - The name of the custom orchestrator to use.
-
-      * `diagnostics_profile` (`dict`) - Profile for diagnostics in the container service cluster.
-        * `vm_diagnostics` (`dict`) - Profile for diagnostics on the container service VMs.
-          * `enabled` (`bool`) - Whether the VM diagnostic agent is provisioned on the VM.
-          * `storage_uri` (`str`) - The URI of the storage account where diagnostics are stored.
-
-      * `linux_profile` (`dict`) - Profile for Linux VMs in the container service cluster.
-        * `admin_username` (`str`) - The administrator username to use for Linux VMs.
-        * `ssh` (`dict`) - SSH configuration for Linux-based VMs running on Azure.
-          * `public_keys` (`list`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
-            * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-
-      * `master_profile` (`dict`) - Profile for the container service master.
-        * `count` (`float`) - Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
-        * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the master pool.
-        * `first_consecutive_static_ip` (`str`) - FirstConsecutiveStaticIP used to specify the first static ip of masters.
-        * `fqdn` (`str`) - FQDN for the master pool.
-        * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        * `storage_profile` (`str`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-        * `vm_size` (`str`) - Size of agent VMs.
-        * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
-
-      * `orchestrator_profile` (`dict`) - Profile for the container service orchestrator.
-        * `orchestrator_type` (`str`) - The orchestrator to use to manage container service cluster resources. Valid values are Kubernetes, Swarm, DCOS, DockerCE and Custom.
-        * `orchestrator_version` (`str`) - The version of the orchestrator to use. You can specify the major.minor.patch part of the actual version.For example, you can specify version as "1.6.11".
-
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
-      * `service_principal_profile` (`dict`) - Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
-        * `client_id` (`str`) - The ID for the service principal.
-        * `key_vault_secret_ref` (`dict`) - Reference to a secret stored in Azure Key Vault.
-          * `secret_name` (`str`) - The secret name.
-          * `vault_id` (`str`) - Key vault identifier.
-          * `version` (`str`) - The secret version.
-
-        * `secret` (`str`) - The secret password associated with the service principal in plain text.
-
-      * `windows_profile` (`dict`) - Profile for Windows VMs in the container service cluster.
-        * `admin_password` (`str`) - The administrator password to use for Windows VMs.
-        * `admin_username` (`str`) - The administrator username to use for Windows VMs.
+      * `secret` (`str`) - The secret password associated with the service principal in plain text.
     """
     tags: pulumi.Output[dict]
     """
@@ -82,6 +92,12 @@ class ContainerService(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    windows_profile: pulumi.Output[dict]
+    """
+    Profile for Windows VMs in the container service cluster.
+      * `admin_password` (`str`) - The administrator password to use for Windows VMs.
+      * `admin_username` (`str`) - The administrator username to use for Windows VMs.
     """
     def __init__(__self__, resource_name, opts=None, agent_pool_profiles=None, custom_profile=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestrator_profile=None, resource_group_name=None, service_principal_profile=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -201,7 +217,7 @@ class ContainerService(pulumi.CustomResource):
             __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
             __props__['windows_profile'] = windows_profile
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ContainerService, __self__).__init__(
             'azurerm:containerservice/v20170701:ContainerService',

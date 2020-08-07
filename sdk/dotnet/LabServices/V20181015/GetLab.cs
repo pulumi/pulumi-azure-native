@@ -46,17 +46,41 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class GetLabResult
     {
         /// <summary>
+        /// Object id of the user that created the lab.
+        /// </summary>
+        public readonly string CreatedByObjectId;
+        /// <summary>
+        /// Lab creator name
+        /// </summary>
+        public readonly string CreatedByUserPrincipalName;
+        /// <summary>
+        /// Creation date for the lab
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// Invitation code that users can use to join a lab.
+        /// </summary>
+        public readonly string InvitationCode;
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Maximum number of users allowed in the lab.
+        /// </summary>
+        public readonly int? MaxUsersInLab;
         /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.LabPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -65,24 +89,70 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
+        /// <summary>
+        /// Maximum duration a user can use an environment for in the lab.
+        /// </summary>
+        public readonly string? UsageQuota;
+        /// <summary>
+        /// Lab user access mode (open to all vs. restricted to those listed on the lab).
+        /// </summary>
+        public readonly string? UserAccessMode;
+        /// <summary>
+        /// Maximum value MaxUsersInLab can be set to, as specified by the service
+        /// </summary>
+        public readonly int UserQuota;
 
         [OutputConstructor]
         private GetLabResult(
+            string createdByObjectId,
+
+            string createdByUserPrincipalName,
+
+            string createdDate,
+
+            string invitationCode,
+
+            Outputs.LatestOperationResultResponseResult latestOperationResult,
+
             string? location,
+
+            int? maxUsersInLab,
 
             string name,
 
-            Outputs.LabPropertiesResponseResult properties,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? uniqueIdentifier,
+
+            string? usageQuota,
+
+            string? userAccessMode,
+
+            int userQuota)
         {
+            CreatedByObjectId = createdByObjectId;
+            CreatedByUserPrincipalName = createdByUserPrincipalName;
+            CreatedDate = createdDate;
+            InvitationCode = invitationCode;
+            LatestOperationResult = latestOperationResult;
             Location = location;
+            MaxUsersInLab = maxUsersInLab;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
+            UsageQuota = usageQuota;
+            UserAccessMode = userAccessMode;
+            UserQuota = userQuota;
         }
     }
 }

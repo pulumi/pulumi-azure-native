@@ -37,6 +37,18 @@ export class VirtualWan extends pulumi.CustomResource {
     }
 
     /**
+     * True if branch to branch traffic is allowed.
+     */
+    public readonly allowBranchToBranchTraffic!: pulumi.Output<boolean | undefined>;
+    /**
+     * True if Vnet to Vnet traffic is allowed.
+     */
+    public readonly allowVnetToVnetTraffic!: pulumi.Output<boolean | undefined>;
+    /**
+     * Vpn encryption to be disabled or not.
+     */
+    public readonly disableVpnEncryption!: pulumi.Output<boolean | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +61,13 @@ export class VirtualWan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the virtual WAN.
+     * The office local breakout category.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190801.VirtualWanPropertiesResponse>;
+    public readonly office365LocalBreakoutCategory!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning state of the virtual WAN resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +76,14 @@ export class VirtualWan extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * List of VirtualHubs in the VirtualWAN.
+     */
+    public /*out*/ readonly virtualHubs!: pulumi.Output<outputs.network.v20190801.SubResourceResponse[]>;
+    /**
+     * List of VpnSites in the VirtualWAN.
+     */
+    public /*out*/ readonly vpnSites!: pulumi.Output<outputs.network.v20190801.SubResourceResponse[]>;
 
     /**
      * Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -94,8 +118,9 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualHubs"] = undefined /*out*/;
+            inputs["vpnSites"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

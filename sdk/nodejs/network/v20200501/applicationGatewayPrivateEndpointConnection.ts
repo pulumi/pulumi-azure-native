@@ -41,13 +41,25 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The consumer link id.
+     */
+    public /*out*/ readonly linkIdentifier!: pulumi.Output<string>;
+    /**
      * Name of the private endpoint connection on an application gateway.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the application gateway private endpoint connection.
+     * The resource of private end point.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.ApplicationGatewayPrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.network.v20200501.PrivateEndpointResponse>;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.network.v20200501.PrivateLinkServiceConnectionStateResponse | undefined>;
+    /**
+     * The provisioning state of the application gateway private endpoint connection resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
@@ -81,7 +93,9 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["linkIdentifier"] = undefined /*out*/;
+            inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

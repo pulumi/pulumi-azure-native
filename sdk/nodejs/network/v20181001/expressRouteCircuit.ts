@@ -37,9 +37,37 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     }
 
     /**
+     * Allow classic operations
+     */
+    public readonly allowClassicOperations!: pulumi.Output<boolean | undefined>;
+    /**
+     * Flag to enable Global Reach on the circuit.
+     */
+    public readonly allowGlobalReach!: pulumi.Output<boolean | undefined>;
+    /**
+     * The list of authorizations.
+     */
+    public readonly authorizations!: pulumi.Output<outputs.network.v20181001.ExpressRouteCircuitAuthorizationResponse[] | undefined>;
+    /**
+     * The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+     */
+    public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
+    /**
+     * The CircuitProvisioningState state of the resource.
+     */
+    public readonly circuitProvisioningState!: pulumi.Output<string | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+     */
+    public readonly expressRoutePort!: pulumi.Output<outputs.network.v20181001.SubResourceResponse | undefined>;
+    /**
+     * The GatewayManager Etag.
+     */
+    public readonly gatewayManagerEtag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -49,13 +77,37 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of ExpressRouteCircuit.
+     * The list of peerings.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181001.ExpressRouteCircuitPropertiesFormatResponse>;
+    public readonly peerings!: pulumi.Output<outputs.network.v20181001.ExpressRouteCircuitPeeringResponse[] | undefined>;
+    /**
+     * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The ServiceKey.
+     */
+    public readonly serviceKey!: pulumi.Output<string | undefined>;
+    /**
+     * The ServiceProviderNotes.
+     */
+    public readonly serviceProviderNotes!: pulumi.Output<string | undefined>;
+    /**
+     * The ServiceProviderProperties.
+     */
+    public readonly serviceProviderProperties!: pulumi.Output<outputs.network.v20181001.ExpressRouteCircuitServiceProviderPropertiesResponse | undefined>;
+    /**
+     * The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+     */
+    public readonly serviceProviderProvisioningState!: pulumi.Output<string | undefined>;
     /**
      * The SKU.
      */
     public readonly sku!: pulumi.Output<outputs.network.v20181001.ExpressRouteCircuitSkuResponse | undefined>;
+    /**
+     * The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+     */
+    public /*out*/ readonly stag!: pulumi.Output<number>;
     /**
      * Resource tags.
      */
@@ -104,7 +156,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["stag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

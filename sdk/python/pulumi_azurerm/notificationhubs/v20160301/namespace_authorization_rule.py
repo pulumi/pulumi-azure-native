@@ -18,10 +18,9 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    rights: pulumi.Output[list]
     """
-    Properties of the Namespace AuthorizationRule.
-      * `rights` (`list`) - The rights associated with the rule.
+    The rights associated with the rule.
     """
     sku: pulumi.Output[dict]
     """
@@ -100,6 +99,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['rights'] = None
             __props__['type'] = None
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azurerm:notificationhubs/v20160301:NamespaceAuthorizationRule',

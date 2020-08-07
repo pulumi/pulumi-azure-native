@@ -27,10 +27,22 @@ type LookupPrefixArgs struct {
 
 // The peering service prefix class.
 type LookupPrefixResult struct {
+	// The error message for validation state
+	ErrorMessage string `pulumi:"errorMessage"`
+	// The list of events for peering service prefix
+	Events []PeeringServicePrefixEventResponse `pulumi:"events"`
+	// The prefix learned type
+	LearnedType string `pulumi:"learnedType"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// Gets or sets the peering prefix properties.
-	Properties PeeringServicePrefixPropertiesResponse `pulumi:"properties"`
+	// The peering service prefix key
+	PeeringServicePrefixKey *string `pulumi:"peeringServicePrefixKey"`
+	// The prefix from which your traffic originates.
+	Prefix *string `pulumi:"prefix"`
+	// The prefix validation state
+	PrefixValidationState string `pulumi:"prefixValidationState"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

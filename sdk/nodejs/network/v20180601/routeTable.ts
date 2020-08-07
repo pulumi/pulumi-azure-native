@@ -37,6 +37,10 @@ export class RouteTable extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
+     */
+    public readonly disableBgpRoutePropagation!: pulumi.Output<boolean | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +53,17 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the route table.
+     * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180601.RouteTablePropertiesFormatResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Collection of routes contained within a route table.
+     */
+    public readonly routes!: pulumi.Output<outputs.network.v20180601.RouteResponse[] | undefined>;
+    /**
+     * A collection of references to subnets.
+     */
+    public /*out*/ readonly subnets!: pulumi.Output<outputs.network.v20180601.SubnetResponse[]>;
     /**
      * Resource tags.
      */
@@ -89,7 +101,7 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

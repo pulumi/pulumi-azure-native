@@ -37,6 +37,22 @@ export class AppServicePlan extends pulumi.CustomResource {
     }
 
     /**
+     * App Service plan administration site.
+     */
+    public readonly adminSiteName!: pulumi.Output<string | undefined>;
+    /**
+     * Geographical location for the App Service plan.
+     */
+    public /*out*/ readonly geoRegion!: pulumi.Output<string>;
+    /**
+     * Specification for the App Service Environment to use for the App Service plan.
+     */
+    public readonly hostingEnvironmentProfile!: pulumi.Output<outputs.web.v20160901.HostingEnvironmentProfileResponse | undefined>;
+    /**
+     * If <code>true</code>, this App Service Plan owns spot instances.
+     */
+    public readonly isSpot!: pulumi.Output<boolean | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,25 +61,70 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Maximum number of instances that can be assigned to this App Service plan.
+     */
+    public /*out*/ readonly maximumNumberOfWorkers!: pulumi.Output<number>;
+    /**
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * AppServicePlan resource specific properties
+     * Number of apps assigned to this App Service plan.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160901.AppServicePlanResponseProperties>;
+    public /*out*/ readonly numberOfSites!: pulumi.Output<number>;
+    /**
+     * If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+     * If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+     */
+    public readonly perSiteScaling!: pulumi.Output<boolean | undefined>;
+    /**
+     * Provisioning state of the App Service Environment.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+     */
+    public readonly reserved!: pulumi.Output<boolean | undefined>;
+    /**
+     * Resource group of the App Service plan.
+     */
+    public /*out*/ readonly resourceGroup!: pulumi.Output<string>;
     /**
      * Description of a SKU for a scalable resource.
      */
     public readonly sku!: pulumi.Output<outputs.web.v20160901.SkuDescriptionResponse | undefined>;
     /**
+     * The time when the server farm expires. Valid only if it is a spot server farm.
+     */
+    public readonly spotExpirationTime!: pulumi.Output<string | undefined>;
+    /**
+     * App Service plan status.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * App Service plan subscription.
+     */
+    public /*out*/ readonly subscription!: pulumi.Output<string>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Scaling worker count.
+     */
+    public readonly targetWorkerCount!: pulumi.Output<number | undefined>;
+    /**
+     * Scaling worker size ID.
+     */
+    public readonly targetWorkerSizeId!: pulumi.Output<number | undefined>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Target worker tier assigned to the App Service plan.
+     */
+    public readonly workerTierName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AppServicePlan resource with the given unique name, arguments, and options.
@@ -102,7 +163,13 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["targetWorkerCount"] = args ? args.targetWorkerCount : undefined;
             inputs["targetWorkerSizeId"] = args ? args.targetWorkerSizeId : undefined;
             inputs["workerTierName"] = args ? args.workerTierName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["geoRegion"] = undefined /*out*/;
+            inputs["maximumNumberOfWorkers"] = undefined /*out*/;
+            inputs["numberOfSites"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["subscription"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

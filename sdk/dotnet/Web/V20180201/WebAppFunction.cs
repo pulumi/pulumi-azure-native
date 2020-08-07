@@ -15,10 +15,58 @@ namespace Pulumi.AzureRM.Web.V20180201
     public partial class WebAppFunction : Pulumi.CustomResource
     {
         /// <summary>
+        /// Config information.
+        /// </summary>
+        [Output("config")]
+        public Output<ImmutableDictionary<string, object>?> Config { get; private set; } = null!;
+
+        /// <summary>
+        /// Config URI.
+        /// </summary>
+        [Output("config_href")]
+        public Output<string?> Config_href { get; private set; } = null!;
+
+        /// <summary>
+        /// File list.
+        /// </summary>
+        [Output("files")]
+        public Output<ImmutableDictionary<string, string>?> Files { get; private set; } = null!;
+
+        /// <summary>
+        /// Function App ID.
+        /// </summary>
+        [Output("function_app_id")]
+        public Output<string?> Function_app_id { get; private set; } = null!;
+
+        /// <summary>
+        /// Function URI.
+        /// </summary>
+        [Output("href")]
+        public Output<string?> Href { get; private set; } = null!;
+
+        /// <summary>
+        /// The invocation URL
+        /// </summary>
+        [Output("invoke_url_template")]
+        public Output<string?> Invoke_url_template { get; private set; } = null!;
+
+        /// <summary>
+        /// Value indicating whether the function is disabled
+        /// </summary>
+        [Output("isDisabled")]
+        public Output<bool?> IsDisabled { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// The function language
+        /// </summary>
+        [Output("language")]
+        public Output<string?> Language { get; private set; } = null!;
 
         /// <summary>
         /// Resource Name.
@@ -27,10 +75,34 @@ namespace Pulumi.AzureRM.Web.V20180201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// FunctionEnvelope resource specific properties
+        /// Script URI.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FunctionEnvelopeResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("script_href")]
+        public Output<string?> Script_href { get; private set; } = null!;
+
+        /// <summary>
+        /// Script root path URI.
+        /// </summary>
+        [Output("script_root_path_href")]
+        public Output<string?> Script_root_path_href { get; private set; } = null!;
+
+        /// <summary>
+        /// Secrets file URI.
+        /// </summary>
+        [Output("secrets_file_href")]
+        public Output<string?> Secrets_file_href { get; private set; } = null!;
+
+        /// <summary>
+        /// Test data used when testing via the Azure Portal.
+        /// </summary>
+        [Output("test_data")]
+        public Output<string?> Test_data { get; private set; } = null!;
+
+        /// <summary>
+        /// Test data URI.
+        /// </summary>
+        [Output("test_data_href")]
+        public Output<string?> Test_data_href { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

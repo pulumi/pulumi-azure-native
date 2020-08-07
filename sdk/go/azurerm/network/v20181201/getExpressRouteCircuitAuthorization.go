@@ -27,9 +27,14 @@ type LookupExpressRouteCircuitAuthorizationArgs struct {
 
 // Authorization in an ExpressRouteCircuit resource.
 type LookupExpressRouteCircuitAuthorizationResult struct {
+	// The authorization key.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name       *string                               `pulumi:"name"`
-	Properties AuthorizationPropertiesFormatResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
 }

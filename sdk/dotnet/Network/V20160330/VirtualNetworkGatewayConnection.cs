@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Network.V20160330
     public partial class VirtualNetworkGatewayConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// The authorizationKey.
+        /// </summary>
+        [Output("authorizationKey")]
+        public Output<string?> AuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual network Gateway connection status
+        /// </summary>
+        [Output("connectionStatus")]
+        public Output<string?> ConnectionStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+        /// </summary>
+        [Output("connectionType")]
+        public Output<string?> ConnectionType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Egress Bytes Transferred in this connection
+        /// </summary>
+        [Output("egressBytesTransferred")]
+        public Output<int?> EgressBytesTransferred { get; private set; } = null!;
+
+        /// <summary>
+        /// EnableBgp Flag
+        /// </summary>
+        [Output("enableBgp")]
+        public Output<bool?> EnableBgp { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The Ingress Bytes Transferred in this connection
+        /// </summary>
+        [Output("ingressBytesTransferred")]
+        public Output<int?> IngressBytesTransferred { get; private set; } = null!;
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        [Output("localNetworkGateway2")]
+        public Output<Outputs.LocalNetworkGatewayResponseResult?> LocalNetworkGateway2 { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -33,10 +75,34 @@ namespace Pulumi.AzureRM.Network.V20160330
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// VirtualNetworkGatewayConnection properties
+        /// The reference to peerings resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peer")]
+        public Output<Outputs.SubResourceResponseResult?> Peer { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets resource GUID property of the VirtualNetworkGatewayConnection resource
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// The Routing weight.
+        /// </summary>
+        [Output("routingWeight")]
+        public Output<int?> RoutingWeight { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPsec share key.
+        /// </summary>
+        [Output("sharedKey")]
+        public Output<string?> SharedKey { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -49,6 +115,18 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        [Output("virtualNetworkGateway1")]
+        public Output<Outputs.VirtualNetworkGatewayResponseResult?> VirtualNetworkGateway1 { get; private set; } = null!;
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        [Output("virtualNetworkGateway2")]
+        public Output<Outputs.VirtualNetworkGatewayResponseResult?> VirtualNetworkGateway2 { get; private set; } = null!;
 
 
         /// <summary>

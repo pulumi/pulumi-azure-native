@@ -26,9 +26,14 @@ namespace Pulumi.AzureRM.Batch.V20200301.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the private endpoint connection.
+        /// The private endpoint of the private endpoint connection.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult? Properties;
+        public readonly Outputs.PrivateEndpointResponseResult? PrivateEndpoint;
+        /// <summary>
+        /// The private link service connection state of the private endpoint connection
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult? PrivateLinkServiceConnectionState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -42,14 +47,20 @@ namespace Pulumi.AzureRM.Batch.V20200301.Outputs
 
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponseResult? properties,
+            Outputs.PrivateEndpointResponseResult? privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStateResponseResult? privateLinkServiceConnectionState,
+
+            string provisioningState,
 
             string type)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

@@ -25,14 +25,23 @@ type LookupPolicyArgs struct {
 
 // Defines web application firewall policy.
 type LookupPolicyResult struct {
+	// Describes custom rules inside the policy.
+	CustomRules *CustomRuleListResponse `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+	FrontendEndpointLinks []FrontendEndpointLinkResponse `pulumi:"frontendEndpointLinks"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Describes managed rules inside the policy.
+	ManagedRules *ManagedRuleSetListResponse `pulumi:"managedRules"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesResponse `pulumi:"properties"`
+	// Describes settings for the policy.
+	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	// Provisioning state of the policy.
+	ProvisioningState string `pulumi:"provisioningState"`
+	ResourceState     string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

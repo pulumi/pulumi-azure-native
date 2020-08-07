@@ -45,9 +45,13 @@ export interface GetSuppressionResult {
      */
     readonly name: string;
     /**
-     * The properties of the suppression.
+     * The GUID of the suppression.
      */
-    readonly properties: outputs.advisor.v20200101.SuppressionPropertiesResponse;
+    readonly suppressionId?: string;
+    /**
+     * The duration for which the suppression is valid.
+     */
+    readonly ttl?: string;
     /**
      * The type of the resource.
      */

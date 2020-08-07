@@ -37,17 +37,57 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the description.
+     */
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the expiry time.
+     */
+    public readonly expiryTime!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the value of the enabled flag of the webhook.
+     */
+    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets or sets the last invoked time.
+     */
+    public /*out*/ readonly lastInvokedTime!: pulumi.Output<string | undefined>;
+    /**
+     * Details of the user who last modified the Webhook
+     */
+    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the webhook properties.
+     * Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.WebhookPropertiesResponse>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Gets or sets the name of the hybrid worker group the webhook job will run on.
+     */
+    public readonly runOn!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the runbook the webhook is associated with.
+     */
+    public readonly runbook!: pulumi.Output<outputs.automation.v20151031.RunbookAssociationPropertyResponse | undefined>;
     /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Gets or sets the webhook uri.
+     */
+    public readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -80,7 +120,11 @@ export class Webhook extends pulumi.CustomResource {
             inputs["runOn"] = args ? args.runOn : undefined;
             inputs["runbook"] = args ? args.runbook : undefined;
             inputs["uri"] = args ? args.uri : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["lastInvokedTime"] = undefined /*out*/;
+            inputs["lastModifiedBy"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

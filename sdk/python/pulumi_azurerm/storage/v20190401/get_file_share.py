@@ -13,12 +13,24 @@ class GetFileShareResult:
     """
     Properties of the file share, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, last_modified_time=None, metadata=None, name=None, share_quota=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Resource Etag.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Returns the date and time the share was last modified.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        A name-value pair to associate with the share as metadata.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +38,11 @@ class GetFileShareResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if share_quota and not isinstance(share_quota, float):
+            raise TypeError("Expected argument 'share_quota' to be a float")
+        __self__.share_quota = share_quota
         """
-        Properties of the file share.
+        The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -47,8 +59,10 @@ class AwaitableGetFileShareResult(GetFileShareResult):
             yield self
         return GetFileShareResult(
             etag=self.etag,
+            last_modified_time=self.last_modified_time,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            share_quota=self.share_quota,
             type=self.type)
 
 
@@ -72,6 +86,8 @@ def get_file_share(account_name=None, name=None, resource_group_name=None, opts=
 
     return AwaitableGetFileShareResult(
         etag=__ret__.get('etag'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        share_quota=__ret__.get('shareQuota'),
         type=__ret__.get('type'))

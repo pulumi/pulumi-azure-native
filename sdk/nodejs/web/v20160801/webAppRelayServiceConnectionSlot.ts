@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -36,6 +34,10 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppRelayServiceConnectionSlot.__pulumiType;
     }
 
+    public readonly biztalkUri!: pulumi.Output<string | undefined>;
+    public readonly entityConnectionString!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly entityName!: pulumi.Output<string | undefined>;
+    public readonly hostname!: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
      */
@@ -44,10 +46,9 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * RelayServiceConnectionEntity resource specific properties
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.RelayServiceConnectionEntityResponseProperties>;
+    public readonly port!: pulumi.Output<number | undefined>;
+    public readonly resourceConnectionString!: pulumi.Output<string | undefined>;
+    public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -85,7 +86,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["entityName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

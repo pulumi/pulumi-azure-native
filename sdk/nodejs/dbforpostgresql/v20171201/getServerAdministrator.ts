@@ -36,13 +36,25 @@ export interface GetServerAdministratorArgs {
  */
 export interface GetServerAdministratorResult {
     /**
+     * The type of administrator.
+     */
+    readonly administratorType: string;
+    /**
+     * The server administrator login account name.
+     */
+    readonly login: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Properties of the server AAD administrator.
+     * The server administrator Sid (Secure ID).
      */
-    readonly properties: outputs.dbforpostgresql.v20171201.ServerAdministratorPropertiesResponse;
+    readonly sid: string;
+    /**
+     * The server Active Directory Administrator tenant id.
+     */
+    readonly tenantId: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

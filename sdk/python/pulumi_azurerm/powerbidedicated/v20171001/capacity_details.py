@@ -10,6 +10,11 @@ from ... import _utilities, _tables
 
 
 class CapacityDetails(pulumi.CustomResource):
+    administration: pulumi.Output[dict]
+    """
+    A collection of Dedicated capacity administrators
+      * `members` (`list`) - An array of administrator user identities.
+    """
     location: pulumi.Output[str]
     """
     Location of the PowerBI Dedicated resource.
@@ -18,20 +23,19 @@ class CapacityDetails(pulumi.CustomResource):
     """
     The name of the PowerBI Dedicated resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the provision operation request.
-      * `administration` (`dict`) - A collection of Dedicated capacity administrators
-        * `members` (`list`) - An array of administrator user identities.
-
-      * `provisioning_state` (`str`) - The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
-      * `state` (`str`) - The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+    The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
     """
     sku: pulumi.Output[dict]
     """
     The SKU of the PowerBI Dedicated resource.
       * `name` (`str`) - Name of the SKU level.
       * `tier` (`str`) - The name of the Azure pricing tier to which the SKU applies.
+    """
+    state: pulumi.Output[str]
+    """
+    The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
     """
     tags: pulumi.Output[dict]
     """
@@ -94,7 +98,8 @@ class CapacityDetails(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(CapacityDetails, __self__).__init__(
             'azurerm:powerbidedicated/v20171001:CapacityDetails',

@@ -10,15 +10,17 @@ from ... import _utilities, _tables
 
 
 class HcxEnterpriseSite(pulumi.CustomResource):
+    activation_key: pulumi.Output[str]
+    """
+    The activation key
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    status: pulumi.Output[str]
     """
-    The properties of an HCX Enterprise Site resource
-      * `activation_key` (`str`) - The activation key
-      * `status` (`str`) - The status of the HCX Enterprise Site
+    The status of the HCX Enterprise Site
     """
     type: pulumi.Output[str]
     """
@@ -60,7 +62,8 @@ class HcxEnterpriseSite(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['activation_key'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(HcxEnterpriseSite, __self__).__init__(
             'azurerm:avs/v20200320:HcxEnterpriseSite',

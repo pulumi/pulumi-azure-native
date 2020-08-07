@@ -10,14 +10,13 @@ from ... import _utilities, _tables
 
 
 class ApiDiagnostic(pulumi.CustomResource):
+    enabled: pulumi.Output[bool]
+    """
+    Indicates whether a diagnostic should receive data or not.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Diagnostic entity contract properties.
-      * `enabled` (`bool`) - Indicates whether a diagnostic should receive data or not.
     """
     type: pulumi.Output[str]
     """
@@ -67,7 +66,6 @@ class ApiDiagnostic(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiDiagnostic, __self__).__init__(
             'azurerm:apimanagement/v20170301:ApiDiagnostic',

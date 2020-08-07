@@ -15,16 +15,184 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
+        /// Caffe2 job settings.
+        /// </summary>
+        [Output("caffe2Settings")]
+        public Output<Outputs.Caffe2SettingsResponseResult?> Caffe2Settings { get; private set; } = null!;
+
+        /// <summary>
+        /// Caffe job settings.
+        /// </summary>
+        [Output("caffeSettings")]
+        public Output<Outputs.CaffeSettingsResponseResult?> CaffeSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Chainer job settings.
+        /// </summary>
+        [Output("chainerSettings")]
+        public Output<Outputs.ChainerSettingsResponseResult?> ChainerSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ID of the cluster associated with the job.
+        /// </summary>
+        [Output("cluster")]
+        public Output<Outputs.ResourceIdResponseResult?> Cluster { get; private set; } = null!;
+
+        /// <summary>
+        /// CNTK (aka Microsoft Cognitive Toolkit) job settings.
+        /// </summary>
+        [Output("cntkSettings")]
+        public Output<Outputs.CNTKsettingsResponseResult?> CntkSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Constraints associated with the Job.
+        /// </summary>
+        [Output("constraints")]
+        public Output<Outputs.JobPropertiesResponseConstraintsResult?> Constraints { get; private set; } = null!;
+
+        /// <summary>
+        /// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
+        /// </summary>
+        [Output("containerSettings")]
+        public Output<Outputs.ContainerSettingsResponseResult?> ContainerSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation time of the job.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom MPI job settings.
+        /// </summary>
+        [Output("customMpiSettings")]
+        public Output<Outputs.CustomMpiSettingsResponseResult?> CustomMpiSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom tool kit job settings.
+        /// </summary>
+        [Output("customToolkitSettings")]
+        public Output<Outputs.CustomToolkitSettingsResponseResult?> CustomToolkitSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of user defined environment variables to be setup for the job.
+        /// </summary>
+        [Output("environmentVariables")]
+        public Output<ImmutableArray<Outputs.EnvironmentVariableResponseResult>> EnvironmentVariables { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about the execution of a job.
+        /// </summary>
+        [Output("executionInfo")]
+        public Output<Outputs.JobPropertiesResponseExecutionInfoResult?> ExecutionInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
+        /// </summary>
+        [Output("executionState")]
+        public Output<string> ExecutionState { get; private set; } = null!;
+
+        /// <summary>
+        /// The time at which the job entered its current execution state.
+        /// </summary>
+        [Output("executionStateTransitionTime")]
+        public Output<string> ExecutionStateTransitionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the settings for Horovod job.
+        /// </summary>
+        [Output("horovodSettings")]
+        public Output<Outputs.HorovodSettingsResponseResult?> HorovodSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of input directories for the job.
+        /// </summary>
+        [Output("inputDirectories")]
+        public Output<ImmutableArray<Outputs.InputDirectoryResponseResult>> InputDirectories { get; private set; } = null!;
+
+        /// <summary>
+        /// A segment of job's output directories path created by Batch AI. Batch AI creates job's output directories under an unique path to avoid conflicts between jobs. This value contains a path segment generated by Batch AI to make the path unique and can be used to find the output directory on the node or mounted filesystem.
+        /// </summary>
+        [Output("jobOutputDirectoryPathSegment")]
+        public Output<string> JobOutputDirectoryPathSegment { get; private set; } = null!;
+
+        /// <summary>
+        /// The specified actions will run on all the nodes that are part of the job
+        /// </summary>
+        [Output("jobPreparation")]
+        public Output<Outputs.JobPreparationResponseResult?> JobPreparation { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of mount volumes available to the job during execution. These volumes are mounted before the job execution and unmounted after the job completion. The volumes are mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
+        /// </summary>
+        [Output("mountVolumes")]
+        public Output<Outputs.MountVolumesResponseResult?> MountVolumes { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the Job.
+        /// The job will be gang scheduled on that many compute nodes
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.JobPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nodeCount")]
+        public Output<int?> NodeCount { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of output directories for the job.
+        /// </summary>
+        [Output("outputDirectories")]
+        public Output<ImmutableArray<Outputs.OutputDirectoryResponseResult>> OutputDirectories { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioned state of the Batch AI job
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The time at which the job entered its current provisioning state.
+        /// </summary>
+        [Output("provisioningStateTransitionTime")]
+        public Output<string> ProvisioningStateTransitionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// pyTorch job settings.
+        /// </summary>
+        [Output("pyTorchSettings")]
+        public Output<Outputs.PyTorchSettingsResponseResult?> PyTorchSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Scheduling priority associated with the job.
+        /// </summary>
+        [Output("schedulingPriority")]
+        public Output<string?> SchedulingPriority { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of user defined environment variables with secret values to be setup for the job. Server will never report values of these variables back.
+        /// </summary>
+        [Output("secrets")]
+        public Output<ImmutableArray<Outputs.EnvironmentVariableWithSecretValueResponseResult>> Secrets { get; private set; } = null!;
+
+        /// <summary>
+        /// The path where the Batch AI service stores stdout, stderror and execution log of the job.
+        /// </summary>
+        [Output("stdOutErrPathPrefix")]
+        public Output<string?> StdOutErrPathPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// TensorFlow job settings.
+        /// </summary>
+        [Output("tensorFlowSettings")]
+        public Output<Outputs.TensorFlowSettingsResponseResult?> TensorFlowSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Possible values are: cntk, tensorflow, caffe, caffe2, chainer, pytorch, custom, custommpi, horovod.
+        /// </summary>
+        [Output("toolType")]
+        public Output<string?> ToolType { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

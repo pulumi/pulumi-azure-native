@@ -31,8 +31,8 @@ type LookupNamespaceAuthorizationRuleResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// SharedAccessAuthorizationRule properties.
-	Properties SharedAccessAuthorizationRuleGetPropertiesResponse `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

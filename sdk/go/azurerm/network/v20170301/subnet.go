@@ -14,11 +14,22 @@ import (
 type Subnet struct {
 	pulumi.CustomResourceState
 
+	// The address prefix for the subnet.
+	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Gets an array of references to the network interface IP configurations using subnet.
+	IpConfigurations IPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name       pulumi.StringPtrOutput               `pulumi:"name"`
-	Properties SubnetPropertiesFormatResponseOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup NetworkSecurityGroupResponsePtrOutput `pulumi:"networkSecurityGroup"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Gets an array of references to the external resources using subnet.
+	ResourceNavigationLinks ResourceNavigationLinkResponseArrayOutput `pulumi:"resourceNavigationLinks"`
+	// The reference of the RouteTable resource.
+	RouteTable RouteTableResponsePtrOutput `pulumi:"routeTable"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
@@ -58,19 +69,41 @@ func GetSubnet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subnet resources.
 type subnetState struct {
+	// The address prefix for the subnet.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Gets an array of references to the network interface IP configurations using subnet.
+	IpConfigurations []IPConfigurationResponse `pulumi:"ipConfigurations"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name       *string                         `pulumi:"name"`
-	Properties *SubnetPropertiesFormatResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets an array of references to the external resources using subnet.
+	ResourceNavigationLinks []ResourceNavigationLinkResponse `pulumi:"resourceNavigationLinks"`
+	// The reference of the RouteTable resource.
+	RouteTable *RouteTableResponse `pulumi:"routeTable"`
 }
 
 type SubnetState struct {
+	// The address prefix for the subnet.
+	AddressPrefix pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// Gets an array of references to the network interface IP configurations using subnet.
+	IpConfigurations IPConfigurationResponseArrayInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name       pulumi.StringPtrInput
-	Properties SubnetPropertiesFormatResponsePtrInput
+	Name pulumi.StringPtrInput
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup NetworkSecurityGroupResponsePtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Gets an array of references to the external resources using subnet.
+	ResourceNavigationLinks ResourceNavigationLinkResponseArrayInput
+	// The reference of the RouteTable resource.
+	RouteTable RouteTableResponsePtrInput
 }
 
 func (SubnetState) ElementType() reflect.Type {

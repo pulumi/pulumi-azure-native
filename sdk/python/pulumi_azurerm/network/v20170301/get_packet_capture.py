@@ -13,21 +13,54 @@ class GetPacketCaptureResult:
     """
     Information about packet capture session.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, bytes_to_capture_per_packet=None, etag=None, filters=None, name=None, provisioning_state=None, storage_location=None, target=None, time_limit_in_seconds=None, total_bytes_per_session=None):
+        if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, float):
+            raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a float")
+        __self__.bytes_to_capture_per_packet = bytes_to_capture_per_packet
+        """
+        Number of bytes captured per packet, the remaining bytes are truncated.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the packet capture session.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Describes the properties of a packet capture session.
+        The provisioning state of the packet capture session.
+        """
+        if storage_location and not isinstance(storage_location, dict):
+            raise TypeError("Expected argument 'storage_location' to be a dict")
+        __self__.storage_location = storage_location
+        """
+        Describes the storage location for a packet capture session.
+        """
+        if target and not isinstance(target, str):
+            raise TypeError("Expected argument 'target' to be a str")
+        __self__.target = target
+        """
+        The ID of the targeted resource, only VM is currently supported.
+        """
+        if time_limit_in_seconds and not isinstance(time_limit_in_seconds, float):
+            raise TypeError("Expected argument 'time_limit_in_seconds' to be a float")
+        __self__.time_limit_in_seconds = time_limit_in_seconds
+        """
+        Maximum duration of the capture session in seconds.
+        """
+        if total_bytes_per_session and not isinstance(total_bytes_per_session, float):
+            raise TypeError("Expected argument 'total_bytes_per_session' to be a float")
+        __self__.total_bytes_per_session = total_bytes_per_session
+        """
+        Maximum size of the capture output.
         """
 
 
@@ -37,9 +70,15 @@ class AwaitableGetPacketCaptureResult(GetPacketCaptureResult):
         if False:
             yield self
         return GetPacketCaptureResult(
+            bytes_to_capture_per_packet=self.bytes_to_capture_per_packet,
             etag=self.etag,
+            filters=self.filters,
             name=self.name,
-            properties=self.properties)
+            provisioning_state=self.provisioning_state,
+            storage_location=self.storage_location,
+            target=self.target,
+            time_limit_in_seconds=self.time_limit_in_seconds,
+            total_bytes_per_session=self.total_bytes_per_session)
 
 
 def get_packet_capture(name=None, network_watcher_name=None, resource_group_name=None, opts=None):
@@ -61,6 +100,12 @@ def get_packet_capture(name=None, network_watcher_name=None, resource_group_name
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20170301:getPacketCapture', __args__, opts=opts).value
 
     return AwaitableGetPacketCaptureResult(
+        bytes_to_capture_per_packet=__ret__.get('bytesToCapturePerPacket'),
         etag=__ret__.get('etag'),
+        filters=__ret__.get('filters'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        provisioning_state=__ret__.get('provisioningState'),
+        storage_location=__ret__.get('storageLocation'),
+        target=__ret__.get('target'),
+        time_limit_in_seconds=__ret__.get('timeLimitInSeconds'),
+        total_bytes_per_session=__ret__.get('totalBytesPerSession'))

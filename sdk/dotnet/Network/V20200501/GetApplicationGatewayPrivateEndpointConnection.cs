@@ -50,13 +50,25 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The consumer link id.
+        /// </summary>
+        public readonly string LinkIdentifier;
+        /// <summary>
         /// Name of the private endpoint connection on an application gateway.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway private endpoint connection.
+        /// The resource of private end point.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayPrivateEndpointConnectionPropertiesResponseResult Properties;
+        public readonly Outputs.PrivateEndpointResponseResult PrivateEndpoint;
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// The provisioning state of the application gateway private endpoint connection resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -66,15 +78,24 @@ namespace Pulumi.AzureRM.Network.V20200501
         private GetApplicationGatewayPrivateEndpointConnectionResult(
             string etag,
 
+            string linkIdentifier,
+
             string? name,
 
-            Outputs.ApplicationGatewayPrivateEndpointConnectionPropertiesResponseResult properties,
+            Outputs.PrivateEndpointResponseResult privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStateResponseResult? privateLinkServiceConnectionState,
+
+            string provisioningState,
 
             string type)
         {
             Etag = etag;
+            LinkIdentifier = linkIdentifier;
             Name = name;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

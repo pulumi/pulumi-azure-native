@@ -13,12 +13,54 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, application_insights=None, container_registry=None, creation_time=None, description=None, discovery_url=None, friendly_name=None, identity=None, key_vault=None, location=None, name=None, provisioning_state=None, storage_account=None, tags=None, type=None, workspace_id=None):
+        if application_insights and not isinstance(application_insights, str):
+            raise TypeError("Expected argument 'application_insights' to be a str")
+        __self__.application_insights = application_insights
+        """
+        ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        """
+        if container_registry and not isinstance(container_registry, str):
+            raise TypeError("Expected argument 'container_registry' to be a str")
+        __self__.container_registry = container_registry
+        """
+        ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        """
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        The creation time of the machine learning workspace in ISO8601 format.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of this workspace.
+        """
+        if discovery_url and not isinstance(discovery_url, str):
+            raise TypeError("Expected argument 'discovery_url' to be a str")
+        __self__.discovery_url = discovery_url
+        """
+        Url for the discovery service to identify regional endpoints for machine learning experimentation services
+        """
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        __self__.friendly_name = friendly_name
+        """
+        The friendly name for this workspace. This name in mutable
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The identity of the resource.
+        """
+        if key_vault and not isinstance(key_vault, str):
+            raise TypeError("Expected argument 'key_vault' to be a str")
+        __self__.key_vault = key_vault
+        """
+        ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +74,17 @@ class GetWorkspaceResult:
         """
         Specifies the name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the machine learning workspace.
+        The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+        """
+        if storage_account and not isinstance(storage_account, str):
+            raise TypeError("Expected argument 'storage_account' to be a str")
+        __self__.storage_account = storage_account
+        """
+        ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +98,12 @@ class GetWorkspaceResult:
         """
         Specifies the type of the resource.
         """
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError("Expected argument 'workspace_id' to be a str")
+        __self__.workspace_id = workspace_id
+        """
+        The immutable id associated with this workspace.
+        """
 
 
 class AwaitableGetWorkspaceResult(GetWorkspaceResult):
@@ -58,12 +112,21 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            application_insights=self.application_insights,
+            container_registry=self.container_registry,
+            creation_time=self.creation_time,
+            description=self.description,
+            discovery_url=self.discovery_url,
+            friendly_name=self.friendly_name,
             identity=self.identity,
+            key_vault=self.key_vault,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            storage_account=self.storage_account,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            workspace_id=self.workspace_id)
 
 
 def get_workspace(name=None, resource_group_name=None, opts=None):
@@ -83,9 +146,18 @@ def get_workspace(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/v20181119:getWorkspace', __args__, opts=opts).value
 
     return AwaitableGetWorkspaceResult(
+        application_insights=__ret__.get('applicationInsights'),
+        container_registry=__ret__.get('containerRegistry'),
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
+        discovery_url=__ret__.get('discoveryUrl'),
+        friendly_name=__ret__.get('friendlyName'),
         identity=__ret__.get('identity'),
+        key_vault=__ret__.get('keyVault'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        storage_account=__ret__.get('storageAccount'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        workspace_id=__ret__.get('workspaceId'))

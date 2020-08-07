@@ -46,13 +46,29 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class GetOpenIdConnectProviderResult
     {
         /// <summary>
+        /// Client ID of developer console which is the client application.
+        /// </summary>
+        public readonly string ClientId;
+        /// <summary>
+        /// Client Secret of developer console which is the client application.
+        /// </summary>
+        public readonly string? ClientSecret;
+        /// <summary>
+        /// User-friendly description of OpenID Connect Provider.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// User-friendly OpenID Connect Provider name.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// Metadata endpoint URI.
+        /// </summary>
+        public readonly string MetadataEndpoint;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// OpenId Connect Provider contract properties.
-        /// </summary>
-        public readonly Outputs.OpenidConnectProviderContractPropertiesResponseResult Properties;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +76,26 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
 
         [OutputConstructor]
         private GetOpenIdConnectProviderResult(
-            string name,
+            string clientId,
 
-            Outputs.OpenidConnectProviderContractPropertiesResponseResult properties,
+            string? clientSecret,
+
+            string? description,
+
+            string displayName,
+
+            string metadataEndpoint,
+
+            string name,
 
             string type)
         {
+            ClientId = clientId;
+            ClientSecret = clientSecret;
+            Description = description;
+            DisplayName = displayName;
+            MetadataEndpoint = metadataEndpoint;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

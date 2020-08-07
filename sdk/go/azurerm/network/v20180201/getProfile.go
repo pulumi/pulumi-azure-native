@@ -25,14 +25,24 @@ type LookupProfileArgs struct {
 
 // Class representing a Traffic Manager profile.
 type LookupProfileResult struct {
+	// The DNS settings of the Traffic Manager profile.
+	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
+	// The list of endpoints in the Traffic Manager profile.
+	Endpoints []EndpointResponse `pulumi:"endpoints"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
+	// The endpoint monitoring settings of the Traffic Manager profile.
+	MonitorConfig *MonitorConfigResponse `pulumi:"monitorConfig"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties of the Traffic Manager profile.
-	Properties ProfilePropertiesResponse `pulumi:"properties"`
+	// The status of the Traffic Manager profile.
+	ProfileStatus *string `pulumi:"profileStatus"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The traffic routing method of the Traffic Manager profile.
+	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	TrafficViewEnrollmentStatus *string `pulumi:"trafficViewEnrollmentStatus"`
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type string `pulumi:"type"`
 }

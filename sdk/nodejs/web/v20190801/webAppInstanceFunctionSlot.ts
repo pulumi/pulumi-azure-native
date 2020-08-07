@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,65 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     }
 
     /**
+     * Config information.
+     */
+    public readonly config!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Config URI.
+     */
+    public readonly config_href!: pulumi.Output<string | undefined>;
+    /**
+     * File list.
+     */
+    public readonly files!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Function App ID.
+     */
+    public readonly function_app_id!: pulumi.Output<string | undefined>;
+    /**
+     * Function URI.
+     */
+    public readonly href!: pulumi.Output<string | undefined>;
+    /**
+     * The invocation URL
+     */
+    public readonly invoke_url_template!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets a value indicating whether the function is disabled
+     */
+    public readonly isDisabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The function language
+     */
+    public readonly language!: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * FunctionEnvelope resource specific properties
+     * Script URI.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.FunctionEnvelopeResponseProperties>;
+    public readonly script_href!: pulumi.Output<string | undefined>;
+    /**
+     * Script root path URI.
+     */
+    public readonly script_root_path_href!: pulumi.Output<string | undefined>;
+    /**
+     * Secrets file URI.
+     */
+    public readonly secrets_file_href!: pulumi.Output<string | undefined>;
+    /**
+     * Test data used when testing via the Azure Portal.
+     */
+    public readonly test_data!: pulumi.Output<string | undefined>;
+    /**
+     * Test data URI.
+     */
+    public readonly test_data_href!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -92,7 +138,6 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["test_data"] = args ? args.test_data : undefined;
             inputs["test_data_href"] = args ? args.test_data_href : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

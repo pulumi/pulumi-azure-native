@@ -10,49 +10,96 @@ from ... import _utilities, _tables
 
 
 class Api(pulumi.CustomResource):
+    api_revision: pulumi.Output[str]
+    """
+    Describes the Revision of the Api. If no value is provided, default revision 1 is created
+    """
+    api_revision_description: pulumi.Output[str]
+    """
+    Description of the Api Revision.
+    """
+    api_type: pulumi.Output[str]
+    """
+    Type of API.
+    """
+    api_version: pulumi.Output[str]
+    """
+    Indicates the Version identifier of the API if the API is versioned
+    """
+    api_version_description: pulumi.Output[str]
+    """
+    Description of the Api Version.
+    """
+    api_version_set: pulumi.Output[dict]
+    """
+    Version set details
+      * `description` (`str`) - Description of API Version Set.
+      * `id` (`str`) - Identifier for existing API Version Set. Omit this value to create a new Version Set.
+      * `name` (`str`) - The display Name of the API Version Set.
+      * `version_header_name` (`str`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+      * `version_query_name` (`str`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+      * `versioning_scheme` (`str`) - An value that determines where the API Version identifer will be located in a HTTP request.
+    """
+    api_version_set_id: pulumi.Output[str]
+    """
+    A resource identifier for the related ApiVersionSet.
+    """
+    authentication_settings: pulumi.Output[dict]
+    """
+    Collection of authentication settings included into this API.
+      * `o_auth2` (`dict`) - OAuth2 Authentication settings
+        * `authorization_server_id` (`str`) - OAuth authorization server identifier.
+        * `scope` (`str`) - operations scope.
+
+      * `openid` (`dict`) - OpenID Connect Authentication Settings
+        * `bearer_token_sending_methods` (`list`) - How to send token to the server.
+        * `openid_provider_id` (`str`) - OAuth authorization server identifier.
+    """
+    description: pulumi.Output[str]
+    """
+    Description of the API. May include HTML formatting tags.
+    """
+    display_name: pulumi.Output[str]
+    """
+    API name. Must be 1 to 300 characters long.
+    """
+    is_current: pulumi.Output[bool]
+    """
+    Indicates if API revision is current api revision.
+    """
+    is_online: pulumi.Output[bool]
+    """
+    Indicates if API revision is accessible via the gateway.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    path: pulumi.Output[str]
     """
-    Api entity contract properties.
-      * `api_revision` (`str`) - Describes the Revision of the Api. If no value is provided, default revision 1 is created
-      * `api_revision_description` (`str`) - Description of the Api Revision.
-      * `api_version` (`str`) - Indicates the Version identifier of the API if the API is versioned
-      * `api_version_description` (`str`) - Description of the Api Version.
-      * `api_version_set` (`dict`) - Version set details
-        * `description` (`str`) - Description of API Version Set.
-        * `id` (`str`) - Identifier for existing API Version Set. Omit this value to create a new Version Set.
-        * `name` (`str`) - The display Name of the API Version Set.
-        * `version_header_name` (`str`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
-        * `version_query_name` (`str`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-        * `versioning_scheme` (`str`) - An value that determines where the API Version identifer will be located in a HTTP request.
-
-      * `api_version_set_id` (`str`) - A resource identifier for the related ApiVersionSet.
-      * `authentication_settings` (`dict`) - Collection of authentication settings included into this API.
-        * `o_auth2` (`dict`) - OAuth2 Authentication settings
-          * `authorization_server_id` (`str`) - OAuth authorization server identifier.
-          * `scope` (`str`) - operations scope.
-
-        * `openid` (`dict`) - OpenID Connect Authentication Settings
-          * `bearer_token_sending_methods` (`list`) - How to send token to the server.
-          * `openid_provider_id` (`str`) - OAuth authorization server identifier.
-
-      * `description` (`str`) - Description of the API. May include HTML formatting tags.
-      * `display_name` (`str`) - API name. Must be 1 to 300 characters long.
-      * `is_current` (`bool`) - Indicates if API revision is current api revision.
-      * `is_online` (`bool`) - Indicates if API revision is accessible via the gateway.
-      * `path` (`str`) - Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-      * `protocols` (`list`) - Describes on which protocols the operations in this API can be invoked.
-      * `service_url` (`str`) - Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
-      * `source_api_id` (`str`) - API identifier of the source API.
-      * `subscription_key_parameter_names` (`dict`) - Protocols over which API is made available.
-        * `header` (`str`) - Subscription key header name.
-        * `query` (`str`) - Subscription key query string parameter name.
-
-      * `subscription_required` (`bool`) - Specifies whether an API or Product subscription is required for accessing the API.
-      * `type` (`str`) - Type of API.
+    Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+    """
+    protocols: pulumi.Output[list]
+    """
+    Describes on which protocols the operations in this API can be invoked.
+    """
+    service_url: pulumi.Output[str]
+    """
+    Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+    """
+    source_api_id: pulumi.Output[str]
+    """
+    API identifier of the source API.
+    """
+    subscription_key_parameter_names: pulumi.Output[dict]
+    """
+    Protocols over which API is made available.
+      * `header` (`str`) - Subscription key header name.
+      * `query` (`str`) - Subscription key query string parameter name.
+    """
+    subscription_required: pulumi.Output[bool]
+    """
+    Specifies whether an API or Product subscription is required for accessing the API.
     """
     type: pulumi.Output[str]
     """
@@ -169,7 +216,7 @@ class Api(pulumi.CustomResource):
             __props__['subscription_required'] = subscription_required
             __props__['value'] = value
             __props__['wsdl_selector'] = wsdl_selector
-            __props__['properties'] = None
+            __props__['is_online'] = None
             __props__['type'] = None
         super(Api, __self__).__init__(
             'azurerm:apimanagement/v20191201:Api',

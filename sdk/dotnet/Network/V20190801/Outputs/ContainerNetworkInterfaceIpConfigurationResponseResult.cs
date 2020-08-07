@@ -22,9 +22,9 @@ namespace Pulumi.AzureRM.Network.V20190801.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the container network interface IP configuration.
+        /// The provisioning state of the container network interface IP configuration resource.
         /// </summary>
-        public readonly Outputs.ContainerNetworkInterfaceIpConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Sub Resource type.
         /// </summary>
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Network.V20190801.Outputs
 
             string? name,
 
-            Outputs.ContainerNetworkInterfaceIpConfigurationPropertiesFormatResponseResult? properties,
+            string provisioningState,
 
             string type)
         {
             Etag = etag;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

@@ -31,10 +31,14 @@ type LookupApiIssueAttachmentArgs struct {
 
 // Issue Attachment Contract details.
 type LookupApiIssueAttachmentResult struct {
+	// An HTTP link or Base64-encoded binary data.
+	Content string `pulumi:"content"`
+	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+	ContentFormat string `pulumi:"contentFormat"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Issue Attachment.
-	Properties IssueAttachmentContractPropertiesResponse `pulumi:"properties"`
+	// Filename by which the binary data will be saved.
+	Title string `pulumi:"title"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

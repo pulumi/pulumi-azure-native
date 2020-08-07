@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Network.V20191201
     public partial class ConnectionMonitor : Pulumi.CustomResource
     {
         /// <summary>
+        /// Determines if the connection monitor will start automatically once created.
+        /// </summary>
+        [Output("autoStart")]
+        public Output<bool?> AutoStart { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of connection monitor.
+        /// </summary>
+        [Output("connectionMonitorType")]
+        public Output<string> ConnectionMonitorType { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the destination of connection monitor.
+        /// </summary>
+        [Output("destination")]
+        public Output<Outputs.ConnectionMonitorDestinationResponseResult?> Destination { get; private set; } = null!;
+
+        /// <summary>
+        /// List of connection monitor endpoints.
+        /// </summary>
+        [Output("endpoints")]
+        public Output<ImmutableArray<Outputs.ConnectionMonitorEndpointResponseResult>> Endpoints { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -27,22 +51,70 @@ namespace Pulumi.AzureRM.Network.V20191201
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Monitoring interval in seconds.
+        /// </summary>
+        [Output("monitoringIntervalInSeconds")]
+        public Output<int?> MonitoringIntervalInSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The monitoring status of the connection monitor.
+        /// </summary>
+        [Output("monitoringStatus")]
+        public Output<string> MonitoringStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the connection monitor.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the connection monitor result.
+        /// Optional notes to be associated with the connection monitor.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConnectionMonitorResultPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notes")]
+        public Output<string?> Notes { get; private set; } = null!;
+
+        /// <summary>
+        /// List of connection monitor outputs.
+        /// </summary>
+        [Output("outputs")]
+        public Output<ImmutableArray<Outputs.ConnectionMonitorOutputResponseResult>> Outputs { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the connection monitor.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the source of connection monitor.
+        /// </summary>
+        [Output("source")]
+        public Output<Outputs.ConnectionMonitorSourceResponseResult?> Source { get; private set; } = null!;
+
+        /// <summary>
+        /// The date and time when the connection monitor was started.
+        /// </summary>
+        [Output("startTime")]
+        public Output<string> StartTime { get; private set; } = null!;
 
         /// <summary>
         /// Connection monitor tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// List of connection monitor test configurations.
+        /// </summary>
+        [Output("testConfigurations")]
+        public Output<ImmutableArray<Outputs.ConnectionMonitorTestConfigurationResponseResult>> TestConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// List of connection monitor test groups.
+        /// </summary>
+        [Output("testGroups")]
+        public Output<ImmutableArray<Outputs.ConnectionMonitorTestGroupResponseResult>> TestGroups { get; private set; } = null!;
 
         /// <summary>
         /// Connection monitor type.

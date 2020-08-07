@@ -10,11 +10,37 @@ from ... import _utilities, _tables
 
 
 class VirtualMachineImageTemplate(pulumi.CustomResource):
+    build_timeout_in_minutes: pulumi.Output[float]
+    """
+    Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+    """
+    customize: pulumi.Output[list]
+    """
+    Specifies the properties used to describe the customization steps of the image, like Image source etc
+      * `name` (`str`) - Friendly Name to provide context on what this customization step does
+      * `type` (`str`) - The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+    """
+    distribute: pulumi.Output[list]
+    """
+    The distribution targets where the image output needs to go to.
+      * `artifact_tags` (`dict`) - Tags that will be applied to the artifact once it has been created/updated by the distributor.
+      * `run_output_name` (`str`) - The name to be used for the associated RunOutput.
+      * `type` (`str`) - Type of distribution.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the image template, if configured.
       * `type` (`str`) - The type of identity used for the image template. The type 'None' will remove any identities from the image template.
       * `user_assigned_identities` (`dict`) - The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
+    last_run_status: pulumi.Output[dict]
+    """
+    State of 'run' that is currently executing or was last executed.
+      * `end_time` (`str`) - End time of the last run (UTC)
+      * `message` (`str`) - Verbose information about the last run state
+      * `run_state` (`str`) - State of the last run
+      * `run_sub_state` (`str`) - Sub-state of the last run
+      * `start_time` (`str`) - Start time of the last run (UTC)
     """
     location: pulumi.Output[str]
     """
@@ -24,39 +50,20 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_error: pulumi.Output[dict]
     """
-    The properties of the image template
-      * `build_timeout_in_minutes` (`float`) - Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
-      * `customize` (`list`) - Specifies the properties used to describe the customization steps of the image, like Image source etc
-        * `name` (`str`) - Friendly Name to provide context on what this customization step does
-        * `type` (`str`) - The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-
-      * `distribute` (`list`) - The distribution targets where the image output needs to go to.
-        * `artifact_tags` (`dict`) - Tags that will be applied to the artifact once it has been created/updated by the distributor.
-        * `run_output_name` (`str`) - The name to be used for the associated RunOutput.
-        * `type` (`str`) - Type of distribution.
-
-      * `last_run_status` (`dict`) - State of 'run' that is currently executing or was last executed.
-        * `end_time` (`str`) - End time of the last run (UTC)
-        * `message` (`str`) - Verbose information about the last run state
-        * `run_state` (`str`) - State of the last run
-        * `run_sub_state` (`str`) - Sub-state of the last run
-        * `start_time` (`str`) - Start time of the last run (UTC)
-
-      * `provisioning_error` (`dict`) - Provisioning error, if any
-        * `message` (`str`) - Verbose error message about the provisioning failure
-        * `provisioning_error_code` (`str`) - Error code of the provisioning failure
-
-      * `provisioning_state` (`str`) - Provisioning state of the resource
-      * `source` (`dict`) - Specifies the properties used to describe the source image.
-        * `type` (`str`) - Specifies the type of source image you want to start with.
-
-      * `vm_profile` (`dict`) - Describes how virtual machine is set up to build images
-        * `os_disk_size_gb` (`float`) - Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
-        * `vm_size` (`str`) - Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
-        * `vnet_config` (`dict`) - Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
-          * `subnet_id` (`str`) - Resource id of a pre-existing subnet.
+    Provisioning error, if any
+      * `message` (`str`) - Verbose error message about the provisioning failure
+      * `provisioning_error_code` (`str`) - Error code of the provisioning failure
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the resource
+    """
+    source: pulumi.Output[dict]
+    """
+    Specifies the properties used to describe the source image.
+      * `type` (`str`) - Specifies the type of source image you want to start with.
     """
     tags: pulumi.Output[dict]
     """
@@ -65,6 +72,14 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    vm_profile: pulumi.Output[dict]
+    """
+    Describes how virtual machine is set up to build images
+      * `os_disk_size_gb` (`float`) - Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
+      * `vm_size` (`str`) - Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
+      * `vnet_config` (`dict`) - Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
+        * `subnet_id` (`str`) - Resource id of a pre-existing subnet.
     """
     def __init__(__self__, resource_name, opts=None, build_timeout_in_minutes=None, customize=None, distribute=None, identity=None, location=None, name=None, resource_group_name=None, source=None, tags=None, vm_profile=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -148,7 +163,9 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             __props__['source'] = source
             __props__['tags'] = tags
             __props__['vm_profile'] = vm_profile
-            __props__['properties'] = None
+            __props__['last_run_status'] = None
+            __props__['provisioning_error'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(VirtualMachineImageTemplate, __self__).__init__(
             'azurerm:virtualmachineimages/v20200214:VirtualMachineImageTemplate',

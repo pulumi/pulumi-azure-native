@@ -13,18 +13,60 @@ class GetRemediationAtResourceResult:
     """
     The remediation definition.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, created_on=None, deployment_status=None, filters=None, last_updated_on=None, name=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, resource_discovery_mode=None, type=None):
+        if created_on and not isinstance(created_on, str):
+            raise TypeError("Expected argument 'created_on' to be a str")
+        __self__.created_on = created_on
+        """
+        The time at which the remediation was created.
+        """
+        if deployment_status and not isinstance(deployment_status, dict):
+            raise TypeError("Expected argument 'deployment_status' to be a dict")
+        __self__.deployment_status = deployment_status
+        """
+        The deployment status summary for all deployments created by the remediation.
+        """
+        if filters and not isinstance(filters, dict):
+            raise TypeError("Expected argument 'filters' to be a dict")
+        __self__.filters = filters
+        """
+        The filters that will be applied to determine which resources to remediate.
+        """
+        if last_updated_on and not isinstance(last_updated_on, str):
+            raise TypeError("Expected argument 'last_updated_on' to be a str")
+        __self__.last_updated_on = last_updated_on
+        """
+        The time at which the remediation was last updated.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the remediation.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if policy_assignment_id and not isinstance(policy_assignment_id, str):
+            raise TypeError("Expected argument 'policy_assignment_id' to be a str")
+        __self__.policy_assignment_id = policy_assignment_id
         """
-        Properties for the remediation.
+        The resource ID of the policy assignment that should be remediated.
+        """
+        if policy_definition_reference_id and not isinstance(policy_definition_reference_id, str):
+            raise TypeError("Expected argument 'policy_definition_reference_id' to be a str")
+        __self__.policy_definition_reference_id = policy_definition_reference_id
+        """
+        The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The status of the remediation.
+        """
+        if resource_discovery_mode and not isinstance(resource_discovery_mode, str):
+            raise TypeError("Expected argument 'resource_discovery_mode' to be a str")
+        __self__.resource_discovery_mode = resource_discovery_mode
+        """
+        The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +82,15 @@ class AwaitableGetRemediationAtResourceResult(GetRemediationAtResourceResult):
         if False:
             yield self
         return GetRemediationAtResourceResult(
+            created_on=self.created_on,
+            deployment_status=self.deployment_status,
+            filters=self.filters,
+            last_updated_on=self.last_updated_on,
             name=self.name,
-            properties=self.properties,
+            policy_assignment_id=self.policy_assignment_id,
+            policy_definition_reference_id=self.policy_definition_reference_id,
+            provisioning_state=self.provisioning_state,
+            resource_discovery_mode=self.resource_discovery_mode,
             type=self.type)
 
 
@@ -62,6 +111,13 @@ def get_remediation_at_resource(name=None, resource_id=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:policyinsights/v20190701:getRemediationAtResource', __args__, opts=opts).value
 
     return AwaitableGetRemediationAtResourceResult(
+        created_on=__ret__.get('createdOn'),
+        deployment_status=__ret__.get('deploymentStatus'),
+        filters=__ret__.get('filters'),
+        last_updated_on=__ret__.get('lastUpdatedOn'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        policy_assignment_id=__ret__.get('policyAssignmentId'),
+        policy_definition_reference_id=__ret__.get('policyDefinitionReferenceId'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_discovery_mode=__ret__.get('resourceDiscoveryMode'),
         type=__ret__.get('type'))

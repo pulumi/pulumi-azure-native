@@ -14,14 +14,20 @@ import (
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The autoscale setting of the resource.
-	Properties AutoscaleSettingResponseOutput `pulumi:"properties"`
+	// the collection of notifications.
+	Notifications AutoscaleNotificationResponseArrayOutput `pulumi:"notifications"`
+	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+	Profiles AutoscaleProfileResponseArrayOutput `pulumi:"profiles"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// the resource identifier of the resource that the autoscale setting should be added to.
+	TargetResourceUri pulumi.StringPtrOutput `pulumi:"targetResourceUri"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -66,27 +72,39 @@ func GetAutoscaleSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutoscaleSetting resources.
 type autoscaleSettingState struct {
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// The autoscale setting of the resource.
-	Properties *AutoscaleSettingResponse `pulumi:"properties"`
+	// the collection of notifications.
+	Notifications []AutoscaleNotificationResponse `pulumi:"notifications"`
+	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+	Profiles []AutoscaleProfileResponse `pulumi:"profiles"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// the resource identifier of the resource that the autoscale setting should be added to.
+	TargetResourceUri *string `pulumi:"targetResourceUri"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
 }
 
 type AutoscaleSettingState struct {
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	Enabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// The autoscale setting of the resource.
-	Properties AutoscaleSettingResponsePtrInput
+	// the collection of notifications.
+	Notifications AutoscaleNotificationResponseArrayInput
+	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+	Profiles AutoscaleProfileResponseArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// the resource identifier of the resource that the autoscale setting should be added to.
+	TargetResourceUri pulumi.StringPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
 }

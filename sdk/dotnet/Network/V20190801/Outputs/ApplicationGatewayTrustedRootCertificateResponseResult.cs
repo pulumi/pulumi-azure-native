@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20190801.Outputs
     public sealed class ApplicationGatewayTrustedRootCertificateResponseResult
     {
         /// <summary>
+        /// Certificate public data.
+        /// </summary>
+        public readonly string? Data;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -22,13 +26,17 @@ namespace Pulumi.AzureRM.Network.V20190801.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        /// </summary>
+        public readonly string? KeyVaultSecretId;
+        /// <summary>
         /// Name of the trusted root certificate that is unique within an Application Gateway.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway trusted root certificate.
+        /// The provisioning state of the trusted root certificate resource.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayTrustedRootCertificatePropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +44,26 @@ namespace Pulumi.AzureRM.Network.V20190801.Outputs
 
         [OutputConstructor]
         private ApplicationGatewayTrustedRootCertificateResponseResult(
+            string? data,
+
             string? etag,
 
             string? id,
 
+            string? keyVaultSecretId,
+
             string? name,
 
-            Outputs.ApplicationGatewayTrustedRootCertificatePropertiesFormatResponseResult? properties,
+            string? provisioningState,
 
             string? type)
         {
+            Data = data;
             Etag = etag;
             Id = id;
+            KeyVaultSecretId = keyVaultSecretId;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

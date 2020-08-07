@@ -10,37 +10,52 @@ from ... import _utilities, _tables
 
 
 class EventHub(pulumi.CustomResource):
+    capture_description: pulumi.Output[dict]
+    """
+    Properties of capture description
+      * `destination` (`dict`) - Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+        * `archive_name_format` (`str`) - Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+        * `blob_container` (`str`) - Blob container Name
+        * `name` (`str`) - Name for capture destination
+        * `storage_account_resource_id` (`str`) - Resource id of the storage account to be used to create the blobs
+
+      * `enabled` (`bool`) - A value that indicates whether capture description is enabled. 
+      * `encoding` (`str`) - Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+      * `interval_in_seconds` (`float`) - The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+      * `size_limit_in_bytes` (`float`) - The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+      * `skip_empty_archives` (`bool`) - A value that indicates whether to Skip Empty Archives
+    """
+    created_at: pulumi.Output[str]
+    """
+    Exact time the Event Hub was created.
+    """
+    message_retention_in_days: pulumi.Output[float]
+    """
+    Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    partition_count: pulumi.Output[float]
     """
-    Properties supplied to the Create Or Update Event Hub operation.
-      * `capture_description` (`dict`) - Properties of capture description
-        * `destination` (`dict`) - Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-          * `name` (`str`) - Name for capture destination
-          * `properties` (`dict`) - Properties describing the storage account, blob container and archive name format for capture destination
-            * `archive_name_format` (`str`) - Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-            * `blob_container` (`str`) - Blob container Name
-            * `storage_account_resource_id` (`str`) - Resource id of the storage account to be used to create the blobs
-
-        * `enabled` (`bool`) - A value that indicates whether capture description is enabled. 
-        * `encoding` (`str`) - Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-        * `interval_in_seconds` (`float`) - The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-        * `size_limit_in_bytes` (`float`) - The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
-        * `skip_empty_archives` (`bool`) - A value that indicates whether to Skip Empty Archives
-
-      * `created_at` (`str`) - Exact time the Event Hub was created.
-      * `message_retention_in_days` (`float`) - Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-      * `partition_count` (`float`) - Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-      * `partition_ids` (`list`) - Current number of shards on the Event Hub.
-      * `status` (`str`) - Enumerates the possible values for the status of the Event Hub.
-      * `updated_at` (`str`) - The exact time the message was updated.
+    Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
+    """
+    partition_ids: pulumi.Output[list]
+    """
+    Current number of shards on the Event Hub.
+    """
+    status: pulumi.Output[str]
+    """
+    Enumerates the possible values for the status of the Event Hub.
     """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The exact time the message was updated.
     """
     def __init__(__self__, resource_name, opts=None, capture_description=None, message_retention_in_days=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, status=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -100,8 +115,10 @@ class EventHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['partition_ids'] = None
             __props__['type'] = None
+            __props__['updated_at'] = None
         super(EventHub, __self__).__init__(
             'azurerm:eventhub/v20170401:EventHub',
             resource_name,

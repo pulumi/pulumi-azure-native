@@ -25,12 +25,46 @@ type LookupWebAppSiteExtensionArgs struct {
 
 // Site Extension Information.
 type LookupWebAppSiteExtensionResult struct {
+	// List of authors.
+	Authors []string `pulumi:"authors"`
+	// Site Extension comment.
+	Comment *string `pulumi:"comment"`
+	// Detailed description.
+	Description *string `pulumi:"description"`
+	// Count of downloads.
+	DownloadCount *int `pulumi:"downloadCount"`
+	// Extension URL.
+	ExtensionUrl *string `pulumi:"extensionUrl"`
+	// Feed URL.
+	FeedUrl *string `pulumi:"feedUrl"`
+	// Icon URL.
+	IconUrl *string `pulumi:"iconUrl"`
+	// Installer command line parameters.
+	InstallationArgs *string `pulumi:"installationArgs"`
+	// Installed timestamp.
+	InstalledDateTime *string `pulumi:"installedDateTime"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// License URL.
+	LicenseUrl *string `pulumi:"licenseUrl"`
+	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+	LocalIsLatestVersion *bool `pulumi:"localIsLatestVersion"`
+	// Local path.
+	LocalPath *string `pulumi:"localPath"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// SiteExtensionInfo resource specific properties
-	Properties SiteExtensionInfoResponseProperties `pulumi:"properties"`
+	// Project URL.
+	ProjectUrl *string `pulumi:"projectUrl"`
+	// Provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Published timestamp.
+	PublishedDateTime *string `pulumi:"publishedDateTime"`
+	// Summary description.
+	Summary *string `pulumi:"summary"`
+	// Site extension title.
+	Title *string `pulumi:"title"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Version information.
+	Version *string `pulumi:"version"`
 }

@@ -10,24 +10,33 @@ from ... import _utilities, _tables
 
 
 class Namespace(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    The time the Namespace was created.
+    """
+    enabled: pulumi.Output[bool]
+    """
+    Specifies whether this instance is enabled.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    metric_id: pulumi.Output[str]
+    """
+    Identifier for Azure Insights metrics
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the Namespace supplied for create or update Namespace operation
-      * `created_at` (`str`) - The time the Namespace was created.
-      * `enabled` (`bool`) - Specifies whether this instance is enabled.
-      * `metric_id` (`str`) - Identifier for Azure Insights metrics
-      * `provisioning_state` (`str`) - Provisioning state of the Namespace.
-      * `service_bus_endpoint` (`str`) - Endpoint you can use to perform Service Bus operations.
-      * `status` (`str`) - State of the Namespace.
-      * `updated_at` (`str`) - The time the Namespace was updated.
+    Provisioning state of the Namespace.
+    """
+    service_bus_endpoint: pulumi.Output[str]
+    """
+    Endpoint you can use to perform Service Bus operations.
     """
     sku: pulumi.Output[dict]
     """
@@ -36,6 +45,10 @@ class Namespace(pulumi.CustomResource):
       * `name` (`str`) - Name of this SKU.
       * `tier` (`str`) - The billing tier of this particular SKU.
     """
+    status: pulumi.Output[str]
+    """
+    State of the Namespace.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -43,6 +56,10 @@ class Namespace(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The time the Namespace was updated.
     """
     def __init__(__self__, resource_name, opts=None, created_at=None, enabled=None, location=None, name=None, provisioning_state=None, resource_group_name=None, service_bus_endpoint=None, sku=None, status=None, tags=None, updated_at=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -102,7 +119,7 @@ class Namespace(pulumi.CustomResource):
             __props__['status'] = status
             __props__['tags'] = tags
             __props__['updated_at'] = updated_at
-            __props__['properties'] = None
+            __props__['metric_id'] = None
             __props__['type'] = None
         super(Namespace, __self__).__init__(
             'azurerm:eventhub/v20140901:Namespace',

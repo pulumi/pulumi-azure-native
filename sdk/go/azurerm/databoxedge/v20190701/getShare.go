@@ -27,10 +27,28 @@ type LookupShareArgs struct {
 
 // Represents a share on the  Data Box Edge/Gateway device.
 type LookupShareResult struct {
+	// Access protocol to be used by the share.
+	AccessProtocol string `pulumi:"accessProtocol"`
+	// Azure container mapping for the share.
+	AzureContainerInfo *AzureContainerInfoResponse `pulumi:"azureContainerInfo"`
+	// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+	ClientAccessRights []ClientAccessRightResponse `pulumi:"clientAccessRights"`
+	// Data policy of the share.
+	DataPolicy *string `pulumi:"dataPolicy"`
+	// Description for the share.
+	Description *string `pulumi:"description"`
+	// Current monitoring status of the share.
+	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// The share properties.
-	Properties SharePropertiesResponse `pulumi:"properties"`
+	// Details of the refresh job on this share.
+	RefreshDetails *RefreshDetailsResponse `pulumi:"refreshDetails"`
+	// Share mount point to the role.
+	ShareMappings []MountPointMapResponse `pulumi:"shareMappings"`
+	// Current status of the share.
+	ShareStatus string `pulumi:"shareStatus"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+	// Mapping of users and corresponding access rights on the share (required for SMB protocol).
+	UserAccessRights []UserAccessRightResponse `pulumi:"userAccessRights"`
 }

@@ -10,22 +10,33 @@ from ... import _utilities, _tables
 
 
 class Variable(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Gets or sets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
+    is_encrypted: pulumi.Output[bool]
+    """
+    Gets or sets the encrypted flag of the variable.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets or sets the last modified time.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
-    """
-    Gets or sets the properties of the variable.
-      * `creation_time` (`str`) - Gets or sets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `is_encrypted` (`bool`) - Gets or sets the encrypted flag of the variable.
-      * `last_modified_time` (`str`) - Gets or sets the last modified time.
-      * `value` (`str`) - Gets or sets the value of the variable.
-    """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    value: pulumi.Output[str]
+    """
+    Gets or sets the value of the variable.
     """
     def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, is_encrypted=None, name=None, resource_group_name=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -69,7 +80,8 @@ class Variable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['value'] = value
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['last_modified_time'] = None
             __props__['type'] = None
         super(Variable, __self__).__init__(
             'azurerm:automation/v20151031:Variable',

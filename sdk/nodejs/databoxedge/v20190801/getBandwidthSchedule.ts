@@ -41,13 +41,25 @@ export interface GetBandwidthScheduleArgs {
  */
 export interface GetBandwidthScheduleResult {
     /**
+     * The days of the week when this schedule is applicable.
+     */
+    readonly days: string[];
+    /**
      * The object name.
      */
     readonly name: string;
     /**
-     * The properties of the bandwidth schedule.
+     * The bandwidth rate in Mbps.
      */
-    readonly properties: outputs.databoxedge.v20190801.BandwidthSchedulePropertiesResponse;
+    readonly rateInMbps: number;
+    /**
+     * The start time of the schedule in UTC.
+     */
+    readonly start: string;
+    /**
+     * The stop time of the schedule in UTC.
+     */
+    readonly stop: string;
     /**
      * The hierarchical type of the object.
      */

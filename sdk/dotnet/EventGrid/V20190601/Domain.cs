@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
+        /// Endpoint for the domain.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +33,10 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the domain.
+        /// Provisioning state of the domain.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DomainPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the resource.

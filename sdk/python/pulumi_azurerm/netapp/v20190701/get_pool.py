@@ -13,7 +13,7 @@ class GetPoolResult:
     """
     Capacity pool resource
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, pool_id=None, provisioning_state=None, service_level=None, size=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +26,29 @@ class GetPoolResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if pool_id and not isinstance(pool_id, str):
+            raise TypeError("Expected argument 'pool_id' to be a str")
+        __self__.pool_id = pool_id
         """
-        Capacity pool properties
+        UUID v4 used to identify the Pool
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Azure lifecycle management
+        """
+        if service_level and not isinstance(service_level, str):
+            raise TypeError("Expected argument 'service_level' to be a str")
+        __self__.service_level = service_level
+        """
+        The service level of the file system
+        """
+        if size and not isinstance(size, float):
+            raise TypeError("Expected argument 'size' to be a float")
+        __self__.size = size
+        """
+        Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -54,7 +72,10 @@ class AwaitableGetPoolResult(GetPoolResult):
         return GetPoolResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            pool_id=self.pool_id,
+            provisioning_state=self.provisioning_state,
+            service_level=self.service_level,
+            size=self.size,
             tags=self.tags,
             type=self.type)
 
@@ -80,6 +101,9 @@ def get_pool(account_name=None, name=None, resource_group_name=None, opts=None):
     return AwaitableGetPoolResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        pool_id=__ret__.get('poolId'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_level=__ret__.get('serviceLevel'),
+        size=__ret__.get('size'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

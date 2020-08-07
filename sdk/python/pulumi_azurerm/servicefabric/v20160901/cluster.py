@@ -10,99 +10,117 @@ from ... import _utilities, _tables
 
 
 class Cluster(pulumi.CustomResource):
+    available_cluster_versions: pulumi.Output[list]
+    """
+    The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
+      * `code_version` (`str`) - The ServiceFabric runtime version of the cluster
+      * `environment` (`str`) - Cluster operating system
+      * `support_expiry_utc` (`str`) - The date of expiry of support of the version
+    """
+    azure_active_directory: pulumi.Output[dict]
+    """
+    The settings to enable AAD authentication on the cluster
+      * `client_application` (`str`) - Azure active directory client application id
+      * `cluster_application` (`str`) - Azure active directory cluster application id
+      * `tenant_id` (`str`) - Azure active directory tenant id
+    """
+    certificate: pulumi.Output[dict]
+    """
+    This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+      * `thumbprint` (`str`) - Thumbprint of the primary certificate
+      * `thumbprint_secondary` (`str`) - Thumbprint of the secondary certificate
+      * `x509_store_name` (`str`) - The local certificate store location
+    """
+    client_certificate_common_names: pulumi.Output[list]
+    """
+     List of client certificates to whitelist based on common names
+      * `certificate_common_name` (`str`) - Certificate common name to be granted access; be careful using wild card common names
+      * `certificate_issuer_thumbprint` (`str`) - Certificate issuer thumbprint
+      * `is_admin` (`bool`) - Is this certificate used for admin access from the client, if false , it is used or query only access
+    """
+    client_certificate_thumbprints: pulumi.Output[list]
+    """
+    The client thumbprint details ,it is used for client access for cluster operation
+      * `certificate_thumbprint` (`str`) - Certificate thumbprint
+      * `is_admin` (`bool`) - Is this certificate used for admin access from the client, if false, it is used or query only access
+    """
+    cluster_code_version: pulumi.Output[str]
+    """
+    The ServiceFabric code version running in your cluster
+    """
+    cluster_endpoint: pulumi.Output[str]
+    """
+    The endpoint for the cluster connecting to servicefabric resource provider
+    """
+    cluster_id: pulumi.Output[str]
+    """
+    The unique identifier for the cluster resource
+    """
+    cluster_state: pulumi.Output[str]
+    """
+    The state for the cluster
+    """
+    diagnostics_storage_account_config: pulumi.Output[dict]
+    """
+    The storage diagnostics account configuration details
+      * `blob_endpoint` (`str`) - Diagnostics storage account blob endpoint
+      * `protected_account_key_name` (`str`) - Protected Diagnostics storage key name
+      * `queue_endpoint` (`str`) - Diagnostics storage account queue endpoint
+      * `storage_account_name` (`str`) - Diagnostics storage account name
+      * `table_endpoint` (`str`) - Diagnostics storage account table endpoint
+    """
+    fabric_settings: pulumi.Output[list]
+    """
+    List of custom fabric settings to configure the cluster.
+      * `name` (`str`) - The name of settings section
+      * `parameters` (`list`) - Collection of settings in the section, each setting is a tuple consisting of setting name and value
+        * `name` (`str`) - The name of settings property
+        * `value` (`str`) - The value of the property
+    """
     location: pulumi.Output[str]
     """
     Resource location.
+    """
+    management_endpoint: pulumi.Output[str]
+    """
+    The http management endpoint of the cluster
     """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    node_types: pulumi.Output[list]
     """
-    The cluster resource properties
-      * `available_cluster_versions` (`list`) - The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
-        * `code_version` (`str`) - The ServiceFabric runtime version of the cluster
-        * `environment` (`str`) - Cluster operating system
-        * `support_expiry_utc` (`str`) - The date of expiry of support of the version
+    The list of node types that make up the cluster
+      * `application_ports` (`dict`) - Ports used by applications
+        * `end_port` (`float`) - End port of a range of ports
+        * `start_port` (`float`) - Starting port of a range of ports
 
-      * `azure_active_directory` (`dict`) - The settings to enable AAD authentication on the cluster
-        * `client_application` (`str`) - Azure active directory client application id
-        * `cluster_application` (`str`) - Azure active directory cluster application id
-        * `tenant_id` (`str`) - Azure active directory tenant id
-
-      * `certificate` (`dict`) - This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
-        * `thumbprint` (`str`) - Thumbprint of the primary certificate
-        * `thumbprint_secondary` (`str`) - Thumbprint of the secondary certificate
-        * `x509_store_name` (`str`) - The local certificate store location
-
-      * `client_certificate_common_names` (`list`) -  List of client certificates to whitelist based on common names
-        * `certificate_common_name` (`str`) - Certificate common name to be granted access; be careful using wild card common names
-        * `certificate_issuer_thumbprint` (`str`) - Certificate issuer thumbprint
-        * `is_admin` (`bool`) - Is this certificate used for admin access from the client, if false , it is used or query only access
-
-      * `client_certificate_thumbprints` (`list`) - The client thumbprint details ,it is used for client access for cluster operation
-        * `certificate_thumbprint` (`str`) - Certificate thumbprint
-        * `is_admin` (`bool`) - Is this certificate used for admin access from the client, if false, it is used or query only access
-
-      * `cluster_code_version` (`str`) - The ServiceFabric code version running in your cluster
-      * `cluster_endpoint` (`str`) - The endpoint for the cluster connecting to servicefabric resource provider
-      * `cluster_id` (`str`) - The unique identifier for the cluster resource
-      * `cluster_state` (`str`) - The state for the cluster
-      * `diagnostics_storage_account_config` (`dict`) - The storage diagnostics account configuration details
-        * `blob_endpoint` (`str`) - Diagnostics storage account blob endpoint
-        * `protected_account_key_name` (`str`) - Protected Diagnostics storage key name
-        * `queue_endpoint` (`str`) - Diagnostics storage account queue endpoint
-        * `storage_account_name` (`str`) - Diagnostics storage account name
-        * `table_endpoint` (`str`) - Diagnostics storage account table endpoint
-
-      * `fabric_settings` (`list`) - List of custom fabric settings to configure the cluster.
-        * `name` (`str`) - The name of settings section
-        * `parameters` (`list`) - Collection of settings in the section, each setting is a tuple consisting of setting name and value
-          * `name` (`str`) - The name of settings property
-          * `value` (`str`) - The value of the property
-
-      * `management_endpoint` (`str`) - The http management endpoint of the cluster
-      * `node_types` (`list`) - The list of node types that make up the cluster
-        * `application_ports` (`dict`) - Ports used by applications
-          * `end_port` (`float`) - End port of a range of ports
-          * `start_port` (`float`) - Starting port of a range of ports
-
-        * `capacities` (`dict`) - The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
-        * `client_connection_endpoint_port` (`float`) - The TCP cluster management endpoint port
-        * `durability_level` (`str`) - Node type durability Level
-        * `ephemeral_ports` (`dict`) - System assigned application ports
-        * `http_gateway_endpoint_port` (`float`) - The HTTP cluster management endpoint port
-        * `is_primary` (`bool`) - Mark this as the primary node type
-        * `name` (`str`) - Name of the node type
-        * `placement_properties` (`dict`) - The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
-        * `reverse_proxy_endpoint_port` (`float`) - Endpoint used by reverse proxy
-        * `vm_instance_count` (`float`) - The number of node instances in the node type
-
-      * `provisioning_state` (`str`) - The provisioning state of the cluster resource
-      * `reliability_level` (`str`) - Cluster reliability level indicates replica set size of system service
-      * `reverse_proxy_certificate` (`dict`) - The server certificate used by reverse proxy
-      * `upgrade_description` (`dict`) - The policy to use when upgrading the cluster.
-        * `delta_health_policy` (`dict`) - Delta health policy
-          * `max_percent_delta_unhealthy_applications` (`float`) - Additional unhealthy applications percentage
-          * `max_percent_delta_unhealthy_nodes` (`float`) - Additional unhealthy nodes percentage
-          * `max_percent_upgrade_domain_delta_unhealthy_nodes` (`float`) - Additional unhealthy nodes percentage per upgrade domain 
-
-        * `force_restart` (`bool`) - Force node to restart or not
-        * `health_check_retry_timeout` (`str`) - The length of time that health checks can fail continuously,it represents .Net TimeSpan
-        * `health_check_stable_duration` (`str`) - The length of time that health checks must pass continuously,it represents .Net TimeSpan
-        * `health_check_wait_duration` (`str`) - The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
-        * `health_policy` (`dict`) - Cluster health Policy
-          * `max_percent_unhealthy_applications` (`float`) - The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
-          * `max_percent_unhealthy_nodes` (`float`) - The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
-
-        * `override_user_upgrade_policy` (`bool`) - Use the user defined upgrade policy or not
-        * `upgrade_domain_timeout` (`str`) - The timeout for any upgrade domain,it represents .Net TimeSpan
-        * `upgrade_replica_set_check_timeout` (`str`) - Timeout for replica set upgrade to complete,it represents .Net TimeSpan
-        * `upgrade_timeout` (`str`) - The upgrade timeout,it represents .Net TimeSpan
-
-      * `upgrade_mode` (`str`) - Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
-      * `vm_image` (`str`) - The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+      * `capacities` (`dict`) - The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
+      * `client_connection_endpoint_port` (`float`) - The TCP cluster management endpoint port
+      * `durability_level` (`str`) - Node type durability Level
+      * `ephemeral_ports` (`dict`) - System assigned application ports
+      * `http_gateway_endpoint_port` (`float`) - The HTTP cluster management endpoint port
+      * `is_primary` (`bool`) - Mark this as the primary node type
+      * `name` (`str`) - Name of the node type
+      * `placement_properties` (`dict`) - The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
+      * `reverse_proxy_endpoint_port` (`float`) - Endpoint used by reverse proxy
+      * `vm_instance_count` (`float`) - The number of node instances in the node type
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the cluster resource
+    """
+    reliability_level: pulumi.Output[str]
+    """
+    Cluster reliability level indicates replica set size of system service
+    """
+    reverse_proxy_certificate: pulumi.Output[dict]
+    """
+    The server certificate used by reverse proxy
+      * `thumbprint` (`str`) - Thumbprint of the primary certificate
+      * `thumbprint_secondary` (`str`) - Thumbprint of the secondary certificate
+      * `x509_store_name` (`str`) - The local certificate store location
     """
     tags: pulumi.Output[dict]
     """
@@ -111,6 +129,35 @@ class Cluster(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    upgrade_description: pulumi.Output[dict]
+    """
+    The policy to use when upgrading the cluster.
+      * `delta_health_policy` (`dict`) - Delta health policy
+        * `max_percent_delta_unhealthy_applications` (`float`) - Additional unhealthy applications percentage
+        * `max_percent_delta_unhealthy_nodes` (`float`) - Additional unhealthy nodes percentage
+        * `max_percent_upgrade_domain_delta_unhealthy_nodes` (`float`) - Additional unhealthy nodes percentage per upgrade domain 
+
+      * `force_restart` (`bool`) - Force node to restart or not
+      * `health_check_retry_timeout` (`str`) - The length of time that health checks can fail continuously,it represents .Net TimeSpan
+      * `health_check_stable_duration` (`str`) - The length of time that health checks must pass continuously,it represents .Net TimeSpan
+      * `health_check_wait_duration` (`str`) - The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
+      * `health_policy` (`dict`) - Cluster health Policy
+        * `max_percent_unhealthy_applications` (`float`) - The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
+        * `max_percent_unhealthy_nodes` (`float`) - The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
+
+      * `override_user_upgrade_policy` (`bool`) - Use the user defined upgrade policy or not
+      * `upgrade_domain_timeout` (`str`) - The timeout for any upgrade domain,it represents .Net TimeSpan
+      * `upgrade_replica_set_check_timeout` (`str`) - Timeout for replica set upgrade to complete,it represents .Net TimeSpan
+      * `upgrade_timeout` (`str`) - The upgrade timeout,it represents .Net TimeSpan
+    """
+    upgrade_mode: pulumi.Output[str]
+    """
+    Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+    """
+    vm_image: pulumi.Output[str]
+    """
+    The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
     """
     def __init__(__self__, resource_name, opts=None, azure_active_directory=None, certificate=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_storage_account_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_description=None, upgrade_mode=None, vm_image=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -257,7 +304,11 @@ class Cluster(pulumi.CustomResource):
             __props__['upgrade_description'] = upgrade_description
             __props__['upgrade_mode'] = upgrade_mode
             __props__['vm_image'] = vm_image
-            __props__['properties'] = None
+            __props__['available_cluster_versions'] = None
+            __props__['cluster_endpoint'] = None
+            __props__['cluster_id'] = None
+            __props__['cluster_state'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(
             'azurerm:servicefabric/v20160901:Cluster',

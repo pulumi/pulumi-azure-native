@@ -13,12 +13,66 @@ class GetBlobContainerResult:
     """
     Properties of the blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, has_immutability_policy=None, has_legal_hold=None, immutability_policy=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, legal_hold=None, metadata=None, name=None, public_access=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Resource Etag.
+        """
+        if has_immutability_policy and not isinstance(has_immutability_policy, bool):
+            raise TypeError("Expected argument 'has_immutability_policy' to be a bool")
+        __self__.has_immutability_policy = has_immutability_policy
+        """
+        The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+        """
+        if has_legal_hold and not isinstance(has_legal_hold, bool):
+            raise TypeError("Expected argument 'has_legal_hold' to be a bool")
+        __self__.has_legal_hold = has_legal_hold
+        """
+        The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+        """
+        if immutability_policy and not isinstance(immutability_policy, dict):
+            raise TypeError("Expected argument 'immutability_policy' to be a dict")
+        __self__.immutability_policy = immutability_policy
+        """
+        The ImmutabilityPolicy property of the container.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Returns the date and time the container was last modified.
+        """
+        if lease_duration and not isinstance(lease_duration, str):
+            raise TypeError("Expected argument 'lease_duration' to be a str")
+        __self__.lease_duration = lease_duration
+        """
+        Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+        """
+        if lease_state and not isinstance(lease_state, str):
+            raise TypeError("Expected argument 'lease_state' to be a str")
+        __self__.lease_state = lease_state
+        """
+        Lease state of the container.
+        """
+        if lease_status and not isinstance(lease_status, str):
+            raise TypeError("Expected argument 'lease_status' to be a str")
+        __self__.lease_status = lease_status
+        """
+        The lease status of the container.
+        """
+        if legal_hold and not isinstance(legal_hold, dict):
+            raise TypeError("Expected argument 'legal_hold' to be a dict")
+        __self__.legal_hold = legal_hold
+        """
+        The LegalHold property of the container.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        A name-value pair to associate with the container as metadata.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +80,11 @@ class GetBlobContainerResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if public_access and not isinstance(public_access, str):
+            raise TypeError("Expected argument 'public_access' to be a str")
+        __self__.public_access = public_access
         """
-        Properties of the blob container.
+        Specifies whether data in the container may be accessed publicly and the level of access.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -47,8 +101,17 @@ class AwaitableGetBlobContainerResult(GetBlobContainerResult):
             yield self
         return GetBlobContainerResult(
             etag=self.etag,
+            has_immutability_policy=self.has_immutability_policy,
+            has_legal_hold=self.has_legal_hold,
+            immutability_policy=self.immutability_policy,
+            last_modified_time=self.last_modified_time,
+            lease_duration=self.lease_duration,
+            lease_state=self.lease_state,
+            lease_status=self.lease_status,
+            legal_hold=self.legal_hold,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            public_access=self.public_access,
             type=self.type)
 
 
@@ -72,6 +135,15 @@ def get_blob_container(account_name=None, name=None, resource_group_name=None, o
 
     return AwaitableGetBlobContainerResult(
         etag=__ret__.get('etag'),
+        has_immutability_policy=__ret__.get('hasImmutabilityPolicy'),
+        has_legal_hold=__ret__.get('hasLegalHold'),
+        immutability_policy=__ret__.get('immutabilityPolicy'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
+        lease_duration=__ret__.get('leaseDuration'),
+        lease_state=__ret__.get('leaseState'),
+        lease_status=__ret__.get('leaseStatus'),
+        legal_hold=__ret__.get('legalHold'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        public_access=__ret__.get('publicAccess'),
         type=__ret__.get('type'))

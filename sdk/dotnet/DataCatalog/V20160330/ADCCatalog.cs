@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
     public partial class ADCCatalog : Pulumi.CustomResource
     {
         /// <summary>
+        /// Azure data catalog admin list.
+        /// </summary>
+        [Output("admins")]
+        public Output<ImmutableArray<Outputs.PrincipalsResponseResult>> Admins { get; private set; } = null!;
+
+        /// <summary>
+        /// Automatic unit adjustment enabled or not.
+        /// </summary>
+        [Output("enableAutomaticUnitAdjustment")]
+        public Output<bool?> EnableAutomaticUnitAdjustment { get; private set; } = null!;
+
+        /// <summary>
         /// Resource etag
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,16 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Data Catalog properties.
+        /// Azure data catalog SKU.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ADCCatalogPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure data catalog provision status.
+        /// </summary>
+        [Output("successfullyProvisioned")]
+        public Output<bool?> SuccessfullyProvisioned { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -49,6 +67,18 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure data catalog units.
+        /// </summary>
+        [Output("units")]
+        public Output<int?> Units { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure data catalog user list.
+        /// </summary>
+        [Output("users")]
+        public Output<ImmutableArray<Outputs.PrincipalsResponseResult>> Users { get; private set; } = null!;
 
 
         /// <summary>

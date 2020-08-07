@@ -40,17 +40,49 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class GetWebAppDeploymentResult
     {
         /// <summary>
+        /// True if deployment is currently active, false if completed and null if not started.
+        /// </summary>
+        public readonly bool? Active;
+        /// <summary>
+        /// Who authored the deployment.
+        /// </summary>
+        public readonly string? Author;
+        /// <summary>
+        /// Author email.
+        /// </summary>
+        public readonly string? Author_email;
+        /// <summary>
+        /// Who performed the deployment.
+        /// </summary>
+        public readonly string? Deployer;
+        /// <summary>
+        /// Details on deployment.
+        /// </summary>
+        public readonly string? Details;
+        /// <summary>
+        /// End time.
+        /// </summary>
+        public readonly string? End_time;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// Details about deployment status.
+        /// </summary>
+        public readonly string? Message;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Deployment resource specific properties
+        /// Start time.
         /// </summary>
-        public readonly Outputs.DeploymentResponsePropertiesResult Properties;
+        public readonly string? Start_time;
+        /// <summary>
+        /// Deployment status.
+        /// </summary>
+        public readonly int? Status;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -58,17 +90,41 @@ namespace Pulumi.AzureRM.Web.V20181101
 
         [OutputConstructor]
         private GetWebAppDeploymentResult(
+            bool? active,
+
+            string? author,
+
+            string? author_email,
+
+            string? deployer,
+
+            string? details,
+
+            string? end_time,
+
             string? kind,
+
+            string? message,
 
             string name,
 
-            Outputs.DeploymentResponsePropertiesResult properties,
+            string? start_time,
+
+            int? status,
 
             string type)
         {
+            Active = active;
+            Author = author;
+            Author_email = author_email;
+            Deployer = deployer;
+            Details = details;
+            End_time = end_time;
             Kind = kind;
+            Message = message;
             Name = name;
-            Properties = properties;
+            Start_time = start_time;
+            Status = status;
             Type = type;
         }
     }

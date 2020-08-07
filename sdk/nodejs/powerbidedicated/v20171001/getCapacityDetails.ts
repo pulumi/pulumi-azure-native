@@ -36,6 +36,10 @@ export interface GetCapacityDetailsArgs {
  */
 export interface GetCapacityDetailsResult {
     /**
+     * A collection of Dedicated capacity administrators
+     */
+    readonly administration?: outputs.powerbidedicated.v20171001.DedicatedCapacityAdministratorsResponse;
+    /**
      * Location of the PowerBI Dedicated resource.
      */
     readonly location: string;
@@ -44,13 +48,17 @@ export interface GetCapacityDetailsResult {
      */
     readonly name: string;
     /**
-     * Properties of the provision operation request.
+     * The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
      */
-    readonly properties: outputs.powerbidedicated.v20171001.DedicatedCapacityPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * The SKU of the PowerBI Dedicated resource.
      */
     readonly sku: outputs.powerbidedicated.v20171001.ResourceSkuResponse;
+    /**
+     * The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+     */
+    readonly state: string;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

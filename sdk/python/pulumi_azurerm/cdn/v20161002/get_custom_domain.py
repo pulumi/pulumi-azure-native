@@ -13,7 +13,19 @@ class GetCustomDomainResult:
     """
     Customer provided domain for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, custom_https_provisioning_state=None, host_name=None, location=None, name=None, provisioning_state=None, resource_state=None, tags=None, type=None, validation_data=None):
+        if custom_https_provisioning_state and not isinstance(custom_https_provisioning_state, str):
+            raise TypeError("Expected argument 'custom_https_provisioning_state' to be a str")
+        __self__.custom_https_provisioning_state = custom_https_provisioning_state
+        """
+        Provisioning state of Custom Https of the custom domain.
+        """
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        The host name of the custom domain. Must be a domain name.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +38,17 @@ class GetCustomDomainResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The JSON object that contains the properties of the custom domain to create.
+        Provisioning status of the custom domain.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the custom domain.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +62,12 @@ class GetCustomDomainResult:
         """
         Resource type.
         """
+        if validation_data and not isinstance(validation_data, str):
+            raise TypeError("Expected argument 'validation_data' to be a str")
+        __self__.validation_data = validation_data
+        """
+        Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+        """
 
 
 class AwaitableGetCustomDomainResult(GetCustomDomainResult):
@@ -52,11 +76,15 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
         if False:
             yield self
         return GetCustomDomainResult(
+            custom_https_provisioning_state=self.custom_https_provisioning_state,
+            host_name=self.host_name,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            validation_data=self.validation_data)
 
 
 def get_custom_domain(endpoint_name=None, name=None, profile_name=None, resource_group_name=None, opts=None):
@@ -80,8 +108,12 @@ def get_custom_domain(endpoint_name=None, name=None, profile_name=None, resource
     __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20161002:getCustomDomain', __args__, opts=opts).value
 
     return AwaitableGetCustomDomainResult(
+        custom_https_provisioning_state=__ret__.get('customHttpsProvisioningState'),
+        host_name=__ret__.get('hostName'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        validation_data=__ret__.get('validationData'))

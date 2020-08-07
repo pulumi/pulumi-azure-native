@@ -46,13 +46,29 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class GetRegisteredPrefixResult
     {
         /// <summary>
+        /// The error message associated with the validation state, if any.
+        /// </summary>
+        public readonly string ErrorMessage;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties that define a registered prefix.
+        /// The peering service prefix key that is to be shared with the customer.
         /// </summary>
-        public readonly Outputs.PeeringRegisteredPrefixPropertiesResponseResult Properties;
+        public readonly string PeeringServicePrefixKey;
+        /// <summary>
+        /// The customer's prefix from which traffic originates.
+        /// </summary>
+        public readonly string? Prefix;
+        /// <summary>
+        /// The prefix validation state.
+        /// </summary>
+        public readonly string PrefixValidationState;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -60,14 +76,26 @@ namespace Pulumi.AzureRM.Peering.V20200401
 
         [OutputConstructor]
         private GetRegisteredPrefixResult(
+            string errorMessage,
+
             string name,
 
-            Outputs.PeeringRegisteredPrefixPropertiesResponseResult properties,
+            string peeringServicePrefixKey,
+
+            string? prefix,
+
+            string prefixValidationState,
+
+            string provisioningState,
 
             string type)
         {
+            ErrorMessage = errorMessage;
             Name = name;
-            Properties = properties;
+            PeeringServicePrefixKey = peeringServicePrefixKey;
+            Prefix = prefix;
+            PrefixValidationState = prefixValidationState;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

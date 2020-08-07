@@ -14,6 +14,10 @@ class NatGateway(pulumi.CustomResource):
     """
     A unique read-only string that changes whenever the resource is updated.
     """
+    idle_timeout_in_minutes: pulumi.Output[float]
+    """
+    The idle timeout of the nat gateway.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -22,22 +26,33 @@ class NatGateway(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Nat Gateway properties.
-      * `idle_timeout_in_minutes` (`float`) - The idle timeout of the nat gateway.
-      * `provisioning_state` (`str`) - The provisioning state of the NAT gateway resource.
-      * `public_ip_addresses` (`list`) - An array of public ip addresses associated with the nat gateway resource.
-        * `id` (`str`) - Resource ID.
-
-      * `public_ip_prefixes` (`list`) - An array of public ip prefixes associated with the nat gateway resource.
-      * `resource_guid` (`str`) - The resource GUID property of the NAT gateway resource.
-      * `subnets` (`list`) - An array of references to the subnets using this nat gateway resource.
+    The provisioning state of the NAT gateway resource.
+    """
+    public_ip_addresses: pulumi.Output[list]
+    """
+    An array of public ip addresses associated with the nat gateway resource.
+      * `id` (`str`) - Resource ID.
+    """
+    public_ip_prefixes: pulumi.Output[list]
+    """
+    An array of public ip prefixes associated with the nat gateway resource.
+      * `id` (`str`) - Resource ID.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    The resource GUID property of the NAT gateway resource.
     """
     sku: pulumi.Output[dict]
     """
     The nat gateway SKU.
       * `name` (`str`) - Name of Nat Gateway SKU.
+    """
+    subnets: pulumi.Output[list]
+    """
+    An array of references to the subnets using this nat gateway resource.
+      * `id` (`str`) - Resource ID.
     """
     tags: pulumi.Output[dict]
     """
@@ -113,7 +128,7 @@ class NatGateway(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['zones'] = zones
-            __props__['properties'] = None
+            __props__['subnets'] = None
             __props__['type'] = None
         super(NatGateway, __self__).__init__(
             'azurerm:network/v20190801:NatGateway',

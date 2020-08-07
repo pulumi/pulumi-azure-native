@@ -31,17 +31,61 @@ export interface GetViewArgs {
  */
 export interface GetViewResult {
     /**
+     * Show costs accumulated over time.
+     */
+    readonly accumulated?: string;
+    /**
+     * Chart type of the main view in Cost Analysis. Required.
+     */
+    readonly chart?: string;
+    /**
+     * Date the user created this view.
+     */
+    readonly createdOn: string;
+    /**
+     * Has definition for data in this report config.
+     */
+    readonly dataset?: outputs.costmanagement.v20191101.ReportConfigDatasetResponse;
+    /**
+     * User input name of the view. Required.
+     */
+    readonly displayName?: string;
+    /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     readonly eTag?: string;
+    /**
+     * List of KPIs to show in Cost Analysis UI.
+     */
+    readonly kpis?: outputs.costmanagement.v20191101.KpiPropertiesResponse[];
+    /**
+     * Metric to use when displaying costs.
+     */
+    readonly metric?: string;
+    /**
+     * Date when the user last modified this view.
+     */
+    readonly modifiedOn: string;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The properties of the view.
+     * Configuration of 3 sub-views in the Cost Analysis UI.
      */
-    readonly properties: outputs.costmanagement.v20191101.ViewPropertiesResponse;
+    readonly pivots?: outputs.costmanagement.v20191101.PivotPropertiesResponse[];
+    /**
+     * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+     */
+    readonly scope?: string;
+    /**
+     * Has time period for pulling data for the report.
+     */
+    readonly timePeriod?: outputs.costmanagement.v20191101.ReportConfigTimePeriodResponse;
+    /**
+     * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+     */
+    readonly timeframe: string;
     /**
      * Resource type.
      */

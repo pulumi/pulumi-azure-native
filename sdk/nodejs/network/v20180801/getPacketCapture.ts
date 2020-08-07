@@ -40,13 +40,34 @@ export interface GetPacketCaptureArgs {
  * Information about packet capture session.
  */
 export interface GetPacketCaptureResult {
+    /**
+     * Number of bytes captured per packet, the remaining bytes are truncated.
+     */
+    readonly bytesToCapturePerPacket?: number;
     readonly etag?: string;
+    readonly filters?: outputs.network.v20180801.PacketCaptureFilterResponse[];
     /**
      * Name of the packet capture session.
      */
     readonly name: string;
     /**
-     * Describes the properties of a packet capture session.
+     * The provisioning state of the packet capture session.
      */
-    readonly properties: outputs.network.v20180801.PacketCaptureResultPropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * Describes the storage location for a packet capture session.
+     */
+    readonly storageLocation: outputs.network.v20180801.PacketCaptureStorageLocationResponse;
+    /**
+     * The ID of the targeted resource, only VM is currently supported.
+     */
+    readonly target: string;
+    /**
+     * Maximum duration of the capture session in seconds.
+     */
+    readonly timeLimitInSeconds?: number;
+    /**
+     * Maximum size of the capture output.
+     */
+    readonly totalBytesPerSession?: number;
 }

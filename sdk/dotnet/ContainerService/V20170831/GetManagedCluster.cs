@@ -40,6 +40,26 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
     public sealed class GetManagedClusterResult
     {
         /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> AgentPoolProfiles;
+        /// <summary>
+        /// DNS prefix specified when creating the managed cluster.
+        /// </summary>
+        public readonly string? DnsPrefix;
+        /// <summary>
+        /// FQDN for the master pool.
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
+        /// Version of Kubernetes specified when creating the managed cluster.
+        /// </summary>
+        public readonly string? KubernetesVersion;
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        public readonly Outputs.ContainerServiceLinuxProfileResponseResult? LinuxProfile;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +68,13 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of a managed cluster.
+        /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
-        public readonly Outputs.ManagedClusterPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+        /// </summary>
+        public readonly Outputs.ContainerServiceServicePrincipalProfileResponseResult? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -62,19 +86,37 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
 
         [OutputConstructor]
         private GetManagedClusterResult(
+            ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> agentPoolProfiles,
+
+            string? dnsPrefix,
+
+            string fqdn,
+
+            string? kubernetesVersion,
+
+            Outputs.ContainerServiceLinuxProfileResponseResult? linuxProfile,
+
             string location,
 
             string name,
 
-            Outputs.ManagedClusterPropertiesResponseResult properties,
+            string provisioningState,
+
+            Outputs.ContainerServiceServicePrincipalProfileResponseResult? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AgentPoolProfiles = agentPoolProfiles;
+            DnsPrefix = dnsPrefix;
+            Fqdn = fqdn;
+            KubernetesVersion = kubernetesVersion;
+            LinuxProfile = linuxProfile;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServicePrincipalProfile = servicePrincipalProfile;
             Tags = tags;
             Type = type;
         }

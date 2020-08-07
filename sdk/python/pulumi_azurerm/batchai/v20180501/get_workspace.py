@@ -13,7 +13,13 @@ class GetWorkspaceResult:
     """
     Batch AI Workspace information.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, location=None, name=None, provisioning_state=None, provisioning_state_transition_time=None, tags=None, type=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Time when the Workspace was created.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,17 @@ class GetWorkspaceResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties associated with the workspace.
+        The provisioned state of the Workspace
+        """
+        if provisioning_state_transition_time and not isinstance(provisioning_state_transition_time, str):
+            raise TypeError("Expected argument 'provisioning_state_transition_time' to be a str")
+        __self__.provisioning_state_transition_time = provisioning_state_transition_time
+        """
+        The time at which the workspace entered its current provisioning state.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +64,11 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            creation_time=self.creation_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            provisioning_state_transition_time=self.provisioning_state_transition_time,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +90,10 @@ def get_workspace(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:batchai/v20180501:getWorkspace', __args__, opts=opts).value
 
     return AwaitableGetWorkspaceResult(
+        creation_time=__ret__.get('creationTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        provisioning_state_transition_time=__ret__.get('provisioningStateTransitionTime'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

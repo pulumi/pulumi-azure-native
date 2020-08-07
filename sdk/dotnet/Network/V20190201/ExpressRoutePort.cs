@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.Network.V20190201
     public partial class ExpressRoutePort : Pulumi.CustomResource
     {
         /// <summary>
+        /// Date of the physical port allocation to be used in Letter of Authorization.
+        /// </summary>
+        [Output("allocationDate")]
+        public Output<string> AllocationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Bandwidth of procured ports in Gbps
+        /// </summary>
+        [Output("bandwidthInGbps")]
+        public Output<int?> BandwidthInGbps { get; private set; } = null!;
+
+        /// <summary>
+        /// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
+        /// </summary>
+        [Output("circuits")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Circuits { get; private set; } = null!;
+
+        /// <summary>
+        /// Encapsulation method on physical ports.
+        /// </summary>
+        [Output("encapsulation")]
+        public Output<string?> Encapsulation { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Ether type of the physical port.
+        /// </summary>
+        [Output("etherType")]
+        public Output<string> EtherType { get; private set; } = null!;
+
+        /// <summary>
+        /// The set of physical links of the ExpressRoutePort resource
+        /// </summary>
+        [Output("links")]
+        public Output<ImmutableArray<Outputs.ExpressRouteLinkResponseResult>> Links { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -27,16 +63,40 @@ namespace Pulumi.AzureRM.Network.V20190201
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Maximum transmission unit of the physical port pair(s)
+        /// </summary>
+        [Output("mtu")]
+        public Output<string> Mtu { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// ExpressRoutePort properties
+        /// The name of the peering location that the ExpressRoutePort is mapped to physically.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExpressRoutePortPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peeringLocation")]
+        public Output<string?> PeeringLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Aggregate Gbps of associated circuit bandwidths.
+        /// </summary>
+        [Output("provisionedBandwidthInGbps")]
+        public Output<double> ProvisionedBandwidthInGbps { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the ExpressRoutePort resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the ExpressRoutePort resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

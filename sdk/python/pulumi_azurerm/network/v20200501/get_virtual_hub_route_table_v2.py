@@ -13,7 +13,13 @@ class GetVirtualHubRouteTableV2Result:
     """
     VirtualHubRouteTableV2 Resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, attached_connections=None, etag=None, name=None, provisioning_state=None, routes=None):
+        if attached_connections and not isinstance(attached_connections, list):
+            raise TypeError("Expected argument 'attached_connections' to be a list")
+        __self__.attached_connections = attached_connections
+        """
+        List of all connections attached to this route table v2.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +32,17 @@ class GetVirtualHubRouteTableV2Result:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the virtual hub route table v2.
+        The provisioning state of the virtual hub route table v2 resource.
+        """
+        if routes and not isinstance(routes, list):
+            raise TypeError("Expected argument 'routes' to be a list")
+        __self__.routes = routes
+        """
+        List of all routes.
         """
 
 
@@ -40,9 +52,11 @@ class AwaitableGetVirtualHubRouteTableV2Result(GetVirtualHubRouteTableV2Result):
         if False:
             yield self
         return GetVirtualHubRouteTableV2Result(
+            attached_connections=self.attached_connections,
             etag=self.etag,
             name=self.name,
-            properties=self.properties)
+            provisioning_state=self.provisioning_state,
+            routes=self.routes)
 
 
 def get_virtual_hub_route_table_v2(name=None, resource_group_name=None, virtual_hub_name=None, opts=None):
@@ -64,6 +78,8 @@ def get_virtual_hub_route_table_v2(name=None, resource_group_name=None, virtual_
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getVirtualHubRouteTableV2', __args__, opts=opts).value
 
     return AwaitableGetVirtualHubRouteTableV2Result(
+        attached_connections=__ret__.get('attachedConnections'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        provisioning_state=__ret__.get('provisioningState'),
+        routes=__ret__.get('routes'))

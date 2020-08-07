@@ -37,6 +37,10 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     }
 
     /**
+     * A list of references to all dedicated hosts in the dedicated host group.
+     */
+    public /*out*/ readonly hosts!: pulumi.Output<outputs.compute.v20191201.SubResourceReadOnlyResponse[]>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +49,9 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Dedicated Host Group Properties.
+     * Number of fault domains that the host group can span.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20191201.DedicatedHostGroupPropertiesResponse>;
+    public readonly platformFaultDomainCount!: pulumi.Output<number>;
     /**
      * Resource tags
      */
@@ -92,7 +96,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["hosts"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

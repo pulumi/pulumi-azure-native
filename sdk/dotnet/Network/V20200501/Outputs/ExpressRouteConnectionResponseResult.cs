@@ -14,6 +14,18 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
     public sealed class ExpressRouteConnectionResponseResult
     {
         /// <summary>
+        /// Authorization key to establish the connection.
+        /// </summary>
+        public readonly string? AuthorizationKey;
+        /// <summary>
+        /// Enable internet security.
+        /// </summary>
+        public readonly bool? EnableInternetSecurity;
+        /// <summary>
+        /// The ExpressRoute circuit peering.
+        /// </summary>
+        public readonly Outputs.ExpressRouteCircuitPeeringIdResponseResult ExpressRouteCircuitPeering;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -22,21 +34,44 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the express route connection.
+        /// The provisioning state of the express route connection resource.
         /// </summary>
-        public readonly Outputs.ExpressRouteConnectionPropertiesResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
+        /// </summary>
+        public readonly Outputs.RoutingConfigurationResponseResult? RoutingConfiguration;
+        /// <summary>
+        /// The routing weight associated to the connection.
+        /// </summary>
+        public readonly int? RoutingWeight;
 
         [OutputConstructor]
         private ExpressRouteConnectionResponseResult(
+            string? authorizationKey,
+
+            bool? enableInternetSecurity,
+
+            Outputs.ExpressRouteCircuitPeeringIdResponseResult expressRouteCircuitPeering,
+
             string? id,
 
             string name,
 
-            Outputs.ExpressRouteConnectionPropertiesResponseResult? properties)
+            string provisioningState,
+
+            Outputs.RoutingConfigurationResponseResult? routingConfiguration,
+
+            int? routingWeight)
         {
+            AuthorizationKey = authorizationKey;
+            EnableInternetSecurity = enableInternetSecurity;
+            ExpressRouteCircuitPeering = expressRouteCircuitPeering;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RoutingConfiguration = routingConfiguration;
+            RoutingWeight = routingWeight;
         }
     }
 }

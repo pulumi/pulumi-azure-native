@@ -16,8 +16,8 @@ type NamespaceAuthorizationRule struct {
 
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// AuthorizationRule properties.
-	Properties SBAuthorizationRuleResponsePropertiesOutput `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayOutput `pulumi:"rights"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -64,8 +64,8 @@ func GetNamespaceAuthorizationRule(ctx *pulumi.Context,
 type namespaceAuthorizationRuleState struct {
 	// Resource name
 	Name *string `pulumi:"name"`
-	// AuthorizationRule properties.
-	Properties *SBAuthorizationRuleResponseProperties `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -73,8 +73,8 @@ type namespaceAuthorizationRuleState struct {
 type NamespaceAuthorizationRuleState struct {
 	// Resource name
 	Name pulumi.StringPtrInput
-	// AuthorizationRule properties.
-	Properties SBAuthorizationRuleResponsePropertiesPtrInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

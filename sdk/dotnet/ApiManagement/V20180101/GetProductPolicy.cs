@@ -52,13 +52,17 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetProductPolicyResult
     {
         /// <summary>
+        /// Format of the policyContent.
+        /// </summary>
+        public readonly string? ContentFormat;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Policy.
+        /// Json escaped Xml Encoded contents of the Policy.
         /// </summary>
-        public readonly Outputs.PolicyContractPropertiesResponseResult Properties;
+        public readonly string PolicyContent;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -66,14 +70,17 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 
         [OutputConstructor]
         private GetProductPolicyResult(
+            string? contentFormat,
+
             string name,
 
-            Outputs.PolicyContractPropertiesResponseResult properties,
+            string policyContent,
 
             string type)
         {
+            ContentFormat = contentFormat;
             Name = name;
-            Properties = properties;
+            PolicyContent = policyContent;
             Type = type;
         }
     }

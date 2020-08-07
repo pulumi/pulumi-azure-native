@@ -13,12 +13,87 @@ class GetDomainResult:
     """
     Information about a domain.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, auth_code=None, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, tags=None, target_dns_type=None, type=None):
+        if auth_code and not isinstance(auth_code, str):
+            raise TypeError("Expected argument 'auth_code' to be a str")
+        __self__.auth_code = auth_code
+        if auto_renew and not isinstance(auto_renew, bool):
+            raise TypeError("Expected argument 'auto_renew' to be a bool")
+        __self__.auto_renew = auto_renew
+        """
+        <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
+        """
+        if consent and not isinstance(consent, dict):
+            raise TypeError("Expected argument 'consent' to be a dict")
+        __self__.consent = consent
+        """
+        Legal agreement consent.
+        """
+        if contact_admin and not isinstance(contact_admin, dict):
+            raise TypeError("Expected argument 'contact_admin' to be a dict")
+        __self__.contact_admin = contact_admin
+        """
+        Administrative contact.
+        """
+        if contact_billing and not isinstance(contact_billing, dict):
+            raise TypeError("Expected argument 'contact_billing' to be a dict")
+        __self__.contact_billing = contact_billing
+        """
+        Billing contact.
+        """
+        if contact_registrant and not isinstance(contact_registrant, dict):
+            raise TypeError("Expected argument 'contact_registrant' to be a dict")
+        __self__.contact_registrant = contact_registrant
+        """
+        Registrant contact.
+        """
+        if contact_tech and not isinstance(contact_tech, dict):
+            raise TypeError("Expected argument 'contact_tech' to be a dict")
+        __self__.contact_tech = contact_tech
+        """
+        Technical contact.
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        Domain creation timestamp.
+        """
+        if dns_type and not isinstance(dns_type, str):
+            raise TypeError("Expected argument 'dns_type' to be a str")
+        __self__.dns_type = dns_type
+        """
+        Current DNS type
+        """
+        if dns_zone_id and not isinstance(dns_zone_id, str):
+            raise TypeError("Expected argument 'dns_zone_id' to be a str")
+        __self__.dns_zone_id = dns_zone_id
+        """
+        Azure DNS Zone to use
+        """
+        if domain_not_renewable_reasons and not isinstance(domain_not_renewable_reasons, list):
+            raise TypeError("Expected argument 'domain_not_renewable_reasons' to be a list")
+        __self__.domain_not_renewable_reasons = domain_not_renewable_reasons
+        """
+        Reasons why domain is not renewable.
+        """
+        if expiration_time and not isinstance(expiration_time, str):
+            raise TypeError("Expected argument 'expiration_time' to be a str")
+        __self__.expiration_time = expiration_time
+        """
+        Domain expiration timestamp.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         Kind of resource.
+        """
+        if last_renewed_time and not isinstance(last_renewed_time, str):
+            raise TypeError("Expected argument 'last_renewed_time' to be a str")
+        __self__.last_renewed_time = last_renewed_time
+        """
+        Timestamp when the domain was renewed last time.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,23 +101,60 @@ class GetDomainResult:
         """
         Resource Location.
         """
+        if managed_host_names and not isinstance(managed_host_names, list):
+            raise TypeError("Expected argument 'managed_host_names' to be a list")
+        __self__.managed_host_names = managed_host_names
+        """
+        All hostnames derived from the domain and assigned to Azure resources.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if name_servers and not isinstance(name_servers, list):
+            raise TypeError("Expected argument 'name_servers' to be a list")
+        __self__.name_servers = name_servers
         """
-        Domain resource specific properties
+        Name servers.
+        """
+        if privacy and not isinstance(privacy, bool):
+            raise TypeError("Expected argument 'privacy' to be a bool")
+        __self__.privacy = privacy
+        """
+        <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Domain provisioning state.
+        """
+        if ready_for_dns_record_management and not isinstance(ready_for_dns_record_management, bool):
+            raise TypeError("Expected argument 'ready_for_dns_record_management' to be a bool")
+        __self__.ready_for_dns_record_management = ready_for_dns_record_management
+        """
+        <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
+         it is hosted on name servers Azure has programmatic access to.
+        """
+        if registration_status and not isinstance(registration_status, str):
+            raise TypeError("Expected argument 'registration_status' to be a str")
+        __self__.registration_status = registration_status
+        """
+        Domain registration status.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags.
+        """
+        if target_dns_type and not isinstance(target_dns_type, str):
+            raise TypeError("Expected argument 'target_dns_type' to be a str")
+        __self__.target_dns_type = target_dns_type
+        """
+        Target DNS type (would be used for migration)
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -58,11 +170,30 @@ class AwaitableGetDomainResult(GetDomainResult):
         if False:
             yield self
         return GetDomainResult(
+            auth_code=self.auth_code,
+            auto_renew=self.auto_renew,
+            consent=self.consent,
+            contact_admin=self.contact_admin,
+            contact_billing=self.contact_billing,
+            contact_registrant=self.contact_registrant,
+            contact_tech=self.contact_tech,
+            created_time=self.created_time,
+            dns_type=self.dns_type,
+            dns_zone_id=self.dns_zone_id,
+            domain_not_renewable_reasons=self.domain_not_renewable_reasons,
+            expiration_time=self.expiration_time,
             kind=self.kind,
+            last_renewed_time=self.last_renewed_time,
             location=self.location,
+            managed_host_names=self.managed_host_names,
             name=self.name,
-            properties=self.properties,
+            name_servers=self.name_servers,
+            privacy=self.privacy,
+            provisioning_state=self.provisioning_state,
+            ready_for_dns_record_management=self.ready_for_dns_record_management,
+            registration_status=self.registration_status,
             tags=self.tags,
+            target_dns_type=self.target_dns_type,
             type=self.type)
 
 
@@ -83,9 +214,28 @@ def get_domain(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:domainregistration/v20180201:getDomain', __args__, opts=opts).value
 
     return AwaitableGetDomainResult(
+        auth_code=__ret__.get('authCode'),
+        auto_renew=__ret__.get('autoRenew'),
+        consent=__ret__.get('consent'),
+        contact_admin=__ret__.get('contactAdmin'),
+        contact_billing=__ret__.get('contactBilling'),
+        contact_registrant=__ret__.get('contactRegistrant'),
+        contact_tech=__ret__.get('contactTech'),
+        created_time=__ret__.get('createdTime'),
+        dns_type=__ret__.get('dnsType'),
+        dns_zone_id=__ret__.get('dnsZoneId'),
+        domain_not_renewable_reasons=__ret__.get('domainNotRenewableReasons'),
+        expiration_time=__ret__.get('expirationTime'),
         kind=__ret__.get('kind'),
+        last_renewed_time=__ret__.get('lastRenewedTime'),
         location=__ret__.get('location'),
+        managed_host_names=__ret__.get('managedHostNames'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        name_servers=__ret__.get('nameServers'),
+        privacy=__ret__.get('privacy'),
+        provisioning_state=__ret__.get('provisioningState'),
+        ready_for_dns_record_management=__ret__.get('readyForDnsRecordManagement'),
+        registration_status=__ret__.get('registrationStatus'),
         tags=__ret__.get('tags'),
+        target_dns_type=__ret__.get('targetDnsType'),
         type=__ret__.get('type'))

@@ -37,6 +37,22 @@ export class ServerDetails extends pulumi.CustomResource {
     }
 
     /**
+     * A collection of AS server administrators
+     */
+    public readonly asAdministrators!: pulumi.Output<outputs.analysisservices.v20170801.ServerAdministratorsResponse | undefined>;
+    /**
+     * The SAS container URI to the backup container.
+     */
+    public readonly backupBlobContainerUri!: pulumi.Output<string | undefined>;
+    /**
+     * The gateway details configured for the AS server.
+     */
+    public readonly gatewayDetails!: pulumi.Output<outputs.analysisservices.v20170801.GatewayDetailsResponse | undefined>;
+    /**
+     * The firewall settings for the AS server.
+     */
+    public readonly ipV4FirewallSettings!: pulumi.Output<outputs.analysisservices.v20170801.IPv4FirewallSettingsResponse | undefined>;
+    /**
      * Location of the Analysis Services resource.
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +61,25 @@ export class ServerDetails extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the provision operation request.
+     * The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.analysisservices.v20170801.AnalysisServicesServerPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
+     */
+    public readonly querypoolConnectionMode!: pulumi.Output<string | undefined>;
+    /**
+     * The full name of the Analysis Services resource.
+     */
+    public /*out*/ readonly serverFullName!: pulumi.Output<string>;
     /**
      * The SKU of the Analysis Services resource.
      */
     public readonly sku!: pulumi.Output<outputs.analysisservices.v20170801.ResourceSkuResponse>;
+    /**
+     * The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
@@ -96,7 +124,9 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serverFullName"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class FirewallRule(pulumi.CustomResource):
+    end_ip_address: pulumi.Output[str]
+    """
+    The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+    """
     kind: pulumi.Output[str]
     """
     Kind of server that contains this firewall rule.
@@ -22,11 +26,9 @@ class FirewallRule(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    start_ip_address: pulumi.Output[str]
     """
-    The properties representing the resource.
-      * `end_ip_address` (`str`) - The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-      * `start_ip_address` (`str`) - The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+    The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
     """
     type: pulumi.Output[str]
     """
@@ -78,7 +80,6 @@ class FirewallRule(pulumi.CustomResource):
             __props__['start_ip_address'] = start_ip_address
             __props__['kind'] = None
             __props__['location'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(FirewallRule, __self__).__init__(
             'azurerm:sql/v20140401:FirewallRule',

@@ -13,18 +13,24 @@ class GetHcxEnterpriseSiteResult:
     """
     An HCX Enterprise Site resource
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, activation_key=None, name=None, status=None, type=None):
+        if activation_key and not isinstance(activation_key, str):
+            raise TypeError("Expected argument 'activation_key' to be a str")
+        __self__.activation_key = activation_key
+        """
+        The activation key
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
         """
-        The properties of an HCX Enterprise Site resource
+        The status of the HCX Enterprise Site
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +46,9 @@ class AwaitableGetHcxEnterpriseSiteResult(GetHcxEnterpriseSiteResult):
         if False:
             yield self
         return GetHcxEnterpriseSiteResult(
+            activation_key=self.activation_key,
             name=self.name,
-            properties=self.properties,
+            status=self.status,
             type=self.type)
 
 
@@ -64,6 +71,7 @@ def get_hcx_enterprise_site(name=None, private_cloud_name=None, resource_group_n
     __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getHcxEnterpriseSite', __args__, opts=opts).value
 
     return AwaitableGetHcxEnterpriseSiteResult(
+        activation_key=__ret__.get('activationKey'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        status=__ret__.get('status'),
         type=__ret__.get('type'))

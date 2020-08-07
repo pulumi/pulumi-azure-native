@@ -29,8 +29,12 @@ type LookupPeeringServiceResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties that define a peering service.
-	Properties PeeringServicePropertiesResponse `pulumi:"properties"`
+	// The PeeringServiceLocation of the Customer.
+	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
+	// The MAPS Provider Name.
+	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU that defines the type of the peering service.
 	Sku *PeeringServiceSkuResponse `pulumi:"sku"`
 	// The resource tags.

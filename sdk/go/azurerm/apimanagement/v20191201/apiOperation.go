@@ -14,12 +14,26 @@ import (
 type ApiOperation struct {
 	pulumi.CustomResourceState
 
+	// Description of the operation. May include HTML formatting tags.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Operation Name.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+	Method pulumi.StringOutput `pulumi:"method"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Operation Contract.
-	Properties OperationContractPropertiesResponseOutput `pulumi:"properties"`
+	// Operation Policies
+	Policies pulumi.StringPtrOutput `pulumi:"policies"`
+	// An entity containing request details.
+	Request RequestContractResponsePtrOutput `pulumi:"request"`
+	// Array of Operation responses.
+	Responses ResponseContractResponseArrayOutput `pulumi:"responses"`
+	// Collection of URL template parameters.
+	TemplateParameters ParameterContractResponseArrayOutput `pulumi:"templateParameters"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+	UrlTemplate pulumi.StringOutput `pulumi:"urlTemplate"`
 }
 
 // NewApiOperation registers a new resource with the given unique name, arguments, and options.
@@ -71,21 +85,49 @@ func GetApiOperation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiOperation resources.
 type apiOperationState struct {
+	// Description of the operation. May include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	// Operation Name.
+	DisplayName *string `pulumi:"displayName"`
+	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+	Method *string `pulumi:"method"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Operation Contract.
-	Properties *OperationContractPropertiesResponse `pulumi:"properties"`
+	// Operation Policies
+	Policies *string `pulumi:"policies"`
+	// An entity containing request details.
+	Request *RequestContractResponse `pulumi:"request"`
+	// Array of Operation responses.
+	Responses []ResponseContractResponse `pulumi:"responses"`
+	// Collection of URL template parameters.
+	TemplateParameters []ParameterContractResponse `pulumi:"templateParameters"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
+	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+	UrlTemplate *string `pulumi:"urlTemplate"`
 }
 
 type ApiOperationState struct {
+	// Description of the operation. May include HTML formatting tags.
+	Description pulumi.StringPtrInput
+	// Operation Name.
+	DisplayName pulumi.StringPtrInput
+	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+	Method pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Operation Contract.
-	Properties OperationContractPropertiesResponsePtrInput
+	// Operation Policies
+	Policies pulumi.StringPtrInput
+	// An entity containing request details.
+	Request RequestContractResponsePtrInput
+	// Array of Operation responses.
+	Responses ResponseContractResponseArrayInput
+	// Collection of URL template parameters.
+	TemplateParameters ParameterContractResponseArrayInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
+	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+	UrlTemplate pulumi.StringPtrInput
 }
 
 func (ApiOperationState) ElementType() reflect.Type {

@@ -13,7 +13,31 @@ class GetActivityLogAlertResult:
     """
     An activity log alert resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, actions=None, condition=None, description=None, enabled=None, location=None, name=None, scopes=None, tags=None, type=None):
+        if actions and not isinstance(actions, dict):
+            raise TypeError("Expected argument 'actions' to be a dict")
+        __self__.actions = actions
+        """
+        The actions that will activate when the condition is met.
+        """
+        if condition and not isinstance(condition, dict):
+            raise TypeError("Expected argument 'condition' to be a dict")
+        __self__.condition = condition
+        """
+        The condition that will cause this alert to activate.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        A description of this activity log alert.
+        """
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +50,11 @@ class GetActivityLogAlertResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if scopes and not isinstance(scopes, list):
+            raise TypeError("Expected argument 'scopes' to be a list")
+        __self__.scopes = scopes
         """
-        The activity log alert properties of the resource.
+        A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +76,13 @@ class AwaitableGetActivityLogAlertResult(GetActivityLogAlertResult):
         if False:
             yield self
         return GetActivityLogAlertResult(
+            actions=self.actions,
+            condition=self.condition,
+            description=self.description,
+            enabled=self.enabled,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            scopes=self.scopes,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +104,12 @@ def get_activity_log_alert(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20170401:getActivityLogAlert', __args__, opts=opts).value
 
     return AwaitableGetActivityLogAlertResult(
+        actions=__ret__.get('actions'),
+        condition=__ret__.get('condition'),
+        description=__ret__.get('description'),
+        enabled=__ret__.get('enabled'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        scopes=__ret__.get('scopes'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

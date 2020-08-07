@@ -29,12 +29,42 @@ type LookupSubscriptionArgs struct {
 
 // Description of subscription resource.
 type LookupSubscriptionResult struct {
+	// Last time there was a receive request to this subscription.
+	AccessedAt string `pulumi:"accessedAt"`
+	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Message Count Details.
+	CountDetails MessageCountDetailsResponse `pulumi:"countDetails"`
+	// Exact time the message was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+	// Value that indicates whether a subscription has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
+	// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
+	// Entity availability status for the topic.
+	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
+	// Value that indicates whether the entity description is read-only.
+	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// The lock duration time span for the subscription.
+	LockDuration *string `pulumi:"lockDuration"`
+	// Number of maximum deliveries.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Number of messages.
+	MessageCount int `pulumi:"messageCount"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Description of Subscription Resource.
-	Properties SubscriptionPropertiesResponse `pulumi:"properties"`
+	// Value indicating if a subscription supports the concept of sessions.
+	RequiresSession *bool `pulumi:"requiresSession"`
+	// Enumerates the possible values for the status of a messaging entity.
+	Status *string `pulumi:"status"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
 }

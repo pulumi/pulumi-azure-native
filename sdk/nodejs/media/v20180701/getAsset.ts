@@ -41,13 +41,41 @@ export interface GetAssetArgs {
  */
 export interface GetAssetResult {
     /**
+     * The alternate ID of the Asset.
+     */
+    readonly alternateId?: string;
+    /**
+     * The Asset ID.
+     */
+    readonly assetId: string;
+    /**
+     * The name of the asset blob container.
+     */
+    readonly container?: string;
+    /**
+     * The creation date of the Asset.
+     */
+    readonly created: string;
+    /**
+     * The Asset description.
+     */
+    readonly description?: string;
+    /**
+     * The last modified date of the Asset.
+     */
+    readonly lastModified: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The resource properties.
+     * The name of the storage account.
      */
-    readonly properties: outputs.media.v20180701.AssetPropertiesResponse;
+    readonly storageAccountName?: string;
+    /**
+     * The Asset encryption format. One of None or MediaStorageEncryption.
+     */
+    readonly storageEncryptionFormat: string;
     /**
      * The type of the resource.
      */

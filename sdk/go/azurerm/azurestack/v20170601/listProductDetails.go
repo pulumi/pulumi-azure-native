@@ -27,10 +27,26 @@ type ListProductDetailsArgs struct {
 
 // Extended description about the product required for installing it into Azure Stack.
 type ListProductDetailsResult struct {
+	// Specifies kind of compute role included in the package.
+	ComputeRole string `pulumi:"computeRole"`
+	// List of attached data disks.
+	DataDiskImages []DataDiskImageResponse `pulumi:"dataDiskImages"`
 	// The URI to the .azpkg file that provides information required for showing product in the gallery.
 	GalleryPackageBlobSasUri string `pulumi:"galleryPackageBlobSasUri"`
+	// Specifies if product is a Virtual Machine Extension.
+	IsSystemExtension bool `pulumi:"isSystemExtension"`
+	// OS disk image used by product.
+	OsDiskImage OsDiskImageResponse `pulumi:"osDiskImage"`
 	// Specifies the kind of the product (virtualMachine or virtualMachineExtension).
 	ProductKind string `pulumi:"productKind"`
-	// Specifies additional properties describing the product.
-	Properties ExtendedProductPropertiesResponse `pulumi:"properties"`
+	// Indicates if specified product supports multiple extensions.
+	SupportMultipleExtensions bool `pulumi:"supportMultipleExtensions"`
+	// The URI.
+	Uri string `pulumi:"uri"`
+	// Specifies product version.
+	Version string `pulumi:"version"`
+	// Specifies operating system used by the product.
+	VmOsType string `pulumi:"vmOsType"`
+	// Indicates if virtual machine Scale Set is enabled in the specified product.
+	VmScaleSetEnabled bool `pulumi:"vmScaleSetEnabled"`
 }

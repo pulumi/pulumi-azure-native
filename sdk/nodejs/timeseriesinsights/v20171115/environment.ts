@@ -37,6 +37,22 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
+     * The time the resource was created.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+     */
+    public /*out*/ readonly dataAccessFqdn!: pulumi.Output<string>;
+    /**
+     * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+     */
+    public /*out*/ readonly dataAccessId!: pulumi.Output<string>;
+    /**
+     * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+     */
+    public readonly dataRetentionTime!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +61,25 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the environment.
+     * The list of partition keys according to which the data in the environment will be ordered.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20171115.EnvironmentResourcePropertiesResponse>;
+    public readonly partitionKeyProperties!: pulumi.Output<outputs.timeseriesinsights.v20171115.PartitionKeyPropertyResponse[] | undefined>;
+    /**
+     * Provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
     public readonly sku!: pulumi.Output<outputs.timeseriesinsights.v20171115.SkuResponse | undefined>;
+    /**
+     * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+     */
+    public /*out*/ readonly status!: pulumi.Output<outputs.timeseriesinsights.v20171115.EnvironmentStatusResponse | undefined>;
+    /**
+     * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+     */
+    public readonly storageLimitExceededBehavior!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -97,7 +125,11 @@ export class Environment extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["dataAccessFqdn"] = undefined /*out*/;
+            inputs["dataAccessId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

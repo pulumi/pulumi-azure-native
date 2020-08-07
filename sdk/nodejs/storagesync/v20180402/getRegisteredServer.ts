@@ -41,13 +41,81 @@ export interface GetRegisteredServerArgs {
  */
 export interface GetRegisteredServerResult {
     /**
+     * Registered Server Agent Version
+     */
+    readonly agentVersion?: string;
+    /**
+     * Registered Server clusterId
+     */
+    readonly clusterId?: string;
+    /**
+     * Registered Server clusterName
+     */
+    readonly clusterName?: string;
+    /**
+     * Resource discoveryEndpointUri
+     */
+    readonly discoveryEndpointUri?: string;
+    /**
+     * Friendly Name
+     */
+    readonly friendlyName?: string;
+    /**
+     * Registered Server last heart beat
+     */
+    readonly lastHeartBeat?: string;
+    /**
+     * Resource Last Operation Name
+     */
+    readonly lastOperationName?: string;
+    /**
+     * Registered Server lastWorkflowId
+     */
+    readonly lastWorkflowId?: string;
+    /**
+     * Management Endpoint Uri
+     */
+    readonly managementEndpointUri?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * RegisteredServer properties.
+     * Registered Server Provisioning State
      */
-    readonly properties: outputs.storagesync.v20180402.RegisteredServerPropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * Resource Location
+     */
+    readonly resourceLocation?: string;
+    /**
+     * Registered Server Certificate
+     */
+    readonly serverCertificate?: string;
+    /**
+     * Registered Server serverId
+     */
+    readonly serverId?: string;
+    /**
+     * Registered Server Management Error Code
+     */
+    readonly serverManagementtErrorCode?: number;
+    /**
+     * Registered Server OS Version
+     */
+    readonly serverOSVersion?: string;
+    /**
+     * Registered Server serverRole
+     */
+    readonly serverRole?: string;
+    /**
+     * Service Location
+     */
+    readonly serviceLocation?: string;
+    /**
+     * Registered Server storageSyncServiceUid
+     */
+    readonly storageSyncServiceUid?: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

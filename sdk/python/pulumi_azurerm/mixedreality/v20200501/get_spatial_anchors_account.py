@@ -13,7 +13,19 @@ class GetSpatialAnchorsAccountResult:
     """
     SpatialAnchorsAccount Response.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, account_domain=None, account_id=None, location=None, name=None, tags=None, type=None):
+        if account_domain and not isinstance(account_domain, str):
+            raise TypeError("Expected argument 'account_domain' to be a str")
+        __self__.account_domain = account_domain
+        """
+        Correspond domain name of certain Spatial Anchors Account
+        """
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
+        __self__.account_id = account_id
+        """
+        unique id of certain account.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -25,12 +37,6 @@ class GetSpatialAnchorsAccountResult:
         __self__.name = name
         """
         The name of the resource
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Property bag.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +58,10 @@ class AwaitableGetSpatialAnchorsAccountResult(GetSpatialAnchorsAccountResult):
         if False:
             yield self
         return GetSpatialAnchorsAccountResult(
+            account_domain=self.account_domain,
+            account_id=self.account_id,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +83,9 @@ def get_spatial_anchors_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:mixedreality/v20200501:getSpatialAnchorsAccount', __args__, opts=opts).value
 
     return AwaitableGetSpatialAnchorsAccountResult(
+        account_domain=__ret__.get('accountDomain'),
+        account_id=__ret__.get('accountId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -15,22 +15,46 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class Variable : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string?> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the encrypted flag of the variable.
+        /// </summary>
+        [Output("isEncrypted")]
+        public Output<bool?> IsEncrypted { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the properties of the variable.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VariablePropertiesResponseResult> Properties { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the value of the variable.
+        /// </summary>
+        [Output("value")]
+        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>

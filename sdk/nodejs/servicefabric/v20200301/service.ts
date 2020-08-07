@@ -37,6 +37,14 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
+     * A list that describes the correlation of the service with other services.
+     */
+    public readonly correlationScheme!: pulumi.Output<outputs.servicefabric.v20200301.ServiceCorrelationDescriptionResponse[] | undefined>;
+    /**
+     * Specifies the move cost for the service.
+     */
+    public readonly defaultMoveCost!: pulumi.Output<string | undefined>;
+    /**
      * Azure resource etag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +57,41 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The service resource properties.
+     * Describes how the service is partitioned.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20200301.ServiceResourcePropertiesResponse>;
+    public readonly partitionDescription!: pulumi.Output<outputs.servicefabric.v20200301.PartitionSchemeDescriptionResponse | undefined>;
+    /**
+     * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+     */
+    public readonly placementConstraints!: pulumi.Output<string | undefined>;
+    /**
+     * The current deployment or provisioning state, which only appears in the response
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
+     */
+    public readonly serviceDnsName!: pulumi.Output<string | undefined>;
+    /**
+     * The kind of service (Stateless or Stateful).
+     */
+    public readonly serviceKind!: pulumi.Output<string>;
+    /**
+     * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+     */
+    public readonly serviceLoadMetrics!: pulumi.Output<outputs.servicefabric.v20200301.ServiceLoadMetricDescriptionResponse[] | undefined>;
+    /**
+     * The activation Mode of the service package
+     */
+    public readonly servicePackageActivationMode!: pulumi.Output<string | undefined>;
+    /**
+     * A list that describes the correlation of the service with other services.
+     */
+    public readonly servicePlacementPolicies!: pulumi.Output<outputs.servicefabric.v20200301.ServicePlacementPolicyDescriptionResponse[] | undefined>;
+    /**
+     * The name of the service type
+     */
+    public readonly serviceTypeName!: pulumi.Output<string | undefined>;
     /**
      * Azure resource tags.
      */
@@ -106,7 +146,7 @@ export class Service extends pulumi.CustomResource {
             inputs["serviceTypeName"] = args ? args.serviceTypeName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

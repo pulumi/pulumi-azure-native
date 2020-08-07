@@ -10,6 +10,44 @@ from ... import _utilities, _tables
 
 
 class IntegrationAccount(pulumi.CustomResource):
+    integration_service_environment: pulumi.Output[dict]
+    """
+    The integration service environment.
+      * `id` (`str`) - The resource id.
+      * `location` (`str`) - The resource location.
+      * `name` (`str`) - Gets the resource name.
+      * `properties` (`dict`) - The integration service environment properties.
+        * `endpoints_configuration` (`dict`) - The endpoints configuration.
+          * `connector` (`dict`) - The connector endpoints.
+            * `access_endpoint_ip_addresses` (`list`) - The access endpoint ip address.
+              * `address` (`str`) - The address.
+
+            * `outgoing_ip_addresses` (`list`) - The outgoing ip address.
+
+          * `workflow` (`dict`) - The workflow endpoints.
+
+        * `integration_service_environment_id` (`str`) - Gets the tracking id.
+        * `network_configuration` (`dict`) - The network configuration.
+          * `access_endpoint` (`dict`) - The access endpoint.
+            * `type` (`str`) - The access endpoint type.
+
+          * `subnets` (`list`) - The subnets.
+            * `id` (`str`) - The resource id.
+            * `name` (`str`) - Gets the resource name.
+            * `type` (`str`) - Gets the resource type.
+
+          * `virtual_network_address_space` (`str`) - Gets the virtual network address space.
+
+        * `provisioning_state` (`str`) - The provisioning state.
+        * `state` (`str`) - The integration service environment state.
+
+      * `sku` (`dict`) - The sku.
+        * `capacity` (`float`) - The sku capacity.
+        * `name` (`str`) - The sku name.
+
+      * `tags` (`dict`) - The resource tags.
+      * `type` (`str`) - Gets the resource type.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
@@ -18,51 +56,14 @@ class IntegrationAccount(pulumi.CustomResource):
     """
     Gets the resource name.
     """
-    properties: pulumi.Output[dict]
-    """
-    The integration account properties.
-      * `integration_service_environment` (`dict`) - The integration service environment.
-        * `id` (`str`) - The resource id.
-        * `location` (`str`) - The resource location.
-        * `name` (`str`) - Gets the resource name.
-        * `properties` (`dict`) - The integration service environment properties.
-          * `endpoints_configuration` (`dict`) - The endpoints configuration.
-            * `connector` (`dict`) - The connector endpoints.
-              * `access_endpoint_ip_addresses` (`list`) - The access endpoint ip address.
-                * `address` (`str`) - The address.
-
-              * `outgoing_ip_addresses` (`list`) - The outgoing ip address.
-
-            * `workflow` (`dict`) - The workflow endpoints.
-
-          * `integration_service_environment_id` (`str`) - Gets the tracking id.
-          * `network_configuration` (`dict`) - The network configuration.
-            * `access_endpoint` (`dict`) - The access endpoint.
-              * `type` (`str`) - The access endpoint type.
-
-            * `subnets` (`list`) - The subnets.
-              * `id` (`str`) - The resource id.
-              * `name` (`str`) - Gets the resource name.
-              * `type` (`str`) - Gets the resource type.
-
-            * `virtual_network_address_space` (`str`) - Gets the virtual network address space.
-
-          * `provisioning_state` (`str`) - The provisioning state.
-          * `state` (`str`) - The integration service environment state.
-
-        * `sku` (`dict`) - The sku.
-          * `capacity` (`float`) - The sku capacity.
-          * `name` (`str`) - The sku name.
-
-        * `tags` (`dict`) - The resource tags.
-        * `type` (`str`) - Gets the resource type.
-
-      * `state` (`str`) - The workflow state.
-    """
     sku: pulumi.Output[dict]
     """
     The sku.
       * `name` (`str`) - The sku name.
+    """
+    state: pulumi.Output[str]
+    """
+    The workflow state.
     """
     tags: pulumi.Output[dict]
     """
@@ -150,7 +151,6 @@ class IntegrationAccount(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['state'] = state
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(IntegrationAccount, __self__).__init__(
             'azurerm:logic/v20190501:IntegrationAccount',

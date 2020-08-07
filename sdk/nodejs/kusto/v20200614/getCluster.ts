@@ -36,9 +36,37 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * The cluster data ingestion URI.
+     */
+    readonly dataIngestionUri: string;
+    /**
+     * A boolean value that indicates if the cluster's disks are encrypted.
+     */
+    readonly enableDiskEncryption?: boolean;
+    /**
+     * A boolean value that indicates if double encryption is enabled.
+     */
+    readonly enableDoubleEncryption?: boolean;
+    /**
+     * A boolean value that indicates if the purge operations are enabled.
+     */
+    readonly enablePurge?: boolean;
+    /**
+     * A boolean value that indicates if the streaming ingest is enabled.
+     */
+    readonly enableStreamingIngest?: boolean;
+    /**
      * The identity of the cluster, if configured.
      */
     readonly identity?: outputs.kusto.v20200614.IdentityResponse;
+    /**
+     * KeyVault properties for the cluster encryption.
+     */
+    readonly keyVaultProperties?: outputs.kusto.v20200614.KeyVaultPropertiesResponse;
+    /**
+     * List of the cluster's language extensions.
+     */
+    readonly languageExtensions: outputs.kusto.v20200614.LanguageExtensionsListResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -48,21 +76,45 @@ export interface GetClusterResult {
      */
     readonly name: string;
     /**
-     * The cluster properties.
+     * Optimized auto scale definition.
      */
-    readonly properties: outputs.kusto.v20200614.ClusterPropertiesResponse;
+    readonly optimizedAutoscale?: outputs.kusto.v20200614.OptimizedAutoscaleResponse;
+    /**
+     * The provisioned state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * The SKU of the cluster.
      */
     readonly sku: outputs.kusto.v20200614.AzureSkuResponse;
     /**
+     * The state of the resource.
+     */
+    readonly state: string;
+    /**
+     * The reason for the cluster's current state.
+     */
+    readonly stateReason: string;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The cluster's external tenants.
+     */
+    readonly trustedExternalTenants?: outputs.kusto.v20200614.TrustedExternalTenantResponse[];
+    /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * The cluster URI.
+     */
+    readonly uri: string;
+    /**
+     * Virtual network definition.
+     */
+    readonly virtualNetworkConfiguration?: outputs.kusto.v20200614.VirtualNetworkConfigurationResponse;
     /**
      * The availability zones of the cluster.
      */

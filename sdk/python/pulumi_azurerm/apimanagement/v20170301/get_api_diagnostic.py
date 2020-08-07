@@ -13,18 +13,18 @@ class GetApiDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, enabled=None, name=None, type=None):
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        Indicates whether a diagnostic should receive data or not.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Diagnostic entity contract properties.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +40,8 @@ class AwaitableGetApiDiagnosticResult(GetApiDiagnosticResult):
         if False:
             yield self
         return GetApiDiagnosticResult(
+            enabled=self.enabled,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -66,6 +66,6 @@ def get_api_diagnostic(api_id=None, name=None, resource_group_name=None, service
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getApiDiagnostic', __args__, opts=opts).value
 
     return AwaitableGetApiDiagnosticResult(
+        enabled=__ret__.get('enabled'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

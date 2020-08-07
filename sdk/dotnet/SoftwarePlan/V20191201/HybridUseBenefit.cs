@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20191201
     public partial class HybridUseBenefit : Pulumi.CustomResource
     {
         /// <summary>
+        /// Created date
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates the revision of the hybrid use benefit
         /// </summary>
         [Output("etag")]
         public Output<int> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Last updated date
+        /// </summary>
+        [Output("lastUpdatedDate")]
+        public Output<string> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -27,10 +39,10 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20191201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Property bag for a hybrid use benefit response
+        /// Provisioning state
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HybridUseBenefitPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Hybrid use benefit SKU

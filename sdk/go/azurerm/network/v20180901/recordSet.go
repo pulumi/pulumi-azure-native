@@ -14,12 +14,34 @@ import (
 type RecordSet struct {
 	pulumi.CustomResourceState
 
+	// The list of A records in the record set.
+	ARecords ARecordResponseArrayOutput `pulumi:"aRecords"`
+	// The list of AAAA records in the record set.
+	AaaaRecords AaaaRecordResponseArrayOutput `pulumi:"aaaaRecords"`
+	// The CNAME record in the record set.
+	CnameRecord CnameRecordResponsePtrOutput `pulumi:"cnameRecord"`
 	// The ETag of the record set.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Fully qualified domain name of the record set.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// Is the record set auto-registered in the Private DNS zone through a virtual network link?
+	IsAutoRegistered pulumi.BoolOutput `pulumi:"isAutoRegistered"`
+	// The metadata attached to the record set.
+	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
+	// The list of MX records in the record set.
+	MxRecords MxRecordResponseArrayOutput `pulumi:"mxRecords"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the record set.
-	Properties RecordSetPropertiesResponseOutput `pulumi:"properties"`
+	// The list of PTR records in the record set.
+	PtrRecords PtrRecordResponseArrayOutput `pulumi:"ptrRecords"`
+	// The SOA record in the record set.
+	SoaRecord SoaRecordResponsePtrOutput `pulumi:"soaRecord"`
+	// The list of SRV records in the record set.
+	SrvRecords SrvRecordResponseArrayOutput `pulumi:"srvRecords"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl pulumi.IntPtrOutput `pulumi:"ttl"`
+	// The list of TXT records in the record set.
+	TxtRecords TxtRecordResponseArrayOutput `pulumi:"txtRecords"`
 	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -64,23 +86,67 @@ func GetRecordSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RecordSet resources.
 type recordSetState struct {
+	// The list of A records in the record set.
+	ARecords []ARecordResponse `pulumi:"aRecords"`
+	// The list of AAAA records in the record set.
+	AaaaRecords []AaaaRecordResponse `pulumi:"aaaaRecords"`
+	// The CNAME record in the record set.
+	CnameRecord *CnameRecordResponse `pulumi:"cnameRecord"`
 	// The ETag of the record set.
 	Etag *string `pulumi:"etag"`
+	// Fully qualified domain name of the record set.
+	Fqdn *string `pulumi:"fqdn"`
+	// Is the record set auto-registered in the Private DNS zone through a virtual network link?
+	IsAutoRegistered *bool `pulumi:"isAutoRegistered"`
+	// The metadata attached to the record set.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The list of MX records in the record set.
+	MxRecords []MxRecordResponse `pulumi:"mxRecords"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The properties of the record set.
-	Properties *RecordSetPropertiesResponse `pulumi:"properties"`
+	// The list of PTR records in the record set.
+	PtrRecords []PtrRecordResponse `pulumi:"ptrRecords"`
+	// The SOA record in the record set.
+	SoaRecord *SoaRecordResponse `pulumi:"soaRecord"`
+	// The list of SRV records in the record set.
+	SrvRecords []SrvRecordResponse `pulumi:"srvRecords"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl *int `pulumi:"ttl"`
+	// The list of TXT records in the record set.
+	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
 	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
 	Type *string `pulumi:"type"`
 }
 
 type RecordSetState struct {
+	// The list of A records in the record set.
+	ARecords ARecordResponseArrayInput
+	// The list of AAAA records in the record set.
+	AaaaRecords AaaaRecordResponseArrayInput
+	// The CNAME record in the record set.
+	CnameRecord CnameRecordResponsePtrInput
 	// The ETag of the record set.
 	Etag pulumi.StringPtrInput
+	// Fully qualified domain name of the record set.
+	Fqdn pulumi.StringPtrInput
+	// Is the record set auto-registered in the Private DNS zone through a virtual network link?
+	IsAutoRegistered pulumi.BoolPtrInput
+	// The metadata attached to the record set.
+	Metadata pulumi.StringMapInput
+	// The list of MX records in the record set.
+	MxRecords MxRecordResponseArrayInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The properties of the record set.
-	Properties RecordSetPropertiesResponsePtrInput
+	// The list of PTR records in the record set.
+	PtrRecords PtrRecordResponseArrayInput
+	// The SOA record in the record set.
+	SoaRecord SoaRecordResponsePtrInput
+	// The list of SRV records in the record set.
+	SrvRecords SrvRecordResponseArrayInput
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl pulumi.IntPtrInput
+	// The list of TXT records in the record set.
+	TxtRecords TxtRecordResponseArrayInput
 	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
 	Type pulumi.StringPtrInput
 }

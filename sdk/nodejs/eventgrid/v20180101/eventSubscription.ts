@@ -37,13 +37,29 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     */
+    public readonly destination!: pulumi.Output<outputs.eventgrid.v20180101.EventSubscriptionDestinationResponse | undefined>;
+    /**
+     * Information about the filter for the event subscription.
+     */
+    public readonly filter!: pulumi.Output<outputs.eventgrid.v20180101.EventSubscriptionFilterResponse | undefined>;
+    /**
+     * List of user defined labels.
+     */
+    public readonly labels!: pulumi.Output<string[] | undefined>;
+    /**
      * Name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the event subscription
+     * Provisioning state of the event subscription.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.eventgrid.v20180101.EventSubscriptionPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Name of the topic of the event subscription.
+     */
+    public /*out*/ readonly topic!: pulumi.Output<string>;
     /**
      * Type of the resource
      */
@@ -73,7 +89,8 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["labels"] = args ? args.labels : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["scope"] = args ? args.scope : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

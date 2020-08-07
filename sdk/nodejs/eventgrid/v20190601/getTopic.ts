@@ -36,6 +36,10 @@ export interface GetTopicArgs {
  */
 export interface GetTopicResult {
     /**
+     * Endpoint for the topic.
+     */
+    readonly endpoint: string;
+    /**
      * Location of the resource.
      */
     readonly location: string;
@@ -44,9 +48,9 @@ export interface GetTopicResult {
      */
     readonly name: string;
     /**
-     * Properties of the topic
+     * Provisioning state of the topic.
      */
-    readonly properties: outputs.eventgrid.v20190601.TopicPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Tags of the resource.
      */

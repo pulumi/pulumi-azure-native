@@ -46,13 +46,17 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetGatewayResult
     {
         /// <summary>
+        /// Gateway description
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Gateway location.
+        /// </summary>
+        public readonly Outputs.ResourceLocationDataContractResponseResult? LocationData;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Gateway details.
-        /// </summary>
-        public readonly Outputs.GatewayContractPropertiesResponseResult Properties;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +64,17 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
 
         [OutputConstructor]
         private GetGatewayResult(
-            string name,
+            string? description,
 
-            Outputs.GatewayContractPropertiesResponseResult properties,
+            Outputs.ResourceLocationDataContractResponseResult? locationData,
+
+            string name,
 
             string type)
         {
+            Description = description;
+            LocationData = locationData;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

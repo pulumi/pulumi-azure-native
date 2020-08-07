@@ -46,13 +46,29 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetConnectionTypeResult
     {
         /// <summary>
+        /// Gets the creation time.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Gets the field definitions of the connection type.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.FieldDefinitionResponseResult> FieldDefinitions;
+        /// <summary>
+        /// Gets or sets a Boolean value to indicate if the connection type is global.
+        /// </summary>
+        public readonly bool? IsGlobal;
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        public readonly string? LastModifiedTime;
+        /// <summary>
         /// Gets the name of the connection type.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Gets or sets the properties of the connection type.
-        /// </summary>
-        public readonly Outputs.ConnectionTypePropertiesResponseResult Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -60,14 +76,26 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
         [OutputConstructor]
         private GetConnectionTypeResult(
-            string name,
+            string creationTime,
 
-            Outputs.ConnectionTypePropertiesResponseResult properties,
+            string? description,
+
+            ImmutableDictionary<string, Outputs.FieldDefinitionResponseResult> fieldDefinitions,
+
+            bool? isGlobal,
+
+            string? lastModifiedTime,
+
+            string name,
 
             string type)
         {
+            CreationTime = creationTime;
+            Description = description;
+            FieldDefinitions = fieldDefinitions;
+            IsGlobal = isGlobal;
+            LastModifiedTime = lastModifiedTime;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

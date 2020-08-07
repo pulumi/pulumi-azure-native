@@ -10,6 +10,17 @@ from ... import _utilities, _tables
 
 
 class Hub(pulumi.CustomResource):
+    api_endpoint: pulumi.Output[str]
+    """
+    API endpoint URL of the hub.
+    """
+    hub_billing_info: pulumi.Output[dict]
+    """
+    Billing settings of the hub.
+      * `max_units` (`float`) - The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
+      * `min_units` (`float`) - The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
+      * `sku_name` (`str`) - The sku name.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,26 +29,25 @@ class Hub(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of hub.
-      * `api_endpoint` (`str`) - API endpoint URL of the hub.
-      * `hub_billing_info` (`dict`) - Billing settings of the hub.
-        * `max_units` (`float`) - The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-        * `min_units` (`float`) - The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-        * `sku_name` (`str`) - The sku name.
-
-      * `provisioning_state` (`str`) - Provisioning state of the hub.
-      * `tenant_features` (`float`) - The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
-      * `web_endpoint` (`str`) - Web endpoint URL of the hub.
+    Provisioning state of the hub.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags.
     """
+    tenant_features: pulumi.Output[float]
+    """
+    The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+    """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    web_endpoint: pulumi.Output[str]
+    """
+    Web endpoint URL of the hub.
     """
     def __init__(__self__, resource_name, opts=None, hub_billing_info=None, location=None, name=None, resource_group_name=None, tags=None, tenant_features=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -85,8 +95,10 @@ class Hub(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['tenant_features'] = tenant_features
-            __props__['properties'] = None
+            __props__['api_endpoint'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['web_endpoint'] = None
         super(Hub, __self__).__init__(
             'azurerm:customerinsights/v20170426:Hub',
             resource_name,

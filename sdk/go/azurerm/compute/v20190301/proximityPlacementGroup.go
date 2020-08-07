@@ -14,16 +14,22 @@ import (
 type ProximityPlacementGroup struct {
 	pulumi.CustomResourceState
 
+	// A list of references to all availability sets in the proximity placement group.
+	AvailabilitySets SubResourceResponseArrayOutput `pulumi:"availabilitySets"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of a Proximity Placement Group.
-	Properties ProximityPlacementGroupPropertiesResponseOutput `pulumi:"properties"`
+	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+	ProximityPlacementGroupType pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupType"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// A list of references to all virtual machine scale sets in the proximity placement group.
+	VirtualMachineScaleSets SubResourceResponseArrayOutput `pulumi:"virtualMachineScaleSets"`
+	// A list of references to all virtual machines in the proximity placement group.
+	VirtualMachines SubResourceResponseArrayOutput `pulumi:"virtualMachines"`
 }
 
 // NewProximityPlacementGroup registers a new resource with the given unique name, arguments, and options.
@@ -63,29 +69,41 @@ func GetProximityPlacementGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProximityPlacementGroup resources.
 type proximityPlacementGroupState struct {
+	// A list of references to all availability sets in the proximity placement group.
+	AvailabilitySets []SubResourceResponse `pulumi:"availabilitySets"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Describes the properties of a Proximity Placement Group.
-	Properties *ProximityPlacementGroupPropertiesResponse `pulumi:"properties"`
+	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+	ProximityPlacementGroupType *string `pulumi:"proximityPlacementGroupType"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// A list of references to all virtual machine scale sets in the proximity placement group.
+	VirtualMachineScaleSets []SubResourceResponse `pulumi:"virtualMachineScaleSets"`
+	// A list of references to all virtual machines in the proximity placement group.
+	VirtualMachines []SubResourceResponse `pulumi:"virtualMachines"`
 }
 
 type ProximityPlacementGroupState struct {
+	// A list of references to all availability sets in the proximity placement group.
+	AvailabilitySets SubResourceResponseArrayInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Describes the properties of a Proximity Placement Group.
-	Properties ProximityPlacementGroupPropertiesResponsePtrInput
+	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+	ProximityPlacementGroupType pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// A list of references to all virtual machine scale sets in the proximity placement group.
+	VirtualMachineScaleSets SubResourceResponseArrayInput
+	// A list of references to all virtual machines in the proximity placement group.
+	VirtualMachines SubResourceResponseArrayInput
 }
 
 func (ProximityPlacementGroupState) ElementType() reflect.Type {

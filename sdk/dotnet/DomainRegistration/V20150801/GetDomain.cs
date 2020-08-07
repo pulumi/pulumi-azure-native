@@ -40,18 +40,81 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
     public sealed class GetDomainResult
     {
         /// <summary>
+        /// If true then domain will renewed automatically
+        /// </summary>
+        public readonly bool? AutoRenew;
+        /// <summary>
+        /// Legal agreement consent
+        /// </summary>
+        public readonly Outputs.DomainPurchaseConsentResponseResult? Consent;
+        /// <summary>
+        /// Admin contact information
+        /// </summary>
+        public readonly Outputs.ContactResponseResult? ContactAdmin;
+        /// <summary>
+        /// Billing contact information
+        /// </summary>
+        public readonly Outputs.ContactResponseResult? ContactBilling;
+        /// <summary>
+        /// Registrant contact information
+        /// </summary>
+        public readonly Outputs.ContactResponseResult? ContactRegistrant;
+        /// <summary>
+        /// Technical contact information
+        /// </summary>
+        public readonly Outputs.ContactResponseResult? ContactTech;
+        /// <summary>
+        /// Domain creation timestamp
+        /// </summary>
+        public readonly string? CreatedTime;
+        /// <summary>
+        /// Reasons why domain is not renewable
+        /// </summary>
+        public readonly ImmutableArray<string> DomainNotRenewableReasons;
+        /// <summary>
+        /// Domain expiration timestamp
+        /// </summary>
+        public readonly string? ExpirationTime;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// Timestamp when the domain was renewed last time
+        /// </summary>
+        public readonly string? LastRenewedTime;
         /// <summary>
         /// Resource Location
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// All hostnames derived from the domain and assigned to Azure resources
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HostNameResponseResult> ManagedHostNames;
+        /// <summary>
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.DomainResponsePropertiesResult Properties;
+        /// <summary>
+        /// Name servers
+        /// </summary>
+        public readonly ImmutableArray<string> NameServers;
+        /// <summary>
+        /// If true then domain privacy is enabled for this domain
+        /// </summary>
+        public readonly bool? Privacy;
+        /// <summary>
+        /// Domain provisioning state
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+        /// </summary>
+        public readonly bool? ReadyForDnsRecordManagement;
+        /// <summary>
+        /// Domain registration status
+        /// </summary>
+        public readonly string? RegistrationStatus;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,22 +126,67 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
 
         [OutputConstructor]
         private GetDomainResult(
+            bool? autoRenew,
+
+            Outputs.DomainPurchaseConsentResponseResult? consent,
+
+            Outputs.ContactResponseResult? contactAdmin,
+
+            Outputs.ContactResponseResult? contactBilling,
+
+            Outputs.ContactResponseResult? contactRegistrant,
+
+            Outputs.ContactResponseResult? contactTech,
+
+            string? createdTime,
+
+            ImmutableArray<string> domainNotRenewableReasons,
+
+            string? expirationTime,
+
             string? kind,
+
+            string? lastRenewedTime,
 
             string location,
 
+            ImmutableArray<Outputs.HostNameResponseResult> managedHostNames,
+
             string? name,
 
-            Outputs.DomainResponsePropertiesResult properties,
+            ImmutableArray<string> nameServers,
+
+            bool? privacy,
+
+            string? provisioningState,
+
+            bool? readyForDnsRecordManagement,
+
+            string? registrationStatus,
 
             ImmutableDictionary<string, string>? tags,
 
             string? type)
         {
+            AutoRenew = autoRenew;
+            Consent = consent;
+            ContactAdmin = contactAdmin;
+            ContactBilling = contactBilling;
+            ContactRegistrant = contactRegistrant;
+            ContactTech = contactTech;
+            CreatedTime = createdTime;
+            DomainNotRenewableReasons = domainNotRenewableReasons;
+            ExpirationTime = expirationTime;
             Kind = kind;
+            LastRenewedTime = lastRenewedTime;
             Location = location;
+            ManagedHostNames = managedHostNames;
             Name = name;
-            Properties = properties;
+            NameServers = nameServers;
+            Privacy = privacy;
+            ProvisioningState = provisioningState;
+            ReadyForDnsRecordManagement = readyForDnsRecordManagement;
+            RegistrationStatus = registrationStatus;
             Tags = tags;
             Type = type;
         }

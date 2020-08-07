@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * The creation time for this workspace resource.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The key vault identifier used for encrypted workspaces.
+     */
+    public readonly keyVaultIdentifierId!: pulumi.Output<string | undefined>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +51,13 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the machine learning workspace.
+     * The email id of the owner for this workspace.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.machinelearning.v20160401.WorkspacePropertiesResponse>;
+    public readonly ownerEmail!: pulumi.Output<string>;
+    /**
+     * The regional endpoint for the machine learning studio service which hosts this workspace.
+     */
+    public /*out*/ readonly studioEndpoint!: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +66,22 @@ export class Workspace extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The fully qualified arm id of the storage account associated with this workspace.
+     */
+    public readonly userStorageAccountId!: pulumi.Output<string>;
+    /**
+     * The immutable id associated with this workspace.
+     */
+    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    /**
+     * The current state of workspace resource.
+     */
+    public /*out*/ readonly workspaceState!: pulumi.Output<string>;
+    /**
+     * The type of this workspace.
+     */
+    public /*out*/ readonly workspaceType!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -92,8 +118,12 @@ export class Workspace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["studioEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["workspaceId"] = undefined /*out*/;
+            inputs["workspaceState"] = undefined /*out*/;
+            inputs["workspaceType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

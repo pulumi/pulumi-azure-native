@@ -13,7 +13,7 @@ class ListWebAppPublishingCredentialsSlotResult:
     """
     User credentials used for publishing activity.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, name=None, publishing_password=None, publishing_password_hash=None, publishing_password_hash_salt=None, publishing_user_name=None, scm_uri=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +26,35 @@ class ListWebAppPublishingCredentialsSlotResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if publishing_password and not isinstance(publishing_password, str):
+            raise TypeError("Expected argument 'publishing_password' to be a str")
+        __self__.publishing_password = publishing_password
         """
-        User resource specific properties
+        Password used for publishing.
+        """
+        if publishing_password_hash and not isinstance(publishing_password_hash, str):
+            raise TypeError("Expected argument 'publishing_password_hash' to be a str")
+        __self__.publishing_password_hash = publishing_password_hash
+        """
+        Password hash used for publishing.
+        """
+        if publishing_password_hash_salt and not isinstance(publishing_password_hash_salt, str):
+            raise TypeError("Expected argument 'publishing_password_hash_salt' to be a str")
+        __self__.publishing_password_hash_salt = publishing_password_hash_salt
+        """
+        Password hash salt used for publishing.
+        """
+        if publishing_user_name and not isinstance(publishing_user_name, str):
+            raise TypeError("Expected argument 'publishing_user_name' to be a str")
+        __self__.publishing_user_name = publishing_user_name
+        """
+        Username used for publishing.
+        """
+        if scm_uri and not isinstance(scm_uri, str):
+            raise TypeError("Expected argument 'scm_uri' to be a str")
+        __self__.scm_uri = scm_uri
+        """
+        Url of SCM site.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +72,11 @@ class AwaitableListWebAppPublishingCredentialsSlotResult(ListWebAppPublishingCre
         return ListWebAppPublishingCredentialsSlotResult(
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            publishing_password=self.publishing_password,
+            publishing_password_hash=self.publishing_password_hash,
+            publishing_password_hash_salt=self.publishing_password_hash_salt,
+            publishing_user_name=self.publishing_user_name,
+            scm_uri=self.scm_uri,
             type=self.type)
 
 
@@ -71,5 +99,9 @@ def list_web_app_publishing_credentials_slot(name=None, resource_group_name=None
     return AwaitableListWebAppPublishingCredentialsSlotResult(
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        publishing_password=__ret__.get('publishingPassword'),
+        publishing_password_hash=__ret__.get('publishingPasswordHash'),
+        publishing_password_hash_salt=__ret__.get('publishingPasswordHashSalt'),
+        publishing_user_name=__ret__.get('publishingUserName'),
+        scm_uri=__ret__.get('scmUri'),
         type=__ret__.get('type'))

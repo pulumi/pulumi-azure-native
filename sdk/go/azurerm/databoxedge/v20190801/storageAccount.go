@@ -14,10 +14,20 @@ import (
 type StorageAccount struct {
 	pulumi.CustomResourceState
 
+	// BlobEndpoint of Storage Account
+	BlobEndpoint pulumi.StringOutput `pulumi:"blobEndpoint"`
+	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+	ContainerCount pulumi.IntOutput `pulumi:"containerCount"`
+	// Data policy of the storage Account.
+	DataPolicy pulumi.StringPtrOutput `pulumi:"dataPolicy"`
+	// Description for the storage Account.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Storage Account properties.
-	Properties StorageAccountPropertiesResponseOutput `pulumi:"properties"`
+	// Storage Account Credential Id
+	StorageAccountCredentialId pulumi.StringPtrOutput `pulumi:"storageAccountCredentialId"`
+	// Current status of the storage account
+	StorageAccountStatus pulumi.StringPtrOutput `pulumi:"storageAccountStatus"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +69,39 @@ func GetStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccount resources.
 type storageAccountState struct {
+	// BlobEndpoint of Storage Account
+	BlobEndpoint *string `pulumi:"blobEndpoint"`
+	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+	ContainerCount *int `pulumi:"containerCount"`
+	// Data policy of the storage Account.
+	DataPolicy *string `pulumi:"dataPolicy"`
+	// Description for the storage Account.
+	Description *string `pulumi:"description"`
 	// The object name.
 	Name *string `pulumi:"name"`
-	// The Storage Account properties.
-	Properties *StorageAccountPropertiesResponse `pulumi:"properties"`
+	// Storage Account Credential Id
+	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
+	// Current status of the storage account
+	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
 
 type StorageAccountState struct {
+	// BlobEndpoint of Storage Account
+	BlobEndpoint pulumi.StringPtrInput
+	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+	ContainerCount pulumi.IntPtrInput
+	// Data policy of the storage Account.
+	DataPolicy pulumi.StringPtrInput
+	// Description for the storage Account.
+	Description pulumi.StringPtrInput
 	// The object name.
 	Name pulumi.StringPtrInput
-	// The Storage Account properties.
-	Properties StorageAccountPropertiesResponsePtrInput
+	// Storage Account Credential Id
+	StorageAccountCredentialId pulumi.StringPtrInput
+	// Current status of the storage account
+	StorageAccountStatus pulumi.StringPtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

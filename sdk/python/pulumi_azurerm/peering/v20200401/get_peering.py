@@ -13,7 +13,19 @@ class GetPeeringResult:
     """
     Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, direct=None, exchange=None, kind=None, location=None, name=None, peering_location=None, provisioning_state=None, sku=None, tags=None, type=None):
+        if direct and not isinstance(direct, dict):
+            raise TypeError("Expected argument 'direct' to be a dict")
+        __self__.direct = direct
+        """
+        The properties that define a direct peering.
+        """
+        if exchange and not isinstance(exchange, dict):
+            raise TypeError("Expected argument 'exchange' to be a dict")
+        __self__.exchange = exchange
+        """
+        The properties that define an exchange peering.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,11 +44,17 @@ class GetPeeringResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peering_location and not isinstance(peering_location, str):
+            raise TypeError("Expected argument 'peering_location' to be a str")
+        __self__.peering_location = peering_location
         """
-        The properties that define a peering.
+        The location of the peering.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -64,10 +82,13 @@ class AwaitableGetPeeringResult(GetPeeringResult):
         if False:
             yield self
         return GetPeeringResult(
+            direct=self.direct,
+            exchange=self.exchange,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            peering_location=self.peering_location,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -90,10 +111,13 @@ def get_peering(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:peering/v20200401:getPeering', __args__, opts=opts).value
 
     return AwaitableGetPeeringResult(
+        direct=__ret__.get('direct'),
+        exchange=__ret__.get('exchange'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peering_location=__ret__.get('peeringLocation'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

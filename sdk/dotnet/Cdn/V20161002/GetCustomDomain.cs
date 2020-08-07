@@ -52,6 +52,14 @@ namespace Pulumi.AzureRM.Cdn.V20161002
     public sealed class GetCustomDomainResult
     {
         /// <summary>
+        /// Provisioning state of Custom Https of the custom domain.
+        /// </summary>
+        public readonly string CustomHttpsProvisioningState;
+        /// <summary>
+        /// The host name of the custom domain. Must be a domain name.
+        /// </summary>
+        public readonly string HostName;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -60,9 +68,13 @@ namespace Pulumi.AzureRM.Cdn.V20161002
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The JSON object that contains the properties of the custom domain to create.
+        /// Provisioning status of the custom domain.
         /// </summary>
-        public readonly Outputs.CustomDomainPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource status of the custom domain.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -71,24 +83,40 @@ namespace Pulumi.AzureRM.Cdn.V20161002
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+        /// </summary>
+        public readonly string? ValidationData;
 
         [OutputConstructor]
         private GetCustomDomainResult(
+            string customHttpsProvisioningState,
+
+            string hostName,
+
             string location,
 
             string name,
 
-            Outputs.CustomDomainPropertiesResponseResult properties,
+            string provisioningState,
+
+            string resourceState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? validationData)
         {
+            CustomHttpsProvisioningState = customHttpsProvisioningState;
+            HostName = hostName;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
             Tags = tags;
             Type = type;
+            ValidationData = validationData;
         }
     }
 }

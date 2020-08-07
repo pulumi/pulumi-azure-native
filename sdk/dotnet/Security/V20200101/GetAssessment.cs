@@ -40,13 +40,37 @@ namespace Pulumi.AzureRM.Security.V20200101
     public sealed class GetAssessmentResult
     {
         /// <summary>
+        /// Additional data regarding the assessment
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? AdditionalData;
+        /// <summary>
+        /// User friendly display name of the assessment
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// Links relevant to the assessment
+        /// </summary>
+        public readonly Outputs.AssessmentLinksResponseResult? Links;
+        /// <summary>
+        /// Describes properties of an assessment metadata.
+        /// </summary>
+        public readonly Outputs.SecurityAssessmentMetadataPropertiesResponseResult? Metadata;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes properties of an assessment.
+        /// Data regarding 3rd party partner integration
         /// </summary>
-        public readonly Outputs.SecurityAssessmentPropertiesResponseResult Properties;
+        public readonly Outputs.SecurityAssessmentPartnerDataResponseResult? PartnersData;
+        /// <summary>
+        /// Details of the resource that was assessed
+        /// </summary>
+        public readonly Outputs.ResourceDetailsResponseResult ResourceDetails;
+        /// <summary>
+        /// The result of the assessment
+        /// </summary>
+        public readonly Outputs.AssessmentStatusResponseResult Status;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -54,14 +78,32 @@ namespace Pulumi.AzureRM.Security.V20200101
 
         [OutputConstructor]
         private GetAssessmentResult(
+            ImmutableDictionary<string, string>? additionalData,
+
+            string displayName,
+
+            Outputs.AssessmentLinksResponseResult? links,
+
+            Outputs.SecurityAssessmentMetadataPropertiesResponseResult? metadata,
+
             string name,
 
-            Outputs.SecurityAssessmentPropertiesResponseResult properties,
+            Outputs.SecurityAssessmentPartnerDataResponseResult? partnersData,
+
+            Outputs.ResourceDetailsResponseResult resourceDetails,
+
+            Outputs.AssessmentStatusResponseResult status,
 
             string type)
         {
+            AdditionalData = additionalData;
+            DisplayName = displayName;
+            Links = links;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
+            PartnersData = partnersData;
+            ResourceDetails = resourceDetails;
+            Status = status;
             Type = type;
         }
     }

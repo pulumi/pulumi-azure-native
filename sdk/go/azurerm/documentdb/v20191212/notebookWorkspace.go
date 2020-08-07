@@ -16,8 +16,10 @@ type NotebookWorkspace struct {
 
 	// The name of the database account.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource properties.
-	Properties NotebookWorkspacePropertiesResponseOutput `pulumi:"properties"`
+	// Specifies the endpoint of Notebook server.
+	NotebookServerEndpoint pulumi.StringOutput `pulumi:"notebookServerEndpoint"`
+	// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// The type of Azure resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,8 +63,10 @@ func GetNotebookWorkspace(ctx *pulumi.Context,
 type notebookWorkspaceState struct {
 	// The name of the database account.
 	Name *string `pulumi:"name"`
-	// Resource properties.
-	Properties *NotebookWorkspacePropertiesResponse `pulumi:"properties"`
+	// Specifies the endpoint of Notebook server.
+	NotebookServerEndpoint *string `pulumi:"notebookServerEndpoint"`
+	// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+	Status *string `pulumi:"status"`
 	// The type of Azure resource.
 	Type *string `pulumi:"type"`
 }
@@ -70,8 +74,10 @@ type notebookWorkspaceState struct {
 type NotebookWorkspaceState struct {
 	// The name of the database account.
 	Name pulumi.StringPtrInput
-	// Resource properties.
-	Properties NotebookWorkspacePropertiesResponsePtrInput
+	// Specifies the endpoint of Notebook server.
+	NotebookServerEndpoint pulumi.StringPtrInput
+	// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+	Status pulumi.StringPtrInput
 	// The type of Azure resource.
 	Type pulumi.StringPtrInput
 }

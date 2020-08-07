@@ -29,10 +29,44 @@ type LookupServerEndpointArgs struct {
 
 // Server Endpoint object.
 type LookupServerEndpointResult struct {
+	// Cloud Tiering.
+	CloudTiering *string `pulumi:"cloudTiering"`
+	// Cloud tiering status. Only populated if cloud tiering is enabled.
+	CloudTieringStatus ServerEndpointCloudTieringStatusResponse `pulumi:"cloudTieringStatus"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Policy for how namespace and files are recalled during FastDr.
+	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
+	// Resource Last Operation Name
+	LastOperationName string `pulumi:"lastOperationName"`
+	// ServerEndpoint lastWorkflowId
+	LastWorkflowId string `pulumi:"lastWorkflowId"`
+	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
+	LocalCacheMode *string `pulumi:"localCacheMode"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Server Endpoint properties.
-	Properties ServerEndpointPropertiesResponse `pulumi:"properties"`
+	// Offline data transfer
+	OfflineDataTransfer *string `pulumi:"offlineDataTransfer"`
+	// Offline data transfer share name
+	OfflineDataTransferShareName *string `pulumi:"offlineDataTransferShareName"`
+	// Offline data transfer storage account resource ID
+	OfflineDataTransferStorageAccountResourceId string `pulumi:"offlineDataTransferStorageAccountResourceId"`
+	// Offline data transfer storage account tenant ID
+	OfflineDataTransferStorageAccountTenantId string `pulumi:"offlineDataTransferStorageAccountTenantId"`
+	// ServerEndpoint Provisioning State
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Recall status. Only populated if cloud tiering is enabled.
+	RecallStatus ServerEndpointRecallStatusResponse `pulumi:"recallStatus"`
+	// Server Local path.
+	ServerLocalPath *string `pulumi:"serverLocalPath"`
+	// Server Resource Id.
+	ServerResourceId *string `pulumi:"serverResourceId"`
+	// Server Endpoint sync status
+	SyncStatus ServerEndpointSyncStatusResponse `pulumi:"syncStatus"`
+	// Tier files older than days.
+	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
 }

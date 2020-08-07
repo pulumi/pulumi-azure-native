@@ -41,17 +41,33 @@ export interface GetHubRouteTableArgs {
  */
 export interface GetHubRouteTableResult {
     /**
+     * List of all connections associated with this route table.
+     */
+    readonly associatedConnections: string[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * List of labels associated with this route table.
+     */
+    readonly labels?: string[];
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: string;
     /**
-     * Properties of the RouteTable resource.
+     * List of all connections that advertise to this route table.
      */
-    readonly properties: outputs.network.v20200501.HubRouteTablePropertiesResponse;
+    readonly propagatingConnections: string[];
+    /**
+     * The provisioning state of the RouteTable resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * List of all routes.
+     */
+    readonly routes?: outputs.network.v20200501.HubRouteResponse[];
     /**
      * Resource type.
      */

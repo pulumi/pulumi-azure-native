@@ -13,7 +13,19 @@ class GetADCCatalogResult:
     """
     Azure Data Catalog.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, admins=None, enable_automatic_unit_adjustment=None, etag=None, location=None, name=None, sku=None, successfully_provisioned=None, tags=None, type=None, units=None, users=None):
+        if admins and not isinstance(admins, list):
+            raise TypeError("Expected argument 'admins' to be a list")
+        __self__.admins = admins
+        """
+        Azure data catalog admin list.
+        """
+        if enable_automatic_unit_adjustment and not isinstance(enable_automatic_unit_adjustment, bool):
+            raise TypeError("Expected argument 'enable_automatic_unit_adjustment' to be a bool")
+        __self__.enable_automatic_unit_adjustment = enable_automatic_unit_adjustment
+        """
+        Automatic unit adjustment enabled or not.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +44,17 @@ class GetADCCatalogResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        __self__.sku = sku
         """
-        Azure Data Catalog properties.
+        Azure data catalog SKU.
+        """
+        if successfully_provisioned and not isinstance(successfully_provisioned, bool):
+            raise TypeError("Expected argument 'successfully_provisioned' to be a bool")
+        __self__.successfully_provisioned = successfully_provisioned
+        """
+        Azure data catalog provision status.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +68,18 @@ class GetADCCatalogResult:
         """
         Resource type
         """
+        if units and not isinstance(units, float):
+            raise TypeError("Expected argument 'units' to be a float")
+        __self__.units = units
+        """
+        Azure data catalog units.
+        """
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        __self__.users = users
+        """
+        Azure data catalog user list.
+        """
 
 
 class AwaitableGetADCCatalogResult(GetADCCatalogResult):
@@ -58,12 +88,17 @@ class AwaitableGetADCCatalogResult(GetADCCatalogResult):
         if False:
             yield self
         return GetADCCatalogResult(
+            admins=self.admins,
+            enable_automatic_unit_adjustment=self.enable_automatic_unit_adjustment,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            sku=self.sku,
+            successfully_provisioned=self.successfully_provisioned,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            units=self.units,
+            users=self.users)
 
 
 def get_adc_catalog(name=None, resource_group_name=None, opts=None):
@@ -83,9 +118,14 @@ def get_adc_catalog(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:datacatalog/v20160330:getADCCatalog', __args__, opts=opts).value
 
     return AwaitableGetADCCatalogResult(
+        admins=__ret__.get('admins'),
+        enable_automatic_unit_adjustment=__ret__.get('enableAutomaticUnitAdjustment'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        sku=__ret__.get('sku'),
+        successfully_provisioned=__ret__.get('successfullyProvisioned'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        units=__ret__.get('units'),
+        users=__ret__.get('users'))

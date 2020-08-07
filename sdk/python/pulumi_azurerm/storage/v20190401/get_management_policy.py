@@ -13,18 +13,24 @@ class GetManagementPolicyResult:
     """
     The Get Storage Account ManagementPolicies operation response.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, last_modified_time=None, name=None, policy=None, type=None):
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Returns the date and time the ManagementPolicies was last modified.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if policy and not isinstance(policy, dict):
+            raise TypeError("Expected argument 'policy' to be a dict")
+        __self__.policy = policy
         """
-        Returns the Storage Account Data Policies Rules.
+        The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +46,9 @@ class AwaitableGetManagementPolicyResult(GetManagementPolicyResult):
         if False:
             yield self
         return GetManagementPolicyResult(
+            last_modified_time=self.last_modified_time,
             name=self.name,
-            properties=self.properties,
+            policy=self.policy,
             type=self.type)
 
 
@@ -64,6 +71,7 @@ def get_management_policy(account_name=None, name=None, resource_group_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190401:getManagementPolicy', __args__, opts=opts).value
 
     return AwaitableGetManagementPolicyResult(
+        last_modified_time=__ret__.get('lastModifiedTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        policy=__ret__.get('policy'),
         type=__ret__.get('type'))

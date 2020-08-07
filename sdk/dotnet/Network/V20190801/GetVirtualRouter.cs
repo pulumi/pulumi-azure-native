@@ -44,6 +44,14 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The Gateway on which VirtualRouter is hosted.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? HostedGateway;
+        /// <summary>
+        /// The Subnet on which VirtualRouter is hosted.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? HostedSubnet;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -52,9 +60,13 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Virtual Router.
+        /// List of references to VirtualRouterPeerings
         /// </summary>
-        public readonly Outputs.VirtualRouterPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Peerings;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +75,50 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// VirtualRouter ASN.
+        /// </summary>
+        public readonly int? VirtualRouterAsn;
+        /// <summary>
+        /// VirtualRouter IPs
+        /// </summary>
+        public readonly ImmutableArray<string> VirtualRouterIps;
 
         [OutputConstructor]
         private GetVirtualRouterResult(
             string etag,
 
+            Outputs.SubResourceResponseResult? hostedGateway,
+
+            Outputs.SubResourceResponseResult? hostedSubnet,
+
             string? location,
 
             string name,
 
-            Outputs.VirtualRouterPropertiesFormatResponseResult properties,
+            ImmutableArray<Outputs.SubResourceResponseResult> peerings,
+
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            int? virtualRouterAsn,
+
+            ImmutableArray<string> virtualRouterIps)
         {
             Etag = etag;
+            HostedGateway = hostedGateway;
+            HostedSubnet = hostedSubnet;
             Location = location;
             Name = name;
-            Properties = properties;
+            Peerings = peerings;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            VirtualRouterAsn = virtualRouterAsn;
+            VirtualRouterIps = virtualRouterIps;
         }
     }
 }

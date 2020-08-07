@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Compute.V20180601
     public partial class Disk : Pulumi.CustomResource
     {
         /// <summary>
+        /// Disk source information. CreationData information cannot be changed after the disk has been created.
+        /// </summary>
+        [Output("creationData")]
+        public Output<Outputs.CreationDataResponseResult> CreationData { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
+        /// </summary>
+        [Output("diskIOPSReadWrite")]
+        public Output<int?> DiskIOPSReadWrite { get; private set; } = null!;
+
+        /// <summary>
+        /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
+        /// </summary>
+        [Output("diskMBpsReadWrite")]
+        public Output<int?> DiskMBpsReadWrite { get; private set; } = null!;
+
+        /// <summary>
+        /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        /// </summary>
+        [Output("diskSizeGB")]
+        public Output<int?> DiskSizeGB { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption settings for disk or snapshot
+        /// </summary>
+        [Output("encryptionSettings")]
+        public Output<Outputs.EncryptionSettingsResponseResult?> EncryptionSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -33,10 +63,16 @@ namespace Pulumi.AzureRM.Compute.V20180601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Disk resource properties.
+        /// The Operating System type.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DiskPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("osType")]
+        public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The disk provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
@@ -49,6 +85,12 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The time when the disk was created.
+        /// </summary>
+        [Output("timeCreated")]
+        public Output<string> TimeCreated { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

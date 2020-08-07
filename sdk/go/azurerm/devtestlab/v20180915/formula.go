@@ -14,16 +14,30 @@ import (
 type Formula struct {
 	pulumi.CustomResourceState
 
+	// The author of the formula.
+	Author pulumi.StringPtrOutput `pulumi:"author"`
+	// The creation date of the formula.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The description of the formula.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The content of the formula.
+	FormulaContent LabVirtualMachineCreationParameterResponsePtrOutput `pulumi:"formulaContent"`
 	// The location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the resource.
-	Properties FormulaPropertiesResponseOutput `pulumi:"properties"`
+	// The OS type of the formula.
+	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
+	// Information about a VM from which a formula is to be created.
+	Vm FormulaPropertiesFromVmResponsePtrOutput `pulumi:"vm"`
 }
 
 // NewFormula registers a new resource with the given unique name, arguments, and options.
@@ -63,29 +77,57 @@ func GetFormula(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Formula resources.
 type formulaState struct {
+	// The author of the formula.
+	Author *string `pulumi:"author"`
+	// The creation date of the formula.
+	CreationDate *string `pulumi:"creationDate"`
+	// The description of the formula.
+	Description *string `pulumi:"description"`
+	// The content of the formula.
+	FormulaContent *LabVirtualMachineCreationParameterResponse `pulumi:"formulaContent"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *FormulaPropertiesResponse `pulumi:"properties"`
+	// The OS type of the formula.
+	OsType *string `pulumi:"osType"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// Information about a VM from which a formula is to be created.
+	Vm *FormulaPropertiesFromVmResponse `pulumi:"vm"`
 }
 
 type FormulaState struct {
+	// The author of the formula.
+	Author pulumi.StringPtrInput
+	// The creation date of the formula.
+	CreationDate pulumi.StringPtrInput
+	// The description of the formula.
+	Description pulumi.StringPtrInput
+	// The content of the formula.
+	FormulaContent LabVirtualMachineCreationParameterResponsePtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the resource.
-	Properties FormulaPropertiesResponsePtrInput
+	// The OS type of the formula.
+	OsType pulumi.StringPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
+	// Information about a VM from which a formula is to be created.
+	Vm FormulaPropertiesFromVmResponsePtrInput
 }
 
 func (FormulaState) ElementType() reflect.Type {

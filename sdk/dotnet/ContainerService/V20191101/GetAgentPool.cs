@@ -46,29 +46,148 @@ namespace Pulumi.AzureRM.ContainerService.V20191101
     public sealed class GetAgentPoolResult
     {
         /// <summary>
+        /// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        /// </summary>
+        public readonly ImmutableArray<string> AvailabilityZones;
+        /// <summary>
+        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        /// </summary>
+        public readonly int? Count;
+        /// <summary>
+        /// Whether to enable auto-scaler
+        /// </summary>
+        public readonly bool? EnableAutoScaling;
+        /// <summary>
+        /// Enable public IP for nodes
+        /// </summary>
+        public readonly bool? EnableNodePublicIP;
+        /// <summary>
+        /// Maximum number of nodes for auto-scaling
+        /// </summary>
+        public readonly int? MaxCount;
+        /// <summary>
+        /// Maximum number of pods that can run on a node.
+        /// </summary>
+        public readonly int? MaxPods;
+        /// <summary>
+        /// Minimum number of nodes for auto-scaling
+        /// </summary>
+        public readonly int? MinCount;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of an agent pool.
+        /// Agent pool node labels to be persisted across all nodes in agent pool.
         /// </summary>
-        public readonly Outputs.ManagedClusterAgentPoolProfilePropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, string>? NodeLabels;
         /// <summary>
-        /// Resource type
+        /// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        /// </summary>
+        public readonly ImmutableArray<string> NodeTaints;
+        /// <summary>
+        /// Version of orchestrator specified when creating the managed cluster.
+        /// </summary>
+        public readonly string? OrchestratorVersion;
+        /// <summary>
+        /// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        /// </summary>
+        public readonly int? OsDiskSizeGB;
+        /// <summary>
+        /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        /// </summary>
+        public readonly string? OsType;
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
+        /// </summary>
+        public readonly string? ScaleSetEvictionPolicy;
+        /// <summary>
+        /// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+        /// </summary>
+        public readonly string? ScaleSetPriority;
+        /// <summary>
+        /// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// AgentPoolType represents types of an agent pool
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Size of agent VMs.
+        /// </summary>
+        public readonly string? VmSize;
+        /// <summary>
+        /// VNet SubnetID specifies the VNet's subnet identifier.
+        /// </summary>
+        public readonly string? VnetSubnetID;
 
         [OutputConstructor]
         private GetAgentPoolResult(
+            ImmutableArray<string> availabilityZones,
+
+            int? count,
+
+            bool? enableAutoScaling,
+
+            bool? enableNodePublicIP,
+
+            int? maxCount,
+
+            int? maxPods,
+
+            int? minCount,
+
             string name,
 
-            Outputs.ManagedClusterAgentPoolProfilePropertiesResponseResult properties,
+            ImmutableDictionary<string, string>? nodeLabels,
 
-            string type)
+            ImmutableArray<string> nodeTaints,
+
+            string? orchestratorVersion,
+
+            int? osDiskSizeGB,
+
+            string? osType,
+
+            string provisioningState,
+
+            string? scaleSetEvictionPolicy,
+
+            string? scaleSetPriority,
+
+            ImmutableDictionary<string, string>? tags,
+
+            string type,
+
+            string? vmSize,
+
+            string? vnetSubnetID)
         {
+            AvailabilityZones = availabilityZones;
+            Count = count;
+            EnableAutoScaling = enableAutoScaling;
+            EnableNodePublicIP = enableNodePublicIP;
+            MaxCount = maxCount;
+            MaxPods = maxPods;
+            MinCount = minCount;
             Name = name;
-            Properties = properties;
+            NodeLabels = nodeLabels;
+            NodeTaints = nodeTaints;
+            OrchestratorVersion = orchestratorVersion;
+            OsDiskSizeGB = osDiskSizeGB;
+            OsType = osType;
+            ProvisioningState = provisioningState;
+            ScaleSetEvictionPolicy = scaleSetEvictionPolicy;
+            ScaleSetPriority = scaleSetPriority;
+            Tags = tags;
             Type = type;
+            VmSize = vmSize;
+            VnetSubnetID = vnetSubnetID;
         }
     }
 }

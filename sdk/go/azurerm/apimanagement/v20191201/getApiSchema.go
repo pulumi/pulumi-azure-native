@@ -29,10 +29,14 @@ type LookupApiSchemaArgs struct {
 
 // Schema Contract details.
 type LookupApiSchemaResult struct {
+	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
+	ContentType string `pulumi:"contentType"`
+	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+	Definitions map[string]interface{} `pulumi:"definitions"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Schema.
-	Properties SchemaContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
+	Value *string `pulumi:"value"`
 }

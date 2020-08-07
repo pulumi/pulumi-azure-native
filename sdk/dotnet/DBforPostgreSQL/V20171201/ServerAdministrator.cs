@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
     public partial class ServerAdministrator : Pulumi.CustomResource
     {
         /// <summary>
+        /// The type of administrator.
+        /// </summary>
+        [Output("administratorType")]
+        public Output<string> AdministratorType { get; private set; } = null!;
+
+        /// <summary>
+        /// The server administrator login account name.
+        /// </summary>
+        [Output("login")]
+        public Output<string> Login { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the server AAD administrator.
+        /// The server administrator Sid (Secure ID).
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServerAdministratorPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("sid")]
+        public Output<string> Sid { get; private set; } = null!;
+
+        /// <summary>
+        /// The server Active Directory Administrator tenant id.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

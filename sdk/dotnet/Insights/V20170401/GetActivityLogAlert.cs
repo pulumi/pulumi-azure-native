@@ -40,6 +40,22 @@ namespace Pulumi.AzureRM.Insights.V20170401
     public sealed class GetActivityLogAlertResult
     {
         /// <summary>
+        /// The actions that will activate when the condition is met.
+        /// </summary>
+        public readonly Outputs.ActivityLogAlertActionListResponseResult Actions;
+        /// <summary>
+        /// The condition that will cause this alert to activate.
+        /// </summary>
+        public readonly Outputs.ActivityLogAlertAllOfConditionResponseResult Condition;
+        /// <summary>
+        /// A description of this activity log alert.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +64,9 @@ namespace Pulumi.AzureRM.Insights.V20170401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The activity log alert properties of the resource.
+        /// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         /// </summary>
-        public readonly Outputs.ActivityLogAlertResponseResult Properties;
+        public readonly ImmutableArray<string> Scopes;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -62,19 +78,31 @@ namespace Pulumi.AzureRM.Insights.V20170401
 
         [OutputConstructor]
         private GetActivityLogAlertResult(
+            Outputs.ActivityLogAlertActionListResponseResult actions,
+
+            Outputs.ActivityLogAlertAllOfConditionResponseResult condition,
+
+            string? description,
+
+            bool? enabled,
+
             string location,
 
             string name,
 
-            Outputs.ActivityLogAlertResponseResult properties,
+            ImmutableArray<string> scopes,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Actions = actions;
+            Condition = condition;
+            Description = description;
+            Enabled = enabled;
             Location = location;
             Name = name;
-            Properties = properties;
+            Scopes = scopes;
             Tags = tags;
             Type = type;
         }

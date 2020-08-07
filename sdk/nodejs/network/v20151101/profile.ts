@@ -37,21 +37,37 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the DNS settings of the Traffic Manager profile.
+     */
+    public readonly dnsConfig!: pulumi.Output<outputs.network.v20151101.DnsConfigResponse | undefined>;
+    /**
+     * Gets or sets the list of endpoints in the Traffic Manager profile.
+     */
+    public readonly endpoints!: pulumi.Output<outputs.network.v20151101.EndpointResponse[] | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+     */
+    public readonly monitorConfig!: pulumi.Output<outputs.network.v20151101.MonitorConfigResponse | undefined>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Class representing the Traffic Manager profile properties.
+     * Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20151101.ProfilePropertiesResponse>;
+    public readonly profileStatus!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
+     */
+    public readonly trafficRoutingMethod!: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
@@ -85,7 +101,6 @@ export class Profile extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

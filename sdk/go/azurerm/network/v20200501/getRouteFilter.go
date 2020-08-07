@@ -27,12 +27,18 @@ type LookupRouteFilterArgs struct {
 type LookupRouteFilterResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// A collection of references to express route circuit ipv6 peerings.
+	Ipv6Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"ipv6Peerings"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the route filter.
-	Properties RouteFilterPropertiesFormatResponse `pulumi:"properties"`
+	// A collection of references to express route circuit peerings.
+	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
+	// The provisioning state of the route filter resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Collection of RouteFilterRules contained within a route filter.
+	Rules []RouteFilterRuleResponse `pulumi:"rules"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

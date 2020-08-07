@@ -14,14 +14,24 @@ import (
 type InterfaceEndpoint struct {
 	pulumi.CustomResourceState
 
+	// A reference to the service being brought into the virtual network.
+	EndpointService EndpointServiceResponsePtrOutput `pulumi:"endpointService"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the interface endpoint.
-	Properties InterfaceEndpointPropertiesResponseOutput `pulumi:"properties"`
+	// Gets an array of references to the network interfaces created for this interface endpoint.
+	NetworkInterfaces NetworkInterfaceResponseArrayOutput `pulumi:"networkInterfaces"`
+	// A read-only property that identifies who created this interface endpoint.
+	Owner pulumi.StringOutput `pulumi:"owner"`
+	// The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The ID of the subnet from which the private IP will be allocated.
+	Subnet SubnetResponsePtrOutput `pulumi:"subnet"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,14 +72,24 @@ func GetInterfaceEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InterfaceEndpoint resources.
 type interfaceEndpointState struct {
+	// A reference to the service being brought into the virtual network.
+	EndpointService *EndpointServiceResponse `pulumi:"endpointService"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+	Fqdn *string `pulumi:"fqdn"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the interface endpoint.
-	Properties *InterfaceEndpointPropertiesResponse `pulumi:"properties"`
+	// Gets an array of references to the network interfaces created for this interface endpoint.
+	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	// A read-only property that identifies who created this interface endpoint.
+	Owner *string `pulumi:"owner"`
+	// The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The ID of the subnet from which the private IP will be allocated.
+	Subnet *SubnetResponse `pulumi:"subnet"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -77,14 +97,24 @@ type interfaceEndpointState struct {
 }
 
 type InterfaceEndpointState struct {
+	// A reference to the service being brought into the virtual network.
+	EndpointService EndpointServiceResponsePtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+	Fqdn pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the interface endpoint.
-	Properties InterfaceEndpointPropertiesResponsePtrInput
+	// Gets an array of references to the network interfaces created for this interface endpoint.
+	NetworkInterfaces NetworkInterfaceResponseArrayInput
+	// A read-only property that identifies who created this interface endpoint.
+	Owner pulumi.StringPtrInput
+	// The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The ID of the subnet from which the private IP will be allocated.
+	Subnet SubnetResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

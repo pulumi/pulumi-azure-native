@@ -25,16 +25,38 @@ type LookupSignalRArgs struct {
 
 // A class represent a SignalR service resource.
 type LookupSignalRResult struct {
+	// Cross-Origin Resource Sharing (CORS) settings.
+	Cors *SignalRCorsSettingsResponse `pulumi:"cors"`
+	// The publicly accessible IP of the SignalR service.
+	ExternalIP string `pulumi:"externalIP"`
+	// List of SignalR featureFlags. e.g. ServiceMode.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features []SignalRFeatureResponse `pulumi:"features"`
+	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+	HostName string `pulumi:"hostName"`
+	// Prefix for the hostName of the SignalR service. Retained for future use.
+	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+	HostNamePrefix *string `pulumi:"hostNamePrefix"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the service.
-	Properties SignalRPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+	PublicPort int `pulumi:"publicPort"`
+	// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+	ServerPort int `pulumi:"serverPort"`
 	// SKU of the service.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
 	Type string `pulumi:"type"`
+	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+	Version *string `pulumi:"version"`
 }

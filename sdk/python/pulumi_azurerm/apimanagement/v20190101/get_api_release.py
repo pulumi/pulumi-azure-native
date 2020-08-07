@@ -13,24 +13,42 @@ class GetApiReleaseResult:
     """
     ApiRelease details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, api_id=None, created_date_time=None, name=None, notes=None, type=None, updated_date_time=None):
+        if api_id and not isinstance(api_id, str):
+            raise TypeError("Expected argument 'api_id' to be a str")
+        __self__.api_id = api_id
+        """
+        Identifier of the API the release belongs to.
+        """
+        if created_date_time and not isinstance(created_date_time, str):
+            raise TypeError("Expected argument 'created_date_time' to be a str")
+        __self__.created_date_time = created_date_time
+        """
+        The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        __self__.notes = notes
         """
-        ApiRelease entity contract properties.
+        Release Notes
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if updated_date_time and not isinstance(updated_date_time, str):
+            raise TypeError("Expected argument 'updated_date_time' to be a str")
+        __self__.updated_date_time = updated_date_time
+        """
+        The time the API release was updated.
         """
 
 
@@ -40,9 +58,12 @@ class AwaitableGetApiReleaseResult(GetApiReleaseResult):
         if False:
             yield self
         return GetApiReleaseResult(
+            api_id=self.api_id,
+            created_date_time=self.created_date_time,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            notes=self.notes,
+            type=self.type,
+            updated_date_time=self.updated_date_time)
 
 
 def get_api_release(api_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
@@ -66,6 +87,9 @@ def get_api_release(api_id=None, name=None, resource_group_name=None, service_na
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiRelease', __args__, opts=opts).value
 
     return AwaitableGetApiReleaseResult(
+        api_id=__ret__.get('apiId'),
+        created_date_time=__ret__.get('createdDateTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        notes=__ret__.get('notes'),
+        type=__ret__.get('type'),
+        updated_date_time=__ret__.get('updatedDateTime'))

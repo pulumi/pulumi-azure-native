@@ -37,13 +37,45 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
+     * Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+     */
+    public readonly correlationData!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * Optional customer supplied description of the Job.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The UTC date and time at which this Job finished processing.
+     */
+    public /*out*/ readonly endTime!: pulumi.Output<string>;
+    /**
+     * The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     */
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The resource properties.
+     * The outputs for the Job.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.JobPropertiesResponse>;
+    public readonly outputs!: pulumi.Output<outputs.media.v20180701.JobOutputResponse[]>;
+    /**
+     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+     */
+    public readonly priority!: pulumi.Output<string | undefined>;
+    /**
+     * The UTC date and time at which this Job began processing.
+     */
+    public /*out*/ readonly startTime!: pulumi.Output<string>;
+    /**
+     * The current state of the job.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -85,7 +117,11 @@ export class Job extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["transformName"] = args ? args.transformName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["endTime"] = undefined /*out*/;
+            inputs["lastModified"] = undefined /*out*/;
+            inputs["startTime"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

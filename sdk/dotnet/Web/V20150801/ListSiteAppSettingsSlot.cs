@@ -52,10 +52,6 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Settings
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> Properties;
-        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -72,8 +68,6 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             string? name,
 
-            ImmutableDictionary<string, string> properties,
-
             ImmutableDictionary<string, string>? tags,
 
             string? type)
@@ -81,7 +75,6 @@ namespace Pulumi.AzureRM.Web.V20150801
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
             Tags = tags;
             Type = type;
         }

@@ -14,22 +14,50 @@ namespace Pulumi.AzureRM.Compute.V20190701.Outputs
     public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationResponseResult
     {
         /// <summary>
+        /// The dns settings to be applied on the publicIP addresses .
+        /// </summary>
+        public readonly Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseResult? DnsSettings;
+        /// <summary>
+        /// The idle timeout of the public IP address.
+        /// </summary>
+        public readonly int? IdleTimeoutInMinutes;
+        /// <summary>
+        /// The list of IP tags associated with the public IP address.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualMachineScaleSetIpTagResponseResult> IpTags;
+        /// <summary>
         /// The publicIP address configuration name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
+        /// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseResult? Properties;
+        public readonly string? PublicIPAddressVersion;
+        /// <summary>
+        /// The PublicIPPrefix from which to allocate publicIP addresses.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PublicIPPrefix;
 
         [OutputConstructor]
         private VirtualMachineScaleSetPublicIPAddressConfigurationResponseResult(
+            Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseResult? dnsSettings,
+
+            int? idleTimeoutInMinutes,
+
+            ImmutableArray<Outputs.VirtualMachineScaleSetIpTagResponseResult> ipTags,
+
             string name,
 
-            Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseResult? properties)
+            string? publicIPAddressVersion,
+
+            Outputs.SubResourceResponseResult? publicIPPrefix)
         {
+            DnsSettings = dnsSettings;
+            IdleTimeoutInMinutes = idleTimeoutInMinutes;
+            IpTags = ipTags;
             Name = name;
-            Properties = properties;
+            PublicIPAddressVersion = publicIPAddressVersion;
+            PublicIPPrefix = publicIPPrefix;
         }
     }
 }

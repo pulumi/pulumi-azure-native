@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
     public partial class CertificateOrderCertificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// Key Vault Csm resource Id
+        /// </summary>
+        [Output("keyVaultId")]
+        public Output<string?> KeyVaultId { get; private set; } = null!;
+
+        /// <summary>
+        /// Key Vault secret name
+        /// </summary>
+        [Output("keyVaultSecretName")]
+        public Output<string?> KeyVaultSecretName { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
@@ -32,8 +44,11 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.CertificateOrderCertificateResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Status of the Key Vault secret
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

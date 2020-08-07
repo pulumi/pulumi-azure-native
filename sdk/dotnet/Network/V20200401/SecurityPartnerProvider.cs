@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20200401
     public partial class SecurityPartnerProvider : Pulumi.CustomResource
     {
         /// <summary>
+        /// The connection status with the Security Partner Provider.
+        /// </summary>
+        [Output("connectionStatus")]
+        public Output<string> ConnectionStatus { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +39,16 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Security Partner Provider.
+        /// The provisioning state of the Security Partner Provider resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SecurityPartnerProviderPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The security provider name.
+        /// </summary>
+        [Output("securityProviderName")]
+        public Output<string?> SecurityProviderName { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +61,12 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The virtualHub to which the Security Partner Provider belongs.
+        /// </summary>
+        [Output("virtualHub")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
 
 
         /// <summary>

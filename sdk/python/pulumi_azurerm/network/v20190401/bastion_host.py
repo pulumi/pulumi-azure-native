@@ -10,9 +10,27 @@ from ... import _utilities, _tables
 
 
 class BastionHost(pulumi.CustomResource):
+    dns_name: pulumi.Output[str]
+    """
+    FQDN for the endpoint on which bastion host is accessible.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
+    """
+    ip_configurations: pulumi.Output[list]
+    """
+    IP configuration of the Bastion Host resource.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `private_ip_allocation_method` (`str`) - Private IP allocation method.
+      * `provisioning_state` (`str`) - The provisioning state of the resource.
+      * `public_ip_address` (`dict`) - Reference of the PublicIP resource.
+        * `id` (`str`) - Resource ID.
+
+      * `subnet` (`dict`) - Reference of the subnet resource.
+      * `type` (`str`) - Ip configuration type.
     """
     location: pulumi.Output[str]
     """
@@ -22,25 +40,9 @@ class BastionHost(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Represents the bastion host resource.
-      * `dns_name` (`str`) - FQDN for the endpoint on which bastion host is accessible.
-      * `ip_configurations` (`list`) - IP configuration of the Bastion Host resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Represents the ip configuration associated with the resource.
-          * `private_ip_allocation_method` (`str`) - Private IP allocation method.
-          * `provisioning_state` (`str`) - The provisioning state of the resource.
-          * `public_ip_address` (`dict`) - Reference of the PublicIP resource.
-            * `id` (`str`) - Resource ID.
-
-          * `subnet` (`dict`) - Reference of the subnet resource.
-
-        * `type` (`str`) - Ip configuration type.
-
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    The provisioning state of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -106,7 +108,6 @@ class BastionHost(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(BastionHost, __self__).__init__(
             'azurerm:network/v20190401:BastionHost',

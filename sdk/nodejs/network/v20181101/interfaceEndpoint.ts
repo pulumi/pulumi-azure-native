@@ -37,9 +37,17 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * A reference to the service being brought into the virtual network.
+     */
+    public readonly endpointService!: pulumi.Output<outputs.network.v20181101.EndpointServiceResponse | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+     */
+    public readonly fqdn!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +57,21 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the interface endpoint.
+     * Gets an array of references to the network interfaces created for this interface endpoint.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181101.InterfaceEndpointPropertiesResponse>;
+    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.v20181101.NetworkInterfaceResponse[]>;
+    /**
+     * A read-only property that identifies who created this interface endpoint.
+     */
+    public /*out*/ readonly owner!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The ID of the subnet from which the private IP will be allocated.
+     */
+    public readonly subnet!: pulumi.Output<outputs.network.v20181101.SubnetResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -89,7 +109,9 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["owner"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

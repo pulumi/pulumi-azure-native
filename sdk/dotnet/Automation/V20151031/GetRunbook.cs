@@ -46,21 +46,77 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetRunbookResult
     {
         /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        public readonly string? CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Gets or sets the draft runbook properties.
+        /// </summary>
+        public readonly Outputs.RunbookDraftResponseResult? Draft;
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Gets or sets the job count of the runbook.
+        /// </summary>
+        public readonly int? JobCount;
+        /// <summary>
+        /// Gets or sets the last modified by.
+        /// </summary>
+        public readonly string? LastModifiedBy;
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        public readonly string? LastModifiedTime;
         /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Gets or sets the option to log activity trace of the runbook.
+        /// </summary>
+        public readonly int? LogActivityTrace;
+        /// <summary>
+        /// Gets or sets progress log option.
+        /// </summary>
+        public readonly bool? LogProgress;
+        /// <summary>
+        /// Gets or sets verbose log option.
+        /// </summary>
+        public readonly bool? LogVerbose;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the runbook properties.
+        /// Gets or sets the runbook output types.
         /// </summary>
-        public readonly Outputs.RunbookPropertiesResponseResult Properties;
+        public readonly ImmutableArray<string> OutputTypes;
+        /// <summary>
+        /// Gets or sets the runbook parameters.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>? Parameters;
+        /// <summary>
+        /// Gets or sets the provisioning state of the runbook.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the published runbook content link.
+        /// </summary>
+        public readonly Outputs.ContentLinkResponseResult? PublishContentLink;
+        /// <summary>
+        /// Gets or sets the type of the runbook.
+        /// </summary>
+        public readonly string? RunbookType;
+        /// <summary>
+        /// Gets or sets the state of the runbook.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,22 +128,64 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
         [OutputConstructor]
         private GetRunbookResult(
+            string? creationTime,
+
+            string? description,
+
+            Outputs.RunbookDraftResponseResult? draft,
+
             string? etag,
+
+            int? jobCount,
+
+            string? lastModifiedBy,
+
+            string? lastModifiedTime,
 
             string? location,
 
+            int? logActivityTrace,
+
+            bool? logProgress,
+
+            bool? logVerbose,
+
             string name,
 
-            Outputs.RunbookPropertiesResponseResult properties,
+            ImmutableArray<string> outputTypes,
+
+            ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>? parameters,
+
+            string? provisioningState,
+
+            Outputs.ContentLinkResponseResult? publishContentLink,
+
+            string? runbookType,
+
+            string? state,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            CreationTime = creationTime;
+            Description = description;
+            Draft = draft;
             Etag = etag;
+            JobCount = jobCount;
+            LastModifiedBy = lastModifiedBy;
+            LastModifiedTime = lastModifiedTime;
             Location = location;
+            LogActivityTrace = logActivityTrace;
+            LogProgress = logProgress;
+            LogVerbose = logVerbose;
             Name = name;
-            Properties = properties;
+            OutputTypes = outputTypes;
+            Parameters = parameters;
+            ProvisioningState = provisioningState;
+            PublishContentLink = publishContentLink;
+            RunbookType = runbookType;
+            State = state;
             Tags = tags;
             Type = type;
         }

@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20191101
     public partial class ServiceEndpointPolicyDefinition : Pulumi.CustomResource
     {
         /// <summary>
+        /// A description for this rule. Restricted to 140 chars.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -27,10 +33,22 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the service endpoint policy definition.
+        /// The provisioning state of the service endpoint policy definition resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServiceEndpointPolicyDefinitionPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Service endpoint name.
+        /// </summary>
+        [Output("service")]
+        public Output<string?> Service { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of service resources.
+        /// </summary>
+        [Output("serviceResources")]
+        public Output<ImmutableArray<string>> ServiceResources { get; private set; } = null!;
 
 
         /// <summary>

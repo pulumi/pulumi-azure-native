@@ -40,21 +40,37 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
     public sealed class GetCacheResult
     {
         /// <summary>
+        /// The size of this Cache, in GB.
+        /// </summary>
+        public readonly int? CacheSizeGB;
+        /// <summary>
+        /// Health of the Cache.
+        /// </summary>
+        public readonly Outputs.CacheHealthResponseResult Health;
+        /// <summary>
         /// Region name string.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Array of IP addresses that can be used by clients mounting this Cache.
+        /// </summary>
+        public readonly ImmutableArray<string> MountAddresses;
         /// <summary>
         /// Name of Cache.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Cache.
+        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
-        public readonly Outputs.CacheResponsePropertiesResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// SKU for the Cache.
         /// </summary>
         public readonly Outputs.CacheResponseSkuResult? Sku;
+        /// <summary>
+        /// Subnet used for the Cache.
+        /// </summary>
+        public readonly string? Subnet;
         /// <summary>
         /// ARM tags as name/value pairs.
         /// </summary>
@@ -63,27 +79,46 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         /// Type of the Cache; Microsoft.StorageCache/Cache
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Upgrade status of the Cache.
+        /// </summary>
+        public readonly Outputs.CacheUpgradeStatusResponseResult? UpgradeStatus;
 
         [OutputConstructor]
         private GetCacheResult(
+            int? cacheSizeGB,
+
+            Outputs.CacheHealthResponseResult health,
+
             string? location,
+
+            ImmutableArray<string> mountAddresses,
 
             string name,
 
-            Outputs.CacheResponsePropertiesResult properties,
+            string? provisioningState,
 
             Outputs.CacheResponseSkuResult? sku,
 
+            string? subnet,
+
             ImmutableDictionary<string, object>? tags,
 
-            string type)
+            string type,
+
+            Outputs.CacheUpgradeStatusResponseResult? upgradeStatus)
         {
+            CacheSizeGB = cacheSizeGB;
+            Health = health;
             Location = location;
+            MountAddresses = mountAddresses;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Sku = sku;
+            Subnet = subnet;
             Tags = tags;
             Type = type;
+            UpgradeStatus = upgradeStatus;
         }
     }
 }

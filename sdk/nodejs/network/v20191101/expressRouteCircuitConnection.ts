@@ -37,17 +37,37 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
     }
 
     /**
+     * /29 IP address space to carve out Customer addresses for tunnels.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The authorization key.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
+     * Express Route Circuit connection state.
+     */
+    public readonly circuitConnectionStatus!: pulumi.Output<string | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+     */
+    public readonly expressRouteCircuitPeering!: pulumi.Output<outputs.network.v20191101.SubResourceResponse | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the express route circuit connection.
+     * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.ExpressRouteCircuitConnectionPropertiesFormatResponse>;
+    public readonly peerExpressRouteCircuitPeering!: pulumi.Output<outputs.network.v20191101.SubResourceResponse | undefined>;
+    /**
+     * The provisioning state of the express route circuit connection resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
@@ -89,7 +109,7 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

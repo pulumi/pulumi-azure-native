@@ -13,12 +13,84 @@ class GetIncidentResult:
     """
     Represents an incident in Azure Security Insights.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, related_analytic_rule_ids=None, severity=None, status=None, title=None, type=None):
+        if additional_data and not isinstance(additional_data, dict):
+            raise TypeError("Expected argument 'additional_data' to be a dict")
+        __self__.additional_data = additional_data
+        """
+        Additional data on the incident
+        """
+        if classification and not isinstance(classification, str):
+            raise TypeError("Expected argument 'classification' to be a str")
+        __self__.classification = classification
+        """
+        The reason the incident was closed
+        """
+        if classification_comment and not isinstance(classification_comment, str):
+            raise TypeError("Expected argument 'classification_comment' to be a str")
+        __self__.classification_comment = classification_comment
+        """
+        Describes the reason the incident was closed
+        """
+        if classification_reason and not isinstance(classification_reason, str):
+            raise TypeError("Expected argument 'classification_reason' to be a str")
+        __self__.classification_reason = classification_reason
+        """
+        The classification reason the incident was closed with
+        """
+        if created_time_utc and not isinstance(created_time_utc, str):
+            raise TypeError("Expected argument 'created_time_utc' to be a str")
+        __self__.created_time_utc = created_time_utc
+        """
+        The time the incident was created
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the incident
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Etag of the azure resource
+        """
+        if first_activity_time_utc and not isinstance(first_activity_time_utc, str):
+            raise TypeError("Expected argument 'first_activity_time_utc' to be a str")
+        __self__.first_activity_time_utc = first_activity_time_utc
+        """
+        The time of the first activity in the incident
+        """
+        if incident_number and not isinstance(incident_number, float):
+            raise TypeError("Expected argument 'incident_number' to be a float")
+        __self__.incident_number = incident_number
+        """
+        A sequential number
+        """
+        if incident_url and not isinstance(incident_url, str):
+            raise TypeError("Expected argument 'incident_url' to be a str")
+        __self__.incident_url = incident_url
+        """
+        The deep-link url to the incident in Azure portal
+        """
+        if labels and not isinstance(labels, list):
+            raise TypeError("Expected argument 'labels' to be a list")
+        __self__.labels = labels
+        """
+        List of labels relevant to this incident
+        """
+        if last_activity_time_utc and not isinstance(last_activity_time_utc, str):
+            raise TypeError("Expected argument 'last_activity_time_utc' to be a str")
+        __self__.last_activity_time_utc = last_activity_time_utc
+        """
+        The time of the last activity in the incident
+        """
+        if last_modified_time_utc and not isinstance(last_modified_time_utc, str):
+            raise TypeError("Expected argument 'last_modified_time_utc' to be a str")
+        __self__.last_modified_time_utc = last_modified_time_utc
+        """
+        The last time the incident was updated
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +98,35 @@ class GetIncidentResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if owner and not isinstance(owner, dict):
+            raise TypeError("Expected argument 'owner' to be a dict")
+        __self__.owner = owner
         """
-        Incident properties
+        Describes a user that the incident is assigned to
+        """
+        if related_analytic_rule_ids and not isinstance(related_analytic_rule_ids, list):
+            raise TypeError("Expected argument 'related_analytic_rule_ids' to be a list")
+        __self__.related_analytic_rule_ids = related_analytic_rule_ids
+        """
+        List of resource ids of Analytic rules related to the incident
+        """
+        if severity and not isinstance(severity, str):
+            raise TypeError("Expected argument 'severity' to be a str")
+        __self__.severity = severity
+        """
+        The severity of the incident
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of the incident
+        """
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        __self__.title = title
+        """
+        The title of the incident
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +142,25 @@ class AwaitableGetIncidentResult(GetIncidentResult):
         if False:
             yield self
         return GetIncidentResult(
+            additional_data=self.additional_data,
+            classification=self.classification,
+            classification_comment=self.classification_comment,
+            classification_reason=self.classification_reason,
+            created_time_utc=self.created_time_utc,
+            description=self.description,
             etag=self.etag,
+            first_activity_time_utc=self.first_activity_time_utc,
+            incident_number=self.incident_number,
+            incident_url=self.incident_url,
+            labels=self.labels,
+            last_activity_time_utc=self.last_activity_time_utc,
+            last_modified_time_utc=self.last_modified_time_utc,
             name=self.name,
-            properties=self.properties,
+            owner=self.owner,
+            related_analytic_rule_ids=self.related_analytic_rule_ids,
+            severity=self.severity,
+            status=self.status,
+            title=self.title,
             type=self.type)
 
 
@@ -71,7 +183,23 @@ def get_incident(name=None, resource_group_name=None, workspace_name=None, opts=
     __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200101:getIncident', __args__, opts=opts).value
 
     return AwaitableGetIncidentResult(
+        additional_data=__ret__.get('additionalData'),
+        classification=__ret__.get('classification'),
+        classification_comment=__ret__.get('classificationComment'),
+        classification_reason=__ret__.get('classificationReason'),
+        created_time_utc=__ret__.get('createdTimeUtc'),
+        description=__ret__.get('description'),
         etag=__ret__.get('etag'),
+        first_activity_time_utc=__ret__.get('firstActivityTimeUtc'),
+        incident_number=__ret__.get('incidentNumber'),
+        incident_url=__ret__.get('incidentUrl'),
+        labels=__ret__.get('labels'),
+        last_activity_time_utc=__ret__.get('lastActivityTimeUtc'),
+        last_modified_time_utc=__ret__.get('lastModifiedTimeUtc'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        owner=__ret__.get('owner'),
+        related_analytic_rule_ids=__ret__.get('relatedAnalyticRuleIds'),
+        severity=__ret__.get('severity'),
+        status=__ret__.get('status'),
+        title=__ret__.get('title'),
         type=__ret__.get('type'))

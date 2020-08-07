@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,9 +43,13 @@ export class StorageSyncService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Storage Sync Service properties.
+     * Storage Sync service status.
      */
-    public readonly properties!: pulumi.Output<outputs.storagesync.v20191001.StorageSyncServicePropertiesResponse>;
+    public /*out*/ readonly storageSyncServiceStatus!: pulumi.Output<number>;
+    /**
+     * Storage Sync service Uid
+     */
+    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -84,6 +86,8 @@ export class StorageSyncService extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["storageSyncServiceStatus"] = undefined /*out*/;
+            inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

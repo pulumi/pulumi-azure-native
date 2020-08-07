@@ -41,13 +41,17 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
+     * Format of the policyContent.
+     */
+    readonly contentFormat?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the Policy.
+     * Json escaped Xml Encoded contents of the Policy.
      */
-    readonly properties: outputs.apimanagement.v20180101.PolicyContractPropertiesResponse;
+    readonly policyContent: string;
     /**
      * Resource type for API Management resource.
      */

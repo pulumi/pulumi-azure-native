@@ -346,137 +346,6 @@ func (o BasicDependencyResponseArrayOutput) Index(i pulumi.IntInput) BasicDepend
 	}).(BasicDependencyResponseOutput)
 }
 
-type DebugSettingResponse struct {
-	// The debug detail level.
-	DetailLevel *string `pulumi:"detailLevel"`
-}
-
-// DebugSettingResponseInput is an input type that accepts DebugSettingResponseArgs and DebugSettingResponseOutput values.
-// You can construct a concrete instance of `DebugSettingResponseInput` via:
-//
-//          DebugSettingResponseArgs{...}
-type DebugSettingResponseInput interface {
-	pulumi.Input
-
-	ToDebugSettingResponseOutput() DebugSettingResponseOutput
-	ToDebugSettingResponseOutputWithContext(context.Context) DebugSettingResponseOutput
-}
-
-type DebugSettingResponseArgs struct {
-	// The debug detail level.
-	DetailLevel pulumi.StringPtrInput `pulumi:"detailLevel"`
-}
-
-func (DebugSettingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DebugSettingResponse)(nil)).Elem()
-}
-
-func (i DebugSettingResponseArgs) ToDebugSettingResponseOutput() DebugSettingResponseOutput {
-	return i.ToDebugSettingResponseOutputWithContext(context.Background())
-}
-
-func (i DebugSettingResponseArgs) ToDebugSettingResponseOutputWithContext(ctx context.Context) DebugSettingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DebugSettingResponseOutput)
-}
-
-func (i DebugSettingResponseArgs) ToDebugSettingResponsePtrOutput() DebugSettingResponsePtrOutput {
-	return i.ToDebugSettingResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DebugSettingResponseArgs) ToDebugSettingResponsePtrOutputWithContext(ctx context.Context) DebugSettingResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DebugSettingResponseOutput).ToDebugSettingResponsePtrOutputWithContext(ctx)
-}
-
-// DebugSettingResponsePtrInput is an input type that accepts DebugSettingResponseArgs, DebugSettingResponsePtr and DebugSettingResponsePtrOutput values.
-// You can construct a concrete instance of `DebugSettingResponsePtrInput` via:
-//
-//          DebugSettingResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DebugSettingResponsePtrInput interface {
-	pulumi.Input
-
-	ToDebugSettingResponsePtrOutput() DebugSettingResponsePtrOutput
-	ToDebugSettingResponsePtrOutputWithContext(context.Context) DebugSettingResponsePtrOutput
-}
-
-type debugSettingResponsePtrType DebugSettingResponseArgs
-
-func DebugSettingResponsePtr(v *DebugSettingResponseArgs) DebugSettingResponsePtrInput {
-	return (*debugSettingResponsePtrType)(v)
-}
-
-func (*debugSettingResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DebugSettingResponse)(nil)).Elem()
-}
-
-func (i *debugSettingResponsePtrType) ToDebugSettingResponsePtrOutput() DebugSettingResponsePtrOutput {
-	return i.ToDebugSettingResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *debugSettingResponsePtrType) ToDebugSettingResponsePtrOutputWithContext(ctx context.Context) DebugSettingResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DebugSettingResponsePtrOutput)
-}
-
-type DebugSettingResponseOutput struct{ *pulumi.OutputState }
-
-func (DebugSettingResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DebugSettingResponse)(nil)).Elem()
-}
-
-func (o DebugSettingResponseOutput) ToDebugSettingResponseOutput() DebugSettingResponseOutput {
-	return o
-}
-
-func (o DebugSettingResponseOutput) ToDebugSettingResponseOutputWithContext(ctx context.Context) DebugSettingResponseOutput {
-	return o
-}
-
-func (o DebugSettingResponseOutput) ToDebugSettingResponsePtrOutput() DebugSettingResponsePtrOutput {
-	return o.ToDebugSettingResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DebugSettingResponseOutput) ToDebugSettingResponsePtrOutputWithContext(ctx context.Context) DebugSettingResponsePtrOutput {
-	return o.ApplyT(func(v DebugSettingResponse) *DebugSettingResponse {
-		return &v
-	}).(DebugSettingResponsePtrOutput)
-}
-
-// The debug detail level.
-func (o DebugSettingResponseOutput) DetailLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DebugSettingResponse) *string { return v.DetailLevel }).(pulumi.StringPtrOutput)
-}
-
-type DebugSettingResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DebugSettingResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DebugSettingResponse)(nil)).Elem()
-}
-
-func (o DebugSettingResponsePtrOutput) ToDebugSettingResponsePtrOutput() DebugSettingResponsePtrOutput {
-	return o
-}
-
-func (o DebugSettingResponsePtrOutput) ToDebugSettingResponsePtrOutputWithContext(ctx context.Context) DebugSettingResponsePtrOutput {
-	return o
-}
-
-func (o DebugSettingResponsePtrOutput) Elem() DebugSettingResponseOutput {
-	return o.ApplyT(func(v *DebugSettingResponse) DebugSettingResponse { return *v }).(DebugSettingResponseOutput)
-}
-
-// The debug detail level.
-func (o DebugSettingResponsePtrOutput) DetailLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DebugSettingResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DetailLevel
-	}).(pulumi.StringPtrOutput)
-}
-
 // Deployment dependency information.
 type DependencyResponse struct {
 	// The list of dependencies.
@@ -818,8 +687,6 @@ func (o DeploymentPropertiesPtrOutput) TemplateLink() TemplateLinkPtrOutput {
 type DeploymentPropertiesExtendedResponse struct {
 	// The correlation ID of the deployment.
 	CorrelationId *string `pulumi:"correlationId"`
-	// The debug setting of the deployment.
-	DebugSetting *DebugSettingResponse `pulumi:"debugSetting"`
 	// The list of deployment dependencies.
 	Dependencies []DependencyResponse `pulumi:"dependencies"`
 	// The deployment mode.
@@ -857,8 +724,6 @@ type DeploymentPropertiesExtendedResponseInput interface {
 type DeploymentPropertiesExtendedResponseArgs struct {
 	// The correlation ID of the deployment.
 	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
-	// The debug setting of the deployment.
-	DebugSetting DebugSettingResponsePtrInput `pulumi:"debugSetting"`
 	// The list of deployment dependencies.
 	Dependencies DependencyResponseArrayInput `pulumi:"dependencies"`
 	// The deployment mode.
@@ -964,11 +829,6 @@ func (o DeploymentPropertiesExtendedResponseOutput) CorrelationId() pulumi.Strin
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
-// The debug setting of the deployment.
-func (o DeploymentPropertiesExtendedResponseOutput) DebugSetting() DebugSettingResponsePtrOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *DebugSettingResponse { return v.DebugSetting }).(DebugSettingResponsePtrOutput)
-}
-
 // The list of deployment dependencies.
 func (o DeploymentPropertiesExtendedResponseOutput) Dependencies() DependencyResponseArrayOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) []DependencyResponse { return v.Dependencies }).(DependencyResponseArrayOutput)
@@ -1045,16 +905,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) CorrelationId() pulumi.St
 		}
 		return v.CorrelationId
 	}).(pulumi.StringPtrOutput)
-}
-
-// The debug setting of the deployment.
-func (o DeploymentPropertiesExtendedResponsePtrOutput) DebugSetting() DebugSettingResponsePtrOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) *DebugSettingResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DebugSetting
-	}).(DebugSettingResponsePtrOutput)
 }
 
 // The list of deployment dependencies.
@@ -3319,8 +3169,6 @@ func init() {
 	pulumi.RegisterOutputType(AliasTypeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BasicDependencyResponseOutput{})
 	pulumi.RegisterOutputType(BasicDependencyResponseArrayOutput{})
-	pulumi.RegisterOutputType(DebugSettingResponseOutput{})
-	pulumi.RegisterOutputType(DebugSettingResponsePtrOutput{})
 	pulumi.RegisterOutputType(DependencyResponseOutput{})
 	pulumi.RegisterOutputType(DependencyResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})

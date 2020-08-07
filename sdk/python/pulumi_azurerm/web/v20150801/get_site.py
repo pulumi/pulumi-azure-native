@@ -13,12 +13,107 @@ class GetSiteResult:
     """
     Represents a web app
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, cloning_info=None, container_size=None, default_host_name=None, enabled=None, enabled_host_names=None, gateway_site_name=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, is_default_container=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, micro_service=None, name=None, outbound_ip_addresses=None, premium_app_deployed=None, repository_site_name=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, state=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
+        if availability_state and not isinstance(availability_state, str):
+            raise TypeError("Expected argument 'availability_state' to be a str")
+        __self__.availability_state = availability_state
+        """
+        Management information availability state for the web app. Possible values are Normal or Limited. 
+                    Normal means that the site is running correctly and that management information for the site is available. 
+                    Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+        """
+        if client_affinity_enabled and not isinstance(client_affinity_enabled, bool):
+            raise TypeError("Expected argument 'client_affinity_enabled' to be a bool")
+        __self__.client_affinity_enabled = client_affinity_enabled
+        """
+        Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+        """
+        if client_cert_enabled and not isinstance(client_cert_enabled, bool):
+            raise TypeError("Expected argument 'client_cert_enabled' to be a bool")
+        __self__.client_cert_enabled = client_cert_enabled
+        """
+        Specifies if the client certificate is enabled for the web app
+        """
+        if cloning_info and not isinstance(cloning_info, dict):
+            raise TypeError("Expected argument 'cloning_info' to be a dict")
+        __self__.cloning_info = cloning_info
+        """
+        This is only valid for web app creation. If specified, web app is cloned from 
+                    a source web app
+        """
+        if container_size and not isinstance(container_size, float):
+            raise TypeError("Expected argument 'container_size' to be a float")
+        __self__.container_size = container_size
+        """
+        Size of a function container
+        """
+        if default_host_name and not isinstance(default_host_name, str):
+            raise TypeError("Expected argument 'default_host_name' to be a str")
+        __self__.default_host_name = default_host_name
+        """
+        Default hostname of the web app
+        """
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+        """
+        if enabled_host_names and not isinstance(enabled_host_names, list):
+            raise TypeError("Expected argument 'enabled_host_names' to be a list")
+        __self__.enabled_host_names = enabled_host_names
+        """
+        Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
+                    the app is not served on those hostnames
+        """
+        if gateway_site_name and not isinstance(gateway_site_name, str):
+            raise TypeError("Expected argument 'gateway_site_name' to be a str")
+        __self__.gateway_site_name = gateway_site_name
+        """
+        Name of gateway app associated with web app
+        """
+        if host_name_ssl_states and not isinstance(host_name_ssl_states, list):
+            raise TypeError("Expected argument 'host_name_ssl_states' to be a list")
+        __self__.host_name_ssl_states = host_name_ssl_states
+        """
+        Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+        """
+        if host_names and not isinstance(host_names, list):
+            raise TypeError("Expected argument 'host_names' to be a list")
+        __self__.host_names = host_names
+        """
+        Hostnames associated with web app
+        """
+        if host_names_disabled and not isinstance(host_names_disabled, bool):
+            raise TypeError("Expected argument 'host_names_disabled' to be a bool")
+        __self__.host_names_disabled = host_names_disabled
+        """
+        Specifies if the public hostnames are disabled the web app.
+                    If set to true the app is only accessible via API Management process
+        """
+        if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
+            raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
+        __self__.hosting_environment_profile = hosting_environment_profile
+        """
+        Specification for the hosting environment (App Service Environment) to use for the web app
+        """
+        if is_default_container and not isinstance(is_default_container, bool):
+            raise TypeError("Expected argument 'is_default_container' to be a bool")
+        __self__.is_default_container = is_default_container
+        """
+        Site is a default container
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         Kind of resource
+        """
+        if last_modified_time_utc and not isinstance(last_modified_time_utc, str):
+            raise TypeError("Expected argument 'last_modified_time_utc' to be a str")
+        __self__.last_modified_time_utc = last_modified_time_utc
+        """
+        Last time web app was modified in UTC
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,26 +121,96 @@ class GetSiteResult:
         """
         Resource Location
         """
+        if max_number_of_workers and not isinstance(max_number_of_workers, float):
+            raise TypeError("Expected argument 'max_number_of_workers' to be a float")
+        __self__.max_number_of_workers = max_number_of_workers
+        """
+        Maximum number of workers
+                    This only applies to function container
+        """
+        if micro_service and not isinstance(micro_service, str):
+            raise TypeError("Expected argument 'micro_service' to be a str")
+        __self__.micro_service = micro_service
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if outbound_ip_addresses and not isinstance(outbound_ip_addresses, str):
+            raise TypeError("Expected argument 'outbound_ip_addresses' to be a str")
+        __self__.outbound_ip_addresses = outbound_ip_addresses
+        """
+        List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+        """
+        if premium_app_deployed and not isinstance(premium_app_deployed, bool):
+            raise TypeError("Expected argument 'premium_app_deployed' to be a bool")
+        __self__.premium_app_deployed = premium_app_deployed
+        """
+        If set indicates whether web app is deployed as a premium app
+        """
+        if repository_site_name and not isinstance(repository_site_name, str):
+            raise TypeError("Expected argument 'repository_site_name' to be a str")
+        __self__.repository_site_name = repository_site_name
+        """
+        Name of repository site
+        """
+        if resource_group and not isinstance(resource_group, str):
+            raise TypeError("Expected argument 'resource_group' to be a str")
+        __self__.resource_group = resource_group
+        """
+        Resource group web app belongs to
+        """
+        if scm_site_also_stopped and not isinstance(scm_site_also_stopped, bool):
+            raise TypeError("Expected argument 'scm_site_also_stopped' to be a bool")
+        __self__.scm_site_also_stopped = scm_site_also_stopped
+        """
+        If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+        """
+        if server_farm_id and not isinstance(server_farm_id, str):
+            raise TypeError("Expected argument 'server_farm_id' to be a str")
+        __self__.server_farm_id = server_farm_id
+        if site_config and not isinstance(site_config, dict):
+            raise TypeError("Expected argument 'site_config' to be a dict")
+        __self__.site_config = site_config
+        """
+        Configuration of web app
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        State of the web app
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags
         """
+        if target_swap_slot and not isinstance(target_swap_slot, str):
+            raise TypeError("Expected argument 'target_swap_slot' to be a str")
+        __self__.target_swap_slot = target_swap_slot
+        """
+        Read-only property that specifies which slot this app will swap into
+        """
+        if traffic_manager_host_names and not isinstance(traffic_manager_host_names, list):
+            raise TypeError("Expected argument 'traffic_manager_host_names' to be a list")
+        __self__.traffic_manager_host_names = traffic_manager_host_names
+        """
+        Read-only list of Azure Traffic manager hostnames associated with web app
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if usage_state and not isinstance(usage_state, str):
+            raise TypeError("Expected argument 'usage_state' to be a str")
+        __self__.usage_state = usage_state
+        """
+        State indicating whether web app has exceeded its quota usage
         """
 
 
@@ -55,12 +220,39 @@ class AwaitableGetSiteResult(GetSiteResult):
         if False:
             yield self
         return GetSiteResult(
+            availability_state=self.availability_state,
+            client_affinity_enabled=self.client_affinity_enabled,
+            client_cert_enabled=self.client_cert_enabled,
+            cloning_info=self.cloning_info,
+            container_size=self.container_size,
+            default_host_name=self.default_host_name,
+            enabled=self.enabled,
+            enabled_host_names=self.enabled_host_names,
+            gateway_site_name=self.gateway_site_name,
+            host_name_ssl_states=self.host_name_ssl_states,
+            host_names=self.host_names,
+            host_names_disabled=self.host_names_disabled,
+            hosting_environment_profile=self.hosting_environment_profile,
+            is_default_container=self.is_default_container,
             kind=self.kind,
+            last_modified_time_utc=self.last_modified_time_utc,
             location=self.location,
+            max_number_of_workers=self.max_number_of_workers,
+            micro_service=self.micro_service,
             name=self.name,
-            properties=self.properties,
+            outbound_ip_addresses=self.outbound_ip_addresses,
+            premium_app_deployed=self.premium_app_deployed,
+            repository_site_name=self.repository_site_name,
+            resource_group=self.resource_group,
+            scm_site_also_stopped=self.scm_site_also_stopped,
+            server_farm_id=self.server_farm_id,
+            site_config=self.site_config,
+            state=self.state,
             tags=self.tags,
-            type=self.type)
+            target_swap_slot=self.target_swap_slot,
+            traffic_manager_host_names=self.traffic_manager_host_names,
+            type=self.type,
+            usage_state=self.usage_state)
 
 
 def get_site(name=None, properties_to_include=None, resource_group_name=None, opts=None):
@@ -82,9 +274,36 @@ def get_site(name=None, properties_to_include=None, resource_group_name=None, op
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getSite', __args__, opts=opts).value
 
     return AwaitableGetSiteResult(
+        availability_state=__ret__.get('availabilityState'),
+        client_affinity_enabled=__ret__.get('clientAffinityEnabled'),
+        client_cert_enabled=__ret__.get('clientCertEnabled'),
+        cloning_info=__ret__.get('cloningInfo'),
+        container_size=__ret__.get('containerSize'),
+        default_host_name=__ret__.get('defaultHostName'),
+        enabled=__ret__.get('enabled'),
+        enabled_host_names=__ret__.get('enabledHostNames'),
+        gateway_site_name=__ret__.get('gatewaySiteName'),
+        host_name_ssl_states=__ret__.get('hostNameSslStates'),
+        host_names=__ret__.get('hostNames'),
+        host_names_disabled=__ret__.get('hostNamesDisabled'),
+        hosting_environment_profile=__ret__.get('hostingEnvironmentProfile'),
+        is_default_container=__ret__.get('isDefaultContainer'),
         kind=__ret__.get('kind'),
+        last_modified_time_utc=__ret__.get('lastModifiedTimeUtc'),
         location=__ret__.get('location'),
+        max_number_of_workers=__ret__.get('maxNumberOfWorkers'),
+        micro_service=__ret__.get('microService'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        outbound_ip_addresses=__ret__.get('outboundIpAddresses'),
+        premium_app_deployed=__ret__.get('premiumAppDeployed'),
+        repository_site_name=__ret__.get('repositorySiteName'),
+        resource_group=__ret__.get('resourceGroup'),
+        scm_site_also_stopped=__ret__.get('scmSiteAlsoStopped'),
+        server_farm_id=__ret__.get('serverFarmId'),
+        site_config=__ret__.get('siteConfig'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        target_swap_slot=__ret__.get('targetSwapSlot'),
+        traffic_manager_host_names=__ret__.get('trafficManagerHostNames'),
+        type=__ret__.get('type'),
+        usage_state=__ret__.get('usageState'))

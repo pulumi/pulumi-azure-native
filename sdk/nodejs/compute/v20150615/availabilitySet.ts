@@ -45,9 +45,17 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The instance view of a resource.
+     * Fault Domain count.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20150615.AvailabilitySetPropertiesResponse>;
+    public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
+    /**
+     * Update Domain count.
+     */
+    public readonly platformUpdateDomainCount!: pulumi.Output<number | undefined>;
+    /**
+     * The resource status information.
+     */
+    public /*out*/ readonly statuses!: pulumi.Output<outputs.compute.v20150615.InstanceViewStatusResponse[]>;
     /**
      * Resource tags
      */
@@ -56,6 +64,10 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A list of references to all virtual machines in the availability set.
+     */
+    public readonly virtualMachines!: pulumi.Output<outputs.compute.v20150615.SubResourceResponse[] | undefined>;
 
     /**
      * Create a AvailabilitySet resource with the given unique name, arguments, and options.
@@ -86,7 +98,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["statuses"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

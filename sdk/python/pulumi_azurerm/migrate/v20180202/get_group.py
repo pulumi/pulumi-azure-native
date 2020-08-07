@@ -13,12 +13,30 @@ class GetGroupResult:
     """
     A group created in a Migration project.
     """
-    def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
+    def __init__(__self__, assessments=None, created_timestamp=None, e_tag=None, machines=None, name=None, type=None, updated_timestamp=None):
+        if assessments and not isinstance(assessments, list):
+            raise TypeError("Expected argument 'assessments' to be a list")
+        __self__.assessments = assessments
+        """
+        List of References to Assessments created on this group.
+        """
+        if created_timestamp and not isinstance(created_timestamp, str):
+            raise TypeError("Expected argument 'created_timestamp' to be a str")
+        __self__.created_timestamp = created_timestamp
+        """
+        Time when this project was created. Date-Time represented in ISO-8601 format.
+        """
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         __self__.e_tag = e_tag
         """
         For optimistic concurrency control.
+        """
+        if machines and not isinstance(machines, list):
+            raise TypeError("Expected argument 'machines' to be a list")
+        __self__.machines = machines
+        """
+        List of machine names that are part of this group.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +44,17 @@ class GetGroupResult:
         """
         Name of the group.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Properties of the group.
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Type of the object = [Microsoft.Migrate/projects/groups].
+        """
+        if updated_timestamp and not isinstance(updated_timestamp, str):
+            raise TypeError("Expected argument 'updated_timestamp' to be a str")
+        __self__.updated_timestamp = updated_timestamp
+        """
+        Time when this project was last updated. Date-Time represented in ISO-8601 format.
         """
 
 
@@ -46,10 +64,13 @@ class AwaitableGetGroupResult(GetGroupResult):
         if False:
             yield self
         return GetGroupResult(
+            assessments=self.assessments,
+            created_timestamp=self.created_timestamp,
             e_tag=self.e_tag,
+            machines=self.machines,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            updated_timestamp=self.updated_timestamp)
 
 
 def get_group(name=None, project_name=None, resource_group_name=None, opts=None):
@@ -71,7 +92,10 @@ def get_group(name=None, project_name=None, resource_group_name=None, opts=None)
     __ret__ = pulumi.runtime.invoke('azurerm:migrate/v20180202:getGroup', __args__, opts=opts).value
 
     return AwaitableGetGroupResult(
+        assessments=__ret__.get('assessments'),
+        created_timestamp=__ret__.get('createdTimestamp'),
         e_tag=__ret__.get('eTag'),
+        machines=__ret__.get('machines'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        updated_timestamp=__ret__.get('updatedTimestamp'))

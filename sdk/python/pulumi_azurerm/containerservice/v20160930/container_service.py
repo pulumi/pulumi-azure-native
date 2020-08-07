@@ -10,54 +10,64 @@ from ... import _utilities, _tables
 
 
 class ContainerService(pulumi.CustomResource):
+    agent_pool_profiles: pulumi.Output[list]
+    """
+    Properties of the agent pool.
+      * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+      * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the agent pool.
+      * `fqdn` (`str`) - FQDN for the agent pool.
+      * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
+      * `vm_size` (`str`) - Size of agent VMs.
+    """
+    custom_profile: pulumi.Output[dict]
+    """
+    Properties for custom clusters.
+      * `orchestrator` (`str`) - The name of the custom orchestrator to use.
+    """
+    diagnostics_profile: pulumi.Output[dict]
+    """
+    Properties of the diagnostic agent.
+      * `vm_diagnostics` (`dict`) - Profile for the container service VM diagnostic agent.
+        * `enabled` (`bool`) - Whether the VM diagnostic agent is provisioned on the VM.
+        * `storage_uri` (`str`) - The URI of the storage account where diagnostics are stored.
+    """
+    linux_profile: pulumi.Output[dict]
+    """
+    Properties of Linux VMs.
+      * `admin_username` (`str`) - The administrator username to use for Linux VMs.
+      * `ssh` (`dict`) - The ssh key configuration for Linux VMs.
+        * `public_keys` (`list`) - the list of SSH public keys used to authenticate with Linux-based VMs.
+          * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    master_profile: pulumi.Output[dict]
+    """
+    Properties of master agents.
+      * `count` (`float`) - Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
+      * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for master.
+      * `fqdn` (`str`) - FQDN for the master.
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    orchestrator_profile: pulumi.Output[dict]
     """
-    Properties of the container service.
-      * `agent_pool_profiles` (`list`) - Properties of the agent pool.
-        * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the agent pool.
-        * `fqdn` (`str`) - FQDN for the agent pool.
-        * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-        * `vm_size` (`str`) - Size of agent VMs.
-
-      * `custom_profile` (`dict`) - Properties for custom clusters.
-        * `orchestrator` (`str`) - The name of the custom orchestrator to use.
-
-      * `diagnostics_profile` (`dict`) - Properties of the diagnostic agent.
-        * `vm_diagnostics` (`dict`) - Profile for the container service VM diagnostic agent.
-          * `enabled` (`bool`) - Whether the VM diagnostic agent is provisioned on the VM.
-          * `storage_uri` (`str`) - The URI of the storage account where diagnostics are stored.
-
-      * `linux_profile` (`dict`) - Properties of Linux VMs.
-        * `admin_username` (`str`) - The administrator username to use for Linux VMs.
-        * `ssh` (`dict`) - The ssh key configuration for Linux VMs.
-          * `public_keys` (`list`) - the list of SSH public keys used to authenticate with Linux-based VMs.
-            * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-
-      * `master_profile` (`dict`) - Properties of master agents.
-        * `count` (`float`) - Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
-        * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for master.
-        * `fqdn` (`str`) - FQDN for the master.
-
-      * `orchestrator_profile` (`dict`) - Properties of the orchestrator.
-        * `orchestrator_type` (`str`) - The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-
-      * `provisioning_state` (`str`) - the current deployment or provisioning state, which only appears in the response.
-      * `service_principal_profile` (`dict`) - Properties for cluster service principals.
-        * `client_id` (`str`) - The ID for the service principal.
-        * `secret` (`str`) - The secret password associated with the service principal.
-
-      * `windows_profile` (`dict`) - Properties of Windows VMs.
-        * `admin_password` (`str`) - The administrator password to use for Windows VMs.
-        * `admin_username` (`str`) - The administrator username to use for Windows VMs.
+    Properties of the orchestrator.
+      * `orchestrator_type` (`str`) - The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    the current deployment or provisioning state, which only appears in the response.
+    """
+    service_principal_profile: pulumi.Output[dict]
+    """
+    Properties for cluster service principals.
+      * `client_id` (`str`) - The ID for the service principal.
+      * `secret` (`str`) - The secret password associated with the service principal.
     """
     tags: pulumi.Output[dict]
     """
@@ -66,6 +76,12 @@ class ContainerService(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    windows_profile: pulumi.Output[dict]
+    """
+    Properties of Windows VMs.
+      * `admin_password` (`str`) - The administrator password to use for Windows VMs.
+      * `admin_username` (`str`) - The administrator username to use for Windows VMs.
     """
     def __init__(__self__, resource_name, opts=None, agent_pool_profiles=None, custom_profile=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestrator_profile=None, resource_group_name=None, service_principal_profile=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -169,7 +185,7 @@ class ContainerService(pulumi.CustomResource):
             __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
             __props__['windows_profile'] = windows_profile
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ContainerService, __self__).__init__(
             'azurerm:containerservice/v20160930:ContainerService',

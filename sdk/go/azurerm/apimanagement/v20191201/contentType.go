@@ -14,12 +14,16 @@ import (
 type ContentType struct {
 	pulumi.CustomResourceState
 
+	// Content type description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the content type.
-	Properties ContentTypeContractPropertiesResponseOutput `pulumi:"properties"`
+	// Content type schema.
+	Schema pulumi.MapOutput `pulumi:"schema"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Content type version.
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewContentType registers a new resource with the given unique name, arguments, and options.
@@ -59,21 +63,29 @@ func GetContentType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContentType resources.
 type contentTypeState struct {
+	// Content type description.
+	Description *string `pulumi:"description"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the content type.
-	Properties *ContentTypeContractPropertiesResponse `pulumi:"properties"`
+	// Content type schema.
+	Schema map[string]interface{} `pulumi:"schema"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
+	// Content type version.
+	Version *string `pulumi:"version"`
 }
 
 type ContentTypeState struct {
+	// Content type description.
+	Description pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the content type.
-	Properties ContentTypeContractPropertiesResponsePtrInput
+	// Content type schema.
+	Schema pulumi.MapInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
+	// Content type version.
+	Version pulumi.StringPtrInput
 }
 
 func (ContentTypeState) ElementType() reflect.Type {

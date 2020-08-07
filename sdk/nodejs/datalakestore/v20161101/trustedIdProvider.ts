@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,13 @@ export class TrustedIdProvider extends pulumi.CustomResource {
     }
 
     /**
+     * The URL of this trusted identity provider.
+     */
+    public readonly idProvider!: pulumi.Output<string>;
+    /**
      * The resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The trusted identity provider properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakestore.v20161101.TrustedIdProviderPropertiesResponse>;
     /**
      * The resource type.
      */
@@ -78,7 +76,6 @@ export class TrustedIdProvider extends pulumi.CustomResource {
             inputs["idProvider"] = args ? args.idProvider : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

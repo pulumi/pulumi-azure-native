@@ -10,23 +10,36 @@ from ... import _utilities, _tables
 
 
 class StorageAccountCredential(pulumi.CustomResource):
+    access_key: pulumi.Output[dict]
+    """
+    The details of the storage account password
+      * `encryption_algorithm` (`str`) - Algorithm used to encrypt "Value"
+      * `encryption_certificate_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value"
+      * `value` (`str`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+    """
+    cloud_type: pulumi.Output[str]
+    """
+    The cloud service provider
+    """
+    enable_ssl: pulumi.Output[str]
+    """
+    SSL needs to be enabled or not
+    """
+    end_point: pulumi.Output[str]
+    """
+    The storage endpoint
+    """
+    location: pulumi.Output[str]
+    """
+    The storage account's geo location
+    """
+    login: pulumi.Output[str]
+    """
+    The storage account login
+    """
     name: pulumi.Output[str]
     """
     The name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Credential properties
-      * `access_key` (`dict`) - The details of the storage account password
-        * `encryption_algorithm` (`str`) - Algorithm used to encrypt "Value"
-        * `encryption_certificate_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value"
-        * `value` (`str`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-
-      * `cloud_type` (`str`) - The cloud service provider
-      * `enable_ssl` (`str`) - SSL needs to be enabled or not
-      * `end_point` (`str`) - The storage endpoint
-      * `location` (`str`) - The storage account's geo location
-      * `login` (`str`) - The storage account login
     """
     type: pulumi.Output[str]
     """
@@ -94,7 +107,6 @@ class StorageAccountCredential(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(StorageAccountCredential, __self__).__init__(
             'azurerm:storsimple/v20161001:StorageAccountCredential',

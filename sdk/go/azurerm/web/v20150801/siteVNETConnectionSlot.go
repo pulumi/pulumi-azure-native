@@ -14,17 +14,29 @@ import (
 type SiteVNETConnectionSlot struct {
 	pulumi.CustomResourceState
 
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	//             Point-To-Site VPN connection.
+	CertBlob pulumi.StringPtrOutput `pulumi:"certBlob"`
+	// The client certificate thumbprint
+	CertThumbprint pulumi.StringPtrOutput `pulumi:"certThumbprint"`
+	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+	DnsServers pulumi.StringPtrOutput `pulumi:"dnsServers"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput           `pulumi:"name"`
-	Properties VnetInfoResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Flag to determine if a resync is required
+	ResyncRequired pulumi.BoolPtrOutput `pulumi:"resyncRequired"`
+	// The routes that this virtual network connection uses.
+	Routes VnetRouteResponseArrayOutput `pulumi:"routes"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// The vnet resource id
+	VnetResourceId pulumi.StringPtrOutput `pulumi:"vnetResourceId"`
 }
 
 // NewSiteVNETConnectionSlot registers a new resource with the given unique name, arguments, and options.
@@ -67,31 +79,55 @@ func GetSiteVNETConnectionSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteVNETConnectionSlot resources.
 type siteVNETConnectionSlotState struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	//             Point-To-Site VPN connection.
+	CertBlob *string `pulumi:"certBlob"`
+	// The client certificate thumbprint
+	CertThumbprint *string `pulumi:"certThumbprint"`
+	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+	DnsServers *string `pulumi:"dnsServers"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name
-	Name       *string                     `pulumi:"name"`
-	Properties *VnetInfoResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Flag to determine if a resync is required
+	ResyncRequired *bool `pulumi:"resyncRequired"`
+	// The routes that this virtual network connection uses.
+	Routes []VnetRouteResponse `pulumi:"routes"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The vnet resource id
+	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
 
 type SiteVNETConnectionSlotState struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	//             Point-To-Site VPN connection.
+	CertBlob pulumi.StringPtrInput
+	// The client certificate thumbprint
+	CertThumbprint pulumi.StringPtrInput
+	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+	DnsServers pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties VnetInfoResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// Flag to determine if a resync is required
+	ResyncRequired pulumi.BoolPtrInput
+	// The routes that this virtual network connection uses.
+	Routes VnetRouteResponseArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The vnet resource id
+	VnetResourceId pulumi.StringPtrInput
 }
 
 func (SiteVNETConnectionSlotState) ElementType() reflect.Type {

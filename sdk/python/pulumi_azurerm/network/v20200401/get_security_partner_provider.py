@@ -13,7 +13,13 @@ class GetSecurityPartnerProviderResult:
     """
     Security Partner Provider resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, connection_status=None, etag=None, location=None, name=None, provisioning_state=None, security_provider_name=None, tags=None, type=None, virtual_hub=None):
+        if connection_status and not isinstance(connection_status, str):
+            raise TypeError("Expected argument 'connection_status' to be a str")
+        __self__.connection_status = connection_status
+        """
+        The connection status with the Security Partner Provider.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +38,17 @@ class GetSecurityPartnerProviderResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the Security Partner Provider.
+        The provisioning state of the Security Partner Provider resource.
+        """
+        if security_provider_name and not isinstance(security_provider_name, str):
+            raise TypeError("Expected argument 'security_provider_name' to be a str")
+        __self__.security_provider_name = security_provider_name
+        """
+        The security provider name.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +62,12 @@ class GetSecurityPartnerProviderResult:
         """
         Resource type.
         """
+        if virtual_hub and not isinstance(virtual_hub, dict):
+            raise TypeError("Expected argument 'virtual_hub' to be a dict")
+        __self__.virtual_hub = virtual_hub
+        """
+        The virtualHub to which the Security Partner Provider belongs.
+        """
 
 
 class AwaitableGetSecurityPartnerProviderResult(GetSecurityPartnerProviderResult):
@@ -58,12 +76,15 @@ class AwaitableGetSecurityPartnerProviderResult(GetSecurityPartnerProviderResult
         if False:
             yield self
         return GetSecurityPartnerProviderResult(
+            connection_status=self.connection_status,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            security_provider_name=self.security_provider_name,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_hub=self.virtual_hub)
 
 
 def get_security_partner_provider(name=None, resource_group_name=None, opts=None):
@@ -83,9 +104,12 @@ def get_security_partner_provider(name=None, resource_group_name=None, opts=None
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200401:getSecurityPartnerProvider', __args__, opts=opts).value
 
     return AwaitableGetSecurityPartnerProviderResult(
+        connection_status=__ret__.get('connectionStatus'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        security_provider_name=__ret__.get('securityProviderName'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_hub=__ret__.get('virtualHub'))

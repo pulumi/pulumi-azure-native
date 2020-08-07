@@ -56,13 +56,29 @@ namespace Pulumi.AzureRM.Batch.V20200501
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The format of the application package, if the package is active.
+        /// </summary>
+        public readonly string Format;
+        /// <summary>
+        /// The time at which the package was last activated, if the package is active.
+        /// </summary>
+        public readonly string LastActivationTime;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the Application Package.
+        /// The current state of the application package.
         /// </summary>
-        public readonly Outputs.ApplicationPackagePropertiesResponseResult Properties;
+        public readonly string State;
+        /// <summary>
+        /// The URL for the application package in Azure Storage.
+        /// </summary>
+        public readonly string StorageUrl;
+        /// <summary>
+        /// The UTC time at which the Azure Storage URL will expire.
+        /// </summary>
+        public readonly string StorageUrlExpiry;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -72,15 +88,27 @@ namespace Pulumi.AzureRM.Batch.V20200501
         private GetApplicationPackageResult(
             string etag,
 
+            string format,
+
+            string lastActivationTime,
+
             string name,
 
-            Outputs.ApplicationPackagePropertiesResponseResult properties,
+            string state,
+
+            string storageUrl,
+
+            string storageUrlExpiry,
 
             string type)
         {
             Etag = etag;
+            Format = format;
+            LastActivationTime = lastActivationTime;
             Name = name;
-            Properties = properties;
+            State = state;
+            StorageUrl = storageUrl;
+            StorageUrlExpiry = storageUrlExpiry;
             Type = type;
         }
     }

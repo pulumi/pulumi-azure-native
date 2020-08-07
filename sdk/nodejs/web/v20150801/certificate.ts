@@ -37,6 +37,34 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
+     * Raw bytes of .cer file
+     */
+    public readonly cerBlob!: pulumi.Output<string | undefined>;
+    /**
+     * Certificate expiration date
+     */
+    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    /**
+     * Friendly name of the certificate
+     */
+    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    /**
+     * Host names the certificate applies to
+     */
+    public readonly hostNames!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specification for the hosting environment (App Service Environment) to use for the certificate
+     */
+    public readonly hostingEnvironmentProfile!: pulumi.Output<outputs.web.v20150801.HostingEnvironmentProfileResponse | undefined>;
+    /**
+     * Certificate issue Date
+     */
+    public readonly issueDate!: pulumi.Output<string | undefined>;
+    /**
+     * Certificate issuer
+     */
+    public readonly issuer!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -48,15 +76,46 @@ export class Certificate extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.CertificateResponseProperties>;
+    /**
+     * Certificate password
+     */
+    public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * Pfx blob
+     */
+    public readonly pfxBlob!: pulumi.Output<string | undefined>;
+    /**
+     * Public key hash
+     */
+    public readonly publicKeyHash!: pulumi.Output<string | undefined>;
+    /**
+     * Self link
+     */
+    public readonly selfLink!: pulumi.Output<string | undefined>;
+    /**
+     * App name
+     */
+    public readonly siteName!: pulumi.Output<string | undefined>;
+    /**
+     * Subject name of the certificate
+     */
+    public readonly subjectName!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Certificate thumbprint
+     */
+    public readonly thumbprint!: pulumi.Output<string | undefined>;
+    /**
      * Resource type
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Is the certificate valid?
+     */
+    public readonly valid!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -102,7 +161,6 @@ export class Certificate extends pulumi.CustomResource {
             inputs["thumbprint"] = args ? args.thumbprint : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["valid"] = args ? args.valid : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

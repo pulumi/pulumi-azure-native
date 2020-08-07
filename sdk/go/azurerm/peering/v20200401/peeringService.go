@@ -18,8 +18,12 @@ type PeeringService struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties that define a peering service.
-	Properties PeeringServicePropertiesResponseOutput `pulumi:"properties"`
+	// The PeeringServiceLocation of the Customer.
+	PeeringServiceLocation pulumi.StringPtrOutput `pulumi:"peeringServiceLocation"`
+	// The MAPS Provider Name.
+	PeeringServiceProvider pulumi.StringPtrOutput `pulumi:"peeringServiceProvider"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The SKU that defines the type of the peering service.
 	Sku PeeringServiceSkuResponsePtrOutput `pulumi:"sku"`
 	// The resource tags.
@@ -69,8 +73,12 @@ type peeringServiceState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties that define a peering service.
-	Properties *PeeringServicePropertiesResponse `pulumi:"properties"`
+	// The PeeringServiceLocation of the Customer.
+	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
+	// The MAPS Provider Name.
+	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The SKU that defines the type of the peering service.
 	Sku *PeeringServiceSkuResponse `pulumi:"sku"`
 	// The resource tags.
@@ -84,8 +92,12 @@ type PeeringServiceState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties that define a peering service.
-	Properties PeeringServicePropertiesResponsePtrInput
+	// The PeeringServiceLocation of the Customer.
+	PeeringServiceLocation pulumi.StringPtrInput
+	// The MAPS Provider Name.
+	PeeringServiceProvider pulumi.StringPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The SKU that defines the type of the peering service.
 	Sku PeeringServiceSkuResponsePtrInput
 	// The resource tags.

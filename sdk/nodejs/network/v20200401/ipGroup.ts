@@ -41,6 +41,14 @@ export class IpGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * List of references to Azure resources that this IpGroups is associated with.
+     */
+    public /*out*/ readonly firewalls!: pulumi.Output<outputs.network.v20200401.SubResourceResponse[]>;
+    /**
+     * IpAddresses/IpAddressPrefixes in the IpGroups resource.
+     */
+    public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -49,9 +57,9 @@ export class IpGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the IpGroups.
+     * The provisioning state of the IpGroups resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.IpGroupPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -87,7 +95,8 @@ export class IpGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["firewalls"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

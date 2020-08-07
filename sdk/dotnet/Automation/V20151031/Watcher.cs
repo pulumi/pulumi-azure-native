@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class Watcher : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the frequency at which the watcher is invoked.
+        /// </summary>
+        [Output("executionFrequencyInSeconds")]
+        public Output<int?> ExecutionFrequencyInSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// Details of the user who last modified the watcher.
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the resource lives
@@ -33,10 +63,28 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the watcher properties.
+        /// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WatcherPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("scriptName")]
+        public Output<string?> ScriptName { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the parameters of the script.
+        /// </summary>
+        [Output("scriptParameters")]
+        public Output<ImmutableDictionary<string, string>?> ScriptParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the name of the hybrid worker group the watcher will run on.
+        /// </summary>
+        [Output("scriptRunOn")]
+        public Output<string?> ScriptRunOn { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the current status of the watcher.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

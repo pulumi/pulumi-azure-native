@@ -25,12 +25,22 @@ type LookupManagerExtendedInfoArgs struct {
 
 // The extended info of the manager.
 type LookupManagerExtendedInfoResult struct {
+	// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+	Algorithm string `pulumi:"algorithm"`
+	// Represents the CEK of the resource
+	EncryptionKey *string `pulumi:"encryptionKey"`
+	// Represents the Cert thumbprint that was used to encrypt the CEK
+	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
 	// ETag of the Resource
 	Etag *string `pulumi:"etag"`
+	// Represents the CIK of the resource
+	IntegrityKey string `pulumi:"integrityKey"`
 	// The name.
 	Name string `pulumi:"name"`
-	// The extended info properties.
-	Properties ManagerExtendedInfoPropertiesResponse `pulumi:"properties"`
+	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+	PortalCertificateThumbprint *string `pulumi:"portalCertificateThumbprint"`
 	// The type.
 	Type string `pulumi:"type"`
+	// Represents the version of the ExtendedInfo object being persisted
+	Version *string `pulumi:"version"`
 }

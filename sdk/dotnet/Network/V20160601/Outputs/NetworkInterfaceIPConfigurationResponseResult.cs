@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
     public sealed class NetworkInterfaceIPConfigurationResponseResult
     {
         /// <summary>
+        /// Gets or sets the reference of ApplicationGatewayBackendAddressPool resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> ApplicationGatewayBackendAddressPools;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
@@ -22,28 +26,81 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Gets or sets the reference of LoadBalancerBackendAddressPool resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BackendAddressPoolResponseResult> LoadBalancerBackendAddressPools;
+        /// <summary>
+        /// Gets or sets list of references of LoadBalancerInboundNatRules
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InboundNatRuleResponseResult> LoadBalancerInboundNatRules;
+        /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of IPConfiguration
+        /// Gets whether this is a primary customer address on the NIC
         /// </summary>
-        public readonly Outputs.NetworkInterfaceIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly bool? Primary;
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// Gets or sets PrivateIP address version (IPv4/IPv6)
+        /// </summary>
+        public readonly string? PrivateIPAddressVersion;
+        /// <summary>
+        /// Gets or sets PrivateIP allocation method
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// PublicIPAddress resource
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Subnet in a VirtualNetwork resource
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
 
         [OutputConstructor]
         private NetworkInterfaceIPConfigurationResponseResult(
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> applicationGatewayBackendAddressPools,
+
             string? etag,
 
             string? id,
 
+            ImmutableArray<Outputs.BackendAddressPoolResponseResult> loadBalancerBackendAddressPools,
+
+            ImmutableArray<Outputs.InboundNatRuleResponseResult> loadBalancerInboundNatRules,
+
             string? name,
 
-            Outputs.NetworkInterfaceIPConfigurationPropertiesFormatResponseResult? properties)
+            bool? primary,
+
+            string? privateIPAddress,
+
+            string? privateIPAddressVersion,
+
+            string? privateIPAllocationMethod,
+
+            string? provisioningState,
+
+            Outputs.PublicIPAddressResponseResult? publicIPAddress,
+
+            Outputs.SubnetResponseResult? subnet)
         {
+            ApplicationGatewayBackendAddressPools = applicationGatewayBackendAddressPools;
             Etag = etag;
             Id = id;
+            LoadBalancerBackendAddressPools = loadBalancerBackendAddressPools;
+            LoadBalancerInboundNatRules = loadBalancerInboundNatRules;
             Name = name;
-            Properties = properties;
+            Primary = primary;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAddressVersion = privateIPAddressVersion;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
         }
     }
 }

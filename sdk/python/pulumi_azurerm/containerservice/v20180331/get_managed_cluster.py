@@ -13,7 +13,55 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, dns_prefix=None, enable_rbac=None, fqdn=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None):
+        if aad_profile and not isinstance(aad_profile, dict):
+            raise TypeError("Expected argument 'aad_profile' to be a dict")
+        __self__.aad_profile = aad_profile
+        """
+        Profile of Azure Active Directory configuration.
+        """
+        if addon_profiles and not isinstance(addon_profiles, dict):
+            raise TypeError("Expected argument 'addon_profiles' to be a dict")
+        __self__.addon_profiles = addon_profiles
+        """
+        Profile of managed cluster add-on.
+        """
+        if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
+            raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
+        __self__.agent_pool_profiles = agent_pool_profiles
+        """
+        Properties of the agent pool. Currently only one agent pool can exist.
+        """
+        if dns_prefix and not isinstance(dns_prefix, str):
+            raise TypeError("Expected argument 'dns_prefix' to be a str")
+        __self__.dns_prefix = dns_prefix
+        """
+        DNS prefix specified when creating the managed cluster.
+        """
+        if enable_rbac and not isinstance(enable_rbac, bool):
+            raise TypeError("Expected argument 'enable_rbac' to be a bool")
+        __self__.enable_rbac = enable_rbac
+        """
+        Whether to enable Kubernetes Role-Based Access Control.
+        """
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        __self__.fqdn = fqdn
+        """
+        FQDN for the master pool.
+        """
+        if kubernetes_version and not isinstance(kubernetes_version, str):
+            raise TypeError("Expected argument 'kubernetes_version' to be a str")
+        __self__.kubernetes_version = kubernetes_version
+        """
+        Version of Kubernetes specified when creating the managed cluster.
+        """
+        if linux_profile and not isinstance(linux_profile, dict):
+            raise TypeError("Expected argument 'linux_profile' to be a dict")
+        __self__.linux_profile = linux_profile
+        """
+        Profile for Linux VMs in the container service cluster.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +74,29 @@ class GetManagedClusterResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        __self__.network_profile = network_profile
         """
-        Properties of a managed cluster.
+        Profile of network configuration.
+        """
+        if node_resource_group and not isinstance(node_resource_group, str):
+            raise TypeError("Expected argument 'node_resource_group' to be a str")
+        __self__.node_resource_group = node_resource_group
+        """
+        Name of the resource group containing agent pool nodes.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The current deployment or provisioning state, which only appears in the response.
+        """
+        if service_principal_profile and not isinstance(service_principal_profile, dict):
+            raise TypeError("Expected argument 'service_principal_profile' to be a dict")
+        __self__.service_principal_profile = service_principal_profile
+        """
+        Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +118,20 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
         if False:
             yield self
         return GetManagedClusterResult(
+            aad_profile=self.aad_profile,
+            addon_profiles=self.addon_profiles,
+            agent_pool_profiles=self.agent_pool_profiles,
+            dns_prefix=self.dns_prefix,
+            enable_rbac=self.enable_rbac,
+            fqdn=self.fqdn,
+            kubernetes_version=self.kubernetes_version,
+            linux_profile=self.linux_profile,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_profile=self.network_profile,
+            node_resource_group=self.node_resource_group,
+            provisioning_state=self.provisioning_state,
+            service_principal_profile=self.service_principal_profile,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +153,19 @@ def get_managed_cluster(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20180331:getManagedCluster', __args__, opts=opts).value
 
     return AwaitableGetManagedClusterResult(
+        aad_profile=__ret__.get('aadProfile'),
+        addon_profiles=__ret__.get('addonProfiles'),
+        agent_pool_profiles=__ret__.get('agentPoolProfiles'),
+        dns_prefix=__ret__.get('dnsPrefix'),
+        enable_rbac=__ret__.get('enableRBAC'),
+        fqdn=__ret__.get('fqdn'),
+        kubernetes_version=__ret__.get('kubernetesVersion'),
+        linux_profile=__ret__.get('linuxProfile'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_profile=__ret__.get('networkProfile'),
+        node_resource_group=__ret__.get('nodeResourceGroup'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_principal_profile=__ret__.get('servicePrincipalProfile'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -49,9 +49,17 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Resource properties.
+     * The resource of private end point.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200601.PrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.machinelearningservices.v20200601.PrivateEndpointResponse | undefined>;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.machinelearningservices.v20200601.PrivateLinkServiceConnectionStateResponse>;
+    /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The sku of the workspace.
      */
@@ -99,7 +107,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["privateEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

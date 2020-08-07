@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20181201
     public partial class AzureFirewall : Pulumi.CustomResource
     {
         /// <summary>
+        /// Collection of application rule collections used by Azure Firewall.
+        /// </summary>
+        [Output("applicationRuleCollections")]
+        public Output<ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult>> ApplicationRuleCollections { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// IP configuration of the Azure Firewall resource.
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,16 +45,34 @@ namespace Pulumi.AzureRM.Network.V20181201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Azure Firewall.
+        /// Collection of NAT rule collections used by Azure Firewall.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AzureFirewallPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("natRuleCollections")]
+        public Output<ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponseResult>> NatRuleCollections { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of network rule collections used by Azure Firewall.
+        /// </summary>
+        [Output("networkRuleCollections")]
+        public Output<ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult>> NetworkRuleCollections { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The operation mode for Threat Intelligence.
+        /// </summary>
+        [Output("threatIntelMode")]
+        public Output<string?> ThreatIntelMode { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -27,9 +27,18 @@ type LookupSubnetArgs struct {
 
 // Subnet in a virtual network resource.
 type LookupSubnetResult struct {
+	// The address prefix for the subnet.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Gets an array of references to the network interface IP configurations using subnet.
+	IpConfigurations []IPConfigurationResponse `pulumi:"ipConfigurations"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name       *string                        `pulumi:"name"`
-	Properties SubnetPropertiesFormatResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The reference of the RouteTable resource.
+	RouteTable *RouteTableResponse `pulumi:"routeTable"`
 }

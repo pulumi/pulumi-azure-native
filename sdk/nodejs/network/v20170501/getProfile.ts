@@ -36,21 +36,37 @@ export interface GetProfileArgs {
  */
 export interface GetProfileResult {
     /**
+     * The DNS settings of the Traffic Manager profile.
+     */
+    readonly dnsConfig?: outputs.network.v20170501.DnsConfigResponse;
+    /**
+     * The list of endpoints in the Traffic Manager profile.
+     */
+    readonly endpoints?: outputs.network.v20170501.EndpointResponse[];
+    /**
      * The Azure Region where the resource lives
      */
     readonly location?: string;
+    /**
+     * The endpoint monitoring settings of the Traffic Manager profile.
+     */
+    readonly monitorConfig?: outputs.network.v20170501.MonitorConfigResponse;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The properties of the Traffic Manager profile.
+     * The status of the Traffic Manager profile.
      */
-    readonly properties: outputs.network.v20170501.ProfilePropertiesResponse;
+    readonly profileStatus?: string;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The traffic routing method of the Traffic Manager profile.
+     */
+    readonly trafficRoutingMethod?: string;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */

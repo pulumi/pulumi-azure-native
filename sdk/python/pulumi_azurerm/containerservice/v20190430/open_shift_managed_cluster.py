@@ -10,13 +10,59 @@ from ... import _utilities, _tables
 
 
 class OpenShiftManagedCluster(pulumi.CustomResource):
+    agent_pool_profiles: pulumi.Output[list]
+    """
+    Configuration of OpenShift cluster VMs.
+      * `count` (`float`) - Number of agents (VMs) to host docker containers.
+      * `name` (`str`) - Unique name of the pool profile in the context of the subscription and resource group.
+      * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+      * `role` (`str`) - Define the role of the AgentPoolProfile.
+      * `subnet_cidr` (`str`) - Subnet CIDR for the peering.
+      * `vm_size` (`str`) - Size of agent VMs.
+    """
+    auth_profile: pulumi.Output[dict]
+    """
+    Configures OpenShift authentication.
+      * `identity_providers` (`list`) - Type of authentication profile to use.
+        * `name` (`str`) - Name of the provider.
+        * `provider` (`dict`) - Configuration of the provider.
+          * `kind` (`str`) - The kind of the provider.
+    """
+    cluster_version: pulumi.Output[str]
+    """
+    Version of OpenShift specified when creating the cluster.
+    """
+    fqdn: pulumi.Output[str]
+    """
+    Service generated FQDN for OpenShift API server loadbalancer internal hostname.
+    """
     location: pulumi.Output[str]
     """
     Resource location
     """
+    master_pool_profile: pulumi.Output[dict]
+    """
+    Configuration for OpenShift master VMs.
+      * `count` (`float`) - Number of masters (VMs) to host docker containers. The default value is 3.
+      * `name` (`str`) - Unique name of the master pool profile in the context of the subscription and resource group.
+      * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+      * `subnet_cidr` (`str`) - Subnet CIDR for the peering.
+      * `vm_size` (`str`) - Size of agent VMs.
+    """
     name: pulumi.Output[str]
     """
     Resource name
+    """
+    network_profile: pulumi.Output[dict]
+    """
+    Configuration for OpenShift networking.
+      * `peer_vnet_id` (`str`) - CIDR of the Vnet to peer.
+      * `vnet_cidr` (`str`) - CIDR for the OpenShift Vnet.
+      * `vnet_id` (`str`) - ID of the Vnet created for OSA cluster.
+    """
+    open_shift_version: pulumi.Output[str]
+    """
+    Version of OpenShift specified when creating the cluster.
     """
     plan: pulumi.Output[dict]
     """
@@ -26,44 +72,20 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
       * `promotion_code` (`str`) - The promotion code.
       * `publisher` (`str`) - The plan ID.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of a OpenShift managed cluster.
-      * `agent_pool_profiles` (`list`) - Configuration of OpenShift cluster VMs.
-        * `count` (`float`) - Number of agents (VMs) to host docker containers.
-        * `name` (`str`) - Unique name of the pool profile in the context of the subscription and resource group.
-        * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        * `role` (`str`) - Define the role of the AgentPoolProfile.
-        * `subnet_cidr` (`str`) - Subnet CIDR for the peering.
-        * `vm_size` (`str`) - Size of agent VMs.
-
-      * `auth_profile` (`dict`) - Configures OpenShift authentication.
-        * `identity_providers` (`list`) - Type of authentication profile to use.
-          * `name` (`str`) - Name of the provider.
-          * `provider` (`dict`) - Configuration of the provider.
-            * `kind` (`str`) - The kind of the provider.
-
-      * `cluster_version` (`str`) - Version of OpenShift specified when creating the cluster.
-      * `fqdn` (`str`) - Service generated FQDN for OpenShift API server loadbalancer internal hostname.
-      * `master_pool_profile` (`dict`) - Configuration for OpenShift master VMs.
-        * `count` (`float`) - Number of masters (VMs) to host docker containers. The default value is 3.
-        * `name` (`str`) - Unique name of the master pool profile in the context of the subscription and resource group.
-        * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        * `subnet_cidr` (`str`) - Subnet CIDR for the peering.
-        * `vm_size` (`str`) - Size of agent VMs.
-
-      * `network_profile` (`dict`) - Configuration for OpenShift networking.
-        * `peer_vnet_id` (`str`) - CIDR of the Vnet to peer.
-        * `vnet_cidr` (`str`) - CIDR for the OpenShift Vnet.
-        * `vnet_id` (`str`) - ID of the Vnet created for OSA cluster.
-
-      * `open_shift_version` (`str`) - Version of OpenShift specified when creating the cluster.
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
-      * `public_hostname` (`str`) - Service generated FQDN for OpenShift API server.
-      * `router_profiles` (`list`) - Configuration for OpenShift router(s).
-        * `fqdn` (`str`) - Auto-allocated FQDN for the OpenShift router.
-        * `name` (`str`) - Name of the router profile.
-        * `public_subdomain` (`str`) - DNS subdomain for OpenShift router.
+    The current deployment or provisioning state, which only appears in the response.
+    """
+    public_hostname: pulumi.Output[str]
+    """
+    Service generated FQDN for OpenShift API server.
+    """
+    router_profiles: pulumi.Output[list]
+    """
+    Configuration for OpenShift router(s).
+      * `fqdn` (`str`) - Auto-allocated FQDN for the OpenShift router.
+      * `name` (`str`) - Name of the router profile.
+      * `public_subdomain` (`str`) - DNS subdomain for OpenShift router.
     """
     tags: pulumi.Output[dict]
     """
@@ -168,7 +190,10 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['router_profiles'] = router_profiles
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['cluster_version'] = None
+            __props__['fqdn'] = None
+            __props__['provisioning_state'] = None
+            __props__['public_hostname'] = None
             __props__['type'] = None
         super(OpenShiftManagedCluster, __self__).__init__(
             'azurerm:containerservice/v20190430:OpenShiftManagedCluster',

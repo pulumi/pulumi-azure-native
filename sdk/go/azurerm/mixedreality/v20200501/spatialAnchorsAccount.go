@@ -14,12 +14,14 @@ import (
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 
+	// Correspond domain name of certain Spatial Anchors Account
+	AccountDomain pulumi.StringOutput `pulumi:"accountDomain"`
+	// unique id of certain account.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Property bag.
-	Properties MixedRealityAccountPropertiesResponseOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -63,12 +65,14 @@ func GetSpatialAnchorsAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpatialAnchorsAccount resources.
 type spatialAnchorsAccountState struct {
+	// Correspond domain name of certain Spatial Anchors Account
+	AccountDomain *string `pulumi:"accountDomain"`
+	// unique id of certain account.
+	AccountId *string `pulumi:"accountId"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Property bag.
-	Properties *MixedRealityAccountPropertiesResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -76,12 +80,14 @@ type spatialAnchorsAccountState struct {
 }
 
 type SpatialAnchorsAccountState struct {
+	// Correspond domain name of certain Spatial Anchors Account
+	AccountDomain pulumi.StringPtrInput
+	// unique id of certain account.
+	AccountId pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Property bag.
-	Properties MixedRealityAccountPropertiesResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

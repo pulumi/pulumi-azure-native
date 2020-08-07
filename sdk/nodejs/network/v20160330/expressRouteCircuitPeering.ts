@@ -37,14 +37,65 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the azure ASN
+     */
+    public readonly azureASN!: pulumi.Output<number | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * Gets or sets the Microsoft peering config
+     */
+    public readonly microsoftPeeringConfig!: pulumi.Output<outputs.network.v20160330.ExpressRouteCircuitPeeringConfigResponse | undefined>;
+    /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160330.ExpressRouteCircuitPeeringPropertiesFormatResponse>;
+    /**
+     * Gets or sets the peer ASN
+     */
+    public readonly peerASN!: pulumi.Output<number | undefined>;
+    /**
+     * Gets or sets PeeringType
+     */
+    public readonly peeringType!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the primary port
+     */
+    public readonly primaryAzurePort!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the primary address prefix
+     */
+    public readonly primaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the secondary port
+     */
+    public readonly secondaryAzurePort!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the secondary address prefix
+     */
+    public readonly secondaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the shared key
+     */
+    public readonly sharedKey!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets state of Peering
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or peering stats
+     */
+    public readonly stats!: pulumi.Output<outputs.network.v20160330.ExpressRouteCircuitStatsResponse | undefined>;
+    /**
+     * Gets or sets the vlan id
+     */
+    public readonly vlanId!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ExpressRouteCircuitPeering resource with the given unique name, arguments, and options.
@@ -86,7 +137,6 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["state"] = args ? args.state : undefined;
             inputs["stats"] = args ? args.stats : undefined;
             inputs["vlanId"] = args ? args.vlanId : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -10,18 +10,29 @@ from ... import _utilities, _tables
 
 
 class MigrationConfig(pulumi.CustomResource):
+    migration_state: pulumi.Output[str]
+    """
+    State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    pending_replication_operations_count: pulumi.Output[float]
     """
-    Properties required to the Create Migration Configuration
-      * `migration_state` (`str`) - State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
-      * `pending_replication_operations_count` (`float`) - Number of entities pending to be replicated.
-      * `post_migration_name` (`str`) - Name to access Standard Namespace after migration
-      * `provisioning_state` (`str`) - Provisioning state of Migration Configuration 
-      * `target_namespace` (`str`) - Existing premium Namespace ARM Id name which has no entities, will be used for migration
+    Number of entities pending to be replicated.
+    """
+    post_migration_name: pulumi.Output[str]
+    """
+    Name to access Standard Namespace after migration
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of Migration Configuration 
+    """
+    target_namespace: pulumi.Output[str]
+    """
+    Existing premium Namespace ARM Id name which has no entities, will be used for migration
     """
     type: pulumi.Output[str]
     """
@@ -71,7 +82,9 @@ class MigrationConfig(pulumi.CustomResource):
             if target_namespace is None:
                 raise TypeError("Missing required property 'target_namespace'")
             __props__['target_namespace'] = target_namespace
-            __props__['properties'] = None
+            __props__['migration_state'] = None
+            __props__['pending_replication_operations_count'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(MigrationConfig, __self__).__init__(
             'azurerm:servicebus/v20170401:MigrationConfig',

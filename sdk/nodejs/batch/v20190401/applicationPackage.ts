@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -41,13 +39,29 @@ export class ApplicationPackage extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The format of the application package, if the package is active.
+     */
+    public /*out*/ readonly format!: pulumi.Output<string>;
+    /**
+     * The time at which the package was last activated, if the package is active.
+     */
+    public /*out*/ readonly lastActivationTime!: pulumi.Output<string>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties associated with the Application Package.
+     * The current state of the application package.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20190401.ApplicationPackagePropertiesResponse>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * The URL for the application package in Azure Storage.
+     */
+    public /*out*/ readonly storageUrl!: pulumi.Output<string>;
+    /**
+     * The UTC time at which the Azure Storage URL will expire.
+     */
+    public /*out*/ readonly storageUrlExpiry!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -83,7 +97,11 @@ export class ApplicationPackage extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["format"] = undefined /*out*/;
+            inputs["lastActivationTime"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["storageUrl"] = undefined /*out*/;
+            inputs["storageUrlExpiry"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

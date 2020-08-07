@@ -40,6 +40,15 @@ namespace Pulumi.AzureRM.Security.V20200101
     public sealed class GetAdaptiveApplicationControlResult
     {
         /// <summary>
+        /// The configuration status of the VM/server group or machine or rule on the machine
+        /// </summary>
+        public readonly string ConfigurationStatus;
+        /// <summary>
+        /// The application control policy enforcement/protection mode of the VM/server group
+        /// </summary>
+        public readonly string? EnforcementMode;
+        public readonly ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult> Issues;
+        /// <summary>
         /// Location where the resource is stored
         /// </summary>
         public readonly string Location;
@@ -47,29 +56,60 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// Resource name
         /// </summary>
         public readonly string Name;
+        public readonly ImmutableArray<Outputs.PathRecommendationResponseResult> PathRecommendations;
         /// <summary>
-        /// Represents a VM/server group and set of rules to be allowed running on a machine
+        /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         /// </summary>
-        public readonly Outputs.AppWhitelistingGroupDataResponseResult Properties;
+        public readonly Outputs.ProtectionModeResponseResult? ProtectionMode;
+        /// <summary>
+        /// The recommendation status of the VM/server group or VM/server
+        /// </summary>
+        public readonly string RecommendationStatus;
+        /// <summary>
+        /// The source type of the VM/server group
+        /// </summary>
+        public readonly string SourceSystem;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        public readonly ImmutableArray<Outputs.VmRecommendationResponseResult> VmRecommendations;
 
         [OutputConstructor]
         private GetAdaptiveApplicationControlResult(
+            string configurationStatus,
+
+            string? enforcementMode,
+
+            ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult> issues,
+
             string location,
 
             string name,
 
-            Outputs.AppWhitelistingGroupDataResponseResult properties,
+            ImmutableArray<Outputs.PathRecommendationResponseResult> pathRecommendations,
 
-            string type)
+            Outputs.ProtectionModeResponseResult? protectionMode,
+
+            string recommendationStatus,
+
+            string sourceSystem,
+
+            string type,
+
+            ImmutableArray<Outputs.VmRecommendationResponseResult> vmRecommendations)
         {
+            ConfigurationStatus = configurationStatus;
+            EnforcementMode = enforcementMode;
+            Issues = issues;
             Location = location;
             Name = name;
-            Properties = properties;
+            PathRecommendations = pathRecommendations;
+            ProtectionMode = protectionMode;
+            RecommendationStatus = recommendationStatus;
+            SourceSystem = sourceSystem;
             Type = type;
+            VmRecommendations = vmRecommendations;
         }
     }
 }

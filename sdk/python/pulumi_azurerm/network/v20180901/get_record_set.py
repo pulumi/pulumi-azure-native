@@ -13,12 +13,54 @@ class GetRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, a_records=None, aaaa_records=None, cname_record=None, etag=None, fqdn=None, is_auto_registered=None, metadata=None, mx_records=None, name=None, ptr_records=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, type=None):
+        if a_records and not isinstance(a_records, list):
+            raise TypeError("Expected argument 'a_records' to be a list")
+        __self__.a_records = a_records
+        """
+        The list of A records in the record set.
+        """
+        if aaaa_records and not isinstance(aaaa_records, list):
+            raise TypeError("Expected argument 'aaaa_records' to be a list")
+        __self__.aaaa_records = aaaa_records
+        """
+        The list of AAAA records in the record set.
+        """
+        if cname_record and not isinstance(cname_record, dict):
+            raise TypeError("Expected argument 'cname_record' to be a dict")
+        __self__.cname_record = cname_record
+        """
+        The CNAME record in the record set.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         The ETag of the record set.
+        """
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        __self__.fqdn = fqdn
+        """
+        Fully qualified domain name of the record set.
+        """
+        if is_auto_registered and not isinstance(is_auto_registered, bool):
+            raise TypeError("Expected argument 'is_auto_registered' to be a bool")
+        __self__.is_auto_registered = is_auto_registered
+        """
+        Is the record set auto-registered in the Private DNS zone through a virtual network link?
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The metadata attached to the record set.
+        """
+        if mx_records and not isinstance(mx_records, list):
+            raise TypeError("Expected argument 'mx_records' to be a list")
+        __self__.mx_records = mx_records
+        """
+        The list of MX records in the record set.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +68,35 @@ class GetRecordSetResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if ptr_records and not isinstance(ptr_records, list):
+            raise TypeError("Expected argument 'ptr_records' to be a list")
+        __self__.ptr_records = ptr_records
         """
-        The properties of the record set.
+        The list of PTR records in the record set.
+        """
+        if soa_record and not isinstance(soa_record, dict):
+            raise TypeError("Expected argument 'soa_record' to be a dict")
+        __self__.soa_record = soa_record
+        """
+        The SOA record in the record set.
+        """
+        if srv_records and not isinstance(srv_records, list):
+            raise TypeError("Expected argument 'srv_records' to be a list")
+        __self__.srv_records = srv_records
+        """
+        The list of SRV records in the record set.
+        """
+        if ttl and not isinstance(ttl, float):
+            raise TypeError("Expected argument 'ttl' to be a float")
+        __self__.ttl = ttl
+        """
+        The TTL (time-to-live) of the records in the record set.
+        """
+        if txt_records and not isinstance(txt_records, list):
+            raise TypeError("Expected argument 'txt_records' to be a list")
+        __self__.txt_records = txt_records
+        """
+        The list of TXT records in the record set.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +112,20 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
         if False:
             yield self
         return GetRecordSetResult(
+            a_records=self.a_records,
+            aaaa_records=self.aaaa_records,
+            cname_record=self.cname_record,
             etag=self.etag,
+            fqdn=self.fqdn,
+            is_auto_registered=self.is_auto_registered,
+            metadata=self.metadata,
+            mx_records=self.mx_records,
             name=self.name,
-            properties=self.properties,
+            ptr_records=self.ptr_records,
+            soa_record=self.soa_record,
+            srv_records=self.srv_records,
+            ttl=self.ttl,
+            txt_records=self.txt_records,
             type=self.type)
 
 
@@ -73,7 +150,18 @@ def get_record_set(name=None, private_zone_name=None, record_type=None, resource
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20180901:getRecordSet', __args__, opts=opts).value
 
     return AwaitableGetRecordSetResult(
+        a_records=__ret__.get('aRecords'),
+        aaaa_records=__ret__.get('aaaaRecords'),
+        cname_record=__ret__.get('cnameRecord'),
         etag=__ret__.get('etag'),
+        fqdn=__ret__.get('fqdn'),
+        is_auto_registered=__ret__.get('isAutoRegistered'),
+        metadata=__ret__.get('metadata'),
+        mx_records=__ret__.get('mxRecords'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        ptr_records=__ret__.get('ptrRecords'),
+        soa_record=__ret__.get('soaRecord'),
+        srv_records=__ret__.get('srvRecords'),
+        ttl=__ret__.get('ttl'),
+        txt_records=__ret__.get('txtRecords'),
         type=__ret__.get('type'))

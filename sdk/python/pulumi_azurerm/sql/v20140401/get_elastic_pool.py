@@ -13,7 +13,37 @@ class GetElasticPoolResult:
     """
     Represents a database elastic pool.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, creation_date=None, database_dtu_max=None, database_dtu_min=None, dtu=None, edition=None, kind=None, location=None, name=None, state=None, storage_mb=None, tags=None, type=None, zone_redundant=None):
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The creation date of the elastic pool (ISO8601 format).
+        """
+        if database_dtu_max and not isinstance(database_dtu_max, float):
+            raise TypeError("Expected argument 'database_dtu_max' to be a float")
+        __self__.database_dtu_max = database_dtu_max
+        """
+        The maximum DTU any one database can consume.
+        """
+        if database_dtu_min and not isinstance(database_dtu_min, float):
+            raise TypeError("Expected argument 'database_dtu_min' to be a float")
+        __self__.database_dtu_min = database_dtu_min
+        """
+        The minimum DTU all databases are guaranteed.
+        """
+        if dtu and not isinstance(dtu, float):
+            raise TypeError("Expected argument 'dtu' to be a float")
+        __self__.dtu = dtu
+        """
+        The total shared DTU for the database elastic pool.
+        """
+        if edition and not isinstance(edition, str):
+            raise TypeError("Expected argument 'edition' to be a str")
+        __self__.edition = edition
+        """
+        The edition of the elastic pool.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,11 +62,17 @@ class GetElasticPoolResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
         """
-        The properties representing the resource.
+        The state of the elastic pool.
+        """
+        if storage_mb and not isinstance(storage_mb, float):
+            raise TypeError("Expected argument 'storage_mb' to be a float")
+        __self__.storage_mb = storage_mb
+        """
+        Gets storage limit for the database elastic pool in MB.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +86,12 @@ class GetElasticPoolResult:
         """
         Resource type.
         """
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        __self__.zone_redundant = zone_redundant
+        """
+        Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        """
 
 
 class AwaitableGetElasticPoolResult(GetElasticPoolResult):
@@ -58,12 +100,19 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
         if False:
             yield self
         return GetElasticPoolResult(
+            creation_date=self.creation_date,
+            database_dtu_max=self.database_dtu_max,
+            database_dtu_min=self.database_dtu_min,
+            dtu=self.dtu,
+            edition=self.edition,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            state=self.state,
+            storage_mb=self.storage_mb,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            zone_redundant=self.zone_redundant)
 
 
 def get_elastic_pool(name=None, resource_group_name=None, server_name=None, opts=None):
@@ -85,9 +134,16 @@ def get_elastic_pool(name=None, resource_group_name=None, server_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getElasticPool', __args__, opts=opts).value
 
     return AwaitableGetElasticPoolResult(
+        creation_date=__ret__.get('creationDate'),
+        database_dtu_max=__ret__.get('databaseDtuMax'),
+        database_dtu_min=__ret__.get('databaseDtuMin'),
+        dtu=__ret__.get('dtu'),
+        edition=__ret__.get('edition'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        state=__ret__.get('state'),
+        storage_mb=__ret__.get('storageMB'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        zone_redundant=__ret__.get('zoneRedundant'))

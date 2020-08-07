@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20160330
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+        /// </summary>
+        [Output("addressSpace")]
+        public Output<Outputs.AddressSpaceResponseResult?> AddressSpace { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+        /// </summary>
+        [Output("dhcpOptions")]
+        public Output<Outputs.DhcpOptionsResponseResult?> DhcpOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
@@ -32,8 +44,23 @@ namespace Pulumi.AzureRM.Network.V20160330
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets resource GUID property of the VirtualNetwork resource
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets List of subnets in a VirtualNetwork
+        /// </summary>
+        [Output("subnets")]
+        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

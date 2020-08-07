@@ -10,45 +10,50 @@ from ... import _utilities, _tables
 
 
 class DeviceSecurityGroup(pulumi.CustomResource):
+    allowlist_rules: pulumi.Output[list]
+    """
+    The allow-list custom alert rules.
+      * `allowlist_values` (`list`) - The values to allow. The format of the values depends on the rule type.
+      * `description` (`str`) - The description of the custom alert.
+      * `display_name` (`str`) - The display name of the custom alert.
+      * `is_enabled` (`bool`) - Status of the custom alert.
+      * `rule_type` (`str`) - The type of the custom alert rule.
+      * `value_type` (`str`) - The value type of the items in the list.
+    """
+    denylist_rules: pulumi.Output[list]
+    """
+    The deny-list custom alert rules.
+      * `denylist_values` (`list`) - The values to deny. The format of the values depends on the rule type.
+      * `description` (`str`) - The description of the custom alert.
+      * `display_name` (`str`) - The display name of the custom alert.
+      * `is_enabled` (`bool`) - Status of the custom alert.
+      * `rule_type` (`str`) - The type of the custom alert rule.
+      * `value_type` (`str`) - The value type of the items in the list.
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    threshold_rules: pulumi.Output[list]
     """
-    Device Security group data
-      * `allowlist_rules` (`list`) - The allow-list custom alert rules.
-        * `allowlist_values` (`list`) - The values to allow. The format of the values depends on the rule type.
-        * `description` (`str`) - The description of the custom alert.
-        * `display_name` (`str`) - The display name of the custom alert.
-        * `is_enabled` (`bool`) - Status of the custom alert.
-        * `rule_type` (`str`) - The type of the custom alert rule.
-        * `value_type` (`str`) - The value type of the items in the list.
-
-      * `denylist_rules` (`list`) - The deny-list custom alert rules.
-        * `denylist_values` (`list`) - The values to deny. The format of the values depends on the rule type.
-        * `description` (`str`) - The description of the custom alert.
-        * `display_name` (`str`) - The display name of the custom alert.
-        * `is_enabled` (`bool`) - Status of the custom alert.
-        * `rule_type` (`str`) - The type of the custom alert rule.
-        * `value_type` (`str`) - The value type of the items in the list.
-
-      * `threshold_rules` (`list`) - The list of custom alert threshold rules.
-        * `description` (`str`) - The description of the custom alert.
-        * `display_name` (`str`) - The display name of the custom alert.
-        * `is_enabled` (`bool`) - Status of the custom alert.
-        * `max_threshold` (`float`) - The maximum threshold.
-        * `min_threshold` (`float`) - The minimum threshold.
-        * `rule_type` (`str`) - The type of the custom alert rule.
-
-      * `time_window_rules` (`list`) - The list of custom alert time-window rules.
-        * `description` (`str`) - The description of the custom alert.
-        * `display_name` (`str`) - The display name of the custom alert.
-        * `is_enabled` (`bool`) - Status of the custom alert.
-        * `max_threshold` (`float`) - The maximum threshold.
-        * `min_threshold` (`float`) - The minimum threshold.
-        * `rule_type` (`str`) - The type of the custom alert rule.
-        * `time_window_size` (`str`) - The time window size in iso8601 format.
+    The list of custom alert threshold rules.
+      * `description` (`str`) - The description of the custom alert.
+      * `display_name` (`str`) - The display name of the custom alert.
+      * `is_enabled` (`bool`) - Status of the custom alert.
+      * `max_threshold` (`float`) - The maximum threshold.
+      * `min_threshold` (`float`) - The minimum threshold.
+      * `rule_type` (`str`) - The type of the custom alert rule.
+    """
+    time_window_rules: pulumi.Output[list]
+    """
+    The list of custom alert time-window rules.
+      * `description` (`str`) - The description of the custom alert.
+      * `display_name` (`str`) - The display name of the custom alert.
+      * `is_enabled` (`bool`) - Status of the custom alert.
+      * `max_threshold` (`float`) - The maximum threshold.
+      * `min_threshold` (`float`) - The minimum threshold.
+      * `rule_type` (`str`) - The type of the custom alert rule.
+      * `time_window_size` (`str`) - The time window size in iso8601 format.
     """
     type: pulumi.Output[str]
     """
@@ -121,7 +126,6 @@ class DeviceSecurityGroup(pulumi.CustomResource):
             __props__['resource_id'] = resource_id
             __props__['threshold_rules'] = threshold_rules
             __props__['time_window_rules'] = time_window_rules
-            __props__['properties'] = None
             __props__['type'] = None
         super(DeviceSecurityGroup, __self__).__init__(
             'azurerm:security/v20190801:DeviceSecurityGroup',

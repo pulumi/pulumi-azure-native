@@ -10,39 +10,82 @@ from ... import _utilities, _tables
 
 
 class Topic(pulumi.CustomResource):
+    accessed_at: pulumi.Output[str]
+    """
+    Last time the message was sent, or a request was received, for this topic.
+    """
+    auto_delete_on_idle: pulumi.Output[str]
+    """
+    ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+    """
+    count_details: pulumi.Output[dict]
+    """
+    Message count details
+      * `active_message_count` (`float`) - Number of active messages in the queue, topic, or subscription.
+      * `dead_letter_message_count` (`float`) - Number of messages that are dead lettered.
+      * `scheduled_message_count` (`float`) - Number of scheduled messages.
+      * `transfer_dead_letter_message_count` (`float`) - Number of messages transferred into dead letters.
+      * `transfer_message_count` (`float`) - Number of messages transferred to another queue, topic, or subscription.
+    """
+    created_at: pulumi.Output[str]
+    """
+    Exact time the message was created.
+    """
+    default_message_time_to_live: pulumi.Output[str]
+    """
+    ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+    """
+    duplicate_detection_history_time_window: pulumi.Output[str]
+    """
+    ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+    """
+    enable_batched_operations: pulumi.Output[bool]
+    """
+    Value that indicates whether server-side batched operations are enabled.
+    """
+    enable_express: pulumi.Output[bool]
+    """
+    Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+    """
+    enable_partitioning: pulumi.Output[bool]
+    """
+    Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+    """
+    max_size_in_megabytes: pulumi.Output[float]
+    """
+    Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    requires_duplicate_detection: pulumi.Output[bool]
     """
-    Properties of topic resource.
-      * `accessed_at` (`str`) - Last time the message was sent, or a request was received, for this topic.
-      * `auto_delete_on_idle` (`str`) - ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-      * `count_details` (`dict`) - Message count details
-        * `active_message_count` (`float`) - Number of active messages in the queue, topic, or subscription.
-        * `dead_letter_message_count` (`float`) - Number of messages that are dead lettered.
-        * `scheduled_message_count` (`float`) - Number of scheduled messages.
-        * `transfer_dead_letter_message_count` (`float`) - Number of messages transferred into dead letters.
-        * `transfer_message_count` (`float`) - Number of messages transferred to another queue, topic, or subscription.
-
-      * `created_at` (`str`) - Exact time the message was created.
-      * `default_message_time_to_live` (`str`) - ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-      * `duplicate_detection_history_time_window` (`str`) - ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-      * `enable_batched_operations` (`bool`) - Value that indicates whether server-side batched operations are enabled.
-      * `enable_express` (`bool`) - Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-      * `enable_partitioning` (`bool`) - Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
-      * `max_size_in_megabytes` (`float`) - Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
-      * `requires_duplicate_detection` (`bool`) - Value indicating if this topic requires duplicate detection.
-      * `size_in_bytes` (`float`) - Size of the topic, in bytes.
-      * `status` (`str`) - Enumerates the possible values for the status of a messaging entity.
-      * `subscription_count` (`float`) - Number of subscriptions.
-      * `support_ordering` (`bool`) - Value that indicates whether the topic supports ordering.
-      * `updated_at` (`str`) - The exact time the message was updated.
+    Value indicating if this topic requires duplicate detection.
+    """
+    size_in_bytes: pulumi.Output[float]
+    """
+    Size of the topic, in bytes.
+    """
+    status: pulumi.Output[str]
+    """
+    Enumerates the possible values for the status of a messaging entity.
+    """
+    subscription_count: pulumi.Output[float]
+    """
+    Number of subscriptions.
+    """
+    support_ordering: pulumi.Output[bool]
+    """
+    Value that indicates whether the topic supports ordering.
     """
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The exact time the message was updated.
     """
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -100,8 +143,13 @@ class Topic(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['support_ordering'] = support_ordering
-            __props__['properties'] = None
+            __props__['accessed_at'] = None
+            __props__['count_details'] = None
+            __props__['created_at'] = None
+            __props__['size_in_bytes'] = None
+            __props__['subscription_count'] = None
             __props__['type'] = None
+            __props__['updated_at'] = None
         super(Topic, __self__).__init__(
             'azurerm:servicebus/v20170401:Topic',
             resource_name,

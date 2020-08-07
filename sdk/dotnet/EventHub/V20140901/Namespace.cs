@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.EventHub.V20140901
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the Namespace was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string?> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether this instance is enabled.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Identifier for Azure Insights metrics
+        /// </summary>
+        [Output("metricId")]
+        public Output<string> MetricId { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,16 +45,28 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Namespace supplied for create or update Namespace operation
+        /// Provisioning state of the Namespace.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NamespacePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Endpoint you can use to perform Service Bus operations.
+        /// </summary>
+        [Output("serviceBusEndpoint")]
+        public Output<string?> ServiceBusEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// SKU parameters supplied to the create Namespace operation
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// State of the Namespace.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -49,6 +79,12 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the Namespace was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string?> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

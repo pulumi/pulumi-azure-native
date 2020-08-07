@@ -27,12 +27,14 @@ type LookupAccessControlRecordArgs struct {
 
 // The access control record.
 type LookupAccessControlRecordResult struct {
+	// The iSCSI initiator name (IQN).
+	InitiatorName string `pulumi:"initiatorName"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The name of the object.
 	Name string `pulumi:"name"`
-	// The properties of access control record.
-	Properties AccessControlRecordPropertiesResponse `pulumi:"properties"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+	// The number of volumes using the access control record.
+	VolumeCount int `pulumi:"volumeCount"`
 }

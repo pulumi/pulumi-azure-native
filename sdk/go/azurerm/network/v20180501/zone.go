@@ -18,14 +18,24 @@ type Zone struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordSets pulumi.IntOutput `pulumi:"maxNumberOfRecordSets"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the zone.
-	Properties ZonePropertiesResponseOutput `pulumi:"properties"`
+	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
+	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
+	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+	RegistrationVirtualNetworks SubResourceResponseArrayOutput `pulumi:"registrationVirtualNetworks"`
+	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+	ResolutionVirtualNetworks SubResourceResponseArrayOutput `pulumi:"resolutionVirtualNetworks"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The type of this DNS zone (Public or Private).
+	ZoneType pulumi.StringPtrOutput `pulumi:"zoneType"`
 }
 
 // NewZone registers a new resource with the given unique name, arguments, and options.
@@ -69,14 +79,24 @@ type zoneState struct {
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of the zone.
-	Properties *ZonePropertiesResponse `pulumi:"properties"`
+	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+	NameServers []string `pulumi:"nameServers"`
+	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
+	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+	RegistrationVirtualNetworks []SubResourceResponse `pulumi:"registrationVirtualNetworks"`
+	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+	ResolutionVirtualNetworks []SubResourceResponse `pulumi:"resolutionVirtualNetworks"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The type of this DNS zone (Public or Private).
+	ZoneType *string `pulumi:"zoneType"`
 }
 
 type ZoneState struct {
@@ -84,14 +104,24 @@ type ZoneState struct {
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordSets pulumi.IntPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of the zone.
-	Properties ZonePropertiesResponsePtrInput
+	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+	NameServers pulumi.StringArrayInput
+	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	NumberOfRecordSets pulumi.IntPtrInput
+	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+	RegistrationVirtualNetworks SubResourceResponseArrayInput
+	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+	ResolutionVirtualNetworks SubResourceResponseArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The type of this DNS zone (Public or Private).
+	ZoneType pulumi.StringPtrInput
 }
 
 func (ZoneState) ElementType() reflect.Type {

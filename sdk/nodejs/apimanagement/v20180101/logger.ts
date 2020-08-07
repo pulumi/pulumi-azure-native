@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,26 @@ export class Logger extends pulumi.CustomResource {
     }
 
     /**
+     * The name and SendRule connection string of the event hub for azureEventHub logger.
+     * Instrumentation key for applicationInsights logger.
+     */
+    public readonly credentials!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Logger description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Whether records are buffered in the logger before publishing. Default is assumed to be true.
+     */
+    public readonly isBuffered!: pulumi.Output<boolean | undefined>;
+    /**
+     * Logger type.
+     */
+    public readonly loggerType!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Logger entity contract properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.LoggerContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -84,7 +95,6 @@ export class Logger extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

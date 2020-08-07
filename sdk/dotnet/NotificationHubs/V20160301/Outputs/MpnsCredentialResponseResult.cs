@@ -14,14 +14,29 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301.Outputs
     public sealed class MpnsCredentialResponseResult
     {
         /// <summary>
-        /// Properties of NotificationHub MpnsCredential.
+        /// The certificate key for this credential.
         /// </summary>
-        public readonly Outputs.MpnsCredentialPropertiesResponseResult? Properties;
+        public readonly string? CertificateKey;
+        /// <summary>
+        /// The MPNS certificate.
+        /// </summary>
+        public readonly string? MpnsCertificate;
+        /// <summary>
+        /// The MPNS certificate Thumbprint
+        /// </summary>
+        public readonly string? Thumbprint;
 
         [OutputConstructor]
-        private MpnsCredentialResponseResult(Outputs.MpnsCredentialPropertiesResponseResult? properties)
+        private MpnsCredentialResponseResult(
+            string? certificateKey,
+
+            string? mpnsCertificate,
+
+            string? thumbprint)
         {
-            Properties = properties;
+            CertificateKey = certificateKey;
+            MpnsCertificate = mpnsCertificate;
+            Thumbprint = thumbprint;
         }
     }
 }

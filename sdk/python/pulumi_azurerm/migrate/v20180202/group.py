@@ -10,25 +10,33 @@ from ... import _utilities, _tables
 
 
 class Group(pulumi.CustomResource):
+    assessments: pulumi.Output[list]
+    """
+    List of References to Assessments created on this group.
+    """
+    created_timestamp: pulumi.Output[str]
+    """
+    Time when this project was created. Date-Time represented in ISO-8601 format.
+    """
     e_tag: pulumi.Output[str]
     """
     For optimistic concurrency control.
+    """
+    machines: pulumi.Output[list]
+    """
+    List of machine names that are part of this group.
     """
     name: pulumi.Output[str]
     """
     Name of the group.
     """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the group.
-      * `assessments` (`list`) - List of References to Assessments created on this group.
-      * `created_timestamp` (`str`) - Time when this project was created. Date-Time represented in ISO-8601 format.
-      * `machines` (`list`) - List of machine names that are part of this group.
-      * `updated_timestamp` (`str`) - Time when this project was last updated. Date-Time represented in ISO-8601 format.
-    """
     type: pulumi.Output[str]
     """
     Type of the object = [Microsoft.Migrate/projects/groups].
+    """
+    updated_timestamp: pulumi.Output[str]
+    """
+    Time when this project was last updated. Date-Time represented in ISO-8601 format.
     """
     def __init__(__self__, resource_name, opts=None, e_tag=None, machines=None, name=None, project_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -72,8 +80,10 @@ class Group(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['assessments'] = None
+            __props__['created_timestamp'] = None
             __props__['type'] = None
+            __props__['updated_timestamp'] = None
         super(Group, __self__).__init__(
             'azurerm:migrate/v20180202:Group',
             resource_name,

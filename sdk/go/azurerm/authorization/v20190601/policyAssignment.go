@@ -14,14 +14,28 @@ import (
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 
+	// This message will be part of response in case of policy violation.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+	EnforcementMode pulumi.StringPtrOutput `pulumi:"enforcementMode"`
 	// The managed identity associated with the policy assignment.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The policy assignment metadata.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponseOutput `pulumi:"properties"`
+	// The policy's excluded scopes.
+	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// The policy sku. This property is optional, obsolete, and will be ignored.
 	Sku PolicySkuResponsePtrOutput `pulumi:"sku"`
 	// The type of the policy assignment.
@@ -62,14 +76,28 @@ func GetPolicyAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyAssignment resources.
 type policyAssignmentState struct {
+	// This message will be part of response in case of policy violation.
+	Description *string `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+	EnforcementMode *string `pulumi:"enforcementMode"`
 	// The managed identity associated with the policy assignment.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location *string `pulumi:"location"`
+	// The policy assignment metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties *PolicyAssignmentPropertiesResponse `pulumi:"properties"`
+	// The policy's excluded scopes.
+	NotScopes []string `pulumi:"notScopes"`
+	// Required if a parameter is used in policy rule.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope *string `pulumi:"scope"`
 	// The policy sku. This property is optional, obsolete, and will be ignored.
 	Sku *PolicySkuResponse `pulumi:"sku"`
 	// The type of the policy assignment.
@@ -77,14 +105,28 @@ type policyAssignmentState struct {
 }
 
 type PolicyAssignmentState struct {
+	// This message will be part of response in case of policy violation.
+	Description pulumi.StringPtrInput
+	// The display name of the policy assignment.
+	DisplayName pulumi.StringPtrInput
+	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+	EnforcementMode pulumi.StringPtrInput
 	// The managed identity associated with the policy assignment.
 	Identity IdentityResponsePtrInput
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location pulumi.StringPtrInput
+	// The policy assignment metadata.
+	Metadata pulumi.MapInput
 	// The name of the policy assignment.
 	Name pulumi.StringPtrInput
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponsePtrInput
+	// The policy's excluded scopes.
+	NotScopes pulumi.StringArrayInput
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.MapInput
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId pulumi.StringPtrInput
+	// The scope for the policy assignment.
+	Scope pulumi.StringPtrInput
 	// The policy sku. This property is optional, obsolete, and will be ignored.
 	Sku PolicySkuResponsePtrInput
 	// The type of the policy assignment.

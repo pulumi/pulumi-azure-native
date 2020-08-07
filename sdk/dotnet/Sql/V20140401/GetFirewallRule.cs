@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class GetFirewallRuleResult
     {
         /// <summary>
+        /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// </summary>
+        public readonly string EndIpAddress;
+        /// <summary>
         /// Kind of server that contains this firewall rule.
         /// </summary>
         public readonly string Kind;
@@ -58,9 +62,9 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties representing the resource.
+        /// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
         /// </summary>
-        public readonly Outputs.FirewallRulePropertiesResponseResult Properties;
+        public readonly string StartIpAddress;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -68,20 +72,23 @@ namespace Pulumi.AzureRM.Sql.V20140401
 
         [OutputConstructor]
         private GetFirewallRuleResult(
+            string endIpAddress,
+
             string kind,
 
             string location,
 
             string name,
 
-            Outputs.FirewallRulePropertiesResponseResult properties,
+            string startIpAddress,
 
             string type)
         {
+            EndIpAddress = endIpAddress;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            StartIpAddress = startIpAddress;
             Type = type;
         }
     }

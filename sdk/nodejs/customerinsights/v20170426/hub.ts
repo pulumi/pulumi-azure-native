@@ -37,6 +37,14 @@ export class Hub extends pulumi.CustomResource {
     }
 
     /**
+     * API endpoint URL of the hub.
+     */
+    public /*out*/ readonly apiEndpoint!: pulumi.Output<string>;
+    /**
+     * Billing settings of the hub.
+     */
+    public readonly hubBillingInfo!: pulumi.Output<outputs.customerinsights.v20170426.HubBillingInfoFormatResponse | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,17 +53,25 @@ export class Hub extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of hub.
+     * Provisioning state of the hub.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.HubPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+     */
+    public readonly tenantFeatures!: pulumi.Output<number | undefined>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Web endpoint URL of the hub.
+     */
+    public /*out*/ readonly webEndpoint!: pulumi.Output<string>;
 
     /**
      * Create a Hub resource with the given unique name, arguments, and options.
@@ -82,8 +98,10 @@ export class Hub extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenantFeatures"] = args ? args.tenantFeatures : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["apiEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["webEndpoint"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

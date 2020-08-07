@@ -36,6 +36,18 @@ export interface GetVirtualWanArgs {
  */
 export interface GetVirtualWanResult {
     /**
+     * True if branch to branch traffic is allowed.
+     */
+    readonly allowBranchToBranchTraffic?: boolean;
+    /**
+     * True if Vnet to Vnet traffic is allowed.
+     */
+    readonly allowVnetToVnetTraffic?: boolean;
+    /**
+     * Vpn encryption to be disabled or not.
+     */
+    readonly disableVpnEncryption?: boolean;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -48,9 +60,21 @@ export interface GetVirtualWanResult {
      */
     readonly name: string;
     /**
-     * Parameters for VirtualWAN
+     * The office local breakout category.
      */
-    readonly properties: outputs.network.v20180801.VirtualWanPropertiesResponse;
+    readonly office365LocalBreakoutCategory?: string;
+    /**
+     * list of all P2SVpnServerConfigurations associated with the virtual wan.
+     */
+    readonly p2SVpnServerConfigurations?: outputs.network.v20180801.P2SVpnServerConfigurationResponse[];
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: string;
+    /**
+     * The Security Provider name.
+     */
+    readonly securityProviderName?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +83,9 @@ export interface GetVirtualWanResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * List of VirtualHubs in the VirtualWAN.
+     */
+    readonly virtualHubs: outputs.network.v20180801.SubResourceResponse[];
+    readonly vpnSites: outputs.network.v20180801.SubResourceResponse[];
 }

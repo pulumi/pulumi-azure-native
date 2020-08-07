@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class DatabaseAccountCassandraTable(pulumi.CustomResource):
+    default_ttl: pulumi.Output[float]
+    """
+    Time to live of the Cosmos DB Cassandra table
+    """
     location: pulumi.Output[str]
     """
     The location of the resource group to which the resource belongs.
@@ -18,22 +22,19 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
     """
     The name of the database account.
     """
-    properties: pulumi.Output[dict]
+    schema: pulumi.Output[dict]
     """
-    The properties of an Azure Cosmos DB Cassandra table
-      * `default_ttl` (`float`) - Time to live of the Cosmos DB Cassandra table
-      * `id` (`str`) - Name of the Cosmos DB Cassandra table
-      * `schema` (`dict`) - Schema of the Cosmos DB Cassandra table
-        * `cluster_keys` (`list`) - List of cluster key.
-          * `name` (`str`) - Name of the Cosmos DB Cassandra table cluster key
-          * `order_by` (`str`) - Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+    Schema of the Cosmos DB Cassandra table
+      * `cluster_keys` (`list`) - List of cluster key.
+        * `name` (`str`) - Name of the Cosmos DB Cassandra table cluster key
+        * `order_by` (`str`) - Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
 
-        * `columns` (`list`) - List of Cassandra table columns.
-          * `name` (`str`) - Name of the Cosmos DB Cassandra table column
-          * `type` (`str`) - Type of the Cosmos DB Cassandra table column
+      * `columns` (`list`) - List of Cassandra table columns.
+        * `name` (`str`) - Name of the Cosmos DB Cassandra table column
+        * `type` (`str`) - Type of the Cosmos DB Cassandra table column
 
-        * `partition_keys` (`list`) - List of partition key.
-          * `name` (`str`) - Name of the Cosmos DB Cassandra table partition key
+      * `partition_keys` (`list`) - List of partition key.
+        * `name` (`str`) - Name of the Cosmos DB Cassandra table partition key
     """
     tags: pulumi.Output[dict]
     """
@@ -107,8 +108,9 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['default_ttl'] = None
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['schema'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(DatabaseAccountCassandraTable, __self__).__init__(

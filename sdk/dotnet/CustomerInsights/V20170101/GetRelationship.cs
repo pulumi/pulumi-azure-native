@@ -46,13 +46,57 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class GetRelationshipResult
     {
         /// <summary>
+        /// The Relationship Cardinality.
+        /// </summary>
+        public readonly string? Cardinality;
+        /// <summary>
+        /// Localized descriptions for the Relationship.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Description;
+        /// <summary>
+        /// Localized display name for the Relationship.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? DisplayName;
+        /// <summary>
+        /// The expiry date time in UTC.
+        /// </summary>
+        public readonly string? ExpiryDateTimeUtc;
+        /// <summary>
+        /// The properties of the Relationship.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PropertyDefinitionResponseResult> Fields;
+        /// <summary>
+        /// Optional property to be used to map fields in profile to their strong ids in related profile.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RelationshipTypeMappingResponseResult> LookupMappings;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The definition of Relationship.
+        /// Profile type.
         /// </summary>
-        public readonly Outputs.RelationshipDefinitionResponseResult Properties;
+        public readonly string ProfileType;
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Related profile being referenced.
+        /// </summary>
+        public readonly string RelatedProfileType;
+        /// <summary>
+        /// The relationship guid id.
+        /// </summary>
+        public readonly string RelationshipGuidId;
+        /// <summary>
+        /// The Relationship name.
+        /// </summary>
+        public readonly string RelationshipName;
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -60,14 +104,47 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
 
         [OutputConstructor]
         private GetRelationshipResult(
+            string? cardinality,
+
+            ImmutableDictionary<string, string>? description,
+
+            ImmutableDictionary<string, string>? displayName,
+
+            string? expiryDateTimeUtc,
+
+            ImmutableArray<Outputs.PropertyDefinitionResponseResult> fields,
+
+            ImmutableArray<Outputs.RelationshipTypeMappingResponseResult> lookupMappings,
+
             string name,
 
-            Outputs.RelationshipDefinitionResponseResult properties,
+            string profileType,
+
+            string provisioningState,
+
+            string relatedProfileType,
+
+            string relationshipGuidId,
+
+            string relationshipName,
+
+            string tenantId,
 
             string type)
         {
+            Cardinality = cardinality;
+            Description = description;
+            DisplayName = displayName;
+            ExpiryDateTimeUtc = expiryDateTimeUtc;
+            Fields = fields;
+            LookupMappings = lookupMappings;
             Name = name;
-            Properties = properties;
+            ProfileType = profileType;
+            ProvisioningState = provisioningState;
+            RelatedProfileType = relatedProfileType;
+            RelationshipGuidId = relationshipGuidId;
+            RelationshipName = relationshipName;
+            TenantId = tenantId;
             Type = type;
         }
     }

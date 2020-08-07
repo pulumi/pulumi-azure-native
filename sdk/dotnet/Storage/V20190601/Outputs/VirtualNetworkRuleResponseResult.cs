@@ -18,25 +18,25 @@ namespace Pulumi.AzureRM.Storage.V20190601.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Gets the state of virtual network rule.
         /// </summary>
         public readonly string? State;
+        /// <summary>
+        /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        /// </summary>
+        public readonly string VirtualNetworkResourceId;
 
         [OutputConstructor]
         private VirtualNetworkRuleResponseResult(
             string? action,
 
-            string id,
+            string? state,
 
-            string? state)
+            string virtualNetworkResourceId)
         {
             Action = action;
-            Id = id;
             State = state;
+            VirtualNetworkResourceId = virtualNetworkResourceId;
         }
     }
 }

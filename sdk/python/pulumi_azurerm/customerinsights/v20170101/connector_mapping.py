@@ -10,57 +10,97 @@ from ... import _utilities, _tables
 
 
 class ConnectorMapping(pulumi.CustomResource):
+    connector_mapping_name: pulumi.Output[str]
+    """
+    The connector mapping name
+    """
+    connector_name: pulumi.Output[str]
+    """
+    The connector name.
+    """
+    connector_type: pulumi.Output[str]
+    """
+    Type of connector.
+    """
+    created: pulumi.Output[str]
+    """
+    The created time.
+    """
+    data_format_id: pulumi.Output[str]
+    """
+    The DataFormat ID.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the connector mapping.
+    """
+    display_name: pulumi.Output[str]
+    """
+    Display name for the connector mapping.
+    """
+    entity_type: pulumi.Output[str]
+    """
+    Defines which entity type the file should map to.
+    """
+    entity_type_name: pulumi.Output[str]
+    """
+    The mapping entity name.
+    """
+    last_modified: pulumi.Output[str]
+    """
+    The last modified time.
+    """
+    mapping_properties: pulumi.Output[dict]
+    """
+    The properties of the mapping.
+      * `availability` (`dict`) - The availability of mapping property.
+        * `frequency` (`str`) - The frequency to update.
+        * `interval` (`float`) - The interval of the given frequency to use.
+
+      * `complete_operation` (`dict`) - The operation after import is done.
+        * `completion_operation_type` (`str`) - The type of completion operation.
+        * `destination_folder` (`str`) - The destination folder where files will be moved to once the import is done.
+
+      * `error_management` (`dict`) - The error management setting for the mapping.
+        * `error_limit` (`float`) - The error limit allowed while importing data.
+        * `error_management_type` (`str`) - The type of error management to use for the mapping.
+
+      * `file_filter` (`str`) - The file filter for the mapping.
+      * `folder_path` (`str`) - The folder path for the mapping.
+      * `format` (`dict`) - The format of mapping property.
+        * `accept_language` (`str`) - The oData language.
+        * `array_separator` (`str`) - Character separating array elements.
+        * `column_delimiter` (`str`) - The character that signifies a break between columns.
+        * `format_type` (`str`) - The type mapping format.
+        * `quote_character` (`str`) - Quote character, used to indicate enquoted fields.
+        * `quote_escape_character` (`str`) - Escape character for quotes, can be the same as the quoteCharacter.
+
+      * `has_header` (`bool`) - If the file contains a header or not.
+      * `structure` (`list`) - Ingestion mapping information at property level.
+        * `column_name` (`str`) - The column name of the import file.
+        * `custom_format_specifier` (`str`) - Custom format specifier for input parsing.
+        * `is_encrypted` (`bool`) - Indicates if the column is encrypted.
+        * `property_name` (`str`) - The property name of the mapping entity.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    next_run_time: pulumi.Output[str]
     """
-    The connector mapping definition.
-      * `connector_mapping_name` (`str`) - The connector mapping name
-      * `connector_name` (`str`) - The connector name.
-      * `connector_type` (`str`) - Type of connector.
-      * `created` (`str`) - The created time.
-      * `data_format_id` (`str`) - The DataFormat ID.
-      * `description` (`str`) - The description of the connector mapping.
-      * `display_name` (`str`) - Display name for the connector mapping.
-      * `entity_type` (`str`) - Defines which entity type the file should map to.
-      * `entity_type_name` (`str`) - The mapping entity name.
-      * `last_modified` (`str`) - The last modified time.
-      * `mapping_properties` (`dict`) - The properties of the mapping.
-        * `availability` (`dict`) - The availability of mapping property.
-          * `frequency` (`str`) - The frequency to update.
-          * `interval` (`float`) - The interval of the given frequency to use.
-
-        * `complete_operation` (`dict`) - The operation after import is done.
-          * `completion_operation_type` (`str`) - The type of completion operation.
-          * `destination_folder` (`str`) - The destination folder where files will be moved to once the import is done.
-
-        * `error_management` (`dict`) - The error management setting for the mapping.
-          * `error_limit` (`float`) - The error limit allowed while importing data.
-          * `error_management_type` (`str`) - The type of error management to use for the mapping.
-
-        * `file_filter` (`str`) - The file filter for the mapping.
-        * `folder_path` (`str`) - The folder path for the mapping.
-        * `format` (`dict`) - The format of mapping property.
-          * `accept_language` (`str`) - The oData language.
-          * `array_separator` (`str`) - Character separating array elements.
-          * `column_delimiter` (`str`) - The character that signifies a break between columns.
-          * `format_type` (`str`) - The type mapping format.
-          * `quote_character` (`str`) - Quote character, used to indicate enquoted fields.
-          * `quote_escape_character` (`str`) - Escape character for quotes, can be the same as the quoteCharacter.
-
-        * `has_header` (`bool`) - If the file contains a header or not.
-        * `structure` (`list`) - Ingestion mapping information at property level.
-          * `column_name` (`str`) - The column name of the import file.
-          * `custom_format_specifier` (`str`) - Custom format specifier for input parsing.
-          * `is_encrypted` (`bool`) - Indicates if the column is encrypted.
-          * `property_name` (`str`) - The property name of the mapping entity.
-
-      * `next_run_time` (`str`) - The next run time based on customer's settings.
-      * `run_id` (`str`) - The RunId.
-      * `state` (`str`) - State of connector mapping.
-      * `tenant_id` (`str`) - The hub name.
+    The next run time based on customer's settings.
+    """
+    run_id: pulumi.Output[str]
+    """
+    The RunId.
+    """
+    state: pulumi.Output[str]
+    """
+    State of connector mapping.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The hub name.
     """
     type: pulumi.Output[str]
     """
@@ -155,7 +195,14 @@ class ConnectorMapping(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['connector_mapping_name'] = None
+            __props__['created'] = None
+            __props__['data_format_id'] = None
+            __props__['last_modified'] = None
+            __props__['next_run_time'] = None
+            __props__['run_id'] = None
+            __props__['state'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(ConnectorMapping, __self__).__init__(
             'azurerm:customerinsights/v20170101:ConnectorMapping',

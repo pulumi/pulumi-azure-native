@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public sealed class GetNamespaceResult
     {
         /// <summary>
+        /// Indicates whether to create an ACS namespace.
+        /// </summary>
+        public readonly bool? CreateACSNamespace;
+        /// <summary>
+        /// The time the namespace was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// Specifies whether this instance is enabled.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -48,13 +60,21 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the namespace.
+        /// Provisioning state of the namespace.
         /// </summary>
-        public readonly Outputs.NamespacePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Endpoint you can use to perform Service Bus operations.
+        /// </summary>
+        public readonly string ServiceBusEndpoint;
         /// <summary>
         /// SKU of the namespace.
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// State of the namespace.
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,27 +83,49 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
 
         [OutputConstructor]
         private GetNamespaceResult(
+            bool? createACSNamespace,
+
+            string createdAt,
+
+            bool? enabled,
+
             string location,
 
             string name,
 
-            Outputs.NamespacePropertiesResponseResult properties,
+            string provisioningState,
+
+            string serviceBusEndpoint,
 
             Outputs.SkuResponseResult? sku,
 
+            string? status,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string updatedAt)
         {
+            CreateACSNamespace = createACSNamespace;
+            CreatedAt = createdAt;
+            Enabled = enabled;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
+            Status = status;
             Tags = tags;
             Type = type;
+            UpdatedAt = updatedAt;
         }
     }
 }

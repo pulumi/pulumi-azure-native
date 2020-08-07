@@ -25,12 +25,14 @@ type LookupAccountArgs struct {
 
 // NetApp account resource
 type LookupAccountResult struct {
+	// Active Directories
+	ActiveDirectories []ActiveDirectoryResponse `pulumi:"activeDirectories"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// NetApp Account properties
-	Properties AccountPropertiesResponse `pulumi:"properties"`
+	// Azure lifecycle management
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

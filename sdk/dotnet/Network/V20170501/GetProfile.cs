@@ -40,21 +40,37 @@ namespace Pulumi.AzureRM.Network.V20170501
     public sealed class GetProfileResult
     {
         /// <summary>
+        /// The DNS settings of the Traffic Manager profile.
+        /// </summary>
+        public readonly Outputs.DnsConfigResponseResult? DnsConfig;
+        /// <summary>
+        /// The list of endpoints in the Traffic Manager profile.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EndpointResponseResult> Endpoints;
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The endpoint monitoring settings of the Traffic Manager profile.
+        /// </summary>
+        public readonly Outputs.MonitorConfigResponseResult? MonitorConfig;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the Traffic Manager profile.
+        /// The status of the Traffic Manager profile.
         /// </summary>
-        public readonly Outputs.ProfilePropertiesResponseResult Properties;
+        public readonly string? ProfileStatus;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The traffic routing method of the Traffic Manager profile.
+        /// </summary>
+        public readonly string? TrafficRoutingMethod;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         /// </summary>
@@ -62,20 +78,32 @@ namespace Pulumi.AzureRM.Network.V20170501
 
         [OutputConstructor]
         private GetProfileResult(
+            Outputs.DnsConfigResponseResult? dnsConfig,
+
+            ImmutableArray<Outputs.EndpointResponseResult> endpoints,
+
             string? location,
+
+            Outputs.MonitorConfigResponseResult? monitorConfig,
 
             string name,
 
-            Outputs.ProfilePropertiesResponseResult properties,
+            string? profileStatus,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? trafficRoutingMethod,
+
             string type)
         {
+            DnsConfig = dnsConfig;
+            Endpoints = endpoints;
             Location = location;
+            MonitorConfig = monitorConfig;
             Name = name;
-            Properties = properties;
+            ProfileStatus = profileStatus;
             Tags = tags;
+            TrafficRoutingMethod = trafficRoutingMethod;
             Type = type;
         }
     }

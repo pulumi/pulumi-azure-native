@@ -37,17 +37,93 @@ export class RoleAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * The name of the metadata object.
+     */
+    public /*out*/ readonly assignmentName!: pulumi.Output<string>;
+    /**
+     * Widget types set for the assignment.
+     */
+    public readonly conflationPolicies!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * Connectors set for the assignment.
+     */
+    public readonly connectors!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * Localized description for the metadata.
+     */
+    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Localized display names for the metadata.
+     */
+    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Interactions set for the assignment.
+     */
+    public readonly interactions!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * Kpis set for the assignment.
+     */
+    public readonly kpis!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * Links set for the assignment.
+     */
+    public readonly links!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Role Assignment definition.
+     * The principals being assigned to.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.RoleAssignmentResponse>;
+    public readonly principals!: pulumi.Output<outputs.customerinsights.v20170101.AssignmentPrincipalResponse[]>;
+    /**
+     * Profiles set for the assignment.
+     */
+    public readonly profiles!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * Provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The Role assignments set for the relationship links.
+     */
+    public readonly relationshipLinks!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * The Role assignments set for the relationships.
+     */
+    public readonly relationships!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * Type of roles.
+     */
+    public readonly role!: pulumi.Output<string>;
+    /**
+     * The Role assignments set for the assignment.
+     */
+    public readonly roleAssignments!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * Sas Policies set for the assignment.
+     */
+    public readonly sasPolicies!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * The Role assignments set for the assignment.
+     */
+    public readonly segments!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * The hub name.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Views set for the assignment.
+     */
+    public readonly views!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
+    /**
+     * Widget types set for the assignment.
+     */
+    public readonly widgetTypes!: pulumi.Output<outputs.customerinsights.v20170101.ResourceSetDescriptionResponse | undefined>;
 
     /**
      * Create a RoleAssignment resource with the given unique name, arguments, and options.
@@ -97,7 +173,9 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["segments"] = args ? args.segments : undefined;
             inputs["views"] = args ? args.views : undefined;
             inputs["widgetTypes"] = args ? args.widgetTypes : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["assignmentName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

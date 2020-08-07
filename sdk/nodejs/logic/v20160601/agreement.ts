@@ -37,17 +37,49 @@ export class Agreement extends pulumi.CustomResource {
     }
 
     /**
+     * The agreement type.
+     */
+    public readonly agreementType!: pulumi.Output<string>;
+    /**
+     * The changed time.
+     */
+    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    /**
+     * The agreement content.
+     */
+    public readonly content!: pulumi.Output<outputs.logic.v20160601.AgreementContentResponse>;
+    /**
+     * The created time.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The business identity of the guest partner.
+     */
+    public readonly guestIdentity!: pulumi.Output<outputs.logic.v20160601.BusinessIdentityResponse>;
+    /**
+     * The integration account partner that is set as guest partner for this agreement.
+     */
+    public readonly guestPartner!: pulumi.Output<string>;
+    /**
+     * The business identity of the host partner.
+     */
+    public readonly hostIdentity!: pulumi.Output<outputs.logic.v20160601.BusinessIdentityResponse>;
+    /**
+     * The integration account partner that is set as host partner for this agreement.
+     */
+    public readonly hostPartner!: pulumi.Output<string>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * The metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Gets the resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The integration account agreement properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountAgreementPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -109,7 +141,8 @@ export class Agreement extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

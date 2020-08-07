@@ -36,6 +36,14 @@ export interface GetADCCatalogArgs {
  */
 export interface GetADCCatalogResult {
     /**
+     * Azure data catalog admin list.
+     */
+    readonly admins?: outputs.datacatalog.v20160330.PrincipalsResponse[];
+    /**
+     * Automatic unit adjustment enabled or not.
+     */
+    readonly enableAutomaticUnitAdjustment?: boolean;
+    /**
      * Resource etag
      */
     readonly etag?: string;
@@ -48,9 +56,13 @@ export interface GetADCCatalogResult {
      */
     readonly name: string;
     /**
-     * Azure Data Catalog properties.
+     * Azure data catalog SKU.
      */
-    readonly properties: outputs.datacatalog.v20160330.ADCCatalogPropertiesResponse;
+    readonly sku?: string;
+    /**
+     * Azure data catalog provision status.
+     */
+    readonly successfullyProvisioned?: boolean;
     /**
      * Resource tags
      */
@@ -59,4 +71,12 @@ export interface GetADCCatalogResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Azure data catalog units.
+     */
+    readonly units?: number;
+    /**
+     * Azure data catalog user list.
+     */
+    readonly users?: outputs.datacatalog.v20160330.PrincipalsResponse[];
 }

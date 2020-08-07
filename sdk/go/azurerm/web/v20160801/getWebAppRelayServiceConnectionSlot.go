@@ -27,12 +27,17 @@ type LookupWebAppRelayServiceConnectionSlotArgs struct {
 
 // Hybrid Connection for an App Service app.
 type LookupWebAppRelayServiceConnectionSlotResult struct {
+	BiztalkUri             *string `pulumi:"biztalkUri"`
+	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	EntityName             *string `pulumi:"entityName"`
+	Hostname               *string `pulumi:"hostname"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name string `pulumi:"name"`
-	// RelayServiceConnectionEntity resource specific properties
-	Properties RelayServiceConnectionEntityResponseProperties `pulumi:"properties"`
+	Name                     string  `pulumi:"name"`
+	Port                     *int    `pulumi:"port"`
+	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
+	ResourceType             *string `pulumi:"resourceType"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

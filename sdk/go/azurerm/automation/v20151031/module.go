@@ -14,18 +14,38 @@ import (
 type Module struct {
 	pulumi.CustomResourceState
 
+	// Gets or sets the activity count of the module.
+	ActivityCount pulumi.IntPtrOutput `pulumi:"activityCount"`
+	// Gets or sets the contentLink of the module.
+	ContentLink ContentLinkResponsePtrOutput `pulumi:"contentLink"`
+	// Gets or sets the creation time.
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Gets or sets the error info of the module.
+	Error ModuleErrorInfoResponsePtrOutput `pulumi:"error"`
 	// Gets or sets the etag of the resource.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Gets or sets type of module, if its composite or not.
+	IsComposite pulumi.BoolPtrOutput `pulumi:"isComposite"`
+	// Gets or sets the isGlobal flag of the module.
+	IsGlobal pulumi.BoolPtrOutput `pulumi:"isGlobal"`
+	// Gets or sets the last modified time.
+	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the module properties.
-	Properties ModulePropertiesResponseOutput `pulumi:"properties"`
+	// Gets or sets the provisioning state of the module.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Gets or sets the size in bytes of the module.
+	SizeInBytes pulumi.IntPtrOutput `pulumi:"sizeInBytes"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Gets or sets the version of the module.
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewModule registers a new resource with the given unique name, arguments, and options.
@@ -68,33 +88,73 @@ func GetModule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Module resources.
 type moduleState struct {
+	// Gets or sets the activity count of the module.
+	ActivityCount *int `pulumi:"activityCount"`
+	// Gets or sets the contentLink of the module.
+	ContentLink *ContentLinkResponse `pulumi:"contentLink"`
+	// Gets or sets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets or sets the error info of the module.
+	Error *ModuleErrorInfoResponse `pulumi:"error"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Gets or sets type of module, if its composite or not.
+	IsComposite *bool `pulumi:"isComposite"`
+	// Gets or sets the isGlobal flag of the module.
+	IsGlobal *bool `pulumi:"isGlobal"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Gets or sets the module properties.
-	Properties *ModulePropertiesResponse `pulumi:"properties"`
+	// Gets or sets the provisioning state of the module.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets the size in bytes of the module.
+	SizeInBytes *int `pulumi:"sizeInBytes"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// Gets or sets the version of the module.
+	Version *string `pulumi:"version"`
 }
 
 type ModuleState struct {
+	// Gets or sets the activity count of the module.
+	ActivityCount pulumi.IntPtrInput
+	// Gets or sets the contentLink of the module.
+	ContentLink ContentLinkResponsePtrInput
+	// Gets or sets the creation time.
+	CreationTime pulumi.StringPtrInput
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput
+	// Gets or sets the error info of the module.
+	Error ModuleErrorInfoResponsePtrInput
 	// Gets or sets the etag of the resource.
 	Etag pulumi.StringPtrInput
+	// Gets or sets type of module, if its composite or not.
+	IsComposite pulumi.BoolPtrInput
+	// Gets or sets the isGlobal flag of the module.
+	IsGlobal pulumi.BoolPtrInput
+	// Gets or sets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Gets or sets the module properties.
-	Properties ModulePropertiesResponsePtrInput
+	// Gets or sets the provisioning state of the module.
+	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets the size in bytes of the module.
+	SizeInBytes pulumi.IntPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// Gets or sets the version of the module.
+	Version pulumi.StringPtrInput
 }
 
 func (ModuleState) ElementType() reflect.Type {

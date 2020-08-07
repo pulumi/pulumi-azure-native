@@ -13,18 +13,42 @@ class GetContentKeyPolicyResult:
     """
     A Content Key Policy resource.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, created=None, description=None, last_modified=None, name=None, options=None, policy_id=None, type=None):
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The creation date of the Policy
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        A description for the Policy.
+        """
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        __self__.last_modified = last_modified
+        """
+        The last modified date of the Policy
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if options and not isinstance(options, list):
+            raise TypeError("Expected argument 'options' to be a list")
+        __self__.options = options
         """
-        The properties of the Content Key Policy.
+        The Key Policy options.
+        """
+        if policy_id and not isinstance(policy_id, str):
+            raise TypeError("Expected argument 'policy_id' to be a str")
+        __self__.policy_id = policy_id
+        """
+        The legacy Policy ID.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetContentKeyPolicyResult(GetContentKeyPolicyResult):
         if False:
             yield self
         return GetContentKeyPolicyResult(
+            created=self.created,
+            description=self.description,
+            last_modified=self.last_modified,
             name=self.name,
-            properties=self.properties,
+            options=self.options,
+            policy_id=self.policy_id,
             type=self.type)
 
 
@@ -64,6 +92,10 @@ def get_content_key_policy(account_name=None, name=None, resource_group_name=Non
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getContentKeyPolicy', __args__, opts=opts).value
 
     return AwaitableGetContentKeyPolicyResult(
+        created=__ret__.get('created'),
+        description=__ret__.get('description'),
+        last_modified=__ret__.get('lastModified'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        options=__ret__.get('options'),
+        policy_id=__ret__.get('policyId'),
         type=__ret__.get('type'))

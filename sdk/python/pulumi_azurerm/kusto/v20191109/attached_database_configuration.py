@@ -10,6 +10,22 @@ from ... import _utilities, _tables
 
 
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
+    attached_database_names: pulumi.Output[list]
+    """
+    The list of databases from the clusterResourceId which are currently attached to the cluster.
+    """
+    cluster_resource_id: pulumi.Output[str]
+    """
+    The resource id of the cluster where the databases you would like to attach reside.
+    """
+    database_name: pulumi.Output[str]
+    """
+    The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+    """
+    default_principals_modification_kind: pulumi.Output[str]
+    """
+    The default principals modification kind
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,14 +34,9 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the attached database configuration.
-      * `attached_database_names` (`list`) - The list of databases from the clusterResourceId which are currently attached to the cluster.
-      * `cluster_resource_id` (`str`) - The resource id of the cluster where the databases you would like to attach reside.
-      * `database_name` (`str`) - The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-      * `default_principals_modification_kind` (`str`) - The default principals modification kind
-      * `provisioning_state` (`str`) - The provisioned state of the resource.
+    The provisioned state of the resource.
     """
     type: pulumi.Output[str]
     """
@@ -81,7 +92,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['attached_database_names'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(AttachedDatabaseConfiguration, __self__).__init__(
             'azurerm:kusto/v20191109:AttachedDatabaseConfiguration',

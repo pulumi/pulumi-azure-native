@@ -46,29 +46,50 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetNamedValueResult
     {
         /// <summary>
+        /// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// NamedValue entity contract properties.
+        /// Determines whether the value is a secret and should be encrypted or not. Default value is false.
         /// </summary>
-        public readonly Outputs.NamedValueContractPropertiesResponseResult Properties;
+        public readonly bool? Secret;
+        /// <summary>
+        /// Optional tags that when provided can be used to filter the NamedValue list.
+        /// </summary>
+        public readonly ImmutableArray<string> Tags;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        /// </summary>
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetNamedValueResult(
+            string displayName,
+
             string name,
 
-            Outputs.NamedValueContractPropertiesResponseResult properties,
+            bool? secret,
 
-            string type)
+            ImmutableArray<string> tags,
+
+            string type,
+
+            string? value)
         {
+            DisplayName = displayName;
             Name = name;
-            Properties = properties;
+            Secret = secret;
+            Tags = tags;
             Type = type;
+            Value = value;
         }
     }
 }

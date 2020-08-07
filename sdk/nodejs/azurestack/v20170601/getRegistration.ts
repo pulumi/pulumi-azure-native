@@ -36,6 +36,14 @@ export interface GetRegistrationArgs {
  */
 export interface GetRegistrationResult {
     /**
+     * Specifies the billing mode for the Azure Stack registration.
+     */
+    readonly billingModel?: string;
+    /**
+     * The identifier of the registered Azure Stack.
+     */
+    readonly cloudId?: string;
+    /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
     readonly etag?: string;
@@ -48,9 +56,9 @@ export interface GetRegistrationResult {
      */
     readonly name: string;
     /**
-     * Registration resource.
+     * The object identifier associated with the Azure Stack connecting to Azure.
      */
-    readonly properties: outputs.azurestack.v20170601.RegistrationPropertiesResponse;
+    readonly objectId?: string;
     /**
      * Custom tags for the resource.
      */

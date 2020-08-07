@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
     public partial class ManagedCluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        [Output("agentPoolProfiles")]
+        public Output<ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult>> AgentPoolProfiles { get; private set; } = null!;
+
+        /// <summary>
+        /// DNS prefix specified when creating the managed cluster.
+        /// </summary>
+        [Output("dnsPrefix")]
+        public Output<string?> DnsPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// FQDN for the master pool.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of Kubernetes specified when creating the managed cluster.
+        /// </summary>
+        [Output("kubernetesVersion")]
+        public Output<string?> KubernetesVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        [Output("linuxProfile")]
+        public Output<Outputs.ContainerServiceLinuxProfileResponseResult?> LinuxProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +57,16 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of a managed cluster.
+        /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ManagedClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+        /// </summary>
+        [Output("servicePrincipalProfile")]
+        public Output<Outputs.ContainerServiceServicePrincipalProfileResponseResult?> ServicePrincipalProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

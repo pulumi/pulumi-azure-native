@@ -14,16 +14,22 @@ import (
 type App struct {
 	pulumi.CustomResourceState
 
+	// The ID of the application.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The display name of the application.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ARM resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The common properties of an IoT Central application.
-	Properties AppPropertiesResponseOutput `pulumi:"properties"`
 	// A valid instance SKU.
 	Sku AppSkuInfoResponseOutput `pulumi:"sku"`
+	// The subdomain of the application.
+	Subdomain pulumi.StringPtrOutput `pulumi:"subdomain"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+	Template pulumi.StringPtrOutput `pulumi:"template"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -68,31 +74,43 @@ func GetApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering App resources.
 type appState struct {
+	// The ID of the application.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The display name of the application.
+	DisplayName *string `pulumi:"displayName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The ARM resource name.
 	Name *string `pulumi:"name"`
-	// The common properties of an IoT Central application.
-	Properties *AppPropertiesResponse `pulumi:"properties"`
 	// A valid instance SKU.
 	Sku *AppSkuInfoResponse `pulumi:"sku"`
+	// The subdomain of the application.
+	Subdomain *string `pulumi:"subdomain"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+	Template *string `pulumi:"template"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
 
 type AppState struct {
+	// The ID of the application.
+	ApplicationId pulumi.StringPtrInput
+	// The display name of the application.
+	DisplayName pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The ARM resource name.
 	Name pulumi.StringPtrInput
-	// The common properties of an IoT Central application.
-	Properties AppPropertiesResponsePtrInput
 	// A valid instance SKU.
 	Sku AppSkuInfoResponsePtrInput
+	// The subdomain of the application.
+	Subdomain pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
+	// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+	Template pulumi.StringPtrInput
 	// The resource type.
 	Type pulumi.StringPtrInput
 }

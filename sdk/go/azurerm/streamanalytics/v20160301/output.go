@@ -14,10 +14,16 @@ import (
 type Output struct {
 	pulumi.CustomResourceState
 
+	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+	Datasource OutputDataSourceResponsePtrOutput `pulumi:"datasource"`
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics DiagnosticsResponseOutput `pulumi:"diagnostics"`
+	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Resource name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-	Properties OutputPropertiesResponseOutput `pulumi:"properties"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization SerializationResponsePtrOutput `pulumi:"serialization"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +65,31 @@ func GetOutput(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Output resources.
 type outputState struct {
+	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+	Datasource *OutputDataSourceResponse `pulumi:"datasource"`
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics *DiagnosticsResponse `pulumi:"diagnostics"`
+	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag *string `pulumi:"etag"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-	Properties *OutputPropertiesResponse `pulumi:"properties"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization *SerializationResponse `pulumi:"serialization"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type OutputState struct {
+	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+	Datasource OutputDataSourceResponsePtrInput
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics DiagnosticsResponsePtrInput
+	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-	Properties OutputPropertiesResponsePtrInput
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization SerializationResponsePtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

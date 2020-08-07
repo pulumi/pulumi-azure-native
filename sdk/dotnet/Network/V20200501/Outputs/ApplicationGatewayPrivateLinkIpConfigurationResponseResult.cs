@@ -26,9 +26,25 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of an application gateway private link ip configuration.
+        /// Whether the ip configuration is primary or not.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayPrivateLinkIpConfigurationPropertiesResponseResult? Properties;
+        public readonly bool? Primary;
+        /// <summary>
+        /// The private IP address of the IP configuration.
+        /// </summary>
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// The provisioning state of the application gateway private link IP configuration.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Reference to the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Subnet;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -42,14 +58,26 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
 
             string? name,
 
-            Outputs.ApplicationGatewayPrivateLinkIpConfigurationPropertiesResponseResult? properties,
+            bool? primary,
+
+            string? privateIPAddress,
+
+            string? privateIPAllocationMethod,
+
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? subnet,
 
             string type)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Primary = primary;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            Subnet = subnet;
             Type = type;
         }
     }

@@ -10,160 +10,174 @@ from ... import _utilities, _tables
 
 
 class Cluster(pulumi.CustomResource):
+    add_on_features: pulumi.Output[list]
+    """
+    The list of add-on features to enable in the cluster.
+    """
+    application_type_versions_cleanup_policy: pulumi.Output[dict]
+    """
+    The policy used to clean up unused versions.
+      * `max_unused_versions_to_keep` (`float`) - Number of unused versions per application type to keep.
+    """
+    available_cluster_versions: pulumi.Output[list]
+    """
+    The Service Fabric runtime versions available for this cluster.
+      * `code_version` (`str`) - The Service Fabric runtime version of the cluster.
+      * `environment` (`str`) - Indicates if this version is for Windows or Linux operating system.
+      * `support_expiry_utc` (`str`) - The date of expiry of support of the version.
+    """
+    azure_active_directory: pulumi.Output[dict]
+    """
+    The AAD authentication settings of the cluster.
+      * `client_application` (`str`) - Azure active directory client application id.
+      * `cluster_application` (`str`) - Azure active directory cluster application id.
+      * `tenant_id` (`str`) - Azure active directory tenant id.
+    """
+    certificate: pulumi.Output[dict]
+    """
+    The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
+      * `thumbprint` (`str`) - Thumbprint of the primary certificate.
+      * `thumbprint_secondary` (`str`) - Thumbprint of the secondary certificate.
+      * `x509_store_name` (`str`) - The local certificate store location.
+    """
+    certificate_common_names: pulumi.Output[dict]
+    """
+    Describes a list of server certificates referenced by common name that are used to secure the cluster.
+      * `common_names` (`list`) - The list of server certificates referenced by common name that are used to secure the cluster.
+        * `certificate_common_name` (`str`) - The common name of the server certificate.
+        * `certificate_issuer_thumbprint` (`str`) - The issuer thumbprint of the server certificate.
+
+      * `x509_store_name` (`str`) - The local certificate store location.
+    """
+    client_certificate_common_names: pulumi.Output[list]
+    """
+    The list of client certificates referenced by common name that are allowed to manage the cluster.
+      * `certificate_common_name` (`str`) - The common name of the client certificate.
+      * `certificate_issuer_thumbprint` (`str`) - The issuer thumbprint of the client certificate.
+      * `is_admin` (`bool`) - Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
+    """
+    client_certificate_thumbprints: pulumi.Output[list]
+    """
+    The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
+      * `certificate_thumbprint` (`str`) - The thumbprint of the client certificate.
+      * `is_admin` (`bool`) - Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
+    """
+    cluster_code_version: pulumi.Output[str]
+    """
+    The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+    """
+    cluster_endpoint: pulumi.Output[str]
+    """
+    The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
+    """
+    cluster_id: pulumi.Output[str]
+    """
+    A service generated unique identifier for the cluster resource.
+    """
+    cluster_state: pulumi.Output[str]
+    """
+    The current state of the cluster.
+
+      - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
+      - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
+      - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
+      - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
+      - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
+      - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
+      - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
+      - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
+      - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
+      - Ready - Indicates that the cluster is in a stable state.
+    """
+    diagnostics_storage_account_config: pulumi.Output[dict]
+    """
+    The storage account information for storing Service Fabric diagnostic logs.
+      * `blob_endpoint` (`str`) - The blob endpoint of the azure storage account.
+      * `protected_account_key_name` (`str`) - The protected diagnostics storage key name.
+      * `protected_account_key_name2` (`str`) - The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
+      * `queue_endpoint` (`str`) - The queue endpoint of the azure storage account.
+      * `storage_account_name` (`str`) - The Azure storage account name.
+      * `table_endpoint` (`str`) - The table endpoint of the azure storage account.
+    """
     etag: pulumi.Output[str]
     """
     Azure resource etag.
+    """
+    event_store_service_enabled: pulumi.Output[bool]
+    """
+    Indicates if the event store service is enabled.
+    """
+    fabric_settings: pulumi.Output[list]
+    """
+    The list of custom fabric settings to configure the cluster.
+      * `name` (`str`) - The section name of the fabric settings.
+      * `parameters` (`list`) - The collection of parameters in the section.
+        * `name` (`str`) - The parameter name of fabric setting.
+        * `value` (`str`) - The parameter value of fabric setting.
     """
     location: pulumi.Output[str]
     """
     Azure resource location.
     """
+    management_endpoint: pulumi.Output[str]
+    """
+    The http management endpoint of the cluster.
+    """
     name: pulumi.Output[str]
     """
     Azure resource name.
     """
-    properties: pulumi.Output[dict]
+    node_types: pulumi.Output[list]
     """
-    The cluster resource properties
-      * `add_on_features` (`list`) - The list of add-on features to enable in the cluster.
-      * `application_type_versions_cleanup_policy` (`dict`) - The policy used to clean up unused versions.
-        * `max_unused_versions_to_keep` (`float`) - Number of unused versions per application type to keep.
+    The list of node types in the cluster.
+      * `application_ports` (`dict`) - The range of ports from which cluster assigned port to Service Fabric applications.
+        * `end_port` (`float`) - End port of a range of ports
+        * `start_port` (`float`) - Starting port of a range of ports
 
-      * `available_cluster_versions` (`list`) - The Service Fabric runtime versions available for this cluster.
-        * `code_version` (`str`) - The Service Fabric runtime version of the cluster.
-        * `environment` (`str`) - Indicates if this version is for Windows or Linux operating system.
-        * `support_expiry_utc` (`str`) - The date of expiry of support of the version.
-
-      * `azure_active_directory` (`dict`) - The AAD authentication settings of the cluster.
-        * `client_application` (`str`) - Azure active directory client application id.
-        * `cluster_application` (`str`) - Azure active directory cluster application id.
-        * `tenant_id` (`str`) - Azure active directory tenant id.
-
-      * `certificate` (`dict`) - The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
-        * `thumbprint` (`str`) - Thumbprint of the primary certificate.
-        * `thumbprint_secondary` (`str`) - Thumbprint of the secondary certificate.
-        * `x509_store_name` (`str`) - The local certificate store location.
-
-      * `certificate_common_names` (`dict`) - Describes a list of server certificates referenced by common name that are used to secure the cluster.
-        * `common_names` (`list`) - The list of server certificates referenced by common name that are used to secure the cluster.
-          * `certificate_common_name` (`str`) - The common name of the server certificate.
-          * `certificate_issuer_thumbprint` (`str`) - The issuer thumbprint of the server certificate.
-
-        * `x509_store_name` (`str`) - The local certificate store location.
-
-      * `client_certificate_common_names` (`list`) - The list of client certificates referenced by common name that are allowed to manage the cluster.
-        * `certificate_common_name` (`str`) - The common name of the client certificate.
-        * `certificate_issuer_thumbprint` (`str`) - The issuer thumbprint of the client certificate.
-        * `is_admin` (`bool`) - Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-
-      * `client_certificate_thumbprints` (`list`) - The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
-        * `certificate_thumbprint` (`str`) - The thumbprint of the client certificate.
-        * `is_admin` (`bool`) - Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-
-      * `cluster_code_version` (`str`) - The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-      * `cluster_endpoint` (`str`) - The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
-      * `cluster_id` (`str`) - A service generated unique identifier for the cluster resource.
-      * `cluster_state` (`str`) - The current state of the cluster.
+      * `capacities` (`dict`) - The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+      * `client_connection_endpoint_port` (`float`) - The TCP cluster management endpoint port.
+      * `durability_level` (`str`) - The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
         
-          - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
-          - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
-          - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
-          - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
-          - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
-          - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
-          - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
-          - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
-          - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
-          - Ready - Indicates that the cluster is in a stable state.
-      * `diagnostics_storage_account_config` (`dict`) - The storage account information for storing Service Fabric diagnostic logs.
-        * `blob_endpoint` (`str`) - The blob endpoint of the azure storage account.
-        * `protected_account_key_name` (`str`) - The protected diagnostics storage key name.
-        * `protected_account_key_name2` (`str`) - The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
-        * `queue_endpoint` (`str`) - The queue endpoint of the azure storage account.
-        * `storage_account_name` (`str`) - The Azure storage account name.
-        * `table_endpoint` (`str`) - The table endpoint of the azure storage account.
+          - Bronze - No privileges. This is the default.
+          - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
+          - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
+      * `ephemeral_ports` (`dict`) - The range of ephemeral ports that nodes in this node type should be configured with.
+      * `http_gateway_endpoint_port` (`float`) - The HTTP cluster management endpoint port.
+      * `is_primary` (`bool`) - The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+      * `name` (`str`) - The name of the node type.
+      * `placement_properties` (`dict`) - The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+      * `reverse_proxy_endpoint_port` (`float`) - The endpoint used by reverse proxy.
+      * `vm_instance_count` (`float`) - The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the cluster resource.
+    """
+    reliability_level: pulumi.Output[str]
+    """
+    The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-      * `event_store_service_enabled` (`bool`) - Indicates if the event store service is enabled.
-      * `fabric_settings` (`list`) - The list of custom fabric settings to configure the cluster.
-        * `name` (`str`) - The section name of the fabric settings.
-        * `parameters` (`list`) - The collection of parameters in the section.
-          * `name` (`str`) - The parameter name of fabric setting.
-          * `value` (`str`) - The parameter value of fabric setting.
+      - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
+      - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
+      - Silver - Run the System services with a target replica set count of 5.
+      - Gold - Run the System services with a target replica set count of 7.
+      - Platinum - Run the System services with a target replica set count of 9.
+    """
+    reverse_proxy_certificate: pulumi.Output[dict]
+    """
+    The server certificate used by reverse proxy.
+      * `thumbprint` (`str`) - Thumbprint of the primary certificate.
+      * `thumbprint_secondary` (`str`) - Thumbprint of the secondary certificate.
+      * `x509_store_name` (`str`) - The local certificate store location.
+    """
+    reverse_proxy_certificate_common_names: pulumi.Output[dict]
+    """
+    Describes a list of server certificates referenced by common name that are used to secure the cluster.
+      * `common_names` (`list`) - The list of server certificates referenced by common name that are used to secure the cluster.
+        * `certificate_common_name` (`str`) - The common name of the server certificate.
+        * `certificate_issuer_thumbprint` (`str`) - The issuer thumbprint of the server certificate.
 
-      * `management_endpoint` (`str`) - The http management endpoint of the cluster.
-      * `node_types` (`list`) - The list of node types in the cluster.
-        * `application_ports` (`dict`) - The range of ports from which cluster assigned port to Service Fabric applications.
-          * `end_port` (`float`) - End port of a range of ports
-          * `start_port` (`float`) - Starting port of a range of ports
-
-        * `capacities` (`dict`) - The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-        * `client_connection_endpoint_port` (`float`) - The TCP cluster management endpoint port.
-        * `durability_level` (`str`) - The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-          
-            - Bronze - No privileges. This is the default.
-            - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
-            - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-        * `ephemeral_ports` (`dict`) - The range of ephemeral ports that nodes in this node type should be configured with.
-        * `http_gateway_endpoint_port` (`float`) - The HTTP cluster management endpoint port.
-        * `is_primary` (`bool`) - The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
-        * `name` (`str`) - The name of the node type.
-        * `placement_properties` (`dict`) - The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-        * `reverse_proxy_endpoint_port` (`float`) - The endpoint used by reverse proxy.
-        * `vm_instance_count` (`float`) - The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
-
-      * `provisioning_state` (`str`) - The provisioning state of the cluster resource.
-      * `reliability_level` (`str`) - The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-        
-          - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
-          - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
-          - Silver - Run the System services with a target replica set count of 5.
-          - Gold - Run the System services with a target replica set count of 7.
-          - Platinum - Run the System services with a target replica set count of 9.
-      * `reverse_proxy_certificate` (`dict`) - The server certificate used by reverse proxy.
-      * `reverse_proxy_certificate_common_names` (`dict`) - Describes a list of server certificates referenced by common name that are used to secure the cluster.
-      * `upgrade_description` (`dict`) - The policy to use when upgrading the cluster.
-        * `delta_health_policy` (`dict`) - The cluster delta health policy used when upgrading the cluster.
-          * `application_delta_health_policies` (`dict`) - Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-          * `max_percent_delta_unhealthy_applications` (`float`) - The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-            The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-            The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-          * `max_percent_delta_unhealthy_nodes` (`float`) - The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-            The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-            The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-          * `max_percent_upgrade_domain_delta_unhealthy_nodes` (`float`) - The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-            The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-            The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-
-        * `force_restart` (`bool`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-        * `health_check_retry_timeout` (`str`) - The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        * `health_check_stable_duration` (`str`) - The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        * `health_check_wait_duration` (`str`) - The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        * `health_policy` (`dict`) - The cluster health policy used when upgrading the cluster.
-          * `application_health_policies` (`dict`) - Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-          * `max_percent_unhealthy_applications` (`float`) - The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-            
-            The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-            If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-            This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-            The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-          * `max_percent_unhealthy_nodes` (`float`) - The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-            
-            The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-            If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-            The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-            The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-            
-            In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-
-        * `upgrade_domain_timeout` (`str`) - The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        * `upgrade_replica_set_check_timeout` (`str`) - The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        * `upgrade_timeout` (`str`) - The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-
-      * `upgrade_mode` (`str`) - The upgrade mode of the cluster when new Service Fabric runtime version is available.
-        
-          - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-          - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-      * `vm_image` (`str`) - The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+      * `x509_store_name` (`str`) - The local certificate store location.
     """
     tags: pulumi.Output[dict]
     """
@@ -172,6 +186,57 @@ class Cluster(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Azure resource type.
+    """
+    upgrade_description: pulumi.Output[dict]
+    """
+    The policy to use when upgrading the cluster.
+      * `delta_health_policy` (`dict`) - The cluster delta health policy used when upgrading the cluster.
+        * `application_delta_health_policies` (`dict`) - Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+        * `max_percent_delta_unhealthy_applications` (`float`) - The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+          The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
+          The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
+        * `max_percent_delta_unhealthy_nodes` (`float`) - The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+          The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
+          The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+        * `max_percent_upgrade_domain_delta_unhealthy_nodes` (`float`) - The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+          The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
+          The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
+
+      * `force_restart` (`bool`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+      * `health_check_retry_timeout` (`str`) - The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+      * `health_check_stable_duration` (`str`) - The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+      * `health_check_wait_duration` (`str`) - The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+      * `health_policy` (`dict`) - The cluster health policy used when upgrading the cluster.
+        * `application_health_policies` (`dict`) - Defines the application health policy map used to evaluate the health of an application or one of its children entities.
+        * `max_percent_unhealthy_applications` (`float`) - The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+          
+          The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+          If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
+          This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
+          The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
+        * `max_percent_unhealthy_nodes` (`float`) - The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+          
+          The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
+          If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
+          The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
+          The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+          
+          In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
+
+      * `upgrade_domain_timeout` (`str`) - The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+      * `upgrade_replica_set_check_timeout` (`str`) - The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+      * `upgrade_timeout` (`str`) - The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+    """
+    upgrade_mode: pulumi.Output[str]
+    """
+    The upgrade mode of the cluster when new Service Fabric runtime version is available.
+
+      - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+      - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
+    """
+    vm_image: pulumi.Output[str]
+    """
+    The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
     """
     def __init__(__self__, resource_name, opts=None, add_on_features=None, application_type_versions_cleanup_policy=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_storage_account_config=None, event_store_service_enabled=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, reverse_proxy_certificate_common_names=None, tags=None, upgrade_description=None, upgrade_mode=None, vm_image=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -373,8 +438,12 @@ class Cluster(pulumi.CustomResource):
             __props__['upgrade_description'] = upgrade_description
             __props__['upgrade_mode'] = upgrade_mode
             __props__['vm_image'] = vm_image
+            __props__['available_cluster_versions'] = None
+            __props__['cluster_endpoint'] = None
+            __props__['cluster_id'] = None
+            __props__['cluster_state'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(
             'azurerm:servicefabric/v20200301:Cluster',

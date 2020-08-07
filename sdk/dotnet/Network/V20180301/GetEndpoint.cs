@@ -52,29 +52,92 @@ namespace Pulumi.AzureRM.Network.V20180301
     public sealed class GetEndpointResult
     {
         /// <summary>
+        /// List of custom headers.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeadersResult> CustomHeaders;
+        /// <summary>
+        /// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+        /// </summary>
+        public readonly string? EndpointLocation;
+        /// <summary>
+        /// The monitoring status of the endpoint.
+        /// </summary>
+        public readonly string? EndpointMonitorStatus;
+        /// <summary>
+        /// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+        /// </summary>
+        public readonly string? EndpointStatus;
+        /// <summary>
+        /// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+        /// </summary>
+        public readonly ImmutableArray<string> GeoMapping;
+        /// <summary>
+        /// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        public readonly int? MinChildEndpoints;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the Traffic Manager endpoint.
+        /// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         /// </summary>
-        public readonly Outputs.EndpointPropertiesResponseResult Properties;
+        public readonly int? Priority;
+        /// <summary>
+        /// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+        /// </summary>
+        public readonly string? Target;
+        /// <summary>
+        /// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+        /// </summary>
+        public readonly string? TargetResourceId;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        /// </summary>
+        public readonly int? Weight;
 
         [OutputConstructor]
         private GetEndpointResult(
+            ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeadersResult> customHeaders,
+
+            string? endpointLocation,
+
+            string? endpointMonitorStatus,
+
+            string? endpointStatus,
+
+            ImmutableArray<string> geoMapping,
+
+            int? minChildEndpoints,
+
             string? name,
 
-            Outputs.EndpointPropertiesResponseResult properties,
+            int? priority,
 
-            string? type)
+            string? target,
+
+            string? targetResourceId,
+
+            string? type,
+
+            int? weight)
         {
+            CustomHeaders = customHeaders;
+            EndpointLocation = endpointLocation;
+            EndpointMonitorStatus = endpointMonitorStatus;
+            EndpointStatus = endpointStatus;
+            GeoMapping = geoMapping;
+            MinChildEndpoints = minChildEndpoints;
             Name = name;
-            Properties = properties;
+            Priority = priority;
+            Target = target;
+            TargetResourceId = targetResourceId;
             Type = type;
+            Weight = weight;
         }
     }
 }

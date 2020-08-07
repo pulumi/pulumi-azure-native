@@ -37,21 +37,38 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
+     * Describes custom rules inside the policy.
+     */
+    public readonly customRules!: pulumi.Output<outputs.network.v20190301.CustomRuleListResponse | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Describes Frontend Endpoints associated with this Web Application Firewall policy.
+     */
+    public /*out*/ readonly frontendEndpointLinks!: pulumi.Output<outputs.network.v20190301.FrontendEndpointLinkResponse[]>;
     /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Describes managed rules inside the policy.
+     */
+    public readonly managedRules!: pulumi.Output<outputs.network.v20190301.ManagedRuleSetListResponse | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the web application firewall policy.
+     * Describes settings for the policy.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190301.WebApplicationFirewallPolicyPropertiesResponse>;
+    public readonly policySettings!: pulumi.Output<outputs.network.v20190301.PolicySettingsResponse | undefined>;
+    /**
+     * Provisioning state of the policy.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -88,7 +105,9 @@ export class Policy extends pulumi.CustomResource {
             inputs["policySettings"] = args ? args.policySettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["frontendEndpointLinks"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

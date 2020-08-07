@@ -27,10 +27,12 @@ type LookupHcxEnterpriseSiteArgs struct {
 
 // An HCX Enterprise Site resource
 type LookupHcxEnterpriseSiteResult struct {
+	// The activation key
+	ActivationKey string `pulumi:"activationKey"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties of an HCX Enterprise Site resource
-	Properties HcxEnterpriseSitePropertiesResponse `pulumi:"properties"`
+	// The status of the HCX Enterprise Site
+	Status string `pulumi:"status"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

@@ -29,10 +29,38 @@ type LookupConnectorMappingArgs struct {
 
 // The connector mapping resource format.
 type LookupConnectorMappingResult struct {
+	// The connector mapping name
+	ConnectorMappingName string `pulumi:"connectorMappingName"`
+	// The connector name.
+	ConnectorName string `pulumi:"connectorName"`
+	// Type of connector.
+	ConnectorType *string `pulumi:"connectorType"`
+	// The created time.
+	Created string `pulumi:"created"`
+	// The DataFormat ID.
+	DataFormatId string `pulumi:"dataFormatId"`
+	// The description of the connector mapping.
+	Description *string `pulumi:"description"`
+	// Display name for the connector mapping.
+	DisplayName *string `pulumi:"displayName"`
+	// Defines which entity type the file should map to.
+	EntityType string `pulumi:"entityType"`
+	// The mapping entity name.
+	EntityTypeName string `pulumi:"entityTypeName"`
+	// The last modified time.
+	LastModified string `pulumi:"lastModified"`
+	// The properties of the mapping.
+	MappingProperties ConnectorMappingPropertiesResponse `pulumi:"mappingProperties"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The connector mapping definition.
-	Properties ConnectorMappingResponse `pulumi:"properties"`
+	// The next run time based on customer's settings.
+	NextRunTime string `pulumi:"nextRunTime"`
+	// The RunId.
+	RunId string `pulumi:"runId"`
+	// State of connector mapping.
+	State string `pulumi:"state"`
+	// The hub name.
+	TenantId string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

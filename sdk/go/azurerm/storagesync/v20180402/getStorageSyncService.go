@@ -29,8 +29,10 @@ type LookupStorageSyncServiceResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Storage Sync Service properties.
-	Properties StorageSyncServicePropertiesResponse `pulumi:"properties"`
+	// Storage Sync service status.
+	StorageSyncServiceStatus int `pulumi:"storageSyncServiceStatus"`
+	// Storage Sync service Uid
+	StorageSyncServiceUid string `pulumi:"storageSyncServiceUid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

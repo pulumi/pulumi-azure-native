@@ -14,10 +14,12 @@ import (
 type ManagementLock struct {
 	pulumi.CustomResourceState
 
+	// The lock level of the management lock.
+	Level pulumi.StringPtrOutput `pulumi:"level"`
 	// The name of the lock.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties of the lock.
-	Properties ManagementLockPropertiesResponseOutput `pulumi:"properties"`
+	// The notes of the management lock.
+	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The type of the lock.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -53,19 +55,23 @@ func GetManagementLock(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagementLock resources.
 type managementLockState struct {
+	// The lock level of the management lock.
+	Level *string `pulumi:"level"`
 	// The name of the lock.
 	Name *string `pulumi:"name"`
-	// The properties of the lock.
-	Properties *ManagementLockPropertiesResponse `pulumi:"properties"`
+	// The notes of the management lock.
+	Notes *string `pulumi:"notes"`
 	// The type of the lock.
 	Type *string `pulumi:"type"`
 }
 
 type ManagementLockState struct {
+	// The lock level of the management lock.
+	Level pulumi.StringPtrInput
 	// The name of the lock.
 	Name pulumi.StringPtrInput
-	// The properties of the lock.
-	Properties ManagementLockPropertiesResponsePtrInput
+	// The notes of the management lock.
+	Notes pulumi.StringPtrInput
 	// The type of the lock.
 	Type pulumi.StringPtrInput
 }

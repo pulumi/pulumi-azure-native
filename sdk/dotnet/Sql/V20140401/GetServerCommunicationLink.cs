@@ -58,9 +58,13 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of resource.
+        /// The name of the partner server.
         /// </summary>
-        public readonly Outputs.ServerCommunicationLinkPropertiesResponseResult Properties;
+        public readonly string PartnerServer;
+        /// <summary>
+        /// The state.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -74,14 +78,17 @@ namespace Pulumi.AzureRM.Sql.V20140401
 
             string name,
 
-            Outputs.ServerCommunicationLinkPropertiesResponseResult properties,
+            string partnerServer,
+
+            string state,
 
             string type)
         {
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            PartnerServer = partnerServer;
+            State = state;
             Type = type;
         }
     }

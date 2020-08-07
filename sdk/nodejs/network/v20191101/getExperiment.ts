@@ -41,6 +41,22 @@ export interface GetExperimentArgs {
  */
 export interface GetExperimentResult {
     /**
+     * The description of the details or intents of the Experiment
+     */
+    readonly description?: string;
+    /**
+     * The state of the Experiment
+     */
+    readonly enabledState?: string;
+    /**
+     * The endpoint A of an experiment
+     */
+    readonly endpointA?: outputs.network.v20191101.EndpointResponse;
+    /**
+     * The endpoint B of an experiment
+     */
+    readonly endpointB?: outputs.network.v20191101.EndpointResponse;
+    /**
      * Resource location.
      */
     readonly location?: string;
@@ -49,9 +65,17 @@ export interface GetExperimentResult {
      */
     readonly name: string;
     /**
-     * The properties of an Experiment
+     * Resource status.
      */
-    readonly properties: outputs.network.v20191101.ExperimentPropertiesResponse;
+    readonly resourceState?: string;
+    /**
+     * The uri to the Script used in the Experiment
+     */
+    readonly scriptFileUri: string;
+    /**
+     * The description of Experiment status from the server side
+     */
+    readonly status: string;
     /**
      * Resource tags.
      */

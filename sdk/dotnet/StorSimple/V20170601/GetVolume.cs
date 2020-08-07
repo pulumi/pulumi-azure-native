@@ -58,36 +58,92 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class GetVolumeResult
     {
         /// <summary>
+        /// The IDs of the access control records, associated with the volume.
+        /// </summary>
+        public readonly ImmutableArray<string> AccessControlRecordIds;
+        /// <summary>
+        /// The IDs of the backup policies, in which this volume is part of.
+        /// </summary>
+        public readonly ImmutableArray<string> BackupPolicyIds;
+        /// <summary>
+        /// The backup status of the volume.
+        /// </summary>
+        public readonly string BackupStatus;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The monitoring status of the volume.
+        /// </summary>
+        public readonly string MonitoringStatus;
         /// <summary>
         /// The name of the object.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the volume.
+        /// The operation status on the volume.
         /// </summary>
-        public readonly Outputs.VolumePropertiesResponseResult Properties;
+        public readonly string OperationStatus;
+        /// <summary>
+        /// The size of the volume in bytes.
+        /// </summary>
+        public readonly int SizeInBytes;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The ID of the volume container, in which this volume is created.
+        /// </summary>
+        public readonly string VolumeContainerId;
+        /// <summary>
+        /// The volume status.
+        /// </summary>
+        public readonly string VolumeStatus;
+        /// <summary>
+        /// The type of the volume.
+        /// </summary>
+        public readonly string VolumeType;
 
         [OutputConstructor]
         private GetVolumeResult(
+            ImmutableArray<string> accessControlRecordIds,
+
+            ImmutableArray<string> backupPolicyIds,
+
+            string backupStatus,
+
             string? kind,
+
+            string monitoringStatus,
 
             string name,
 
-            Outputs.VolumePropertiesResponseResult properties,
+            string operationStatus,
 
-            string type)
+            int sizeInBytes,
+
+            string type,
+
+            string volumeContainerId,
+
+            string volumeStatus,
+
+            string volumeType)
         {
+            AccessControlRecordIds = accessControlRecordIds;
+            BackupPolicyIds = backupPolicyIds;
+            BackupStatus = backupStatus;
             Kind = kind;
+            MonitoringStatus = monitoringStatus;
             Name = name;
-            Properties = properties;
+            OperationStatus = operationStatus;
+            SizeInBytes = sizeInBytes;
             Type = type;
+            VolumeContainerId = volumeContainerId;
+            VolumeStatus = volumeStatus;
+            VolumeType = volumeType;
         }
     }
 }

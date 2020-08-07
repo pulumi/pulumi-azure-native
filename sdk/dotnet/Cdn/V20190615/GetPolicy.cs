@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Cdn.V20190615
     public sealed class GetPolicyResult
     {
         /// <summary>
+        /// Describes custom rules inside the policy.
+        /// </summary>
+        public readonly Outputs.CustomRuleListResponseResult? CustomRules;
+        /// <summary>
+        /// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CdnEndpointResponseResult> EndpointLinks;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -48,13 +56,26 @@ namespace Pulumi.AzureRM.Cdn.V20190615
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Describes managed rules inside the policy.
+        /// </summary>
+        public readonly Outputs.ManagedRuleSetListResponseResult? ManagedRules;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// Describes  policySettings for policy
         /// </summary>
-        public readonly Outputs.CdnWebApplicationFirewallPolicyPropertiesResponseResult Properties;
+        public readonly Outputs.PolicySettingsResponseResult? PolicySettings;
+        /// <summary>
+        /// Provisioning state of the WebApplicationFirewallPolicy.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Describes rate limit rules inside the policy.
+        /// </summary>
+        public readonly Outputs.RateLimitRuleListResponseResult? RateLimitRules;
+        public readonly string ResourceState;
         /// <summary>
         /// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         /// </summary>
@@ -70,13 +91,25 @@ namespace Pulumi.AzureRM.Cdn.V20190615
 
         [OutputConstructor]
         private GetPolicyResult(
+            Outputs.CustomRuleListResponseResult? customRules,
+
+            ImmutableArray<Outputs.CdnEndpointResponseResult> endpointLinks,
+
             string? etag,
 
             string location,
 
+            Outputs.ManagedRuleSetListResponseResult? managedRules,
+
             string name,
 
-            Outputs.CdnWebApplicationFirewallPolicyPropertiesResponseResult properties,
+            Outputs.PolicySettingsResponseResult? policySettings,
+
+            string provisioningState,
+
+            Outputs.RateLimitRuleListResponseResult? rateLimitRules,
+
+            string resourceState,
 
             Outputs.SkuResponseResult sku,
 
@@ -84,10 +117,16 @@ namespace Pulumi.AzureRM.Cdn.V20190615
 
             string type)
         {
+            CustomRules = customRules;
+            EndpointLinks = endpointLinks;
             Etag = etag;
             Location = location;
+            ManagedRules = managedRules;
             Name = name;
-            Properties = properties;
+            PolicySettings = policySettings;
+            ProvisioningState = provisioningState;
+            RateLimitRules = rateLimitRules;
+            ResourceState = resourceState;
             Sku = sku;
             Tags = tags;
             Type = type;

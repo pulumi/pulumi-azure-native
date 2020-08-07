@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Web.V20180201
     public partial class AppServicePlanRouteForVnet : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+        /// </summary>
+        [Output("endAddress")]
+        public Output<string?> EndAddress { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
@@ -27,10 +33,21 @@ namespace Pulumi.AzureRM.Web.V20180201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// VnetRoute resource specific properties
+        /// The type of route this is:
+        /// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+        /// INHERITED - Routes inherited from the real Virtual Network routes
+        /// STATIC - Static route set on the app only
+        /// 
+        /// These values will be used for syncing an app's routes with those from a Virtual Network.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VnetRouteResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("routeType")]
+        public Output<string?> RouteType { get; private set; } = null!;
+
+        /// <summary>
+        /// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+        /// </summary>
+        [Output("startAddress")]
+        public Output<string?> StartAddress { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

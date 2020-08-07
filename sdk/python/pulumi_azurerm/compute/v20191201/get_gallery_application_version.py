@@ -13,7 +13,7 @@ class GetGalleryApplicationVersionResult:
     """
     Specifies information about the gallery Application Version that you want to create or update.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, provisioning_state=None, publishing_profile=None, replication_status=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +26,23 @@ class GetGalleryApplicationVersionResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Describes the properties of a gallery Image Version.
+        The provisioning state, which only appears in the response.
+        """
+        if publishing_profile and not isinstance(publishing_profile, dict):
+            raise TypeError("Expected argument 'publishing_profile' to be a dict")
+        __self__.publishing_profile = publishing_profile
+        """
+        The publishing profile of a gallery Image Version.
+        """
+        if replication_status and not isinstance(replication_status, dict):
+            raise TypeError("Expected argument 'replication_status' to be a dict")
+        __self__.replication_status = replication_status
+        """
+        This is the replication status of the gallery Image Version.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -54,7 +66,9 @@ class AwaitableGetGalleryApplicationVersionResult(GetGalleryApplicationVersionRe
         return GetGalleryApplicationVersionResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            publishing_profile=self.publishing_profile,
+            replication_status=self.replication_status,
             tags=self.tags,
             type=self.type)
 
@@ -82,6 +96,8 @@ def get_gallery_application_version(gallery_application_name=None, gallery_name=
     return AwaitableGetGalleryApplicationVersionResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        publishing_profile=__ret__.get('publishingProfile'),
+        replication_status=__ret__.get('replicationStatus'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

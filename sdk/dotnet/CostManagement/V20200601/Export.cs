@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
     public partial class Export : Pulumi.CustomResource
     {
         /// <summary>
+        /// Has the definition for the export.
+        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.ExportDefinitionResponseResult> Definition { get; private set; } = null!;
+
+        /// <summary>
+        /// Has delivery information for the export.
+        /// </summary>
+        [Output("deliveryInfo")]
+        public Output<Outputs.ExportDeliveryInfoResponseResult> DeliveryInfo { get; private set; } = null!;
+
+        /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// The format of the export being delivered. Currently only 'Csv' is supported.
+        /// </summary>
+        [Output("format")]
+        public Output<string?> Format { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -27,10 +45,22 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the export.
+        /// If the export has an active schedule, provides an estimate of the next execution time.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExportPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nextRunTimeEstimate")]
+        public Output<string> NextRunTimeEstimate { get; private set; } = null!;
+
+        /// <summary>
+        /// If requested, has the most recent execution history for the export.
+        /// </summary>
+        [Output("runHistory")]
+        public Output<Outputs.ExportExecutionListResultResponseResult?> RunHistory { get; private set; } = null!;
+
+        /// <summary>
+        /// Has schedule information for the export.
+        /// </summary>
+        [Output("schedule")]
+        public Output<Outputs.ExportScheduleResponseResult?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -46,13 +46,29 @@ namespace Pulumi.AzureRM.Media.V20200501
     public sealed class GetContentKeyPolicyResult
     {
         /// <summary>
+        /// The creation date of the Policy
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// A description for the Policy.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The last modified date of the Policy
+        /// </summary>
+        public readonly string LastModified;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the Content Key Policy.
+        /// The Key Policy options.
         /// </summary>
-        public readonly Outputs.ContentKeyPolicyPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ContentKeyPolicyOptionResponseResult> Options;
+        /// <summary>
+        /// The legacy Policy ID.
+        /// </summary>
+        public readonly string PolicyId;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -60,14 +76,26 @@ namespace Pulumi.AzureRM.Media.V20200501
 
         [OutputConstructor]
         private GetContentKeyPolicyResult(
+            string created,
+
+            string? description,
+
+            string lastModified,
+
             string name,
 
-            Outputs.ContentKeyPolicyPropertiesResponseResult properties,
+            ImmutableArray<Outputs.ContentKeyPolicyOptionResponseResult> options,
+
+            string policyId,
 
             string type)
         {
+            Created = created;
+            Description = description;
+            LastModified = lastModified;
             Name = name;
-            Properties = properties;
+            Options = options;
+            PolicyId = policyId;
             Type = type;
         }
     }

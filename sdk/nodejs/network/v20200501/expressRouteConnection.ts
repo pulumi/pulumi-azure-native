@@ -37,13 +37,33 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Authorization key to establish the connection.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
+     * Enable internet security.
+     */
+    public readonly enableInternetSecurity!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ExpressRoute circuit peering.
+     */
+    public readonly expressRouteCircuitPeering!: pulumi.Output<outputs.network.v20200501.ExpressRouteCircuitPeeringIdResponse>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the express route connection.
+     * The provisioning state of the express route connection resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.ExpressRouteConnectionPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The Routing Configuration indicating the associated and propagated route tables on this connection.
+     */
+    public readonly routingConfiguration!: pulumi.Output<outputs.network.v20200501.RoutingConfigurationResponse | undefined>;
+    /**
+     * The routing weight associated to the connection.
+     */
+    public readonly routingWeight!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ExpressRouteConnection resource with the given unique name, arguments, and options.
@@ -79,7 +99,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
             inputs["routingWeight"] = args ? args.routingWeight : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

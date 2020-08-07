@@ -14,10 +14,18 @@ import (
 type ObjectReplicationPolicy struct {
 	pulumi.CustomResourceState
 
+	// Required. Destination account name.
+	DestinationAccount pulumi.StringOutput `pulumi:"destinationAccount"`
+	// Indicates when the policy is enabled on the source account.
+	EnabledTime pulumi.StringOutput `pulumi:"enabledTime"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Returns the Storage Account Object Replication Policy.
-	Properties ObjectReplicationPolicyPropertiesResponseOutput `pulumi:"properties"`
+	// A unique id for object replication policy.
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	// The storage account object replication rules.
+	Rules ObjectReplicationPolicyRuleResponseArrayOutput `pulumi:"rules"`
+	// Required. Source account name.
+	SourceAccount pulumi.StringOutput `pulumi:"sourceAccount"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +73,35 @@ func GetObjectReplicationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ObjectReplicationPolicy resources.
 type objectReplicationPolicyState struct {
+	// Required. Destination account name.
+	DestinationAccount *string `pulumi:"destinationAccount"`
+	// Indicates when the policy is enabled on the source account.
+	EnabledTime *string `pulumi:"enabledTime"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Returns the Storage Account Object Replication Policy.
-	Properties *ObjectReplicationPolicyPropertiesResponse `pulumi:"properties"`
+	// A unique id for object replication policy.
+	PolicyId *string `pulumi:"policyId"`
+	// The storage account object replication rules.
+	Rules []ObjectReplicationPolicyRuleResponse `pulumi:"rules"`
+	// Required. Source account name.
+	SourceAccount *string `pulumi:"sourceAccount"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type ObjectReplicationPolicyState struct {
+	// Required. Destination account name.
+	DestinationAccount pulumi.StringPtrInput
+	// Indicates when the policy is enabled on the source account.
+	EnabledTime pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Returns the Storage Account Object Replication Policy.
-	Properties ObjectReplicationPolicyPropertiesResponsePtrInput
+	// A unique id for object replication policy.
+	PolicyId pulumi.StringPtrInput
+	// The storage account object replication rules.
+	Rules ObjectReplicationPolicyRuleResponseArrayInput
+	// Required. Source account name.
+	SourceAccount pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

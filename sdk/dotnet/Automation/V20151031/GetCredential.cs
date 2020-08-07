@@ -46,29 +46,50 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetCredentialResult
     {
         /// <summary>
+        /// Gets the creation time.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Gets the last modified time.
+        /// </summary>
+        public readonly string LastModifiedTime;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the properties of the credential.
-        /// </summary>
-        public readonly Outputs.CredentialPropertiesResponseResult Properties;
-        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Gets the user name of the credential.
+        /// </summary>
+        public readonly string UserName;
 
         [OutputConstructor]
         private GetCredentialResult(
+            string creationTime,
+
+            string? description,
+
+            string lastModifiedTime,
+
             string name,
 
-            Outputs.CredentialPropertiesResponseResult properties,
+            string type,
 
-            string type)
+            string userName)
         {
+            CreationTime = creationTime;
+            Description = description;
+            LastModifiedTime = lastModifiedTime;
             Name = name;
-            Properties = properties;
             Type = type;
+            UserName = userName;
         }
     }
 }

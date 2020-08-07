@@ -14,12 +14,26 @@ import (
 type TopicAuthorizationRule struct {
 	pulumi.CustomResourceState
 
+	// A string that describes Claim Type for authorization rule.
+	ClaimType pulumi.StringPtrOutput `pulumi:"claimType"`
+	// A string that describes Claim Value of authorization rule.
+	ClaimValue pulumi.StringPtrOutput `pulumi:"claimValue"`
+	// The time the namespace was created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// A string that describes the Key Name of authorization rule.
+	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The time the namespace was updated.
+	ModifiedTime pulumi.StringOutput `pulumi:"modifiedTime"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// AuthorizationRule properties.
-	Properties SharedAccessAuthorizationRulePropertiesResponseOutput `pulumi:"properties"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey pulumi.StringPtrOutput `pulumi:"primaryKey"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayOutput `pulumi:"rights"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey pulumi.StringPtrOutput `pulumi:"secondaryKey"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -67,23 +81,51 @@ func GetTopicAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TopicAuthorizationRule resources.
 type topicAuthorizationRuleState struct {
+	// A string that describes Claim Type for authorization rule.
+	ClaimType *string `pulumi:"claimType"`
+	// A string that describes Claim Value of authorization rule.
+	ClaimValue *string `pulumi:"claimValue"`
+	// The time the namespace was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// A string that describes the Key Name of authorization rule.
+	KeyName *string `pulumi:"keyName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// The time the namespace was updated.
+	ModifiedTime *string `pulumi:"modifiedTime"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// AuthorizationRule properties.
-	Properties *SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey *string `pulumi:"secondaryKey"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type TopicAuthorizationRuleState struct {
+	// A string that describes Claim Type for authorization rule.
+	ClaimType pulumi.StringPtrInput
+	// A string that describes Claim Value of authorization rule.
+	ClaimValue pulumi.StringPtrInput
+	// The time the namespace was created.
+	CreatedTime pulumi.StringPtrInput
+	// A string that describes the Key Name of authorization rule.
+	KeyName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// The time the namespace was updated.
+	ModifiedTime pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// AuthorizationRule properties.
-	Properties SharedAccessAuthorizationRulePropertiesResponsePtrInput
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey pulumi.StringPtrInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

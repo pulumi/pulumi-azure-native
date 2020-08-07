@@ -15,16 +15,58 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
+        /// Email address.
+        /// </summary>
+        [Output("email")]
+        public Output<string?> Email { get; private set; } = null!;
+
+        /// <summary>
+        /// First name.
+        /// </summary>
+        [Output("firstName")]
+        public Output<string?> FirstName { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of groups user is part of.
+        /// </summary>
+        [Output("groups")]
+        public Output<ImmutableArray<Outputs.GroupContractPropertiesResponseResult>> Groups { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of user identities.
+        /// </summary>
+        [Output("identities")]
+        public Output<ImmutableArray<Outputs.UserIdentityContractResponseResult>> Identities { get; private set; } = null!;
+
+        /// <summary>
+        /// Last name.
+        /// </summary>
+        [Output("lastName")]
+        public Output<string?> LastName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// User entity contract properties.
+        /// Optional note about a user set by the administrator.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.UserContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("note")]
+        public Output<string?> Note { get; private set; } = null!;
+
+        /// <summary>
+        /// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        [Output("registrationDate")]
+        public Output<string?> RegistrationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

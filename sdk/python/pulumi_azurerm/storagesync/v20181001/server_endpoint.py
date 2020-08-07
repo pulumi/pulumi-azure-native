@@ -10,53 +10,90 @@ from ... import _utilities, _tables
 
 
 class ServerEndpoint(pulumi.CustomResource):
+    cloud_tiering: pulumi.Output[str]
+    """
+    Cloud Tiering.
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    Friendly Name
+    """
+    last_operation_name: pulumi.Output[str]
+    """
+    Resource Last Operation Name
+    """
+    last_workflow_id: pulumi.Output[str]
+    """
+    ServerEndpoint lastWorkflowId
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    offline_data_transfer: pulumi.Output[str]
+    """
+    Offline data transfer
+    """
+    offline_data_transfer_share_name: pulumi.Output[str]
+    """
+    Offline data transfer share name
+    """
+    offline_data_transfer_storage_account_resource_id: pulumi.Output[str]
+    """
+    Offline data transfer storage account resource ID
+    """
+    offline_data_transfer_storage_account_tenant_id: pulumi.Output[str]
+    """
+    Offline data transfer storage account tenant ID
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    ServerEndpoint Provisioning State
+    """
+    server_local_path: pulumi.Output[str]
+    """
+    Server Local path.
+    """
+    server_resource_id: pulumi.Output[str]
+    """
+    Server Resource Id.
+    """
+    sync_status: pulumi.Output[dict]
     """
     Server Endpoint properties.
-      * `cloud_tiering` (`str`) - Cloud Tiering.
-      * `friendly_name` (`str`) - Friendly Name
-      * `last_operation_name` (`str`) - Resource Last Operation Name
-      * `last_workflow_id` (`str`) - ServerEndpoint lastWorkflowId
-      * `offline_data_transfer` (`str`) - Offline data transfer
-      * `offline_data_transfer_share_name` (`str`) - Offline data transfer share name
-      * `offline_data_transfer_storage_account_resource_id` (`str`) - Offline data transfer storage account resource ID
-      * `offline_data_transfer_storage_account_tenant_id` (`str`) - Offline data transfer storage account tenant ID
-      * `provisioning_state` (`str`) - ServerEndpoint Provisioning State
-      * `server_local_path` (`str`) - Server Local path.
-      * `server_resource_id` (`str`) - Server Resource Id.
-      * `sync_status` (`dict`) - Server Endpoint properties.
-        * `combined_health` (`str`) - Combined Health Status.
-        * `current_progress` (`dict`) - Current progress
-          * `applied_bytes` (`float`) - Applied bytes
-          * `applied_item_count` (`float`) - Applied item count.
-          * `per_item_error_count` (`float`) - Per item error count
-          * `progress_timestamp` (`str`) - Progress timestamp
-          * `sync_direction` (`str`) - Sync direction.
-          * `total_bytes` (`float`) - Total bytes
-          * `total_item_count` (`float`) - Total item count
+      * `combined_health` (`str`) - Combined Health Status.
+      * `current_progress` (`dict`) - Current progress
+        * `applied_bytes` (`float`) - Applied bytes
+        * `applied_item_count` (`float`) - Applied item count.
+        * `per_item_error_count` (`float`) - Per item error count
+        * `progress_timestamp` (`str`) - Progress timestamp
+        * `sync_direction` (`str`) - Sync direction.
+        * `total_bytes` (`float`) - Total bytes
+        * `total_item_count` (`float`) - Total item count
 
-        * `download_health` (`str`) - Download Health Status.
-        * `download_status` (`dict`) - Download Status
-          * `last_sync_per_item_error_count` (`float`) - Last sync per item error count.
-          * `last_sync_result` (`float`) - Last sync status
-          * `last_sync_success_timestamp` (`str`) - Last sync success timestamp
-          * `last_sync_timestamp` (`str`) - Last sync timestamp
+      * `download_health` (`str`) - Download Health Status.
+      * `download_status` (`dict`) - Download Status
+        * `last_sync_per_item_error_count` (`float`) - Last sync per item error count.
+        * `last_sync_result` (`float`) - Last sync status
+        * `last_sync_success_timestamp` (`str`) - Last sync success timestamp
+        * `last_sync_timestamp` (`str`) - Last sync timestamp
 
-        * `last_updated_timestamp` (`str`) - Last Updated Timestamp
-        * `offline_data_transfer_status` (`str`) - Offline Data Transfer State
-        * `upload_health` (`str`) - Upload Health Status.
-        * `upload_status` (`dict`) - Upload Status
-
-      * `tier_files_older_than_days` (`float`) - Tier files older than days.
-      * `volume_free_space_percent` (`float`) - Level of free space to be maintained by Cloud Tiering if it is enabled.
+      * `last_updated_timestamp` (`str`) - Last Updated Timestamp
+      * `offline_data_transfer_status` (`str`) - Offline Data Transfer State
+      * `upload_health` (`str`) - Upload Health Status.
+      * `upload_status` (`dict`) - Upload Status
+    """
+    tier_files_older_than_days: pulumi.Output[float]
+    """
+    Tier files older than days.
     """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    volume_free_space_percent: pulumi.Output[float]
+    """
+    Level of free space to be maintained by Cloud Tiering if it is enabled.
     """
     def __init__(__self__, resource_name, opts=None, cloud_tiering=None, friendly_name=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, resource_group_name=None, server_local_path=None, server_resource_id=None, storage_sync_service_name=None, sync_group_name=None, tier_files_older_than_days=None, volume_free_space_percent=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -114,7 +151,12 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['sync_group_name'] = sync_group_name
             __props__['tier_files_older_than_days'] = tier_files_older_than_days
             __props__['volume_free_space_percent'] = volume_free_space_percent
-            __props__['properties'] = None
+            __props__['last_operation_name'] = None
+            __props__['last_workflow_id'] = None
+            __props__['offline_data_transfer_storage_account_resource_id'] = None
+            __props__['offline_data_transfer_storage_account_tenant_id'] = None
+            __props__['provisioning_state'] = None
+            __props__['sync_status'] = None
             __props__['type'] = None
         super(ServerEndpoint, __self__).__init__(
             'azurerm:storagesync/v20181001:ServerEndpoint',

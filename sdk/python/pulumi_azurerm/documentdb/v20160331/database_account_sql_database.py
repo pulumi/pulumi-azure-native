@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class DatabaseAccountSqlDatabase(pulumi.CustomResource):
+    _colls: pulumi.Output[str]
+    """
+    A system generated property that specified the addressable path of the collections resource.
+    """
+    _etag: pulumi.Output[str]
+    """
+    A system generated property representing the resource etag required for optimistic concurrency control.
+    """
+    _rid: pulumi.Output[str]
+    """
+    A system generated property. A unique identifier.
+    """
+    _ts: pulumi.Output[dict]
+    """
+    A system generated property that denotes the last updated timestamp of the resource.
+    """
+    _users: pulumi.Output[str]
+    """
+    A system generated property that specifies the addressable path of the users resource.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource group to which the resource belongs.
@@ -17,16 +37,6 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     The name of the database account.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The properties of an Azure Cosmos DB SQL database
-      * `_colls` (`str`) - A system generated property that specified the addressable path of the collections resource.
-      * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
-      * `_rid` (`str`) - A system generated property. A unique identifier.
-      * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
-      * `_users` (`str`) - A system generated property that specifies the addressable path of the users resource.
-      * `id` (`str`) - Name of the Cosmos DB SQL database
     """
     tags: pulumi.Output[dict]
     """
@@ -84,8 +94,12 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['_colls'] = None
+            __props__['_etag'] = None
+            __props__['_rid'] = None
+            __props__['_ts'] = None
+            __props__['_users'] = None
             __props__['location'] = None
-            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(DatabaseAccountSqlDatabase, __self__).__init__(

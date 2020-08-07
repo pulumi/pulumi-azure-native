@@ -22,10 +22,9 @@ class ApplicationType(pulumi.CustomResource):
     """
     Azure resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The application type name properties
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
+    The current deployment or provisioning state, which only appears in the response.
     """
     tags: pulumi.Output[dict]
     """
@@ -76,7 +75,7 @@ class ApplicationType(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ApplicationType, __self__).__init__(
             'azurerm:servicefabric/v20190301:ApplicationType',

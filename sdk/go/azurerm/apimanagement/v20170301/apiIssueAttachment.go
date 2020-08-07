@@ -14,10 +14,14 @@ import (
 type ApiIssueAttachment struct {
 	pulumi.CustomResourceState
 
+	// An HTTP link or Base64-encoded binary data.
+	Content pulumi.StringOutput `pulumi:"content"`
+	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+	ContentFormat pulumi.StringOutput `pulumi:"contentFormat"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Issue Attachment.
-	Properties IssueAttachmentContractPropertiesResponseOutput `pulumi:"properties"`
+	// Filename by which the binary data will be saved.
+	Title pulumi.StringOutput `pulumi:"title"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -74,19 +78,27 @@ func GetApiIssueAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiIssueAttachment resources.
 type apiIssueAttachmentState struct {
+	// An HTTP link or Base64-encoded binary data.
+	Content *string `pulumi:"content"`
+	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+	ContentFormat *string `pulumi:"contentFormat"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Issue Attachment.
-	Properties *IssueAttachmentContractPropertiesResponse `pulumi:"properties"`
+	// Filename by which the binary data will be saved.
+	Title *string `pulumi:"title"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type ApiIssueAttachmentState struct {
+	// An HTTP link or Base64-encoded binary data.
+	Content pulumi.StringPtrInput
+	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+	ContentFormat pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Issue Attachment.
-	Properties IssueAttachmentContractPropertiesResponsePtrInput
+	// Filename by which the binary data will be saved.
+	Title pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

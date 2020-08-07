@@ -13,12 +13,42 @@ class GetNetworkInterfaceResult:
     """
     A network interface in a resource group.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, dns_settings=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, hosted_workloads=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, primary=None, private_endpoint=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None):
+        if dns_settings and not isinstance(dns_settings, dict):
+            raise TypeError("Expected argument 'dns_settings' to be a dict")
+        __self__.dns_settings = dns_settings
+        """
+        The DNS settings in network interface.
+        """
+        if enable_accelerated_networking and not isinstance(enable_accelerated_networking, bool):
+            raise TypeError("Expected argument 'enable_accelerated_networking' to be a bool")
+        __self__.enable_accelerated_networking = enable_accelerated_networking
+        """
+        If the network interface is accelerated networking enabled.
+        """
+        if enable_ip_forwarding and not isinstance(enable_ip_forwarding, bool):
+            raise TypeError("Expected argument 'enable_ip_forwarding' to be a bool")
+        __self__.enable_ip_forwarding = enable_ip_forwarding
+        """
+        Indicates whether IP forwarding is enabled on this network interface.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if hosted_workloads and not isinstance(hosted_workloads, list):
+            raise TypeError("Expected argument 'hosted_workloads' to be a list")
+        __self__.hosted_workloads = hosted_workloads
+        """
+        A list of references to linked BareMetal resources.
+        """
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        __self__.ip_configurations = ip_configurations
+        """
+        A list of IPConfigurations of the network interface.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +56,47 @@ class GetNetworkInterfaceResult:
         """
         Resource location.
         """
+        if mac_address and not isinstance(mac_address, str):
+            raise TypeError("Expected argument 'mac_address' to be a str")
+        __self__.mac_address = mac_address
+        """
+        The MAC address of the network interface.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_security_group and not isinstance(network_security_group, dict):
+            raise TypeError("Expected argument 'network_security_group' to be a dict")
+        __self__.network_security_group = network_security_group
         """
-        Properties of the network interface.
+        The reference to the NetworkSecurityGroup resource.
+        """
+        if primary and not isinstance(primary, bool):
+            raise TypeError("Expected argument 'primary' to be a bool")
+        __self__.primary = primary
+        """
+        Whether this is a primary network interface on a virtual machine.
+        """
+        if private_endpoint and not isinstance(private_endpoint, dict):
+            raise TypeError("Expected argument 'private_endpoint' to be a dict")
+        __self__.private_endpoint = private_endpoint
+        """
+        A reference to the private endpoint to which the network interface is linked.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the network interface resource.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the network interface resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,11 +104,23 @@ class GetNetworkInterfaceResult:
         """
         Resource tags.
         """
+        if tap_configurations and not isinstance(tap_configurations, list):
+            raise TypeError("Expected argument 'tap_configurations' to be a list")
+        __self__.tap_configurations = tap_configurations
+        """
+        A list of TapConfigurations of the network interface.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if virtual_machine and not isinstance(virtual_machine, dict):
+            raise TypeError("Expected argument 'virtual_machine' to be a dict")
+        __self__.virtual_machine = virtual_machine
+        """
+        The reference to a virtual machine.
         """
 
 
@@ -58,12 +130,24 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
         if False:
             yield self
         return GetNetworkInterfaceResult(
+            dns_settings=self.dns_settings,
+            enable_accelerated_networking=self.enable_accelerated_networking,
+            enable_ip_forwarding=self.enable_ip_forwarding,
             etag=self.etag,
+            hosted_workloads=self.hosted_workloads,
+            ip_configurations=self.ip_configurations,
             location=self.location,
+            mac_address=self.mac_address,
             name=self.name,
-            properties=self.properties,
+            network_security_group=self.network_security_group,
+            primary=self.primary,
+            private_endpoint=self.private_endpoint,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             tags=self.tags,
-            type=self.type)
+            tap_configurations=self.tap_configurations,
+            type=self.type,
+            virtual_machine=self.virtual_machine)
 
 
 def get_network_interface(name=None, resource_group_name=None, opts=None):
@@ -83,9 +167,21 @@ def get_network_interface(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getNetworkInterface', __args__, opts=opts).value
 
     return AwaitableGetNetworkInterfaceResult(
+        dns_settings=__ret__.get('dnsSettings'),
+        enable_accelerated_networking=__ret__.get('enableAcceleratedNetworking'),
+        enable_ip_forwarding=__ret__.get('enableIPForwarding'),
         etag=__ret__.get('etag'),
+        hosted_workloads=__ret__.get('hostedWorkloads'),
+        ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
+        mac_address=__ret__.get('macAddress'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_security_group=__ret__.get('networkSecurityGroup'),
+        primary=__ret__.get('primary'),
+        private_endpoint=__ret__.get('privateEndpoint'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        tap_configurations=__ret__.get('tapConfigurations'),
+        type=__ret__.get('type'),
+        virtual_machine=__ret__.get('virtualMachine'))

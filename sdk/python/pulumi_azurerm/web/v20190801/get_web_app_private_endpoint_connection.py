@@ -13,7 +13,7 @@ class GetWebAppPrivateEndpointConnectionResult:
     """
     Private Endpoint Connection ARM resource.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,12 +26,21 @@ class GetWebAppPrivateEndpointConnectionResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint and not isinstance(private_endpoint, dict):
+            raise TypeError("Expected argument 'private_endpoint' to be a dict")
+        __self__.private_endpoint = private_endpoint
         """
-        Core resource properties
+        PrivateEndpoint of a remote private endpoint connection
         """
+        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
+            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
+        __self__.private_link_service_connection_state = private_link_service_connection_state
+        """
+        The state of a private link connection
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
@@ -48,7 +57,9 @@ class AwaitableGetWebAppPrivateEndpointConnectionResult(GetWebAppPrivateEndpoint
         return GetWebAppPrivateEndpointConnectionResult(
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            private_endpoint=self.private_endpoint,
+            private_link_service_connection_state=self.private_link_service_connection_state,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -70,5 +81,7 @@ def get_web_app_private_endpoint_connection(name=None, resource_group_name=None,
     return AwaitableGetWebAppPrivateEndpointConnectionResult(
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint=__ret__.get('privateEndpoint'),
+        private_link_service_connection_state=__ret__.get('privateLinkServiceConnectionState'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

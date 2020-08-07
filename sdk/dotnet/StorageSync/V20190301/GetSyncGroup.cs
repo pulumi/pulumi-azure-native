@@ -50,25 +50,32 @@ namespace Pulumi.AzureRM.StorageSync.V20190301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// SyncGroup properties.
+        /// Sync group status
         /// </summary>
-        public readonly Outputs.SyncGroupPropertiesResponseResult Properties;
+        public readonly string SyncGroupStatus;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Unique Id
+        /// </summary>
+        public readonly string? UniqueId;
 
         [OutputConstructor]
         private GetSyncGroupResult(
             string name,
 
-            Outputs.SyncGroupPropertiesResponseResult properties,
+            string syncGroupStatus,
 
-            string type)
+            string type,
+
+            string? uniqueId)
         {
             Name = name;
-            Properties = properties;
+            SyncGroupStatus = syncGroupStatus;
             Type = type;
+            UniqueId = uniqueId;
         }
     }
 }

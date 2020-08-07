@@ -46,6 +46,18 @@ namespace Pulumi.AzureRM.Network.V20160601
     public sealed class GetVirtualNetworkPeeringResult
     {
         /// <summary>
+        /// Gets or sets whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed
+        /// </summary>
+        public readonly bool? AllowForwardedTraffic;
+        /// <summary>
+        /// Gets or sets if gatewayLinks can be used in remote virtual network’s link to this virtual network
+        /// </summary>
+        public readonly bool? AllowGatewayTransit;
+        /// <summary>
+        /// Gets or sets whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space
+        /// </summary>
+        public readonly bool? AllowVirtualNetworkAccess;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
@@ -53,19 +65,52 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult Properties;
+        /// <summary>
+        /// Gets the status of the virtual network peering
+        /// </summary>
+        public readonly string? PeeringState;
+        /// <summary>
+        /// Gets provisioning state of the resource
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the reference of the remote virtual network
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RemoteVirtualNetwork;
+        /// <summary>
+        /// Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        /// </summary>
+        public readonly bool? UseRemoteGateways;
 
         [OutputConstructor]
         private GetVirtualNetworkPeeringResult(
+            bool? allowForwardedTraffic,
+
+            bool? allowGatewayTransit,
+
+            bool? allowVirtualNetworkAccess,
+
             string? etag,
 
             string? name,
 
-            Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult properties)
+            string? peeringState,
+
+            string? provisioningState,
+
+            Outputs.SubResourceResponseResult? remoteVirtualNetwork,
+
+            bool? useRemoteGateways)
         {
+            AllowForwardedTraffic = allowForwardedTraffic;
+            AllowGatewayTransit = allowGatewayTransit;
+            AllowVirtualNetworkAccess = allowVirtualNetworkAccess;
             Etag = etag;
             Name = name;
-            Properties = properties;
+            PeeringState = peeringState;
+            ProvisioningState = provisioningState;
+            RemoteVirtualNetwork = remoteVirtualNetwork;
+            UseRemoteGateways = useRemoteGateways;
         }
     }
 }

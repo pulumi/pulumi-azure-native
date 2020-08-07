@@ -22,13 +22,17 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// An array of application gateway private link ip configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayPrivateLinkIpConfigurationResponseResult> IpConfigurations;
+        /// <summary>
         /// Name of the private link configuration that is unique within an Application Gateway.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway private link configuration.
+        /// The provisioning state of the application gateway private link configuration.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayPrivateLinkConfigurationPropertiesResponseResult? Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -40,16 +44,19 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
 
             string? id,
 
+            ImmutableArray<Outputs.ApplicationGatewayPrivateLinkIpConfigurationResponseResult> ipConfigurations,
+
             string? name,
 
-            Outputs.ApplicationGatewayPrivateLinkConfigurationPropertiesResponseResult? properties,
+            string provisioningState,
 
             string type)
         {
             Etag = etag;
             Id = id;
+            IpConfigurations = ipConfigurations;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

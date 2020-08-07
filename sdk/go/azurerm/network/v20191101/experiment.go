@@ -14,12 +14,24 @@ import (
 type Experiment struct {
 	pulumi.CustomResourceState
 
+	// The description of the details or intents of the Experiment
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The state of the Experiment
+	EnabledState pulumi.StringPtrOutput `pulumi:"enabledState"`
+	// The endpoint A of an experiment
+	EndpointA EndpointResponsePtrOutput `pulumi:"endpointA"`
+	// The endpoint B of an experiment
+	EndpointB EndpointResponsePtrOutput `pulumi:"endpointB"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of an Experiment
-	Properties ExperimentPropertiesResponseOutput `pulumi:"properties"`
+	// Resource status.
+	ResourceState pulumi.StringPtrOutput `pulumi:"resourceState"`
+	// The uri to the Script used in the Experiment
+	ScriptFileUri pulumi.StringOutput `pulumi:"scriptFileUri"`
+	// The description of Experiment status from the server side
+	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -63,12 +75,24 @@ func GetExperiment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Experiment resources.
 type experimentState struct {
+	// The description of the details or intents of the Experiment
+	Description *string `pulumi:"description"`
+	// The state of the Experiment
+	EnabledState *string `pulumi:"enabledState"`
+	// The endpoint A of an experiment
+	EndpointA *EndpointResponse `pulumi:"endpointA"`
+	// The endpoint B of an experiment
+	EndpointB *EndpointResponse `pulumi:"endpointB"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of an Experiment
-	Properties *ExperimentPropertiesResponse `pulumi:"properties"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
+	// The uri to the Script used in the Experiment
+	ScriptFileUri *string `pulumi:"scriptFileUri"`
+	// The description of Experiment status from the server side
+	Status *string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -76,12 +100,24 @@ type experimentState struct {
 }
 
 type ExperimentState struct {
+	// The description of the details or intents of the Experiment
+	Description pulumi.StringPtrInput
+	// The state of the Experiment
+	EnabledState pulumi.StringPtrInput
+	// The endpoint A of an experiment
+	EndpointA EndpointResponsePtrInput
+	// The endpoint B of an experiment
+	EndpointB EndpointResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of an Experiment
-	Properties ExperimentPropertiesResponsePtrInput
+	// Resource status.
+	ResourceState pulumi.StringPtrInput
+	// The uri to the Script used in the Experiment
+	ScriptFileUri pulumi.StringPtrInput
+	// The description of Experiment status from the server side
+	Status pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

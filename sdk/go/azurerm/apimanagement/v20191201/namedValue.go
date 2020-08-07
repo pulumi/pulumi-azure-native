@@ -14,12 +14,18 @@ import (
 type NamedValue struct {
 	pulumi.CustomResourceState
 
+	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// NamedValue entity contract properties.
-	Properties NamedValueContractPropertiesResponseOutput `pulumi:"properties"`
+	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+	Secret pulumi.BoolPtrOutput `pulumi:"secret"`
+	// Optional tags that when provided can be used to filter the NamedValue list.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewNamedValue registers a new resource with the given unique name, arguments, and options.
@@ -65,21 +71,33 @@ func GetNamedValue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamedValue resources.
 type namedValueState struct {
+	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+	DisplayName *string `pulumi:"displayName"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// NamedValue entity contract properties.
-	Properties *NamedValueContractPropertiesResponse `pulumi:"properties"`
+	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+	Secret *bool `pulumi:"secret"`
+	// Optional tags that when provided can be used to filter the NamedValue list.
+	Tags []string `pulumi:"tags"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
+	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+	Value *string `pulumi:"value"`
 }
 
 type NamedValueState struct {
+	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+	DisplayName pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// NamedValue entity contract properties.
-	Properties NamedValueContractPropertiesResponsePtrInput
+	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+	Secret pulumi.BoolPtrInput
+	// Optional tags that when provided can be used to filter the NamedValue list.
+	Tags pulumi.StringArrayInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
+	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+	Value pulumi.StringPtrInput
 }
 
 func (NamedValueState) ElementType() reflect.Type {

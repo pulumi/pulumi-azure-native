@@ -27,12 +27,27 @@ type LookupWebAppHybridConnectionArgs struct {
 
 // Hybrid Connection contract. This is used to configure a Hybrid Connection.
 type LookupWebAppHybridConnectionResult struct {
+	// The hostname of the endpoint.
+	Hostname *string `pulumi:"hostname"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// HybridConnection resource specific properties
-	Properties HybridConnectionResponseProperties `pulumi:"properties"`
+	// The port of the endpoint.
+	Port *int `pulumi:"port"`
+	// The ARM URI to the Service Bus relay.
+	RelayArmUri *string `pulumi:"relayArmUri"`
+	// The name of the Service Bus relay.
+	RelayName *string `pulumi:"relayName"`
+	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+	SendKeyName *string `pulumi:"sendKeyName"`
+	// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+	// normally, use the POST /listKeys API instead.
+	SendKeyValue *string `pulumi:"sendKeyValue"`
+	// The name of the Service Bus namespace.
+	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
+	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+	ServiceBusSuffix *string `pulumi:"serviceBusSuffix"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

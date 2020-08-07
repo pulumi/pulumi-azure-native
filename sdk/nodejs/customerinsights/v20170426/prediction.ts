@@ -37,13 +37,77 @@ export class Prediction extends pulumi.CustomResource {
     }
 
     /**
+     * Whether do auto analyze.
+     */
+    public readonly autoAnalyze!: pulumi.Output<boolean>;
+    /**
+     * Description of the prediction.
+     */
+    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Display name of the prediction.
+     */
+    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The prediction grades.
+     */
+    public readonly grades!: pulumi.Output<outputs.customerinsights.v20170426.PredictionResponseGrades[] | undefined>;
+    /**
+     * Interaction types involved in the prediction.
+     */
+    public readonly involvedInteractionTypes!: pulumi.Output<string[] | undefined>;
+    /**
+     * KPI types involved in the prediction.
+     */
+    public readonly involvedKpiTypes!: pulumi.Output<string[] | undefined>;
+    /**
+     * Relationships involved in the prediction.
+     */
+    public readonly involvedRelationships!: pulumi.Output<string[] | undefined>;
+    /**
+     * Definition of the link mapping of prediction.
+     */
+    public readonly mappings!: pulumi.Output<outputs.customerinsights.v20170426.PredictionResponseMappings>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The prediction definition.
+     * Negative outcome expression.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.PredictionResponse>;
+    public readonly negativeOutcomeExpression!: pulumi.Output<string>;
+    /**
+     * Positive outcome expression.
+     */
+    public readonly positiveOutcomeExpression!: pulumi.Output<string>;
+    /**
+     * Name of the prediction.
+     */
+    public /*out*/ readonly predictionName!: pulumi.Output<string | undefined>;
+    /**
+     * Primary profile type.
+     */
+    public readonly primaryProfileType!: pulumi.Output<string>;
+    /**
+     * Provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Scope expression.
+     */
+    public readonly scopeExpression!: pulumi.Output<string>;
+    /**
+     * Score label.
+     */
+    public readonly scoreLabel!: pulumi.Output<string>;
+    /**
+     * System generated entities.
+     */
+    public /*out*/ readonly systemGeneratedEntities!: pulumi.Output<outputs.customerinsights.v20170426.PredictionResponseSystemGeneratedEntities>;
+    /**
+     * The hub name.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -108,7 +172,10 @@ export class Prediction extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopeExpression"] = args ? args.scopeExpression : undefined;
             inputs["scoreLabel"] = args ? args.scoreLabel : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["predictionName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemGeneratedEntities"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

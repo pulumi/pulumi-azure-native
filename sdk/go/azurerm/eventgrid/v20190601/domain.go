@@ -14,12 +14,14 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// Endpoint for the domain.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the domain.
-	Properties DomainPropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the domain.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the resource.
@@ -63,12 +65,14 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
+	// Endpoint for the domain.
+	Endpoint *string `pulumi:"endpoint"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// Name of the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the domain.
-	Properties *DomainPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the domain.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.
@@ -76,12 +80,14 @@ type domainState struct {
 }
 
 type DomainState struct {
+	// Endpoint for the domain.
+	Endpoint pulumi.StringPtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// Name of the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the domain.
-	Properties DomainPropertiesResponsePtrInput
+	// Provisioning state of the domain.
+	ProvisioningState pulumi.StringPtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
 	// Type of the resource.

@@ -46,13 +46,41 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public sealed class GetUserResult
     {
         /// <summary>
+        /// Email address.
+        /// </summary>
+        public readonly string? Email;
+        /// <summary>
+        /// First name.
+        /// </summary>
+        public readonly string? FirstName;
+        /// <summary>
+        /// Collection of groups user is part of.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GroupContractResponseResult> Groups;
+        /// <summary>
+        /// Collection of user identities.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserIdentityContractResponseResult> Identities;
+        /// <summary>
+        /// Last name.
+        /// </summary>
+        public readonly string? LastName;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// User entity contract properties.
+        /// Optional note about a user set by the administrator.
         /// </summary>
-        public readonly Outputs.UserContractPropertiesResponseResult Properties;
+        public readonly string? Note;
+        /// <summary>
+        /// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        public readonly string? RegistrationDate;
+        /// <summary>
+        /// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +88,35 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
         [OutputConstructor]
         private GetUserResult(
+            string? email,
+
+            string? firstName,
+
+            ImmutableArray<Outputs.GroupContractResponseResult> groups,
+
+            ImmutableArray<Outputs.UserIdentityContractResponseResult> identities,
+
+            string? lastName,
+
             string name,
 
-            Outputs.UserContractPropertiesResponseResult properties,
+            string? note,
+
+            string? registrationDate,
+
+            string? state,
 
             string type)
         {
+            Email = email;
+            FirstName = firstName;
+            Groups = groups;
+            Identities = identities;
+            LastName = lastName;
             Name = name;
-            Properties = properties;
+            Note = note;
+            RegistrationDate = registrationDate;
+            State = state;
             Type = type;
         }
     }

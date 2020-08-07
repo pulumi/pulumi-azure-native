@@ -54,9 +54,25 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the Virtual Hub IPConfigurations.
+        /// The private IP address of the IP configuration.
         /// </summary>
-        public readonly Outputs.HubIPConfigurationPropertiesFormatResponseResult Properties;
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// The provisioning state of the IP configuration resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The reference to the public IP resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponseResult? PublicIPAddress;
+        /// <summary>
+        /// The reference to the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
         /// <summary>
         /// Ipconfiguration type.
         /// </summary>
@@ -68,13 +84,25 @@ namespace Pulumi.AzureRM.Network.V20200501
 
             string? name,
 
-            Outputs.HubIPConfigurationPropertiesFormatResponseResult properties,
+            string? privateIPAddress,
+
+            string? privateIPAllocationMethod,
+
+            string provisioningState,
+
+            Outputs.PublicIPAddressResponseResult? publicIPAddress,
+
+            Outputs.SubnetResponseResult? subnet,
 
             string type)
         {
             Etag = etag;
             Name = name;
-            Properties = properties;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
             Type = type;
         }
     }

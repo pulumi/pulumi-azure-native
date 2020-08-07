@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,13 @@ export class AccessControlRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The Iscsi initiator name (IQN)
+     */
+    public readonly initiatorName!: pulumi.Output<string>;
+    /**
      * The name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Properties of AccessControlRecord
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.AccessControlRecordPropertiesResponse>;
     /**
      * The type.
      */
@@ -78,7 +76,6 @@ export class AccessControlRecord extends pulumi.CustomResource {
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

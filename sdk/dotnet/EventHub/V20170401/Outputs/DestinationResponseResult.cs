@@ -14,22 +14,36 @@ namespace Pulumi.AzureRM.EventHub.V20170401.Outputs
     public sealed class DestinationResponseResult
     {
         /// <summary>
+        /// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+        /// </summary>
+        public readonly string? ArchiveNameFormat;
+        /// <summary>
+        /// Blob container Name
+        /// </summary>
+        public readonly string? BlobContainer;
+        /// <summary>
         /// Name for capture destination
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties describing the storage account, blob container and archive name format for capture destination
+        /// Resource id of the storage account to be used to create the blobs
         /// </summary>
-        public readonly Outputs.DestinationResponsePropertiesResult? Properties;
+        public readonly string? StorageAccountResourceId;
 
         [OutputConstructor]
         private DestinationResponseResult(
+            string? archiveNameFormat,
+
+            string? blobContainer,
+
             string? name,
 
-            Outputs.DestinationResponsePropertiesResult? properties)
+            string? storageAccountResourceId)
         {
+            ArchiveNameFormat = archiveNameFormat;
+            BlobContainer = blobContainer;
             Name = name;
-            Properties = properties;
+            StorageAccountResourceId = storageAccountResourceId;
         }
     }
 }

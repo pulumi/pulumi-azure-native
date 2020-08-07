@@ -13,18 +13,18 @@ class GetBackupScheduleGroupResult:
     """
     The Backup Schedule Group
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, start_time=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if start_time and not isinstance(start_time, dict):
+            raise TypeError("Expected argument 'start_time' to be a dict")
+        __self__.start_time = start_time
         """
-        Properties of BackupScheduleGroup
+        The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +41,7 @@ class AwaitableGetBackupScheduleGroupResult(GetBackupScheduleGroupResult):
             yield self
         return GetBackupScheduleGroupResult(
             name=self.name,
-            properties=self.properties,
+            start_time=self.start_time,
             type=self.type)
 
 
@@ -67,5 +67,5 @@ def get_backup_schedule_group(device_name=None, manager_name=None, name=None, re
 
     return AwaitableGetBackupScheduleGroupResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        start_time=__ret__.get('startTime'),
         type=__ret__.get('type'))

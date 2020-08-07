@@ -90,7 +90,7 @@ const app = new azurerm.web.v20190801.WebApp("as", {
             // TODO: "WEBSITE_RUN_FROM_ZIP": codeBlobUrl,
             {
                 name: "ApplicationInsights:InstrumentationKey",
-                value: appInsights.properties.InstrumentationKey?.apply(v => v!),
+                value: appInsights.InstrumentationKey?.apply(v => v!),
             },
         ],
         connectionStrings: [{
@@ -103,4 +103,4 @@ const app = new azurerm.web.v20190801.WebApp("as", {
     },
 });
 
-export const endpoint = pulumi.interpolate `https://${app.properties.defaultHostName}`;
+export const endpoint = pulumi.interpolate `https://${app.defaultHostName}`;

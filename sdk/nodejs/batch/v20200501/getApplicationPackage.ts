@@ -50,13 +50,29 @@ export interface GetApplicationPackageResult {
      */
     readonly etag: string;
     /**
+     * The format of the application package, if the package is active.
+     */
+    readonly format: string;
+    /**
+     * The time at which the package was last activated, if the package is active.
+     */
+    readonly lastActivationTime: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties associated with the Application Package.
+     * The current state of the application package.
      */
-    readonly properties: outputs.batch.v20200501.ApplicationPackagePropertiesResponse;
+    readonly state: string;
+    /**
+     * The URL for the application package in Azure Storage.
+     */
+    readonly storageUrl: string;
+    /**
+     * The UTC time at which the Azure Storage URL will expire.
+     */
+    readonly storageUrlExpiry: string;
     /**
      * The type of the resource.
      */

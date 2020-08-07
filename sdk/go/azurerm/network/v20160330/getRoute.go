@@ -27,10 +27,16 @@ type LookupRouteArgs struct {
 
 // Route resource
 type LookupRouteResult struct {
+	// Gets or sets the destination CIDR to which the route applies.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 	Name *string `pulumi:"name"`
-	// Route resource
-	Properties RoutePropertiesFormatResponse `pulumi:"properties"`
+	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
+	// Gets or sets the type of Azure hop the packet should be sent to.
+	NextHopType string `pulumi:"nextHopType"`
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 }

@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20160901.Outputs
     public sealed class ApplicationGatewayPathRuleResponseResult
     {
         /// <summary>
+        /// Backend address pool resource of URL path map.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BackendAddressPool;
+        /// <summary>
+        /// Backend http settings resource of URL path map.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BackendHttpSettings;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -26,24 +34,37 @@ namespace Pulumi.AzureRM.Network.V20160901.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of probe of an application gateway.
+        /// Path rules of URL path map.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayPathRulePropertiesFormatResponseResult? Properties;
+        public readonly ImmutableArray<string> Paths;
+        /// <summary>
+        /// Path rule of URL path map resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private ApplicationGatewayPathRuleResponseResult(
+            Outputs.SubResourceResponseResult? backendAddressPool,
+
+            Outputs.SubResourceResponseResult? backendHttpSettings,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayPathRulePropertiesFormatResponseResult? properties)
+            ImmutableArray<string> paths,
+
+            string? provisioningState)
         {
+            BackendAddressPool = backendAddressPool;
+            BackendHttpSettings = backendHttpSettings;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Paths = paths;
+            ProvisioningState = provisioningState;
         }
     }
 }

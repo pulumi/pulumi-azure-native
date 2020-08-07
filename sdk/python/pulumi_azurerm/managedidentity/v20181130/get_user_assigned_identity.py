@@ -13,7 +13,13 @@ class GetUserAssignedIdentityResult:
     """
     Describes an identity resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, client_id=None, location=None, name=None, principal_id=None, tags=None, tenant_id=None, type=None):
+        if client_id and not isinstance(client_id, str):
+            raise TypeError("Expected argument 'client_id' to be a str")
+        __self__.client_id = client_id
+        """
+        The id of the app associated with the identity. This is a random generated UUID by MSI.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +32,23 @@ class GetUserAssignedIdentityResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if principal_id and not isinstance(principal_id, str):
+            raise TypeError("Expected argument 'principal_id' to be a str")
+        __self__.principal_id = principal_id
         """
-        The properties associated with the identity.
+        The id of the service principal object associated with the created identity.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The id of the tenant which the identity belongs to.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -52,10 +64,12 @@ class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
         if False:
             yield self
         return GetUserAssignedIdentityResult(
+            client_id=self.client_id,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            principal_id=self.principal_id,
             tags=self.tags,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -76,8 +90,10 @@ def get_user_assigned_identity(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:managedidentity/v20181130:getUserAssignedIdentity', __args__, opts=opts).value
 
     return AwaitableGetUserAssignedIdentityResult(
+        client_id=__ret__.get('clientId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        principal_id=__ret__.get('principalId'),
         tags=__ret__.get('tags'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

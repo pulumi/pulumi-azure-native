@@ -46,36 +46,99 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     public sealed class GetBookmarkResult
     {
         /// <summary>
+        /// The time the bookmark was created
+        /// </summary>
+        public readonly string? Created;
+        /// <summary>
+        /// Describes a user that created the bookmark
+        /// </summary>
+        public readonly Outputs.UserInfoResponseResult? CreatedBy;
+        /// <summary>
+        /// The display name of the bookmark
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Describes an incident that relates to bookmark
+        /// </summary>
+        public readonly Outputs.IncidentInfoResponseResult? IncidentInfo;
+        /// <summary>
+        /// List of labels relevant to this bookmark
+        /// </summary>
+        public readonly ImmutableArray<string> Labels;
         /// <summary>
         /// Azure resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Bookmark properties
+        /// The notes of the bookmark
         /// </summary>
-        public readonly Outputs.BookmarkPropertiesResponseResult Properties;
+        public readonly string? Notes;
+        /// <summary>
+        /// The query of the bookmark.
+        /// </summary>
+        public readonly string Query;
+        /// <summary>
+        /// The query result of the bookmark.
+        /// </summary>
+        public readonly string? QueryResult;
         /// <summary>
         /// Azure resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The last time the bookmark was updated
+        /// </summary>
+        public readonly string? Updated;
+        /// <summary>
+        /// Describes a user that updated the bookmark
+        /// </summary>
+        public readonly Outputs.UserInfoResponseResult? UpdatedBy;
 
         [OutputConstructor]
         private GetBookmarkResult(
+            string? created,
+
+            Outputs.UserInfoResponseResult? createdBy,
+
+            string displayName,
+
             string? etag,
+
+            Outputs.IncidentInfoResponseResult? incidentInfo,
+
+            ImmutableArray<string> labels,
 
             string name,
 
-            Outputs.BookmarkPropertiesResponseResult properties,
+            string? notes,
 
-            string type)
+            string query,
+
+            string? queryResult,
+
+            string type,
+
+            string? updated,
+
+            Outputs.UserInfoResponseResult? updatedBy)
         {
+            Created = created;
+            CreatedBy = createdBy;
+            DisplayName = displayName;
             Etag = etag;
+            IncidentInfo = incidentInfo;
+            Labels = labels;
             Name = name;
-            Properties = properties;
+            Notes = notes;
+            Query = query;
+            QueryResult = queryResult;
             Type = type;
+            Updated = updated;
+            UpdatedBy = updatedBy;
         }
     }
 }

@@ -14,14 +14,22 @@ import (
 type ServerDetails struct {
 	pulumi.CustomResourceState
 
+	// A collection of AS server administrators
+	AsAdministrators ServerAdministratorsResponsePtrOutput `pulumi:"asAdministrators"`
+	// The container URI of backup blob.
+	BackupBlobContainerUri pulumi.StringPtrOutput `pulumi:"backupBlobContainerUri"`
 	// Location of the Analysis Services resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Analysis Services resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties AnalysisServicesServerPropertiesResponseOutput `pulumi:"properties"`
+	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The full name of the Analysis Services resource.
+	ServerFullName pulumi.StringOutput `pulumi:"serverFullName"`
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuResponseOutput `pulumi:"sku"`
+	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the Analysis Services resource.
@@ -68,14 +76,22 @@ func GetServerDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerDetails resources.
 type serverDetailsState struct {
+	// A collection of AS server administrators
+	AsAdministrators *ServerAdministratorsResponse `pulumi:"asAdministrators"`
+	// The container URI of backup blob.
+	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
 	// Location of the Analysis Services resource.
 	Location *string `pulumi:"location"`
 	// The name of the Analysis Services resource.
 	Name *string `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties *AnalysisServicesServerPropertiesResponse `pulumi:"properties"`
+	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The full name of the Analysis Services resource.
+	ServerFullName *string `pulumi:"serverFullName"`
 	// The SKU of the Analysis Services resource.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
+	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+	State *string `pulumi:"state"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the Analysis Services resource.
@@ -83,14 +99,22 @@ type serverDetailsState struct {
 }
 
 type ServerDetailsState struct {
+	// A collection of AS server administrators
+	AsAdministrators ServerAdministratorsResponsePtrInput
+	// The container URI of backup blob.
+	BackupBlobContainerUri pulumi.StringPtrInput
 	// Location of the Analysis Services resource.
 	Location pulumi.StringPtrInput
 	// The name of the Analysis Services resource.
 	Name pulumi.StringPtrInput
-	// Properties of the provision operation request.
-	Properties AnalysisServicesServerPropertiesResponsePtrInput
+	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState pulumi.StringPtrInput
+	// The full name of the Analysis Services resource.
+	ServerFullName pulumi.StringPtrInput
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuResponsePtrInput
+	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+	State pulumi.StringPtrInput
 	// Key-value pairs of additional resource provisioning properties.
 	Tags pulumi.StringMapInput
 	// The type of the Analysis Services resource.

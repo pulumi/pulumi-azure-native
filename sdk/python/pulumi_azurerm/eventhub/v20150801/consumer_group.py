@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class ConsumerGroup(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    Exact time the message was created.
+    """
+    event_hub_path: pulumi.Output[str]
+    """
+    The path of the Event Hub.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,17 +26,17 @@ class ConsumerGroup(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
-    """
-    Properties supplied to the Create Or Update Consumer Group operation.
-      * `created_at` (`str`) - Exact time the message was created.
-      * `event_hub_path` (`str`) - The path of the Event Hub.
-      * `updated_at` (`str`) - The exact time the message was updated.
-      * `user_metadata` (`str`) - The user metadata.
-    """
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The exact time the message was updated.
+    """
+    user_metadata: pulumi.Output[str]
+    """
+    The user metadata.
     """
     def __init__(__self__, resource_name, opts=None, event_hub_name=None, location=None, name=None, namespace_name=None, resource_group_name=None, type=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -78,7 +86,9 @@ class ConsumerGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = type
             __props__['user_metadata'] = user_metadata
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['event_hub_path'] = None
+            __props__['updated_at'] = None
         super(ConsumerGroup, __self__).__init__(
             'azurerm:eventhub/v20150801:ConsumerGroup',
             resource_name,

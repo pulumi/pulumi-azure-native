@@ -46,13 +46,29 @@ export interface GetIscsiServerArgs {
  */
 export interface GetIscsiServerResult {
     /**
+     * The backup policy id.
+     */
+    readonly backupScheduleGroupId: string;
+    /**
+     * The chap id.
+     */
+    readonly chapId?: string;
+    /**
+     * The description.
+     */
+    readonly description?: string;
+    /**
      * The name.
      */
     readonly name: string;
     /**
-     * The properties.
+     * The reverse chap id.
      */
-    readonly properties: outputs.storsimple.v20161001.ISCSIServerPropertiesResponse;
+    readonly reverseChapId?: string;
+    /**
+     * The storage domain id.
+     */
+    readonly storageDomainId: string;
     /**
      * The type.
      */

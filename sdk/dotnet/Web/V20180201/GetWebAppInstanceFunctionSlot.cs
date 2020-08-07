@@ -46,17 +46,65 @@ namespace Pulumi.AzureRM.Web.V20180201
     public sealed class GetWebAppInstanceFunctionSlotResult
     {
         /// <summary>
+        /// Config information.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Config;
+        /// <summary>
+        /// Config URI.
+        /// </summary>
+        public readonly string? Config_href;
+        /// <summary>
+        /// File list.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Files;
+        /// <summary>
+        /// Function App ID.
+        /// </summary>
+        public readonly string? Function_app_id;
+        /// <summary>
+        /// Function URI.
+        /// </summary>
+        public readonly string? Href;
+        /// <summary>
+        /// The invocation URL
+        /// </summary>
+        public readonly string? Invoke_url_template;
+        /// <summary>
+        /// Value indicating whether the function is disabled
+        /// </summary>
+        public readonly bool? IsDisabled;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The function language
+        /// </summary>
+        public readonly string? Language;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// FunctionEnvelope resource specific properties
+        /// Script URI.
         /// </summary>
-        public readonly Outputs.FunctionEnvelopeResponsePropertiesResult Properties;
+        public readonly string? Script_href;
+        /// <summary>
+        /// Script root path URI.
+        /// </summary>
+        public readonly string? Script_root_path_href;
+        /// <summary>
+        /// Secrets file URI.
+        /// </summary>
+        public readonly string? Secrets_file_href;
+        /// <summary>
+        /// Test data used when testing via the Azure Portal.
+        /// </summary>
+        public readonly string? Test_data;
+        /// <summary>
+        /// Test data URI.
+        /// </summary>
+        public readonly string? Test_data_href;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -64,17 +112,53 @@ namespace Pulumi.AzureRM.Web.V20180201
 
         [OutputConstructor]
         private GetWebAppInstanceFunctionSlotResult(
+            ImmutableDictionary<string, object>? config,
+
+            string? config_href,
+
+            ImmutableDictionary<string, string>? files,
+
+            string? function_app_id,
+
+            string? href,
+
+            string? invoke_url_template,
+
+            bool? isDisabled,
+
             string? kind,
+
+            string? language,
 
             string name,
 
-            Outputs.FunctionEnvelopeResponsePropertiesResult properties,
+            string? script_href,
+
+            string? script_root_path_href,
+
+            string? secrets_file_href,
+
+            string? test_data,
+
+            string? test_data_href,
 
             string type)
         {
+            Config = config;
+            Config_href = config_href;
+            Files = files;
+            Function_app_id = function_app_id;
+            Href = href;
+            Invoke_url_template = invoke_url_template;
+            IsDisabled = isDisabled;
             Kind = kind;
+            Language = language;
             Name = name;
-            Properties = properties;
+            Script_href = script_href;
+            Script_root_path_href = script_root_path_href;
+            Secrets_file_href = secrets_file_href;
+            Test_data = test_data;
+            Test_data_href = test_data_href;
             Type = type;
         }
     }

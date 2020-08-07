@@ -37,6 +37,14 @@ export class VpnGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Local network gateway's BGP speaker settings.
+     */
+    public readonly bgpSettings!: pulumi.Output<outputs.network.v20180601.BgpSettingsResponse | undefined>;
+    /**
+     * list of all vpn connections to the gateway.
+     */
+    public readonly connections!: pulumi.Output<outputs.network.v20180601.VpnConnectionResponse[] | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +57,13 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for VpnGateway
+     * The policies applied to this vpn gateway.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180601.VpnGatewayPropertiesResponse>;
+    public readonly policies!: pulumi.Output<outputs.network.v20180601.PoliciesResponse | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +72,10 @@ export class VpnGateway extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The VirtualHub to which the gateway belongs
+     */
+    public readonly virtualHub!: pulumi.Output<outputs.network.v20180601.SubResourceResponse | undefined>;
 
     /**
      * Create a VpnGateway resource with the given unique name, arguments, and options.
@@ -94,7 +110,6 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

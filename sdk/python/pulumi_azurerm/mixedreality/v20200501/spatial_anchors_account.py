@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class SpatialAnchorsAccount(pulumi.CustomResource):
+    account_domain: pulumi.Output[str]
+    """
+    Correspond domain name of certain Spatial Anchors Account
+    """
+    account_id: pulumi.Output[str]
+    """
+    unique id of certain account.
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
@@ -17,12 +25,6 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     The name of the resource
-    """
-    properties: pulumi.Output[dict]
-    """
-    Property bag.
-      * `account_domain` (`str`) - Correspond domain name of certain Spatial Anchors Account
-      * `account_id` (`str`) - unique id of certain account.
     """
     tags: pulumi.Output[dict]
     """
@@ -70,7 +72,8 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['account_domain'] = None
+            __props__['account_id'] = None
             __props__['type'] = None
         super(SpatialAnchorsAccount, __self__).__init__(
             'azurerm:mixedreality/v20200501:SpatialAnchorsAccount',

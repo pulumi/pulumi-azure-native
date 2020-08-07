@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
     public sealed class GetAppResult
     {
         /// <summary>
+        /// The ID of the application.
+        /// </summary>
+        public readonly string ApplicationId;
+        /// <summary>
+        /// The display name of the application.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -48,17 +56,21 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The common properties of an IoT Central application.
-        /// </summary>
-        public readonly Outputs.AppPropertiesResponseResult Properties;
-        /// <summary>
         /// A valid instance SKU.
         /// </summary>
         public readonly Outputs.AppSkuInfoResponseResult Sku;
         /// <summary>
+        /// The subdomain of the application.
+        /// </summary>
+        public readonly string? Subdomain;
+        /// <summary>
         /// The resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+        /// </summary>
+        public readonly string? Template;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -66,23 +78,32 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
 
         [OutputConstructor]
         private GetAppResult(
+            string applicationId,
+
+            string? displayName,
+
             string location,
 
             string name,
 
-            Outputs.AppPropertiesResponseResult properties,
-
             Outputs.AppSkuInfoResponseResult sku,
+
+            string? subdomain,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? template,
+
             string type)
         {
+            ApplicationId = applicationId;
+            DisplayName = displayName;
             Location = location;
             Name = name;
-            Properties = properties;
             Sku = sku;
+            Subdomain = subdomain;
             Tags = tags;
+            Template = template;
             Type = type;
         }
     }

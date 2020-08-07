@@ -10,43 +10,49 @@ from ... import _utilities, _tables
 
 
 class FileServer(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    data_disks: pulumi.Output[dict]
+    """
+    Settings for the data disk which would be created for the File Server.
+      * `caching_type` (`str`)
+      * `disk_count` (`float`)
+      * `disk_size_in_gb` (`float`)
+      * `storage_account_type` (`str`)
+    """
     location: pulumi.Output[str]
     """
     The location of the resource
+    """
+    mount_settings: pulumi.Output[dict]
+    """
+    Details of the File Server.
+      * `file_server_internal_ip` (`str`)
+      * `file_server_public_ip` (`str`)
+      * `file_server_type` (`str`)
+      * `mount_point` (`str`)
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties associated with the File Server.
-      * `creation_time` (`str`)
-      * `data_disks` (`dict`) - Settings for the data disk which would be created for the File Server.
-        * `caching_type` (`str`)
-        * `disk_count` (`float`)
-        * `disk_size_in_gb` (`float`)
-        * `storage_account_type` (`str`)
-
-      * `mount_settings` (`dict`) - Details of the File Server.
-        * `file_server_internal_ip` (`str`)
-        * `file_server_public_ip` (`str`)
-        * `file_server_type` (`str`)
-        * `mount_point` (`str`)
-
-      * `provisioning_state` (`str`) - Possible values: creating - The File Server is getting created. updating - The File Server creation has been accepted and it is getting updated. deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted. failed - The File Server creation has failed with the specified errorCode. Details about the error code are specified in the message field. succeeded - The File Server creation has succeeded.
-      * `provisioning_state_transition_time` (`str`)
-      * `ssh_configuration` (`dict`) - SSH configuration settings for the VM
-        * `public_i_ps_to_allow` (`list`) - Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-        * `user_account_settings` (`dict`) - Settings for user account that gets created on each on the nodes of a cluster.
-          * `admin_user_name` (`str`)
-          * `admin_user_password` (`str`)
-          * `admin_user_ssh_public_key` (`str`)
-
-      * `subnet` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-        * `id` (`str`) - The ID of the resource
-
-      * `vm_size` (`str`) - For information about available VM sizes for File Server from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+    Possible values: creating - The File Server is getting created. updating - The File Server creation has been accepted and it is getting updated. deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted. failed - The File Server creation has failed with the specified errorCode. Details about the error code are specified in the message field. succeeded - The File Server creation has succeeded.
+    """
+    provisioning_state_transition_time: pulumi.Output[str]
+    ssh_configuration: pulumi.Output[dict]
+    """
+    SSH configuration settings for the VM
+      * `public_i_ps_to_allow` (`list`) - Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
+      * `user_account_settings` (`dict`) - Settings for user account that gets created on each on the nodes of a cluster.
+        * `admin_user_name` (`str`)
+        * `admin_user_password` (`str`)
+        * `admin_user_ssh_public_key` (`str`)
+    """
+    subnet: pulumi.Output[dict]
+    """
+    Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+      * `id` (`str`) - The ID of the resource
     """
     tags: pulumi.Output[dict]
     """
@@ -55,6 +61,10 @@ class FileServer(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource
+    """
+    vm_size: pulumi.Output[str]
+    """
+    For information about available VM sizes for File Server from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
     """
     def __init__(__self__, resource_name, opts=None, data_disks=None, location=None, name=None, resource_group_name=None, ssh_configuration=None, subnet=None, tags=None, vm_size=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -127,7 +137,10 @@ class FileServer(pulumi.CustomResource):
             if vm_size is None:
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['mount_settings'] = None
+            __props__['provisioning_state'] = None
+            __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
         super(FileServer, __self__).__init__(
             'azurerm:batchai/v20180301:FileServer',

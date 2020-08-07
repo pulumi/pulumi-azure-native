@@ -27,12 +27,44 @@ type LookupIncidentArgs struct {
 
 // Represents an incident in Azure Security Insights.
 type LookupIncidentResult struct {
+	// Additional data on the incident
+	AdditionalData IncidentAdditionalDataResponse `pulumi:"additionalData"`
+	// The reason the incident was closed
+	Classification *string `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment *string `pulumi:"classificationComment"`
+	// The classification reason the incident was closed with
+	ClassificationReason *string `pulumi:"classificationReason"`
+	// The time the incident was created
+	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
+	// The description of the incident
+	Description *string `pulumi:"description"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// The time of the first activity in the incident
+	FirstActivityTimeUtc *string `pulumi:"firstActivityTimeUtc"`
+	// A sequential number
+	IncidentNumber int `pulumi:"incidentNumber"`
+	// The deep-link url to the incident in Azure portal
+	IncidentUrl string `pulumi:"incidentUrl"`
+	// List of labels relevant to this incident
+	Labels []IncidentLabelResponse `pulumi:"labels"`
+	// The time of the last activity in the incident
+	LastActivityTimeUtc *string `pulumi:"lastActivityTimeUtc"`
+	// The last time the incident was updated
+	LastModifiedTimeUtc string `pulumi:"lastModifiedTimeUtc"`
 	// Azure resource name
 	Name string `pulumi:"name"`
-	// Incident properties
-	Properties IncidentPropertiesResponse `pulumi:"properties"`
+	// Describes a user that the incident is assigned to
+	Owner *IncidentOwnerInfoResponse `pulumi:"owner"`
+	// List of resource ids of Analytic rules related to the incident
+	RelatedAnalyticRuleIds []string `pulumi:"relatedAnalyticRuleIds"`
+	// The severity of the incident
+	Severity string `pulumi:"severity"`
+	// The status of the incident
+	Status string `pulumi:"status"`
+	// The title of the incident
+	Title string `pulumi:"title"`
 	// Azure resource type
 	Type string `pulumi:"type"`
 }

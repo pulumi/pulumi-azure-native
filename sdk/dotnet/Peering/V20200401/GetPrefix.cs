@@ -46,13 +46,37 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class GetPrefixResult
     {
         /// <summary>
+        /// The error message for validation state
+        /// </summary>
+        public readonly string ErrorMessage;
+        /// <summary>
+        /// The list of events for peering service prefix
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PeeringServicePrefixEventResponseResult> Events;
+        /// <summary>
+        /// The prefix learned type
+        /// </summary>
+        public readonly string LearnedType;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the peering prefix properties.
+        /// The peering service prefix key
         /// </summary>
-        public readonly Outputs.PeeringServicePrefixPropertiesResponseResult Properties;
+        public readonly string? PeeringServicePrefixKey;
+        /// <summary>
+        /// The prefix from which your traffic originates.
+        /// </summary>
+        public readonly string? Prefix;
+        /// <summary>
+        /// The prefix validation state
+        /// </summary>
+        public readonly string PrefixValidationState;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -60,14 +84,32 @@ namespace Pulumi.AzureRM.Peering.V20200401
 
         [OutputConstructor]
         private GetPrefixResult(
+            string errorMessage,
+
+            ImmutableArray<Outputs.PeeringServicePrefixEventResponseResult> events,
+
+            string learnedType,
+
             string name,
 
-            Outputs.PeeringServicePrefixPropertiesResponseResult properties,
+            string? peeringServicePrefixKey,
+
+            string? prefix,
+
+            string prefixValidationState,
+
+            string provisioningState,
 
             string type)
         {
+            ErrorMessage = errorMessage;
+            Events = events;
+            LearnedType = learnedType;
             Name = name;
-            Properties = properties;
+            PeeringServicePrefixKey = peeringServicePrefixKey;
+            Prefix = prefix;
+            PrefixValidationState = prefixValidationState;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

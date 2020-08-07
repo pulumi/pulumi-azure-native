@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.MachineLearning.V20160401
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation time for this workspace resource.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The key vault identifier used for encrypted workspaces.
+        /// </summary>
+        [Output("keyVaultIdentifierId")]
+        public Output<string?> KeyVaultIdentifierId { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Output("location")]
@@ -27,10 +39,16 @@ namespace Pulumi.AzureRM.MachineLearning.V20160401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the machine learning workspace.
+        /// The email id of the owner for this workspace.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WorkspacePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("ownerEmail")]
+        public Output<string> OwnerEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// The regional endpoint for the machine learning studio service which hosts this workspace.
+        /// </summary>
+        [Output("studioEndpoint")]
+        public Output<string> StudioEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +61,30 @@ namespace Pulumi.AzureRM.MachineLearning.V20160401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified arm id of the storage account associated with this workspace.
+        /// </summary>
+        [Output("userStorageAccountId")]
+        public Output<string> UserStorageAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The immutable id associated with this workspace.
+        /// </summary>
+        [Output("workspaceId")]
+        public Output<string> WorkspaceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of workspace resource.
+        /// </summary>
+        [Output("workspaceState")]
+        public Output<string> WorkspaceState { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of this workspace.
+        /// </summary>
+        [Output("workspaceType")]
+        public Output<string> WorkspaceType { get; private set; } = null!;
 
 
         /// <summary>

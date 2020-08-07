@@ -14,9 +14,29 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
     public sealed class ApplicationGatewayBackendHttpSettingsResponseResult
     {
         /// <summary>
+        /// Cookie name to use for the affinity cookie.
+        /// </summary>
+        public readonly string? AffinityCookieName;
+        /// <summary>
+        /// Array of references to application gateway authentication certificates.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> AuthenticationCertificates;
+        /// <summary>
+        /// Connection draining of the backend http settings resource.
+        /// </summary>
+        public readonly Outputs.ApplicationGatewayConnectionDrainingResponseResult? ConnectionDraining;
+        /// <summary>
+        /// Cookie based affinity.
+        /// </summary>
+        public readonly string? CookieBasedAffinity;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Host header to be sent to the backend servers.
+        /// </summary>
+        public readonly string? HostName;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,9 +46,41 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway backend HTTP settings.
+        /// Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayBackendHttpSettingsPropertiesFormatResponseResult? Properties;
+        public readonly string? Path;
+        /// <summary>
+        /// Whether to pick host header should be picked from the host name of the backend server. Default value is false.
+        /// </summary>
+        public readonly bool? PickHostNameFromBackendAddress;
+        /// <summary>
+        /// The destination port on the backend.
+        /// </summary>
+        public readonly int? Port;
+        /// <summary>
+        /// Probe resource of an application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Probe;
+        /// <summary>
+        /// Whether the probe is enabled. Default value is false.
+        /// </summary>
+        public readonly bool? ProbeEnabled;
+        /// <summary>
+        /// The protocol used to communicate with the backend.
+        /// </summary>
+        public readonly string? Protocol;
+        /// <summary>
+        /// The provisioning state of the backend HTTP settings resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+        /// </summary>
+        public readonly int? RequestTimeout;
+        /// <summary>
+        /// Array of references to application gateway trusted root certificates.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> TrustedRootCertificates;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +88,59 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
 
         [OutputConstructor]
         private ApplicationGatewayBackendHttpSettingsResponseResult(
+            string? affinityCookieName,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> authenticationCertificates,
+
+            Outputs.ApplicationGatewayConnectionDrainingResponseResult? connectionDraining,
+
+            string? cookieBasedAffinity,
+
             string etag,
+
+            string? hostName,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayBackendHttpSettingsPropertiesFormatResponseResult? properties,
+            string? path,
+
+            bool? pickHostNameFromBackendAddress,
+
+            int? port,
+
+            Outputs.SubResourceResponseResult? probe,
+
+            bool? probeEnabled,
+
+            string? protocol,
+
+            string provisioningState,
+
+            int? requestTimeout,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> trustedRootCertificates,
 
             string type)
         {
+            AffinityCookieName = affinityCookieName;
+            AuthenticationCertificates = authenticationCertificates;
+            ConnectionDraining = connectionDraining;
+            CookieBasedAffinity = cookieBasedAffinity;
             Etag = etag;
+            HostName = hostName;
             Id = id;
             Name = name;
-            Properties = properties;
+            Path = path;
+            PickHostNameFromBackendAddress = pickHostNameFromBackendAddress;
+            Port = port;
+            Probe = probe;
+            ProbeEnabled = probeEnabled;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            RequestTimeout = requestTimeout;
+            TrustedRootCertificates = trustedRootCertificates;
             Type = type;
         }
     }

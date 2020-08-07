@@ -18,13 +18,21 @@ class Pool(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    pool_id: pulumi.Output[str]
     """
-    Capacity pool properties
-      * `pool_id` (`str`) - UUID v4 used to identify the Pool
-      * `provisioning_state` (`str`) - Azure lifecycle management
-      * `service_level` (`str`) - The service level of the file system
-      * `size` (`float`) - Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+    UUID v4 used to identify the Pool
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Azure lifecycle management
+    """
+    service_level: pulumi.Output[str]
+    """
+    The service level of the file system
+    """
+    size: pulumi.Output[float]
+    """
+    Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
     """
     tags: pulumi.Output[dict]
     """
@@ -84,7 +92,8 @@ class Pool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'size'")
             __props__['size'] = size
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['pool_id'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Pool, __self__).__init__(
             'azurerm:netapp/v20190701:Pool',

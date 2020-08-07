@@ -52,29 +52,71 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class GetViewResult
     {
         /// <summary>
+        /// Date time when view was last modified.
+        /// </summary>
+        public readonly string Changed;
+        /// <summary>
+        /// Date time when view was created.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// View definition.
+        /// </summary>
+        public readonly string Definition;
+        /// <summary>
+        /// Localized display name for the view.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? DisplayName;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The view in Customer 360 web application.
+        /// the hub name.
         /// </summary>
-        public readonly Outputs.ViewResponseResult Properties;
+        public readonly string TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// the user ID.
+        /// </summary>
+        public readonly string? UserId;
+        /// <summary>
+        /// Name of the view.
+        /// </summary>
+        public readonly string ViewName;
 
         [OutputConstructor]
         private GetViewResult(
+            string changed,
+
+            string created,
+
+            string definition,
+
+            ImmutableDictionary<string, string>? displayName,
+
             string name,
 
-            Outputs.ViewResponseResult properties,
+            string tenantId,
 
-            string type)
+            string type,
+
+            string? userId,
+
+            string viewName)
         {
+            Changed = changed;
+            Created = created;
+            Definition = definition;
+            DisplayName = displayName;
             Name = name;
-            Properties = properties;
+            TenantId = tenantId;
             Type = type;
+            UserId = userId;
+            ViewName = viewName;
         }
     }
 }

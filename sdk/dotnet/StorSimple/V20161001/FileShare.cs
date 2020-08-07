@@ -15,22 +15,64 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>
+        /// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+        /// </summary>
+        [Output("adminUser")]
+        public Output<string> AdminUser { get; private set; } = null!;
+
+        /// <summary>
+        /// The data policy
+        /// </summary>
+        [Output("dataPolicy")]
+        public Output<string> DataPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Description for file share
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The local used capacity in Bytes.
+        /// </summary>
+        [Output("localUsedCapacityInBytes")]
+        public Output<int> LocalUsedCapacityInBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// The monitoring status
+        /// </summary>
+        [Output("monitoringStatus")]
+        public Output<string> MonitoringStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties.
+        /// The total provisioned capacity in Bytes
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FileSharePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisionedCapacityInBytes")]
+        public Output<int> ProvisionedCapacityInBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// The Share Status
+        /// </summary>
+        [Output("shareStatus")]
+        public Output<string> ShareStatus { get; private set; } = null!;
 
         /// <summary>
         /// The type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The used capacity in Bytes.
+        /// </summary>
+        [Output("usedCapacityInBytes")]
+        public Output<int> UsedCapacityInBytes { get; private set; } = null!;
 
 
         /// <summary>

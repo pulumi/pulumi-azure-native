@@ -37,17 +37,41 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
+     * The time the Namespace was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Value that indicates whether AutoInflate is enabled for eventhub namespace.
+     */
+    public readonly isAutoInflateEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Value that indicates whether Kafka is enabled for eventhub namespace.
+     */
+    public readonly kafkaEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+     */
+    public readonly maximumThroughputUnits!: pulumi.Output<number | undefined>;
+    /**
+     * Identifier for Azure Insights metrics.
+     */
+    public /*out*/ readonly metricId!: pulumi.Output<string>;
     /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Namespace properties supplied for create namespace operation.
+     * Provisioning state of the Namespace.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20170401.EHNamespaceResponseProperties>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Endpoint you can use to perform Service Bus operations.
+     */
+    public /*out*/ readonly serviceBusEndpoint!: pulumi.Output<string>;
     /**
      * Properties of sku resource
      */
@@ -60,6 +84,10 @@ export class Namespace extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The time the Namespace was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -88,8 +116,12 @@ export class Namespace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["metricId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serviceBusEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

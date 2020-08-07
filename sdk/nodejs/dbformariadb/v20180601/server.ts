@@ -37,21 +37,57 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
+     * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+     */
+    public /*out*/ readonly administratorLogin!: pulumi.Output<string | undefined>;
+    /**
+     * Earliest restore point creation time (ISO8601 format)
+     */
+    public /*out*/ readonly earliestRestoreDate!: pulumi.Output<string | undefined>;
+    /**
+     * The fully qualified domain name of a server.
+     */
+    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string | undefined>;
+    /**
      * The location the resource resides in.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The master server id of a replica server.
+     */
+    public /*out*/ readonly masterServerId!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the server.
+     * List of private endpoint connections on a server
      */
-    public readonly properties!: pulumi.Output<outputs.dbformariadb.v20180601.ServerPropertiesResponse>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.dbformariadb.v20180601.ServerPrivateEndpointConnectionResponse[]>;
+    /**
+     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * The maximum number of replicas that a master server can have.
+     */
+    public /*out*/ readonly replicaCapacity!: pulumi.Output<number | undefined>;
+    /**
+     * The replication role of the server.
+     */
+    public /*out*/ readonly replicationRole!: pulumi.Output<string | undefined>;
     /**
      * The SKU (pricing tier) of the server.
      */
     public readonly sku!: pulumi.Output<outputs.dbformariadb.v20180601.SkuResponse | undefined>;
+    /**
+     * Enable ssl enforcement or not when connect to server.
+     */
+    public /*out*/ readonly sslEnforcement!: pulumi.Output<string | undefined>;
+    /**
+     * Storage profile of a server.
+     */
+    public /*out*/ readonly storageProfile!: pulumi.Output<outputs.dbformariadb.v20180601.StorageProfileResponse | undefined>;
     /**
      * Application-specific metadata in the form of key-value pairs.
      */
@@ -60,6 +96,14 @@ export class Server extends pulumi.CustomResource {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A state of a server that is visible to user.
+     */
+    public /*out*/ readonly userVisibleState!: pulumi.Output<string | undefined>;
+    /**
+     * Server version.
+     */
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -92,7 +136,19 @@ export class Server extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["administratorLogin"] = undefined /*out*/;
+            inputs["earliestRestoreDate"] = undefined /*out*/;
+            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["masterServerId"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["replicaCapacity"] = undefined /*out*/;
+            inputs["replicationRole"] = undefined /*out*/;
+            inputs["sslEnforcement"] = undefined /*out*/;
+            inputs["storageProfile"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userVisibleState"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -36,6 +34,10 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
         return obj['__pulumiType'] === SiteRelayServiceConnectionSlot.__pulumiType;
     }
 
+    public readonly biztalkUri!: pulumi.Output<string | undefined>;
+    public readonly entityConnectionString!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly entityName!: pulumi.Output<string | undefined>;
+    public readonly hostname!: pulumi.Output<string | undefined>;
     /**
      * Kind of resource
      */
@@ -48,7 +50,9 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.RelayServiceConnectionEntityResponseProperties>;
+    public readonly port!: pulumi.Output<number | undefined>;
+    public readonly resourceConnectionString!: pulumi.Output<string | undefined>;
+    public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -97,7 +101,7 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["entityName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

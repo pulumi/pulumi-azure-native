@@ -16,10 +16,16 @@ type ApplicationGatewayPrivateEndpointConnection struct {
 
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The consumer link id.
+	LinkIdentifier pulumi.StringOutput `pulumi:"linkIdentifier"`
 	// Name of the private endpoint connection on an application gateway.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the application gateway private endpoint connection.
-	Properties ApplicationGatewayPrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointResponseOutput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the application gateway private endpoint connection resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -63,10 +69,16 @@ func GetApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 type applicationGatewayPrivateEndpointConnectionState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The consumer link id.
+	LinkIdentifier *string `pulumi:"linkIdentifier"`
 	// Name of the private endpoint connection on an application gateway.
 	Name *string `pulumi:"name"`
-	// Properties of the application gateway private endpoint connection.
-	Properties *ApplicationGatewayPrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the application gateway private endpoint connection resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -74,10 +86,16 @@ type applicationGatewayPrivateEndpointConnectionState struct {
 type ApplicationGatewayPrivateEndpointConnectionState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The consumer link id.
+	LinkIdentifier pulumi.StringPtrInput
 	// Name of the private endpoint connection on an application gateway.
 	Name pulumi.StringPtrInput
-	// Properties of the application gateway private endpoint connection.
-	Properties ApplicationGatewayPrivateEndpointConnectionPropertiesResponsePtrInput
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointResponsePtrInput
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
+	// The provisioning state of the application gateway private endpoint connection resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Type of the resource.
 	Type pulumi.StringPtrInput
 }

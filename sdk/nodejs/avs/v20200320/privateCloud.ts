@@ -37,17 +37,57 @@ export class PrivateCloud extends pulumi.CustomResource {
     }
 
     /**
+     * An ExpressRoute Circuit
+     */
+    public /*out*/ readonly circuit!: pulumi.Output<outputs.avs.v20200320.CircuitResponse | undefined>;
+    /**
+     * The endpoints
+     */
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.avs.v20200320.EndpointsResponse>;
+    /**
+     * vCenter Single Sign On Identity Sources
+     */
+    public readonly identitySources!: pulumi.Output<outputs.avs.v20200320.IdentitySourceResponse[] | undefined>;
+    /**
+     * Connectivity to internet is enabled or disabled
+     */
+    public readonly internet!: pulumi.Output<string | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The default cluster used for management
+     */
+    public readonly managementCluster!: pulumi.Output<outputs.avs.v20200320.ManagementClusterResponse>;
+    /**
+     * Network used to access vCenter Server and NSX-T Manager
+     */
+    public /*out*/ readonly managementNetwork!: pulumi.Output<string>;
     /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of a private cloud resource
+     * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.avs.v20200320.PrivateCloudPropertiesResponse>;
+    public readonly networkBlock!: pulumi.Output<string>;
+    /**
+     * Thumbprint of the NSX-T Manager SSL certificate
+     */
+    public /*out*/ readonly nsxtCertificateThumbprint!: pulumi.Output<string>;
+    /**
+     * Optionally, set the NSX-T Manager password when the private cloud is created
+     */
+    public readonly nsxtPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Used for virtual machine cold migration, cloning, and snapshot migration
+     */
+    public /*out*/ readonly provisioningNetwork!: pulumi.Output<string>;
+    /**
+     * The provisioning state
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The private cloud SKU
      */
@@ -60,6 +100,18 @@ export class PrivateCloud extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Thumbprint of the vCenter Server SSL certificate
+     */
+    public /*out*/ readonly vcenterCertificateThumbprint!: pulumi.Output<string>;
+    /**
+     * Optionally, set the vCenter admin password when the private cloud is created
+     */
+    public readonly vcenterPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Used for live migration of virtual machines
+     */
+    public /*out*/ readonly vmotionNetwork!: pulumi.Output<string>;
 
     /**
      * Create a PrivateCloud resource with the given unique name, arguments, and options.
@@ -103,8 +155,15 @@ export class PrivateCloud extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["circuit"] = undefined /*out*/;
+            inputs["endpoints"] = undefined /*out*/;
+            inputs["managementNetwork"] = undefined /*out*/;
+            inputs["nsxtCertificateThumbprint"] = undefined /*out*/;
+            inputs["provisioningNetwork"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["vcenterCertificateThumbprint"] = undefined /*out*/;
+            inputs["vmotionNetwork"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -10,36 +10,61 @@ from ... import _utilities, _tables
 
 
 class Diagnostic(pulumi.CustomResource):
+    always_log: pulumi.Output[str]
+    """
+    Specifies for what type of messages sampling settings should not apply.
+    """
+    backend: pulumi.Output[dict]
+    """
+    Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+      * `request` (`dict`) - Diagnostic settings for request.
+        * `body` (`dict`) - Body logging settings.
+          * `bytes` (`float`) - Number of request body bytes to log.
+
+        * `headers` (`list`) - Array of HTTP Headers to log.
+
+      * `response` (`dict`) - Diagnostic settings for response.
+    """
+    frontend: pulumi.Output[dict]
+    """
+    Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+      * `request` (`dict`) - Diagnostic settings for request.
+        * `body` (`dict`) - Body logging settings.
+          * `bytes` (`float`) - Number of request body bytes to log.
+
+        * `headers` (`list`) - Array of HTTP Headers to log.
+
+      * `response` (`dict`) - Diagnostic settings for response.
+    """
+    http_correlation_protocol: pulumi.Output[str]
+    """
+    Sets correlation protocol to use for Application Insights diagnostics.
+    """
+    log_client_ip: pulumi.Output[bool]
+    """
+    Log the ClientIP. Default is false.
+    """
+    logger_id: pulumi.Output[str]
+    """
+    Resource Id of a target logger.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    sampling: pulumi.Output[dict]
     """
-    Diagnostic entity contract properties.
-      * `always_log` (`str`) - Specifies for what type of messages sampling settings should not apply.
-      * `backend` (`dict`) - Diagnostic settings for incoming/outgoing HTTP messages to the Backend
-        * `request` (`dict`) - Diagnostic settings for request.
-          * `body` (`dict`) - Body logging settings.
-            * `bytes` (`float`) - Number of request body bytes to log.
-
-          * `headers` (`list`) - Array of HTTP Headers to log.
-
-        * `response` (`dict`) - Diagnostic settings for response.
-
-      * `frontend` (`dict`) - Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
-      * `http_correlation_protocol` (`str`) - Sets correlation protocol to use for Application Insights diagnostics.
-      * `log_client_ip` (`bool`) - Log the ClientIP. Default is false.
-      * `logger_id` (`str`) - Resource Id of a target logger.
-      * `sampling` (`dict`) - Sampling settings for Diagnostic.
-        * `percentage` (`float`) - Rate of sampling for fixed-rate sampling.
-        * `sampling_type` (`str`) - Sampling type.
-
-      * `verbosity` (`str`) - The verbosity level applied to traces emitted by trace policies.
+    Sampling settings for Diagnostic.
+      * `percentage` (`float`) - Rate of sampling for fixed-rate sampling.
+      * `sampling_type` (`str`) - Sampling type.
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    verbosity: pulumi.Output[str]
+    """
+    The verbosity level applied to traces emitted by trace policies.
     """
     def __init__(__self__, resource_name, opts=None, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, log_client_ip=None, logger_id=None, name=None, resource_group_name=None, sampling=None, service_name=None, verbosity=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -110,7 +135,6 @@ class Diagnostic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['verbosity'] = verbosity
-            __props__['properties'] = None
             __props__['type'] = None
         super(Diagnostic, __self__).__init__(
             'azurerm:apimanagement/v20191201:Diagnostic',

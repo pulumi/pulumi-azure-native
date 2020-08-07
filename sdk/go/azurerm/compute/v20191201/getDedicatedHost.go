@@ -27,16 +27,30 @@ type LookupDedicatedHostArgs struct {
 
 // Specifies information about the Dedicated host.
 type LookupDedicatedHostResult struct {
+	// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+	AutoReplaceOnFailure *bool `pulumi:"autoReplaceOnFailure"`
+	// A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+	HostId string `pulumi:"hostId"`
+	// The dedicated host instance view.
+	InstanceView DedicatedHostInstanceViewResponse `pulumi:"instanceView"`
+	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+	LicenseType *string `pulumi:"licenseType"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the dedicated host.
-	Properties DedicatedHostPropertiesResponse `pulumi:"properties"`
+	// Fault domain of the dedicated host within a dedicated host group.
+	PlatformFaultDomain *int `pulumi:"platformFaultDomain"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The date when the host was first provisioned.
+	ProvisioningTime string `pulumi:"provisioningTime"`
 	// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
 	Sku SkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// A list of references to all virtual machines in the Dedicated Host.
+	VirtualMachines []SubResourceReadOnlyResponse `pulumi:"virtualMachines"`
 }

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,29 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     }
 
     /**
+     * Client ID of developer console which is the client application.
+     */
+    public readonly clientId!: pulumi.Output<string>;
+    /**
+     * Client Secret of developer console which is the client application.
+     */
+    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    /**
+     * User-friendly description of OpenID Connect Provider.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * User-friendly OpenID Connect Provider name.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Metadata endpoint URI.
+     */
+    public readonly metadataEndpoint!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * OpenId Connect Provider contract properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.OpenidConnectProviderContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -88,7 +102,6 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

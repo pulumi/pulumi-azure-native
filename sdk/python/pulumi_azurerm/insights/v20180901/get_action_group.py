@@ -13,12 +13,66 @@ class GetActionGroupResult:
     """
     An action group resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, group_short_name=None, itsm_receivers=None, location=None, logic_app_receivers=None, name=None, sms_receivers=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
+        if arm_role_receivers and not isinstance(arm_role_receivers, list):
+            raise TypeError("Expected argument 'arm_role_receivers' to be a list")
+        __self__.arm_role_receivers = arm_role_receivers
+        """
+        The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+        """
+        if automation_runbook_receivers and not isinstance(automation_runbook_receivers, list):
+            raise TypeError("Expected argument 'automation_runbook_receivers' to be a list")
+        __self__.automation_runbook_receivers = automation_runbook_receivers
+        """
+        The list of AutomationRunbook receivers that are part of this action group.
+        """
+        if azure_app_push_receivers and not isinstance(azure_app_push_receivers, list):
+            raise TypeError("Expected argument 'azure_app_push_receivers' to be a list")
+        __self__.azure_app_push_receivers = azure_app_push_receivers
+        """
+        The list of AzureAppPush receivers that are part of this action group.
+        """
+        if azure_function_receivers and not isinstance(azure_function_receivers, list):
+            raise TypeError("Expected argument 'azure_function_receivers' to be a list")
+        __self__.azure_function_receivers = azure_function_receivers
+        """
+        The list of azure function receivers that are part of this action group.
+        """
+        if email_receivers and not isinstance(email_receivers, list):
+            raise TypeError("Expected argument 'email_receivers' to be a list")
+        __self__.email_receivers = email_receivers
+        """
+        The list of email receivers that are part of this action group.
+        """
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+        """
+        if group_short_name and not isinstance(group_short_name, str):
+            raise TypeError("Expected argument 'group_short_name' to be a str")
+        __self__.group_short_name = group_short_name
+        """
+        The short name of the action group. This will be used in SMS messages.
+        """
+        if itsm_receivers and not isinstance(itsm_receivers, list):
+            raise TypeError("Expected argument 'itsm_receivers' to be a list")
+        __self__.itsm_receivers = itsm_receivers
+        """
+        The list of ITSM receivers that are part of this action group.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if logic_app_receivers and not isinstance(logic_app_receivers, list):
+            raise TypeError("Expected argument 'logic_app_receivers' to be a list")
+        __self__.logic_app_receivers = logic_app_receivers
+        """
+        The list of logic app receivers that are part of this action group.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +80,11 @@ class GetActionGroupResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if sms_receivers and not isinstance(sms_receivers, list):
+            raise TypeError("Expected argument 'sms_receivers' to be a list")
+        __self__.sms_receivers = sms_receivers
         """
-        The action groups properties of the resource.
+        The list of SMS receivers that are part of this action group.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +98,18 @@ class GetActionGroupResult:
         """
         Azure resource type
         """
+        if voice_receivers and not isinstance(voice_receivers, list):
+            raise TypeError("Expected argument 'voice_receivers' to be a list")
+        __self__.voice_receivers = voice_receivers
+        """
+        The list of voice receivers that are part of this action group.
+        """
+        if webhook_receivers and not isinstance(webhook_receivers, list):
+            raise TypeError("Expected argument 'webhook_receivers' to be a list")
+        __self__.webhook_receivers = webhook_receivers
+        """
+        The list of webhook receivers that are part of this action group.
+        """
 
 
 class AwaitableGetActionGroupResult(GetActionGroupResult):
@@ -52,11 +118,22 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
         if False:
             yield self
         return GetActionGroupResult(
+            arm_role_receivers=self.arm_role_receivers,
+            automation_runbook_receivers=self.automation_runbook_receivers,
+            azure_app_push_receivers=self.azure_app_push_receivers,
+            azure_function_receivers=self.azure_function_receivers,
+            email_receivers=self.email_receivers,
+            enabled=self.enabled,
+            group_short_name=self.group_short_name,
+            itsm_receivers=self.itsm_receivers,
             location=self.location,
+            logic_app_receivers=self.logic_app_receivers,
             name=self.name,
-            properties=self.properties,
+            sms_receivers=self.sms_receivers,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            voice_receivers=self.voice_receivers,
+            webhook_receivers=self.webhook_receivers)
 
 
 def get_action_group(name=None, resource_group_name=None, opts=None):
@@ -76,8 +153,19 @@ def get_action_group(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20180901:getActionGroup', __args__, opts=opts).value
 
     return AwaitableGetActionGroupResult(
+        arm_role_receivers=__ret__.get('armRoleReceivers'),
+        automation_runbook_receivers=__ret__.get('automationRunbookReceivers'),
+        azure_app_push_receivers=__ret__.get('azureAppPushReceivers'),
+        azure_function_receivers=__ret__.get('azureFunctionReceivers'),
+        email_receivers=__ret__.get('emailReceivers'),
+        enabled=__ret__.get('enabled'),
+        group_short_name=__ret__.get('groupShortName'),
+        itsm_receivers=__ret__.get('itsmReceivers'),
         location=__ret__.get('location'),
+        logic_app_receivers=__ret__.get('logicAppReceivers'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        sms_receivers=__ret__.get('smsReceivers'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        voice_receivers=__ret__.get('voiceReceivers'),
+        webhook_receivers=__ret__.get('webhookReceivers'))

@@ -45,13 +45,29 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+     */
+    public readonly manualPrivateLinkServiceConnections!: pulumi.Output<outputs.network.v20190401.PrivateLinkServiceConnectionResponse[] | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the private endpoint.
+     * Gets an array of references to the network interfaces created for this private endpoint.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190401.PrivateEndpointPropertiesResponse>;
+    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.v20190401.NetworkInterfaceResponse[]>;
+    /**
+     * A grouping of information about the connection to the remote resource.
+     */
+    public readonly privateLinkServiceConnections!: pulumi.Output<outputs.network.v20190401.PrivateLinkServiceConnectionResponse[] | undefined>;
+    /**
+     * The provisioning state of the private endpoint.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The ID of the subnet from which the private IP will be allocated.
+     */
+    public readonly subnet!: pulumi.Output<outputs.network.v20190401.SubnetResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -89,7 +105,8 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

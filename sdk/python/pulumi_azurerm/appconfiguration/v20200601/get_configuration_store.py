@@ -13,7 +13,25 @@ class GetConfigurationStoreResult:
     """
     The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, creation_date=None, encryption=None, endpoint=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, tags=None, type=None):
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The creation date of configuration store.
+        """
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        __self__.encryption = encryption
+        """
+        The encryption settings of the configuration store.
+        """
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        __self__.endpoint = endpoint
+        """
+        The DNS endpoint where the configuration store API will be available.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -32,11 +50,23 @@ class GetConfigurationStoreResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
         """
-        The properties of a configuration store.
+        The list of private endpoint connections that are set up for this resource.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the configuration store.
+        """
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        __self__.public_network_access = public_network_access
+        """
+        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -64,10 +94,15 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
         if False:
             yield self
         return GetConfigurationStoreResult(
+            creation_date=self.creation_date,
+            encryption=self.encryption,
+            endpoint=self.endpoint,
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -90,10 +125,15 @@ def get_configuration_store(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:appconfiguration/v20200601:getConfigurationStore', __args__, opts=opts).value
 
     return AwaitableGetConfigurationStoreResult(
+        creation_date=__ret__.get('creationDate'),
+        encryption=__ret__.get('encryption'),
+        endpoint=__ret__.get('endpoint'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_network_access=__ret__.get('publicNetworkAccess'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

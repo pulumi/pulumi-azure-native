@@ -18,10 +18,6 @@ namespace Pulumi.AzureRM.Resources.V20160201.Outputs
         /// </summary>
         public readonly string? CorrelationId;
         /// <summary>
-        /// The debug setting of the deployment.
-        /// </summary>
-        public readonly Outputs.DebugSettingResponseResult? DebugSetting;
-        /// <summary>
         /// The list of deployment dependencies.
         /// </summary>
         public readonly ImmutableArray<Outputs.DependencyResponseResult> Dependencies;
@@ -66,8 +62,6 @@ namespace Pulumi.AzureRM.Resources.V20160201.Outputs
         private DeploymentPropertiesExtendedResponseResult(
             string? correlationId,
 
-            Outputs.DebugSettingResponseResult? debugSetting,
-
             ImmutableArray<Outputs.DependencyResponseResult> dependencies,
 
             string? mode,
@@ -89,7 +83,6 @@ namespace Pulumi.AzureRM.Resources.V20160201.Outputs
             string? timestamp)
         {
             CorrelationId = correlationId;
-            DebugSetting = debugSetting;
             Dependencies = dependencies;
             Mode = mode;
             Outputs = outputs;

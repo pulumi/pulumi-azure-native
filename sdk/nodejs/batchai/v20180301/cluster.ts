@@ -37,6 +37,17 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * Possible values are: steady and resizing. steady state indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing state indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+     */
+    public /*out*/ readonly allocationState!: pulumi.Output<string>;
+    public /*out*/ readonly allocationStateTransitionTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly currentNodeCount!: pulumi.Output<number>;
+    /**
+     * This element contains all the errors encountered by various compute nodes during node setup.
+     */
+    public /*out*/ readonly errors!: pulumi.Output<outputs.batchai.v20180301.BatchAIErrorResponse[] | undefined>;
+    /**
      * The location of the resource
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +56,26 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties associated with the Cluster.
+     * Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.batchai.v20180301.ClusterPropertiesResponse>;
+    public readonly nodeSetup!: pulumi.Output<outputs.batchai.v20180301.NodeSetupResponse | undefined>;
+    /**
+     * Counts of various compute node states on the cluster.
+     */
+    public /*out*/ readonly nodeStateCounts!: pulumi.Output<outputs.batchai.v20180301.NodeStateCountsResponse>;
+    /**
+     * Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningStateTransitionTime!: pulumi.Output<string>;
+    /**
+     * At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+     */
+    public readonly scaleSettings!: pulumi.Output<outputs.batchai.v20180301.ScaleSettingsResponse | undefined>;
+    /**
+     * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+     */
+    public readonly subnet!: pulumi.Output<outputs.batchai.v20180301.ResourceIdResponse | undefined>;
     /**
      * The tags of the resource
      */
@@ -56,6 +84,22 @@ export class Cluster extends pulumi.CustomResource {
      * The type of the resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Settings for user account that gets created on each on the nodes of a cluster.
+     */
+    public readonly userAccountSettings!: pulumi.Output<outputs.batchai.v20180301.UserAccountSettingsResponse | undefined>;
+    /**
+     * Settings for OS image.
+     */
+    public readonly virtualMachineConfiguration!: pulumi.Output<outputs.batchai.v20180301.VirtualMachineConfigurationResponse | undefined>;
+    /**
+     * The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
+     */
+    public readonly vmPriority!: pulumi.Output<string | undefined>;
+    /**
+     * All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+     */
+    public readonly vmSize!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -96,7 +140,14 @@ export class Cluster extends pulumi.CustomResource {
             inputs["virtualMachineConfiguration"] = args ? args.virtualMachineConfiguration : undefined;
             inputs["vmPriority"] = args ? args.vmPriority : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["allocationState"] = undefined /*out*/;
+            inputs["allocationStateTransitionTime"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["currentNodeCount"] = undefined /*out*/;
+            inputs["errors"] = undefined /*out*/;
+            inputs["nodeStateCounts"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

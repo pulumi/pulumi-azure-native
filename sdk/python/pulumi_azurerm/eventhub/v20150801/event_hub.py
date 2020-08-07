@@ -10,27 +10,41 @@ from ... import _utilities, _tables
 
 
 class EventHub(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    Exact time the Event Hub was created.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    message_retention_in_days: pulumi.Output[float]
+    """
+    Number of days to retain the events for this Event Hub.
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    partition_count: pulumi.Output[float]
     """
-    Properties supplied to the Create Or Update Event Hub operation.
-      * `created_at` (`str`) - Exact time the Event Hub was created.
-      * `message_retention_in_days` (`float`) - Number of days to retain the events for this Event Hub.
-      * `partition_count` (`float`) - Number of partitions created for the Event Hub.
-      * `partition_ids` (`list`) - Current number of shards on the Event Hub.
-      * `status` (`str`) - Enumerates the possible values for the status of the Event Hub.
-      * `updated_at` (`str`) - The exact time the message was updated.
+    Number of partitions created for the Event Hub.
+    """
+    partition_ids: pulumi.Output[list]
+    """
+    Current number of shards on the Event Hub.
+    """
+    status: pulumi.Output[str]
+    """
+    Enumerates the possible values for the status of the Event Hub.
     """
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The exact time the message was updated.
     """
     def __init__(__self__, resource_name, opts=None, location=None, message_retention_in_days=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, status=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -80,7 +94,9 @@ class EventHub(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['type'] = type
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['partition_ids'] = None
+            __props__['updated_at'] = None
         super(EventHub, __self__).__init__(
             'azurerm:eventhub/v20150801:EventHub',
             resource_name,

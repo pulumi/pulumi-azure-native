@@ -46,13 +46,25 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// The identity
+        /// </summary>
+        public readonly int ClusterId;
+        /// <summary>
+        /// The cluster size
+        /// </summary>
+        public readonly int ClusterSize;
+        /// <summary>
+        /// The hosts
+        /// </summary>
+        public readonly ImmutableArray<string> Hosts;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of a cluster resource
+        /// The state of the cluster provisioning
         /// </summary>
-        public readonly Outputs.ClusterPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The cluster SKU
         /// </summary>
@@ -64,16 +76,25 @@ namespace Pulumi.AzureRM.AVS.V20200320
 
         [OutputConstructor]
         private GetClusterResult(
+            int clusterId,
+
+            int clusterSize,
+
+            ImmutableArray<string> hosts,
+
             string name,
 
-            Outputs.ClusterPropertiesResponseResult properties,
+            string provisioningState,
 
             Outputs.SkuResponseResult sku,
 
             string type)
         {
+            ClusterId = clusterId;
+            ClusterSize = clusterSize;
+            Hosts = hosts;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Type = type;
         }

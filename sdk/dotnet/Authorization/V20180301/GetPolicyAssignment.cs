@@ -40,13 +40,37 @@ namespace Pulumi.AzureRM.Authorization.V20180301
     public sealed class GetPolicyAssignmentResult
     {
         /// <summary>
+        /// This message will be part of response in case of policy violation.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// The policy assignment metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Metadata;
+        /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties for the policy assignment.
+        /// The policy's excluded scopes.
         /// </summary>
-        public readonly Outputs.PolicyAssignmentPropertiesResponseResult Properties;
+        public readonly ImmutableArray<string> NotScopes;
+        /// <summary>
+        /// Required if a parameter is used in policy rule.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Parameters;
+        /// <summary>
+        /// The ID of the policy definition or policy set definition being assigned.
+        /// </summary>
+        public readonly string? PolicyDefinitionId;
+        /// <summary>
+        /// The scope for the policy assignment.
+        /// </summary>
+        public readonly string? Scope;
         /// <summary>
         /// The policy sku. This property is optional, obsolete, and will be ignored.
         /// </summary>
@@ -58,16 +82,34 @@ namespace Pulumi.AzureRM.Authorization.V20180301
 
         [OutputConstructor]
         private GetPolicyAssignmentResult(
+            string? description,
+
+            string? displayName,
+
+            ImmutableDictionary<string, object>? metadata,
+
             string name,
 
-            Outputs.PolicyAssignmentPropertiesResponseResult properties,
+            ImmutableArray<string> notScopes,
+
+            ImmutableDictionary<string, object>? parameters,
+
+            string? policyDefinitionId,
+
+            string? scope,
 
             Outputs.PolicySkuResponseResult? sku,
 
             string type)
         {
+            Description = description;
+            DisplayName = displayName;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
+            NotScopes = notScopes;
+            Parameters = parameters;
+            PolicyDefinitionId = policyDefinitionId;
+            Scope = scope;
             Sku = sku;
             Type = type;
         }

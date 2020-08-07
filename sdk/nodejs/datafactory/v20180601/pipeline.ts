@@ -37,21 +37,49 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /**
+     * List of activities in pipeline.
+     */
+    public readonly activities!: pulumi.Output<outputs.datafactory.v20180601.ActivityResponse[] | undefined>;
+    /**
+     * List of tags that can be used for describing the Pipeline.
+     */
+    public readonly annotations!: pulumi.Output<{[key: string]: any}[] | undefined>;
+    /**
+     * The max number of concurrent runs for the pipeline.
+     */
+    public readonly concurrency!: pulumi.Output<number | undefined>;
+    /**
+     * The description of the pipeline.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Etag identifies change in the resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+     */
+    public readonly folder!: pulumi.Output<outputs.datafactory.v20180601.PipelineResponseFolder | undefined>;
     /**
      * The resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the pipeline.
+     * List of parameters for pipeline.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datafactory.v20180601.PipelineResponse>;
+    public readonly parameters!: pulumi.Output<{[key: string]: outputs.datafactory.v20180601.ParameterSpecificationResponse} | undefined>;
+    /**
+     * Dimensions emitted by Pipeline.
+     */
+    public readonly runDimensions!: pulumi.Output<{[key: string]: {[key: string]: any}} | undefined>;
     /**
      * The resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * List of variables for pipeline.
+     */
+    public readonly variables!: pulumi.Output<{[key: string]: outputs.datafactory.v20180601.VariableSpecificationResponse} | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -87,7 +115,6 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["runDimensions"] = args ? args.runDimensions : undefined;
             inputs["variables"] = args ? args.variables : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

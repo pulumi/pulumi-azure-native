@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Web.V20190801.Outputs
     public sealed class StaticSiteUserARMResourceResponseResult
     {
         /// <summary>
+        /// The display name for the static site user.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -26,31 +30,48 @@ namespace Pulumi.AzureRM.Web.V20190801.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// StaticSiteUserARMResource resource specific properties
+        /// The identity provider for the static site user.
         /// </summary>
-        public readonly Outputs.StaticSiteUserARMResourceResponsePropertiesResult? Properties;
+        public readonly string Provider;
+        /// <summary>
+        /// The roles for the static site user, in free-form string format
+        /// </summary>
+        public readonly string? Roles;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The user id for the static site user.
+        /// </summary>
+        public readonly string UserId;
 
         [OutputConstructor]
         private StaticSiteUserARMResourceResponseResult(
+            string displayName,
+
             string id,
 
             string? kind,
 
             string name,
 
-            Outputs.StaticSiteUserARMResourceResponsePropertiesResult? properties,
+            string provider,
 
-            string type)
+            string? roles,
+
+            string type,
+
+            string userId)
         {
+            DisplayName = displayName;
             Id = id;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            Provider = provider;
+            Roles = roles;
             Type = type;
+            UserId = userId;
         }
     }
 }

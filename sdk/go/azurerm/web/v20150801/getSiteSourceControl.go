@@ -25,13 +25,22 @@ type LookupSiteSourceControlArgs struct {
 
 // Describes the source control configuration for web app
 type LookupSiteSourceControlResult struct {
+	// Name of branch to use for deployment
+	Branch *string `pulumi:"branch"`
+	// Whether to manual or continuous integration
+	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// Whether to manual or continuous integration
+	IsManualIntegration *bool `pulumi:"isManualIntegration"`
+	// Mercurial or Git repository type
+	IsMercurial *bool `pulumi:"isMercurial"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                             `pulumi:"name"`
-	Properties SiteSourceControlResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Repository or source control url
+	RepoUrl *string `pulumi:"repoUrl"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

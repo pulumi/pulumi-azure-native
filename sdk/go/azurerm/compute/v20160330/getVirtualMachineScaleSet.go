@@ -31,12 +31,18 @@ type LookupVirtualMachineScaleSetResult struct {
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties VirtualMachineScaleSetPropertiesResponse `pulumi:"properties"`
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	OverProvision *bool `pulumi:"overProvision"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The virtual machine scale set sku.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The upgrade policy.
+	UpgradePolicy *UpgradePolicyResponse `pulumi:"upgradePolicy"`
+	// The virtual machine profile.
+	VirtualMachineProfile *VirtualMachineScaleSetVMProfileResponse `pulumi:"virtualMachineProfile"`
 }

@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
     public sealed class GetConfigurationStoreResult
     {
         /// <summary>
+        /// The creation date of configuration store.
+        /// </summary>
+        public readonly string CreationDate;
+        /// <summary>
+        /// The DNS endpoint where the configuration store API will be available.
+        /// </summary>
+        public readonly string Endpoint;
+        /// <summary>
         /// The managed identity information, if configured.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponseResult? Identity;
@@ -52,9 +60,9 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of a configuration store.
+        /// The provisioning state of the configuration store.
         /// </summary>
-        public readonly Outputs.ConfigurationStorePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The sku of the configuration store.
         /// </summary>
@@ -70,13 +78,17 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
 
         [OutputConstructor]
         private GetConfigurationStoreResult(
+            string creationDate,
+
+            string endpoint,
+
             Outputs.ResourceIdentityResponseResult? identity,
 
             string location,
 
             string name,
 
-            Outputs.ConfigurationStorePropertiesResponseResult properties,
+            string provisioningState,
 
             Outputs.SkuResponseResult sku,
 
@@ -84,10 +96,12 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
 
             string type)
         {
+            CreationDate = creationDate;
+            Endpoint = endpoint;
             Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;

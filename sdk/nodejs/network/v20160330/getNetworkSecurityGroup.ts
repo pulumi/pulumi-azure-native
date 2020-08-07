@@ -36,6 +36,10 @@ export interface GetNetworkSecurityGroupArgs {
  */
 export interface GetNetworkSecurityGroupResult {
     /**
+     * Gets or sets Default security rules of network security group
+     */
+    readonly defaultSecurityRules?: outputs.network.v20160330.SecurityRuleResponse[];
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: string;
@@ -48,9 +52,25 @@ export interface GetNetworkSecurityGroupResult {
      */
     readonly name: string;
     /**
-     * Network Security Group resource
+     * Gets collection of references to Network Interfaces
      */
-    readonly properties: outputs.network.v20160330.NetworkSecurityGroupPropertiesFormatResponse;
+    readonly networkInterfaces?: outputs.network.v20160330.NetworkInterfaceResponse[];
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: string;
+    /**
+     * Gets or sets resource GUID property of the network security group resource
+     */
+    readonly resourceGuid?: string;
+    /**
+     * Gets or sets Security rules of network security group
+     */
+    readonly securityRules?: outputs.network.v20160330.SecurityRuleResponse[];
+    /**
+     * Gets collection of references to subnets
+     */
+    readonly subnets?: outputs.network.v20160330.SubnetResponse[];
     /**
      * Resource tags
      */

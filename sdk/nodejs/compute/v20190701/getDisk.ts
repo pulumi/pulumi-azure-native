@@ -36,6 +36,42 @@ export interface GetDiskArgs {
  */
 export interface GetDiskResult {
     /**
+     * Disk source information. CreationData information cannot be changed after the disk has been created.
+     */
+    readonly creationData: outputs.compute.v20190701.CreationDataResponse;
+    /**
+     * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     */
+    readonly diskIOPSReadWrite?: number;
+    /**
+     * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+     */
+    readonly diskMBpsReadWrite?: number;
+    /**
+     * The size of the disk in bytes. This field is read only.
+     */
+    readonly diskSizeBytes: number;
+    /**
+     * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+     */
+    readonly diskSizeGB?: number;
+    /**
+     * The state of the disk.
+     */
+    readonly diskState: string;
+    /**
+     * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+     */
+    readonly encryption?: outputs.compute.v20190701.EncryptionResponse;
+    /**
+     * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+     */
+    readonly encryptionSettingsCollection?: outputs.compute.v20190701.EncryptionSettingsCollectionResponse;
+    /**
+     * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+     */
+    readonly hyperVGeneration?: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -48,9 +84,13 @@ export interface GetDiskResult {
      */
     readonly name: string;
     /**
-     * Disk resource properties.
+     * The Operating System type.
      */
-    readonly properties: outputs.compute.v20190701.DiskPropertiesResponse;
+    readonly osType?: string;
+    /**
+     * The disk provisioning state.
+     */
+    readonly provisioningState: string;
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
@@ -60,9 +100,17 @@ export interface GetDiskResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The time when the disk was created.
+     */
+    readonly timeCreated: string;
+    /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * Unique Guid identifying the resource.
+     */
+    readonly uniqueId: string;
     /**
      * The Logical zone list for Disk.
      */

@@ -52,29 +52,64 @@ namespace Pulumi.AzureRM.Cdn.V20200331
     public sealed class GetCustomDomainResult
     {
         /// <summary>
+        /// Provisioning status of Custom Https of the custom domain.
+        /// </summary>
+        public readonly string CustomHttpsProvisioningState;
+        /// <summary>
+        /// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+        /// </summary>
+        public readonly string CustomHttpsProvisioningSubstate;
+        /// <summary>
+        /// The host name of the custom domain. Must be a domain name.
+        /// </summary>
+        public readonly string HostName;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The JSON object that contains the properties of the custom domain to create.
+        /// Provisioning status of the custom domain.
         /// </summary>
-        public readonly Outputs.CustomDomainPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource status of the custom domain.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+        /// </summary>
+        public readonly string? ValidationData;
 
         [OutputConstructor]
         private GetCustomDomainResult(
+            string customHttpsProvisioningState,
+
+            string customHttpsProvisioningSubstate,
+
+            string hostName,
+
             string name,
 
-            Outputs.CustomDomainPropertiesResponseResult properties,
+            string provisioningState,
 
-            string type)
+            string resourceState,
+
+            string type,
+
+            string? validationData)
         {
+            CustomHttpsProvisioningState = customHttpsProvisioningState;
+            CustomHttpsProvisioningSubstate = customHttpsProvisioningSubstate;
+            HostName = hostName;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
             Type = type;
+            ValidationData = validationData;
         }
     }
 }

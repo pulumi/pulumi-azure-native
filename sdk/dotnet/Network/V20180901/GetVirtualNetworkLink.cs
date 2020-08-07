@@ -58,9 +58,13 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the virtual network link to the Private DNS zone.
+        /// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly Outputs.VirtualNetworkLinkPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+        /// </summary>
+        public readonly bool? RegistrationEnabled;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -69,6 +73,14 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The reference of the virtual network.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualNetwork;
+        /// <summary>
+        /// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        public readonly string VirtualNetworkLinkState;
 
         [OutputConstructor]
         private GetVirtualNetworkLinkResult(
@@ -78,18 +90,27 @@ namespace Pulumi.AzureRM.Network.V20180901
 
             string name,
 
-            Outputs.VirtualNetworkLinkPropertiesResponseResult properties,
+            string provisioningState,
+
+            bool? registrationEnabled,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualNetwork,
+
+            string virtualNetworkLinkState)
         {
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RegistrationEnabled = registrationEnabled;
             Tags = tags;
             Type = type;
+            VirtualNetwork = virtualNetwork;
+            VirtualNetworkLinkState = virtualNetworkLinkState;
         }
     }
 }

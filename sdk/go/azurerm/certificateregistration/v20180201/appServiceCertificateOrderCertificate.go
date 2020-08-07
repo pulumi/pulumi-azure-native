@@ -14,14 +14,18 @@ import (
 type AppServiceCertificateOrderCertificate struct {
 	pulumi.CustomResourceState
 
+	// Key Vault resource Id.
+	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName pulumi.StringPtrOutput `pulumi:"keyVaultSecretName"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Core resource properties
-	Properties AppServiceCertificateResponseOutput `pulumi:"properties"`
+	// Status of the Key Vault secret.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -68,14 +72,18 @@ func GetAppServiceCertificateOrderCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppServiceCertificateOrderCertificate resources.
 type appServiceCertificateOrderCertificateState struct {
+	// Key Vault resource Id.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location *string `pulumi:"location"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// Core resource properties
-	Properties *AppServiceCertificateResponse `pulumi:"properties"`
+	// Status of the Key Vault secret.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -83,14 +91,18 @@ type appServiceCertificateOrderCertificateState struct {
 }
 
 type AppServiceCertificateOrderCertificateState struct {
+	// Key Vault resource Id.
+	KeyVaultId pulumi.StringPtrInput
+	// Key Vault secret name.
+	KeyVaultSecretName pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// Core resource properties
-	Properties AppServiceCertificateResponsePtrInput
+	// Status of the Key Vault secret.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

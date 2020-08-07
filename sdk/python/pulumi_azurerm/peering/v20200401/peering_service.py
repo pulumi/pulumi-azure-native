@@ -18,12 +18,17 @@ class PeeringService(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    peering_service_location: pulumi.Output[str]
     """
-    The properties that define a peering service.
-      * `peering_service_location` (`str`) - The PeeringServiceLocation of the Customer.
-      * `peering_service_provider` (`str`) - The MAPS Provider Name.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    The PeeringServiceLocation of the Customer.
+    """
+    peering_service_provider: pulumi.Output[str]
+    """
+    The MAPS Provider Name.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     sku: pulumi.Output[dict]
     """
@@ -86,7 +91,7 @@ class PeeringService(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(PeeringService, __self__).__init__(
             'azurerm:peering/v20200401:PeeringService',

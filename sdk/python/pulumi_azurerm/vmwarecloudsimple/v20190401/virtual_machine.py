@@ -10,6 +10,56 @@ from ... import _utilities, _tables
 
 
 class VirtualMachine(pulumi.CustomResource):
+    amount_of_ram: pulumi.Output[float]
+    """
+    The amount of memory
+    """
+    controllers: pulumi.Output[list]
+    """
+    The list of Virtual Disks' Controllers
+      * `id` (`str`) - Controller's id
+      * `name` (`str`) - The display name of Controller
+      * `sub_type` (`str`) - dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
+      * `type` (`str`) - disk controller type (SCSI)
+    """
+    customization: pulumi.Output[dict]
+    """
+    Virtual machine properties
+      * `dns_servers` (`list`) - List of dns servers to use
+      * `host_name` (`str`) - Virtual Machine hostname
+      * `password` (`str`) - Password for login
+      * `policy_id` (`str`) - id of customization policy
+      * `username` (`str`) - Username for login
+    """
+    disks: pulumi.Output[list]
+    """
+    The list of Virtual Disks
+      * `controller_id` (`str`) - Disk's Controller id
+      * `independence_mode` (`str`) - Disk's independence mode type
+      * `total_size` (`float`) - Disk's total size
+      * `virtual_disk_id` (`str`) - Disk's id
+      * `virtual_disk_name` (`str`) - Disk's display name
+    """
+    dnsname: pulumi.Output[str]
+    """
+    The DNS name of Virtual Machine in VCenter
+    """
+    expose_to_guest_vm: pulumi.Output[bool]
+    """
+    Expose Guest OS or not
+    """
+    folder: pulumi.Output[str]
+    """
+    The path to virtual machine folder in VCenter
+    """
+    guest_os: pulumi.Output[str]
+    """
+    The name of Guest OS
+    """
+    guest_os_type: pulumi.Output[str]
+    """
+    The Guest OS type
+    """
     location: pulumi.Output[str]
     """
     Azure region
@@ -18,91 +68,94 @@ class VirtualMachine(pulumi.CustomResource):
     """
     {virtualMachineName}
     """
-    properties: pulumi.Output[dict]
+    nics: pulumi.Output[list]
     """
-    Virtual machine properties
-      * `amount_of_ram` (`float`) - The amount of memory
-      * `controllers` (`list`) - The list of Virtual Disks' Controllers
-        * `id` (`str`) - Controller's id
-        * `name` (`str`) - The display name of Controller
-        * `sub_type` (`str`) - dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
-        * `type` (`str`) - disk controller type (SCSI)
-
-      * `customization` (`dict`) - Virtual machine properties
+    The list of Virtual NICs
+      * `customization` (`dict`) - guest OS customization for nic
+        * `allocation` (`str`) - IP address allocation method
         * `dns_servers` (`list`) - List of dns servers to use
-        * `host_name` (`str`) - Virtual Machine hostname
-        * `password` (`str`) - Password for login
-        * `policy_id` (`str`) - id of customization policy
-        * `username` (`str`) - Username for login
+        * `gateway` (`list`) - Gateway addresses assigned to nic
+        * `ip_address` (`str`) - Static ip address for nic
+        * `mask` (`str`) - Network mask for nic
+        * `primary_wins_server` (`str`) - primary WINS server for Windows
+        * `secondary_wins_server` (`str`) - secondary WINS server for Windows
 
-      * `disks` (`list`) - The list of Virtual Disks
-        * `controller_id` (`str`) - Disk's Controller id
-        * `independence_mode` (`str`) - Disk's independence mode type
-        * `total_size` (`float`) - Disk's total size
-        * `virtual_disk_id` (`str`) - Disk's id
-        * `virtual_disk_name` (`str`) - Disk's display name
-
-      * `dnsname` (`str`) - The DNS name of Virtual Machine in VCenter
-      * `expose_to_guest_vm` (`bool`) - Expose Guest OS or not
-      * `folder` (`str`) - The path to virtual machine folder in VCenter
-      * `guest_os` (`str`) - The name of Guest OS
-      * `guest_os_type` (`str`) - The Guest OS type
-      * `nics` (`list`) - The list of Virtual NICs
-        * `customization` (`dict`) - guest OS customization for nic
-          * `allocation` (`str`) - IP address allocation method
-          * `dns_servers` (`list`) - List of dns servers to use
-          * `gateway` (`list`) - Gateway addresses assigned to nic
-          * `ip_address` (`str`) - Static ip address for nic
-          * `mask` (`str`) - Network mask for nic
-          * `primary_wins_server` (`str`) - primary WINS server for Windows
-          * `secondary_wins_server` (`str`) - secondary WINS server for Windows
-
-        * `ip_addresses` (`list`) - NIC ip address
-        * `mac_address` (`str`) - NIC MAC address
-        * `network` (`dict`) - Virtual Network
-          * `assignable` (`bool`) - can be used in vm creation/deletion
-          * `id` (`str`) - virtual network id (privateCloudId:vsphereId)
-          * `location` (`str`) - Azure region
-          * `name` (`str`) - {VirtualNetworkName}
-          * `properties` (`dict`) - Virtual Network properties
-            * `private_cloud_id` (`str`) - The Private Cloud id
-
-          * `type` (`str`) - {resourceProviderNamespace}/{resourceType}
-
-        * `nic_type` (`str`) - NIC type
-        * `power_on_boot` (`bool`) - Is NIC powered on/off on boot
-        * `virtual_nic_id` (`str`) - NIC id
-        * `virtual_nic_name` (`str`) - NIC name
-
-      * `number_of_cores` (`float`) - The number of CPU cores
-      * `password` (`str`) - Password for login. Deprecated - use customization property
-      * `private_cloud_id` (`str`) - Private Cloud Id
-      * `provisioning_state` (`str`) - The provisioning status of the resource
-      * `public_ip` (`str`) - The public ip of Virtual Machine
-      * `resource_pool` (`dict`) - Virtual Machines Resource Pool
-        * `id` (`str`) - resource pool id (privateCloudId:vsphereId)
+      * `ip_addresses` (`list`) - NIC ip address
+      * `mac_address` (`str`) - NIC MAC address
+      * `network` (`dict`) - Virtual Network
+        * `assignable` (`bool`) - can be used in vm creation/deletion
+        * `id` (`str`) - virtual network id (privateCloudId:vsphereId)
         * `location` (`str`) - Azure region
-        * `name` (`str`) - {ResourcePoolName}
-        * `private_cloud_id` (`str`) - The Private Cloud Id
-        * `properties` (`dict`) - Resource pool properties
-          * `full_name` (`str`) - Hierarchical resource pool name
-
+        * `name` (`str`) - {VirtualNetworkName}
+        * `private_cloud_id` (`str`) - The Private Cloud id
         * `type` (`str`) - {resourceProviderNamespace}/{resourceType}
 
-      * `status` (`str`) - The status of Virtual machine
-      * `template_id` (`str`) - Virtual Machine Template Id
-      * `username` (`str`) - Username for login. Deprecated - use customization property
-      * `v_sphere_networks` (`list`) - The list of Virtual VSphere Networks
-      * `vm_id` (`str`) - The internal id of Virtual Machine in VCenter
-      * `vmwaretools` (`str`) - VMware tools version
+      * `nic_type` (`str`) - NIC type
+      * `power_on_boot` (`bool`) - Is NIC powered on/off on boot
+      * `virtual_nic_id` (`str`) - NIC id
+      * `virtual_nic_name` (`str`) - NIC name
+    """
+    number_of_cores: pulumi.Output[float]
+    """
+    The number of CPU cores
+    """
+    password: pulumi.Output[str]
+    """
+    Password for login. Deprecated - use customization property
+    """
+    private_cloud_id: pulumi.Output[str]
+    """
+    Private Cloud Id
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning status of the resource
+    """
+    public_ip: pulumi.Output[str]
+    """
+    The public ip of Virtual Machine
+    """
+    resource_pool: pulumi.Output[dict]
+    """
+    Virtual Machines Resource Pool
+      * `full_name` (`str`) - Hierarchical resource pool name
+      * `id` (`str`) - resource pool id (privateCloudId:vsphereId)
+      * `location` (`str`) - Azure region
+      * `name` (`str`) - {ResourcePoolName}
+      * `private_cloud_id` (`str`) - The Private Cloud Id
+      * `type` (`str`) - {resourceProviderNamespace}/{resourceType}
+    """
+    status: pulumi.Output[str]
+    """
+    The status of Virtual machine
     """
     tags: pulumi.Output[dict]
     """
     The list of tags
     """
+    template_id: pulumi.Output[str]
+    """
+    Virtual Machine Template Id
+    """
     type: pulumi.Output[str]
     """
     {resourceProviderNamespace}/{resourceType}
+    """
+    username: pulumi.Output[str]
+    """
+    Username for login. Deprecated - use customization property
+    """
+    v_sphere_networks: pulumi.Output[list]
+    """
+    The list of Virtual VSphere Networks
+    """
+    vm_id: pulumi.Output[str]
+    """
+    The internal id of Virtual Machine in VCenter
+    """
+    vmwaretools: pulumi.Output[str]
+    """
+    VMware tools version
     """
     def __init__(__self__, resource_name, opts=None, referer=None, amount_of_ram=None, customization=None, disks=None, expose_to_guest_vm=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, resource_group_name=None, resource_pool=None, tags=None, template_id=None, username=None, v_sphere_networks=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -215,8 +268,17 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['template_id'] = template_id
             __props__['username'] = username
             __props__['v_sphere_networks'] = v_sphere_networks
-            __props__['properties'] = None
+            __props__['controllers'] = None
+            __props__['dnsname'] = None
+            __props__['folder'] = None
+            __props__['guest_os'] = None
+            __props__['guest_os_type'] = None
+            __props__['provisioning_state'] = None
+            __props__['public_ip'] = None
+            __props__['status'] = None
             __props__['type'] = None
+            __props__['vm_id'] = None
+            __props__['vmwaretools'] = None
         super(VirtualMachine, __self__).__init__(
             'azurerm:vmwarecloudsimple/v20190401:VirtualMachine',
             resource_name,

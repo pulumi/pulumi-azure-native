@@ -25,14 +25,25 @@ type LookupPolicyArgs struct {
 
 // Defines web application firewall policy for Azure CDN.
 type LookupPolicyResult struct {
+	// Describes custom rules inside the policy.
+	CustomRules *CustomRuleListResponse `pulumi:"customRules"`
+	// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+	EndpointLinks []CdnEndpointResponse `pulumi:"endpointLinks"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location string `pulumi:"location"`
+	// Describes managed rules inside the policy.
+	ManagedRules *ManagedRuleSetListResponse `pulumi:"managedRules"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties CdnWebApplicationFirewallPolicyPropertiesResponse `pulumi:"properties"`
+	// Describes  policySettings for policy
+	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	// Provisioning state of the WebApplicationFirewallPolicy.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Describes rate limit rules inside the policy.
+	RateLimitRules *RateLimitRuleListResponse `pulumi:"rateLimitRules"`
+	ResourceState  string                     `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
 	Sku SkuResponse `pulumi:"sku"`
 	// Resource tags.

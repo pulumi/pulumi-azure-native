@@ -36,6 +36,26 @@ export interface GetServerArgs {
  */
 export interface GetServerResult {
     /**
+     * Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+     */
+    readonly administratorLogin?: string;
+    /**
+     * The administrator login password (required for server creation).
+     */
+    readonly administratorLoginPassword?: string;
+    /**
+     * The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+     */
+    readonly externalAdministratorLogin: string;
+    /**
+     * The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+     */
+    readonly externalAdministratorSid: string;
+    /**
+     * The fully qualified domain name of the server.
+     */
+    readonly fullyQualifiedDomainName: string;
+    /**
      * Kind of sql server.  This is metadata used for the Azure portal experience.
      */
     readonly kind: string;
@@ -48,9 +68,9 @@ export interface GetServerResult {
      */
     readonly name: string;
     /**
-     * Represents the properties of the resource.
+     * The state of the server.
      */
-    readonly properties: outputs.sql.v20140401.ServerPropertiesResponse;
+    readonly state: string;
     /**
      * Resource tags.
      */
@@ -59,4 +79,8 @@ export interface GetServerResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The version of the server.
+     */
+    readonly version?: string;
 }

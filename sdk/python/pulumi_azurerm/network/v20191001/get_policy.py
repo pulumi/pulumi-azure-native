@@ -13,12 +13,24 @@ class GetPolicyResult:
     """
     Defines web application firewall policy.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, custom_rules=None, etag=None, frontend_endpoint_links=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
+        if custom_rules and not isinstance(custom_rules, dict):
+            raise TypeError("Expected argument 'custom_rules' to be a dict")
+        __self__.custom_rules = custom_rules
+        """
+        Describes custom rules inside the policy.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        if frontend_endpoint_links and not isinstance(frontend_endpoint_links, list):
+            raise TypeError("Expected argument 'frontend_endpoint_links' to be a list")
+        __self__.frontend_endpoint_links = frontend_endpoint_links
+        """
+        Describes Frontend Endpoints associated with this Web Application Firewall policy.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,18 +38,33 @@ class GetPolicyResult:
         """
         Resource location.
         """
+        if managed_rules and not isinstance(managed_rules, dict):
+            raise TypeError("Expected argument 'managed_rules' to be a dict")
+        __self__.managed_rules = managed_rules
+        """
+        Describes managed rules inside the policy.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if policy_settings and not isinstance(policy_settings, dict):
+            raise TypeError("Expected argument 'policy_settings' to be a dict")
+        __self__.policy_settings = policy_settings
         """
-        Properties of the web application firewall policy.
+        Describes settings for the policy.
         """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the policy.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -58,10 +85,15 @@ class AwaitableGetPolicyResult(GetPolicyResult):
         if False:
             yield self
         return GetPolicyResult(
+            custom_rules=self.custom_rules,
             etag=self.etag,
+            frontend_endpoint_links=self.frontend_endpoint_links,
             location=self.location,
+            managed_rules=self.managed_rules,
             name=self.name,
-            properties=self.properties,
+            policy_settings=self.policy_settings,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +115,14 @@ def get_policy(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20191001:getPolicy', __args__, opts=opts).value
 
     return AwaitableGetPolicyResult(
+        custom_rules=__ret__.get('customRules'),
         etag=__ret__.get('etag'),
+        frontend_endpoint_links=__ret__.get('frontendEndpointLinks'),
         location=__ret__.get('location'),
+        managed_rules=__ret__.get('managedRules'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        policy_settings=__ret__.get('policySettings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

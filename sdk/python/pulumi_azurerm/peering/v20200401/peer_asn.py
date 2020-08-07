@@ -10,26 +10,36 @@ from ... import _utilities, _tables
 
 
 class PeerAsn(pulumi.CustomResource):
+    error_message: pulumi.Output[str]
+    """
+    The error message for the validation state
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    peer_asn: pulumi.Output[float]
     """
-    The properties that define a peer's ASN.
-      * `error_message` (`str`) - The error message for the validation state
-      * `peer_asn` (`float`) - The Autonomous System Number (ASN) of the peer.
-      * `peer_contact_detail` (`list`) - The contact details of the peer.
-        * `email` (`str`) - The e-mail address of the contact.
-        * `phone` (`str`) - The phone number of the contact.
-        * `role` (`str`) - The role of the contact.
-
-      * `peer_name` (`str`) - The name of the peer.
-      * `validation_state` (`str`) - The validation state of the ASN associated with the peer.
+    The Autonomous System Number (ASN) of the peer.
+    """
+    peer_contact_detail: pulumi.Output[list]
+    """
+    The contact details of the peer.
+      * `email` (`str`) - The e-mail address of the contact.
+      * `phone` (`str`) - The phone number of the contact.
+      * `role` (`str`) - The role of the contact.
+    """
+    peer_name: pulumi.Output[str]
+    """
+    The name of the peer.
     """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    validation_state: pulumi.Output[str]
+    """
+    The validation state of the ASN associated with the peer.
     """
     def __init__(__self__, resource_name, opts=None, name=None, peer_asn=None, peer_contact_detail=None, peer_name=None, validation_state=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -73,7 +83,7 @@ class PeerAsn(pulumi.CustomResource):
             __props__['peer_contact_detail'] = peer_contact_detail
             __props__['peer_name'] = peer_name
             __props__['validation_state'] = validation_state
-            __props__['properties'] = None
+            __props__['error_message'] = None
             __props__['type'] = None
         super(PeerAsn, __self__).__init__(
             'azurerm:peering/v20200401:PeerAsn',

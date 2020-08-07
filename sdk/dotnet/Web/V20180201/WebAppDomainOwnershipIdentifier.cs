@@ -27,12 +27,6 @@ namespace Pulumi.AzureRM.Web.V20180201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier resource specific properties
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IdentifierResponsePropertiesResult> Properties { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]

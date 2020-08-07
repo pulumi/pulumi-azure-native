@@ -25,12 +25,14 @@ type LookupDedicatedHostGroupArgs struct {
 
 // Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
 type LookupDedicatedHostGroupResult struct {
+	// A list of references to all dedicated hosts in the dedicated host group.
+	Hosts []SubResourceReadOnlyResponse `pulumi:"hosts"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Dedicated Host Group Properties.
-	Properties DedicatedHostGroupPropertiesResponse `pulumi:"properties"`
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

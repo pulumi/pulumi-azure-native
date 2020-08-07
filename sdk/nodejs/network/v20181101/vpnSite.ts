@@ -37,9 +37,29 @@ export class VpnSite extends pulumi.CustomResource {
     }
 
     /**
+     * The AddressSpace that contains an array of IP address ranges.
+     */
+    public readonly addressSpace!: pulumi.Output<outputs.network.v20181101.AddressSpaceResponse | undefined>;
+    /**
+     * The set of bgp properties.
+     */
+    public readonly bgpProperties!: pulumi.Output<outputs.network.v20181101.BgpSettingsResponse | undefined>;
+    /**
+     * The device properties
+     */
+    public readonly deviceProperties!: pulumi.Output<outputs.network.v20181101.DevicePropertiesResponse | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The ip-address for the vpn-site.
+     */
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
+    /**
+     * IsSecuritySite flag
+     */
+    public readonly isSecuritySite!: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +69,13 @@ export class VpnSite extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for VpnSite
+     * The provisioning state of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181101.VpnSitePropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The key for vpn-site that can be used for connections.
+     */
+    public readonly siteKey!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +84,10 @@ export class VpnSite extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The VirtualWAN to which the vpnSite belongs
+     */
+    public readonly virtualWan!: pulumi.Output<outputs.network.v20181101.SubResourceResponse | undefined>;
 
     /**
      * Create a VpnSite resource with the given unique name, arguments, and options.
@@ -97,7 +125,6 @@ export class VpnSite extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualWan"] = args ? args.virtualWan : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

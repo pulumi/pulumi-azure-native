@@ -13,7 +13,13 @@ class GetManagerResult:
     """
     The StorSimple Manager
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, cis_intrinsic_settings=None, etag=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+        if cis_intrinsic_settings and not isinstance(cis_intrinsic_settings, dict):
+            raise TypeError("Expected argument 'cis_intrinsic_settings' to be a dict")
+        __self__.cis_intrinsic_settings = cis_intrinsic_settings
+        """
+        Specifies if the Manager is Garda or Helsinki
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +38,17 @@ class GetManagerResult:
         """
         The Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        List of properties of the Manager
+        Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
+        """
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        __self__.sku = sku
+        """
+        Specifies the Sku
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +70,12 @@ class AwaitableGetManagerResult(GetManagerResult):
         if False:
             yield self
         return GetManagerResult(
+            cis_intrinsic_settings=self.cis_intrinsic_settings,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            sku=self.sku,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +97,11 @@ def get_manager(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getManager', __args__, opts=opts).value
 
     return AwaitableGetManagerResult(
+        cis_intrinsic_settings=__ret__.get('cisIntrinsicSettings'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

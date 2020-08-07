@@ -46,13 +46,17 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public sealed class GetQueueResult
     {
         /// <summary>
+        /// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+        /// </summary>
+        public readonly int ApproximateMessageCount;
+        /// <summary>
+        /// A name-value pair that represents queue metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Metadata;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Queue resource properties.
-        /// </summary>
-        public readonly Outputs.QueuePropertiesResponseResult Properties;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -60,14 +64,17 @@ namespace Pulumi.AzureRM.Storage.V20190601
 
         [OutputConstructor]
         private GetQueueResult(
-            string name,
+            int approximateMessageCount,
 
-            Outputs.QueuePropertiesResponseResult properties,
+            ImmutableDictionary<string, string>? metadata,
+
+            string name,
 
             string type)
         {
+            ApproximateMessageCount = approximateMessageCount;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

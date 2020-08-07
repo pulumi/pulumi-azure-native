@@ -14,10 +14,18 @@ import (
 type DisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
+	// Alternate name specified when alias and namespace names are same.
+	AlternateName pulumi.StringPtrOutput `pulumi:"alternateName"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties ArmDisasterRecoveryResponsePropertiesOutput `pulumi:"properties"`
+	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	PartnerNamespace pulumi.StringPtrOutput `pulumi:"partnerNamespace"`
+	// Number of entities pending to be replicated.
+	PendingReplicationOperationsCount pulumi.IntOutput `pulumi:"pendingReplicationOperationsCount"`
+	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+	Role pulumi.StringOutput `pulumi:"role"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +67,35 @@ func GetDisasterRecoveryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DisasterRecoveryConfig resources.
 type disasterRecoveryConfigState struct {
+	// Alternate name specified when alias and namespace names are same.
+	AlternateName *string `pulumi:"alternateName"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties *ArmDisasterRecoveryResponseProperties `pulumi:"properties"`
+	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	PartnerNamespace *string `pulumi:"partnerNamespace"`
+	// Number of entities pending to be replicated.
+	PendingReplicationOperationsCount *int `pulumi:"pendingReplicationOperationsCount"`
+	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+	Role *string `pulumi:"role"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type DisasterRecoveryConfigState struct {
+	// Alternate name specified when alias and namespace names are same.
+	AlternateName pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties ArmDisasterRecoveryResponsePropertiesPtrInput
+	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	PartnerNamespace pulumi.StringPtrInput
+	// Number of entities pending to be replicated.
+	PendingReplicationOperationsCount pulumi.IntPtrInput
+	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+	ProvisioningState pulumi.StringPtrInput
+	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+	Role pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

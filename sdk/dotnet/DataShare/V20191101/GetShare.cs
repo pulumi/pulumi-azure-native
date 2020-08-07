@@ -46,29 +46,71 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     public sealed class GetShareResult
     {
         /// <summary>
+        /// Time at which the share was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// Share description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties on the share
+        /// Gets or sets the provisioning state
         /// </summary>
-        public readonly Outputs.SharePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Share kind.
+        /// </summary>
+        public readonly string? ShareKind;
+        /// <summary>
+        /// Share terms.
+        /// </summary>
+        public readonly string? Terms;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Email of the user who created the resource
+        /// </summary>
+        public readonly string UserEmail;
+        /// <summary>
+        /// Name of the user who created the resource
+        /// </summary>
+        public readonly string UserName;
 
         [OutputConstructor]
         private GetShareResult(
+            string createdAt,
+
+            string? description,
+
             string name,
 
-            Outputs.SharePropertiesResponseResult properties,
+            string provisioningState,
 
-            string type)
+            string? shareKind,
+
+            string? terms,
+
+            string type,
+
+            string userEmail,
+
+            string userName)
         {
+            CreatedAt = createdAt;
+            Description = description;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ShareKind = shareKind;
+            Terms = terms;
             Type = type;
+            UserEmail = userEmail;
+            UserName = userName;
         }
     }
 }

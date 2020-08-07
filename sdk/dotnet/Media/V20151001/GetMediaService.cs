@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Media.V20151001
     public sealed class GetMediaServiceResult
     {
         /// <summary>
+        /// Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApiEndpointResponseResult> ApiEndpoints;
+        /// <summary>
         /// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
         /// </summary>
         public readonly string? Location;
@@ -48,9 +52,9 @@ namespace Pulumi.AzureRM.Media.V20151001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The additional properties of a Media Service resource.
+        /// The storage accounts for this resource.
         /// </summary>
-        public readonly Outputs.MediaServicePropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.StorageAccountResponseResult> StorageAccounts;
         /// <summary>
         /// Tags to help categorize the resource in the Azure portal.
         /// </summary>
@@ -62,19 +66,22 @@ namespace Pulumi.AzureRM.Media.V20151001
 
         [OutputConstructor]
         private GetMediaServiceResult(
+            ImmutableArray<Outputs.ApiEndpointResponseResult> apiEndpoints,
+
             string? location,
 
             string name,
 
-            Outputs.MediaServicePropertiesResponseResult properties,
+            ImmutableArray<Outputs.StorageAccountResponseResult> storageAccounts,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ApiEndpoints = apiEndpoints;
             Location = location;
             Name = name;
-            Properties = properties;
+            StorageAccounts = storageAccounts;
             Tags = tags;
             Type = type;
         }

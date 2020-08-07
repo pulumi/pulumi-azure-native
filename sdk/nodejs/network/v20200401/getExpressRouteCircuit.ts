@@ -36,9 +36,37 @@ export interface GetExpressRouteCircuitArgs {
  */
 export interface GetExpressRouteCircuitResult {
     /**
+     * Allow classic operations.
+     */
+    readonly allowClassicOperations?: boolean;
+    /**
+     * The list of authorizations.
+     */
+    readonly authorizations?: outputs.network.v20200401.ExpressRouteCircuitAuthorizationResponse[];
+    /**
+     * The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+     */
+    readonly bandwidthInGbps?: number;
+    /**
+     * The CircuitProvisioningState state of the resource.
+     */
+    readonly circuitProvisioningState?: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+     */
+    readonly expressRoutePort?: outputs.network.v20200401.SubResourceResponse;
+    /**
+     * The GatewayManager Etag.
+     */
+    readonly gatewayManagerEtag?: string;
+    /**
+     * Flag denoting global reach status.
+     */
+    readonly globalReachEnabled?: boolean;
     /**
      * Resource location.
      */
@@ -48,13 +76,37 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly name: string;
     /**
-     * Properties of the express route circuit.
+     * The list of peerings.
      */
-    readonly properties: outputs.network.v20200401.ExpressRouteCircuitPropertiesFormatResponse;
+    readonly peerings?: outputs.network.v20200401.ExpressRouteCircuitPeeringResponse[];
+    /**
+     * The provisioning state of the express route circuit resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The ServiceKey.
+     */
+    readonly serviceKey?: string;
+    /**
+     * The ServiceProviderNotes.
+     */
+    readonly serviceProviderNotes?: string;
+    /**
+     * The ServiceProviderProperties.
+     */
+    readonly serviceProviderProperties?: outputs.network.v20200401.ExpressRouteCircuitServiceProviderPropertiesResponse;
+    /**
+     * The ServiceProviderProvisioningState state of the resource.
+     */
+    readonly serviceProviderProvisioningState?: string;
     /**
      * The SKU.
      */
     readonly sku?: outputs.network.v20200401.ExpressRouteCircuitSkuResponse;
+    /**
+     * The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+     */
+    readonly stag: number;
     /**
      * Resource tags.
      */

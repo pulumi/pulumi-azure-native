@@ -31,8 +31,8 @@ type LookupBackupScheduleGroupArgs struct {
 type LookupBackupScheduleGroupResult struct {
 	// The name.
 	Name string `pulumi:"name"`
-	// Properties of BackupScheduleGroup
-	Properties BackupScheduleGroupPropertiesResponse `pulumi:"properties"`
+	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+	StartTime TimeResponse `pulumi:"startTime"`
 	// The type.
 	Type string `pulumi:"type"`
 }

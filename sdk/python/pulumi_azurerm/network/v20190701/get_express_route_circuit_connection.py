@@ -13,12 +13,36 @@ class GetExpressRouteCircuitConnectionResult:
     """
     Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, etag=None, express_route_circuit_peering=None, name=None, peer_express_route_circuit_peering=None, provisioning_state=None, type=None):
+        if address_prefix and not isinstance(address_prefix, str):
+            raise TypeError("Expected argument 'address_prefix' to be a str")
+        __self__.address_prefix = address_prefix
+        """
+        /29 IP address space to carve out Customer addresses for tunnels.
+        """
+        if authorization_key and not isinstance(authorization_key, str):
+            raise TypeError("Expected argument 'authorization_key' to be a str")
+        __self__.authorization_key = authorization_key
+        """
+        The authorization key.
+        """
+        if circuit_connection_status and not isinstance(circuit_connection_status, str):
+            raise TypeError("Expected argument 'circuit_connection_status' to be a str")
+        __self__.circuit_connection_status = circuit_connection_status
+        """
+        Express Route Circuit connection state.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if express_route_circuit_peering and not isinstance(express_route_circuit_peering, dict):
+            raise TypeError("Expected argument 'express_route_circuit_peering' to be a dict")
+        __self__.express_route_circuit_peering = express_route_circuit_peering
+        """
+        Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +50,17 @@ class GetExpressRouteCircuitConnectionResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peer_express_route_circuit_peering and not isinstance(peer_express_route_circuit_peering, dict):
+            raise TypeError("Expected argument 'peer_express_route_circuit_peering' to be a dict")
+        __self__.peer_express_route_circuit_peering = peer_express_route_circuit_peering
         """
-        Properties of the express route circuit connection.
+        Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the express route circuit connection resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +76,14 @@ class AwaitableGetExpressRouteCircuitConnectionResult(GetExpressRouteCircuitConn
         if False:
             yield self
         return GetExpressRouteCircuitConnectionResult(
+            address_prefix=self.address_prefix,
+            authorization_key=self.authorization_key,
+            circuit_connection_status=self.circuit_connection_status,
             etag=self.etag,
+            express_route_circuit_peering=self.express_route_circuit_peering,
             name=self.name,
-            properties=self.properties,
+            peer_express_route_circuit_peering=self.peer_express_route_circuit_peering,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -73,7 +108,12 @@ def get_express_route_circuit_connection(circuit_name=None, name=None, peering_n
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getExpressRouteCircuitConnection', __args__, opts=opts).value
 
     return AwaitableGetExpressRouteCircuitConnectionResult(
+        address_prefix=__ret__.get('addressPrefix'),
+        authorization_key=__ret__.get('authorizationKey'),
+        circuit_connection_status=__ret__.get('circuitConnectionStatus'),
         etag=__ret__.get('etag'),
+        express_route_circuit_peering=__ret__.get('expressRouteCircuitPeering'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peer_express_route_circuit_peering=__ret__.get('peerExpressRouteCircuitPeering'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

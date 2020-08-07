@@ -14,16 +14,32 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
+	// The creation date of the policy.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	// The description of the policy.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+	EvaluatorType pulumi.StringPtrOutput `pulumi:"evaluatorType"`
+	// The fact data of the policy.
+	FactData pulumi.StringPtrOutput `pulumi:"factData"`
+	// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+	FactName pulumi.StringPtrOutput `pulumi:"factName"`
 	// The location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the resource.
-	Properties PolicyPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The status of the policy.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+	Threshold pulumi.StringPtrOutput `pulumi:"threshold"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -66,29 +82,61 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
+	// The creation date of the policy.
+	CreatedDate *string `pulumi:"createdDate"`
+	// The description of the policy.
+	Description *string `pulumi:"description"`
+	// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+	EvaluatorType *string `pulumi:"evaluatorType"`
+	// The fact data of the policy.
+	FactData *string `pulumi:"factData"`
+	// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+	FactName *string `pulumi:"factName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *PolicyPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The status of the policy.
+	Status *string `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+	Threshold *string `pulumi:"threshold"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type PolicyState struct {
+	// The creation date of the policy.
+	CreatedDate pulumi.StringPtrInput
+	// The description of the policy.
+	Description pulumi.StringPtrInput
+	// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+	EvaluatorType pulumi.StringPtrInput
+	// The fact data of the policy.
+	FactData pulumi.StringPtrInput
+	// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+	FactName pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the resource.
-	Properties PolicyPropertiesResponsePtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The status of the policy.
+	Status pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+	Threshold pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (PolicyState) ElementType() reflect.Type {

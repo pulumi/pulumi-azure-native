@@ -14,10 +14,9 @@ class Table(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    table_name: pulumi.Output[str]
     """
-    Table resource properties.
-      * `table_name` (`str`) - Table name under the specified account
+    Table name under the specified account
     """
     type: pulumi.Output[str]
     """
@@ -59,7 +58,7 @@ class Table(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['table_name'] = None
             __props__['type'] = None
         super(Table, __self__).__init__(
             'azurerm:storage/v20190601:Table',

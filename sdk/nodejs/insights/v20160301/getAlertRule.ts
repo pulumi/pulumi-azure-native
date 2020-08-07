@@ -36,6 +36,22 @@ export interface GetAlertRuleArgs {
  */
 export interface GetAlertRuleResult {
     /**
+     * the condition that results in the alert rule being activated.
+     */
+    readonly condition: outputs.insights.v20160301.RuleConditionResponse;
+    /**
+     * the description of the alert rule that will be included in the alert email.
+     */
+    readonly description?: string;
+    /**
+     * the flag that indicates whether the alert rule is enabled.
+     */
+    readonly isEnabled: boolean;
+    /**
+     * Last time the rule was updated in ISO8601 format.
+     */
+    readonly lastUpdatedTime: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -43,10 +59,6 @@ export interface GetAlertRuleResult {
      * Azure resource name
      */
     readonly name: string;
-    /**
-     * The alert rule properties of the resource.
-     */
-    readonly properties: outputs.insights.v20160301.AlertRuleResponse;
     /**
      * Resource tags
      */

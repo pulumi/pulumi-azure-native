@@ -13,7 +13,19 @@ class GetAppResult:
     """
     The IoT Central application.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, application_id=None, display_name=None, location=None, name=None, sku=None, subdomain=None, tags=None, template=None, type=None):
+        if application_id and not isinstance(application_id, str):
+            raise TypeError("Expected argument 'application_id' to be a str")
+        __self__.application_id = application_id
+        """
+        The ID of the application.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The display name of the application.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,23 +38,29 @@ class GetAppResult:
         """
         The ARM resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The common properties of an IoT Central application.
-        """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         A valid instance SKU.
         """
+        if subdomain and not isinstance(subdomain, str):
+            raise TypeError("Expected argument 'subdomain' to be a str")
+        __self__.subdomain = subdomain
+        """
+        The subdomain of the application.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         The resource tags.
+        """
+        if template and not isinstance(template, str):
+            raise TypeError("Expected argument 'template' to be a str")
+        __self__.template = template
+        """
+        The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -58,11 +76,14 @@ class AwaitableGetAppResult(GetAppResult):
         if False:
             yield self
         return GetAppResult(
+            application_id=self.application_id,
+            display_name=self.display_name,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             sku=self.sku,
+            subdomain=self.subdomain,
             tags=self.tags,
+            template=self.template,
             type=self.type)
 
 
@@ -83,9 +104,12 @@ def get_app(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:iotcentral/v20180901:getApp', __args__, opts=opts).value
 
     return AwaitableGetAppResult(
+        application_id=__ret__.get('applicationId'),
+        display_name=__ret__.get('displayName'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         sku=__ret__.get('sku'),
+        subdomain=__ret__.get('subdomain'),
         tags=__ret__.get('tags'),
+        template=__ret__.get('template'),
         type=__ret__.get('type'))

@@ -13,7 +13,28 @@ class GetClusterResult:
     """
     Contains information about a Cluster.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, creation_time=None, current_node_count=None, errors=None, location=None, name=None, node_setup=None, node_state_counts=None, provisioning_state=None, provisioning_state_transition_time=None, scale_settings=None, subnet=None, tags=None, type=None, user_account_settings=None, virtual_machine_configuration=None, vm_priority=None, vm_size=None):
+        if allocation_state and not isinstance(allocation_state, str):
+            raise TypeError("Expected argument 'allocation_state' to be a str")
+        __self__.allocation_state = allocation_state
+        """
+        Possible values are: steady and resizing. steady state indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing state indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+        """
+        if allocation_state_transition_time and not isinstance(allocation_state_transition_time, str):
+            raise TypeError("Expected argument 'allocation_state_transition_time' to be a str")
+        __self__.allocation_state_transition_time = allocation_state_transition_time
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        if current_node_count and not isinstance(current_node_count, float):
+            raise TypeError("Expected argument 'current_node_count' to be a float")
+        __self__.current_node_count = current_node_count
+        if errors and not isinstance(errors, list):
+            raise TypeError("Expected argument 'errors' to be a list")
+        __self__.errors = errors
+        """
+        This element contains all the errors encountered by various compute nodes during node setup.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +47,38 @@ class GetClusterResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if node_setup and not isinstance(node_setup, dict):
+            raise TypeError("Expected argument 'node_setup' to be a dict")
+        __self__.node_setup = node_setup
         """
-        The properties associated with the Cluster.
+        Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
+        """
+        if node_state_counts and not isinstance(node_state_counts, dict):
+            raise TypeError("Expected argument 'node_state_counts' to be a dict")
+        __self__.node_state_counts = node_state_counts
+        """
+        Counts of various compute node states on the cluster.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+        """
+        if provisioning_state_transition_time and not isinstance(provisioning_state_transition_time, str):
+            raise TypeError("Expected argument 'provisioning_state_transition_time' to be a str")
+        __self__.provisioning_state_transition_time = provisioning_state_transition_time
+        if scale_settings and not isinstance(scale_settings, dict):
+            raise TypeError("Expected argument 'scale_settings' to be a dict")
+        __self__.scale_settings = scale_settings
+        """
+        At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+        """
+        if subnet and not isinstance(subnet, dict):
+            raise TypeError("Expected argument 'subnet' to be a dict")
+        __self__.subnet = subnet
+        """
+        Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +92,30 @@ class GetClusterResult:
         """
         The type of the resource
         """
+        if user_account_settings and not isinstance(user_account_settings, dict):
+            raise TypeError("Expected argument 'user_account_settings' to be a dict")
+        __self__.user_account_settings = user_account_settings
+        """
+        Settings for user account that gets created on each on the nodes of a cluster.
+        """
+        if virtual_machine_configuration and not isinstance(virtual_machine_configuration, dict):
+            raise TypeError("Expected argument 'virtual_machine_configuration' to be a dict")
+        __self__.virtual_machine_configuration = virtual_machine_configuration
+        """
+        Settings for OS image.
+        """
+        if vm_priority and not isinstance(vm_priority, str):
+            raise TypeError("Expected argument 'vm_priority' to be a str")
+        __self__.vm_priority = vm_priority
+        """
+        The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
+        """
+        if vm_size and not isinstance(vm_size, str):
+            raise TypeError("Expected argument 'vm_size' to be a str")
+        __self__.vm_size = vm_size
+        """
+        All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        """
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -52,11 +124,25 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            allocation_state=self.allocation_state,
+            allocation_state_transition_time=self.allocation_state_transition_time,
+            creation_time=self.creation_time,
+            current_node_count=self.current_node_count,
+            errors=self.errors,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            node_setup=self.node_setup,
+            node_state_counts=self.node_state_counts,
+            provisioning_state=self.provisioning_state,
+            provisioning_state_transition_time=self.provisioning_state_transition_time,
+            scale_settings=self.scale_settings,
+            subnet=self.subnet,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            user_account_settings=self.user_account_settings,
+            virtual_machine_configuration=self.virtual_machine_configuration,
+            vm_priority=self.vm_priority,
+            vm_size=self.vm_size)
 
 
 def get_cluster(name=None, resource_group_name=None, opts=None):
@@ -76,8 +162,22 @@ def get_cluster(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:batchai/v20180301:getCluster', __args__, opts=opts).value
 
     return AwaitableGetClusterResult(
+        allocation_state=__ret__.get('allocationState'),
+        allocation_state_transition_time=__ret__.get('allocationStateTransitionTime'),
+        creation_time=__ret__.get('creationTime'),
+        current_node_count=__ret__.get('currentNodeCount'),
+        errors=__ret__.get('errors'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        node_setup=__ret__.get('nodeSetup'),
+        node_state_counts=__ret__.get('nodeStateCounts'),
+        provisioning_state=__ret__.get('provisioningState'),
+        provisioning_state_transition_time=__ret__.get('provisioningStateTransitionTime'),
+        scale_settings=__ret__.get('scaleSettings'),
+        subnet=__ret__.get('subnet'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        user_account_settings=__ret__.get('userAccountSettings'),
+        virtual_machine_configuration=__ret__.get('virtualMachineConfiguration'),
+        vm_priority=__ret__.get('vmPriority'),
+        vm_size=__ret__.get('vmSize'))

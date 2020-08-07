@@ -29,10 +29,16 @@ type LookupTagDescriptionArgs struct {
 
 // Contract details.
 type LookupTagDescriptionResult struct {
+	// Description of the Tag.
+	Description *string `pulumi:"description"`
+	// Tag name.
+	DisplayName *string `pulumi:"displayName"`
+	// Description of the external resources describing the tag.
+	ExternalDocsDescription *string `pulumi:"externalDocsDescription"`
+	// Absolute URL of external resources describing the tag.
+	ExternalDocsUrl *string `pulumi:"externalDocsUrl"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// TagDescription entity contract properties.
-	Properties TagDescriptionContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

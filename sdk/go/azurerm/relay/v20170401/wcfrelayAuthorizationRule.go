@@ -16,8 +16,8 @@ type WCFRelayAuthorizationRule struct {
 
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Authorization rule properties.
-	Properties AuthorizationRuleResponsePropertiesOutput `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayOutput `pulumi:"rights"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -67,8 +67,8 @@ func GetWCFRelayAuthorizationRule(ctx *pulumi.Context,
 type wcfrelayAuthorizationRuleState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Authorization rule properties.
-	Properties *AuthorizationRuleResponseProperties `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +76,8 @@ type wcfrelayAuthorizationRuleState struct {
 type WCFRelayAuthorizationRuleState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Authorization rule properties.
-	Properties AuthorizationRuleResponsePropertiesPtrInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

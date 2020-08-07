@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
+        /// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+        /// </summary>
+        [Output("builtIn")]
+        public Output<bool> BuiltIn { get; private set; } = null!;
+
+        /// <summary>
+        /// Group description. Can contain HTML formatting tags.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Group name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;; otherwise the value is null.
+        /// </summary>
+        [Output("externalId")]
+        public Output<string?> ExternalId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Group entity contract properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GroupContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

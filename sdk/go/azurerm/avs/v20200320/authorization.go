@@ -14,10 +14,14 @@ import (
 type Authorization struct {
 	pulumi.CustomResourceState
 
+	// The ID of the ExpressRoute Circuit Authorization
+	ExpressRouteAuthorizationId pulumi.StringOutput `pulumi:"expressRouteAuthorizationId"`
+	// The key of the ExpressRoute Circuit Authorization
+	ExpressRouteAuthorizationKey pulumi.StringOutput `pulumi:"expressRouteAuthorizationKey"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of an ExpressRoute Circuit Authorization resource
-	Properties ExpressRouteAuthorizationPropertiesResponseOutput `pulumi:"properties"`
+	// The state of the  ExpressRoute Circuit Authorization provisioning
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +63,27 @@ func GetAuthorization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authorization resources.
 type authorizationState struct {
+	// The ID of the ExpressRoute Circuit Authorization
+	ExpressRouteAuthorizationId *string `pulumi:"expressRouteAuthorizationId"`
+	// The key of the ExpressRoute Circuit Authorization
+	ExpressRouteAuthorizationKey *string `pulumi:"expressRouteAuthorizationKey"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of an ExpressRoute Circuit Authorization resource
-	Properties *ExpressRouteAuthorizationPropertiesResponse `pulumi:"properties"`
+	// The state of the  ExpressRoute Circuit Authorization provisioning
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type AuthorizationState struct {
+	// The ID of the ExpressRoute Circuit Authorization
+	ExpressRouteAuthorizationId pulumi.StringPtrInput
+	// The key of the ExpressRoute Circuit Authorization
+	ExpressRouteAuthorizationKey pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of an ExpressRoute Circuit Authorization resource
-	Properties ExpressRouteAuthorizationPropertiesResponsePtrInput
+	// The state of the  ExpressRoute Circuit Authorization provisioning
+	ProvisioningState pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

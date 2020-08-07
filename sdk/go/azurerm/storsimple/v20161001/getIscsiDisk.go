@@ -31,10 +31,24 @@ type LookupIscsiDiskArgs struct {
 
 // The iSCSI disk.
 type LookupIscsiDiskResult struct {
+	// The access control records.
+	AccessControlRecords []string `pulumi:"accessControlRecords"`
+	// The data policy.
+	DataPolicy string `pulumi:"dataPolicy"`
+	// The description.
+	Description *string `pulumi:"description"`
+	// The disk status.
+	DiskStatus string `pulumi:"diskStatus"`
+	// The local used capacity in bytes.
+	LocalUsedCapacityInBytes int `pulumi:"localUsedCapacityInBytes"`
+	// The monitoring.
+	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties ISCSIDiskPropertiesResponse `pulumi:"properties"`
+	// The provisioned capacity in bytes.
+	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
 	// The type.
 	Type string `pulumi:"type"`
+	// The used capacity in bytes.
+	UsedCapacityInBytes int `pulumi:"usedCapacityInBytes"`
 }

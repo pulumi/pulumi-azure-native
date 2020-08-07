@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Workbook(pulumi.CustomResource):
+    category: pulumi.Output[str]
+    """
+    Workbook category, as defined by the user at creation time.
+    """
     kind: pulumi.Output[str]
     """
     The kind of workbook. Choices are user and shared.
@@ -22,27 +26,41 @@ class Workbook(pulumi.CustomResource):
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    serialized_data: pulumi.Output[str]
     """
-    Metadata describing a web test for an Azure resource.
-      * `category` (`str`) - Workbook category, as defined by the user at creation time.
-      * `kind` (`str`) - Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-      * `name` (`str`) - The user-defined name of the workbook.
-      * `serialized_data` (`str`) - Configuration of this particular workbook. Configuration data is a string containing valid JSON
-      * `source_resource_id` (`str`) - Optional resourceId for a source resource.
-      * `tags` (`list`) - A list of 0 or more tags that are associated with this workbook definition
-      * `time_modified` (`str`) - Date and time in UTC of the last modification that was made to this workbook definition.
-      * `user_id` (`str`) - Unique user id of the specific user that owns this workbook.
-      * `version` (`str`) - This instance's version of the data model. This can change as new features are added that can be marked workbook.
-      * `workbook_id` (`str`) - Internally assigned unique id of the workbook definition.
+    Configuration of this particular workbook. Configuration data is a string containing valid JSON
+    """
+    shared_type_kind: pulumi.Output[str]
+    """
+    Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+    """
+    source_resource_id: pulumi.Output[str]
+    """
+    Optional resourceId for a source resource.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags
     """
+    time_modified: pulumi.Output[str]
+    """
+    Date and time in UTC of the last modification that was made to this workbook definition.
+    """
     type: pulumi.Output[str]
     """
     Azure resource type
+    """
+    user_id: pulumi.Output[str]
+    """
+    Unique user id of the specific user that owns this workbook.
+    """
+    version: pulumi.Output[str]
+    """
+    This instance's version of the data model. This can change as new features are added that can be marked workbook.
+    """
+    workbook_id: pulumi.Output[str]
+    """
+    Internally assigned unique id of the workbook definition.
     """
     def __init__(__self__, resource_name, opts=None, category=None, kind=None, location=None, name=None, resource_group_name=None, serialized_data=None, shared_type_kind=None, source_resource_id=None, tags=None, user_id=None, version=None, workbook_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -106,7 +124,7 @@ class Workbook(pulumi.CustomResource):
             if workbook_id is None:
                 raise TypeError("Missing required property 'workbook_id'")
             __props__['workbook_id'] = workbook_id
-            __props__['properties'] = None
+            __props__['time_modified'] = None
             __props__['type'] = None
         super(Workbook, __self__).__init__(
             'azurerm:insights/v20150501:Workbook',

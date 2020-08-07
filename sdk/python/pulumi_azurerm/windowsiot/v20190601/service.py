@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class Service(pulumi.CustomResource):
+    admin_domain_name: pulumi.Output[str]
+    """
+    Windows IoT Device Service OEM AAD domain
+    """
+    billing_domain_name: pulumi.Output[str]
+    """
+    Windows IoT Device Service ODM AAD domain
+    """
     etag: pulumi.Output[str]
     """
     The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
@@ -22,14 +30,17 @@ class Service(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    notes: pulumi.Output[str]
     """
-    The properties of a Windows IoT Device Service.
-      * `admin_domain_name` (`str`) - Windows IoT Device Service OEM AAD domain
-      * `billing_domain_name` (`str`) - Windows IoT Device Service ODM AAD domain
-      * `notes` (`str`) - Windows IoT Device Service notes.
-      * `quantity` (`float`) - Windows IoT Device Service device allocation,
-      * `start_date` (`str`) - Windows IoT Device Service start date,
+    Windows IoT Device Service notes.
+    """
+    quantity: pulumi.Output[float]
+    """
+    Windows IoT Device Service device allocation,
+    """
+    start_date: pulumi.Output[str]
+    """
+    Windows IoT Device Service start date,
     """
     tags: pulumi.Output[dict]
     """
@@ -81,7 +92,7 @@ class Service(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['start_date'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(Service, __self__).__init__(

@@ -36,6 +36,10 @@ export interface GetAutoscaleSettingArgs {
  */
 export interface GetAutoscaleSettingResult {
     /**
+     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+     */
+    readonly enabled?: boolean;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,13 +48,21 @@ export interface GetAutoscaleSettingResult {
      */
     readonly name: string;
     /**
-     * The autoscale setting of the resource.
+     * the collection of notifications.
      */
-    readonly properties: outputs.insights.v20150401.AutoscaleSettingResponse;
+    readonly notifications?: outputs.insights.v20150401.AutoscaleNotificationResponse[];
+    /**
+     * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+     */
+    readonly profiles: outputs.insights.v20150401.AutoscaleProfileResponse[];
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * the resource identifier of the resource that the autoscale setting should be added to.
+     */
+    readonly targetResourceUri?: string;
     /**
      * Azure resource type
      */

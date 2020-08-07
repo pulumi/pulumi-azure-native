@@ -37,6 +37,18 @@ export class StorageSyncService extends pulumi.CustomResource {
     }
 
     /**
+     * Incoming Traffic Policy
+     */
+    public readonly incomingTrafficPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Resource Last Operation Name
+     */
+    public /*out*/ readonly lastOperationName!: pulumi.Output<string>;
+    /**
+     * StorageSyncService lastWorkflowId
+     */
+    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +57,21 @@ export class StorageSyncService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Storage Sync Service properties.
+     * List of private endpoint connection associated with the specified storage sync service
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20200301.StorageSyncServicePropertiesResponse>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.storagesync.v20200301.PrivateEndpointConnectionResponse[]>;
+    /**
+     * StorageSyncService Provisioning State
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Storage Sync service status.
+     */
+    public /*out*/ readonly storageSyncServiceStatus!: pulumi.Output<number>;
+    /**
+     * Storage Sync service Uid
+     */
+    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -84,7 +108,12 @@ export class StorageSyncService extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastOperationName"] = undefined /*out*/;
+            inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["storageSyncServiceStatus"] = undefined /*out*/;
+            inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

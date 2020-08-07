@@ -10,66 +10,76 @@ from ... import _utilities, _tables
 
 
 class Policy(pulumi.CustomResource):
+    custom_rules: pulumi.Output[dict]
+    """
+    Describes custom rules inside the policy.
+      * `rules` (`list`) - List of rules
+        * `action` (`str`) - Describes what action to be applied when rule matches.
+        * `enabled_state` (`str`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        * `match_conditions` (`list`) - List of match conditions.
+          * `match_values` (`list`) - Match value.
+          * `match_variables` (`list`) - List of match variables.
+            * `selector` (`str`) - The selector of match variable.
+            * `variable_name` (`str`) - Match Variable.
+
+          * `negation_conditon` (`bool`) - Whether this is negate condition or not.
+          * `operator` (`str`) - The operator to be matched.
+          * `transforms` (`list`) - List of transforms.
+
+        * `name` (`str`) - Describes the name of the rule.
+        * `priority` (`float`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        * `rate_limit_duration_in_minutes` (`float`) - Time window for resetting the rate limit count. Default is 1 minute.
+        * `rate_limit_threshold` (`float`) - Number of allowed requests per client within the time window.
+        * `rule_type` (`str`) - Describes type of rule.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
+    """
+    frontend_endpoint_links: pulumi.Output[list]
+    """
+    Describes Frontend Endpoints associated with this Web Application Firewall policy.
+      * `id` (`str`) - Resource ID.
     """
     location: pulumi.Output[str]
     """
     Resource location.
     """
+    managed_rules: pulumi.Output[dict]
+    """
+    Describes managed rules inside the policy.
+      * `managed_rule_sets` (`list`) - List of rule sets.
+        * `rule_group_overrides` (`list`) - Defines the rule group overrides to apply to the rule set.
+          * `rule_group_name` (`str`) - The managed rule group to override.
+          * `rules` (`list`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+            * `rule_id` (`str`) - Identifier for the managed rule.
+            * `state` (`str`) - The state of the managed rule. Defaults to Disabled if not specified.
+
+        * `rule_set_type` (`str`) - Defines the rule set type to use.
+        * `rule_set_version` (`str`) - Defines the version of the rule set to use.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    policy_settings: pulumi.Output[dict]
     """
-    Properties of the web application firewall policy.
-      * `custom_rules` (`dict`) - Describes custom rules inside the policy.
-        * `rules` (`list`) - List of rules
-          * `action` (`str`) - Describes what action to be applied when rule matches.
-          * `enabled_state` (`str`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-          * `match_conditions` (`list`) - List of match conditions.
-            * `match_values` (`list`) - Match value.
-            * `match_variables` (`list`) - List of match variables.
-              * `selector` (`str`) - The selector of match variable.
-              * `variable_name` (`str`) - Match Variable.
-
-            * `negation_conditon` (`bool`) - Whether this is negate condition or not.
-            * `operator` (`str`) - The operator to be matched.
-            * `transforms` (`list`) - List of transforms.
-
-          * `name` (`str`) - Describes the name of the rule.
-          * `priority` (`float`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-          * `rate_limit_duration_in_minutes` (`float`) - Time window for resetting the rate limit count. Default is 1 minute.
-          * `rate_limit_threshold` (`float`) - Number of allowed requests per client within the time window.
-          * `rule_type` (`str`) - Describes type of rule.
-
-      * `frontend_endpoint_links` (`list`) - Describes Frontend Endpoints associated with this Web Application Firewall policy.
-        * `id` (`str`) - Resource ID.
-
-      * `managed_rules` (`dict`) - Describes managed rules inside the policy.
-        * `managed_rule_sets` (`list`) - List of rule sets.
-          * `rule_group_overrides` (`list`) - Defines the rule group overrides to apply to the rule set.
-            * `rule_group_name` (`str`) - The managed rule group to override.
-            * `rules` (`list`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-              * `rule_id` (`str`) - Identifier for the managed rule.
-              * `state` (`str`) - The state of the managed rule. Defaults to Disabled if not specified.
-
-          * `rule_set_type` (`str`) - Defines the rule set type to use.
-          * `rule_set_version` (`str`) - Defines the version of the rule set to use.
-
-      * `policy_settings` (`dict`) - Describes settings for the policy.
-        * `file_upload_limit_in_mb` (`float`) - Maximum file upload size in Mb for WAF.
-        * `max_request_body_size_in_kb` (`float`) - Maximum request body size in Kb for WAF.
-        * `mode` (`str`) - The mode of the policy.
-        * `request_body_check` (`bool`) - Whether to allow WAF to check request Body.
-        * `state` (`str`) - The state of the policy.
-
-      * `provisioning_state` (`str`) - Provisioning state of the policy.
-      * `resource_state` (`str`)
-      * `routing_rule_links` (`list`) - Describes Routing Rules associated with this Web Application Firewall policy.
-        * `id` (`str`) - Resource ID.
+    Describes settings for the policy.
+      * `file_upload_limit_in_mb` (`float`) - Maximum file upload size in Mb for WAF.
+      * `max_request_body_size_in_kb` (`float`) - Maximum request body size in Kb for WAF.
+      * `mode` (`str`) - The mode of the policy.
+      * `request_body_check` (`bool`) - Whether to allow WAF to check request Body.
+      * `state` (`str`) - The state of the policy.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the policy.
+    """
+    resource_state: pulumi.Output[str]
+    routing_rule_links: pulumi.Output[list]
+    """
+    Describes Routing Rules associated with this Web Application Firewall policy.
+      * `id` (`str`) - Resource ID.
     """
     tags: pulumi.Output[dict]
     """
@@ -164,7 +174,10 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['frontend_endpoint_links'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
+            __props__['routing_rule_links'] = None
             __props__['type'] = None
         super(Policy, __self__).__init__(
             'azurerm:network/v20200401:Policy',

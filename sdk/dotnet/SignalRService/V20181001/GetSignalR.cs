@@ -40,6 +40,32 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
     public sealed class GetSignalRResult
     {
         /// <summary>
+        /// Cross-Origin Resource Sharing (CORS) settings.
+        /// </summary>
+        public readonly Outputs.SignalRCorsSettingsResponseResult? Cors;
+        /// <summary>
+        /// The publicly accessible IP of the SignalR service.
+        /// </summary>
+        public readonly string ExternalIP;
+        /// <summary>
+        /// List of SignalR featureFlags. e.g. ServiceMode.
+        /// 
+        /// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        /// And the response will only include featureFlags that are explicitly set. 
+        /// When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+        /// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SignalRFeatureResponseResult> Features;
+        /// <summary>
+        /// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        /// </summary>
+        public readonly string HostName;
+        /// <summary>
+        /// Prefix for the hostName of the SignalR service. Retained for future use.
+        /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
+        /// </summary>
+        public readonly string? HostNamePrefix;
+        /// <summary>
         /// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
         /// </summary>
         public readonly string? Location;
@@ -48,9 +74,17 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the service.
+        /// Provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.SignalRPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        /// </summary>
+        public readonly int PublicPort;
+        /// <summary>
+        /// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+        /// </summary>
+        public readonly int ServerPort;
         /// <summary>
         /// SKU of the service.
         /// </summary>
@@ -63,27 +97,55 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
         /// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetSignalRResult(
+            Outputs.SignalRCorsSettingsResponseResult? cors,
+
+            string externalIP,
+
+            ImmutableArray<Outputs.SignalRFeatureResponseResult> features,
+
+            string hostName,
+
+            string? hostNamePrefix,
+
             string? location,
 
             string name,
 
-            Outputs.SignalRPropertiesResponseResult properties,
+            string provisioningState,
+
+            int publicPort,
+
+            int serverPort,
 
             Outputs.ResourceSkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? version)
         {
+            Cors = cors;
+            ExternalIP = externalIP;
+            Features = features;
+            HostName = hostName;
+            HostNamePrefix = hostNamePrefix;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublicPort = publicPort;
+            ServerPort = serverPort;
             Sku = sku;
             Tags = tags;
             Type = type;
+            Version = version;
         }
     }
 }

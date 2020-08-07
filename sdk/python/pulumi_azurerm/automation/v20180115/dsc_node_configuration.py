@@ -10,21 +10,34 @@ from ... import _utilities, _tables
 
 
 class DscNodeConfiguration(pulumi.CustomResource):
+    configuration: pulumi.Output[dict]
+    """
+    Gets or sets the configuration of the node.
+      * `name` (`str`) - Gets or sets the name of the Dsc configuration.
+    """
+    creation_time: pulumi.Output[str]
+    """
+    Gets or sets creation time.
+    """
+    increment_node_configuration_build: pulumi.Output[bool]
+    """
+    If a new build version of NodeConfiguration is required.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets or sets the last modified time.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    node_count: pulumi.Output[float]
     """
-    Gets or sets the configuration properties.
-      * `configuration` (`dict`) - Gets or sets the configuration of the node.
-        * `name` (`str`) - Gets or sets the name of the Dsc configuration.
-
-      * `creation_time` (`str`) - Gets or sets creation time.
-      * `increment_node_configuration_build` (`bool`) - If a new build version of NodeConfiguration is required.
-      * `last_modified_time` (`str`) - Gets or sets the last modified time.
-      * `node_count` (`float`) - Number of nodes with this node configuration assigned
-      * `source` (`str`) - Source of node configuration.
+    Number of nodes with this node configuration assigned
+    """
+    source: pulumi.Output[str]
+    """
+    Source of node configuration.
     """
     type: pulumi.Output[str]
     """
@@ -92,7 +105,9 @@ class DscNodeConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['last_modified_time'] = None
+            __props__['node_count'] = None
             __props__['type'] = None
         super(DscNodeConfiguration, __self__).__init__(
             'azurerm:automation/v20180115:DscNodeConfiguration',

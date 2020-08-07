@@ -40,9 +40,37 @@ namespace Pulumi.AzureRM.Network.V20160601
     public sealed class GetVirtualNetworkGatewayConnectionResult
     {
         /// <summary>
+        /// The authorizationKey.
+        /// </summary>
+        public readonly string? AuthorizationKey;
+        /// <summary>
+        /// Virtual network Gateway connection status
+        /// </summary>
+        public readonly string? ConnectionStatus;
+        /// <summary>
+        /// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+        /// </summary>
+        public readonly string? ConnectionType;
+        /// <summary>
+        /// The Egress Bytes Transferred in this connection
+        /// </summary>
+        public readonly int? EgressBytesTransferred;
+        /// <summary>
+        /// EnableBgp Flag
+        /// </summary>
+        public readonly bool? EnableBgp;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// The Ingress Bytes Transferred in this connection
+        /// </summary>
+        public readonly int? IngressBytesTransferred;
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        public readonly Outputs.LocalNetworkGatewayResponseResult? LocalNetworkGateway2;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -52,9 +80,25 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// VirtualNetworkGatewayConnection properties
+        /// The reference to peerings resource.
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponseResult Properties;
+        public readonly Outputs.SubResourceResponseResult? Peer;
+        /// <summary>
+        /// Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
+        /// The Routing weight.
+        /// </summary>
+        public readonly int? RoutingWeight;
+        /// <summary>
+        /// The IPsec share key.
+        /// </summary>
+        public readonly string? SharedKey;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,27 +107,74 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        public readonly Outputs.VirtualNetworkGatewayResponseResult? VirtualNetworkGateway1;
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        public readonly Outputs.VirtualNetworkGatewayResponseResult? VirtualNetworkGateway2;
 
         [OutputConstructor]
         private GetVirtualNetworkGatewayConnectionResult(
+            string? authorizationKey,
+
+            string? connectionStatus,
+
+            string? connectionType,
+
+            int? egressBytesTransferred,
+
+            bool? enableBgp,
+
             string? etag,
+
+            int? ingressBytesTransferred,
+
+            Outputs.LocalNetworkGatewayResponseResult? localNetworkGateway2,
 
             string? location,
 
             string name,
 
-            Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponseResult properties,
+            Outputs.SubResourceResponseResult? peer,
+
+            string? provisioningState,
+
+            string? resourceGuid,
+
+            int? routingWeight,
+
+            string? sharedKey,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.VirtualNetworkGatewayResponseResult? virtualNetworkGateway1,
+
+            Outputs.VirtualNetworkGatewayResponseResult? virtualNetworkGateway2)
         {
+            AuthorizationKey = authorizationKey;
+            ConnectionStatus = connectionStatus;
+            ConnectionType = connectionType;
+            EgressBytesTransferred = egressBytesTransferred;
+            EnableBgp = enableBgp;
             Etag = etag;
+            IngressBytesTransferred = ingressBytesTransferred;
+            LocalNetworkGateway2 = localNetworkGateway2;
             Location = location;
             Name = name;
-            Properties = properties;
+            Peer = peer;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
+            RoutingWeight = routingWeight;
+            SharedKey = sharedKey;
             Tags = tags;
             Type = type;
+            VirtualNetworkGateway1 = virtualNetworkGateway1;
+            VirtualNetworkGateway2 = virtualNetworkGateway2;
         }
     }
 }

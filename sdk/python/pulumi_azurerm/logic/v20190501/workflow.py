@@ -10,6 +10,61 @@ from ... import _utilities, _tables
 
 
 class Workflow(pulumi.CustomResource):
+    access_control: pulumi.Output[dict]
+    """
+    The access control configuration.
+      * `actions` (`dict`) - The access control configuration for workflow actions.
+        * `allowed_caller_ip_addresses` (`list`) - The allowed caller IP address ranges.
+          * `address_range` (`str`) - The IP address range.
+
+        * `open_authentication_policies` (`dict`) - The authentication policies for workflow.
+          * `policies` (`dict`) - Open authentication policies.
+
+      * `contents` (`dict`) - The access control configuration for accessing workflow run contents.
+      * `triggers` (`dict`) - The access control configuration for invoking workflow triggers.
+      * `workflow_management` (`dict`) - The access control configuration for workflow management.
+    """
+    access_endpoint: pulumi.Output[str]
+    """
+    Gets the access endpoint.
+    """
+    changed_time: pulumi.Output[str]
+    """
+    Gets the changed time.
+    """
+    created_time: pulumi.Output[str]
+    """
+    Gets the created time.
+    """
+    definition: pulumi.Output[dict]
+    """
+    The definition.
+    """
+    endpoints_configuration: pulumi.Output[dict]
+    """
+    The endpoints configuration.
+      * `connector` (`dict`) - The connector endpoints.
+        * `access_endpoint_ip_addresses` (`list`) - The access endpoint ip address.
+          * `address` (`str`) - The address.
+
+        * `outgoing_ip_addresses` (`list`) - The outgoing ip address.
+
+      * `workflow` (`dict`) - The workflow endpoints.
+    """
+    integration_account: pulumi.Output[dict]
+    """
+    The integration account.
+      * `id` (`str`) - The resource id.
+      * `name` (`str`) - Gets the resource name.
+      * `type` (`str`) - Gets the resource type.
+    """
+    integration_service_environment: pulumi.Output[dict]
+    """
+    The integration service environment.
+      * `id` (`str`) - The resource id.
+      * `name` (`str`) - Gets the resource name.
+      * `type` (`str`) - Gets the resource type.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
@@ -18,48 +73,26 @@ class Workflow(pulumi.CustomResource):
     """
     Gets the resource name.
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[dict]
     """
-    The workflow properties.
-      * `access_control` (`dict`) - The access control configuration.
-        * `actions` (`dict`) - The access control configuration for workflow actions.
-          * `allowed_caller_ip_addresses` (`list`) - The allowed caller IP address ranges.
-            * `address_range` (`str`) - The IP address range.
-
-          * `open_authentication_policies` (`dict`) - The authentication policies for workflow.
-            * `policies` (`dict`) - Open authentication policies.
-
-        * `contents` (`dict`) - The access control configuration for accessing workflow run contents.
-        * `triggers` (`dict`) - The access control configuration for invoking workflow triggers.
-        * `workflow_management` (`dict`) - The access control configuration for workflow management.
-
-      * `access_endpoint` (`str`) - Gets the access endpoint.
-      * `changed_time` (`str`) - Gets the changed time.
-      * `created_time` (`str`) - Gets the created time.
-      * `definition` (`dict`) - The definition.
-      * `endpoints_configuration` (`dict`) - The endpoints configuration.
-        * `connector` (`dict`) - The connector endpoints.
-          * `access_endpoint_ip_addresses` (`list`) - The access endpoint ip address.
-            * `address` (`str`) - The address.
-
-          * `outgoing_ip_addresses` (`list`) - The outgoing ip address.
-
-        * `workflow` (`dict`) - The workflow endpoints.
-
-      * `integration_account` (`dict`) - The integration account.
+    The parameters.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets the provisioning state.
+    """
+    sku: pulumi.Output[dict]
+    """
+    The sku.
+      * `name` (`str`) - The name.
+      * `plan` (`dict`) - The reference to plan.
         * `id` (`str`) - The resource id.
         * `name` (`str`) - Gets the resource name.
         * `type` (`str`) - Gets the resource type.
-
-      * `integration_service_environment` (`dict`) - The integration service environment.
-      * `parameters` (`dict`) - The parameters.
-      * `provisioning_state` (`str`) - Gets the provisioning state.
-      * `sku` (`dict`) - The sku.
-        * `name` (`str`) - The name.
-        * `plan` (`dict`) - The reference to plan.
-
-      * `state` (`str`) - The state.
-      * `version` (`str`) - Gets the version.
+    """
+    state: pulumi.Output[str]
+    """
+    The state.
     """
     tags: pulumi.Output[dict]
     """
@@ -68,6 +101,10 @@ class Workflow(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Gets the resource type.
+    """
+    version: pulumi.Output[str]
+    """
+    Gets the version.
     """
     def __init__(__self__, resource_name, opts=None, access_control=None, definition=None, endpoints_configuration=None, integration_account=None, integration_service_environment=None, location=None, name=None, parameters=None, resource_group_name=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -146,8 +183,13 @@ class Workflow(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['state'] = state
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['access_endpoint'] = None
+            __props__['changed_time'] = None
+            __props__['created_time'] = None
+            __props__['provisioning_state'] = None
+            __props__['sku'] = None
             __props__['type'] = None
+            __props__['version'] = None
         super(Workflow, __self__).__init__(
             'azurerm:logic/v20190501:Workflow',
             resource_name,

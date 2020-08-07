@@ -25,14 +25,18 @@ type LookupManagerArgs struct {
 
 // The StorSimple Manager
 type LookupManagerResult struct {
+	// Specifies if the Manager is Garda or Helsinki
+	CisIntrinsicSettings *ManagerIntrinsicSettingsResponse `pulumi:"cisIntrinsicSettings"`
 	// ETag of the Manager
 	Etag *string `pulumi:"etag"`
 	// The Geo location of the Manager
 	Location string `pulumi:"location"`
 	// The Resource Name
 	Name string `pulumi:"name"`
-	// List of properties of the Manager
-	Properties ManagerPropertiesResponse `pulumi:"properties"`
+	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Specifies the Sku
+	Sku *ManagerSkuResponse `pulumi:"sku"`
 	// Tags attached to the Manager
 	Tags map[string]string `pulumi:"tags"`
 	// The Resource type

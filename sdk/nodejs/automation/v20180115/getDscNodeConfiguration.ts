@@ -41,13 +41,33 @@ export interface GetDscNodeConfigurationArgs {
  */
 export interface GetDscNodeConfigurationResult {
     /**
+     * Gets or sets the configuration of the node.
+     */
+    readonly configuration?: outputs.automation.v20180115.DscConfigurationAssociationPropertyResponse;
+    /**
+     * Gets or sets creation time.
+     */
+    readonly creationTime?: string;
+    /**
+     * If a new build version of NodeConfiguration is required.
+     */
+    readonly incrementNodeConfigurationBuild?: boolean;
+    /**
+     * Gets or sets the last modified time.
+     */
+    readonly lastModifiedTime?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets or sets the configuration properties.
+     * Number of nodes with this node configuration assigned
      */
-    readonly properties: outputs.automation.v20180115.DscNodeConfigurationPropertiesResponse;
+    readonly nodeCount?: number;
+    /**
+     * Source of node configuration.
+     */
+    readonly source?: string;
     /**
      * The type of the resource.
      */

@@ -33,10 +33,10 @@ namespace Pulumi.AzureRM.Network.V20190401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the network watcher.
+        /// The provisioning state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NetworkWatcherPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

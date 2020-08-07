@@ -10,23 +10,45 @@ from ... import _utilities, _tables
 
 
 class IdentityProvider(pulumi.CustomResource):
+    allowed_tenants: pulumi.Output[list]
+    """
+    List of Allowed Tenants when configuring Azure Active Directory login.
+    """
+    authority: pulumi.Output[str]
+    """
+    OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
+    """
+    client_id: pulumi.Output[str]
+    """
+    Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+    """
+    client_secret: pulumi.Output[str]
+    """
+    Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    password_reset_policy_name: pulumi.Output[str]
     """
-    Identity Provider contract properties.
-      * `allowed_tenants` (`list`) - List of Allowed Tenants when configuring Azure Active Directory login.
-      * `authority` (`str`) - OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
-      * `client_id` (`str`) - Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
-      * `client_secret` (`str`) - Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-      * `password_reset_policy_name` (`str`) - Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
-      * `profile_editing_policy_name` (`str`) - Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
-      * `signin_policy_name` (`str`) - Signin Policy Name. Only applies to AAD B2C Identity Provider.
-      * `signin_tenant` (`str`) - The TenantId to use instead of Common when logging into Active Directory
-      * `signup_policy_name` (`str`) - Signup Policy Name. Only applies to AAD B2C Identity Provider.
-      * `type` (`str`) - Identity Provider Type identifier.
+    Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+    """
+    profile_editing_policy_name: pulumi.Output[str]
+    """
+    Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+    """
+    signin_policy_name: pulumi.Output[str]
+    """
+    Signin Policy Name. Only applies to AAD B2C Identity Provider.
+    """
+    signin_tenant: pulumi.Output[str]
+    """
+    The TenantId to use instead of Common when logging into Active Directory
+    """
+    signup_policy_name: pulumi.Output[str]
+    """
+    Signup Policy Name. Only applies to AAD B2C Identity Provider.
     """
     type: pulumi.Output[str]
     """
@@ -92,7 +114,6 @@ class IdentityProvider(pulumi.CustomResource):
             __props__['signin_tenant'] = signin_tenant
             __props__['signup_policy_name'] = signup_policy_name
             __props__['type'] = type
-            __props__['properties'] = None
         super(IdentityProvider, __self__).__init__(
             'azurerm:apimanagement/v20191201:IdentityProvider',
             resource_name,

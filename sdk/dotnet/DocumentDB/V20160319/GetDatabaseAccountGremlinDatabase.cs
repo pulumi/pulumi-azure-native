@@ -46,6 +46,18 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
     public sealed class GetDatabaseAccountGremlinDatabaseResult
     {
         /// <summary>
+        /// A system generated property representing the resource etag required for optimistic concurrency control.
+        /// </summary>
+        public readonly string? _etag;
+        /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        public readonly string? _rid;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? _ts;
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         public readonly string? Location;
@@ -53,10 +65,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         /// The name of the database account.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The properties of an Azure Cosmos DB SQL database
-        /// </summary>
-        public readonly Outputs.GremlinDatabasePropertiesResponseResult Properties;
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
@@ -68,19 +76,25 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
 
         [OutputConstructor]
         private GetDatabaseAccountGremlinDatabaseResult(
+            string? _etag,
+
+            string? _rid,
+
+            ImmutableDictionary<string, object>? _ts,
+
             string? location,
 
             string name,
-
-            Outputs.GremlinDatabasePropertiesResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            this._etag = _etag;
+            this._rid = _rid;
+            this._ts = _ts;
             Location = location;
             Name = name;
-            Properties = properties;
             Tags = tags;
             Type = type;
         }

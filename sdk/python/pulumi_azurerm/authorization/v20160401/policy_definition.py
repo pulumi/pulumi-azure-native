@@ -10,17 +10,25 @@ from ... import _utilities, _tables
 
 
 class PolicyDefinition(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    The policy definition description.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The display name of the policy definition.
+    """
     name: pulumi.Output[str]
     """
     The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
     """
-    properties: pulumi.Output[dict]
+    policy_rule: pulumi.Output[dict]
     """
-    The policy definition properties.
-      * `description` (`str`) - The policy definition description.
-      * `display_name` (`str`) - The display name of the policy definition.
-      * `policy_rule` (`dict`) - The policy rule.
-      * `policy_type` (`str`) - The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+    The policy rule.
+    """
+    policy_type: pulumi.Output[str]
+    """
+    The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
     """
     def __init__(__self__, resource_name, opts=None, description=None, display_name=None, name=None, policy_rule=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -58,7 +66,6 @@ class PolicyDefinition(pulumi.CustomResource):
             __props__['name'] = name
             __props__['policy_rule'] = policy_rule
             __props__['policy_type'] = policy_type
-            __props__['properties'] = None
         super(PolicyDefinition, __self__).__init__(
             'azurerm:authorization/v20160401:PolicyDefinition',
             resource_name,

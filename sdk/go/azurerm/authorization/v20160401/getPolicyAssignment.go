@@ -25,10 +25,14 @@ type LookupPolicyAssignmentArgs struct {
 
 // The policy assignment.
 type LookupPolicyAssignmentResult struct {
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
 	// The name of the policy assignment.
 	Name *string `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponse `pulumi:"properties"`
+	// The ID of the policy definition.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope *string `pulumi:"scope"`
 	// The type of the policy assignment.
 	Type *string `pulumi:"type"`
 }

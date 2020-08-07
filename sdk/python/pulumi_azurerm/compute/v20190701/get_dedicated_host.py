@@ -13,7 +13,31 @@ class GetDedicatedHostResult:
     """
     Specifies information about the Dedicated host.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, auto_replace_on_failure=None, host_id=None, instance_view=None, license_type=None, location=None, name=None, platform_fault_domain=None, provisioning_state=None, provisioning_time=None, sku=None, tags=None, type=None, virtual_machines=None):
+        if auto_replace_on_failure and not isinstance(auto_replace_on_failure, bool):
+            raise TypeError("Expected argument 'auto_replace_on_failure' to be a bool")
+        __self__.auto_replace_on_failure = auto_replace_on_failure
+        """
+        Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+        """
+        if host_id and not isinstance(host_id, str):
+            raise TypeError("Expected argument 'host_id' to be a str")
+        __self__.host_id = host_id
+        """
+        A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+        """
+        if instance_view and not isinstance(instance_view, dict):
+            raise TypeError("Expected argument 'instance_view' to be a dict")
+        __self__.instance_view = instance_view
+        """
+        The dedicated host instance view.
+        """
+        if license_type and not isinstance(license_type, str):
+            raise TypeError("Expected argument 'license_type' to be a str")
+        __self__.license_type = license_type
+        """
+        Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +50,23 @@ class GetDedicatedHostResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if platform_fault_domain and not isinstance(platform_fault_domain, float):
+            raise TypeError("Expected argument 'platform_fault_domain' to be a float")
+        __self__.platform_fault_domain = platform_fault_domain
         """
-        Properties of the dedicated host.
+        Fault domain of the dedicated host within a dedicated host group.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state, which only appears in the response.
+        """
+        if provisioning_time and not isinstance(provisioning_time, str):
+            raise TypeError("Expected argument 'provisioning_time' to be a str")
+        __self__.provisioning_time = provisioning_time
+        """
+        The date when the host was first provisioned.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -50,6 +86,12 @@ class GetDedicatedHostResult:
         """
         Resource type
         """
+        if virtual_machines and not isinstance(virtual_machines, list):
+            raise TypeError("Expected argument 'virtual_machines' to be a list")
+        __self__.virtual_machines = virtual_machines
+        """
+        A list of references to all virtual machines in the Dedicated Host.
+        """
 
 
 class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
@@ -58,12 +100,19 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
         if False:
             yield self
         return GetDedicatedHostResult(
+            auto_replace_on_failure=self.auto_replace_on_failure,
+            host_id=self.host_id,
+            instance_view=self.instance_view,
+            license_type=self.license_type,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            platform_fault_domain=self.platform_fault_domain,
+            provisioning_state=self.provisioning_state,
+            provisioning_time=self.provisioning_time,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_machines=self.virtual_machines)
 
 
 def get_dedicated_host(host_group_name=None, name=None, resource_group_name=None, opts=None):
@@ -85,9 +134,16 @@ def get_dedicated_host(host_group_name=None, name=None, resource_group_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190701:getDedicatedHost', __args__, opts=opts).value
 
     return AwaitableGetDedicatedHostResult(
+        auto_replace_on_failure=__ret__.get('autoReplaceOnFailure'),
+        host_id=__ret__.get('hostId'),
+        instance_view=__ret__.get('instanceView'),
+        license_type=__ret__.get('licenseType'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        platform_fault_domain=__ret__.get('platformFaultDomain'),
+        provisioning_state=__ret__.get('provisioningState'),
+        provisioning_time=__ret__.get('provisioningTime'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_machines=__ret__.get('virtualMachines'))

@@ -13,7 +13,49 @@ class GetCertificateResult:
     """
     App certificate
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, issue_date=None, issuer=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
+        if cer_blob and not isinstance(cer_blob, str):
+            raise TypeError("Expected argument 'cer_blob' to be a str")
+        __self__.cer_blob = cer_blob
+        """
+        Raw bytes of .cer file
+        """
+        if expiration_date and not isinstance(expiration_date, str):
+            raise TypeError("Expected argument 'expiration_date' to be a str")
+        __self__.expiration_date = expiration_date
+        """
+        Certificate expiration date
+        """
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        __self__.friendly_name = friendly_name
+        """
+        Friendly name of the certificate
+        """
+        if host_names and not isinstance(host_names, list):
+            raise TypeError("Expected argument 'host_names' to be a list")
+        __self__.host_names = host_names
+        """
+        Host names the certificate applies to
+        """
+        if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
+            raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
+        __self__.hosting_environment_profile = hosting_environment_profile
+        """
+        Specification for the hosting environment (App Service Environment) to use for the certificate
+        """
+        if issue_date and not isinstance(issue_date, str):
+            raise TypeError("Expected argument 'issue_date' to be a str")
+        __self__.issue_date = issue_date
+        """
+        Certificate issue Date
+        """
+        if issuer and not isinstance(issuer, str):
+            raise TypeError("Expected argument 'issuer' to be a str")
+        __self__.issuer = issuer
+        """
+        Certificate issuer
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,20 +74,65 @@ class GetCertificateResult:
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if password and not isinstance(password, str):
+            raise TypeError("Expected argument 'password' to be a str")
+        __self__.password = password
+        """
+        Certificate password
+        """
+        if pfx_blob and not isinstance(pfx_blob, str):
+            raise TypeError("Expected argument 'pfx_blob' to be a str")
+        __self__.pfx_blob = pfx_blob
+        """
+        Pfx blob
+        """
+        if public_key_hash and not isinstance(public_key_hash, str):
+            raise TypeError("Expected argument 'public_key_hash' to be a str")
+        __self__.public_key_hash = public_key_hash
+        """
+        Public key hash
+        """
+        if self_link and not isinstance(self_link, str):
+            raise TypeError("Expected argument 'self_link' to be a str")
+        __self__.self_link = self_link
+        """
+        Self link
+        """
+        if site_name and not isinstance(site_name, str):
+            raise TypeError("Expected argument 'site_name' to be a str")
+        __self__.site_name = site_name
+        """
+        App name
+        """
+        if subject_name and not isinstance(subject_name, str):
+            raise TypeError("Expected argument 'subject_name' to be a str")
+        __self__.subject_name = subject_name
+        """
+        Subject name of the certificate
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags
         """
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        __self__.thumbprint = thumbprint
+        """
+        Certificate thumbprint
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if valid and not isinstance(valid, bool):
+            raise TypeError("Expected argument 'valid' to be a bool")
+        __self__.valid = valid
+        """
+        Is the certificate valid?
         """
 
 
@@ -55,12 +142,26 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         if False:
             yield self
         return GetCertificateResult(
+            cer_blob=self.cer_blob,
+            expiration_date=self.expiration_date,
+            friendly_name=self.friendly_name,
+            host_names=self.host_names,
+            hosting_environment_profile=self.hosting_environment_profile,
+            issue_date=self.issue_date,
+            issuer=self.issuer,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            password=self.password,
+            pfx_blob=self.pfx_blob,
+            public_key_hash=self.public_key_hash,
+            self_link=self.self_link,
+            site_name=self.site_name,
+            subject_name=self.subject_name,
             tags=self.tags,
-            type=self.type)
+            thumbprint=self.thumbprint,
+            type=self.type,
+            valid=self.valid)
 
 
 def get_certificate(name=None, resource_group_name=None, opts=None):
@@ -80,9 +181,23 @@ def get_certificate(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getCertificate', __args__, opts=opts).value
 
     return AwaitableGetCertificateResult(
+        cer_blob=__ret__.get('cerBlob'),
+        expiration_date=__ret__.get('expirationDate'),
+        friendly_name=__ret__.get('friendlyName'),
+        host_names=__ret__.get('hostNames'),
+        hosting_environment_profile=__ret__.get('hostingEnvironmentProfile'),
+        issue_date=__ret__.get('issueDate'),
+        issuer=__ret__.get('issuer'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        password=__ret__.get('password'),
+        pfx_blob=__ret__.get('pfxBlob'),
+        public_key_hash=__ret__.get('publicKeyHash'),
+        self_link=__ret__.get('selfLink'),
+        site_name=__ret__.get('siteName'),
+        subject_name=__ret__.get('subjectName'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        thumbprint=__ret__.get('thumbprint'),
+        type=__ret__.get('type'),
+        valid=__ret__.get('valid'))

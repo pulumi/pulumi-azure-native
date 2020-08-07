@@ -54,9 +54,9 @@ namespace Pulumi.AzureRM.DomainRegistration.V20180201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// DomainOwnershipIdentifier resource specific properties
+        /// Ownership Id.
         /// </summary>
-        public readonly Outputs.DomainOwnershipIdentifierResponsePropertiesResult Properties;
+        public readonly string? OwnershipId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -68,13 +68,13 @@ namespace Pulumi.AzureRM.DomainRegistration.V20180201
 
             string name,
 
-            Outputs.DomainOwnershipIdentifierResponsePropertiesResult properties,
+            string? ownershipId,
 
             string type)
         {
             Kind = kind;
             Name = name;
-            Properties = properties;
+            OwnershipId = ownershipId;
             Type = type;
         }
     }

@@ -27,10 +27,24 @@ type LookupUserArgs struct {
 
 // User details.
 type LookupUserResult struct {
+	// Email address.
+	Email *string `pulumi:"email"`
+	// First name.
+	FirstName *string `pulumi:"firstName"`
+	// Collection of groups user is part of.
+	Groups []GroupContractPropertiesResponse `pulumi:"groups"`
+	// Collection of user identities.
+	Identities []UserIdentityContractResponse `pulumi:"identities"`
+	// Last name.
+	LastName *string `pulumi:"lastName"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// User entity contract properties.
-	Properties UserContractPropertiesResponse `pulumi:"properties"`
+	// Optional note about a user set by the administrator.
+	Note *string `pulumi:"note"`
+	// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	RegistrationDate *string `pulumi:"registrationDate"`
+	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+	State *string `pulumi:"state"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

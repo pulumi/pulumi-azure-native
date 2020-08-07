@@ -13,7 +13,25 @@ class GetVirtualNetworkPeeringResult:
     """
     Peerings in a VirtualNetwork resource
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, etag=None, name=None, peering_state=None, provisioning_state=None, remote_virtual_network=None, use_remote_gateways=None):
+        if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
+            raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
+        __self__.allow_forwarded_traffic = allow_forwarded_traffic
+        """
+        Gets or sets whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed
+        """
+        if allow_gateway_transit and not isinstance(allow_gateway_transit, bool):
+            raise TypeError("Expected argument 'allow_gateway_transit' to be a bool")
+        __self__.allow_gateway_transit = allow_gateway_transit
+        """
+        Gets or sets if gatewayLinks can be used in remote virtual network’s link to this virtual network
+        """
+        if allow_virtual_network_access and not isinstance(allow_virtual_network_access, bool):
+            raise TypeError("Expected argument 'allow_virtual_network_access' to be a bool")
+        __self__.allow_virtual_network_access = allow_virtual_network_access
+        """
+        Gets or sets whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,9 +44,30 @@ class GetVirtualNetworkPeeringResult:
         """
         Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peering_state and not isinstance(peering_state, str):
+            raise TypeError("Expected argument 'peering_state' to be a str")
+        __self__.peering_state = peering_state
+        """
+        Gets the status of the virtual network peering
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Gets provisioning state of the resource
+        """
+        if remote_virtual_network and not isinstance(remote_virtual_network, dict):
+            raise TypeError("Expected argument 'remote_virtual_network' to be a dict")
+        __self__.remote_virtual_network = remote_virtual_network
+        """
+        Gets or sets the reference of the remote virtual network
+        """
+        if use_remote_gateways and not isinstance(use_remote_gateways, bool):
+            raise TypeError("Expected argument 'use_remote_gateways' to be a bool")
+        __self__.use_remote_gateways = use_remote_gateways
+        """
+        Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        """
 
 
 class AwaitableGetVirtualNetworkPeeringResult(GetVirtualNetworkPeeringResult):
@@ -37,9 +76,15 @@ class AwaitableGetVirtualNetworkPeeringResult(GetVirtualNetworkPeeringResult):
         if False:
             yield self
         return GetVirtualNetworkPeeringResult(
+            allow_forwarded_traffic=self.allow_forwarded_traffic,
+            allow_gateway_transit=self.allow_gateway_transit,
+            allow_virtual_network_access=self.allow_virtual_network_access,
             etag=self.etag,
             name=self.name,
-            properties=self.properties)
+            peering_state=self.peering_state,
+            provisioning_state=self.provisioning_state,
+            remote_virtual_network=self.remote_virtual_network,
+            use_remote_gateways=self.use_remote_gateways)
 
 
 def get_virtual_network_peering(name=None, resource_group_name=None, virtual_network_name=None, opts=None):
@@ -61,6 +106,12 @@ def get_virtual_network_peering(name=None, resource_group_name=None, virtual_net
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20160601:getVirtualNetworkPeering', __args__, opts=opts).value
 
     return AwaitableGetVirtualNetworkPeeringResult(
+        allow_forwarded_traffic=__ret__.get('allowForwardedTraffic'),
+        allow_gateway_transit=__ret__.get('allowGatewayTransit'),
+        allow_virtual_network_access=__ret__.get('allowVirtualNetworkAccess'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        peering_state=__ret__.get('peeringState'),
+        provisioning_state=__ret__.get('provisioningState'),
+        remote_virtual_network=__ret__.get('remoteVirtualNetwork'),
+        use_remote_gateways=__ret__.get('useRemoteGateways'))

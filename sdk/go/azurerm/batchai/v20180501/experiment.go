@@ -14,10 +14,14 @@ import (
 type Experiment struct {
 	pulumi.CustomResourceState
 
+	// Time when the Experiment was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with the experiment.
-	Properties ExperimentPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioned state of the experiment
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The time at which the experiment entered its current provisioning state.
+	ProvisioningStateTransitionTime pulumi.StringOutput `pulumi:"provisioningStateTransitionTime"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +63,27 @@ func GetExperiment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Experiment resources.
 type experimentState struct {
+	// Time when the Experiment was created.
+	CreationTime *string `pulumi:"creationTime"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties associated with the experiment.
-	Properties *ExperimentPropertiesResponse `pulumi:"properties"`
+	// The provisioned state of the experiment
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The time at which the experiment entered its current provisioning state.
+	ProvisioningStateTransitionTime *string `pulumi:"provisioningStateTransitionTime"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type ExperimentState struct {
+	// Time when the Experiment was created.
+	CreationTime pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties associated with the experiment.
-	Properties ExperimentPropertiesResponsePtrInput
+	// The provisioned state of the experiment
+	ProvisioningState pulumi.StringPtrInput
+	// The time at which the experiment entered its current provisioning state.
+	ProvisioningStateTransitionTime pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

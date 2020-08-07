@@ -1296,330 +1296,6 @@ func (o PtrRecordResponseArrayOutput) Index(i pulumi.IntInput) PtrRecordResponse
 	}).(PtrRecordResponseOutput)
 }
 
-// Represents the properties of the records in the record set.
-type RecordSetPropertiesResponse struct {
-	// The list of AAAA records in the record set.
-	AAAARecords []AaaaRecordResponse `pulumi:"AAAARecords"`
-	// The list of A records in the record set.
-	ARecords []ARecordResponse `pulumi:"ARecords"`
-	// The CNAME record in the  record set.
-	CNAMERecord *CnameRecordResponse `pulumi:"CNAMERecord"`
-	// The list of MX records in the record set.
-	MXRecords []MxRecordResponse `pulumi:"MXRecords"`
-	// The list of NS records in the record set.
-	NSRecords []NsRecordResponse `pulumi:"NSRecords"`
-	// The list of PTR records in the record set.
-	PTRRecords []PtrRecordResponse `pulumi:"PTRRecords"`
-	// The SOA record in the record set.
-	SOARecord *SoaRecordResponse `pulumi:"SOARecord"`
-	// The list of SRV records in the record set.
-	SRVRecords []SrvRecordResponse `pulumi:"SRVRecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	TTL *int `pulumi:"TTL"`
-	// The list of TXT records in the record set.
-	TXTRecords []TxtRecordResponse `pulumi:"TXTRecords"`
-	// The metadata attached to the record set.
-	Metadata map[string]string `pulumi:"metadata"`
-}
-
-// RecordSetPropertiesResponseInput is an input type that accepts RecordSetPropertiesResponseArgs and RecordSetPropertiesResponseOutput values.
-// You can construct a concrete instance of `RecordSetPropertiesResponseInput` via:
-//
-//          RecordSetPropertiesResponseArgs{...}
-type RecordSetPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToRecordSetPropertiesResponseOutput() RecordSetPropertiesResponseOutput
-	ToRecordSetPropertiesResponseOutputWithContext(context.Context) RecordSetPropertiesResponseOutput
-}
-
-// Represents the properties of the records in the record set.
-type RecordSetPropertiesResponseArgs struct {
-	// The list of AAAA records in the record set.
-	AAAARecords AaaaRecordResponseArrayInput `pulumi:"AAAARecords"`
-	// The list of A records in the record set.
-	ARecords ARecordResponseArrayInput `pulumi:"ARecords"`
-	// The CNAME record in the  record set.
-	CNAMERecord CnameRecordResponsePtrInput `pulumi:"CNAMERecord"`
-	// The list of MX records in the record set.
-	MXRecords MxRecordResponseArrayInput `pulumi:"MXRecords"`
-	// The list of NS records in the record set.
-	NSRecords NsRecordResponseArrayInput `pulumi:"NSRecords"`
-	// The list of PTR records in the record set.
-	PTRRecords PtrRecordResponseArrayInput `pulumi:"PTRRecords"`
-	// The SOA record in the record set.
-	SOARecord SoaRecordResponsePtrInput `pulumi:"SOARecord"`
-	// The list of SRV records in the record set.
-	SRVRecords SrvRecordResponseArrayInput `pulumi:"SRVRecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	TTL pulumi.IntPtrInput `pulumi:"TTL"`
-	// The list of TXT records in the record set.
-	TXTRecords TxtRecordResponseArrayInput `pulumi:"TXTRecords"`
-	// The metadata attached to the record set.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-}
-
-func (RecordSetPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSetPropertiesResponse)(nil)).Elem()
-}
-
-func (i RecordSetPropertiesResponseArgs) ToRecordSetPropertiesResponseOutput() RecordSetPropertiesResponseOutput {
-	return i.ToRecordSetPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i RecordSetPropertiesResponseArgs) ToRecordSetPropertiesResponseOutputWithContext(ctx context.Context) RecordSetPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordSetPropertiesResponseOutput)
-}
-
-func (i RecordSetPropertiesResponseArgs) ToRecordSetPropertiesResponsePtrOutput() RecordSetPropertiesResponsePtrOutput {
-	return i.ToRecordSetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RecordSetPropertiesResponseArgs) ToRecordSetPropertiesResponsePtrOutputWithContext(ctx context.Context) RecordSetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordSetPropertiesResponseOutput).ToRecordSetPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// RecordSetPropertiesResponsePtrInput is an input type that accepts RecordSetPropertiesResponseArgs, RecordSetPropertiesResponsePtr and RecordSetPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `RecordSetPropertiesResponsePtrInput` via:
-//
-//          RecordSetPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RecordSetPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToRecordSetPropertiesResponsePtrOutput() RecordSetPropertiesResponsePtrOutput
-	ToRecordSetPropertiesResponsePtrOutputWithContext(context.Context) RecordSetPropertiesResponsePtrOutput
-}
-
-type recordSetPropertiesResponsePtrType RecordSetPropertiesResponseArgs
-
-func RecordSetPropertiesResponsePtr(v *RecordSetPropertiesResponseArgs) RecordSetPropertiesResponsePtrInput {
-	return (*recordSetPropertiesResponsePtrType)(v)
-}
-
-func (*recordSetPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecordSetPropertiesResponse)(nil)).Elem()
-}
-
-func (i *recordSetPropertiesResponsePtrType) ToRecordSetPropertiesResponsePtrOutput() RecordSetPropertiesResponsePtrOutput {
-	return i.ToRecordSetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *recordSetPropertiesResponsePtrType) ToRecordSetPropertiesResponsePtrOutputWithContext(ctx context.Context) RecordSetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordSetPropertiesResponsePtrOutput)
-}
-
-// Represents the properties of the records in the record set.
-type RecordSetPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (RecordSetPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSetPropertiesResponse)(nil)).Elem()
-}
-
-func (o RecordSetPropertiesResponseOutput) ToRecordSetPropertiesResponseOutput() RecordSetPropertiesResponseOutput {
-	return o
-}
-
-func (o RecordSetPropertiesResponseOutput) ToRecordSetPropertiesResponseOutputWithContext(ctx context.Context) RecordSetPropertiesResponseOutput {
-	return o
-}
-
-func (o RecordSetPropertiesResponseOutput) ToRecordSetPropertiesResponsePtrOutput() RecordSetPropertiesResponsePtrOutput {
-	return o.ToRecordSetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RecordSetPropertiesResponseOutput) ToRecordSetPropertiesResponsePtrOutputWithContext(ctx context.Context) RecordSetPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) *RecordSetPropertiesResponse {
-		return &v
-	}).(RecordSetPropertiesResponsePtrOutput)
-}
-
-// The list of AAAA records in the record set.
-func (o RecordSetPropertiesResponseOutput) AAAARecords() AaaaRecordResponseArrayOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) []AaaaRecordResponse { return v.AAAARecords }).(AaaaRecordResponseArrayOutput)
-}
-
-// The list of A records in the record set.
-func (o RecordSetPropertiesResponseOutput) ARecords() ARecordResponseArrayOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) []ARecordResponse { return v.ARecords }).(ARecordResponseArrayOutput)
-}
-
-// The CNAME record in the  record set.
-func (o RecordSetPropertiesResponseOutput) CNAMERecord() CnameRecordResponsePtrOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) *CnameRecordResponse { return v.CNAMERecord }).(CnameRecordResponsePtrOutput)
-}
-
-// The list of MX records in the record set.
-func (o RecordSetPropertiesResponseOutput) MXRecords() MxRecordResponseArrayOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) []MxRecordResponse { return v.MXRecords }).(MxRecordResponseArrayOutput)
-}
-
-// The list of NS records in the record set.
-func (o RecordSetPropertiesResponseOutput) NSRecords() NsRecordResponseArrayOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) []NsRecordResponse { return v.NSRecords }).(NsRecordResponseArrayOutput)
-}
-
-// The list of PTR records in the record set.
-func (o RecordSetPropertiesResponseOutput) PTRRecords() PtrRecordResponseArrayOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) []PtrRecordResponse { return v.PTRRecords }).(PtrRecordResponseArrayOutput)
-}
-
-// The SOA record in the record set.
-func (o RecordSetPropertiesResponseOutput) SOARecord() SoaRecordResponsePtrOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) *SoaRecordResponse { return v.SOARecord }).(SoaRecordResponsePtrOutput)
-}
-
-// The list of SRV records in the record set.
-func (o RecordSetPropertiesResponseOutput) SRVRecords() SrvRecordResponseArrayOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) []SrvRecordResponse { return v.SRVRecords }).(SrvRecordResponseArrayOutput)
-}
-
-// The TTL (time-to-live) of the records in the record set.
-func (o RecordSetPropertiesResponseOutput) TTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) *int { return v.TTL }).(pulumi.IntPtrOutput)
-}
-
-// The list of TXT records in the record set.
-func (o RecordSetPropertiesResponseOutput) TXTRecords() TxtRecordResponseArrayOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) []TxtRecordResponse { return v.TXTRecords }).(TxtRecordResponseArrayOutput)
-}
-
-// The metadata attached to the record set.
-func (o RecordSetPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RecordSetPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
-}
-
-type RecordSetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RecordSetPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecordSetPropertiesResponse)(nil)).Elem()
-}
-
-func (o RecordSetPropertiesResponsePtrOutput) ToRecordSetPropertiesResponsePtrOutput() RecordSetPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RecordSetPropertiesResponsePtrOutput) ToRecordSetPropertiesResponsePtrOutputWithContext(ctx context.Context) RecordSetPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RecordSetPropertiesResponsePtrOutput) Elem() RecordSetPropertiesResponseOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) RecordSetPropertiesResponse { return *v }).(RecordSetPropertiesResponseOutput)
-}
-
-// The list of AAAA records in the record set.
-func (o RecordSetPropertiesResponsePtrOutput) AAAARecords() AaaaRecordResponseArrayOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) []AaaaRecordResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AAAARecords
-	}).(AaaaRecordResponseArrayOutput)
-}
-
-// The list of A records in the record set.
-func (o RecordSetPropertiesResponsePtrOutput) ARecords() ARecordResponseArrayOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) []ARecordResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ARecords
-	}).(ARecordResponseArrayOutput)
-}
-
-// The CNAME record in the  record set.
-func (o RecordSetPropertiesResponsePtrOutput) CNAMERecord() CnameRecordResponsePtrOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) *CnameRecordResponse {
-		if v == nil {
-			return nil
-		}
-		return v.CNAMERecord
-	}).(CnameRecordResponsePtrOutput)
-}
-
-// The list of MX records in the record set.
-func (o RecordSetPropertiesResponsePtrOutput) MXRecords() MxRecordResponseArrayOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) []MxRecordResponse {
-		if v == nil {
-			return nil
-		}
-		return v.MXRecords
-	}).(MxRecordResponseArrayOutput)
-}
-
-// The list of NS records in the record set.
-func (o RecordSetPropertiesResponsePtrOutput) NSRecords() NsRecordResponseArrayOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) []NsRecordResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NSRecords
-	}).(NsRecordResponseArrayOutput)
-}
-
-// The list of PTR records in the record set.
-func (o RecordSetPropertiesResponsePtrOutput) PTRRecords() PtrRecordResponseArrayOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) []PtrRecordResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PTRRecords
-	}).(PtrRecordResponseArrayOutput)
-}
-
-// The SOA record in the record set.
-func (o RecordSetPropertiesResponsePtrOutput) SOARecord() SoaRecordResponsePtrOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) *SoaRecordResponse {
-		if v == nil {
-			return nil
-		}
-		return v.SOARecord
-	}).(SoaRecordResponsePtrOutput)
-}
-
-// The list of SRV records in the record set.
-func (o RecordSetPropertiesResponsePtrOutput) SRVRecords() SrvRecordResponseArrayOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) []SrvRecordResponse {
-		if v == nil {
-			return nil
-		}
-		return v.SRVRecords
-	}).(SrvRecordResponseArrayOutput)
-}
-
-// The TTL (time-to-live) of the records in the record set.
-func (o RecordSetPropertiesResponsePtrOutput) TTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TTL
-	}).(pulumi.IntPtrOutput)
-}
-
-// The list of TXT records in the record set.
-func (o RecordSetPropertiesResponsePtrOutput) TXTRecords() TxtRecordResponseArrayOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) []TxtRecordResponse {
-		if v == nil {
-			return nil
-		}
-		return v.TXTRecords
-	}).(TxtRecordResponseArrayOutput)
-}
-
-// The metadata attached to the record set.
-func (o RecordSetPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RecordSetPropertiesResponse) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(pulumi.StringMapOutput)
-}
-
 // An SOA record.
 type SoaRecord struct {
 	// The email contact for this SOA record.
@@ -1877,7 +1553,7 @@ type SoaRecordResponse struct {
 	// The domain name of the authoritative name server for this SOA record.
 	Host *string `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTTL *int `pulumi:"minimumTTL"`
+	MinimumTtl *int `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
 	RefreshTime *int `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
@@ -1906,7 +1582,7 @@ type SoaRecordResponseArgs struct {
 	// The domain name of the authoritative name server for this SOA record.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTTL pulumi.IntPtrInput `pulumi:"minimumTTL"`
+	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
 	RefreshTime pulumi.IntPtrInput `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
@@ -2009,8 +1685,8 @@ func (o SoaRecordResponseOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordResponseOutput) MinimumTTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *int { return v.MinimumTTL }).(pulumi.IntPtrOutput)
+func (o SoaRecordResponseOutput) MinimumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SoaRecordResponse) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
 }
 
 // The refresh value for this SOA record.
@@ -2077,12 +1753,12 @@ func (o SoaRecordResponsePtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordResponsePtrOutput) MinimumTTL() pulumi.IntPtrOutput {
+func (o SoaRecordResponsePtrOutput) MinimumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *int {
 		if v == nil {
 			return nil
 		}
-		return v.MinimumTTL
+		return v.MinimumTtl
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -2570,178 +2246,6 @@ func (o TxtRecordResponseArrayOutput) Index(i pulumi.IntInput) TxtRecordResponse
 	}).(TxtRecordResponseOutput)
 }
 
-// Represents the properties of the zone.
-type ZonePropertiesResponse struct {
-	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
-	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NameServers []string `pulumi:"nameServers"`
-	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
-}
-
-// ZonePropertiesResponseInput is an input type that accepts ZonePropertiesResponseArgs and ZonePropertiesResponseOutput values.
-// You can construct a concrete instance of `ZonePropertiesResponseInput` via:
-//
-//          ZonePropertiesResponseArgs{...}
-type ZonePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToZonePropertiesResponseOutput() ZonePropertiesResponseOutput
-	ToZonePropertiesResponseOutputWithContext(context.Context) ZonePropertiesResponseOutput
-}
-
-// Represents the properties of the zone.
-type ZonePropertiesResponseArgs struct {
-	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.IntPtrInput `pulumi:"maxNumberOfRecordSets"`
-	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NameServers pulumi.StringArrayInput `pulumi:"nameServers"`
-	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.IntPtrInput `pulumi:"numberOfRecordSets"`
-}
-
-func (ZonePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZonePropertiesResponse)(nil)).Elem()
-}
-
-func (i ZonePropertiesResponseArgs) ToZonePropertiesResponseOutput() ZonePropertiesResponseOutput {
-	return i.ToZonePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ZonePropertiesResponseArgs) ToZonePropertiesResponseOutputWithContext(ctx context.Context) ZonePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZonePropertiesResponseOutput)
-}
-
-func (i ZonePropertiesResponseArgs) ToZonePropertiesResponsePtrOutput() ZonePropertiesResponsePtrOutput {
-	return i.ToZonePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ZonePropertiesResponseArgs) ToZonePropertiesResponsePtrOutputWithContext(ctx context.Context) ZonePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZonePropertiesResponseOutput).ToZonePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ZonePropertiesResponsePtrInput is an input type that accepts ZonePropertiesResponseArgs, ZonePropertiesResponsePtr and ZonePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ZonePropertiesResponsePtrInput` via:
-//
-//          ZonePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ZonePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToZonePropertiesResponsePtrOutput() ZonePropertiesResponsePtrOutput
-	ToZonePropertiesResponsePtrOutputWithContext(context.Context) ZonePropertiesResponsePtrOutput
-}
-
-type zonePropertiesResponsePtrType ZonePropertiesResponseArgs
-
-func ZonePropertiesResponsePtr(v *ZonePropertiesResponseArgs) ZonePropertiesResponsePtrInput {
-	return (*zonePropertiesResponsePtrType)(v)
-}
-
-func (*zonePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ZonePropertiesResponse)(nil)).Elem()
-}
-
-func (i *zonePropertiesResponsePtrType) ToZonePropertiesResponsePtrOutput() ZonePropertiesResponsePtrOutput {
-	return i.ToZonePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *zonePropertiesResponsePtrType) ToZonePropertiesResponsePtrOutputWithContext(ctx context.Context) ZonePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZonePropertiesResponsePtrOutput)
-}
-
-// Represents the properties of the zone.
-type ZonePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ZonePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZonePropertiesResponse)(nil)).Elem()
-}
-
-func (o ZonePropertiesResponseOutput) ToZonePropertiesResponseOutput() ZonePropertiesResponseOutput {
-	return o
-}
-
-func (o ZonePropertiesResponseOutput) ToZonePropertiesResponseOutputWithContext(ctx context.Context) ZonePropertiesResponseOutput {
-	return o
-}
-
-func (o ZonePropertiesResponseOutput) ToZonePropertiesResponsePtrOutput() ZonePropertiesResponsePtrOutput {
-	return o.ToZonePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ZonePropertiesResponseOutput) ToZonePropertiesResponsePtrOutputWithContext(ctx context.Context) ZonePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ZonePropertiesResponse) *ZonePropertiesResponse {
-		return &v
-	}).(ZonePropertiesResponsePtrOutput)
-}
-
-// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-func (o ZonePropertiesResponseOutput) MaxNumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ZonePropertiesResponse) *int { return v.MaxNumberOfRecordSets }).(pulumi.IntPtrOutput)
-}
-
-// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-func (o ZonePropertiesResponseOutput) NameServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ZonePropertiesResponse) []string { return v.NameServers }).(pulumi.StringArrayOutput)
-}
-
-// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-func (o ZonePropertiesResponseOutput) NumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ZonePropertiesResponse) *int { return v.NumberOfRecordSets }).(pulumi.IntPtrOutput)
-}
-
-type ZonePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ZonePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ZonePropertiesResponse)(nil)).Elem()
-}
-
-func (o ZonePropertiesResponsePtrOutput) ToZonePropertiesResponsePtrOutput() ZonePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ZonePropertiesResponsePtrOutput) ToZonePropertiesResponsePtrOutputWithContext(ctx context.Context) ZonePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ZonePropertiesResponsePtrOutput) Elem() ZonePropertiesResponseOutput {
-	return o.ApplyT(func(v *ZonePropertiesResponse) ZonePropertiesResponse { return *v }).(ZonePropertiesResponseOutput)
-}
-
-// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-func (o ZonePropertiesResponsePtrOutput) MaxNumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ZonePropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxNumberOfRecordSets
-	}).(pulumi.IntPtrOutput)
-}
-
-// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-func (o ZonePropertiesResponsePtrOutput) NameServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ZonePropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NameServers
-	}).(pulumi.StringArrayOutput)
-}
-
-// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-func (o ZonePropertiesResponsePtrOutput) NumberOfRecordSets() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ZonePropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NumberOfRecordSets
-	}).(pulumi.IntPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ARecordOutput{})
 	pulumi.RegisterOutputType(ARecordArrayOutput{})
@@ -2767,8 +2271,6 @@ func init() {
 	pulumi.RegisterOutputType(PtrRecordArrayOutput{})
 	pulumi.RegisterOutputType(PtrRecordResponseOutput{})
 	pulumi.RegisterOutputType(PtrRecordResponseArrayOutput{})
-	pulumi.RegisterOutputType(RecordSetPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(RecordSetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SoaRecordOutput{})
 	pulumi.RegisterOutputType(SoaRecordPtrOutput{})
 	pulumi.RegisterOutputType(SoaRecordResponseOutput{})
@@ -2781,6 +2283,4 @@ func init() {
 	pulumi.RegisterOutputType(TxtRecordArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordResponseOutput{})
 	pulumi.RegisterOutputType(TxtRecordResponseArrayOutput{})
-	pulumi.RegisterOutputType(ZonePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ZonePropertiesResponsePtrOutput{})
 }

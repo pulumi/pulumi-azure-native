@@ -44,6 +44,14 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// List of references to Azure resources that this IpGroups is associated with.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Firewalls;
+        /// <summary>
+        /// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+        /// </summary>
+        public readonly ImmutableArray<string> IpAddresses;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -52,9 +60,9 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the IpGroups.
+        /// The provisioning state of the IpGroups resource.
         /// </summary>
-        public readonly Outputs.IpGroupPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -68,20 +76,26 @@ namespace Pulumi.AzureRM.Network.V20200501
         private GetIpGroupResult(
             string etag,
 
+            ImmutableArray<Outputs.SubResourceResponseResult> firewalls,
+
+            ImmutableArray<string> ipAddresses,
+
             string? location,
 
             string name,
 
-            Outputs.IpGroupPropertiesFormatResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             Etag = etag;
+            Firewalls = firewalls;
+            IpAddresses = ipAddresses;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

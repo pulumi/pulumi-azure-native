@@ -27,10 +27,18 @@ type LookupApiVersionSetArgs struct {
 
 // Api Version Set Contract details.
 type LookupApiVersionSetResult struct {
+	// Description of API Version Set.
+	Description *string `pulumi:"description"`
+	// Name of API Version Set
+	DisplayName string `pulumi:"displayName"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Api VersionSet contract properties.
-	Properties ApiVersionSetContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	VersionHeaderName *string `pulumi:"versionHeaderName"`
+	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+	VersionQueryName *string `pulumi:"versionQueryName"`
+	// An value that determines where the API Version identifer will be located in a HTTP request.
+	VersioningScheme string `pulumi:"versioningScheme"`
 }

@@ -41,13 +41,21 @@ export interface GetAuthorizationArgs {
  */
 export interface GetAuthorizationResult {
     /**
+     * The ID of the ExpressRoute Circuit Authorization
+     */
+    readonly expressRouteAuthorizationId: string;
+    /**
+     * The key of the ExpressRoute Circuit Authorization
+     */
+    readonly expressRouteAuthorizationKey: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The properties of an ExpressRoute Circuit Authorization resource
+     * The state of the  ExpressRoute Circuit Authorization provisioning
      */
-    readonly properties: outputs.avs.v20200320.ExpressRouteAuthorizationPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Resource type.
      */

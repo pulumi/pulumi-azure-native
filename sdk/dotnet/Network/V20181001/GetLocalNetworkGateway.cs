@@ -40,9 +40,21 @@ namespace Pulumi.AzureRM.Network.V20181001
     public sealed class GetLocalNetworkGatewayResult
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings.
+        /// </summary>
+        public readonly Outputs.BgpSettingsResponseResult? BgpSettings;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// IP address of local network gateway.
+        /// </summary>
+        public readonly string? GatewayIpAddress;
+        /// <summary>
+        /// Local network site address space.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? LocalNetworkAddressSpace;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +64,13 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the local network gateway.
+        /// The provisioning state of the LocalNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.LocalNetworkGatewayPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the LocalNetworkGateway resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +82,34 @@ namespace Pulumi.AzureRM.Network.V20181001
 
         [OutputConstructor]
         private GetLocalNetworkGatewayResult(
+            Outputs.BgpSettingsResponseResult? bgpSettings,
+
             string? etag,
+
+            string? gatewayIpAddress,
+
+            Outputs.AddressSpaceResponseResult? localNetworkAddressSpace,
 
             string? location,
 
             string name,
 
-            Outputs.LocalNetworkGatewayPropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            string? resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            BgpSettings = bgpSettings;
             Etag = etag;
+            GatewayIpAddress = gatewayIpAddress;
+            LocalNetworkAddressSpace = localNetworkAddressSpace;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
         }

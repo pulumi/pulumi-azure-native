@@ -15,22 +15,58 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {
         /// <summary>
+        /// Encrypted storage key.
+        /// </summary>
+        [Output("accountKey")]
+        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> AccountKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of storage accessed on the storage account.
+        /// </summary>
+        [Output("accountType")]
+        public Output<string> AccountType { get; private set; } = null!;
+
+        /// <summary>
+        /// Alias for the storage account.
+        /// </summary>
+        [Output("alias")]
+        public Output<string> Alias { get; private set; } = null!;
+
+        /// <summary>
+        /// Blob end point for private clouds.
+        /// </summary>
+        [Output("blobDomainName")]
+        public Output<string?> BlobDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// Connection string for the storage account. Use this string if username and account key are not specified.
+        /// </summary>
+        [Output("connectionString")]
+        public Output<string?> ConnectionString { get; private set; } = null!;
+
+        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The storage account credential properties.
+        /// Signifies whether SSL needs to be enabled or not.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageAccountCredentialPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("sslStatus")]
+        public Output<string> SslStatus { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Username for the storage account.
+        /// </summary>
+        [Output("userName")]
+        public Output<string?> UserName { get; private set; } = null!;
 
 
         /// <summary>

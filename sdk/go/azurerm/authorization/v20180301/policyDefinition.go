@@ -14,10 +14,22 @@ import (
 type PolicyDefinition struct {
 	pulumi.CustomResourceState
 
+	// The policy definition description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The policy definition metadata.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
+	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the policy definition.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponseOutput `pulumi:"properties"`
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	// The policy rule.
+	PolicyRule pulumi.MapOutput `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -53,19 +65,43 @@ func GetPolicyDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyDefinition resources.
 type policyDefinitionState struct {
+	// The policy definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy definition metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
+	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+	Mode *string `pulumi:"mode"`
 	// The name of the policy definition.
 	Name *string `pulumi:"name"`
-	// The policy definition properties.
-	Properties *PolicyDefinitionPropertiesResponse `pulumi:"properties"`
+	// Required if a parameter is used in policy rule.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The policy rule.
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
 	Type *string `pulumi:"type"`
 }
 
 type PolicyDefinitionState struct {
+	// The policy definition description.
+	Description pulumi.StringPtrInput
+	// The display name of the policy definition.
+	DisplayName pulumi.StringPtrInput
+	// The policy definition metadata.
+	Metadata pulumi.MapInput
+	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+	Mode pulumi.StringPtrInput
 	// The name of the policy definition.
 	Name pulumi.StringPtrInput
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponsePtrInput
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.MapInput
+	// The policy rule.
+	PolicyRule pulumi.MapInput
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType pulumi.StringPtrInput
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
 	Type pulumi.StringPtrInput
 }

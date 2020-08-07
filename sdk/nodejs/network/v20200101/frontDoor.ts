@@ -37,6 +37,42 @@ export class FrontDoor extends pulumi.CustomResource {
     }
 
     /**
+     * Backend pools available to routing rules.
+     */
+    public readonly backendPools!: pulumi.Output<outputs.network.v20200101.BackendPoolResponse[] | undefined>;
+    /**
+     * Settings for all backendPools
+     */
+    public readonly backendPoolsSettings!: pulumi.Output<outputs.network.v20200101.BackendPoolsSettingsResponse | undefined>;
+    /**
+     * The host that each frontendEndpoint must CNAME to.
+     */
+    public /*out*/ readonly cname!: pulumi.Output<string>;
+    /**
+     * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+     */
+    public readonly enabledState!: pulumi.Output<string | undefined>;
+    /**
+     * A friendly name for the frontDoor
+     */
+    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    /**
+     * The Id of the frontdoor.
+     */
+    public /*out*/ readonly frontdoorId!: pulumi.Output<string>;
+    /**
+     * Frontend endpoints available to routing rules.
+     */
+    public readonly frontendEndpoints!: pulumi.Output<outputs.network.v20200101.FrontendEndpointResponse[] | undefined>;
+    /**
+     * Health probe settings associated with this Front Door instance.
+     */
+    public readonly healthProbeSettings!: pulumi.Output<outputs.network.v20200101.HealthProbeSettingsModelResponse[] | undefined>;
+    /**
+     * Load balancing settings associated with this Front Door instance.
+     */
+    public readonly loadBalancingSettings!: pulumi.Output<outputs.network.v20200101.LoadBalancingSettingsModelResponse[] | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +81,21 @@ export class FrontDoor extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Front Door Load Balancer
+     * Provisioning state of the Front Door.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200101.FrontDoorPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource status of the Front Door.
+     */
+    public readonly resourceState!: pulumi.Output<string | undefined>;
+    /**
+     * Routing rules associated with this Front Door.
+     */
+    public readonly routingRules!: pulumi.Output<outputs.network.v20200101.RoutingRuleResponse[] | undefined>;
+    /**
+     * Rules Engine Configurations available to routing rules.
+     */
+    public /*out*/ readonly rulesEngines!: pulumi.Output<outputs.network.v20200101.RulesEngineResponse[]>;
     /**
      * Resource tags.
      */
@@ -89,7 +137,10 @@ export class FrontDoor extends pulumi.CustomResource {
             inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["routingRules"] = args ? args.routingRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["cname"] = undefined /*out*/;
+            inputs["frontdoorId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["rulesEngines"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

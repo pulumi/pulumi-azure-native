@@ -14,10 +14,6 @@ class ContentItem(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the content item.
-    """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
@@ -62,7 +58,6 @@ class ContentItem(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(ContentItem, __self__).__init__(
             'azurerm:apimanagement/v20191201:ContentItem',

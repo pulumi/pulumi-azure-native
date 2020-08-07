@@ -1233,425 +1233,6 @@ func (o BlobRestoreStatusResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a container.
-type ContainerPropertiesResponse struct {
-	// Default the container to use specified encryption scope for all writes.
-	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
-	// Indicates whether the blob container was deleted.
-	Deleted bool `pulumi:"deleted"`
-	// Blob container deletion time.
-	DeletedTime string `pulumi:"deletedTime"`
-	// Block override of encryption scope from the container default.
-	DenyEncryptionScopeOverride *bool `pulumi:"denyEncryptionScopeOverride"`
-	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-	HasImmutabilityPolicy bool `pulumi:"hasImmutabilityPolicy"`
-	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-	HasLegalHold bool `pulumi:"hasLegalHold"`
-	// The ImmutabilityPolicy property of the container.
-	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponse `pulumi:"immutabilityPolicy"`
-	// Returns the date and time the container was last modified.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-	LeaseDuration string `pulumi:"leaseDuration"`
-	// Lease state of the container.
-	LeaseState string `pulumi:"leaseState"`
-	// The lease status of the container.
-	LeaseStatus string `pulumi:"leaseStatus"`
-	// The LegalHold property of the container.
-	LegalHold LegalHoldPropertiesResponse `pulumi:"legalHold"`
-	// A name-value pair to associate with the container as metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess *string `pulumi:"publicAccess"`
-	// Remaining retention days for soft deleted blob container.
-	RemainingRetentionDays int `pulumi:"remainingRetentionDays"`
-	// The version of the deleted blob container.
-	Version string `pulumi:"version"`
-}
-
-// ContainerPropertiesResponseInput is an input type that accepts ContainerPropertiesResponseArgs and ContainerPropertiesResponseOutput values.
-// You can construct a concrete instance of `ContainerPropertiesResponseInput` via:
-//
-//          ContainerPropertiesResponseArgs{...}
-type ContainerPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToContainerPropertiesResponseOutput() ContainerPropertiesResponseOutput
-	ToContainerPropertiesResponseOutputWithContext(context.Context) ContainerPropertiesResponseOutput
-}
-
-// The properties of a container.
-type ContainerPropertiesResponseArgs struct {
-	// Default the container to use specified encryption scope for all writes.
-	DefaultEncryptionScope pulumi.StringPtrInput `pulumi:"defaultEncryptionScope"`
-	// Indicates whether the blob container was deleted.
-	Deleted pulumi.BoolInput `pulumi:"deleted"`
-	// Blob container deletion time.
-	DeletedTime pulumi.StringInput `pulumi:"deletedTime"`
-	// Block override of encryption scope from the container default.
-	DenyEncryptionScopeOverride pulumi.BoolPtrInput `pulumi:"denyEncryptionScopeOverride"`
-	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-	HasImmutabilityPolicy pulumi.BoolInput `pulumi:"hasImmutabilityPolicy"`
-	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-	HasLegalHold pulumi.BoolInput `pulumi:"hasLegalHold"`
-	// The ImmutabilityPolicy property of the container.
-	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponseInput `pulumi:"immutabilityPolicy"`
-	// Returns the date and time the container was last modified.
-	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
-	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-	LeaseDuration pulumi.StringInput `pulumi:"leaseDuration"`
-	// Lease state of the container.
-	LeaseState pulumi.StringInput `pulumi:"leaseState"`
-	// The lease status of the container.
-	LeaseStatus pulumi.StringInput `pulumi:"leaseStatus"`
-	// The LegalHold property of the container.
-	LegalHold LegalHoldPropertiesResponseInput `pulumi:"legalHold"`
-	// A name-value pair to associate with the container as metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess pulumi.StringPtrInput `pulumi:"publicAccess"`
-	// Remaining retention days for soft deleted blob container.
-	RemainingRetentionDays pulumi.IntInput `pulumi:"remainingRetentionDays"`
-	// The version of the deleted blob container.
-	Version pulumi.StringInput `pulumi:"version"`
-}
-
-func (ContainerPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPropertiesResponse)(nil)).Elem()
-}
-
-func (i ContainerPropertiesResponseArgs) ToContainerPropertiesResponseOutput() ContainerPropertiesResponseOutput {
-	return i.ToContainerPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerPropertiesResponseArgs) ToContainerPropertiesResponseOutputWithContext(ctx context.Context) ContainerPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesResponseOutput)
-}
-
-func (i ContainerPropertiesResponseArgs) ToContainerPropertiesResponsePtrOutput() ContainerPropertiesResponsePtrOutput {
-	return i.ToContainerPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerPropertiesResponseArgs) ToContainerPropertiesResponsePtrOutputWithContext(ctx context.Context) ContainerPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesResponseOutput).ToContainerPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ContainerPropertiesResponsePtrInput is an input type that accepts ContainerPropertiesResponseArgs, ContainerPropertiesResponsePtr and ContainerPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ContainerPropertiesResponsePtrInput` via:
-//
-//          ContainerPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerPropertiesResponsePtrOutput() ContainerPropertiesResponsePtrOutput
-	ToContainerPropertiesResponsePtrOutputWithContext(context.Context) ContainerPropertiesResponsePtrOutput
-}
-
-type containerPropertiesResponsePtrType ContainerPropertiesResponseArgs
-
-func ContainerPropertiesResponsePtr(v *ContainerPropertiesResponseArgs) ContainerPropertiesResponsePtrInput {
-	return (*containerPropertiesResponsePtrType)(v)
-}
-
-func (*containerPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerPropertiesResponse)(nil)).Elem()
-}
-
-func (i *containerPropertiesResponsePtrType) ToContainerPropertiesResponsePtrOutput() ContainerPropertiesResponsePtrOutput {
-	return i.ToContainerPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerPropertiesResponsePtrType) ToContainerPropertiesResponsePtrOutputWithContext(ctx context.Context) ContainerPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesResponsePtrOutput)
-}
-
-// The properties of a container.
-type ContainerPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ContainerPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPropertiesResponse)(nil)).Elem()
-}
-
-func (o ContainerPropertiesResponseOutput) ToContainerPropertiesResponseOutput() ContainerPropertiesResponseOutput {
-	return o
-}
-
-func (o ContainerPropertiesResponseOutput) ToContainerPropertiesResponseOutputWithContext(ctx context.Context) ContainerPropertiesResponseOutput {
-	return o
-}
-
-func (o ContainerPropertiesResponseOutput) ToContainerPropertiesResponsePtrOutput() ContainerPropertiesResponsePtrOutput {
-	return o.ToContainerPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerPropertiesResponseOutput) ToContainerPropertiesResponsePtrOutputWithContext(ctx context.Context) ContainerPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) *ContainerPropertiesResponse {
-		return &v
-	}).(ContainerPropertiesResponsePtrOutput)
-}
-
-// Default the container to use specified encryption scope for all writes.
-func (o ContainerPropertiesResponseOutput) DefaultEncryptionScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) *string { return v.DefaultEncryptionScope }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the blob container was deleted.
-func (o ContainerPropertiesResponseOutput) Deleted() pulumi.BoolOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) bool { return v.Deleted }).(pulumi.BoolOutput)
-}
-
-// Blob container deletion time.
-func (o ContainerPropertiesResponseOutput) DeletedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) string { return v.DeletedTime }).(pulumi.StringOutput)
-}
-
-// Block override of encryption scope from the container default.
-func (o ContainerPropertiesResponseOutput) DenyEncryptionScopeOverride() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) *bool { return v.DenyEncryptionScopeOverride }).(pulumi.BoolPtrOutput)
-}
-
-// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-func (o ContainerPropertiesResponseOutput) HasImmutabilityPolicy() pulumi.BoolOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) bool { return v.HasImmutabilityPolicy }).(pulumi.BoolOutput)
-}
-
-// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-func (o ContainerPropertiesResponseOutput) HasLegalHold() pulumi.BoolOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) bool { return v.HasLegalHold }).(pulumi.BoolOutput)
-}
-
-// The ImmutabilityPolicy property of the container.
-func (o ContainerPropertiesResponseOutput) ImmutabilityPolicy() ImmutabilityPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) ImmutabilityPolicyPropertiesResponse { return v.ImmutabilityPolicy }).(ImmutabilityPolicyPropertiesResponseOutput)
-}
-
-// Returns the date and time the container was last modified.
-func (o ContainerPropertiesResponseOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) string { return v.LastModifiedTime }).(pulumi.StringOutput)
-}
-
-// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-func (o ContainerPropertiesResponseOutput) LeaseDuration() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) string { return v.LeaseDuration }).(pulumi.StringOutput)
-}
-
-// Lease state of the container.
-func (o ContainerPropertiesResponseOutput) LeaseState() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) string { return v.LeaseState }).(pulumi.StringOutput)
-}
-
-// The lease status of the container.
-func (o ContainerPropertiesResponseOutput) LeaseStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) string { return v.LeaseStatus }).(pulumi.StringOutput)
-}
-
-// The LegalHold property of the container.
-func (o ContainerPropertiesResponseOutput) LegalHold() LegalHoldPropertiesResponseOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) LegalHoldPropertiesResponse { return v.LegalHold }).(LegalHoldPropertiesResponseOutput)
-}
-
-// A name-value pair to associate with the container as metadata.
-func (o ContainerPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
-}
-
-// Specifies whether data in the container may be accessed publicly and the level of access.
-func (o ContainerPropertiesResponseOutput) PublicAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) *string { return v.PublicAccess }).(pulumi.StringPtrOutput)
-}
-
-// Remaining retention days for soft deleted blob container.
-func (o ContainerPropertiesResponseOutput) RemainingRetentionDays() pulumi.IntOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) int { return v.RemainingRetentionDays }).(pulumi.IntOutput)
-}
-
-// The version of the deleted blob container.
-func (o ContainerPropertiesResponseOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) string { return v.Version }).(pulumi.StringOutput)
-}
-
-type ContainerPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerPropertiesResponse)(nil)).Elem()
-}
-
-func (o ContainerPropertiesResponsePtrOutput) ToContainerPropertiesResponsePtrOutput() ContainerPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ContainerPropertiesResponsePtrOutput) ToContainerPropertiesResponsePtrOutputWithContext(ctx context.Context) ContainerPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ContainerPropertiesResponsePtrOutput) Elem() ContainerPropertiesResponseOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) ContainerPropertiesResponse { return *v }).(ContainerPropertiesResponseOutput)
-}
-
-// Default the container to use specified encryption scope for all writes.
-func (o ContainerPropertiesResponsePtrOutput) DefaultEncryptionScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultEncryptionScope
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the blob container was deleted.
-func (o ContainerPropertiesResponsePtrOutput) Deleted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Deleted
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Blob container deletion time.
-func (o ContainerPropertiesResponsePtrOutput) DeletedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DeletedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Block override of encryption scope from the container default.
-func (o ContainerPropertiesResponsePtrOutput) DenyEncryptionScopeOverride() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DenyEncryptionScopeOverride
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-func (o ContainerPropertiesResponsePtrOutput) HasImmutabilityPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.HasImmutabilityPolicy
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-func (o ContainerPropertiesResponsePtrOutput) HasLegalHold() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.HasLegalHold
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The ImmutabilityPolicy property of the container.
-func (o ContainerPropertiesResponsePtrOutput) ImmutabilityPolicy() ImmutabilityPolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *ImmutabilityPolicyPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.ImmutabilityPolicy
-	}).(ImmutabilityPolicyPropertiesResponsePtrOutput)
-}
-
-// Returns the date and time the container was last modified.
-func (o ContainerPropertiesResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastModifiedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-func (o ContainerPropertiesResponsePtrOutput) LeaseDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LeaseDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// Lease state of the container.
-func (o ContainerPropertiesResponsePtrOutput) LeaseState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LeaseState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The lease status of the container.
-func (o ContainerPropertiesResponsePtrOutput) LeaseStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LeaseStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// The LegalHold property of the container.
-func (o ContainerPropertiesResponsePtrOutput) LegalHold() LegalHoldPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *LegalHoldPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.LegalHold
-	}).(LegalHoldPropertiesResponsePtrOutput)
-}
-
-// A name-value pair to associate with the container as metadata.
-func (o ContainerPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(pulumi.StringMapOutput)
-}
-
-// Specifies whether data in the container may be accessed publicly and the level of access.
-func (o ContainerPropertiesResponsePtrOutput) PublicAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicAccess
-	}).(pulumi.StringPtrOutput)
-}
-
-// Remaining retention days for soft deleted blob container.
-func (o ContainerPropertiesResponsePtrOutput) RemainingRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.RemainingRetentionDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// The version of the deleted blob container.
-func (o ContainerPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
 // The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomain struct {
 	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
@@ -2690,7 +2271,7 @@ type EncryptionResponse struct {
 	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 	KeySource string `pulumi:"keySource"`
 	// Properties provided by key vault.
-	Keyvaultproperties *KeyVaultPropertiesResponse `pulumi:"keyvaultproperties"`
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
 	RequireInfrastructureEncryption *bool `pulumi:"requireInfrastructureEncryption"`
 	// List of services which support encryption.
@@ -2713,7 +2294,7 @@ type EncryptionResponseArgs struct {
 	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 	KeySource pulumi.StringInput `pulumi:"keySource"`
 	// Properties provided by key vault.
-	Keyvaultproperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyvaultproperties"`
+	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
 	// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
 	RequireInfrastructureEncryption pulumi.BoolPtrInput `pulumi:"requireInfrastructureEncryption"`
 	// List of services which support encryption.
@@ -2804,8 +2385,8 @@ func (o EncryptionResponseOutput) KeySource() pulumi.StringOutput {
 }
 
 // Properties provided by key vault.
-func (o EncryptionResponseOutput) Keyvaultproperties() KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *KeyVaultPropertiesResponse { return v.Keyvaultproperties }).(KeyVaultPropertiesResponsePtrOutput)
+func (o EncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
 }
 
 // A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
@@ -2847,12 +2428,12 @@ func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 }
 
 // Properties provided by key vault.
-func (o EncryptionResponsePtrOutput) Keyvaultproperties() KeyVaultPropertiesResponsePtrOutput {
+func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *KeyVaultPropertiesResponse {
 		if v == nil {
 			return nil
 		}
-		return v.Keyvaultproperties
+		return v.KeyVaultProperties
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
@@ -3850,368 +3431,6 @@ func (o EndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the file share.
-type FileSharePropertiesResponse struct {
-	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-	AccessTier *string `pulumi:"accessTier"`
-	// Indicates the last modification time for share access tier.
-	AccessTierChangeTime string `pulumi:"accessTierChangeTime"`
-	// Indicates if there is a pending transition for access tier.
-	AccessTierStatus string `pulumi:"accessTierStatus"`
-	// Indicates whether the share was deleted.
-	Deleted bool `pulumi:"deleted"`
-	// The deleted time if the share was deleted.
-	DeletedTime string `pulumi:"deletedTime"`
-	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
-	EnabledProtocols *string `pulumi:"enabledProtocols"`
-	// Returns the date and time the share was last modified.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// A name-value pair to associate with the share as metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// Remaining retention days for share that was soft deleted.
-	RemainingRetentionDays int `pulumi:"remainingRetentionDays"`
-	// The property is for NFS share only. The default is NoRootSquash.
-	RootSquash *string `pulumi:"rootSquash"`
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-	ShareQuota *int `pulumi:"shareQuota"`
-	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes int `pulumi:"shareUsageBytes"`
-	// The version of the share.
-	Version string `pulumi:"version"`
-}
-
-// FileSharePropertiesResponseInput is an input type that accepts FileSharePropertiesResponseArgs and FileSharePropertiesResponseOutput values.
-// You can construct a concrete instance of `FileSharePropertiesResponseInput` via:
-//
-//          FileSharePropertiesResponseArgs{...}
-type FileSharePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToFileSharePropertiesResponseOutput() FileSharePropertiesResponseOutput
-	ToFileSharePropertiesResponseOutputWithContext(context.Context) FileSharePropertiesResponseOutput
-}
-
-// The properties of the file share.
-type FileSharePropertiesResponseArgs struct {
-	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-	AccessTier pulumi.StringPtrInput `pulumi:"accessTier"`
-	// Indicates the last modification time for share access tier.
-	AccessTierChangeTime pulumi.StringInput `pulumi:"accessTierChangeTime"`
-	// Indicates if there is a pending transition for access tier.
-	AccessTierStatus pulumi.StringInput `pulumi:"accessTierStatus"`
-	// Indicates whether the share was deleted.
-	Deleted pulumi.BoolInput `pulumi:"deleted"`
-	// The deleted time if the share was deleted.
-	DeletedTime pulumi.StringInput `pulumi:"deletedTime"`
-	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
-	EnabledProtocols pulumi.StringPtrInput `pulumi:"enabledProtocols"`
-	// Returns the date and time the share was last modified.
-	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
-	// A name-value pair to associate with the share as metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// Remaining retention days for share that was soft deleted.
-	RemainingRetentionDays pulumi.IntInput `pulumi:"remainingRetentionDays"`
-	// The property is for NFS share only. The default is NoRootSquash.
-	RootSquash pulumi.StringPtrInput `pulumi:"rootSquash"`
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-	ShareQuota pulumi.IntPtrInput `pulumi:"shareQuota"`
-	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes pulumi.IntInput `pulumi:"shareUsageBytes"`
-	// The version of the share.
-	Version pulumi.StringInput `pulumi:"version"`
-}
-
-func (FileSharePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSharePropertiesResponse)(nil)).Elem()
-}
-
-func (i FileSharePropertiesResponseArgs) ToFileSharePropertiesResponseOutput() FileSharePropertiesResponseOutput {
-	return i.ToFileSharePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i FileSharePropertiesResponseArgs) ToFileSharePropertiesResponseOutputWithContext(ctx context.Context) FileSharePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSharePropertiesResponseOutput)
-}
-
-func (i FileSharePropertiesResponseArgs) ToFileSharePropertiesResponsePtrOutput() FileSharePropertiesResponsePtrOutput {
-	return i.ToFileSharePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FileSharePropertiesResponseArgs) ToFileSharePropertiesResponsePtrOutputWithContext(ctx context.Context) FileSharePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSharePropertiesResponseOutput).ToFileSharePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// FileSharePropertiesResponsePtrInput is an input type that accepts FileSharePropertiesResponseArgs, FileSharePropertiesResponsePtr and FileSharePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `FileSharePropertiesResponsePtrInput` via:
-//
-//          FileSharePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FileSharePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToFileSharePropertiesResponsePtrOutput() FileSharePropertiesResponsePtrOutput
-	ToFileSharePropertiesResponsePtrOutputWithContext(context.Context) FileSharePropertiesResponsePtrOutput
-}
-
-type fileSharePropertiesResponsePtrType FileSharePropertiesResponseArgs
-
-func FileSharePropertiesResponsePtr(v *FileSharePropertiesResponseArgs) FileSharePropertiesResponsePtrInput {
-	return (*fileSharePropertiesResponsePtrType)(v)
-}
-
-func (*fileSharePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSharePropertiesResponse)(nil)).Elem()
-}
-
-func (i *fileSharePropertiesResponsePtrType) ToFileSharePropertiesResponsePtrOutput() FileSharePropertiesResponsePtrOutput {
-	return i.ToFileSharePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *fileSharePropertiesResponsePtrType) ToFileSharePropertiesResponsePtrOutputWithContext(ctx context.Context) FileSharePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSharePropertiesResponsePtrOutput)
-}
-
-// The properties of the file share.
-type FileSharePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (FileSharePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSharePropertiesResponse)(nil)).Elem()
-}
-
-func (o FileSharePropertiesResponseOutput) ToFileSharePropertiesResponseOutput() FileSharePropertiesResponseOutput {
-	return o
-}
-
-func (o FileSharePropertiesResponseOutput) ToFileSharePropertiesResponseOutputWithContext(ctx context.Context) FileSharePropertiesResponseOutput {
-	return o
-}
-
-func (o FileSharePropertiesResponseOutput) ToFileSharePropertiesResponsePtrOutput() FileSharePropertiesResponsePtrOutput {
-	return o.ToFileSharePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FileSharePropertiesResponseOutput) ToFileSharePropertiesResponsePtrOutputWithContext(ctx context.Context) FileSharePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) *FileSharePropertiesResponse {
-		return &v
-	}).(FileSharePropertiesResponsePtrOutput)
-}
-
-// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-func (o FileSharePropertiesResponseOutput) AccessTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) *string { return v.AccessTier }).(pulumi.StringPtrOutput)
-}
-
-// Indicates the last modification time for share access tier.
-func (o FileSharePropertiesResponseOutput) AccessTierChangeTime() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) string { return v.AccessTierChangeTime }).(pulumi.StringOutput)
-}
-
-// Indicates if there is a pending transition for access tier.
-func (o FileSharePropertiesResponseOutput) AccessTierStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) string { return v.AccessTierStatus }).(pulumi.StringOutput)
-}
-
-// Indicates whether the share was deleted.
-func (o FileSharePropertiesResponseOutput) Deleted() pulumi.BoolOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) bool { return v.Deleted }).(pulumi.BoolOutput)
-}
-
-// The deleted time if the share was deleted.
-func (o FileSharePropertiesResponseOutput) DeletedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) string { return v.DeletedTime }).(pulumi.StringOutput)
-}
-
-// The authentication protocol that is used for the file share. Can only be specified when creating a share.
-func (o FileSharePropertiesResponseOutput) EnabledProtocols() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) *string { return v.EnabledProtocols }).(pulumi.StringPtrOutput)
-}
-
-// Returns the date and time the share was last modified.
-func (o FileSharePropertiesResponseOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) string { return v.LastModifiedTime }).(pulumi.StringOutput)
-}
-
-// A name-value pair to associate with the share as metadata.
-func (o FileSharePropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
-}
-
-// Remaining retention days for share that was soft deleted.
-func (o FileSharePropertiesResponseOutput) RemainingRetentionDays() pulumi.IntOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) int { return v.RemainingRetentionDays }).(pulumi.IntOutput)
-}
-
-// The property is for NFS share only. The default is NoRootSquash.
-func (o FileSharePropertiesResponseOutput) RootSquash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) *string { return v.RootSquash }).(pulumi.StringPtrOutput)
-}
-
-// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-func (o FileSharePropertiesResponseOutput) ShareQuota() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) *int { return v.ShareQuota }).(pulumi.IntPtrOutput)
-}
-
-// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-func (o FileSharePropertiesResponseOutput) ShareUsageBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) int { return v.ShareUsageBytes }).(pulumi.IntOutput)
-}
-
-// The version of the share.
-func (o FileSharePropertiesResponseOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSharePropertiesResponse) string { return v.Version }).(pulumi.StringOutput)
-}
-
-type FileSharePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (FileSharePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSharePropertiesResponse)(nil)).Elem()
-}
-
-func (o FileSharePropertiesResponsePtrOutput) ToFileSharePropertiesResponsePtrOutput() FileSharePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FileSharePropertiesResponsePtrOutput) ToFileSharePropertiesResponsePtrOutputWithContext(ctx context.Context) FileSharePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FileSharePropertiesResponsePtrOutput) Elem() FileSharePropertiesResponseOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) FileSharePropertiesResponse { return *v }).(FileSharePropertiesResponseOutput)
-}
-
-// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-func (o FileSharePropertiesResponsePtrOutput) AccessTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccessTier
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates the last modification time for share access tier.
-func (o FileSharePropertiesResponsePtrOutput) AccessTierChangeTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccessTierChangeTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates if there is a pending transition for access tier.
-func (o FileSharePropertiesResponsePtrOutput) AccessTierStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccessTierStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the share was deleted.
-func (o FileSharePropertiesResponsePtrOutput) Deleted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Deleted
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The deleted time if the share was deleted.
-func (o FileSharePropertiesResponsePtrOutput) DeletedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DeletedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The authentication protocol that is used for the file share. Can only be specified when creating a share.
-func (o FileSharePropertiesResponsePtrOutput) EnabledProtocols() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnabledProtocols
-	}).(pulumi.StringPtrOutput)
-}
-
-// Returns the date and time the share was last modified.
-func (o FileSharePropertiesResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastModifiedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// A name-value pair to associate with the share as metadata.
-func (o FileSharePropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(pulumi.StringMapOutput)
-}
-
-// Remaining retention days for share that was soft deleted.
-func (o FileSharePropertiesResponsePtrOutput) RemainingRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.RemainingRetentionDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// The property is for NFS share only. The default is NoRootSquash.
-func (o FileSharePropertiesResponsePtrOutput) RootSquash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RootSquash
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-func (o FileSharePropertiesResponsePtrOutput) ShareQuota() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ShareQuota
-	}).(pulumi.IntPtrOutput)
-}
-
-// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-func (o FileSharePropertiesResponsePtrOutput) ShareUsageBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.ShareUsageBytes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The version of the share.
-func (o FileSharePropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSharePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
 // Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.
 type GeoReplicationStatsResponse struct {
 	// A boolean flag which indicates whether or not account failover is supported for the account.
@@ -4498,7 +3717,7 @@ type IPRuleResponse struct {
 	// The action of IP ACL rule.
 	Action *string `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	Value string `pulumi:"value"`
+	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
 }
 
 // IPRuleResponseInput is an input type that accepts IPRuleResponseArgs and IPRuleResponseOutput values.
@@ -4517,7 +3736,7 @@ type IPRuleResponseArgs struct {
 	// The action of IP ACL rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	Value pulumi.StringInput `pulumi:"value"`
+	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
 
 func (IPRuleResponseArgs) ElementType() reflect.Type {
@@ -4578,8 +3797,8 @@ func (o IPRuleResponseOutput) Action() pulumi.StringPtrOutput {
 }
 
 // Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-func (o IPRuleResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPRuleResponse) string { return v.Value }).(pulumi.StringOutput)
+func (o IPRuleResponseOutput) IPAddressOrRange() pulumi.StringOutput {
+	return o.ApplyT(func(v IPRuleResponse) string { return v.IPAddressOrRange }).(pulumi.StringOutput)
 }
 
 type IPRuleResponseArrayOutput struct{ *pulumi.OutputState }
@@ -4910,10 +4129,14 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 // The properties of an ImmutabilityPolicy of a blob container.
 type ImmutabilityPolicyPropertiesResponse struct {
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
 	// ImmutabilityPolicy Etag.
 	Etag string `pulumi:"etag"`
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties *ImmutabilityPolicyPropertyResponse `pulumi:"properties"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+	State string `pulumi:"state"`
 	// The ImmutabilityPolicy update history of the blob container.
 	UpdateHistory []UpdateHistoryPropertyResponse `pulumi:"updateHistory"`
 }
@@ -4931,10 +4154,14 @@ type ImmutabilityPolicyPropertiesResponseInput interface {
 
 // The properties of an ImmutabilityPolicy of a blob container.
 type ImmutabilityPolicyPropertiesResponseArgs struct {
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	AllowProtectedAppendWrites pulumi.BoolPtrInput `pulumi:"allowProtectedAppendWrites"`
 	// ImmutabilityPolicy Etag.
 	Etag pulumi.StringInput `pulumi:"etag"`
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyPropertyResponsePtrInput `pulumi:"properties"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+	State pulumi.StringInput `pulumi:"state"`
 	// The ImmutabilityPolicy update history of the blob container.
 	UpdateHistory UpdateHistoryPropertyResponseArrayInput `pulumi:"updateHistory"`
 }
@@ -5017,14 +4244,24 @@ func (o ImmutabilityPolicyPropertiesResponseOutput) ToImmutabilityPolicyProperti
 	}).(ImmutabilityPolicyPropertiesResponsePtrOutput)
 }
 
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+func (o ImmutabilityPolicyPropertiesResponseOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) *bool { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
+}
+
 // ImmutabilityPolicy Etag.
 func (o ImmutabilityPolicyPropertiesResponseOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The properties of an ImmutabilityPolicy of a blob container.
-func (o ImmutabilityPolicyPropertiesResponseOutput) Properties() ImmutabilityPolicyPropertyResponsePtrOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) *ImmutabilityPolicyPropertyResponse { return v.Properties }).(ImmutabilityPolicyPropertyResponsePtrOutput)
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o ImmutabilityPolicyPropertiesResponseOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) *int { return v.ImmutabilityPeriodSinceCreationInDays }).(pulumi.IntPtrOutput)
+}
+
+// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+func (o ImmutabilityPolicyPropertiesResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
 // The ImmutabilityPolicy update history of the blob container.
@@ -5050,6 +4287,16 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Elem() ImmutabilityPolicy
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) ImmutabilityPolicyPropertiesResponse { return *v }).(ImmutabilityPolicyPropertiesResponseOutput)
 }
 
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+func (o ImmutabilityPolicyPropertiesResponsePtrOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowProtectedAppendWrites
+	}).(pulumi.BoolPtrOutput)
+}
+
 // ImmutabilityPolicy Etag.
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *string {
@@ -5060,14 +4307,24 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of an ImmutabilityPolicy of a blob container.
-func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Properties() ImmutabilityPolicyPropertyResponsePtrOutput {
-	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *ImmutabilityPolicyPropertyResponse {
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o ImmutabilityPolicyPropertiesResponsePtrOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *int {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(ImmutabilityPolicyPropertyResponsePtrOutput)
+		return v.ImmutabilityPeriodSinceCreationInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+func (o ImmutabilityPolicyPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ImmutabilityPolicy update history of the blob container.
@@ -5078,178 +4335,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) UpdateHistory() UpdateHis
 		}
 		return v.UpdateHistory
 	}).(UpdateHistoryPropertyResponseArrayOutput)
-}
-
-// The properties of an ImmutabilityPolicy of a blob container.
-type ImmutabilityPolicyPropertyResponse struct {
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-	State string `pulumi:"state"`
-}
-
-// ImmutabilityPolicyPropertyResponseInput is an input type that accepts ImmutabilityPolicyPropertyResponseArgs and ImmutabilityPolicyPropertyResponseOutput values.
-// You can construct a concrete instance of `ImmutabilityPolicyPropertyResponseInput` via:
-//
-//          ImmutabilityPolicyPropertyResponseArgs{...}
-type ImmutabilityPolicyPropertyResponseInput interface {
-	pulumi.Input
-
-	ToImmutabilityPolicyPropertyResponseOutput() ImmutabilityPolicyPropertyResponseOutput
-	ToImmutabilityPolicyPropertyResponseOutputWithContext(context.Context) ImmutabilityPolicyPropertyResponseOutput
-}
-
-// The properties of an ImmutabilityPolicy of a blob container.
-type ImmutabilityPolicyPropertyResponseArgs struct {
-	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-	AllowProtectedAppendWrites pulumi.BoolPtrInput `pulumi:"allowProtectedAppendWrites"`
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (ImmutabilityPolicyPropertyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImmutabilityPolicyPropertyResponse)(nil)).Elem()
-}
-
-func (i ImmutabilityPolicyPropertyResponseArgs) ToImmutabilityPolicyPropertyResponseOutput() ImmutabilityPolicyPropertyResponseOutput {
-	return i.ToImmutabilityPolicyPropertyResponseOutputWithContext(context.Background())
-}
-
-func (i ImmutabilityPolicyPropertyResponseArgs) ToImmutabilityPolicyPropertyResponseOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilityPolicyPropertyResponseOutput)
-}
-
-func (i ImmutabilityPolicyPropertyResponseArgs) ToImmutabilityPolicyPropertyResponsePtrOutput() ImmutabilityPolicyPropertyResponsePtrOutput {
-	return i.ToImmutabilityPolicyPropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ImmutabilityPolicyPropertyResponseArgs) ToImmutabilityPolicyPropertyResponsePtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilityPolicyPropertyResponseOutput).ToImmutabilityPolicyPropertyResponsePtrOutputWithContext(ctx)
-}
-
-// ImmutabilityPolicyPropertyResponsePtrInput is an input type that accepts ImmutabilityPolicyPropertyResponseArgs, ImmutabilityPolicyPropertyResponsePtr and ImmutabilityPolicyPropertyResponsePtrOutput values.
-// You can construct a concrete instance of `ImmutabilityPolicyPropertyResponsePtrInput` via:
-//
-//          ImmutabilityPolicyPropertyResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ImmutabilityPolicyPropertyResponsePtrInput interface {
-	pulumi.Input
-
-	ToImmutabilityPolicyPropertyResponsePtrOutput() ImmutabilityPolicyPropertyResponsePtrOutput
-	ToImmutabilityPolicyPropertyResponsePtrOutputWithContext(context.Context) ImmutabilityPolicyPropertyResponsePtrOutput
-}
-
-type immutabilityPolicyPropertyResponsePtrType ImmutabilityPolicyPropertyResponseArgs
-
-func ImmutabilityPolicyPropertyResponsePtr(v *ImmutabilityPolicyPropertyResponseArgs) ImmutabilityPolicyPropertyResponsePtrInput {
-	return (*immutabilityPolicyPropertyResponsePtrType)(v)
-}
-
-func (*immutabilityPolicyPropertyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImmutabilityPolicyPropertyResponse)(nil)).Elem()
-}
-
-func (i *immutabilityPolicyPropertyResponsePtrType) ToImmutabilityPolicyPropertyResponsePtrOutput() ImmutabilityPolicyPropertyResponsePtrOutput {
-	return i.ToImmutabilityPolicyPropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *immutabilityPolicyPropertyResponsePtrType) ToImmutabilityPolicyPropertyResponsePtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilityPolicyPropertyResponsePtrOutput)
-}
-
-// The properties of an ImmutabilityPolicy of a blob container.
-type ImmutabilityPolicyPropertyResponseOutput struct{ *pulumi.OutputState }
-
-func (ImmutabilityPolicyPropertyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImmutabilityPolicyPropertyResponse)(nil)).Elem()
-}
-
-func (o ImmutabilityPolicyPropertyResponseOutput) ToImmutabilityPolicyPropertyResponseOutput() ImmutabilityPolicyPropertyResponseOutput {
-	return o
-}
-
-func (o ImmutabilityPolicyPropertyResponseOutput) ToImmutabilityPolicyPropertyResponseOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyResponseOutput {
-	return o
-}
-
-func (o ImmutabilityPolicyPropertyResponseOutput) ToImmutabilityPolicyPropertyResponsePtrOutput() ImmutabilityPolicyPropertyResponsePtrOutput {
-	return o.ToImmutabilityPolicyPropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ImmutabilityPolicyPropertyResponseOutput) ToImmutabilityPolicyPropertyResponsePtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyResponsePtrOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyPropertyResponse) *ImmutabilityPolicyPropertyResponse {
-		return &v
-	}).(ImmutabilityPolicyPropertyResponsePtrOutput)
-}
-
-// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-func (o ImmutabilityPolicyPropertyResponseOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyPropertyResponse) *bool { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
-}
-
-// The immutability period for the blobs in the container since the policy creation, in days.
-func (o ImmutabilityPolicyPropertyResponseOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyPropertyResponse) *int { return v.ImmutabilityPeriodSinceCreationInDays }).(pulumi.IntPtrOutput)
-}
-
-// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-func (o ImmutabilityPolicyPropertyResponseOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyPropertyResponse) string { return v.State }).(pulumi.StringOutput)
-}
-
-type ImmutabilityPolicyPropertyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ImmutabilityPolicyPropertyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImmutabilityPolicyPropertyResponse)(nil)).Elem()
-}
-
-func (o ImmutabilityPolicyPropertyResponsePtrOutput) ToImmutabilityPolicyPropertyResponsePtrOutput() ImmutabilityPolicyPropertyResponsePtrOutput {
-	return o
-}
-
-func (o ImmutabilityPolicyPropertyResponsePtrOutput) ToImmutabilityPolicyPropertyResponsePtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyResponsePtrOutput {
-	return o
-}
-
-func (o ImmutabilityPolicyPropertyResponsePtrOutput) Elem() ImmutabilityPolicyPropertyResponseOutput {
-	return o.ApplyT(func(v *ImmutabilityPolicyPropertyResponse) ImmutabilityPolicyPropertyResponse { return *v }).(ImmutabilityPolicyPropertyResponseOutput)
-}
-
-// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-func (o ImmutabilityPolicyPropertyResponsePtrOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ImmutabilityPolicyPropertyResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowProtectedAppendWrites
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The immutability period for the blobs in the container since the policy creation, in days.
-func (o ImmutabilityPolicyPropertyResponsePtrOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ImmutabilityPolicyPropertyResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ImmutabilityPeriodSinceCreationInDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-func (o ImmutabilityPolicyPropertyResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImmutabilityPolicyPropertyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.State
-	}).(pulumi.StringPtrOutput)
 }
 
 // Properties of key vault.
@@ -5429,11 +4514,11 @@ type KeyVaultPropertiesResponse struct {
 	// The object identifier of the current versioned Key Vault Key in use.
 	CurrentVersionedKeyIdentifier string `pulumi:"currentVersionedKeyIdentifier"`
 	// The name of KeyVault key.
-	Keyname *string `pulumi:"keyname"`
+	KeyName *string `pulumi:"keyName"`
 	// The Uri of KeyVault.
-	Keyvaulturi *string `pulumi:"keyvaulturi"`
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of KeyVault key.
-	Keyversion *string `pulumi:"keyversion"`
+	KeyVersion *string `pulumi:"keyVersion"`
 	// Timestamp of last rotation of the Key Vault Key.
 	LastKeyRotationTimestamp string `pulumi:"lastKeyRotationTimestamp"`
 }
@@ -5454,11 +4539,11 @@ type KeyVaultPropertiesResponseArgs struct {
 	// The object identifier of the current versioned Key Vault Key in use.
 	CurrentVersionedKeyIdentifier pulumi.StringInput `pulumi:"currentVersionedKeyIdentifier"`
 	// The name of KeyVault key.
-	Keyname pulumi.StringPtrInput `pulumi:"keyname"`
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// The Uri of KeyVault.
-	Keyvaulturi pulumi.StringPtrInput `pulumi:"keyvaulturi"`
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of KeyVault key.
-	Keyversion pulumi.StringPtrInput `pulumi:"keyversion"`
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
 	// Timestamp of last rotation of the Key Vault Key.
 	LastKeyRotationTimestamp pulumi.StringInput `pulumi:"lastKeyRotationTimestamp"`
 }
@@ -5547,18 +4632,18 @@ func (o KeyVaultPropertiesResponseOutput) CurrentVersionedKeyIdentifier() pulumi
 }
 
 // The name of KeyVault key.
-func (o KeyVaultPropertiesResponseOutput) Keyname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.Keyname }).(pulumi.StringPtrOutput)
+func (o KeyVaultPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
 // The Uri of KeyVault.
-func (o KeyVaultPropertiesResponseOutput) Keyvaulturi() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.Keyvaulturi }).(pulumi.StringPtrOutput)
+func (o KeyVaultPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
 // The version of KeyVault key.
-func (o KeyVaultPropertiesResponseOutput) Keyversion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.Keyversion }).(pulumi.StringPtrOutput)
+func (o KeyVaultPropertiesResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
 // Timestamp of last rotation of the Key Vault Key.
@@ -5595,32 +4680,32 @@ func (o KeyVaultPropertiesResponsePtrOutput) CurrentVersionedKeyIdentifier() pul
 }
 
 // The name of KeyVault key.
-func (o KeyVaultPropertiesResponsePtrOutput) Keyname() pulumi.StringPtrOutput {
+func (o KeyVaultPropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyname
+		return v.KeyName
 	}).(pulumi.StringPtrOutput)
 }
 
 // The Uri of KeyVault.
-func (o KeyVaultPropertiesResponsePtrOutput) Keyvaulturi() pulumi.StringPtrOutput {
+func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyvaulturi
+		return v.KeyVaultUri
 	}).(pulumi.StringPtrOutput)
 }
 
 // The version of KeyVault key.
-func (o KeyVaultPropertiesResponsePtrOutput) Keyversion() pulumi.StringPtrOutput {
+func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyversion
+		return v.KeyVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6729,159 +5814,6 @@ func (o ManagementPolicyFilterResponsePtrOutput) PrefixMatch() pulumi.StringArra
 		}
 		return v.PrefixMatch
 	}).(pulumi.StringArrayOutput)
-}
-
-// The Storage Account ManagementPolicy properties.
-type ManagementPolicyPropertiesResponse struct {
-	// Returns the date and time the ManagementPolicies was last modified.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy ManagementPolicySchemaResponse `pulumi:"policy"`
-}
-
-// ManagementPolicyPropertiesResponseInput is an input type that accepts ManagementPolicyPropertiesResponseArgs and ManagementPolicyPropertiesResponseOutput values.
-// You can construct a concrete instance of `ManagementPolicyPropertiesResponseInput` via:
-//
-//          ManagementPolicyPropertiesResponseArgs{...}
-type ManagementPolicyPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToManagementPolicyPropertiesResponseOutput() ManagementPolicyPropertiesResponseOutput
-	ToManagementPolicyPropertiesResponseOutputWithContext(context.Context) ManagementPolicyPropertiesResponseOutput
-}
-
-// The Storage Account ManagementPolicy properties.
-type ManagementPolicyPropertiesResponseArgs struct {
-	// Returns the date and time the ManagementPolicies was last modified.
-	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
-	// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy ManagementPolicySchemaResponseInput `pulumi:"policy"`
-}
-
-func (ManagementPolicyPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i ManagementPolicyPropertiesResponseArgs) ToManagementPolicyPropertiesResponseOutput() ManagementPolicyPropertiesResponseOutput {
-	return i.ToManagementPolicyPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ManagementPolicyPropertiesResponseArgs) ToManagementPolicyPropertiesResponseOutputWithContext(ctx context.Context) ManagementPolicyPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyPropertiesResponseOutput)
-}
-
-func (i ManagementPolicyPropertiesResponseArgs) ToManagementPolicyPropertiesResponsePtrOutput() ManagementPolicyPropertiesResponsePtrOutput {
-	return i.ToManagementPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagementPolicyPropertiesResponseArgs) ToManagementPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyPropertiesResponseOutput).ToManagementPolicyPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ManagementPolicyPropertiesResponsePtrInput is an input type that accepts ManagementPolicyPropertiesResponseArgs, ManagementPolicyPropertiesResponsePtr and ManagementPolicyPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ManagementPolicyPropertiesResponsePtrInput` via:
-//
-//          ManagementPolicyPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ManagementPolicyPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagementPolicyPropertiesResponsePtrOutput() ManagementPolicyPropertiesResponsePtrOutput
-	ToManagementPolicyPropertiesResponsePtrOutputWithContext(context.Context) ManagementPolicyPropertiesResponsePtrOutput
-}
-
-type managementPolicyPropertiesResponsePtrType ManagementPolicyPropertiesResponseArgs
-
-func ManagementPolicyPropertiesResponsePtr(v *ManagementPolicyPropertiesResponseArgs) ManagementPolicyPropertiesResponsePtrInput {
-	return (*managementPolicyPropertiesResponsePtrType)(v)
-}
-
-func (*managementPolicyPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i *managementPolicyPropertiesResponsePtrType) ToManagementPolicyPropertiesResponsePtrOutput() ManagementPolicyPropertiesResponsePtrOutput {
-	return i.ToManagementPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managementPolicyPropertiesResponsePtrType) ToManagementPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyPropertiesResponsePtrOutput)
-}
-
-// The Storage Account ManagementPolicy properties.
-type ManagementPolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ManagementPolicyPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (o ManagementPolicyPropertiesResponseOutput) ToManagementPolicyPropertiesResponseOutput() ManagementPolicyPropertiesResponseOutput {
-	return o
-}
-
-func (o ManagementPolicyPropertiesResponseOutput) ToManagementPolicyPropertiesResponseOutputWithContext(ctx context.Context) ManagementPolicyPropertiesResponseOutput {
-	return o
-}
-
-func (o ManagementPolicyPropertiesResponseOutput) ToManagementPolicyPropertiesResponsePtrOutput() ManagementPolicyPropertiesResponsePtrOutput {
-	return o.ToManagementPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagementPolicyPropertiesResponseOutput) ToManagementPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ManagementPolicyPropertiesResponse) *ManagementPolicyPropertiesResponse {
-		return &v
-	}).(ManagementPolicyPropertiesResponsePtrOutput)
-}
-
-// Returns the date and time the ManagementPolicies was last modified.
-func (o ManagementPolicyPropertiesResponseOutput) LastModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagementPolicyPropertiesResponse) string { return v.LastModifiedTime }).(pulumi.StringOutput)
-}
-
-// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-func (o ManagementPolicyPropertiesResponseOutput) Policy() ManagementPolicySchemaResponseOutput {
-	return o.ApplyT(func(v ManagementPolicyPropertiesResponse) ManagementPolicySchemaResponse { return v.Policy }).(ManagementPolicySchemaResponseOutput)
-}
-
-type ManagementPolicyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ManagementPolicyPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (o ManagementPolicyPropertiesResponsePtrOutput) ToManagementPolicyPropertiesResponsePtrOutput() ManagementPolicyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ManagementPolicyPropertiesResponsePtrOutput) ToManagementPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ManagementPolicyPropertiesResponsePtrOutput) Elem() ManagementPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v *ManagementPolicyPropertiesResponse) ManagementPolicyPropertiesResponse { return *v }).(ManagementPolicyPropertiesResponseOutput)
-}
-
-// Returns the date and time the ManagementPolicies was last modified.
-func (o ManagementPolicyPropertiesResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagementPolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastModifiedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-func (o ManagementPolicyPropertiesResponsePtrOutput) Policy() ManagementPolicySchemaResponsePtrOutput {
-	return o.ApplyT(func(v *ManagementPolicyPropertiesResponse) *ManagementPolicySchemaResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Policy
-	}).(ManagementPolicySchemaResponsePtrOutput)
 }
 
 // An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
@@ -8362,220 +7294,6 @@ func (o ObjectReplicationPolicyFilterResponsePtrOutput) PrefixMatch() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Storage Account ObjectReplicationPolicy properties.
-type ObjectReplicationPolicyPropertiesResponse struct {
-	// Required. Destination account name.
-	DestinationAccount string `pulumi:"destinationAccount"`
-	// Indicates when the policy is enabled on the source account.
-	EnabledTime string `pulumi:"enabledTime"`
-	// A unique id for object replication policy.
-	PolicyId string `pulumi:"policyId"`
-	// The storage account object replication rules.
-	Rules []ObjectReplicationPolicyRuleResponse `pulumi:"rules"`
-	// Required. Source account name.
-	SourceAccount string `pulumi:"sourceAccount"`
-}
-
-// ObjectReplicationPolicyPropertiesResponseInput is an input type that accepts ObjectReplicationPolicyPropertiesResponseArgs and ObjectReplicationPolicyPropertiesResponseOutput values.
-// You can construct a concrete instance of `ObjectReplicationPolicyPropertiesResponseInput` via:
-//
-//          ObjectReplicationPolicyPropertiesResponseArgs{...}
-type ObjectReplicationPolicyPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToObjectReplicationPolicyPropertiesResponseOutput() ObjectReplicationPolicyPropertiesResponseOutput
-	ToObjectReplicationPolicyPropertiesResponseOutputWithContext(context.Context) ObjectReplicationPolicyPropertiesResponseOutput
-}
-
-// The Storage Account ObjectReplicationPolicy properties.
-type ObjectReplicationPolicyPropertiesResponseArgs struct {
-	// Required. Destination account name.
-	DestinationAccount pulumi.StringInput `pulumi:"destinationAccount"`
-	// Indicates when the policy is enabled on the source account.
-	EnabledTime pulumi.StringInput `pulumi:"enabledTime"`
-	// A unique id for object replication policy.
-	PolicyId pulumi.StringInput `pulumi:"policyId"`
-	// The storage account object replication rules.
-	Rules ObjectReplicationPolicyRuleResponseArrayInput `pulumi:"rules"`
-	// Required. Source account name.
-	SourceAccount pulumi.StringInput `pulumi:"sourceAccount"`
-}
-
-func (ObjectReplicationPolicyPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectReplicationPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i ObjectReplicationPolicyPropertiesResponseArgs) ToObjectReplicationPolicyPropertiesResponseOutput() ObjectReplicationPolicyPropertiesResponseOutput {
-	return i.ToObjectReplicationPolicyPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ObjectReplicationPolicyPropertiesResponseArgs) ToObjectReplicationPolicyPropertiesResponseOutputWithContext(ctx context.Context) ObjectReplicationPolicyPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationPolicyPropertiesResponseOutput)
-}
-
-func (i ObjectReplicationPolicyPropertiesResponseArgs) ToObjectReplicationPolicyPropertiesResponsePtrOutput() ObjectReplicationPolicyPropertiesResponsePtrOutput {
-	return i.ToObjectReplicationPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ObjectReplicationPolicyPropertiesResponseArgs) ToObjectReplicationPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ObjectReplicationPolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationPolicyPropertiesResponseOutput).ToObjectReplicationPolicyPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ObjectReplicationPolicyPropertiesResponsePtrInput is an input type that accepts ObjectReplicationPolicyPropertiesResponseArgs, ObjectReplicationPolicyPropertiesResponsePtr and ObjectReplicationPolicyPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ObjectReplicationPolicyPropertiesResponsePtrInput` via:
-//
-//          ObjectReplicationPolicyPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ObjectReplicationPolicyPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToObjectReplicationPolicyPropertiesResponsePtrOutput() ObjectReplicationPolicyPropertiesResponsePtrOutput
-	ToObjectReplicationPolicyPropertiesResponsePtrOutputWithContext(context.Context) ObjectReplicationPolicyPropertiesResponsePtrOutput
-}
-
-type objectReplicationPolicyPropertiesResponsePtrType ObjectReplicationPolicyPropertiesResponseArgs
-
-func ObjectReplicationPolicyPropertiesResponsePtr(v *ObjectReplicationPolicyPropertiesResponseArgs) ObjectReplicationPolicyPropertiesResponsePtrInput {
-	return (*objectReplicationPolicyPropertiesResponsePtrType)(v)
-}
-
-func (*objectReplicationPolicyPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectReplicationPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i *objectReplicationPolicyPropertiesResponsePtrType) ToObjectReplicationPolicyPropertiesResponsePtrOutput() ObjectReplicationPolicyPropertiesResponsePtrOutput {
-	return i.ToObjectReplicationPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *objectReplicationPolicyPropertiesResponsePtrType) ToObjectReplicationPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ObjectReplicationPolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationPolicyPropertiesResponsePtrOutput)
-}
-
-// The Storage Account ObjectReplicationPolicy properties.
-type ObjectReplicationPolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ObjectReplicationPolicyPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectReplicationPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (o ObjectReplicationPolicyPropertiesResponseOutput) ToObjectReplicationPolicyPropertiesResponseOutput() ObjectReplicationPolicyPropertiesResponseOutput {
-	return o
-}
-
-func (o ObjectReplicationPolicyPropertiesResponseOutput) ToObjectReplicationPolicyPropertiesResponseOutputWithContext(ctx context.Context) ObjectReplicationPolicyPropertiesResponseOutput {
-	return o
-}
-
-func (o ObjectReplicationPolicyPropertiesResponseOutput) ToObjectReplicationPolicyPropertiesResponsePtrOutput() ObjectReplicationPolicyPropertiesResponsePtrOutput {
-	return o.ToObjectReplicationPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ObjectReplicationPolicyPropertiesResponseOutput) ToObjectReplicationPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ObjectReplicationPolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ObjectReplicationPolicyPropertiesResponse) *ObjectReplicationPolicyPropertiesResponse {
-		return &v
-	}).(ObjectReplicationPolicyPropertiesResponsePtrOutput)
-}
-
-// Required. Destination account name.
-func (o ObjectReplicationPolicyPropertiesResponseOutput) DestinationAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v ObjectReplicationPolicyPropertiesResponse) string { return v.DestinationAccount }).(pulumi.StringOutput)
-}
-
-// Indicates when the policy is enabled on the source account.
-func (o ObjectReplicationPolicyPropertiesResponseOutput) EnabledTime() pulumi.StringOutput {
-	return o.ApplyT(func(v ObjectReplicationPolicyPropertiesResponse) string { return v.EnabledTime }).(pulumi.StringOutput)
-}
-
-// A unique id for object replication policy.
-func (o ObjectReplicationPolicyPropertiesResponseOutput) PolicyId() pulumi.StringOutput {
-	return o.ApplyT(func(v ObjectReplicationPolicyPropertiesResponse) string { return v.PolicyId }).(pulumi.StringOutput)
-}
-
-// The storage account object replication rules.
-func (o ObjectReplicationPolicyPropertiesResponseOutput) Rules() ObjectReplicationPolicyRuleResponseArrayOutput {
-	return o.ApplyT(func(v ObjectReplicationPolicyPropertiesResponse) []ObjectReplicationPolicyRuleResponse {
-		return v.Rules
-	}).(ObjectReplicationPolicyRuleResponseArrayOutput)
-}
-
-// Required. Source account name.
-func (o ObjectReplicationPolicyPropertiesResponseOutput) SourceAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v ObjectReplicationPolicyPropertiesResponse) string { return v.SourceAccount }).(pulumi.StringOutput)
-}
-
-type ObjectReplicationPolicyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ObjectReplicationPolicyPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectReplicationPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (o ObjectReplicationPolicyPropertiesResponsePtrOutput) ToObjectReplicationPolicyPropertiesResponsePtrOutput() ObjectReplicationPolicyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ObjectReplicationPolicyPropertiesResponsePtrOutput) ToObjectReplicationPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ObjectReplicationPolicyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ObjectReplicationPolicyPropertiesResponsePtrOutput) Elem() ObjectReplicationPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v *ObjectReplicationPolicyPropertiesResponse) ObjectReplicationPolicyPropertiesResponse {
-		return *v
-	}).(ObjectReplicationPolicyPropertiesResponseOutput)
-}
-
-// Required. Destination account name.
-func (o ObjectReplicationPolicyPropertiesResponsePtrOutput) DestinationAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectReplicationPolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DestinationAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates when the policy is enabled on the source account.
-func (o ObjectReplicationPolicyPropertiesResponsePtrOutput) EnabledTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectReplicationPolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EnabledTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// A unique id for object replication policy.
-func (o ObjectReplicationPolicyPropertiesResponsePtrOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectReplicationPolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PolicyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The storage account object replication rules.
-func (o ObjectReplicationPolicyPropertiesResponsePtrOutput) Rules() ObjectReplicationPolicyRuleResponseArrayOutput {
-	return o.ApplyT(func(v *ObjectReplicationPolicyPropertiesResponse) []ObjectReplicationPolicyRuleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Rules
-	}).(ObjectReplicationPolicyRuleResponseArrayOutput)
-}
-
-// Required. Source account name.
-func (o ObjectReplicationPolicyPropertiesResponsePtrOutput) SourceAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectReplicationPolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceAccount
-	}).(pulumi.StringPtrOutput)
-}
-
 // The replication policy rule between two containers.
 type ObjectReplicationPolicyRule struct {
 	// Required. Destination container name.
@@ -8830,190 +7548,18 @@ func (o ObjectReplicationPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ObjectReplicationPolicyRuleResponseOutput)
 }
 
-// Properties of the PrivateEndpointConnectProperties.
-type PrivateEndpointConnectionPropertiesResponse struct {
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-}
-
-// PrivateEndpointConnectionPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs and PrivateEndpointConnectionPropertiesResponseOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesResponseInput` via:
-//
-//          PrivateEndpointConnectionPropertiesResponseArgs{...}
-type PrivateEndpointConnectionPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesResponseOutput() PrivateEndpointConnectionPropertiesResponseOutput
-	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
-}
-
-// Properties of the PrivateEndpointConnectProperties.
-type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (PrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponseOutput() PrivateEndpointConnectionPropertiesResponseOutput {
-	return i.ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponseOutput).ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// PrivateEndpointConnectionPropertiesResponsePtrInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs, PrivateEndpointConnectionPropertiesResponsePtr and PrivateEndpointConnectionPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesResponsePtrInput` via:
-//
-//          PrivateEndpointConnectionPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateEndpointConnectionPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput
-	ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput
-}
-
-type privateEndpointConnectionPropertiesResponsePtrType PrivateEndpointConnectionPropertiesResponseArgs
-
-func PrivateEndpointConnectionPropertiesResponsePtr(v *PrivateEndpointConnectionPropertiesResponseArgs) PrivateEndpointConnectionPropertiesResponsePtrInput {
-	return (*privateEndpointConnectionPropertiesResponsePtrType)(v)
-}
-
-func (*privateEndpointConnectionPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
-}
-
-func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
-}
-
-// Properties of the PrivateEndpointConnectProperties.
-type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponseOutput() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponseOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
-		return &v
-	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
-}
-
-// The resource of private end point.
-func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) PrivateLinkServiceConnectionStateResponse {
-		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStateResponseOutput)
-}
-
-// The provisioning state of the private endpoint connection resource.
-func (o PrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-type PrivateEndpointConnectionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutput() PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		return *v
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The resource of private end point.
-func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateEndpoint
-	}).(PrivateEndpointResponsePtrOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
-}
-
-// The provisioning state of the private endpoint connection resource.
-func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }
@@ -9035,8 +7581,12 @@ type PrivateEndpointConnectionResponseArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of the resource
 	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponsePtrInput `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -9103,11 +7653,21 @@ func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource properties.
-func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
+// The resource of private end point.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -9613,156 +8173,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 		}
 		return v.Status
 	}).(pulumi.StringPtrOutput)
-}
-
-type QueuePropertiesResponse struct {
-	// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
-	ApproximateMessageCount int `pulumi:"approximateMessageCount"`
-	// A name-value pair that represents queue metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-}
-
-// QueuePropertiesResponseInput is an input type that accepts QueuePropertiesResponseArgs and QueuePropertiesResponseOutput values.
-// You can construct a concrete instance of `QueuePropertiesResponseInput` via:
-//
-//          QueuePropertiesResponseArgs{...}
-type QueuePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToQueuePropertiesResponseOutput() QueuePropertiesResponseOutput
-	ToQueuePropertiesResponseOutputWithContext(context.Context) QueuePropertiesResponseOutput
-}
-
-type QueuePropertiesResponseArgs struct {
-	// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
-	ApproximateMessageCount pulumi.IntInput `pulumi:"approximateMessageCount"`
-	// A name-value pair that represents queue metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-}
-
-func (QueuePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueuePropertiesResponse)(nil)).Elem()
-}
-
-func (i QueuePropertiesResponseArgs) ToQueuePropertiesResponseOutput() QueuePropertiesResponseOutput {
-	return i.ToQueuePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i QueuePropertiesResponseArgs) ToQueuePropertiesResponseOutputWithContext(ctx context.Context) QueuePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueuePropertiesResponseOutput)
-}
-
-func (i QueuePropertiesResponseArgs) ToQueuePropertiesResponsePtrOutput() QueuePropertiesResponsePtrOutput {
-	return i.ToQueuePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i QueuePropertiesResponseArgs) ToQueuePropertiesResponsePtrOutputWithContext(ctx context.Context) QueuePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueuePropertiesResponseOutput).ToQueuePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// QueuePropertiesResponsePtrInput is an input type that accepts QueuePropertiesResponseArgs, QueuePropertiesResponsePtr and QueuePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `QueuePropertiesResponsePtrInput` via:
-//
-//          QueuePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type QueuePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToQueuePropertiesResponsePtrOutput() QueuePropertiesResponsePtrOutput
-	ToQueuePropertiesResponsePtrOutputWithContext(context.Context) QueuePropertiesResponsePtrOutput
-}
-
-type queuePropertiesResponsePtrType QueuePropertiesResponseArgs
-
-func QueuePropertiesResponsePtr(v *QueuePropertiesResponseArgs) QueuePropertiesResponsePtrInput {
-	return (*queuePropertiesResponsePtrType)(v)
-}
-
-func (*queuePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueuePropertiesResponse)(nil)).Elem()
-}
-
-func (i *queuePropertiesResponsePtrType) ToQueuePropertiesResponsePtrOutput() QueuePropertiesResponsePtrOutput {
-	return i.ToQueuePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *queuePropertiesResponsePtrType) ToQueuePropertiesResponsePtrOutputWithContext(ctx context.Context) QueuePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueuePropertiesResponsePtrOutput)
-}
-
-type QueuePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (QueuePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueuePropertiesResponse)(nil)).Elem()
-}
-
-func (o QueuePropertiesResponseOutput) ToQueuePropertiesResponseOutput() QueuePropertiesResponseOutput {
-	return o
-}
-
-func (o QueuePropertiesResponseOutput) ToQueuePropertiesResponseOutputWithContext(ctx context.Context) QueuePropertiesResponseOutput {
-	return o
-}
-
-func (o QueuePropertiesResponseOutput) ToQueuePropertiesResponsePtrOutput() QueuePropertiesResponsePtrOutput {
-	return o.ToQueuePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o QueuePropertiesResponseOutput) ToQueuePropertiesResponsePtrOutputWithContext(ctx context.Context) QueuePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v QueuePropertiesResponse) *QueuePropertiesResponse {
-		return &v
-	}).(QueuePropertiesResponsePtrOutput)
-}
-
-// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
-func (o QueuePropertiesResponseOutput) ApproximateMessageCount() pulumi.IntOutput {
-	return o.ApplyT(func(v QueuePropertiesResponse) int { return v.ApproximateMessageCount }).(pulumi.IntOutput)
-}
-
-// A name-value pair that represents queue metadata.
-func (o QueuePropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v QueuePropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
-}
-
-type QueuePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (QueuePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueuePropertiesResponse)(nil)).Elem()
-}
-
-func (o QueuePropertiesResponsePtrOutput) ToQueuePropertiesResponsePtrOutput() QueuePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o QueuePropertiesResponsePtrOutput) ToQueuePropertiesResponsePtrOutputWithContext(ctx context.Context) QueuePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o QueuePropertiesResponsePtrOutput) Elem() QueuePropertiesResponseOutput {
-	return o.ApplyT(func(v *QueuePropertiesResponse) QueuePropertiesResponse { return *v }).(QueuePropertiesResponseOutput)
-}
-
-// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
-func (o QueuePropertiesResponsePtrOutput) ApproximateMessageCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *QueuePropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.ApproximateMessageCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// A name-value pair that represents queue metadata.
-func (o QueuePropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *QueuePropertiesResponse) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(pulumi.StringMapOutput)
 }
 
 // Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
@@ -10953,712 +9363,6 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Web() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the storage account.
-type StorageAccountPropertiesResponse struct {
-	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier string `pulumi:"accessTier"`
-	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
-	// Provides the identity based authentication settings for Azure Files.
-	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthenticationResponse `pulumi:"azureFilesIdentityBasedAuthentication"`
-	// Blob restore status
-	BlobRestoreStatus BlobRestoreStatusResponse `pulumi:"blobRestoreStatus"`
-	// Gets the creation date and time of the storage account in UTC.
-	CreationTime string `pulumi:"creationTime"`
-	// Gets the custom domain the user assigned to this storage account.
-	CustomDomain CustomDomainResponse `pulumi:"customDomain"`
-	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
-	Encryption EncryptionResponse `pulumi:"encryption"`
-	// If the failover is in progress, the value will be true, otherwise, it will be null.
-	FailoverInProgress bool `pulumi:"failoverInProgress"`
-	// Geo Replication Stats
-	GeoReplicationStats GeoReplicationStatsResponse `pulumi:"geoReplicationStats"`
-	// Account HierarchicalNamespace enabled if sets to true.
-	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
-	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
-	LargeFileSharesState *string `pulumi:"largeFileSharesState"`
-	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-	LastGeoFailoverTime string `pulumi:"lastGeoFailoverTime"`
-	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// Network rule set
-	NetworkAcls NetworkRuleSetResponse `pulumi:"networkAcls"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-	PrimaryEndpoints EndpointsResponse `pulumi:"primaryEndpoints"`
-	// Gets the location of the primary data center for the storage account.
-	PrimaryLocation string `pulumi:"primaryLocation"`
-	// List of private endpoint connection associated with the specified storage account
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Gets the status of the storage account at the time the operation was called.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Maintains information about the network routing choice opted by the user for data transfer
-	RoutingPreference *RoutingPreferenceResponse `pulumi:"routingPreference"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-	SecondaryEndpoints EndpointsResponse `pulumi:"secondaryEndpoints"`
-	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-	SecondaryLocation string `pulumi:"secondaryLocation"`
-	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
-	StatusOfPrimary string `pulumi:"statusOfPrimary"`
-	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
-	StatusOfSecondary string `pulumi:"statusOfSecondary"`
-	// Allows https traffic only to storage service if sets to true.
-	SupportsHttpsTrafficOnly *bool `pulumi:"supportsHttpsTrafficOnly"`
-}
-
-// StorageAccountPropertiesResponseInput is an input type that accepts StorageAccountPropertiesResponseArgs and StorageAccountPropertiesResponseOutput values.
-// You can construct a concrete instance of `StorageAccountPropertiesResponseInput` via:
-//
-//          StorageAccountPropertiesResponseArgs{...}
-type StorageAccountPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToStorageAccountPropertiesResponseOutput() StorageAccountPropertiesResponseOutput
-	ToStorageAccountPropertiesResponseOutputWithContext(context.Context) StorageAccountPropertiesResponseOutput
-}
-
-// Properties of the storage account.
-type StorageAccountPropertiesResponseArgs struct {
-	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier pulumi.StringInput `pulumi:"accessTier"`
-	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-	AllowBlobPublicAccess pulumi.BoolPtrInput `pulumi:"allowBlobPublicAccess"`
-	// Provides the identity based authentication settings for Azure Files.
-	AzureFilesIdentityBasedAuthentication AzureFilesIdentityBasedAuthenticationResponsePtrInput `pulumi:"azureFilesIdentityBasedAuthentication"`
-	// Blob restore status
-	BlobRestoreStatus BlobRestoreStatusResponseInput `pulumi:"blobRestoreStatus"`
-	// Gets the creation date and time of the storage account in UTC.
-	CreationTime pulumi.StringInput `pulumi:"creationTime"`
-	// Gets the custom domain the user assigned to this storage account.
-	CustomDomain CustomDomainResponseInput `pulumi:"customDomain"`
-	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
-	Encryption EncryptionResponseInput `pulumi:"encryption"`
-	// If the failover is in progress, the value will be true, otherwise, it will be null.
-	FailoverInProgress pulumi.BoolInput `pulumi:"failoverInProgress"`
-	// Geo Replication Stats
-	GeoReplicationStats GeoReplicationStatsResponseInput `pulumi:"geoReplicationStats"`
-	// Account HierarchicalNamespace enabled if sets to true.
-	IsHnsEnabled pulumi.BoolPtrInput `pulumi:"isHnsEnabled"`
-	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
-	LargeFileSharesState pulumi.StringPtrInput `pulumi:"largeFileSharesState"`
-	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-	LastGeoFailoverTime pulumi.StringInput `pulumi:"lastGeoFailoverTime"`
-	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
-	// Network rule set
-	NetworkAcls NetworkRuleSetResponseInput `pulumi:"networkAcls"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-	PrimaryEndpoints EndpointsResponseInput `pulumi:"primaryEndpoints"`
-	// Gets the location of the primary data center for the storage account.
-	PrimaryLocation pulumi.StringInput `pulumi:"primaryLocation"`
-	// List of private endpoint connection associated with the specified storage account
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
-	// Gets the status of the storage account at the time the operation was called.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Maintains information about the network routing choice opted by the user for data transfer
-	RoutingPreference RoutingPreferenceResponsePtrInput `pulumi:"routingPreference"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-	SecondaryEndpoints EndpointsResponseInput `pulumi:"secondaryEndpoints"`
-	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-	SecondaryLocation pulumi.StringInput `pulumi:"secondaryLocation"`
-	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
-	StatusOfPrimary pulumi.StringInput `pulumi:"statusOfPrimary"`
-	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
-	StatusOfSecondary pulumi.StringInput `pulumi:"statusOfSecondary"`
-	// Allows https traffic only to storage service if sets to true.
-	SupportsHttpsTrafficOnly pulumi.BoolPtrInput `pulumi:"supportsHttpsTrafficOnly"`
-}
-
-func (StorageAccountPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (i StorageAccountPropertiesResponseArgs) ToStorageAccountPropertiesResponseOutput() StorageAccountPropertiesResponseOutput {
-	return i.ToStorageAccountPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i StorageAccountPropertiesResponseArgs) ToStorageAccountPropertiesResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponseOutput)
-}
-
-func (i StorageAccountPropertiesResponseArgs) ToStorageAccountPropertiesResponsePtrOutput() StorageAccountPropertiesResponsePtrOutput {
-	return i.ToStorageAccountPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StorageAccountPropertiesResponseArgs) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponseOutput).ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// StorageAccountPropertiesResponsePtrInput is an input type that accepts StorageAccountPropertiesResponseArgs, StorageAccountPropertiesResponsePtr and StorageAccountPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `StorageAccountPropertiesResponsePtrInput` via:
-//
-//          StorageAccountPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type StorageAccountPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToStorageAccountPropertiesResponsePtrOutput() StorageAccountPropertiesResponsePtrOutput
-	ToStorageAccountPropertiesResponsePtrOutputWithContext(context.Context) StorageAccountPropertiesResponsePtrOutput
-}
-
-type storageAccountPropertiesResponsePtrType StorageAccountPropertiesResponseArgs
-
-func StorageAccountPropertiesResponsePtr(v *StorageAccountPropertiesResponseArgs) StorageAccountPropertiesResponsePtrInput {
-	return (*storageAccountPropertiesResponsePtrType)(v)
-}
-
-func (*storageAccountPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResponsePtrOutput() StorageAccountPropertiesResponsePtrOutput {
-	return i.ToStorageAccountPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponsePtrOutput)
-}
-
-// Properties of the storage account.
-type StorageAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponseOutput() StorageAccountPropertiesResponseOutput {
-	return o
-}
-
-func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesResponseOutput {
-	return o
-}
-
-func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutput() StorageAccountPropertiesResponsePtrOutput {
-	return o.ToStorageAccountPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
-		return &v
-	}).(StorageAccountPropertiesResponsePtrOutput)
-}
-
-// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-func (o StorageAccountPropertiesResponseOutput) AccessTier() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.AccessTier }).(pulumi.StringOutput)
-}
-
-// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-func (o StorageAccountPropertiesResponseOutput) AllowBlobPublicAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *bool { return v.AllowBlobPublicAccess }).(pulumi.BoolPtrOutput)
-}
-
-// Provides the identity based authentication settings for Azure Files.
-func (o StorageAccountPropertiesResponseOutput) AzureFilesIdentityBasedAuthentication() AzureFilesIdentityBasedAuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *AzureFilesIdentityBasedAuthenticationResponse {
-		return v.AzureFilesIdentityBasedAuthentication
-	}).(AzureFilesIdentityBasedAuthenticationResponsePtrOutput)
-}
-
-// Blob restore status
-func (o StorageAccountPropertiesResponseOutput) BlobRestoreStatus() BlobRestoreStatusResponseOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) BlobRestoreStatusResponse { return v.BlobRestoreStatus }).(BlobRestoreStatusResponseOutput)
-}
-
-// Gets the creation date and time of the storage account in UTC.
-func (o StorageAccountPropertiesResponseOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.CreationTime }).(pulumi.StringOutput)
-}
-
-// Gets the custom domain the user assigned to this storage account.
-func (o StorageAccountPropertiesResponseOutput) CustomDomain() CustomDomainResponseOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) CustomDomainResponse { return v.CustomDomain }).(CustomDomainResponseOutput)
-}
-
-// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
-func (o StorageAccountPropertiesResponseOutput) Encryption() EncryptionResponseOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) EncryptionResponse { return v.Encryption }).(EncryptionResponseOutput)
-}
-
-// If the failover is in progress, the value will be true, otherwise, it will be null.
-func (o StorageAccountPropertiesResponseOutput) FailoverInProgress() pulumi.BoolOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) bool { return v.FailoverInProgress }).(pulumi.BoolOutput)
-}
-
-// Geo Replication Stats
-func (o StorageAccountPropertiesResponseOutput) GeoReplicationStats() GeoReplicationStatsResponseOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) GeoReplicationStatsResponse { return v.GeoReplicationStats }).(GeoReplicationStatsResponseOutput)
-}
-
-// Account HierarchicalNamespace enabled if sets to true.
-func (o StorageAccountPropertiesResponseOutput) IsHnsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *bool { return v.IsHnsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
-func (o StorageAccountPropertiesResponseOutput) LargeFileSharesState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *string { return v.LargeFileSharesState }).(pulumi.StringPtrOutput)
-}
-
-// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-func (o StorageAccountPropertiesResponseOutput) LastGeoFailoverTime() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.LastGeoFailoverTime }).(pulumi.StringOutput)
-}
-
-// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-func (o StorageAccountPropertiesResponseOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
-}
-
-// Network rule set
-func (o StorageAccountPropertiesResponseOutput) NetworkAcls() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) NetworkRuleSetResponse { return v.NetworkAcls }).(NetworkRuleSetResponseOutput)
-}
-
-// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-func (o StorageAccountPropertiesResponseOutput) PrimaryEndpoints() EndpointsResponseOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) EndpointsResponse { return v.PrimaryEndpoints }).(EndpointsResponseOutput)
-}
-
-// Gets the location of the primary data center for the storage account.
-func (o StorageAccountPropertiesResponseOutput) PrimaryLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.PrimaryLocation }).(pulumi.StringOutput)
-}
-
-// List of private endpoint connection associated with the specified storage account
-func (o StorageAccountPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) []PrivateEndpointConnectionResponse {
-		return v.PrivateEndpointConnections
-	}).(PrivateEndpointConnectionResponseArrayOutput)
-}
-
-// Gets the status of the storage account at the time the operation was called.
-func (o StorageAccountPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Maintains information about the network routing choice opted by the user for data transfer
-func (o StorageAccountPropertiesResponseOutput) RoutingPreference() RoutingPreferenceResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *RoutingPreferenceResponse { return v.RoutingPreference }).(RoutingPreferenceResponsePtrOutput)
-}
-
-// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-func (o StorageAccountPropertiesResponseOutput) SecondaryEndpoints() EndpointsResponseOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) EndpointsResponse { return v.SecondaryEndpoints }).(EndpointsResponseOutput)
-}
-
-// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-func (o StorageAccountPropertiesResponseOutput) SecondaryLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.SecondaryLocation }).(pulumi.StringOutput)
-}
-
-// Gets the status indicating whether the primary location of the storage account is available or unavailable.
-func (o StorageAccountPropertiesResponseOutput) StatusOfPrimary() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.StatusOfPrimary }).(pulumi.StringOutput)
-}
-
-// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
-func (o StorageAccountPropertiesResponseOutput) StatusOfSecondary() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) string { return v.StatusOfSecondary }).(pulumi.StringOutput)
-}
-
-// Allows https traffic only to storage service if sets to true.
-func (o StorageAccountPropertiesResponseOutput) SupportsHttpsTrafficOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *bool { return v.SupportsHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
-}
-
-type StorageAccountPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesResponsePtrOutput() StorageAccountPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse { return *v }).(StorageAccountPropertiesResponseOutput)
-}
-
-// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-func (o StorageAccountPropertiesResponsePtrOutput) AccessTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccessTier
-	}).(pulumi.StringPtrOutput)
-}
-
-// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-func (o StorageAccountPropertiesResponsePtrOutput) AllowBlobPublicAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowBlobPublicAccess
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Provides the identity based authentication settings for Azure Files.
-func (o StorageAccountPropertiesResponsePtrOutput) AzureFilesIdentityBasedAuthentication() AzureFilesIdentityBasedAuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *AzureFilesIdentityBasedAuthenticationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AzureFilesIdentityBasedAuthentication
-	}).(AzureFilesIdentityBasedAuthenticationResponsePtrOutput)
-}
-
-// Blob restore status
-func (o StorageAccountPropertiesResponsePtrOutput) BlobRestoreStatus() BlobRestoreStatusResponsePtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *BlobRestoreStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.BlobRestoreStatus
-	}).(BlobRestoreStatusResponsePtrOutput)
-}
-
-// Gets the creation date and time of the storage account in UTC.
-func (o StorageAccountPropertiesResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreationTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets the custom domain the user assigned to this storage account.
-func (o StorageAccountPropertiesResponsePtrOutput) CustomDomain() CustomDomainResponsePtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *CustomDomainResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.CustomDomain
-	}).(CustomDomainResponsePtrOutput)
-}
-
-// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
-func (o StorageAccountPropertiesResponsePtrOutput) Encryption() EncryptionResponsePtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *EncryptionResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Encryption
-	}).(EncryptionResponsePtrOutput)
-}
-
-// If the failover is in progress, the value will be true, otherwise, it will be null.
-func (o StorageAccountPropertiesResponsePtrOutput) FailoverInProgress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.FailoverInProgress
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Geo Replication Stats
-func (o StorageAccountPropertiesResponsePtrOutput) GeoReplicationStats() GeoReplicationStatsResponsePtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *GeoReplicationStatsResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.GeoReplicationStats
-	}).(GeoReplicationStatsResponsePtrOutput)
-}
-
-// Account HierarchicalNamespace enabled if sets to true.
-func (o StorageAccountPropertiesResponsePtrOutput) IsHnsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsHnsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
-func (o StorageAccountPropertiesResponsePtrOutput) LargeFileSharesState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LargeFileSharesState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-func (o StorageAccountPropertiesResponsePtrOutput) LastGeoFailoverTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastGeoFailoverTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-func (o StorageAccountPropertiesResponsePtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MinimumTlsVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Network rule set
-func (o StorageAccountPropertiesResponsePtrOutput) NetworkAcls() NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *NetworkRuleSetResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.NetworkAcls
-	}).(NetworkRuleSetResponsePtrOutput)
-}
-
-// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-func (o StorageAccountPropertiesResponsePtrOutput) PrimaryEndpoints() EndpointsResponsePtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *EndpointsResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.PrimaryEndpoints
-	}).(EndpointsResponsePtrOutput)
-}
-
-// Gets the location of the primary data center for the storage account.
-func (o StorageAccountPropertiesResponsePtrOutput) PrimaryLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrimaryLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of private endpoint connection associated with the specified storage account
-func (o StorageAccountPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) []PrivateEndpointConnectionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateEndpointConnections
-	}).(PrivateEndpointConnectionResponseArrayOutput)
-}
-
-// Gets the status of the storage account at the time the operation was called.
-func (o StorageAccountPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Maintains information about the network routing choice opted by the user for data transfer
-func (o StorageAccountPropertiesResponsePtrOutput) RoutingPreference() RoutingPreferenceResponsePtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *RoutingPreferenceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.RoutingPreference
-	}).(RoutingPreferenceResponsePtrOutput)
-}
-
-// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-func (o StorageAccountPropertiesResponsePtrOutput) SecondaryEndpoints() EndpointsResponsePtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *EndpointsResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SecondaryEndpoints
-	}).(EndpointsResponsePtrOutput)
-}
-
-// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-func (o StorageAccountPropertiesResponsePtrOutput) SecondaryLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecondaryLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets the status indicating whether the primary location of the storage account is available or unavailable.
-func (o StorageAccountPropertiesResponsePtrOutput) StatusOfPrimary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StatusOfPrimary
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
-func (o StorageAccountPropertiesResponsePtrOutput) StatusOfSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StatusOfSecondary
-	}).(pulumi.StringPtrOutput)
-}
-
-// Allows https traffic only to storage service if sets to true.
-func (o StorageAccountPropertiesResponsePtrOutput) SupportsHttpsTrafficOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SupportsHttpsTrafficOnly
-	}).(pulumi.BoolPtrOutput)
-}
-
-type TablePropertiesResponse struct {
-	// Table name under the specified account
-	TableName string `pulumi:"tableName"`
-}
-
-// TablePropertiesResponseInput is an input type that accepts TablePropertiesResponseArgs and TablePropertiesResponseOutput values.
-// You can construct a concrete instance of `TablePropertiesResponseInput` via:
-//
-//          TablePropertiesResponseArgs{...}
-type TablePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToTablePropertiesResponseOutput() TablePropertiesResponseOutput
-	ToTablePropertiesResponseOutputWithContext(context.Context) TablePropertiesResponseOutput
-}
-
-type TablePropertiesResponseArgs struct {
-	// Table name under the specified account
-	TableName pulumi.StringInput `pulumi:"tableName"`
-}
-
-func (TablePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TablePropertiesResponse)(nil)).Elem()
-}
-
-func (i TablePropertiesResponseArgs) ToTablePropertiesResponseOutput() TablePropertiesResponseOutput {
-	return i.ToTablePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i TablePropertiesResponseArgs) ToTablePropertiesResponseOutputWithContext(ctx context.Context) TablePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TablePropertiesResponseOutput)
-}
-
-func (i TablePropertiesResponseArgs) ToTablePropertiesResponsePtrOutput() TablePropertiesResponsePtrOutput {
-	return i.ToTablePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TablePropertiesResponseArgs) ToTablePropertiesResponsePtrOutputWithContext(ctx context.Context) TablePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TablePropertiesResponseOutput).ToTablePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// TablePropertiesResponsePtrInput is an input type that accepts TablePropertiesResponseArgs, TablePropertiesResponsePtr and TablePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `TablePropertiesResponsePtrInput` via:
-//
-//          TablePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type TablePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToTablePropertiesResponsePtrOutput() TablePropertiesResponsePtrOutput
-	ToTablePropertiesResponsePtrOutputWithContext(context.Context) TablePropertiesResponsePtrOutput
-}
-
-type tablePropertiesResponsePtrType TablePropertiesResponseArgs
-
-func TablePropertiesResponsePtr(v *TablePropertiesResponseArgs) TablePropertiesResponsePtrInput {
-	return (*tablePropertiesResponsePtrType)(v)
-}
-
-func (*tablePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TablePropertiesResponse)(nil)).Elem()
-}
-
-func (i *tablePropertiesResponsePtrType) ToTablePropertiesResponsePtrOutput() TablePropertiesResponsePtrOutput {
-	return i.ToTablePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *tablePropertiesResponsePtrType) ToTablePropertiesResponsePtrOutputWithContext(ctx context.Context) TablePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TablePropertiesResponsePtrOutput)
-}
-
-type TablePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (TablePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TablePropertiesResponse)(nil)).Elem()
-}
-
-func (o TablePropertiesResponseOutput) ToTablePropertiesResponseOutput() TablePropertiesResponseOutput {
-	return o
-}
-
-func (o TablePropertiesResponseOutput) ToTablePropertiesResponseOutputWithContext(ctx context.Context) TablePropertiesResponseOutput {
-	return o
-}
-
-func (o TablePropertiesResponseOutput) ToTablePropertiesResponsePtrOutput() TablePropertiesResponsePtrOutput {
-	return o.ToTablePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TablePropertiesResponseOutput) ToTablePropertiesResponsePtrOutputWithContext(ctx context.Context) TablePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v TablePropertiesResponse) *TablePropertiesResponse {
-		return &v
-	}).(TablePropertiesResponsePtrOutput)
-}
-
-// Table name under the specified account
-func (o TablePropertiesResponseOutput) TableName() pulumi.StringOutput {
-	return o.ApplyT(func(v TablePropertiesResponse) string { return v.TableName }).(pulumi.StringOutput)
-}
-
-type TablePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (TablePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TablePropertiesResponse)(nil)).Elem()
-}
-
-func (o TablePropertiesResponsePtrOutput) ToTablePropertiesResponsePtrOutput() TablePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o TablePropertiesResponsePtrOutput) ToTablePropertiesResponsePtrOutputWithContext(ctx context.Context) TablePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o TablePropertiesResponsePtrOutput) Elem() TablePropertiesResponseOutput {
-	return o.ApplyT(func(v *TablePropertiesResponse) TablePropertiesResponse { return *v }).(TablePropertiesResponseOutput)
-}
-
-// Table name under the specified account
-func (o TablePropertiesResponsePtrOutput) TableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TablePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TableName
-	}).(pulumi.StringPtrOutput)
-}
-
 // Blob index tag based filtering for blob objects
 type TagFilter struct {
 	// This is the filter tag name, it can have 1 - 128 characters
@@ -12298,10 +10002,10 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 type VirtualNetworkRuleResponse struct {
 	// The action of virtual network rule.
 	Action *string `pulumi:"action"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	Id string `pulumi:"id"`
 	// Gets the state of virtual network rule.
 	State *string `pulumi:"state"`
+	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
 }
 
 // VirtualNetworkRuleResponseInput is an input type that accepts VirtualNetworkRuleResponseArgs and VirtualNetworkRuleResponseOutput values.
@@ -12319,10 +10023,10 @@ type VirtualNetworkRuleResponseInput interface {
 type VirtualNetworkRuleResponseArgs struct {
 	// The action of virtual network rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	Id pulumi.StringInput `pulumi:"id"`
 	// Gets the state of virtual network rule.
 	State pulumi.StringPtrInput `pulumi:"state"`
+	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
 
 func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
@@ -12382,14 +10086,14 @@ func (o VirtualNetworkRuleResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-func (o VirtualNetworkRuleResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
 // Gets the state of virtual network rule.
 func (o VirtualNetworkRuleResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+func (o VirtualNetworkRuleResponseOutput) VirtualNetworkResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.VirtualNetworkResourceId }).(pulumi.StringOutput)
 }
 
 type VirtualNetworkRuleResponseArrayOutput struct{ *pulumi.OutputState }
@@ -12427,8 +10131,6 @@ func init() {
 	pulumi.RegisterOutputType(BlobRestoreRangeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BlobRestoreStatusResponseOutput{})
 	pulumi.RegisterOutputType(BlobRestoreStatusResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ContainerPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainOutput{})
 	pulumi.RegisterOutputType(CustomDomainPtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponseOutput{})
@@ -12455,8 +10157,6 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionServicesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
-	pulumi.RegisterOutputType(FileSharePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(FileSharePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GeoReplicationStatsResponseOutput{})
 	pulumi.RegisterOutputType(GeoReplicationStatsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPRuleOutput{})
@@ -12469,8 +10169,6 @@ func init() {
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ImmutabilityPolicyPropertyResponseOutput{})
-	pulumi.RegisterOutputType(ImmutabilityPolicyPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
@@ -12489,8 +10187,6 @@ func init() {
 	pulumi.RegisterOutputType(ManagementPolicyFilterPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyFilterResponseOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyFilterResponsePtrOutput{})
-	pulumi.RegisterOutputType(ManagementPolicyPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ManagementPolicyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleResponseOutput{})
@@ -12511,14 +10207,10 @@ func init() {
 	pulumi.RegisterOutputType(ObjectReplicationPolicyFilterPtrOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyFilterResponseOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyFilterResponsePtrOutput{})
-	pulumi.RegisterOutputType(ObjectReplicationPolicyPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ObjectReplicationPolicyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyRuleResponseOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
@@ -12527,8 +10219,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
-	pulumi.RegisterOutputType(QueuePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(QueuePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RoutingPreferenceOutput{})
 	pulumi.RegisterOutputType(RoutingPreferencePtrOutput{})
 	pulumi.RegisterOutputType(RoutingPreferenceResponseOutput{})
@@ -12543,10 +10233,6 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(TablePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(TablePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagFilterOutput{})
 	pulumi.RegisterOutputType(TagFilterArrayOutput{})
 	pulumi.RegisterOutputType(TagFilterResponseOutput{})

@@ -41,9 +41,17 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Resource properties.
+     * The resource of private end point.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190601.PrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.storage.v20190601.PrivateEndpointResponse | undefined>;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.storage.v20190601.PrivateLinkServiceConnectionStateResponse>;
+    /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -79,7 +87,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["privateEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

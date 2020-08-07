@@ -37,13 +37,41 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * The time at which the remediation was created.
+     */
+    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    /**
+     * The deployment status summary for all deployments created by the remediation.
+     */
+    public /*out*/ readonly deploymentStatus!: pulumi.Output<outputs.policyinsights.v20190701.RemediationDeploymentSummaryResponse>;
+    /**
+     * The filters that will be applied to determine which resources to remediate.
+     */
+    public readonly filters!: pulumi.Output<outputs.policyinsights.v20190701.RemediationFiltersResponse | undefined>;
+    /**
+     * The time at which the remediation was last updated.
+     */
+    public /*out*/ readonly lastUpdatedOn!: pulumi.Output<string>;
+    /**
      * The name of the remediation.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties for the remediation.
+     * The resource ID of the policy assignment that should be remediated.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.policyinsights.v20190701.RemediationPropertiesResponse>;
+    public readonly policyAssignmentId!: pulumi.Output<string | undefined>;
+    /**
+     * The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     */
+    public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the remediation.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+     */
+    public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
     /**
      * The type of the remediation.
      */
@@ -70,7 +98,10 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
             inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
             inputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdOn"] = undefined /*out*/;
+            inputs["deploymentStatus"] = undefined /*out*/;
+            inputs["lastUpdatedOn"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -29,12 +29,18 @@ type LookupConsumerGroupArgs struct {
 
 // Single item in List or Get Consumer group operation
 type LookupConsumerGroupResult struct {
+	// Exact time the message was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// The path of the Event Hub.
+	EventHubPath string `pulumi:"eventHubPath"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties supplied to the Create Or Update Consumer Group operation.
-	Properties ConsumerGroupPropertiesResponse `pulumi:"properties"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
+	// The user metadata.
+	UserMetadata *string `pulumi:"userMetadata"`
 }

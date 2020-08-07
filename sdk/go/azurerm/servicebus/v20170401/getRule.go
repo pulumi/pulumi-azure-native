@@ -31,10 +31,16 @@ type LookupRuleArgs struct {
 
 // Description of Rule Resource.
 type LookupRuleResult struct {
+	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+	Action *ActionResponse `pulumi:"action"`
+	// Properties of correlationFilter
+	CorrelationFilter *CorrelationFilterResponse `pulumi:"correlationFilter"`
+	// Filter type that is evaluated against a BrokeredMessage.
+	FilterType *string `pulumi:"filterType"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of Rule resource
-	Properties RulepropertiesResponse `pulumi:"properties"`
+	// Properties of sqlFilter
+	SqlFilter *SqlFilterResponse `pulumi:"sqlFilter"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

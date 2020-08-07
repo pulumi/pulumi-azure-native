@@ -18,12 +18,17 @@ class VirtualRouterPeering(pulumi.CustomResource):
     """
     Name of the virtual router peering that is unique within a virtual router.
     """
-    properties: pulumi.Output[dict]
+    peer_asn: pulumi.Output[float]
     """
-    The properties of the Virtual Router Peering.
-      * `peer_asn` (`float`) - Peer ASN.
-      * `peer_ip` (`str`) - Peer IP.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    Peer ASN.
+    """
+    peer_ip: pulumi.Output[str]
+    """
+    Peer IP.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     type: pulumi.Output[str]
     """
@@ -72,7 +77,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_router_name'")
             __props__['virtual_router_name'] = virtual_router_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(VirtualRouterPeering, __self__).__init__(
             'azurerm:network/v20200301:VirtualRouterPeering',

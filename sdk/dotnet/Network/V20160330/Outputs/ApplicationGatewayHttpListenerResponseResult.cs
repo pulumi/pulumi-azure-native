@@ -18,6 +18,18 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Gets or sets frontend IP configuration resource of application gateway 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FrontendIPConfiguration;
+        /// <summary>
+        /// Gets or sets frontend port resource of application gateway 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FrontendPort;
+        /// <summary>
+        /// Gets or sets the host name of http listener 
+        /// </summary>
+        public readonly string? HostName;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string? Id;
@@ -26,24 +38,54 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of Http listener of application gateway
+        /// Gets or sets the protocol
         /// </summary>
-        public readonly Outputs.ApplicationGatewayHttpListenerPropertiesFormatResponseResult? Properties;
+        public readonly string? Protocol;
+        /// <summary>
+        /// Gets or sets Provisioning state of the http listener resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the requireServerNameIndication of http listener 
+        /// </summary>
+        public readonly bool? RequireServerNameIndication;
+        /// <summary>
+        /// Gets or sets ssl certificate resource of application gateway 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? SslCertificate;
 
         [OutputConstructor]
         private ApplicationGatewayHttpListenerResponseResult(
             string? etag,
 
+            Outputs.SubResourceResponseResult? frontendIPConfiguration,
+
+            Outputs.SubResourceResponseResult? frontendPort,
+
+            string? hostName,
+
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayHttpListenerPropertiesFormatResponseResult? properties)
+            string? protocol,
+
+            string? provisioningState,
+
+            bool? requireServerNameIndication,
+
+            Outputs.SubResourceResponseResult? sslCertificate)
         {
             Etag = etag;
+            FrontendIPConfiguration = frontendIPConfiguration;
+            FrontendPort = frontendPort;
+            HostName = hostName;
             Id = id;
             Name = name;
-            Properties = properties;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            RequireServerNameIndication = requireServerNameIndication;
+            SslCertificate = sslCertificate;
         }
     }
 }

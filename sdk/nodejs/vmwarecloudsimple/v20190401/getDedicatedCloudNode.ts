@@ -36,21 +36,65 @@ export interface GetDedicatedCloudNodeArgs {
  */
 export interface GetDedicatedCloudNodeResult {
     /**
+     * Availability Zone id, e.g. "az1"
+     */
+    readonly availabilityZoneId: string;
+    /**
+     * Availability Zone name, e.g. "Availability Zone 1"
+     */
+    readonly availabilityZoneName: string;
+    /**
+     * VMWare Cloud Rack Name
+     */
+    readonly cloudRackName: string;
+    /**
+     * date time the resource was created
+     */
+    readonly created: {[key: string]: any};
+    /**
      * Azure region
      */
     readonly location: string;
     /**
-     * {dedicatedCloudNodeName}
+     * SKU's name
      */
     readonly name: string;
     /**
-     * Dedicated Cloud Nodes properties
+     * count of nodes to create
      */
-    readonly properties: outputs.vmwarecloudsimple.v20190401.DedicatedCloudNodePropertiesResponse;
+    readonly nodesCount: number;
+    /**
+     * Placement Group id, e.g. "n1"
+     */
+    readonly placementGroupId: string;
+    /**
+     * Placement Name, e.g. "Placement Group 1"
+     */
+    readonly placementGroupName: string;
+    /**
+     * Private Cloud Id
+     */
+    readonly privateCloudId: string;
+    /**
+     * Resource Pool Name
+     */
+    readonly privateCloudName: string;
+    /**
+     * The provisioning status of the resource
+     */
+    readonly provisioningState: string;
+    /**
+     * purchase id
+     */
+    readonly purchaseId: string;
     /**
      * Dedicated Cloud Nodes SKU
      */
     readonly sku?: outputs.vmwarecloudsimple.v20190401.SkuResponse;
+    /**
+     * Node status, indicates is private cloud set up on this node or not
+     */
+    readonly status: string;
     /**
      * Dedicated Cloud Nodes tags
      */
@@ -59,4 +103,8 @@ export interface GetDedicatedCloudNodeResult {
      * {resourceProviderNamespace}/{resourceType}
      */
     readonly type: string;
+    /**
+     * VMWare Cluster Name
+     */
+    readonly vmwareClusterName: string;
 }

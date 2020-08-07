@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>
+        /// Runtime connection string to cache
+        /// </summary>
+        [Output("connectionString")]
+        public Output<string> ConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// Cache description
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Cache properties details.
+        /// Original uri of entity in external system cache points to
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CacheContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("resourceId")]
+        public Output<string?> ResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

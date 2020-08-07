@@ -13,7 +13,19 @@ class GetVirtualNetworkResult:
     """
     Virtual Network resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, address_space=None, dhcp_options=None, etag=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
+        if address_space and not isinstance(address_space, dict):
+            raise TypeError("Expected argument 'address_space' to be a dict")
+        __self__.address_space = address_space
+        """
+        The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        """
+        if dhcp_options and not isinstance(dhcp_options, dict):
+            raise TypeError("Expected argument 'dhcp_options' to be a dict")
+        __self__.dhcp_options = dhcp_options
+        """
+        The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,9 +44,24 @@ class GetVirtualNetworkResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resourceGuid property of the Virtual Network resource.
+        """
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        __self__.subnets = subnets
+        """
+        A list of subnets in a Virtual Network.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -47,6 +74,12 @@ class GetVirtualNetworkResult:
         """
         Resource type.
         """
+        if virtual_network_peerings and not isinstance(virtual_network_peerings, list):
+            raise TypeError("Expected argument 'virtual_network_peerings' to be a list")
+        __self__.virtual_network_peerings = virtual_network_peerings
+        """
+        A list of peerings in a Virtual Network.
+        """
 
 
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
@@ -55,12 +88,17 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
         if False:
             yield self
         return GetVirtualNetworkResult(
+            address_space=self.address_space,
+            dhcp_options=self.dhcp_options,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
+            subnets=self.subnets,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network_peerings=self.virtual_network_peerings)
 
 
 def get_virtual_network(name=None, resource_group_name=None, opts=None):
@@ -80,9 +118,14 @@ def get_virtual_network(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20170301:getVirtualNetwork', __args__, opts=opts).value
 
     return AwaitableGetVirtualNetworkResult(
+        address_space=__ret__.get('addressSpace'),
+        dhcp_options=__ret__.get('dhcpOptions'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
+        subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_network_peerings=__ret__.get('virtualNetworkPeerings'))

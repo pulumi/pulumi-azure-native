@@ -37,6 +37,50 @@ export class Disk extends pulumi.CustomResource {
     }
 
     /**
+     * Disk source information. CreationData information cannot be changed after the disk has been created.
+     */
+    public readonly creationData!: pulumi.Output<outputs.compute.v20191101.CreationDataResponse>;
+    /**
+     * The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+     */
+    public readonly diskIOPSReadOnly!: pulumi.Output<number | undefined>;
+    /**
+     * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     */
+    public readonly diskIOPSReadWrite!: pulumi.Output<number | undefined>;
+    /**
+     * The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+     */
+    public readonly diskMBpsReadOnly!: pulumi.Output<number | undefined>;
+    /**
+     * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+     */
+    public readonly diskMBpsReadWrite!: pulumi.Output<number | undefined>;
+    /**
+     * The size of the disk in bytes. This field is read only.
+     */
+    public /*out*/ readonly diskSizeBytes!: pulumi.Output<number>;
+    /**
+     * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+     */
+    public readonly diskSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * The state of the disk.
+     */
+    public /*out*/ readonly diskState!: pulumi.Output<string>;
+    /**
+     * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+     */
+    public readonly encryption!: pulumi.Output<outputs.compute.v20191101.EncryptionResponse | undefined>;
+    /**
+     * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+     */
+    public readonly encryptionSettingsCollection!: pulumi.Output<outputs.compute.v20191101.EncryptionSettingsCollectionResponse | undefined>;
+    /**
+     * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+     */
+    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -49,13 +93,25 @@ export class Disk extends pulumi.CustomResource {
      */
     public /*out*/ readonly managedByExtended!: pulumi.Output<string[]>;
     /**
+     * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+     */
+    public readonly maxShares!: pulumi.Output<number | undefined>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Disk resource properties.
+     * The Operating System type.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20191101.DiskPropertiesResponse>;
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * The disk provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
+     */
+    public /*out*/ readonly shareInfo!: pulumi.Output<outputs.compute.v20191101.ShareInfoElementResponse[]>;
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
@@ -65,9 +121,17 @@ export class Disk extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The time when the disk was created.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Unique Guid identifying the resource.
+     */
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
     /**
      * The Logical zone list for Disk.
      */
@@ -115,10 +179,15 @@ export class Disk extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
+            inputs["diskSizeBytes"] = undefined /*out*/;
+            inputs["diskState"] = undefined /*out*/;
             inputs["managedBy"] = undefined /*out*/;
             inputs["managedByExtended"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["shareInfo"] = undefined /*out*/;
+            inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

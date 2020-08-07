@@ -37,13 +37,25 @@ export class Rule extends pulumi.CustomResource {
     }
 
     /**
+     * Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+     */
+    public readonly action!: pulumi.Output<outputs.servicebus.v20170401.ActionResponse | undefined>;
+    /**
+     * Properties of correlationFilter
+     */
+    public readonly correlationFilter!: pulumi.Output<outputs.servicebus.v20170401.CorrelationFilterResponse | undefined>;
+    /**
+     * Filter type that is evaluated against a BrokeredMessage.
+     */
+    public readonly filterType!: pulumi.Output<string | undefined>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of Rule resource
+     * Properties of sqlFilter
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.RulepropertiesResponse>;
+    public readonly sqlFilter!: pulumi.Output<outputs.servicebus.v20170401.SqlFilterResponse | undefined>;
     /**
      * Resource type
      */
@@ -86,7 +98,6 @@ export class Rule extends pulumi.CustomResource {
             inputs["sqlFilter"] = args ? args.sqlFilter : undefined;
             inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

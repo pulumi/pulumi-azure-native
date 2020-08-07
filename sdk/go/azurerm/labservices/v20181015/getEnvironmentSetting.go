@@ -29,14 +29,32 @@ type LookupEnvironmentSettingArgs struct {
 
 // Represents settings of an environment, from which environment instances would be created
 type LookupEnvironmentSettingResult struct {
+	// Describes the user's progress in configuring their environment setting
+	ConfigurationState *string `pulumi:"configurationState"`
+	// Describes the environment and its resource settings
+	Description *string `pulumi:"description"`
+	// Time when the template VM was last changed.
+	LastChanged string `pulumi:"lastChanged"`
+	// Time when the template VM was last sent for publishing.
+	LastPublished string `pulumi:"lastPublished"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the Environment Setting resource
-	Properties EnvironmentSettingPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Describes the readiness of this environment setting
+	PublishingState string `pulumi:"publishingState"`
+	// The resource specific settings
+	ResourceSettings ResourceSettingsResponse `pulumi:"resourceSettings"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Brief title describing the environment and its resource settings
+	Title *string `pulumi:"title"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }

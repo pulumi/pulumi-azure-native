@@ -14,7 +14,25 @@ class ListTaskDetailsResult:
     The task that has the ARM resource and task properties. 
     The task will have all information to schedule a run against it.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, agent_configuration=None, creation_date=None, credentials=None, identity=None, location=None, name=None, platform=None, provisioning_state=None, status=None, step=None, tags=None, timeout=None, trigger=None, type=None):
+        if agent_configuration and not isinstance(agent_configuration, dict):
+            raise TypeError("Expected argument 'agent_configuration' to be a dict")
+        __self__.agent_configuration = agent_configuration
+        """
+        The machine configuration of the run agent.
+        """
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The creation date of task.
+        """
+        if credentials and not isinstance(credentials, dict):
+            raise TypeError("Expected argument 'credentials' to be a dict")
+        __self__.credentials = credentials
+        """
+        The properties that describes a set of credentials that will be used when this run is invoked.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -33,17 +51,47 @@ class ListTaskDetailsResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if platform and not isinstance(platform, dict):
+            raise TypeError("Expected argument 'platform' to be a dict")
+        __self__.platform = platform
         """
-        The properties of a task.
+        The platform properties against which the run has to happen.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the task.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The current status of task.
+        """
+        if step and not isinstance(step, dict):
+            raise TypeError("Expected argument 'step' to be a dict")
+        __self__.step = step
+        """
+        The properties of a task step.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         The tags of the resource.
+        """
+        if timeout and not isinstance(timeout, float):
+            raise TypeError("Expected argument 'timeout' to be a float")
+        __self__.timeout = timeout
+        """
+        Run timeout in seconds.
+        """
+        if trigger and not isinstance(trigger, dict):
+            raise TypeError("Expected argument 'trigger' to be a dict")
+        __self__.trigger = trigger
+        """
+        The properties that describe all triggers for the task.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -59,11 +107,19 @@ class AwaitableListTaskDetailsResult(ListTaskDetailsResult):
         if False:
             yield self
         return ListTaskDetailsResult(
+            agent_configuration=self.agent_configuration,
+            creation_date=self.creation_date,
+            credentials=self.credentials,
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            platform=self.platform,
+            provisioning_state=self.provisioning_state,
+            status=self.status,
+            step=self.step,
             tags=self.tags,
+            timeout=self.timeout,
+            trigger=self.trigger,
             type=self.type)
 
 
@@ -86,9 +142,17 @@ def list_task_details(name=None, registry_name=None, resource_group_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20190401:listTaskDetails', __args__, opts=opts).value
 
     return AwaitableListTaskDetailsResult(
+        agent_configuration=__ret__.get('agentConfiguration'),
+        creation_date=__ret__.get('creationDate'),
+        credentials=__ret__.get('credentials'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        platform=__ret__.get('platform'),
+        provisioning_state=__ret__.get('provisioningState'),
+        status=__ret__.get('status'),
+        step=__ret__.get('step'),
         tags=__ret__.get('tags'),
+        timeout=__ret__.get('timeout'),
+        trigger=__ret__.get('trigger'),
         type=__ret__.get('type'))

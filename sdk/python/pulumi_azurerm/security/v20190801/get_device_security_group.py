@@ -13,18 +13,36 @@ class GetDeviceSecurityGroupResult:
     """
     The device security group resource
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, allowlist_rules=None, denylist_rules=None, name=None, threshold_rules=None, time_window_rules=None, type=None):
+        if allowlist_rules and not isinstance(allowlist_rules, list):
+            raise TypeError("Expected argument 'allowlist_rules' to be a list")
+        __self__.allowlist_rules = allowlist_rules
+        """
+        The allow-list custom alert rules.
+        """
+        if denylist_rules and not isinstance(denylist_rules, list):
+            raise TypeError("Expected argument 'denylist_rules' to be a list")
+        __self__.denylist_rules = denylist_rules
+        """
+        The deny-list custom alert rules.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if threshold_rules and not isinstance(threshold_rules, list):
+            raise TypeError("Expected argument 'threshold_rules' to be a list")
+        __self__.threshold_rules = threshold_rules
         """
-        Device Security group data
+        The list of custom alert threshold rules.
+        """
+        if time_window_rules and not isinstance(time_window_rules, list):
+            raise TypeError("Expected argument 'time_window_rules' to be a list")
+        __self__.time_window_rules = time_window_rules
+        """
+        The list of custom alert time-window rules.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetDeviceSecurityGroupResult(GetDeviceSecurityGroupResult):
         if False:
             yield self
         return GetDeviceSecurityGroupResult(
+            allowlist_rules=self.allowlist_rules,
+            denylist_rules=self.denylist_rules,
             name=self.name,
-            properties=self.properties,
+            threshold_rules=self.threshold_rules,
+            time_window_rules=self.time_window_rules,
             type=self.type)
 
 
@@ -62,6 +83,9 @@ def get_device_security_group(name=None, resource_id=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:security/v20190801:getDeviceSecurityGroup', __args__, opts=opts).value
 
     return AwaitableGetDeviceSecurityGroupResult(
+        allowlist_rules=__ret__.get('allowlistRules'),
+        denylist_rules=__ret__.get('denylistRules'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        threshold_rules=__ret__.get('thresholdRules'),
+        time_window_rules=__ret__.get('timeWindowRules'),
         type=__ret__.get('type'))

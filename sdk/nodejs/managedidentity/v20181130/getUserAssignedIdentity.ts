@@ -36,6 +36,10 @@ export interface GetUserAssignedIdentityArgs {
  */
 export interface GetUserAssignedIdentityResult {
     /**
+     * The id of the app associated with the identity. This is a random generated UUID by MSI.
+     */
+    readonly clientId: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -44,13 +48,17 @@ export interface GetUserAssignedIdentityResult {
      */
     readonly name: string;
     /**
-     * The properties associated with the identity.
+     * The id of the service principal object associated with the created identity.
      */
-    readonly properties: outputs.managedidentity.v20181130.UserAssignedIdentityPropertiesResponse;
+    readonly principalId: string;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The id of the tenant which the identity belongs to.
+     */
+    readonly tenantId: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

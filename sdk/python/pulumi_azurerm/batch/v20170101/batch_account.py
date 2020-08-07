@@ -10,6 +10,24 @@ from ... import _utilities, _tables
 
 
 class BatchAccount(pulumi.CustomResource):
+    account_endpoint: pulumi.Output[str]
+    """
+    The endpoint used by this account to interact with the Batch services.
+    """
+    active_job_and_job_schedule_quota: pulumi.Output[float]
+    auto_storage: pulumi.Output[dict]
+    """
+    Contains information about the auto storage account associated with a Batch account.
+      * `last_key_sync` (`str`) - The UTC time at which storage keys were last synchronized with the Batch account.
+      * `storage_account_id` (`str`) - The resource ID of the storage account to be used for auto storage account.
+    """
+    core_quota: pulumi.Output[float]
+    key_vault_reference: pulumi.Output[dict]
+    """
+    Identifies the Azure key vault associated with a Batch account.
+      * `id` (`str`) - The resource ID of the Azure key vault associated with the Batch account.
+      * `url` (`str`) - The Url of the Azure key vault associated with the Batch account.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource
@@ -18,23 +36,14 @@ class BatchAccount(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    pool_allocation_mode: pulumi.Output[str]
     """
-    The properties associated with the account.
-      * `account_endpoint` (`str`) - The endpoint used by this account to interact with the Batch services.
-      * `active_job_and_job_schedule_quota` (`float`)
-      * `auto_storage` (`dict`) - Contains information about the auto storage account associated with a Batch account.
-        * `last_key_sync` (`str`) - The UTC time at which storage keys were last synchronized with the Batch account.
-        * `storage_account_id` (`str`) - The resource ID of the storage account to be used for auto storage account.
-
-      * `core_quota` (`float`)
-      * `key_vault_reference` (`dict`) - Identifies the Azure key vault associated with a Batch account.
-        * `id` (`str`) - The resource ID of the Azure key vault associated with the Batch account.
-        * `url` (`str`) - The Url of the Azure key vault associated with the Batch account.
-
-      * `pool_allocation_mode` (`str`) - The allocation mode for creating pools in the Batch account.
-      * `pool_quota` (`float`)
-      * `provisioning_state` (`str`) - The provisioned state of the resource
+    The allocation mode for creating pools in the Batch account.
+    """
+    pool_quota: pulumi.Output[float]
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioned state of the resource
     """
     tags: pulumi.Output[dict]
     """
@@ -97,7 +106,11 @@ class BatchAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['account_endpoint'] = None
+            __props__['active_job_and_job_schedule_quota'] = None
+            __props__['core_quota'] = None
+            __props__['pool_quota'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(BatchAccount, __self__).__init__(
             'azurerm:batch/v20170101:BatchAccount',

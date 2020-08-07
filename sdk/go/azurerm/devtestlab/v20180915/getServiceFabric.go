@@ -29,14 +29,22 @@ type LookupServiceFabricArgs struct {
 
 // A Service Fabric.
 type LookupServiceFabricResult struct {
+	// The applicable schedule for the virtual machine.
+	ApplicableSchedule ApplicableScheduleResponse `pulumi:"applicableSchedule"`
+	// The resource id of the environment under which the service fabric resource is present
+	EnvironmentId *string `pulumi:"environmentId"`
+	// The backing service fabric resource's id
+	ExternalServiceFabricId *string `pulumi:"externalServiceFabricId"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ServiceFabricPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
 }

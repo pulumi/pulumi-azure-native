@@ -13,7 +13,13 @@ class GetMediaServiceResult:
     """
     A Media Services account.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, identity=None, location=None, media_service_id=None, name=None, storage_accounts=None, storage_authentication=None, tags=None, type=None):
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        __self__.encryption = encryption
+        """
+        The account encryption properties.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -26,18 +32,27 @@ class GetMediaServiceResult:
         """
         The geo-location where the resource lives
         """
+        if media_service_id and not isinstance(media_service_id, str):
+            raise TypeError("Expected argument 'media_service_id' to be a str")
+        __self__.media_service_id = media_service_id
+        """
+        The Media Services account ID.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if storage_accounts and not isinstance(storage_accounts, list):
+            raise TypeError("Expected argument 'storage_accounts' to be a list")
+        __self__.storage_accounts = storage_accounts
         """
-        The resource properties.
+        The storage accounts for this resource.
         """
+        if storage_authentication and not isinstance(storage_authentication, str):
+            raise TypeError("Expected argument 'storage_authentication' to be a str")
+        __self__.storage_authentication = storage_authentication
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -58,10 +73,13 @@ class AwaitableGetMediaServiceResult(GetMediaServiceResult):
         if False:
             yield self
         return GetMediaServiceResult(
+            encryption=self.encryption,
             identity=self.identity,
             location=self.location,
+            media_service_id=self.media_service_id,
             name=self.name,
-            properties=self.properties,
+            storage_accounts=self.storage_accounts,
+            storage_authentication=self.storage_authentication,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +101,12 @@ def get_media_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getMediaService', __args__, opts=opts).value
 
     return AwaitableGetMediaServiceResult(
+        encryption=__ret__.get('encryption'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
+        media_service_id=__ret__.get('mediaServiceId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        storage_accounts=__ret__.get('storageAccounts'),
+        storage_authentication=__ret__.get('storageAuthentication'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

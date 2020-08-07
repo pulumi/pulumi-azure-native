@@ -27,10 +27,22 @@ type LookupEventHubArgs struct {
 
 // Single item in List or Get Event Hub operation
 type LookupEventHubResult struct {
+	// Properties of capture description
+	CaptureDescription *CaptureDescriptionResponse `pulumi:"captureDescription"`
+	// Exact time the Event Hub was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties EventhubResponseProperties `pulumi:"properties"`
+	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// Current number of shards on the Event Hub.
+	PartitionIds []string `pulumi:"partitionIds"`
+	// Enumerates the possible values for the status of the Event Hub.
+	Status *string `pulumi:"status"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
 }

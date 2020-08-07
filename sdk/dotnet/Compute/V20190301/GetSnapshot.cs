@@ -40,6 +40,30 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public sealed class GetSnapshotResult
     {
         /// <summary>
+        /// Disk source information. CreationData information cannot be changed after the disk has been created.
+        /// </summary>
+        public readonly Outputs.CreationDataResponseResult CreationData;
+        /// <summary>
+        /// The size of the disk in bytes. This field is read only.
+        /// </summary>
+        public readonly int DiskSizeBytes;
+        /// <summary>
+        /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        /// </summary>
+        public readonly int? DiskSizeGB;
+        /// <summary>
+        /// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        /// </summary>
+        public readonly Outputs.EncryptionSettingsCollectionResponseResult? EncryptionSettingsCollection;
+        /// <summary>
+        /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        /// </summary>
+        public readonly string? HyperVGeneration;
+        /// <summary>
+        /// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+        /// </summary>
+        public readonly bool? Incremental;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -52,9 +76,13 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Snapshot resource properties.
+        /// The Operating System type.
         /// </summary>
-        public readonly Outputs.SnapshotPropertiesResponseResult Properties;
+        public readonly string? OsType;
+        /// <summary>
+        /// The disk provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         /// </summary>
@@ -64,33 +92,68 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The time when the disk was created.
+        /// </summary>
+        public readonly string TimeCreated;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Unique Guid identifying the resource.
+        /// </summary>
+        public readonly string UniqueId;
 
         [OutputConstructor]
         private GetSnapshotResult(
+            Outputs.CreationDataResponseResult creationData,
+
+            int diskSizeBytes,
+
+            int? diskSizeGB,
+
+            Outputs.EncryptionSettingsCollectionResponseResult? encryptionSettingsCollection,
+
+            string? hyperVGeneration,
+
+            bool? incremental,
+
             string location,
 
             string managedBy,
 
             string name,
 
-            Outputs.SnapshotPropertiesResponseResult properties,
+            string? osType,
+
+            string provisioningState,
 
             Outputs.SnapshotSkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string timeCreated,
+
+            string type,
+
+            string uniqueId)
         {
+            CreationData = creationData;
+            DiskSizeBytes = diskSizeBytes;
+            DiskSizeGB = diskSizeGB;
+            EncryptionSettingsCollection = encryptionSettingsCollection;
+            HyperVGeneration = hyperVGeneration;
+            Incremental = incremental;
             Location = location;
             ManagedBy = managedBy;
             Name = name;
-            Properties = properties;
+            OsType = osType;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
+            TimeCreated = timeCreated;
             Type = type;
+            UniqueId = uniqueId;
         }
     }
 }

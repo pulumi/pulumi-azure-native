@@ -46,10 +46,21 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
     public sealed class GetAccessPolicyResult
     {
         /// <summary>
+        /// An description of the access policy.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.AccessPolicyResourcePropertiesResponseResult Properties;
+        /// <summary>
+        /// The objectId of the principal in Azure Active Directory.
+        /// </summary>
+        public readonly string? PrincipalObjectId;
+        /// <summary>
+        /// The list of roles the principal is assigned on the environment.
+        /// </summary>
+        public readonly ImmutableArray<string> Roles;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -57,14 +68,20 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
 
         [OutputConstructor]
         private GetAccessPolicyResult(
+            string? description,
+
             string name,
 
-            Outputs.AccessPolicyResourcePropertiesResponseResult properties,
+            string? principalObjectId,
+
+            ImmutableArray<string> roles,
 
             string type)
         {
+            Description = description;
             Name = name;
-            Properties = properties;
+            PrincipalObjectId = principalObjectId;
+            Roles = roles;
             Type = type;
         }
     }

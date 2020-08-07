@@ -41,13 +41,21 @@ export interface GetCacheArgs {
  */
 export interface GetCacheResult {
     /**
+     * Runtime connection string to cache
+     */
+    readonly connectionString: string;
+    /**
+     * Cache description
+     */
+    readonly description?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Cache properties details.
+     * Original uri of entity in external system cache points to
      */
-    readonly properties: outputs.apimanagement.v20191201.CacheContractPropertiesResponse;
+    readonly resourceId?: string;
     /**
      * Resource type for API Management resource.
      */

@@ -41,13 +41,29 @@ export interface GetOpenIdConnectProviderArgs {
  */
 export interface GetOpenIdConnectProviderResult {
     /**
+     * Client ID of developer console which is the client application.
+     */
+    readonly clientId: string;
+    /**
+     * Client Secret of developer console which is the client application.
+     */
+    readonly clientSecret?: string;
+    /**
+     * User-friendly description of OpenID Connect Provider.
+     */
+    readonly description?: string;
+    /**
+     * User-friendly OpenID Connect Provider name.
+     */
+    readonly displayName: string;
+    /**
+     * Metadata endpoint URI.
+     */
+    readonly metadataEndpoint: string;
+    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * OpenId Connect Provider contract properties.
-     */
-    readonly properties: outputs.apimanagement.v20190101.OpenidConnectProviderContractPropertiesResponse;
     /**
      * Resource type for API Management resource.
      */

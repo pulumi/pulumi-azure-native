@@ -10,34 +10,69 @@ from ... import _utilities, _tables
 
 
 class FileShare(pulumi.CustomResource):
+    access_tier: pulumi.Output[str]
+    """
+    Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+    """
+    access_tier_change_time: pulumi.Output[str]
+    """
+    Indicates the last modification time for share access tier.
+    """
+    access_tier_status: pulumi.Output[str]
+    """
+    Indicates if there is a pending transition for access tier.
+    """
+    deleted: pulumi.Output[bool]
+    """
+    Indicates whether the share was deleted.
+    """
+    deleted_time: pulumi.Output[str]
+    """
+    The deleted time if the share was deleted.
+    """
+    enabled_protocols: pulumi.Output[str]
+    """
+    The authentication protocol that is used for the file share. Can only be specified when creating a share.
+    """
     etag: pulumi.Output[str]
     """
     Resource Etag.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Returns the date and time the share was last modified.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    A name-value pair to associate with the share as metadata.
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    remaining_retention_days: pulumi.Output[float]
     """
-    Properties of the file share.
-      * `access_tier` (`str`) - Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-      * `access_tier_change_time` (`str`) - Indicates the last modification time for share access tier.
-      * `access_tier_status` (`str`) - Indicates if there is a pending transition for access tier.
-      * `deleted` (`bool`) - Indicates whether the share was deleted.
-      * `deleted_time` (`str`) - The deleted time if the share was deleted.
-      * `enabled_protocols` (`str`) - The authentication protocol that is used for the file share. Can only be specified when creating a share.
-      * `last_modified_time` (`str`) - Returns the date and time the share was last modified.
-      * `metadata` (`dict`) - A name-value pair to associate with the share as metadata.
-      * `remaining_retention_days` (`float`) - Remaining retention days for share that was soft deleted.
-      * `root_squash` (`str`) - The property is for NFS share only. The default is NoRootSquash.
-      * `share_quota` (`float`) - The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-      * `share_usage_bytes` (`float`) - The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-      * `version` (`str`) - The version of the share.
+    Remaining retention days for share that was soft deleted.
+    """
+    root_squash: pulumi.Output[str]
+    """
+    The property is for NFS share only. The default is NoRootSquash.
+    """
+    share_quota: pulumi.Output[float]
+    """
+    The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+    """
+    share_usage_bytes: pulumi.Output[float]
+    """
+    The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
     """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    version: pulumi.Output[str]
+    """
+    The version of the share.
     """
     def __init__(__self__, resource_name, opts=None, access_tier=None, account_name=None, enabled_protocols=None, metadata=None, name=None, resource_group_name=None, root_squash=None, share_quota=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -85,9 +120,16 @@ class FileShare(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['root_squash'] = root_squash
             __props__['share_quota'] = share_quota
+            __props__['access_tier_change_time'] = None
+            __props__['access_tier_status'] = None
+            __props__['deleted'] = None
+            __props__['deleted_time'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['last_modified_time'] = None
+            __props__['remaining_retention_days'] = None
+            __props__['share_usage_bytes'] = None
             __props__['type'] = None
+            __props__['version'] = None
         super(FileShare, __self__).__init__(
             'azurerm:storage/v20190601:FileShare',
             resource_name,

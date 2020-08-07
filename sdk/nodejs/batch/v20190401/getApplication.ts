@@ -41,6 +41,18 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     /**
+     * A value indicating whether packages within the application may be overwritten using the same version string.
+     */
+    readonly allowUpdates?: boolean;
+    /**
+     * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+     */
+    readonly defaultVersion?: string;
+    /**
+     * The display name for the application.
+     */
+    readonly displayName?: string;
+    /**
      * The ETag of the resource, used for concurrency statements.
      */
     readonly etag: string;
@@ -48,10 +60,6 @@ export interface GetApplicationResult {
      * The name of the resource.
      */
     readonly name: string;
-    /**
-     * The properties associated with the Application.
-     */
-    readonly properties: outputs.batch.v20190401.ApplicationPropertiesResponse;
     /**
      * The type of the resource.
      */

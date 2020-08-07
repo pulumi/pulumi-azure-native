@@ -13,12 +13,30 @@ class GetDisasterRecoveryConfigurationResult:
     """
     Represents a disaster recovery configuration.
     """
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, auto_failover=None, failover_policy=None, location=None, logical_server_name=None, name=None, partner_logical_server_name=None, partner_server_id=None, role=None, status=None, type=None):
+        if auto_failover and not isinstance(auto_failover, str):
+            raise TypeError("Expected argument 'auto_failover' to be a str")
+        __self__.auto_failover = auto_failover
+        """
+        Whether or not failover can be done automatically.
+        """
+        if failover_policy and not isinstance(failover_policy, str):
+            raise TypeError("Expected argument 'failover_policy' to be a str")
+        __self__.failover_policy = failover_policy
+        """
+        How aggressive the automatic failover should be.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Location of the server that contains this disaster recovery configuration.
+        """
+        if logical_server_name and not isinstance(logical_server_name, str):
+            raise TypeError("Expected argument 'logical_server_name' to be a str")
+        __self__.logical_server_name = logical_server_name
+        """
+        Logical name of the server.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +44,29 @@ class GetDisasterRecoveryConfigurationResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partner_logical_server_name and not isinstance(partner_logical_server_name, str):
+            raise TypeError("Expected argument 'partner_logical_server_name' to be a str")
+        __self__.partner_logical_server_name = partner_logical_server_name
         """
-        The properties representing the resource.
+        Logical name of the partner server.
+        """
+        if partner_server_id and not isinstance(partner_server_id, str):
+            raise TypeError("Expected argument 'partner_server_id' to be a str")
+        __self__.partner_server_id = partner_server_id
+        """
+        Id of the partner server.
+        """
+        if role and not isinstance(role, str):
+            raise TypeError("Expected argument 'role' to be a str")
+        __self__.role = role
+        """
+        The role of the current server in the disaster recovery configuration.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of the disaster recovery configuration.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +82,15 @@ class AwaitableGetDisasterRecoveryConfigurationResult(GetDisasterRecoveryConfigu
         if False:
             yield self
         return GetDisasterRecoveryConfigurationResult(
+            auto_failover=self.auto_failover,
+            failover_policy=self.failover_policy,
             location=self.location,
+            logical_server_name=self.logical_server_name,
             name=self.name,
-            properties=self.properties,
+            partner_logical_server_name=self.partner_logical_server_name,
+            partner_server_id=self.partner_server_id,
+            role=self.role,
+            status=self.status,
             type=self.type)
 
 
@@ -71,7 +113,13 @@ def get_disaster_recovery_configuration(name=None, resource_group_name=None, ser
     __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getDisasterRecoveryConfiguration', __args__, opts=opts).value
 
     return AwaitableGetDisasterRecoveryConfigurationResult(
+        auto_failover=__ret__.get('autoFailover'),
+        failover_policy=__ret__.get('failoverPolicy'),
         location=__ret__.get('location'),
+        logical_server_name=__ret__.get('logicalServerName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        partner_logical_server_name=__ret__.get('partnerLogicalServerName'),
+        partner_server_id=__ret__.get('partnerServerId'),
+        role=__ret__.get('role'),
+        status=__ret__.get('status'),
         type=__ret__.get('type'))

@@ -52,13 +52,17 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class GetApiSchemaResult
     {
         /// <summary>
+        /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`. 
+        /// </summary>
+        public readonly string ContentType;
+        /// <summary>
+        /// Properties of the Schema Document.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Document;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Properties of the Schema.
-        /// </summary>
-        public readonly Outputs.SchemaContractPropertiesResponseResult Properties;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -66,14 +70,17 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
 
         [OutputConstructor]
         private GetApiSchemaResult(
-            string name,
+            string contentType,
 
-            Outputs.SchemaContractPropertiesResponseResult properties,
+            ImmutableDictionary<string, object>? document,
+
+            string name,
 
             string type)
         {
+            ContentType = contentType;
+            Document = document;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

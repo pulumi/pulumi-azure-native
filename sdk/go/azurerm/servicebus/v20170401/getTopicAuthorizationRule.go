@@ -31,8 +31,8 @@ type LookupTopicAuthorizationRuleArgs struct {
 type LookupTopicAuthorizationRuleResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
-	// AuthorizationRule properties.
-	Properties SBAuthorizationRuleResponseProperties `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

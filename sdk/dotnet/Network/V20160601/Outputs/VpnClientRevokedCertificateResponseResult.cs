@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the revoked VPN client certificate of virtual network gateway
+        /// Gets provisioning state of the VPN client revoked certificate resource Updating/Deleting/Failed
         /// </summary>
-        public readonly Outputs.VpnClientRevokedCertificatePropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the revoked Vpn client certificate thumbprint
+        /// </summary>
+        public readonly string? Thumbprint;
 
         [OutputConstructor]
         private VpnClientRevokedCertificateResponseResult(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
 
             string? name,
 
-            Outputs.VpnClientRevokedCertificatePropertiesFormatResponseResult? properties)
+            string? provisioningState,
+
+            string? thumbprint)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Thumbprint = thumbprint;
         }
     }
 }

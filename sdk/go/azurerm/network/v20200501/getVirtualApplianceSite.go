@@ -27,12 +27,16 @@ type LookupVirtualApplianceSiteArgs struct {
 
 // Virtual Appliance Site resource.
 type LookupVirtualApplianceSiteResult struct {
+	// Address Prefix.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Name of the virtual appliance site.
 	Name *string `pulumi:"name"`
-	// The properties of the Virtual Appliance Sites.
-	Properties VirtualApplianceSitePropertiesResponse `pulumi:"properties"`
+	// Office 365 Policy.
+	O365Policy *Office365PolicyPropertiesResponse `pulumi:"o365Policy"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Site type.
 	Type string `pulumi:"type"`
 }

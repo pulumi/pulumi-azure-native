@@ -14,11 +14,13 @@ class NotebookWorkspace(pulumi.CustomResource):
     """
     The name of the database account.
     """
-    properties: pulumi.Output[dict]
+    notebook_server_endpoint: pulumi.Output[str]
     """
-    Resource properties.
-      * `notebook_server_endpoint` (`str`) - Specifies the endpoint of Notebook server.
-      * `status` (`str`) - Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+    Specifies the endpoint of Notebook server.
+    """
+    status: pulumi.Output[str]
+    """
+    Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
     """
     type: pulumi.Output[str]
     """
@@ -60,7 +62,8 @@ class NotebookWorkspace(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['notebook_server_endpoint'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(NotebookWorkspace, __self__).__init__(
             'azurerm:documentdb/v20200401:NotebookWorkspace',

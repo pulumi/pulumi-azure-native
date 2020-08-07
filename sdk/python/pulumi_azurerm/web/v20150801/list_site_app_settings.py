@@ -13,7 +13,7 @@ class ListSiteAppSettingsResult:
     """
     String dictionary resource
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, kind=None, location=None, name=None, tags=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -31,12 +31,6 @@ class ListSiteAppSettingsResult:
         __self__.name = name
         """
         Resource Name
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Settings
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -61,7 +55,6 @@ class AwaitableListSiteAppSettingsResult(ListSiteAppSettingsResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -86,6 +79,5 @@ def list_site_app_settings(name=None, resource_group_name=None, opts=None):
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

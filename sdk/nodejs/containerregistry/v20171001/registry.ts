@@ -37,21 +37,45 @@ export class Registry extends pulumi.CustomResource {
     }
 
     /**
+     * The value that indicates whether the admin user is enabled.
+     */
+    public readonly adminUserEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The creation date of the container registry in ISO8601 format.
+     */
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The URL that can be used to log into the container registry.
+     */
+    public /*out*/ readonly loginServer!: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the container registry.
+     * The network rule set for a container registry.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20171001.RegistryPropertiesResponse>;
+    public readonly networkRuleSet!: pulumi.Output<outputs.containerregistry.v20171001.NetworkRuleSetResponse | undefined>;
+    /**
+     * The provisioning state of the container registry at the time the operation was called.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The SKU of the container registry.
      */
     public readonly sku!: pulumi.Output<outputs.containerregistry.v20171001.SkuResponse>;
+    /**
+     * The status of the container registry at the time the operation was called.
+     */
+    public /*out*/ readonly status!: pulumi.Output<outputs.containerregistry.v20171001.StatusResponse>;
+    /**
+     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
+     */
+    public readonly storageAccount!: pulumi.Output<outputs.containerregistry.v20171001.StorageAccountPropertiesResponse | undefined>;
     /**
      * The tags of the resource.
      */
@@ -94,7 +118,10 @@ export class Registry extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["loginServer"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

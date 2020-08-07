@@ -13,7 +13,19 @@ class GetNetworkProfileResult:
     """
     Network profile resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, container_network_interface_configurations=None, container_network_interfaces=None, etag=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+        if container_network_interface_configurations and not isinstance(container_network_interface_configurations, list):
+            raise TypeError("Expected argument 'container_network_interface_configurations' to be a list")
+        __self__.container_network_interface_configurations = container_network_interface_configurations
+        """
+        List of chid container network interface configurations.
+        """
+        if container_network_interfaces and not isinstance(container_network_interfaces, list):
+            raise TypeError("Expected argument 'container_network_interfaces' to be a list")
+        __self__.container_network_interfaces = container_network_interfaces
+        """
+        List of child container network interfaces.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +44,17 @@ class GetNetworkProfileResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Network profile properties.
+        The provisioning state of the network profile resource.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the network profile resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +76,13 @@ class AwaitableGetNetworkProfileResult(GetNetworkProfileResult):
         if False:
             yield self
         return GetNetworkProfileResult(
+            container_network_interface_configurations=self.container_network_interface_configurations,
+            container_network_interfaces=self.container_network_interfaces,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +104,12 @@ def get_network_profile(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200401:getNetworkProfile', __args__, opts=opts).value
 
     return AwaitableGetNetworkProfileResult(
+        container_network_interface_configurations=__ret__.get('containerNetworkInterfaceConfigurations'),
+        container_network_interfaces=__ret__.get('containerNetworkInterfaces'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

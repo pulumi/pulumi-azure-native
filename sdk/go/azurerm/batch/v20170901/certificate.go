@@ -14,12 +14,30 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	// This is only returned when the certificate provisioningState is 'Failed'.
+	DeleteCertificateError DeleteCertificateErrorResponseOutput `pulumi:"deleteCertificateError"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+	Format pulumi.StringPtrOutput `pulumi:"format"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with the certificate.
-	Properties CertificatePropertiesResponseOutput `pulumi:"properties"`
+	// The previous provisioned state of the resource
+	PreviousProvisioningState               pulumi.StringOutput `pulumi:"previousProvisioningState"`
+	PreviousProvisioningStateTransitionTime pulumi.StringOutput `pulumi:"previousProvisioningStateTransitionTime"`
+	// Values are:
+	//
+	//  Succeeded - The certificate is available for use in pools.
+	//  Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
+	//  Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
+	ProvisioningState               pulumi.StringOutput `pulumi:"provisioningState"`
+	ProvisioningStateTransitionTime pulumi.StringOutput `pulumi:"provisioningStateTransitionTime"`
+	// The public key of the certificate.
+	PublicData pulumi.StringOutput `pulumi:"publicData"`
+	// This must match the thumbprint from the name.
+	Thumbprint pulumi.StringPtrOutput `pulumi:"thumbprint"`
+	// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+	ThumbprintAlgorithm pulumi.StringPtrOutput `pulumi:"thumbprintAlgorithm"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -64,23 +82,59 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
+	// This is only returned when the certificate provisioningState is 'Failed'.
+	DeleteCertificateError *DeleteCertificateErrorResponse `pulumi:"deleteCertificateError"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag *string `pulumi:"etag"`
+	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+	Format *string `pulumi:"format"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties associated with the certificate.
-	Properties *CertificatePropertiesResponse `pulumi:"properties"`
+	// The previous provisioned state of the resource
+	PreviousProvisioningState               *string `pulumi:"previousProvisioningState"`
+	PreviousProvisioningStateTransitionTime *string `pulumi:"previousProvisioningStateTransitionTime"`
+	// Values are:
+	//
+	//  Succeeded - The certificate is available for use in pools.
+	//  Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
+	//  Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
+	ProvisioningState               *string `pulumi:"provisioningState"`
+	ProvisioningStateTransitionTime *string `pulumi:"provisioningStateTransitionTime"`
+	// The public key of the certificate.
+	PublicData *string `pulumi:"publicData"`
+	// This must match the thumbprint from the name.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+	ThumbprintAlgorithm *string `pulumi:"thumbprintAlgorithm"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type CertificateState struct {
+	// This is only returned when the certificate provisioningState is 'Failed'.
+	DeleteCertificateError DeleteCertificateErrorResponsePtrInput
 	// The ETag of the resource, used for concurrency statements.
 	Etag pulumi.StringPtrInput
+	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+	Format pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties associated with the certificate.
-	Properties CertificatePropertiesResponsePtrInput
+	// The previous provisioned state of the resource
+	PreviousProvisioningState               pulumi.StringPtrInput
+	PreviousProvisioningStateTransitionTime pulumi.StringPtrInput
+	// Values are:
+	//
+	//  Succeeded - The certificate is available for use in pools.
+	//  Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
+	//  Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
+	ProvisioningState               pulumi.StringPtrInput
+	ProvisioningStateTransitionTime pulumi.StringPtrInput
+	// The public key of the certificate.
+	PublicData pulumi.StringPtrInput
+	// This must match the thumbprint from the name.
+	Thumbprint pulumi.StringPtrInput
+	// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+	ThumbprintAlgorithm pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

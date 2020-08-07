@@ -29,8 +29,8 @@ type LookupVirtualNetworkRuleArgs struct {
 type LookupVirtualNetworkRuleResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
-	// The virtual network rule properties.
-	Properties VirtualNetworkRulePropertiesResponse `pulumi:"properties"`
+	// The resource identifier for the subnet.
+	SubnetId string `pulumi:"subnetId"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

@@ -25,13 +25,24 @@ type LookupCertificateCsrArgs struct {
 
 // Certificate signing request object
 type LookupCertificateCsrResult struct {
+	// Actual CSR string created
+	CsrString *string `pulumi:"csrString"`
+	// Distinguished name of certificate to be created
+	DistinguishedName *string `pulumi:"distinguishedName"`
+	// Hosting environment
+	HostingEnvironment *string `pulumi:"hostingEnvironment"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string               `pulumi:"name"`
-	Properties CsrResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// PFX password
+	Password *string `pulumi:"password"`
+	// PFX certificate of created certificate
+	PfxBlob *string `pulumi:"pfxBlob"`
+	// Hash of the certificates public key
+	PublicKeyHash *string `pulumi:"publicKeyHash"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

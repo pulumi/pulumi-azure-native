@@ -14,16 +14,34 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
+	// Gets the access endpoint.
+	AccessEndpoint pulumi.StringOutput `pulumi:"accessEndpoint"`
+	// Gets the changed time.
+	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
+	// Gets the created time.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+	Definition pulumi.MapOutput `pulumi:"definition"`
+	// The integration account.
+	IntegrationAccount ResourceReferenceResponsePtrOutput `pulumi:"integrationAccount"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The workflow properties.
-	Properties WorkflowPropertiesResponseOutput `pulumi:"properties"`
+	// The parameters.
+	Parameters WorkflowParameterResponseMapOutput `pulumi:"parameters"`
+	// Gets the provisioning state.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The sku.
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The state.
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Gets the resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Gets the version.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -60,29 +78,65 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
+	// Gets the access endpoint.
+	AccessEndpoint *string `pulumi:"accessEndpoint"`
+	// Gets the changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// Gets the created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+	Definition map[string]interface{} `pulumi:"definition"`
+	// The integration account.
+	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
-	// The workflow properties.
-	Properties *WorkflowPropertiesResponse `pulumi:"properties"`
+	// The parameters.
+	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
+	// Gets the provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The sku.
+	Sku *SkuResponse `pulumi:"sku"`
+	// The state.
+	State *string `pulumi:"state"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
 	Type *string `pulumi:"type"`
+	// Gets the version.
+	Version *string `pulumi:"version"`
 }
 
 type WorkflowState struct {
+	// Gets the access endpoint.
+	AccessEndpoint pulumi.StringPtrInput
+	// Gets the changed time.
+	ChangedTime pulumi.StringPtrInput
+	// Gets the created time.
+	CreatedTime pulumi.StringPtrInput
+	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+	Definition pulumi.MapInput
+	// The integration account.
+	IntegrationAccount ResourceReferenceResponsePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
-	// The workflow properties.
-	Properties WorkflowPropertiesResponsePtrInput
+	// The parameters.
+	Parameters WorkflowParameterResponseMapInput
+	// Gets the provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// The sku.
+	Sku SkuResponsePtrInput
+	// The state.
+	State pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// Gets the resource type.
 	Type pulumi.StringPtrInput
+	// Gets the version.
+	Version pulumi.StringPtrInput
 }
 
 func (WorkflowState) ElementType() reflect.Type {

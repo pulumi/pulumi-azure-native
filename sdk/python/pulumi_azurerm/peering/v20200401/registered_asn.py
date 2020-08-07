@@ -10,16 +10,21 @@ from ... import _utilities, _tables
 
 
 class RegisteredAsn(pulumi.CustomResource):
+    asn: pulumi.Output[float]
+    """
+    The customer's ASN from which traffic originates.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    peering_service_prefix_key: pulumi.Output[str]
     """
-    The properties that define a registered ASN.
-      * `asn` (`float`) - The customer's ASN from which traffic originates.
-      * `peering_service_prefix_key` (`str`) - The peering service prefix key that is to be shared with the customer.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    The peering service prefix key that is to be shared with the customer.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     type: pulumi.Output[str]
     """
@@ -63,7 +68,8 @@ class RegisteredAsn(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['peering_service_prefix_key'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(RegisteredAsn, __self__).__init__(
             'azurerm:peering/v20200401:RegisteredAsn',

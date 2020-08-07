@@ -30,9 +30,17 @@ namespace Pulumi.AzureRM.Network.V20161201.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Route Filter Resource
+        /// A collection of references to express route circuit peerings.
         /// </summary>
-        public readonly Outputs.RouteFilterPropertiesFormatResponseResult? Properties;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> Peerings;
+        /// <summary>
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Collection of RouteFilterRules contained within a route filter.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RouteFilterRuleResponseResult> Rules;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -52,7 +60,11 @@ namespace Pulumi.AzureRM.Network.V20161201.Outputs
 
             string name,
 
-            Outputs.RouteFilterPropertiesFormatResponseResult? properties,
+            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> peerings,
+
+            string provisioningState,
+
+            ImmutableArray<Outputs.RouteFilterRuleResponseResult> rules,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -62,7 +74,9 @@ namespace Pulumi.AzureRM.Network.V20161201.Outputs
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            Peerings = peerings;
+            ProvisioningState = provisioningState;
+            Rules = rules;
             Tags = tags;
             Type = type;
         }

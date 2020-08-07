@@ -37,17 +37,81 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /**
+     * Last time there was a receive request to this subscription.
+     */
+    public /*out*/ readonly accessedAt!: pulumi.Output<string>;
+    /**
+     * ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+     */
+    public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
+    /**
+     * Message count details
+     */
+    public /*out*/ readonly countDetails!: pulumi.Output<outputs.servicebus.v20170401.MessageCountDetailsResponse>;
+    /**
+     * Exact time the message was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+     */
+    public readonly deadLetteringOnFilterEvaluationExceptions!: pulumi.Output<boolean | undefined>;
+    /**
+     * Value that indicates whether a subscription has dead letter support when a message expires.
+     */
+    public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
+    /**
+     * ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     */
+    public readonly defaultMessageTimeToLive!: pulumi.Output<string | undefined>;
+    /**
+     * ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+     */
+    public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string | undefined>;
+    /**
+     * Value that indicates whether server-side batched operations are enabled.
+     */
+    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
+    /**
+     * Queue/Topic name to forward the Dead Letter message
+     */
+    public readonly forwardDeadLetteredMessagesTo!: pulumi.Output<string | undefined>;
+    /**
+     * Queue/Topic name to forward the messages
+     */
+    public readonly forwardTo!: pulumi.Output<string | undefined>;
+    /**
+     * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+     */
+    public readonly lockDuration!: pulumi.Output<string | undefined>;
+    /**
+     * Number of maximum deliveries.
+     */
+    public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
+    /**
+     * Number of messages.
+     */
+    public /*out*/ readonly messageCount!: pulumi.Output<number>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of subscriptions resource.
+     * Value indicating if a subscription supports the concept of sessions.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.SBSubscriptionPropertiesResponse>;
+    public readonly requiresSession!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enumerates the possible values for the status of a messaging entity.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The exact time the message was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -90,8 +154,12 @@ export class Subscription extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accessedAt"] = undefined /*out*/;
+            inputs["countDetails"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["messageCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

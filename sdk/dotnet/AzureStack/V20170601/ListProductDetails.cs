@@ -46,29 +46,85 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
     public sealed class ListProductDetailsResult
     {
         /// <summary>
+        /// Specifies kind of compute role included in the package.
+        /// </summary>
+        public readonly string ComputeRole;
+        /// <summary>
+        /// List of attached data disks.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataDiskImageResponseResult> DataDiskImages;
+        /// <summary>
         /// The URI to the .azpkg file that provides information required for showing product in the gallery.
         /// </summary>
         public readonly string GalleryPackageBlobSasUri;
+        /// <summary>
+        /// Specifies if product is a Virtual Machine Extension.
+        /// </summary>
+        public readonly bool IsSystemExtension;
+        /// <summary>
+        /// OS disk image used by product.
+        /// </summary>
+        public readonly Outputs.OsDiskImageResponseResult OsDiskImage;
         /// <summary>
         /// Specifies the kind of the product (virtualMachine or virtualMachineExtension).
         /// </summary>
         public readonly string ProductKind;
         /// <summary>
-        /// Specifies additional properties describing the product.
+        /// Indicates if specified product supports multiple extensions.
         /// </summary>
-        public readonly Outputs.ExtendedProductPropertiesResponseResult Properties;
+        public readonly bool SupportMultipleExtensions;
+        /// <summary>
+        /// The URI.
+        /// </summary>
+        public readonly string Uri;
+        /// <summary>
+        /// Specifies product version.
+        /// </summary>
+        public readonly string Version;
+        /// <summary>
+        /// Specifies operating system used by the product.
+        /// </summary>
+        public readonly string VmOsType;
+        /// <summary>
+        /// Indicates if virtual machine Scale Set is enabled in the specified product.
+        /// </summary>
+        public readonly bool VmScaleSetEnabled;
 
         [OutputConstructor]
         private ListProductDetailsResult(
+            string computeRole,
+
+            ImmutableArray<Outputs.DataDiskImageResponseResult> dataDiskImages,
+
             string galleryPackageBlobSasUri,
+
+            bool isSystemExtension,
+
+            Outputs.OsDiskImageResponseResult osDiskImage,
 
             string productKind,
 
-            Outputs.ExtendedProductPropertiesResponseResult properties)
+            bool supportMultipleExtensions,
+
+            string uri,
+
+            string version,
+
+            string vmOsType,
+
+            bool vmScaleSetEnabled)
         {
+            ComputeRole = computeRole;
+            DataDiskImages = dataDiskImages;
             GalleryPackageBlobSasUri = galleryPackageBlobSasUri;
+            IsSystemExtension = isSystemExtension;
+            OsDiskImage = osDiskImage;
             ProductKind = productKind;
-            Properties = properties;
+            SupportMultipleExtensions = supportMultipleExtensions;
+            Uri = uri;
+            Version = version;
+            VmOsType = vmOsType;
+            VmScaleSetEnabled = vmScaleSetEnabled;
         }
     }
 }

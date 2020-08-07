@@ -13,7 +13,7 @@ class GetVirtualNetworkLinkResult:
     """
     Describes a link to virtual network for a Private DNS zone.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, name=None, provisioning_state=None, registration_enabled=None, tags=None, type=None, virtual_network=None, virtual_network_link_state=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +32,17 @@ class GetVirtualNetworkLinkResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the virtual network link to the Private DNS zone.
+        The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+        """
+        if registration_enabled and not isinstance(registration_enabled, bool):
+            raise TypeError("Expected argument 'registration_enabled' to be a bool")
+        __self__.registration_enabled = registration_enabled
+        """
+        Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +56,18 @@ class GetVirtualNetworkLinkResult:
         """
         The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
         """
+        if virtual_network and not isinstance(virtual_network, dict):
+            raise TypeError("Expected argument 'virtual_network' to be a dict")
+        __self__.virtual_network = virtual_network
+        """
+        The reference of the virtual network.
+        """
+        if virtual_network_link_state and not isinstance(virtual_network_link_state, str):
+            raise TypeError("Expected argument 'virtual_network_link_state' to be a str")
+        __self__.virtual_network_link_state = virtual_network_link_state
+        """
+        The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
+        """
 
 
 class AwaitableGetVirtualNetworkLinkResult(GetVirtualNetworkLinkResult):
@@ -61,9 +79,12 @@ class AwaitableGetVirtualNetworkLinkResult(GetVirtualNetworkLinkResult):
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            registration_enabled=self.registration_enabled,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network=self.virtual_network,
+            virtual_network_link_state=self.virtual_network_link_state)
 
 
 def get_virtual_network_link(name=None, private_zone_name=None, resource_group_name=None, opts=None):
@@ -88,6 +109,9 @@ def get_virtual_network_link(name=None, private_zone_name=None, resource_group_n
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        registration_enabled=__ret__.get('registrationEnabled'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_network=__ret__.get('virtualNetwork'),
+        virtual_network_link_state=__ret__.get('virtualNetworkLinkState'))

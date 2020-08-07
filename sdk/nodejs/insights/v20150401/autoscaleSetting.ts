@@ -37,6 +37,10 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     }
 
     /**
+     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +49,21 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The autoscale setting of the resource.
+     * the collection of notifications.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20150401.AutoscaleSettingResponse>;
+    public readonly notifications!: pulumi.Output<outputs.insights.v20150401.AutoscaleNotificationResponse[] | undefined>;
+    /**
+     * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+     */
+    public readonly profiles!: pulumi.Output<outputs.insights.v20150401.AutoscaleProfileResponse[]>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * the resource identifier of the resource that the autoscale setting should be added to.
+     */
+    public readonly targetResourceUri!: pulumi.Output<string | undefined>;
     /**
      * Azure resource type
      */
@@ -90,7 +102,6 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceUri"] = args ? args.targetResourceUri : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

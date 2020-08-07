@@ -56,10 +56,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the content item.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> Properties;
-        /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
@@ -68,12 +64,9 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         private GetContentItemResult(
             string name,
 
-            ImmutableDictionary<string, object> properties,
-
             string type)
         {
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

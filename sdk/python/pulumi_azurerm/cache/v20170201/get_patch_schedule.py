@@ -13,7 +13,7 @@ class GetPatchScheduleResult:
     """
     Response to put/get patch schedules for Redis cache.
     """
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, location=None, name=None, schedule_entries=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,9 +26,9 @@ class GetPatchScheduleResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if schedule_entries and not isinstance(schedule_entries, list):
+            raise TypeError("Expected argument 'schedule_entries' to be a list")
+        __self__.schedule_entries = schedule_entries
         """
         List of patch schedules for a Redis cache.
         """
@@ -48,7 +48,7 @@ class AwaitableGetPatchScheduleResult(GetPatchScheduleResult):
         return GetPatchScheduleResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            schedule_entries=self.schedule_entries,
             type=self.type)
 
 
@@ -71,5 +71,5 @@ def get_patch_schedule(name=None, resource_group_name=None, opts=None):
     return AwaitableGetPatchScheduleResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        schedule_entries=__ret__.get('scheduleEntries'),
         type=__ret__.get('type'))

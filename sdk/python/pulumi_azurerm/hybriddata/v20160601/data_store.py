@@ -10,22 +10,32 @@ from ... import _utilities, _tables
 
 
 class DataStore(pulumi.CustomResource):
+    customer_secrets: pulumi.Output[list]
+    """
+    List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+      * `algorithm` (`str`) - The encryption algorithm used to encrypt data.
+      * `key_identifier` (`str`) - The identifier to the data service input object which this secret corresponds to.
+      * `key_value` (`str`) - It contains the encrypted customer secret.
+    """
+    data_store_type_id: pulumi.Output[str]
+    """
+    The arm id of the data store type.
+    """
+    extended_properties: pulumi.Output[dict]
+    """
+    A generic json used differently by each data source type.
+    """
     name: pulumi.Output[str]
     """
     Name of the object.
     """
-    properties: pulumi.Output[dict]
+    repository_id: pulumi.Output[str]
     """
-    DataStore properties.
-      * `customer_secrets` (`list`) - List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-        * `algorithm` (`str`) - The encryption algorithm used to encrypt data.
-        * `key_identifier` (`str`) - The identifier to the data service input object which this secret corresponds to.
-        * `key_value` (`str`) - It contains the encrypted customer secret.
-
-      * `data_store_type_id` (`str`) - The arm id of the data store type.
-      * `extended_properties` (`dict`) - A generic json used differently by each data source type.
-      * `repository_id` (`str`) - Arm Id for the manager resource to which the data source is associated. This is optional.
-      * `state` (`str`) - State of the data source.
+    Arm Id for the manager resource to which the data source is associated. This is optional.
+    """
+    state: pulumi.Output[str]
+    """
+    State of the data source.
     """
     type: pulumi.Output[str]
     """
@@ -87,7 +97,6 @@ class DataStore(pulumi.CustomResource):
             if state is None:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
-            __props__['properties'] = None
             __props__['type'] = None
         super(DataStore, __self__).__init__(
             'azurerm:hybriddata/v20160601:DataStore',

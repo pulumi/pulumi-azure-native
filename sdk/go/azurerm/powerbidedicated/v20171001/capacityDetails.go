@@ -14,14 +14,18 @@ import (
 type CapacityDetails struct {
 	pulumi.CustomResourceState
 
+	// A collection of Dedicated capacity administrators
+	Administration DedicatedCapacityAdministratorsResponsePtrOutput `pulumi:"administration"`
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the PowerBI Dedicated resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties DedicatedCapacityPropertiesResponseOutput `pulumi:"properties"`
+	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The SKU of the PowerBI Dedicated resource.
 	Sku ResourceSkuResponseOutput `pulumi:"sku"`
+	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the PowerBI Dedicated resource.
@@ -68,14 +72,18 @@ func GetCapacityDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityDetails resources.
 type capacityDetailsState struct {
+	// A collection of Dedicated capacity administrators
+	Administration *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
 	// Location of the PowerBI Dedicated resource.
 	Location *string `pulumi:"location"`
 	// The name of the PowerBI Dedicated resource.
 	Name *string `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties *DedicatedCapacityPropertiesResponse `pulumi:"properties"`
+	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The SKU of the PowerBI Dedicated resource.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
+	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+	State *string `pulumi:"state"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the PowerBI Dedicated resource.
@@ -83,14 +91,18 @@ type capacityDetailsState struct {
 }
 
 type CapacityDetailsState struct {
+	// A collection of Dedicated capacity administrators
+	Administration DedicatedCapacityAdministratorsResponsePtrInput
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringPtrInput
 	// The name of the PowerBI Dedicated resource.
 	Name pulumi.StringPtrInput
-	// Properties of the provision operation request.
-	Properties DedicatedCapacityPropertiesResponsePtrInput
+	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState pulumi.StringPtrInput
 	// The SKU of the PowerBI Dedicated resource.
 	Sku ResourceSkuResponsePtrInput
+	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+	State pulumi.StringPtrInput
 	// Key-value pairs of additional resource provisioning properties.
 	Tags pulumi.StringMapInput
 	// The type of the PowerBI Dedicated resource.

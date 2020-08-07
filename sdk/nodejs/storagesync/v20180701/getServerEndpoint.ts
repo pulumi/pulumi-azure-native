@@ -46,15 +46,51 @@ export interface GetServerEndpointArgs {
  */
 export interface GetServerEndpointResult {
     /**
+     * Cloud Tiering.
+     */
+    readonly cloudTiering?: string;
+    /**
+     * Friendly Name
+     */
+    readonly friendlyName?: string;
+    /**
+     * Resource Last Operation Name
+     */
+    readonly lastOperationName?: string;
+    /**
+     * ServerEndpoint lastWorkflowId
+     */
+    readonly lastWorkflowId?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Server Endpoint properties.
+     * ServerEndpoint Provisioning State
      */
-    readonly properties: outputs.storagesync.v20180701.ServerEndpointPropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * Server Local path.
+     */
+    readonly serverLocalPath?: string;
+    /**
+     * Server Resource Id.
+     */
+    readonly serverResourceId?: string;
+    /**
+     * Sync Health Status
+     */
+    readonly syncStatus?: {[key: string]: any};
+    /**
+     * Tier files older than days.
+     */
+    readonly tierFilesOlderThanDays?: number;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * Level of free space to be maintained by Cloud Tiering if it is enabled.
+     */
+    readonly volumeFreeSpacePercent?: number;
 }

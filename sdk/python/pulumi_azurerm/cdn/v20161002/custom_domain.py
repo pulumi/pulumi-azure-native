@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class CustomDomain(pulumi.CustomResource):
+    custom_https_provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of Custom Https of the custom domain.
+    """
+    host_name: pulumi.Output[str]
+    """
+    The host name of the custom domain. Must be a domain name.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,14 +26,13 @@ class CustomDomain(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The JSON object that contains the properties of the custom domain to create.
-      * `custom_https_provisioning_state` (`str`) - Provisioning state of Custom Https of the custom domain.
-      * `host_name` (`str`) - The host name of the custom domain. Must be a domain name.
-      * `provisioning_state` (`str`) - Provisioning status of the custom domain.
-      * `resource_state` (`str`) - Resource status of the custom domain.
-      * `validation_data` (`str`) - Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+    Provisioning status of the custom domain.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the custom domain.
     """
     tags: pulumi.Output[dict]
     """
@@ -34,6 +41,10 @@ class CustomDomain(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    validation_data: pulumi.Output[str]
+    """
+    Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
     """
     def __init__(__self__, resource_name, opts=None, endpoint_name=None, host_name=None, name=None, profile_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -79,10 +90,13 @@ class CustomDomain(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['custom_https_provisioning_state'] = None
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['tags'] = None
             __props__['type'] = None
+            __props__['validation_data'] = None
         super(CustomDomain, __self__).__init__(
             'azurerm:cdn/v20161002:CustomDomain',
             resource_name,

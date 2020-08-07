@@ -36,9 +36,37 @@ export interface GetProjectArgs {
  */
 export interface GetProjectResult {
     /**
+     * Time when this project was created. Date-Time represented in ISO-8601 format.
+     */
+    readonly createdTimestamp: string;
+    /**
+     * ARM ID of the Service Map workspace created by user.
+     */
+    readonly customerWorkspaceId?: string;
+    /**
+     * Location of the Service Map workspace created by user.
+     */
+    readonly customerWorkspaceLocation?: string;
+    /**
+     * Reports whether project is under discovery.
+     */
+    readonly discoveryStatus: string;
+    /**
      * For optimistic concurrency control.
      */
     readonly eTag?: string;
+    /**
+     * Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+     */
+    readonly lastAssessmentTimestamp: string;
+    /**
+     * Session id of the last discovery.
+     */
+    readonly lastDiscoverySessionId: string;
+    /**
+     * Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
+     */
+    readonly lastDiscoveryTimestamp: string;
     /**
      * Azure location in which project is created.
      */
@@ -48,9 +76,21 @@ export interface GetProjectResult {
      */
     readonly name: string;
     /**
-     * Properties of the project.
+     * Number of assessments created in the project.
      */
-    readonly properties: outputs.migrate.v20180202.ProjectPropertiesResponse;
+    readonly numberOfAssessments: number;
+    /**
+     * Number of groups created in the project.
+     */
+    readonly numberOfGroups: number;
+    /**
+     * Number of machines in the project.
+     */
+    readonly numberOfMachines: number;
+    /**
+     * Provisioning state of the project.
+     */
+    readonly provisioningState?: string;
     /**
      * Tags provided by Azure Tagging service.
      */
@@ -59,4 +99,8 @@ export interface GetProjectResult {
      * Type of the object = [Microsoft.Migrate/projects].
      */
     readonly type: string;
+    /**
+     * Time when this project was last updated. Date-Time represented in ISO-8601 format.
+     */
+    readonly updatedTimestamp: string;
 }

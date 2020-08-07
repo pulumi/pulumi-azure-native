@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class Application(pulumi.CustomResource):
+    allow_updates: pulumi.Output[bool]
+    """
+    A value indicating whether packages within the application may be overwritten using the same version string.
+    """
+    default_version: pulumi.Output[str]
+    """
+    The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The display name for the application.
+    """
     etag: pulumi.Output[str]
     """
     The ETag of the resource, used for concurrency statements.
@@ -17,13 +29,6 @@ class Application(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     The name of the resource.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The properties associated with the Application.
-      * `allow_updates` (`bool`) - A value indicating whether packages within the application may be overwritten using the same version string.
-      * `default_version` (`str`) - The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
-      * `display_name` (`str`) - The display name for the application.
     """
     type: pulumi.Output[str]
     """
@@ -72,7 +77,6 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(Application, __self__).__init__(
             'azurerm:batch/v20200301:Application',

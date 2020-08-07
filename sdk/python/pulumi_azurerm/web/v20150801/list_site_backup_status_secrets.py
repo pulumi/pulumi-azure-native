@@ -13,12 +13,48 @@ class ListSiteBackupStatusSecretsResult:
     """
     Backup description
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, blob_name=None, correlation_id=None, created=None, databases=None, finished_time_stamp=None, kind=None, last_restore_time_stamp=None, location=None, log=None, name=None, scheduled=None, size_in_bytes=None, status=None, storage_account_url=None, tags=None, type=None, website_size_in_bytes=None):
+        if blob_name and not isinstance(blob_name, str):
+            raise TypeError("Expected argument 'blob_name' to be a str")
+        __self__.blob_name = blob_name
+        """
+        Name of the blob which contains data for this backup
+        """
+        if correlation_id and not isinstance(correlation_id, str):
+            raise TypeError("Expected argument 'correlation_id' to be a str")
+        __self__.correlation_id = correlation_id
+        """
+        Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        Timestamp of the backup creation
+        """
+        if databases and not isinstance(databases, list):
+            raise TypeError("Expected argument 'databases' to be a list")
+        __self__.databases = databases
+        """
+        List of databases included in the backup
+        """
+        if finished_time_stamp and not isinstance(finished_time_stamp, str):
+            raise TypeError("Expected argument 'finished_time_stamp' to be a str")
+        __self__.finished_time_stamp = finished_time_stamp
+        """
+        Timestamp when this backup finished.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         Kind of resource
+        """
+        if last_restore_time_stamp and not isinstance(last_restore_time_stamp, str):
+            raise TypeError("Expected argument 'last_restore_time_stamp' to be a str")
+        __self__.last_restore_time_stamp = last_restore_time_stamp
+        """
+        Timestamp of a last restore operation which used this backup.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,15 +62,42 @@ class ListSiteBackupStatusSecretsResult:
         """
         Resource Location
         """
+        if log and not isinstance(log, str):
+            raise TypeError("Expected argument 'log' to be a str")
+        __self__.log = log
+        """
+        Details regarding this backup. Might contain an error message.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if scheduled and not isinstance(scheduled, bool):
+            raise TypeError("Expected argument 'scheduled' to be a bool")
+        __self__.scheduled = scheduled
+        """
+        True if this backup has been created due to a schedule being triggered.
+        """
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        __self__.size_in_bytes = size_in_bytes
+        """
+        Size of the backup in bytes
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Backup status
+        """
+        if storage_account_url and not isinstance(storage_account_url, str):
+            raise TypeError("Expected argument 'storage_account_url' to be a str")
+        __self__.storage_account_url = storage_account_url
+        """
+        SAS URL for the storage account container which contains this backup
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -47,6 +110,12 @@ class ListSiteBackupStatusSecretsResult:
         """
         Resource type
         """
+        if website_size_in_bytes and not isinstance(website_size_in_bytes, float):
+            raise TypeError("Expected argument 'website_size_in_bytes' to be a float")
+        __self__.website_size_in_bytes = website_size_in_bytes
+        """
+        Size of the original web app which has been backed up
+        """
 
 
 class AwaitableListSiteBackupStatusSecretsResult(ListSiteBackupStatusSecretsResult):
@@ -55,12 +124,23 @@ class AwaitableListSiteBackupStatusSecretsResult(ListSiteBackupStatusSecretsResu
         if False:
             yield self
         return ListSiteBackupStatusSecretsResult(
+            blob_name=self.blob_name,
+            correlation_id=self.correlation_id,
+            created=self.created,
+            databases=self.databases,
+            finished_time_stamp=self.finished_time_stamp,
             kind=self.kind,
+            last_restore_time_stamp=self.last_restore_time_stamp,
             location=self.location,
+            log=self.log,
             name=self.name,
-            properties=self.properties,
+            scheduled=self.scheduled,
+            size_in_bytes=self.size_in_bytes,
+            status=self.status,
+            storage_account_url=self.storage_account_url,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            website_size_in_bytes=self.website_size_in_bytes)
 
 
 def list_site_backup_status_secrets(backup_schedule=None, databases=None, enabled=None, id=None, kind=None, location=None, name=None, resource_group_name=None, storage_account_url=None, tags=None, type=None, opts=None):
@@ -115,9 +195,20 @@ def list_site_backup_status_secrets(backup_schedule=None, databases=None, enable
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:listSiteBackupStatusSecrets', __args__, opts=opts).value
 
     return AwaitableListSiteBackupStatusSecretsResult(
+        blob_name=__ret__.get('blobName'),
+        correlation_id=__ret__.get('correlationId'),
+        created=__ret__.get('created'),
+        databases=__ret__.get('databases'),
+        finished_time_stamp=__ret__.get('finishedTimeStamp'),
         kind=__ret__.get('kind'),
+        last_restore_time_stamp=__ret__.get('lastRestoreTimeStamp'),
         location=__ret__.get('location'),
+        log=__ret__.get('log'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        scheduled=__ret__.get('scheduled'),
+        size_in_bytes=__ret__.get('sizeInBytes'),
+        status=__ret__.get('status'),
+        storage_account_url=__ret__.get('storageAccountUrl'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        website_size_in_bytes=__ret__.get('websiteSizeInBytes'))

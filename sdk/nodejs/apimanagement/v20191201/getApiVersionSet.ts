@@ -41,15 +41,31 @@ export interface GetApiVersionSetArgs {
  */
 export interface GetApiVersionSetResult {
     /**
+     * Description of API Version Set.
+     */
+    readonly description?: string;
+    /**
+     * Name of API Version Set
+     */
+    readonly displayName: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Api VersionSet contract properties.
-     */
-    readonly properties: outputs.apimanagement.v20191201.ApiVersionSetContractPropertiesResponse;
-    /**
      * Resource type for API Management resource.
      */
     readonly type: string;
+    /**
+     * Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+     */
+    readonly versionHeaderName?: string;
+    /**
+     * Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+     */
+    readonly versionQueryName?: string;
+    /**
+     * An value that determines where the API Version identifer will be located in a HTTP request.
+     */
+    readonly versioningScheme: string;
 }

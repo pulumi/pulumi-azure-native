@@ -10,17 +10,25 @@ from ... import _utilities, _tables
 
 
 class FileServer(pulumi.CustomResource):
+    backup_schedule_group_id: pulumi.Output[str]
+    """
+    The backup policy id.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the file server
+    """
+    domain_name: pulumi.Output[str]
+    """
+    Domain of the file server
+    """
     name: pulumi.Output[str]
     """
     The name.
     """
-    properties: pulumi.Output[dict]
+    storage_domain_id: pulumi.Output[str]
     """
-    The properties.
-      * `backup_schedule_group_id` (`str`) - The backup policy id.
-      * `description` (`str`) - The description of the file server
-      * `domain_name` (`str`) - Domain of the file server
-      * `storage_domain_id` (`str`) - The storage domain id.
+    The storage domain id.
     """
     type: pulumi.Output[str]
     """
@@ -80,7 +88,6 @@ class FileServer(pulumi.CustomResource):
             if storage_domain_id is None:
                 raise TypeError("Missing required property 'storage_domain_id'")
             __props__['storage_domain_id'] = storage_domain_id
-            __props__['properties'] = None
             __props__['type'] = None
         super(FileServer, __self__).__init__(
             'azurerm:storsimple/v20161001:FileServer',

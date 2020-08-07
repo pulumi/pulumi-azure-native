@@ -10,21 +10,29 @@ from ... import _utilities, _tables
 
 
 class ApiRelease(pulumi.CustomResource):
+    api_id: pulumi.Output[str]
+    """
+    Identifier of the API the release belongs to.
+    """
+    created_date_time: pulumi.Output[str]
+    """
+    The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    notes: pulumi.Output[str]
     """
-    ApiRelease entity contract properties.
-      * `api_id` (`str`) - Identifier of the API the release belongs to.
-      * `created_date_time` (`str`) - The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
-      * `notes` (`str`) - Release Notes
-      * `updated_date_time` (`str`) - The time the API release was updated.
+    Release Notes
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    updated_date_time: pulumi.Output[str]
+    """
+    The time the API release was updated.
     """
     def __init__(__self__, resource_name, opts=None, api_id=None, name=None, notes=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -68,8 +76,9 @@ class ApiRelease(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
+            __props__['created_date_time'] = None
             __props__['type'] = None
+            __props__['updated_date_time'] = None
         super(ApiRelease, __self__).__init__(
             'azurerm:apimanagement/v20190101:ApiRelease',
             resource_name,

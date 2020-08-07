@@ -37,21 +37,49 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * A collection of references to application gateways.
+     */
+    public /*out*/ readonly applicationGateways!: pulumi.Output<outputs.network.v20190901.ApplicationGatewayResponse[]>;
+    /**
+     * Describes custom rules inside the policy.
+     */
+    public readonly customRules!: pulumi.Output<outputs.network.v20190901.WebApplicationFirewallCustomRuleResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * A collection of references to application gateway http listeners.
+     */
+    public /*out*/ readonly httpListeners!: pulumi.Output<outputs.network.v20190901.SubResourceResponse[]>;
     /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Describes the managedRules structure.
+     */
+    public readonly managedRules!: pulumi.Output<outputs.network.v20190901.ManagedRulesDefinitionResponse>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the web application firewall policy.
+     * A collection of references to application gateway path rules.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.WebApplicationFirewallPolicyPropertiesFormatResponse>;
+    public /*out*/ readonly pathBasedRules!: pulumi.Output<outputs.network.v20190901.SubResourceResponse[]>;
+    /**
+     * Describes policySettings for policy.
+     */
+    public readonly policySettings!: pulumi.Output<outputs.network.v20190901.PolicySettingsResponse | undefined>;
+    /**
+     * The provisioning state of the web application firewall policy resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource status of the policy.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -91,8 +119,12 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             inputs["policySettings"] = args ? args.policySettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["applicationGateways"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["httpListeners"] = undefined /*out*/;
+            inputs["pathBasedRules"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

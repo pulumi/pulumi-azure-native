@@ -29,8 +29,20 @@ type LookupClusterPrincipalAssignmentArgs struct {
 type LookupClusterPrincipalAssignmentResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The cluster principal.
-	Properties ClusterPrincipalPropertiesResponse `pulumi:"properties"`
+	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+	PrincipalId string `pulumi:"principalId"`
+	// The principal name
+	PrincipalName string `pulumi:"principalName"`
+	// Principal type.
+	PrincipalType string `pulumi:"principalType"`
+	// The provisioned state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Cluster principal role.
+	Role string `pulumi:"role"`
+	// The tenant id of the principal
+	TenantId *string `pulumi:"tenantId"`
+	// The tenant name of the principal
+	TenantName string `pulumi:"tenantName"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

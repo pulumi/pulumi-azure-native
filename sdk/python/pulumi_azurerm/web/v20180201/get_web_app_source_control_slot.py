@@ -13,7 +13,31 @@ class GetWebAppSourceControlSlotResult:
     """
     Source control configuration for an app.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, branch=None, deployment_rollback_enabled=None, is_manual_integration=None, is_mercurial=None, kind=None, name=None, repo_url=None, type=None):
+        if branch and not isinstance(branch, str):
+            raise TypeError("Expected argument 'branch' to be a str")
+        __self__.branch = branch
+        """
+        Name of branch to use for deployment.
+        """
+        if deployment_rollback_enabled and not isinstance(deployment_rollback_enabled, bool):
+            raise TypeError("Expected argument 'deployment_rollback_enabled' to be a bool")
+        __self__.deployment_rollback_enabled = deployment_rollback_enabled
+        """
+        <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+        """
+        if is_manual_integration and not isinstance(is_manual_integration, bool):
+            raise TypeError("Expected argument 'is_manual_integration' to be a bool")
+        __self__.is_manual_integration = is_manual_integration
+        """
+        <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+        """
+        if is_mercurial and not isinstance(is_mercurial, bool):
+            raise TypeError("Expected argument 'is_mercurial' to be a bool")
+        __self__.is_mercurial = is_mercurial
+        """
+        <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +50,11 @@ class GetWebAppSourceControlSlotResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if repo_url and not isinstance(repo_url, str):
+            raise TypeError("Expected argument 'repo_url' to be a str")
+        __self__.repo_url = repo_url
         """
-        SiteSourceControl resource specific properties
+        Repository or source control URL.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +70,13 @@ class AwaitableGetWebAppSourceControlSlotResult(GetWebAppSourceControlSlotResult
         if False:
             yield self
         return GetWebAppSourceControlSlotResult(
+            branch=self.branch,
+            deployment_rollback_enabled=self.deployment_rollback_enabled,
+            is_manual_integration=self.is_manual_integration,
+            is_mercurial=self.is_mercurial,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            repo_url=self.repo_url,
             type=self.type)
 
 
@@ -69,7 +97,11 @@ def get_web_app_source_control_slot(name=None, resource_group_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:getWebAppSourceControlSlot', __args__, opts=opts).value
 
     return AwaitableGetWebAppSourceControlSlotResult(
+        branch=__ret__.get('branch'),
+        deployment_rollback_enabled=__ret__.get('deploymentRollbackEnabled'),
+        is_manual_integration=__ret__.get('isManualIntegration'),
+        is_mercurial=__ret__.get('isMercurial'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        repo_url=__ret__.get('repoUrl'),
         type=__ret__.get('type'))

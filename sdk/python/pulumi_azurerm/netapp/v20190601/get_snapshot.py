@@ -13,7 +13,19 @@ class GetSnapshotResult:
     """
     Snapshot of a Volume
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, creation_date=None, file_system_id=None, location=None, name=None, provisioning_state=None, snapshot_id=None, type=None):
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The creation date of the snapshot
+        """
+        if file_system_id and not isinstance(file_system_id, str):
+            raise TypeError("Expected argument 'file_system_id' to be a str")
+        __self__.file_system_id = file_system_id
+        """
+        UUID v4 used to identify the FileSystem
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +38,17 @@ class GetSnapshotResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Snapshot Properties
+        Azure lifecycle management
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        if snapshot_id and not isinstance(snapshot_id, str):
+            raise TypeError("Expected argument 'snapshot_id' to be a str")
+        __self__.snapshot_id = snapshot_id
         """
-        Resource tags
+        UUID v4 used to identify the Snapshot
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -52,10 +64,12 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
         if False:
             yield self
         return GetSnapshotResult(
+            creation_date=self.creation_date,
+            file_system_id=self.file_system_id,
             location=self.location,
             name=self.name,
-            properties=self.properties,
-            tags=self.tags,
+            provisioning_state=self.provisioning_state,
+            snapshot_id=self.snapshot_id,
             type=self.type)
 
 
@@ -82,8 +96,10 @@ def get_snapshot(account_name=None, name=None, pool_name=None, resource_group_na
     __ret__ = pulumi.runtime.invoke('azurerm:netapp/v20190601:getSnapshot', __args__, opts=opts).value
 
     return AwaitableGetSnapshotResult(
+        creation_date=__ret__.get('creationDate'),
+        file_system_id=__ret__.get('fileSystemId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        tags=__ret__.get('tags'),
+        provisioning_state=__ret__.get('provisioningState'),
+        snapshot_id=__ret__.get('snapshotId'),
         type=__ret__.get('type'))

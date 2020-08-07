@@ -10,107 +10,148 @@ from ... import _utilities, _tables
 
 
 class ServerEndpoint(pulumi.CustomResource):
+    cloud_tiering: pulumi.Output[str]
+    """
+    Cloud Tiering.
+    """
+    cloud_tiering_status: pulumi.Output[dict]
+    """
+    Cloud tiering status. Only populated if cloud tiering is enabled.
+      * `cache_performance` (`dict`) - Information regarding how well the local cache on the server is performing.
+        * `cache_hit_bytes` (`float`) - Count of bytes that were served from the local server
+        * `cache_hit_bytes_percent` (`float`) - Percentage of total bytes (hit + miss) that were served from the local server
+        * `cache_miss_bytes` (`float`) - Count of bytes that were served from the cloud
+        * `last_updated_timestamp` (`str`) - Last updated timestamp
+
+      * `date_policy_status` (`dict`) - Status of the date policy
+        * `last_updated_timestamp` (`str`) - Last updated timestamp
+        * `tiered_files_most_recent_access_timestamp` (`str`) - Most recent access time of tiered files
+
+      * `files_not_tiering` (`dict`) - Information regarding files that failed to be tiered
+        * `errors` (`list`) - Array of tiering errors
+          * `error_code` (`float`) - Error code (HResult)
+          * `file_count` (`float`) - Count of files with this error
+
+        * `last_updated_timestamp` (`str`) - Last updated timestamp
+        * `total_file_count` (`float`) - Last cloud tiering result (HResult)
+
+      * `health` (`str`) - Cloud tiering health state.
+      * `health_last_updated_timestamp` (`str`) - The last updated timestamp of health state
+      * `last_cloud_tiering_result` (`float`) - Last cloud tiering result (HResult)
+      * `last_success_timestamp` (`str`) - Last cloud tiering success timestamp
+      * `last_updated_timestamp` (`str`) - Last updated timestamp
+      * `space_savings` (`dict`) - Information regarding how much local space cloud tiering is saving.
+        * `cached_size_bytes` (`float`) - Cached content size on the server
+        * `last_updated_timestamp` (`str`) - Last updated timestamp
+        * `space_savings_bytes` (`float`) - Count of bytes saved on the server
+        * `space_savings_percent` (`float`) - Percentage of cached size over total size
+        * `total_size_cloud_bytes` (`float`) - Total size of content in the azure file share
+        * `volume_size_bytes` (`float`) - Volume size
+
+      * `volume_free_space_policy_status` (`dict`) - Status of the volume free space policy
+        * `current_volume_free_space_percent` (`float`) - Current volume free space percentage.
+        * `effective_volume_free_space_policy` (`float`) - In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
+        * `last_updated_timestamp` (`str`) - Last updated timestamp
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    Friendly Name
+    """
+    last_operation_name: pulumi.Output[str]
+    """
+    Resource Last Operation Name
+    """
+    last_workflow_id: pulumi.Output[str]
+    """
+    ServerEndpoint lastWorkflowId
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    offline_data_transfer: pulumi.Output[str]
     """
-    Server Endpoint properties.
-      * `cloud_tiering` (`str`) - Cloud Tiering.
-      * `cloud_tiering_status` (`dict`) - Cloud tiering status. Only populated if cloud tiering is enabled.
-        * `cache_performance` (`dict`) - Information regarding how well the local cache on the server is performing.
-          * `cache_hit_bytes` (`float`) - Count of bytes that were served from the local server
-          * `cache_hit_bytes_percent` (`float`) - Percentage of total bytes (hit + miss) that were served from the local server
-          * `cache_miss_bytes` (`float`) - Count of bytes that were served from the cloud
-          * `last_updated_timestamp` (`str`) - Last updated timestamp
+    Offline data transfer
+    """
+    offline_data_transfer_share_name: pulumi.Output[str]
+    """
+    Offline data transfer share name
+    """
+    offline_data_transfer_storage_account_resource_id: pulumi.Output[str]
+    """
+    Offline data transfer storage account resource ID
+    """
+    offline_data_transfer_storage_account_tenant_id: pulumi.Output[str]
+    """
+    Offline data transfer storage account tenant ID
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    ServerEndpoint Provisioning State
+    """
+    recall_status: pulumi.Output[dict]
+    """
+    Recall status. Only populated if cloud tiering is enabled.
+      * `last_updated_timestamp` (`str`) - Last updated timestamp
+      * `recall_errors` (`list`) - Array of recall errors
+        * `count` (`float`) - Count of occurences of the error
+        * `error_code` (`float`) - Error code (HResult)
 
-        * `date_policy_status` (`dict`) - Status of the date policy
-          * `last_updated_timestamp` (`str`) - Last updated timestamp
-          * `tiered_files_most_recent_access_timestamp` (`str`) - Most recent access time of tiered files
+      * `total_recall_errors_count` (`float`) - Total count of recall errors.
+    """
+    server_local_path: pulumi.Output[str]
+    """
+    Server Local path.
+    """
+    server_resource_id: pulumi.Output[str]
+    """
+    Server Resource Id.
+    """
+    sync_status: pulumi.Output[dict]
+    """
+    Server Endpoint sync status
+      * `combined_health` (`str`) - Combined Health Status.
+      * `download_activity` (`dict`) - Download sync activity
+        * `applied_bytes` (`float`) - Applied bytes
+        * `applied_item_count` (`float`) - Applied item count.
+        * `per_item_error_count` (`float`) - Per item error count
+        * `timestamp` (`str`) - Timestamp when properties were updated
+        * `total_bytes` (`float`) - Total bytes (if available)
+        * `total_item_count` (`float`) - Total item count (if available)
 
-        * `files_not_tiering` (`dict`) - Information regarding files that failed to be tiered
-          * `errors` (`list`) - Array of tiering errors
-            * `error_code` (`float`) - Error code (HResult)
-            * `file_count` (`float`) - Count of files with this error
-
-          * `last_updated_timestamp` (`str`) - Last updated timestamp
-          * `total_file_count` (`float`) - Last cloud tiering result (HResult)
-
-        * `health` (`str`) - Cloud tiering health state.
-        * `health_last_updated_timestamp` (`str`) - The last updated timestamp of health state
-        * `last_cloud_tiering_result` (`float`) - Last cloud tiering result (HResult)
-        * `last_success_timestamp` (`str`) - Last cloud tiering success timestamp
-        * `last_updated_timestamp` (`str`) - Last updated timestamp
-        * `space_savings` (`dict`) - Information regarding how much local space cloud tiering is saving.
-          * `cached_size_bytes` (`float`) - Cached content size on the server
-          * `last_updated_timestamp` (`str`) - Last updated timestamp
-          * `space_savings_bytes` (`float`) - Count of bytes saved on the server
-          * `space_savings_percent` (`float`) - Percentage of cached size over total size
-          * `total_size_cloud_bytes` (`float`) - Total size of content in the azure file share
-          * `volume_size_bytes` (`float`) - Volume size
-
-        * `volume_free_space_policy_status` (`dict`) - Status of the volume free space policy
-          * `current_volume_free_space_percent` (`float`) - Current volume free space percentage.
-          * `effective_volume_free_space_policy` (`float`) - In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
-          * `last_updated_timestamp` (`str`) - Last updated timestamp
-
-      * `friendly_name` (`str`) - Friendly Name
-      * `last_operation_name` (`str`) - Resource Last Operation Name
-      * `last_workflow_id` (`str`) - ServerEndpoint lastWorkflowId
-      * `offline_data_transfer` (`str`) - Offline data transfer
-      * `offline_data_transfer_share_name` (`str`) - Offline data transfer share name
-      * `offline_data_transfer_storage_account_resource_id` (`str`) - Offline data transfer storage account resource ID
-      * `offline_data_transfer_storage_account_tenant_id` (`str`) - Offline data transfer storage account tenant ID
-      * `provisioning_state` (`str`) - ServerEndpoint Provisioning State
-      * `recall_status` (`dict`) - Recall status. Only populated if cloud tiering is enabled.
-        * `last_updated_timestamp` (`str`) - Last updated timestamp
-        * `recall_errors` (`list`) - Array of recall errors
-          * `count` (`float`) - Count of occurences of the error
+      * `download_health` (`str`) - Download Health Status.
+      * `download_status` (`dict`) - Download Status
+        * `files_not_syncing_errors` (`list`) - Array of per-item errors coming from the last sync session.
           * `error_code` (`float`) - Error code (HResult)
+          * `persistent_count` (`float`) - Count of persistent files not syncing with the specified error code
+          * `transient_count` (`float`) - Count of transient files not syncing with the specified error code
 
-        * `total_recall_errors_count` (`float`) - Total count of recall errors.
+        * `last_sync_per_item_error_count` (`float`) - Last sync per item error count.
+        * `last_sync_result` (`float`) - Last sync result (HResult)
+        * `last_sync_success_timestamp` (`str`) - Last sync success timestamp
+        * `last_sync_timestamp` (`str`) - Last sync timestamp
+        * `persistent_files_not_syncing_count` (`float`) - Count of persistent files not syncing.
+        * `transient_files_not_syncing_count` (`float`) - Count of transient files not syncing.
 
-      * `server_local_path` (`str`) - Server Local path.
-      * `server_resource_id` (`str`) - Server Resource Id.
-      * `sync_status` (`dict`) - Server Endpoint sync status
-        * `combined_health` (`str`) - Combined Health Status.
-        * `download_activity` (`dict`) - Download sync activity
-          * `applied_bytes` (`float`) - Applied bytes
-          * `applied_item_count` (`float`) - Applied item count.
-          * `per_item_error_count` (`float`) - Per item error count
-          * `timestamp` (`str`) - Timestamp when properties were updated
-          * `total_bytes` (`float`) - Total bytes (if available)
-          * `total_item_count` (`float`) - Total item count (if available)
-
-        * `download_health` (`str`) - Download Health Status.
-        * `download_status` (`dict`) - Download Status
-          * `files_not_syncing_errors` (`list`) - Array of per-item errors coming from the last sync session.
-            * `error_code` (`float`) - Error code (HResult)
-            * `persistent_count` (`float`) - Count of persistent files not syncing with the specified error code
-            * `transient_count` (`float`) - Count of transient files not syncing with the specified error code
-
-          * `last_sync_per_item_error_count` (`float`) - Last sync per item error count.
-          * `last_sync_result` (`float`) - Last sync result (HResult)
-          * `last_sync_success_timestamp` (`str`) - Last sync success timestamp
-          * `last_sync_timestamp` (`str`) - Last sync timestamp
-          * `persistent_files_not_syncing_count` (`float`) - Count of persistent files not syncing.
-          * `transient_files_not_syncing_count` (`float`) - Count of transient files not syncing.
-
-        * `last_updated_timestamp` (`str`) - Last Updated Timestamp
-        * `offline_data_transfer_status` (`str`) - Offline Data Transfer State
-        * `sync_activity` (`str`) - Sync activity
-        * `total_persistent_files_not_syncing_count` (`float`) - Total count of persistent files not syncing (combined upload + download).
-        * `upload_activity` (`dict`) - Upload sync activity
-        * `upload_health` (`str`) - Upload Health Status.
-        * `upload_status` (`dict`) - Upload Status
-
-      * `tier_files_older_than_days` (`float`) - Tier files older than days.
-      * `volume_free_space_percent` (`float`) - Level of free space to be maintained by Cloud Tiering if it is enabled.
+      * `last_updated_timestamp` (`str`) - Last Updated Timestamp
+      * `offline_data_transfer_status` (`str`) - Offline Data Transfer State
+      * `sync_activity` (`str`) - Sync activity
+      * `total_persistent_files_not_syncing_count` (`float`) - Total count of persistent files not syncing (combined upload + download).
+      * `upload_activity` (`dict`) - Upload sync activity
+      * `upload_health` (`str`) - Upload Health Status.
+      * `upload_status` (`dict`) - Upload Status
+    """
+    tier_files_older_than_days: pulumi.Output[float]
+    """
+    Tier files older than days.
     """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    volume_free_space_percent: pulumi.Output[float]
+    """
+    Level of free space to be maintained by Cloud Tiering if it is enabled.
     """
     def __init__(__self__, resource_name, opts=None, cloud_tiering=None, friendly_name=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, resource_group_name=None, server_local_path=None, server_resource_id=None, storage_sync_service_name=None, sync_group_name=None, tier_files_older_than_days=None, volume_free_space_percent=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -168,7 +209,14 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['sync_group_name'] = sync_group_name
             __props__['tier_files_older_than_days'] = tier_files_older_than_days
             __props__['volume_free_space_percent'] = volume_free_space_percent
-            __props__['properties'] = None
+            __props__['cloud_tiering_status'] = None
+            __props__['last_operation_name'] = None
+            __props__['last_workflow_id'] = None
+            __props__['offline_data_transfer_storage_account_resource_id'] = None
+            __props__['offline_data_transfer_storage_account_tenant_id'] = None
+            __props__['provisioning_state'] = None
+            __props__['recall_status'] = None
+            __props__['sync_status'] = None
             __props__['type'] = None
         super(ServerEndpoint, __self__).__init__(
             'azurerm:storagesync/v20191001:ServerEndpoint',

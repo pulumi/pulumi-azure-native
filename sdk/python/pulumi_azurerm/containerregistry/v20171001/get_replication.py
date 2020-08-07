@@ -13,7 +13,7 @@ class GetReplicationResult:
     """
     An object that represents a replication for a container registry.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, provisioning_state=None, status=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +26,17 @@ class GetReplicationResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the replication.
+        The provisioning state of the replication at the time the operation was called.
+        """
+        if status and not isinstance(status, dict):
+            raise TypeError("Expected argument 'status' to be a dict")
+        __self__.status = status
+        """
+        The status of the replication at the time the operation was called.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -54,7 +60,8 @@ class AwaitableGetReplicationResult(GetReplicationResult):
         return GetReplicationResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            status=self.status,
             tags=self.tags,
             type=self.type)
 
@@ -80,6 +87,7 @@ def get_replication(name=None, registry_name=None, resource_group_name=None, opt
     return AwaitableGetReplicationResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

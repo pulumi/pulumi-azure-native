@@ -56,9 +56,9 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Chap properties
+        /// The chap password.
         /// </summary>
-        public readonly Outputs.ChapPropertiesResponseResult Properties;
+        public readonly Outputs.AsymmetricEncryptedSecretResponseResult Password;
         /// <summary>
         /// The type.
         /// </summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         private GetChapSettingResult(
             string name,
 
-            Outputs.ChapPropertiesResponseResult properties,
+            Outputs.AsymmetricEncryptedSecretResponseResult password,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            Password = password;
             Type = type;
         }
     }

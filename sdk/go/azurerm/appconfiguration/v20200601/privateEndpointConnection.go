@@ -16,8 +16,12 @@ type PrivateEndpointConnection struct {
 
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a private endpoint.
-	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// The resource of private endpoint.
+	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning status of the private endpoint connection.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -64,8 +68,12 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 type privateEndpointConnectionState struct {
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of a private endpoint.
-	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource of private endpoint.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning status of the private endpoint connection.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -73,8 +81,12 @@ type privateEndpointConnectionState struct {
 type PrivateEndpointConnectionState struct {
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of a private endpoint.
-	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
+	// The resource of private endpoint.
+	PrivateEndpoint PrivateEndpointResponsePtrInput
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
+	// The provisioning status of the private endpoint connection.
+	ProvisioningState pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

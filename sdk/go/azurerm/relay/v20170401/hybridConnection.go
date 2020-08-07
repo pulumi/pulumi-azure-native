@@ -14,12 +14,20 @@ import (
 type HybridConnection struct {
 	pulumi.CustomResourceState
 
+	// The time the hybrid connection was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
+	ListenerCount pulumi.IntOutput `pulumi:"listenerCount"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the HybridConnection.
-	Properties HybridConnectionResponsePropertiesOutput `pulumi:"properties"`
+	// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
+	RequiresClientAuthorization pulumi.BoolPtrOutput `pulumi:"requiresClientAuthorization"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+	UserMetadata pulumi.StringPtrOutput `pulumi:"userMetadata"`
 }
 
 // NewHybridConnection registers a new resource with the given unique name, arguments, and options.
@@ -59,21 +67,37 @@ func GetHybridConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HybridConnection resources.
 type hybridConnectionState struct {
+	// The time the hybrid connection was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
+	ListenerCount *int `pulumi:"listenerCount"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the HybridConnection.
-	Properties *HybridConnectionResponseProperties `pulumi:"properties"`
+	// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
+	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
+	// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+	UserMetadata *string `pulumi:"userMetadata"`
 }
 
 type HybridConnectionState struct {
+	// The time the hybrid connection was created.
+	CreatedAt pulumi.StringPtrInput
+	// The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
+	ListenerCount pulumi.IntPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the HybridConnection.
-	Properties HybridConnectionResponsePropertiesPtrInput
+	// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
+	RequiresClientAuthorization pulumi.BoolPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringPtrInput
+	// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+	UserMetadata pulumi.StringPtrInput
 }
 
 func (HybridConnectionState) ElementType() reflect.Type {

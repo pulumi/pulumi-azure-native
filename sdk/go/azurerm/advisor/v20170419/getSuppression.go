@@ -29,8 +29,10 @@ type LookupSuppressionArgs struct {
 type LookupSuppressionResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the suppression.
-	Properties SuppressionPropertiesResponse `pulumi:"properties"`
+	// The GUID of the suppression.
+	SuppressionId *string `pulumi:"suppressionId"`
+	// The duration for which the suppression is valid.
+	Ttl *string `pulumi:"ttl"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

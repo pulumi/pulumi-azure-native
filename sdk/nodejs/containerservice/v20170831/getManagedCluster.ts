@@ -36,6 +36,26 @@ export interface GetManagedClusterArgs {
  */
 export interface GetManagedClusterResult {
     /**
+     * Properties of the agent pool.
+     */
+    readonly agentPoolProfiles?: outputs.containerservice.v20170831.ContainerServiceAgentPoolProfileResponse[];
+    /**
+     * DNS prefix specified when creating the managed cluster.
+     */
+    readonly dnsPrefix?: string;
+    /**
+     * FQDN for the master pool.
+     */
+    readonly fqdn: string;
+    /**
+     * Version of Kubernetes specified when creating the managed cluster.
+     */
+    readonly kubernetesVersion?: string;
+    /**
+     * Profile for Linux VMs in the container service cluster.
+     */
+    readonly linuxProfile?: outputs.containerservice.v20170831.ContainerServiceLinuxProfileResponse;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,9 +64,13 @@ export interface GetManagedClusterResult {
      */
     readonly name: string;
     /**
-     * Properties of a managed cluster.
+     * The current deployment or provisioning state, which only appears in the response.
      */
-    readonly properties: outputs.containerservice.v20170831.ManagedClusterPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+     */
+    readonly servicePrincipalProfile?: outputs.containerservice.v20170831.ContainerServiceServicePrincipalProfileResponse;
     /**
      * Resource tags
      */

@@ -13,24 +13,42 @@ class GetCredentialResult:
     """
     Definition of the credential.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, last_modified_time=None, name=None, type=None, user_name=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets the last modified time.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Gets or sets the properties of the credential.
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource.
+        """
+        if user_name and not isinstance(user_name, str):
+            raise TypeError("Expected argument 'user_name' to be a str")
+        __self__.user_name = user_name
+        """
+        Gets the user name of the credential.
         """
 
 
@@ -40,9 +58,12 @@ class AwaitableGetCredentialResult(GetCredentialResult):
         if False:
             yield self
         return GetCredentialResult(
+            creation_time=self.creation_time,
+            description=self.description,
+            last_modified_time=self.last_modified_time,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            user_name=self.user_name)
 
 
 def get_credential(automation_account_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +85,9 @@ def get_credential(automation_account_name=None, name=None, resource_group_name=
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getCredential', __args__, opts=opts).value
 
     return AwaitableGetCredentialResult(
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        user_name=__ret__.get('userName'))

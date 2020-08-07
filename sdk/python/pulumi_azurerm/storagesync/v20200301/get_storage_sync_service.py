@@ -13,7 +13,25 @@ class GetStorageSyncServiceResult:
     """
     Storage Sync Service object.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, incoming_traffic_policy=None, last_operation_name=None, last_workflow_id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, storage_sync_service_status=None, storage_sync_service_uid=None, tags=None, type=None):
+        if incoming_traffic_policy and not isinstance(incoming_traffic_policy, str):
+            raise TypeError("Expected argument 'incoming_traffic_policy' to be a str")
+        __self__.incoming_traffic_policy = incoming_traffic_policy
+        """
+        Incoming Traffic Policy
+        """
+        if last_operation_name and not isinstance(last_operation_name, str):
+            raise TypeError("Expected argument 'last_operation_name' to be a str")
+        __self__.last_operation_name = last_operation_name
+        """
+        Resource Last Operation Name
+        """
+        if last_workflow_id and not isinstance(last_workflow_id, str):
+            raise TypeError("Expected argument 'last_workflow_id' to be a str")
+        __self__.last_workflow_id = last_workflow_id
+        """
+        StorageSyncService lastWorkflowId
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +44,29 @@ class GetStorageSyncServiceResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
         """
-        Storage Sync Service properties.
+        List of private endpoint connection associated with the specified storage sync service
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        StorageSyncService Provisioning State
+        """
+        if storage_sync_service_status and not isinstance(storage_sync_service_status, float):
+            raise TypeError("Expected argument 'storage_sync_service_status' to be a float")
+        __self__.storage_sync_service_status = storage_sync_service_status
+        """
+        Storage Sync service status.
+        """
+        if storage_sync_service_uid and not isinstance(storage_sync_service_uid, str):
+            raise TypeError("Expected argument 'storage_sync_service_uid' to be a str")
+        __self__.storage_sync_service_uid = storage_sync_service_uid
+        """
+        Storage Sync service Uid
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +88,15 @@ class AwaitableGetStorageSyncServiceResult(GetStorageSyncServiceResult):
         if False:
             yield self
         return GetStorageSyncServiceResult(
+            incoming_traffic_policy=self.incoming_traffic_policy,
+            last_operation_name=self.last_operation_name,
+            last_workflow_id=self.last_workflow_id,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            storage_sync_service_status=self.storage_sync_service_status,
+            storage_sync_service_uid=self.storage_sync_service_uid,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +118,14 @@ def get_storage_sync_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:storagesync/v20200301:getStorageSyncService', __args__, opts=opts).value
 
     return AwaitableGetStorageSyncServiceResult(
+        incoming_traffic_policy=__ret__.get('incomingTrafficPolicy'),
+        last_operation_name=__ret__.get('lastOperationName'),
+        last_workflow_id=__ret__.get('lastWorkflowId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
+        storage_sync_service_status=__ret__.get('storageSyncServiceStatus'),
+        storage_sync_service_uid=__ret__.get('storageSyncServiceUid'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

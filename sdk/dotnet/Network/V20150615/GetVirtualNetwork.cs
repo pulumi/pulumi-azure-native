@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Network.V20150615
     public sealed class GetVirtualNetworkResult
     {
         /// <summary>
+        /// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? AddressSpace;
+        /// <summary>
+        /// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        /// </summary>
+        public readonly Outputs.DhcpOptionsResponseResult? DhcpOptions;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -51,7 +59,18 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.VirtualNetworkPropertiesFormatResponseResult Properties;
+        /// <summary>
+        /// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The resourceGuid property of the Virtual Network resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
+        /// A list of subnets in a Virtual Network.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,22 +82,34 @@ namespace Pulumi.AzureRM.Network.V20150615
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
+            Outputs.AddressSpaceResponseResult? addressSpace,
+
+            Outputs.DhcpOptionsResponseResult? dhcpOptions,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.VirtualNetworkPropertiesFormatResponseResult properties,
+            string? provisioningState,
+
+            string? resourceGuid,
+
+            ImmutableArray<Outputs.SubnetResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AddressSpace = addressSpace;
+            DhcpOptions = dhcpOptions;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
+            Subnets = subnets;
             Tags = tags;
             Type = type;
         }

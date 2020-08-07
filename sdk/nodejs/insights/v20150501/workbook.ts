@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class Workbook extends pulumi.CustomResource {
     }
 
     /**
+     * Workbook category, as defined by the user at creation time.
+     */
+    public readonly category!: pulumi.Output<string>;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -49,17 +51,41 @@ export class Workbook extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Metadata describing a web test for an Azure resource.
+     * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20150501.WorkbookPropertiesResponse>;
+    public readonly serializedData!: pulumi.Output<string>;
+    /**
+     * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+     */
+    public readonly sharedTypeKind!: pulumi.Output<string>;
+    /**
+     * Optional resourceId for a source resource.
+     */
+    public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Date and time in UTC of the last modification that was made to this workbook definition.
+     */
+    public /*out*/ readonly timeModified!: pulumi.Output<string>;
+    /**
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Unique user id of the specific user that owns this workbook.
+     */
+    public readonly userId!: pulumi.Output<string>;
+    /**
+     * This instance's version of the data model. This can change as new features are added that can be marked workbook.
+     */
+    public readonly version!: pulumi.Output<string | undefined>;
+    /**
+     * Internally assigned unique id of the workbook definition.
+     */
+    public readonly workbookId!: pulumi.Output<string>;
 
     /**
      * Create a Workbook resource with the given unique name, arguments, and options.
@@ -107,7 +133,7 @@ export class Workbook extends pulumi.CustomResource {
             inputs["userId"] = args ? args.userId : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["workbookId"] = args ? args.workbookId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

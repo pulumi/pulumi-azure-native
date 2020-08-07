@@ -14,12 +14,18 @@ import (
 type DedicatedCloudService struct {
 	pulumi.CustomResourceState
 
+	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+	GatewaySubnet pulumi.StringOutput `pulumi:"gatewaySubnet"`
+	// indicates whether account onboarded or not in a given region
+	IsAccountOnboarded pulumi.StringOutput `pulumi:"isAccountOnboarded"`
 	// Azure region
 	Location pulumi.StringOutput `pulumi:"location"`
 	// {dedicatedCloudServiceName}
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of Dedicated Node Service
-	Properties DedicatedCloudServicePropertiesResponseOutput `pulumi:"properties"`
+	// total nodes purchased
+	Nodes pulumi.IntOutput `pulumi:"nodes"`
+	// link to a service management web portal
+	ServiceURL pulumi.StringOutput `pulumi:"serviceURL"`
 	// The list of tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
@@ -66,12 +72,18 @@ func GetDedicatedCloudService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DedicatedCloudService resources.
 type dedicatedCloudServiceState struct {
+	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+	GatewaySubnet *string `pulumi:"gatewaySubnet"`
+	// indicates whether account onboarded or not in a given region
+	IsAccountOnboarded *string `pulumi:"isAccountOnboarded"`
 	// Azure region
 	Location *string `pulumi:"location"`
 	// {dedicatedCloudServiceName}
 	Name *string `pulumi:"name"`
-	// The properties of Dedicated Node Service
-	Properties *DedicatedCloudServicePropertiesResponse `pulumi:"properties"`
+	// total nodes purchased
+	Nodes *int `pulumi:"nodes"`
+	// link to a service management web portal
+	ServiceURL *string `pulumi:"serviceURL"`
 	// The list of tags
 	Tags map[string]string `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
@@ -79,12 +91,18 @@ type dedicatedCloudServiceState struct {
 }
 
 type DedicatedCloudServiceState struct {
+	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+	GatewaySubnet pulumi.StringPtrInput
+	// indicates whether account onboarded or not in a given region
+	IsAccountOnboarded pulumi.StringPtrInput
 	// Azure region
 	Location pulumi.StringPtrInput
 	// {dedicatedCloudServiceName}
 	Name pulumi.StringPtrInput
-	// The properties of Dedicated Node Service
-	Properties DedicatedCloudServicePropertiesResponsePtrInput
+	// total nodes purchased
+	Nodes pulumi.IntPtrInput
+	// link to a service management web portal
+	ServiceURL pulumi.StringPtrInput
 	// The list of tags
 	Tags pulumi.StringMapInput
 	// {resourceProviderNamespace}/{resourceType}

@@ -14,26 +14,54 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
+	// The fully qualified path of managed application definition Id.
+	ApplicationDefinitionId pulumi.StringPtrOutput `pulumi:"applicationDefinitionId"`
+	// The collection of managed application artifacts.
+	Artifacts ApplicationArtifactResponseArrayOutput `pulumi:"artifacts"`
+	// The  read-only authorizations property that is retrieved from the application package.
+	Authorizations ApplicationAuthorizationResponseArrayOutput `pulumi:"authorizations"`
+	// The managed application billing details.
+	BillingDetails ApplicationBillingDetailsDefinitionResponseOutput `pulumi:"billingDetails"`
+	// The client entity that created the JIT request.
+	CreatedBy ApplicationClientDetailsResponseOutput `pulumi:"createdBy"`
+	// The read-only customer support property that is retrieved from the application package.
+	CustomerSupport ApplicationPackageContactResponseOutput `pulumi:"customerSupport"`
 	// The identity of the resource.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
+	// The managed application Jit access policy.
+	JitAccessPolicy ApplicationJitAccessPolicyResponsePtrOutput `pulumi:"jitAccessPolicy"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
+	// The managed resource group Id.
+	ManagedResourceGroupId pulumi.StringPtrOutput `pulumi:"managedResourceGroupId"`
+	// The managed application management mode.
+	ManagementMode pulumi.StringOutput `pulumi:"managementMode"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Name and value pairs that define the managed application outputs.
+	Outputs pulumi.MapOutput `pulumi:"outputs"`
+	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+	Parameters pulumi.MapOutput `pulumi:"parameters"`
 	// The plan information.
 	Plan PlanResponsePtrOutput `pulumi:"plan"`
-	// The managed application properties.
-	Properties ApplicationPropertiesResponseOutput `pulumi:"properties"`
+	// The managed application provisioning state.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The publisher tenant Id.
+	PublisherTenantId pulumi.StringOutput `pulumi:"publisherTenantId"`
 	// The SKU of the resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The read-only support URLs property that is retrieved from the application package.
+	SupportUrls ApplicationPackageSupportUrlsResponseOutput `pulumi:"supportUrls"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The client entity that last updated the JIT request.
+	UpdatedBy ApplicationClientDetailsResponseOutput `pulumi:"updatedBy"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -73,49 +101,105 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
+	// The fully qualified path of managed application definition Id.
+	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
+	// The collection of managed application artifacts.
+	Artifacts []ApplicationArtifactResponse `pulumi:"artifacts"`
+	// The  read-only authorizations property that is retrieved from the application package.
+	Authorizations []ApplicationAuthorizationResponse `pulumi:"authorizations"`
+	// The managed application billing details.
+	BillingDetails *ApplicationBillingDetailsDefinitionResponse `pulumi:"billingDetails"`
+	// The client entity that created the JIT request.
+	CreatedBy *ApplicationClientDetailsResponse `pulumi:"createdBy"`
+	// The read-only customer support property that is retrieved from the application package.
+	CustomerSupport *ApplicationPackageContactResponse `pulumi:"customerSupport"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
+	// The managed application Jit access policy.
+	JitAccessPolicy *ApplicationJitAccessPolicyResponse `pulumi:"jitAccessPolicy"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
 	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
+	// The managed resource group Id.
+	ManagedResourceGroupId *string `pulumi:"managedResourceGroupId"`
+	// The managed application management mode.
+	ManagementMode *string `pulumi:"managementMode"`
 	// Resource name
 	Name *string `pulumi:"name"`
+	// Name and value pairs that define the managed application outputs.
+	Outputs map[string]interface{} `pulumi:"outputs"`
+	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The plan information.
 	Plan *PlanResponse `pulumi:"plan"`
-	// The managed application properties.
-	Properties *ApplicationPropertiesResponse `pulumi:"properties"`
+	// The managed application provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The publisher tenant Id.
+	PublisherTenantId *string `pulumi:"publisherTenantId"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
+	// The read-only support URLs property that is retrieved from the application package.
+	SupportUrls *ApplicationPackageSupportUrlsResponse `pulumi:"supportUrls"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The client entity that last updated the JIT request.
+	UpdatedBy *ApplicationClientDetailsResponse `pulumi:"updatedBy"`
 }
 
 type ApplicationState struct {
+	// The fully qualified path of managed application definition Id.
+	ApplicationDefinitionId pulumi.StringPtrInput
+	// The collection of managed application artifacts.
+	Artifacts ApplicationArtifactResponseArrayInput
+	// The  read-only authorizations property that is retrieved from the application package.
+	Authorizations ApplicationAuthorizationResponseArrayInput
+	// The managed application billing details.
+	BillingDetails ApplicationBillingDetailsDefinitionResponsePtrInput
+	// The client entity that created the JIT request.
+	CreatedBy ApplicationClientDetailsResponsePtrInput
+	// The read-only customer support property that is retrieved from the application package.
+	CustomerSupport ApplicationPackageContactResponsePtrInput
 	// The identity of the resource.
 	Identity IdentityResponsePtrInput
+	// The managed application Jit access policy.
+	JitAccessPolicy ApplicationJitAccessPolicyResponsePtrInput
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
 	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
+	// The managed resource group Id.
+	ManagedResourceGroupId pulumi.StringPtrInput
+	// The managed application management mode.
+	ManagementMode pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
+	// Name and value pairs that define the managed application outputs.
+	Outputs pulumi.MapInput
+	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+	Parameters pulumi.MapInput
 	// The plan information.
 	Plan PlanResponsePtrInput
-	// The managed application properties.
-	Properties ApplicationPropertiesResponsePtrInput
+	// The managed application provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// The publisher tenant Id.
+	PublisherTenantId pulumi.StringPtrInput
 	// The SKU of the resource.
 	Sku SkuResponsePtrInput
+	// The read-only support URLs property that is retrieved from the application package.
+	SupportUrls ApplicationPackageSupportUrlsResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The client entity that last updated the JIT request.
+	UpdatedBy ApplicationClientDetailsResponsePtrInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {

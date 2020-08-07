@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,29 @@ export class Property extends pulumi.CustomResource {
     }
 
     /**
+     * Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Property entity contract properties.
+     * Determines whether the value is a secret and should be encrypted or not. Default value is false.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.PropertyContractPropertiesResponse>;
+    public readonly secret!: pulumi.Output<boolean | undefined>;
+    /**
+     * Optional tags that when provided can be used to filter the property list.
+     */
+    public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+     */
+    public readonly value!: pulumi.Output<string>;
 
     /**
      * Create a Property resource with the given unique name, arguments, and options.
@@ -84,7 +94,6 @@ export class Property extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

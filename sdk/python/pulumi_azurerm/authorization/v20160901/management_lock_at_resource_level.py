@@ -10,17 +10,22 @@ from ... import _utilities, _tables
 
 
 class ManagementLockAtResourceLevel(pulumi.CustomResource):
+    level: pulumi.Output[str]
+    """
+    The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+    """
     name: pulumi.Output[str]
     """
     The name of the lock.
     """
-    properties: pulumi.Output[dict]
+    notes: pulumi.Output[str]
     """
-    The properties of the lock.
-      * `level` (`str`) - The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-      * `notes` (`str`) - Notes about the lock. Maximum of 512 characters.
-      * `owners` (`list`) - The owners of the lock.
-        * `application_id` (`str`) - The application ID of the lock owner.
+    Notes about the lock. Maximum of 512 characters.
+    """
+    owners: pulumi.Output[list]
+    """
+    The owners of the lock.
+      * `application_id` (`str`) - The application ID of the lock owner.
     """
     type: pulumi.Output[str]
     """
@@ -86,7 +91,6 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
             if resource_type is None:
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
-            __props__['properties'] = None
             __props__['type'] = None
         super(ManagementLockAtResourceLevel, __self__).__init__(
             'azurerm:authorization/v20160901:ManagementLockAtResourceLevel',

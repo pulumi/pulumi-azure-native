@@ -10,55 +10,81 @@ from ... import _utilities, _tables
 
 
 class ApiManagementService(pulumi.CustomResource):
+    additional_locations: pulumi.Output[list]
+    """
+    Additional datacenter locations of the API Management service.
+      * `location` (`str`) - The location name of the additional region among Azure Data center regions.
+      * `sku_type` (`str`) - The SKU type in the location.
+      * `sku_unit_count` (`float`) - The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
+      * `static_i_ps` (`list`) - Static IP addresses of the location's virtual machines.
+      * `vpnconfiguration` (`dict`) - Virtual network configuration for the location.
+        * `location` (`str`) - The location of the virtual network.
+        * `subnet_resource_id` (`str`) - The name of the subnet Resource ID. This has format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/{virtual network name}/subnets/{subnet name}.
+        * `subnetname` (`str`) - The name of the subnet.
+        * `vnetid` (`str`) - The virtual network ID. This is typically a GUID. Expect a null GUID by default.
+    """
+    addresser_email: pulumi.Output[str]
+    """
+    Addresser email.
+    """
+    created_at_utc: pulumi.Output[str]
+    """
+    Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
+    custom_properties: pulumi.Output[dict]
+    """
+    Custom properties of the API Management service, like disabling TLS 1.0.
+    """
     etag: pulumi.Output[str]
     """
     ETag of the resource.
+    """
+    hostname_configurations: pulumi.Output[list]
+    """
+    Custom hostname configuration of the API Management service.
+      * `certificate` (`dict`) - Certificate information.
+        * `expiry` (`str`) - Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        * `subject` (`str`) - Subject of the certificate.
+        * `thumbprint` (`str`) - Thumbprint of the certificate.
+
+      * `hostname` (`str`) - Hostname.
+      * `type` (`str`) - Hostname type.
     """
     location: pulumi.Output[str]
     """
     Datacenter location of the API Management service.
     """
+    management_api_url: pulumi.Output[str]
+    """
+    Management API endpoint URL of the API Management service.
+    """
     name: pulumi.Output[str]
     """
     Name of the API Management service.
     """
-    properties: pulumi.Output[dict]
+    portal_url: pulumi.Output[str]
     """
-    Properties of the API Management service.
-      * `additional_locations` (`list`) - Additional datacenter locations of the API Management service.
-        * `location` (`str`) - The location name of the additional region among Azure Data center regions.
-        * `sku_type` (`str`) - The SKU type in the location.
-        * `sku_unit_count` (`float`) - The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
-        * `static_i_ps` (`list`) - Static IP addresses of the location's virtual machines.
-        * `vpnconfiguration` (`dict`) - Virtual network configuration for the location.
-          * `location` (`str`) - The location of the virtual network.
-          * `subnet_resource_id` (`str`) - The name of the subnet Resource ID. This has format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/{virtual network name}/subnets/{subnet name}.
-          * `subnetname` (`str`) - The name of the subnet.
-          * `vnetid` (`str`) - The virtual network ID. This is typically a GUID. Expect a null GUID by default.
-
-      * `addresser_email` (`str`) - Addresser email.
-      * `created_at_utc` (`str`) - Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-      * `custom_properties` (`dict`) - Custom properties of the API Management service, like disabling TLS 1.0.
-      * `hostname_configurations` (`list`) - Custom hostname configuration of the API Management service.
-        * `certificate` (`dict`) - Certificate information.
-          * `expiry` (`str`) - Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-          * `subject` (`str`) - Subject of the certificate.
-          * `thumbprint` (`str`) - Thumbprint of the certificate.
-
-        * `hostname` (`str`) - Hostname.
-        * `type` (`str`) - Hostname type.
-
-      * `management_api_url` (`str`) - Management API endpoint URL of the API Management service.
-      * `portal_url` (`str`) - Publisher portal endpoint Url of the API Management service.
-      * `provisioning_state` (`str`) - The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-      * `publisher_email` (`str`) - Publisher email.
-      * `publisher_name` (`str`) - Publisher name.
-      * `runtime_url` (`str`) - Proxy endpoint URL of the API Management service.
-      * `scm_url` (`str`) - SCM endpoint URL of the API Management service.
-      * `static_i_ps` (`list`) - Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
-      * `target_provisioning_state` (`str`) - The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
-      * `vpn_type` (`str`) - The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-      * `vpnconfiguration` (`dict`) - Virtual network configuration of the API Management service.
+    Publisher portal endpoint Url of the API Management service.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+    """
+    publisher_email: pulumi.Output[str]
+    """
+    Publisher email.
+    """
+    publisher_name: pulumi.Output[str]
+    """
+    Publisher name.
+    """
+    runtime_url: pulumi.Output[str]
+    """
+    Proxy endpoint URL of the API Management service.
+    """
+    scm_url: pulumi.Output[str]
+    """
+    SCM endpoint URL of the API Management service.
     """
     sku: pulumi.Output[dict]
     """
@@ -66,13 +92,33 @@ class ApiManagementService(pulumi.CustomResource):
       * `capacity` (`float`) - Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
       * `name` (`str`) - Name of the Sku.
     """
+    static_i_ps: pulumi.Output[list]
+    """
+    Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
+    """
     tags: pulumi.Output[dict]
     """
     API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
     """
+    target_provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+    """
     type: pulumi.Output[str]
     """
     Resource type of the API Management service.
+    """
+    vpn_type: pulumi.Output[str]
+    """
+    The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+    """
+    vpnconfiguration: pulumi.Output[dict]
+    """
+    Virtual network configuration of the API Management service.
+      * `location` (`str`) - The location of the virtual network.
+      * `subnet_resource_id` (`str`) - The name of the subnet Resource ID. This has format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/{virtual network name}/subnets/{subnet name}.
+      * `subnetname` (`str`) - The name of the subnet.
+      * `vnetid` (`str`) - The virtual network ID. This is typically a GUID. Expect a null GUID by default.
     """
     def __init__(__self__, resource_name, opts=None, additional_locations=None, addresser_email=None, custom_properties=None, etag=None, hostname_configurations=None, location=None, name=None, publisher_email=None, publisher_name=None, resource_group_name=None, sku=None, tags=None, vpn_type=None, vpnconfiguration=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -162,7 +208,14 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['vpn_type'] = vpn_type
             __props__['vpnconfiguration'] = vpnconfiguration
-            __props__['properties'] = None
+            __props__['created_at_utc'] = None
+            __props__['management_api_url'] = None
+            __props__['portal_url'] = None
+            __props__['provisioning_state'] = None
+            __props__['runtime_url'] = None
+            __props__['scm_url'] = None
+            __props__['static_i_ps'] = None
+            __props__['target_provisioning_state'] = None
             __props__['type'] = None
         super(ApiManagementService, __self__).__init__(
             'azurerm:apimanagement/v20160707:ApiManagementService',

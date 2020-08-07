@@ -13,18 +13,42 @@ class GetJobScheduleResult:
     """
     Definition of the job schedule.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, job_schedule_id=None, name=None, parameters=None, run_on=None, runbook=None, schedule=None, type=None):
+        if job_schedule_id and not isinstance(job_schedule_id, str):
+            raise TypeError("Expected argument 'job_schedule_id' to be a str")
+        __self__.job_schedule_id = job_schedule_id
+        """
+        Gets or sets the id of job schedule.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Gets the name of the variable.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
         """
-        Gets or sets the properties of the job schedule.
+        Gets or sets the parameters of the job schedule.
+        """
+        if run_on and not isinstance(run_on, str):
+            raise TypeError("Expected argument 'run_on' to be a str")
+        __self__.run_on = run_on
+        """
+        Gets or sets the hybrid worker group that the scheduled job should run on.
+        """
+        if runbook and not isinstance(runbook, dict):
+            raise TypeError("Expected argument 'runbook' to be a dict")
+        __self__.runbook = runbook
+        """
+        Gets or sets the runbook.
+        """
+        if schedule and not isinstance(schedule, dict):
+            raise TypeError("Expected argument 'schedule' to be a dict")
+        __self__.schedule = schedule
+        """
+        Gets or sets the schedule.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetJobScheduleResult(GetJobScheduleResult):
         if False:
             yield self
         return GetJobScheduleResult(
+            job_schedule_id=self.job_schedule_id,
             name=self.name,
-            properties=self.properties,
+            parameters=self.parameters,
+            run_on=self.run_on,
+            runbook=self.runbook,
+            schedule=self.schedule,
             type=self.type)
 
 
@@ -64,6 +92,10 @@ def get_job_schedule(automation_account_name=None, name=None, resource_group_nam
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getJobSchedule', __args__, opts=opts).value
 
     return AwaitableGetJobScheduleResult(
+        job_schedule_id=__ret__.get('jobScheduleId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        parameters=__ret__.get('parameters'),
+        run_on=__ret__.get('runOn'),
+        runbook=__ret__.get('runbook'),
+        schedule=__ret__.get('schedule'),
         type=__ret__.get('type'))

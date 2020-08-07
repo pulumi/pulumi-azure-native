@@ -21,10 +21,22 @@ namespace Pulumi.AzureRM.DBforMySQL.V20180601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource properties.
+        /// Private endpoint which the connection belongs to.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpoint")]
+        public Output<Outputs.PrivateEndpointPropertyResponseResult?> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Connection state of the private endpoint connection.
+        /// </summary>
+        [Output("privateLinkServiceConnectionState")]
+        public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+
+        /// <summary>
+        /// State of the private endpoint connection.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

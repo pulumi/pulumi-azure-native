@@ -37,6 +37,14 @@ export class PolicyAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * This message will be part of response in case of policy violation.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the policy assignment.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * The managed identity associated with the policy assignment.
      */
     public readonly identity!: pulumi.Output<outputs.authorization.v20180501.IdentityResponse | undefined>;
@@ -45,13 +53,29 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * The policy assignment metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The name of the policy assignment.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties for the policy assignment.
+     * The policy's excluded scopes.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20180501.PolicyAssignmentPropertiesResponse>;
+    public readonly notScopes!: pulumi.Output<string[] | undefined>;
+    /**
+     * Required if a parameter is used in policy rule.
+     */
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The ID of the policy definition or policy set definition being assigned.
+     */
+    public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
+    /**
+     * The scope for the policy assignment.
+     */
+    public readonly scope!: pulumi.Output<string | undefined>;
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */
@@ -91,7 +115,6 @@ export class PolicyAssignment extends pulumi.CustomResource {
             inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["sku"] = args ? args.sku : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

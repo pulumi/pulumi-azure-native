@@ -13,18 +13,120 @@ class GetApiResult:
     """
     Api details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, description=None, display_name=None, is_current=None, is_online=None, name=None, path=None, protocols=None, service_url=None, source_api_id=None, subscription_key_parameter_names=None, subscription_required=None, type=None):
+        if api_revision and not isinstance(api_revision, str):
+            raise TypeError("Expected argument 'api_revision' to be a str")
+        __self__.api_revision = api_revision
+        """
+        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        """
+        if api_revision_description and not isinstance(api_revision_description, str):
+            raise TypeError("Expected argument 'api_revision_description' to be a str")
+        __self__.api_revision_description = api_revision_description
+        """
+        Description of the Api Revision.
+        """
+        if api_type and not isinstance(api_type, str):
+            raise TypeError("Expected argument 'api_type' to be a str")
+        __self__.api_type = api_type
+        """
+        Type of API.
+        """
+        if api_version and not isinstance(api_version, str):
+            raise TypeError("Expected argument 'api_version' to be a str")
+        __self__.api_version = api_version
+        """
+        Indicates the Version identifier of the API if the API is versioned
+        """
+        if api_version_description and not isinstance(api_version_description, str):
+            raise TypeError("Expected argument 'api_version_description' to be a str")
+        __self__.api_version_description = api_version_description
+        """
+        Description of the Api Version.
+        """
+        if api_version_set and not isinstance(api_version_set, dict):
+            raise TypeError("Expected argument 'api_version_set' to be a dict")
+        __self__.api_version_set = api_version_set
+        """
+        Version set details
+        """
+        if api_version_set_id and not isinstance(api_version_set_id, str):
+            raise TypeError("Expected argument 'api_version_set_id' to be a str")
+        __self__.api_version_set_id = api_version_set_id
+        """
+        A resource identifier for the related ApiVersionSet.
+        """
+        if authentication_settings and not isinstance(authentication_settings, dict):
+            raise TypeError("Expected argument 'authentication_settings' to be a dict")
+        __self__.authentication_settings = authentication_settings
+        """
+        Collection of authentication settings included into this API.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description of the API. May include HTML formatting tags.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        API name. Must be 1 to 300 characters long.
+        """
+        if is_current and not isinstance(is_current, bool):
+            raise TypeError("Expected argument 'is_current' to be a bool")
+        __self__.is_current = is_current
+        """
+        Indicates if API revision is current api revision.
+        """
+        if is_online and not isinstance(is_online, bool):
+            raise TypeError("Expected argument 'is_online' to be a bool")
+        __self__.is_online = is_online
+        """
+        Indicates if API revision is accessible via the gateway.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if path and not isinstance(path, str):
+            raise TypeError("Expected argument 'path' to be a str")
+        __self__.path = path
         """
-        Api entity contract properties.
+        Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+        """
+        if protocols and not isinstance(protocols, list):
+            raise TypeError("Expected argument 'protocols' to be a list")
+        __self__.protocols = protocols
+        """
+        Describes on which protocols the operations in this API can be invoked.
+        """
+        if service_url and not isinstance(service_url, str):
+            raise TypeError("Expected argument 'service_url' to be a str")
+        __self__.service_url = service_url
+        """
+        Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+        """
+        if source_api_id and not isinstance(source_api_id, str):
+            raise TypeError("Expected argument 'source_api_id' to be a str")
+        __self__.source_api_id = source_api_id
+        """
+        API identifier of the source API.
+        """
+        if subscription_key_parameter_names and not isinstance(subscription_key_parameter_names, dict):
+            raise TypeError("Expected argument 'subscription_key_parameter_names' to be a dict")
+        __self__.subscription_key_parameter_names = subscription_key_parameter_names
+        """
+        Protocols over which API is made available.
+        """
+        if subscription_required and not isinstance(subscription_required, bool):
+            raise TypeError("Expected argument 'subscription_required' to be a bool")
+        __self__.subscription_required = subscription_required
+        """
+        Specifies whether an API or Product subscription is required for accessing the API.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +142,25 @@ class AwaitableGetApiResult(GetApiResult):
         if False:
             yield self
         return GetApiResult(
+            api_revision=self.api_revision,
+            api_revision_description=self.api_revision_description,
+            api_type=self.api_type,
+            api_version=self.api_version,
+            api_version_description=self.api_version_description,
+            api_version_set=self.api_version_set,
+            api_version_set_id=self.api_version_set_id,
+            authentication_settings=self.authentication_settings,
+            description=self.description,
+            display_name=self.display_name,
+            is_current=self.is_current,
+            is_online=self.is_online,
             name=self.name,
-            properties=self.properties,
+            path=self.path,
+            protocols=self.protocols,
+            service_url=self.service_url,
+            source_api_id=self.source_api_id,
+            subscription_key_parameter_names=self.subscription_key_parameter_names,
+            subscription_required=self.subscription_required,
             type=self.type)
 
 
@@ -64,6 +183,23 @@ def get_api(name=None, resource_group_name=None, service_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApi', __args__, opts=opts).value
 
     return AwaitableGetApiResult(
+        api_revision=__ret__.get('apiRevision'),
+        api_revision_description=__ret__.get('apiRevisionDescription'),
+        api_type=__ret__.get('apiType'),
+        api_version=__ret__.get('apiVersion'),
+        api_version_description=__ret__.get('apiVersionDescription'),
+        api_version_set=__ret__.get('apiVersionSet'),
+        api_version_set_id=__ret__.get('apiVersionSetId'),
+        authentication_settings=__ret__.get('authenticationSettings'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        is_current=__ret__.get('isCurrent'),
+        is_online=__ret__.get('isOnline'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        path=__ret__.get('path'),
+        protocols=__ret__.get('protocols'),
+        service_url=__ret__.get('serviceUrl'),
+        source_api_id=__ret__.get('sourceApiId'),
+        subscription_key_parameter_names=__ret__.get('subscriptionKeyParameterNames'),
+        subscription_required=__ret__.get('subscriptionRequired'),
         type=__ret__.get('type'))

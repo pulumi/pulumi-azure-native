@@ -27,10 +27,22 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource properties.
+        /// Properties of the private endpoint object.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpoint")]
+        public Output<Outputs.PrivateEndpointResponseResult?> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Approval state of the private link connection.
+        /// </summary>
+        [Output("privateLinkServiceConnectionState")]
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the private endpoint connection.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Tags assigned to the key vault resource.

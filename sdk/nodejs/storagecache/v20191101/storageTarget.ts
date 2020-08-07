@@ -37,17 +37,37 @@ export class StorageTarget extends pulumi.CustomResource {
     }
 
     /**
+     * Properties when targetType is clfs.
+     */
+    public readonly clfs!: pulumi.Output<outputs.storagecache.v20191101.ClfsTargetResponse | undefined>;
+    /**
+     * List of Cache namespace junctions to target for namespace associations.
+     */
+    public readonly junctions!: pulumi.Output<outputs.storagecache.v20191101.NamespaceJunctionResponse[] | undefined>;
+    /**
      * Name of the Storage Target.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Storage Target.
+     * Properties when targetType is nfs3.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storagecache.v20191101.StorageTargetResponseProperties>;
+    public readonly nfs3!: pulumi.Output<outputs.storagecache.v20191101.Nfs3TargetResponse | undefined>;
+    /**
+     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Type of the Storage Target.
+     */
+    public readonly targetType!: pulumi.Output<string | undefined>;
     /**
      * Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Properties when targetType is unknown.
+     */
+    public readonly unknown!: pulumi.Output<outputs.storagecache.v20191101.UnknownTargetResponse | undefined>;
 
     /**
      * Create a StorageTarget resource with the given unique name, arguments, and options.
@@ -80,7 +100,6 @@ export class StorageTarget extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["targetType"] = args ? args.targetType : undefined;
             inputs["unknown"] = args ? args.unknown : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

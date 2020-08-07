@@ -52,17 +52,61 @@ namespace Pulumi.AzureRM.Network.V20180901
     public sealed class GetRecordSetResult
     {
         /// <summary>
+        /// The list of A records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ARecordResponseResult> ARecords;
+        /// <summary>
+        /// The list of AAAA records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AaaaRecordResponseResult> AaaaRecords;
+        /// <summary>
+        /// The CNAME record in the record set.
+        /// </summary>
+        public readonly Outputs.CnameRecordResponseResult? CnameRecord;
+        /// <summary>
         /// The ETag of the record set.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Fully qualified domain name of the record set.
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
+        /// Is the record set auto-registered in the Private DNS zone through a virtual network link?
+        /// </summary>
+        public readonly bool IsAutoRegistered;
+        /// <summary>
+        /// The metadata attached to the record set.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Metadata;
+        /// <summary>
+        /// The list of MX records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MxRecordResponseResult> MxRecords;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the record set.
+        /// The list of PTR records in the record set.
         /// </summary>
-        public readonly Outputs.RecordSetPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.PtrRecordResponseResult> PtrRecords;
+        /// <summary>
+        /// The SOA record in the record set.
+        /// </summary>
+        public readonly Outputs.SoaRecordResponseResult? SoaRecord;
+        /// <summary>
+        /// The list of SRV records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SrvRecordResponseResult> SrvRecords;
+        /// <summary>
+        /// The TTL (time-to-live) of the records in the record set.
+        /// </summary>
+        public readonly int? Ttl;
+        /// <summary>
+        /// The list of TXT records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TxtRecordResponseResult> TxtRecords;
         /// <summary>
         /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
         /// </summary>
@@ -70,17 +114,50 @@ namespace Pulumi.AzureRM.Network.V20180901
 
         [OutputConstructor]
         private GetRecordSetResult(
+            ImmutableArray<Outputs.ARecordResponseResult> aRecords,
+
+            ImmutableArray<Outputs.AaaaRecordResponseResult> aaaaRecords,
+
+            Outputs.CnameRecordResponseResult? cnameRecord,
+
             string? etag,
+
+            string fqdn,
+
+            bool isAutoRegistered,
+
+            ImmutableDictionary<string, string>? metadata,
+
+            ImmutableArray<Outputs.MxRecordResponseResult> mxRecords,
 
             string name,
 
-            Outputs.RecordSetPropertiesResponseResult properties,
+            ImmutableArray<Outputs.PtrRecordResponseResult> ptrRecords,
+
+            Outputs.SoaRecordResponseResult? soaRecord,
+
+            ImmutableArray<Outputs.SrvRecordResponseResult> srvRecords,
+
+            int? ttl,
+
+            ImmutableArray<Outputs.TxtRecordResponseResult> txtRecords,
 
             string type)
         {
+            ARecords = aRecords;
+            AaaaRecords = aaaaRecords;
+            CnameRecord = cnameRecord;
             Etag = etag;
+            Fqdn = fqdn;
+            IsAutoRegistered = isAutoRegistered;
+            Metadata = metadata;
+            MxRecords = mxRecords;
             Name = name;
-            Properties = properties;
+            PtrRecords = ptrRecords;
+            SoaRecord = soaRecord;
+            SrvRecords = srvRecords;
+            Ttl = ttl;
+            TxtRecords = txtRecords;
             Type = type;
         }
     }

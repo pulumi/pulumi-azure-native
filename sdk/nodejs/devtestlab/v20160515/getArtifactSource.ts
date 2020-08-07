@@ -41,6 +41,26 @@ export interface GetArtifactSourceArgs {
  */
 export interface GetArtifactSourceResult {
     /**
+     * The folder containing Azure Resource Manager templates.
+     */
+    readonly armTemplateFolderPath?: string;
+    /**
+     * The artifact source's branch reference.
+     */
+    readonly branchRef?: string;
+    /**
+     * The artifact source's creation date.
+     */
+    readonly createdDate: string;
+    /**
+     * The artifact source's display name.
+     */
+    readonly displayName?: string;
+    /**
+     * The folder containing artifacts.
+     */
+    readonly folderPath?: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;
@@ -49,9 +69,21 @@ export interface GetArtifactSourceResult {
      */
     readonly name: string;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: outputs.devtestlab.v20160515.ArtifactSourcePropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * The security token to authenticate to the artifact source.
+     */
+    readonly securityToken?: string;
+    /**
+     * The artifact source's type.
+     */
+    readonly sourceType?: string;
+    /**
+     * Indicates if the artifact source is enabled (values: Enabled, Disabled).
+     */
+    readonly status?: string;
     /**
      * The tags of the resource.
      */
@@ -60,4 +92,12 @@ export interface GetArtifactSourceResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: string;
+    /**
+     * The artifact source's URI.
+     */
+    readonly uri?: string;
 }

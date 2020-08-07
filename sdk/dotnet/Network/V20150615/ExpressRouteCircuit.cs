@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20150615
     public partial class ExpressRouteCircuit : Pulumi.CustomResource
     {
         /// <summary>
+        /// The list of authorizations.
+        /// </summary>
+        [Output("authorizations")]
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+
+        /// <summary>
+        /// The CircuitProvisioningState state of the resource.
+        /// </summary>
+        [Output("circuitProvisioningState")]
+        public Output<string?> CircuitProvisioningState { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,40 @@ namespace Pulumi.AzureRM.Network.V20150615
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of ExpressRouteCircuit.
+        /// The list of peerings.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peerings")]
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult>> Peerings { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceKey.
+        /// </summary>
+        [Output("serviceKey")]
+        public Output<string?> ServiceKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceProviderNotes.
+        /// </summary>
+        [Output("serviceProviderNotes")]
+        public Output<string?> ServiceProviderNotes { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceProviderProperties.
+        /// </summary>
+        [Output("serviceProviderProperties")]
+        public Output<Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult?> ServiceProviderProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+        /// </summary>
+        [Output("serviceProviderProvisioningState")]
+        public Output<string?> ServiceProviderProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU.

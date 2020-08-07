@@ -52,9 +52,21 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the DDoS custom policy.
+        /// The protocol-specific DDoS policy customization parameters.
         /// </summary>
-        public readonly Outputs.DdosCustomPolicyPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ProtocolCustomSettingsFormatResponseResult> ProtocolCustomSettings;
+        /// <summary>
+        /// The provisioning state of the DDoS custom policy resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PublicIPAddresses;
+        /// <summary>
+        /// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +84,13 @@ namespace Pulumi.AzureRM.Network.V20190801
 
             string name,
 
-            Outputs.DdosCustomPolicyPropertiesFormatResponseResult properties,
+            ImmutableArray<Outputs.ProtocolCustomSettingsFormatResponseResult> protocolCustomSettings,
+
+            string provisioningState,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> publicIPAddresses,
+
+            string resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -81,7 +99,10 @@ namespace Pulumi.AzureRM.Network.V20190801
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProtocolCustomSettings = protocolCustomSettings;
+            ProvisioningState = provisioningState;
+            PublicIPAddresses = publicIPAddresses;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
         }

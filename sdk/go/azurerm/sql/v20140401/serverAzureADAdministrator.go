@@ -14,10 +14,16 @@ import (
 type ServerAzureADAdministrator struct {
 	pulumi.CustomResourceState
 
+	// The type of administrator.
+	AdministratorType pulumi.StringOutput `pulumi:"administratorType"`
+	// The server administrator login value.
+	Login pulumi.StringOutput `pulumi:"login"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the resource.
-	Properties ServerAdministratorPropertiesResponseOutput `pulumi:"properties"`
+	// The server administrator Sid (Secure ID).
+	Sid pulumi.StringOutput `pulumi:"sid"`
+	// The server Active Directory Administrator tenant id.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,19 +77,31 @@ func GetServerAzureADAdministrator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerAzureADAdministrator resources.
 type serverAzureADAdministratorState struct {
+	// The type of administrator.
+	AdministratorType *string `pulumi:"administratorType"`
+	// The server administrator login value.
+	Login *string `pulumi:"login"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *ServerAdministratorPropertiesResponse `pulumi:"properties"`
+	// The server administrator Sid (Secure ID).
+	Sid *string `pulumi:"sid"`
+	// The server Active Directory Administrator tenant id.
+	TenantId *string `pulumi:"tenantId"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type ServerAzureADAdministratorState struct {
+	// The type of administrator.
+	AdministratorType pulumi.StringPtrInput
+	// The server administrator login value.
+	Login pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of the resource.
-	Properties ServerAdministratorPropertiesResponsePtrInput
+	// The server administrator Sid (Secure ID).
+	Sid pulumi.StringPtrInput
+	// The server Active Directory Administrator tenant id.
+	TenantId pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

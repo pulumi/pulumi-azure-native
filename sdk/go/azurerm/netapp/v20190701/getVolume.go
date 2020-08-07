@@ -29,14 +29,34 @@ type LookupVolumeArgs struct {
 
 // Volume resource
 type LookupVolumeResult struct {
+	// Unique Baremetal Tenant Identifier.
+	BaremetalTenantId string `pulumi:"baremetalTenantId"`
+	// A unique file path for the volume. Used when creating mount targets
+	CreationToken string `pulumi:"creationToken"`
+	// Set of export policy rules
+	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
+	// Unique FileSystem Identifier.
+	FileSystemId string `pulumi:"fileSystemId"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// List of mount targets
+	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Volume properties
-	Properties VolumePropertiesResponse `pulumi:"properties"`
+	// Set of protocol types
+	ProtocolTypes []string `pulumi:"protocolTypes"`
+	// Azure lifecycle management
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The service level of the file system
+	ServiceLevel *string `pulumi:"serviceLevel"`
+	// UUID v4 or resource identifier used to identify the Snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+	SubnetId string `pulumi:"subnetId"`
 	// Resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+	UsageThreshold int `pulumi:"usageThreshold"`
 }

@@ -27,14 +27,28 @@ type LookupCustomImageArgs struct {
 
 // A custom image.
 type LookupCustomImageResult struct {
+	// The author of the custom image.
+	Author *string `pulumi:"author"`
+	// The creation date of the custom image.
+	CreationDate string `pulumi:"creationDate"`
+	// The description of the custom image.
+	Description *string `pulumi:"description"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
+	// The Managed Image Id backing the custom image.
+	ManagedImageId *string `pulumi:"managedImageId"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties CustomImagePropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// The VHD from which the image is to be created.
+	Vhd *CustomImagePropertiesCustomResponse `pulumi:"vhd"`
+	// The virtual machine from which the image is to be created.
+	Vm *CustomImagePropertiesFromVmResponse `pulumi:"vm"`
 }

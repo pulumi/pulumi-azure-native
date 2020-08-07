@@ -10,6 +10,24 @@ from ... import _utilities, _tables
 
 
 class StorageAccount(pulumi.CustomResource):
+    account_type: pulumi.Output[str]
+    """
+    The type of the storage account.
+    """
+    creation_time: pulumi.Output[str]
+    """
+    The creation date and time of the storage account in UTC.
+    """
+    custom_domain: pulumi.Output[dict]
+    """
+    The custom domain the user assigned to this storage account.
+      * `name` (`str`) - The custom domain name. Name is the CNAME source.
+      * `use_sub_domain_name` (`bool`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
+    """
+    last_geo_failover_time: pulumi.Output[str]
+    """
+    The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,28 +36,41 @@ class StorageAccount(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    primary_endpoints: pulumi.Output[dict]
     """
-    Properties of the storage account.
-      * `account_type` (`str`) - The type of the storage account.
-      * `creation_time` (`str`) - The creation date and time of the storage account in UTC.
-      * `custom_domain` (`dict`) - The custom domain the user assigned to this storage account.
-        * `name` (`str`) - The custom domain name. Name is the CNAME source.
-        * `use_sub_domain_name` (`bool`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
-
-      * `last_geo_failover_time` (`str`) - The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-      * `primary_endpoints` (`dict`) - The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-        * `blob` (`str`) - The blob endpoint.
-        * `file` (`str`) - The file endpoint.
-        * `queue` (`str`) - The queue endpoint.
-        * `table` (`str`) - The table endpoint.
-
-      * `primary_location` (`str`) - The location of the primary data center for the storage account.
-      * `provisioning_state` (`str`) - The status of the storage account at the time the operation was called.
-      * `secondary_endpoints` (`dict`) - The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-      * `secondary_location` (`str`) - The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-      * `status_of_primary` (`str`) - The status indicating whether the primary location of the storage account is available or unavailable.
-      * `status_of_secondary` (`str`) - The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+    The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+      * `blob` (`str`) - The blob endpoint.
+      * `file` (`str`) - The file endpoint.
+      * `queue` (`str`) - The queue endpoint.
+      * `table` (`str`) - The table endpoint.
+    """
+    primary_location: pulumi.Output[str]
+    """
+    The location of the primary data center for the storage account.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The status of the storage account at the time the operation was called.
+    """
+    secondary_endpoints: pulumi.Output[dict]
+    """
+    The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+      * `blob` (`str`) - The blob endpoint.
+      * `file` (`str`) - The file endpoint.
+      * `queue` (`str`) - The queue endpoint.
+      * `table` (`str`) - The table endpoint.
+    """
+    secondary_location: pulumi.Output[str]
+    """
+    The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+    """
+    status_of_primary: pulumi.Output[str]
+    """
+    The status indicating whether the primary location of the storage account is available or unavailable.
+    """
+    status_of_secondary: pulumi.Output[str]
+    """
+    The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
     """
     tags: pulumi.Output[dict]
     """
@@ -91,7 +122,16 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['custom_domain'] = None
+            __props__['last_geo_failover_time'] = None
+            __props__['primary_endpoints'] = None
+            __props__['primary_location'] = None
+            __props__['provisioning_state'] = None
+            __props__['secondary_endpoints'] = None
+            __props__['secondary_location'] = None
+            __props__['status_of_primary'] = None
+            __props__['status_of_secondary'] = None
             __props__['type'] = None
         super(StorageAccount, __self__).__init__(
             'azurerm:storage/v20150615:StorageAccount',

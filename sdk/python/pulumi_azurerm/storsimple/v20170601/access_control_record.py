@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class AccessControlRecord(pulumi.CustomResource):
+    initiator_name: pulumi.Output[str]
+    """
+    The iSCSI initiator name (IQN).
+    """
     kind: pulumi.Output[str]
     """
     The Kind of the object. Currently only Series8000 is supported
@@ -18,15 +22,13 @@ class AccessControlRecord(pulumi.CustomResource):
     """
     The name of the object.
     """
-    properties: pulumi.Output[dict]
-    """
-    The properties of access control record.
-      * `initiator_name` (`str`) - The iSCSI initiator name (IQN).
-      * `volume_count` (`float`) - The number of volumes using the access control record.
-    """
     type: pulumi.Output[str]
     """
     The hierarchical type of the object.
+    """
+    volume_count: pulumi.Output[float]
+    """
+    The number of volumes using the access control record.
     """
     def __init__(__self__, resource_name, opts=None, initiator_name=None, kind=None, manager_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -70,8 +72,8 @@ class AccessControlRecord(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
+            __props__['volume_count'] = None
         super(AccessControlRecord, __self__).__init__(
             'azurerm:storsimple/v20170601:AccessControlRecord',
             resource_name,

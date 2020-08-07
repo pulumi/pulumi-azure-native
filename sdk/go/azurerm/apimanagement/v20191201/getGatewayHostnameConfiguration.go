@@ -29,10 +29,14 @@ type LookupGatewayHostnameConfigurationArgs struct {
 
 // Gateway hostname configuration details.
 type LookupGatewayHostnameConfigurationResult struct {
+	// Identifier of Certificate entity that will be used for TLS connection establishment
+	CertificateId *string `pulumi:"certificateId"`
+	// Hostname value. Supports valid domain name, partial or full wildcard
+	Hostname *string `pulumi:"hostname"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Gateway hostname configuration details.
-	Properties GatewayHostnameConfigurationContractPropertiesResponse `pulumi:"properties"`
+	// Determines whether gateway requests client certificate
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

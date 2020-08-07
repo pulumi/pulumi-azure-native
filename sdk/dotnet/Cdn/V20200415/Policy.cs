@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Cdn.V20200415
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Describes custom rules inside the policy.
+        /// </summary>
+        [Output("customRules")]
+        public Output<Outputs.CustomRuleListResponseResult?> CustomRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+        /// </summary>
+        [Output("endpointLinks")]
+        public Output<ImmutableArray<Outputs.CdnEndpointResponseResult>> EndpointLinks { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -27,16 +39,37 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Describes managed rules inside the policy.
+        /// </summary>
+        [Output("managedRules")]
+        public Output<Outputs.ManagedRuleSetListResponseResult?> ManagedRules { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// Describes  policySettings for policy
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CdnWebApplicationFirewallPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("policySettings")]
+        public Output<Outputs.PolicySettingsResponseResult?> PolicySettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the WebApplicationFirewallPolicy.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes rate limit rules inside the policy.
+        /// </summary>
+        [Output("rateLimitRules")]
+        public Output<Outputs.RateLimitRuleListResponseResult?> RateLimitRules { get; private set; } = null!;
+
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.

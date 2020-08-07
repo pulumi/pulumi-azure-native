@@ -10,6 +10,35 @@ from ... import _utilities, _tables
 
 
 class ConnectionMonitor(pulumi.CustomResource):
+    auto_start: pulumi.Output[bool]
+    """
+    Determines if the connection monitor will start automatically once created.
+    """
+    connection_monitor_type: pulumi.Output[str]
+    """
+    Type of connection monitor.
+    """
+    destination: pulumi.Output[dict]
+    """
+    Describes the destination of connection monitor.
+      * `address` (`str`) - Address of the connection monitor destination (IP or domain name).
+      * `port` (`float`) - The destination port used by connection monitor.
+      * `resource_id` (`str`) - The ID of the resource used as the destination by connection monitor.
+    """
+    endpoints: pulumi.Output[list]
+    """
+    List of connection monitor endpoints.
+      * `address` (`str`) - Address of the connection monitor endpoint (IP or domain name).
+      * `filter` (`dict`) - Filter for sub-items within the endpoint.
+        * `items` (`list`) - List of items in the filter.
+          * `address` (`str`) - The address of the filter item.
+          * `type` (`str`) - The type of item included in the filter. Currently only 'AgentAddress' is supported.
+
+        * `type` (`str`) - The behavior of the endpoint filter. Currently only 'Include' is supported.
+
+      * `name` (`str`) - The name of the connection monitor endpoint.
+      * `resource_id` (`str`) - Resource ID of the connection monitor endpoint.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -18,84 +47,85 @@ class ConnectionMonitor(pulumi.CustomResource):
     """
     Connection monitor location.
     """
+    monitoring_interval_in_seconds: pulumi.Output[float]
+    """
+    Monitoring interval in seconds.
+    """
+    monitoring_status: pulumi.Output[str]
+    """
+    The monitoring status of the connection monitor.
+    """
     name: pulumi.Output[str]
     """
     Name of the connection monitor.
     """
-    properties: pulumi.Output[dict]
+    notes: pulumi.Output[str]
     """
-    Properties of the connection monitor result.
-      * `auto_start` (`bool`) - Determines if the connection monitor will start automatically once created.
-      * `connection_monitor_type` (`str`) - Type of connection monitor.
-      * `destination` (`dict`) - Describes the destination of connection monitor.
-        * `address` (`str`) - Address of the connection monitor destination (IP or domain name).
-        * `port` (`float`) - The destination port used by connection monitor.
-        * `resource_id` (`str`) - The ID of the resource used as the destination by connection monitor.
-
-      * `endpoints` (`list`) - List of connection monitor endpoints.
-        * `address` (`str`) - Address of the connection monitor endpoint (IP or domain name).
-        * `filter` (`dict`) - Filter for sub-items within the endpoint.
-          * `items` (`list`) - List of items in the filter.
-            * `address` (`str`) - The address of the filter item.
-            * `type` (`str`) - The type of item included in the filter. Currently only 'AgentAddress' is supported.
-
-          * `type` (`str`) - The behavior of the endpoint filter. Currently only 'Include' is supported.
-
-        * `name` (`str`) - The name of the connection monitor endpoint.
-        * `resource_id` (`str`) - Resource ID of the connection monitor endpoint.
-
-      * `monitoring_interval_in_seconds` (`float`) - Monitoring interval in seconds.
-      * `monitoring_status` (`str`) - The monitoring status of the connection monitor.
-      * `notes` (`str`) - Optional notes to be associated with the connection monitor.
-      * `outputs` (`list`) - List of connection monitor outputs.
-        * `type` (`str`) - Connection monitor output destination type. Currently, only "Workspace" is supported.
-        * `workspace_settings` (`dict`) - Describes the settings for producing output into a log analytics workspace.
-          * `workspace_resource_id` (`str`) - Log analytics workspace resource ID.
-
-      * `provisioning_state` (`str`) - The provisioning state of the connection monitor.
-      * `source` (`dict`) - Describes the source of connection monitor.
-        * `port` (`float`) - The source port used by connection monitor.
-        * `resource_id` (`str`) - The ID of the resource used as the source by connection monitor.
-
-      * `start_time` (`str`) - The date and time when the connection monitor was started.
-      * `test_configurations` (`list`) - List of connection monitor test configurations.
-        * `http_configuration` (`dict`) - The parameters used to perform test evaluation over HTTP.
-          * `method` (`str`) - The HTTP method to use.
-          * `path` (`str`) - The path component of the URI. For instance, "/dir1/dir2".
-          * `port` (`float`) - The port to connect to.
-          * `prefer_https` (`bool`) - Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit.
-          * `request_headers` (`list`) - The HTTP headers to transmit with the request.
-            * `name` (`str`) - The name in HTTP header.
-            * `value` (`str`) - The value in HTTP header.
-
-          * `valid_status_code_ranges` (`list`) - HTTP status codes to consider successful. For instance, "2xx,301-304,418".
-
-        * `icmp_configuration` (`dict`) - The parameters used to perform test evaluation over ICMP.
-          * `disable_trace_route` (`bool`) - Value indicating whether path evaluation with trace route should be disabled.
-
-        * `name` (`str`) - The name of the connection monitor test configuration.
-        * `preferred_ip_version` (`str`) - The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
-        * `protocol` (`str`) - The protocol to use in test evaluation.
-        * `success_threshold` (`dict`) - The threshold for declaring a test successful.
-          * `checks_failed_percent` (`float`) - The maximum percentage of failed checks permitted for a test to evaluate as successful.
-          * `round_trip_time_ms` (`float`) - The maximum round-trip time in milliseconds permitted for a test to evaluate as successful.
-
-        * `tcp_configuration` (`dict`) - The parameters used to perform test evaluation over TCP.
-          * `disable_trace_route` (`bool`) - Value indicating whether path evaluation with trace route should be disabled.
-          * `port` (`float`) - The port to connect to.
-
-        * `test_frequency_sec` (`float`) - The frequency of test evaluation, in seconds.
-
-      * `test_groups` (`list`) - List of connection monitor test groups.
-        * `destinations` (`list`) - List of destination endpoint names.
-        * `disable` (`bool`) - Value indicating whether test group is disabled.
-        * `name` (`str`) - The name of the connection monitor test group.
-        * `sources` (`list`) - List of source endpoint names.
-        * `test_configurations` (`list`) - List of test configuration names.
+    Optional notes to be associated with the connection monitor.
+    """
+    outputs: pulumi.Output[list]
+    """
+    List of connection monitor outputs.
+      * `type` (`str`) - Connection monitor output destination type. Currently, only "Workspace" is supported.
+      * `workspace_settings` (`dict`) - Describes the settings for producing output into a log analytics workspace.
+        * `workspace_resource_id` (`str`) - Log analytics workspace resource ID.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the connection monitor.
+    """
+    source: pulumi.Output[dict]
+    """
+    Describes the source of connection monitor.
+      * `port` (`float`) - The source port used by connection monitor.
+      * `resource_id` (`str`) - The ID of the resource used as the source by connection monitor.
+    """
+    start_time: pulumi.Output[str]
+    """
+    The date and time when the connection monitor was started.
     """
     tags: pulumi.Output[dict]
     """
     Connection monitor tags.
+    """
+    test_configurations: pulumi.Output[list]
+    """
+    List of connection monitor test configurations.
+      * `http_configuration` (`dict`) - The parameters used to perform test evaluation over HTTP.
+        * `method` (`str`) - The HTTP method to use.
+        * `path` (`str`) - The path component of the URI. For instance, "/dir1/dir2".
+        * `port` (`float`) - The port to connect to.
+        * `prefer_https` (`bool`) - Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit.
+        * `request_headers` (`list`) - The HTTP headers to transmit with the request.
+          * `name` (`str`) - The name in HTTP header.
+          * `value` (`str`) - The value in HTTP header.
+
+        * `valid_status_code_ranges` (`list`) - HTTP status codes to consider successful. For instance, "2xx,301-304,418".
+
+      * `icmp_configuration` (`dict`) - The parameters used to perform test evaluation over ICMP.
+        * `disable_trace_route` (`bool`) - Value indicating whether path evaluation with trace route should be disabled.
+
+      * `name` (`str`) - The name of the connection monitor test configuration.
+      * `preferred_ip_version` (`str`) - The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
+      * `protocol` (`str`) - The protocol to use in test evaluation.
+      * `success_threshold` (`dict`) - The threshold for declaring a test successful.
+        * `checks_failed_percent` (`float`) - The maximum percentage of failed checks permitted for a test to evaluate as successful.
+        * `round_trip_time_ms` (`float`) - The maximum round-trip time in milliseconds permitted for a test to evaluate as successful.
+
+      * `tcp_configuration` (`dict`) - The parameters used to perform test evaluation over TCP.
+        * `disable_trace_route` (`bool`) - Value indicating whether path evaluation with trace route should be disabled.
+        * `port` (`float`) - The port to connect to.
+
+      * `test_frequency_sec` (`float`) - The frequency of test evaluation, in seconds.
+    """
+    test_groups: pulumi.Output[list]
+    """
+    List of connection monitor test groups.
+      * `destinations` (`list`) - List of destination endpoint names.
+      * `disable` (`bool`) - Value indicating whether test group is disabled.
+      * `name` (`str`) - The name of the connection monitor test group.
+      * `sources` (`list`) - List of source endpoint names.
+      * `test_configurations` (`list`) - List of test configuration names.
     """
     type: pulumi.Output[str]
     """
@@ -226,8 +256,11 @@ class ConnectionMonitor(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['test_configurations'] = test_configurations
             __props__['test_groups'] = test_groups
+            __props__['connection_monitor_type'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['monitoring_status'] = None
+            __props__['provisioning_state'] = None
+            __props__['start_time'] = None
             __props__['type'] = None
         super(ConnectionMonitor, __self__).__init__(
             'azurerm:network/v20200301:ConnectionMonitor',

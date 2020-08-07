@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     public partial class Experiment : Pulumi.CustomResource
     {
         /// <summary>
+        /// Time when the Experiment was created.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the experiment.
+        /// The provisioned state of the experiment
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExperimentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The time at which the experiment entered its current provisioning state.
+        /// </summary>
+        [Output("provisioningStateTransitionTime")]
+        public Output<string> ProvisioningStateTransitionTime { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

@@ -14,10 +14,22 @@ import (
 type Prefix struct {
 	pulumi.CustomResourceState
 
+	// The error message for validation state
+	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
+	// The list of events for peering service prefix
+	Events PeeringServicePrefixEventResponseArrayOutput `pulumi:"events"`
+	// The prefix learned type
+	LearnedType pulumi.StringOutput `pulumi:"learnedType"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the peering prefix properties.
-	Properties PeeringServicePrefixPropertiesResponseOutput `pulumi:"properties"`
+	// The peering service prefix key
+	PeeringServicePrefixKey pulumi.StringPtrOutput `pulumi:"peeringServicePrefixKey"`
+	// The prefix from which your traffic originates.
+	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
+	// The prefix validation state
+	PrefixValidationState pulumi.StringOutput `pulumi:"prefixValidationState"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +71,43 @@ func GetPrefix(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Prefix resources.
 type prefixState struct {
+	// The error message for validation state
+	ErrorMessage *string `pulumi:"errorMessage"`
+	// The list of events for peering service prefix
+	Events []PeeringServicePrefixEventResponse `pulumi:"events"`
+	// The prefix learned type
+	LearnedType *string `pulumi:"learnedType"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// Gets or sets the peering prefix properties.
-	Properties *PeeringServicePrefixPropertiesResponse `pulumi:"properties"`
+	// The peering service prefix key
+	PeeringServicePrefixKey *string `pulumi:"peeringServicePrefixKey"`
+	// The prefix from which your traffic originates.
+	Prefix *string `pulumi:"prefix"`
+	// The prefix validation state
+	PrefixValidationState *string `pulumi:"prefixValidationState"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type PrefixState struct {
+	// The error message for validation state
+	ErrorMessage pulumi.StringPtrInput
+	// The list of events for peering service prefix
+	Events PeeringServicePrefixEventResponseArrayInput
+	// The prefix learned type
+	LearnedType pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// Gets or sets the peering prefix properties.
-	Properties PeeringServicePrefixPropertiesResponsePtrInput
+	// The peering service prefix key
+	PeeringServicePrefixKey pulumi.StringPtrInput
+	// The prefix from which your traffic originates.
+	Prefix pulumi.StringPtrInput
+	// The prefix validation state
+	PrefixValidationState pulumi.StringPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

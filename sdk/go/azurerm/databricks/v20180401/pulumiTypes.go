@@ -648,9 +648,9 @@ type EncryptionResponse struct {
 	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 	KeySource *string `pulumi:"keySource"`
 	// The Uri of KeyVault.
-	Keyvaulturi *string `pulumi:"keyvaulturi"`
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of KeyVault key.
-	Keyversion *string `pulumi:"keyversion"`
+	KeyVersion *string `pulumi:"keyVersion"`
 }
 
 // EncryptionResponseInput is an input type that accepts EncryptionResponseArgs and EncryptionResponseOutput values.
@@ -671,9 +671,9 @@ type EncryptionResponseArgs struct {
 	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
 	// The Uri of KeyVault.
-	Keyvaulturi pulumi.StringPtrInput `pulumi:"keyvaulturi"`
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of KeyVault key.
-	Keyversion pulumi.StringPtrInput `pulumi:"keyversion"`
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (EncryptionResponseArgs) ElementType() reflect.Type {
@@ -765,13 +765,13 @@ func (o EncryptionResponseOutput) KeySource() pulumi.StringPtrOutput {
 }
 
 // The Uri of KeyVault.
-func (o EncryptionResponseOutput) Keyvaulturi() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *string { return v.Keyvaulturi }).(pulumi.StringPtrOutput)
+func (o EncryptionResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
 // The version of KeyVault key.
-func (o EncryptionResponseOutput) Keyversion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *string { return v.Keyversion }).(pulumi.StringPtrOutput)
+func (o EncryptionResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
 type EncryptionResponsePtrOutput struct{ *pulumi.OutputState }
@@ -813,22 +813,22 @@ func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 }
 
 // The Uri of KeyVault.
-func (o EncryptionResponsePtrOutput) Keyvaulturi() pulumi.StringPtrOutput {
+func (o EncryptionResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyvaulturi
+		return v.KeyVaultUri
 	}).(pulumi.StringPtrOutput)
 }
 
 // The version of KeyVault key.
-func (o EncryptionResponsePtrOutput) Keyversion() pulumi.StringPtrOutput {
+func (o EncryptionResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyversion
+		return v.KeyVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1580,321 +1580,6 @@ func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput) Id()
 		}
 		return v.Id
 	}).(pulumi.StringPtrOutput)
-}
-
-// Properties of the virtual network peering.
-type VirtualNetworkPeeringPropertiesFormatResponse struct {
-	// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
-	// If gateway links can be used in remote virtual networking to link to this virtual network.
-	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
-	// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
-	// The reference to the databricks virtual network address space.
-	DatabricksAddressSpace *AddressSpaceResponse `pulumi:"databricksAddressSpace"`
-	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork `pulumi:"databricksVirtualNetwork"`
-	// The status of the virtual network peering.
-	PeeringState string `pulumi:"peeringState"`
-	// The provisioning state of the virtual network peering resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The reference to the remote virtual network address space.
-	RemoteAddressSpace *AddressSpaceResponse `pulumi:"remoteAddressSpace"`
-	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork `pulumi:"remoteVirtualNetwork"`
-	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
-}
-
-// VirtualNetworkPeeringPropertiesFormatResponseInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatResponseArgs and VirtualNetworkPeeringPropertiesFormatResponseOutput values.
-// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatResponseInput` via:
-//
-//          VirtualNetworkPeeringPropertiesFormatResponseArgs{...}
-type VirtualNetworkPeeringPropertiesFormatResponseInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkPeeringPropertiesFormatResponseOutput() VirtualNetworkPeeringPropertiesFormatResponseOutput
-	ToVirtualNetworkPeeringPropertiesFormatResponseOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatResponseOutput
-}
-
-// Properties of the virtual network peering.
-type VirtualNetworkPeeringPropertiesFormatResponseArgs struct {
-	// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-	AllowForwardedTraffic pulumi.BoolPtrInput `pulumi:"allowForwardedTraffic"`
-	// If gateway links can be used in remote virtual networking to link to this virtual network.
-	AllowGatewayTransit pulumi.BoolPtrInput `pulumi:"allowGatewayTransit"`
-	// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-	AllowVirtualNetworkAccess pulumi.BoolPtrInput `pulumi:"allowVirtualNetworkAccess"`
-	// The reference to the databricks virtual network address space.
-	DatabricksAddressSpace AddressSpaceResponsePtrInput `pulumi:"databricksAddressSpace"`
-	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	DatabricksVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrInput `pulumi:"databricksVirtualNetwork"`
-	// The status of the virtual network peering.
-	PeeringState pulumi.StringInput `pulumi:"peeringState"`
-	// The provisioning state of the virtual network peering resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The reference to the remote virtual network address space.
-	RemoteAddressSpace AddressSpaceResponsePtrInput `pulumi:"remoteAddressSpace"`
-	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkInput `pulumi:"remoteVirtualNetwork"`
-	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-	UseRemoteGateways pulumi.BoolPtrInput `pulumi:"useRemoteGateways"`
-}
-
-func (VirtualNetworkPeeringPropertiesFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkPeeringPropertiesFormatResponseArgs) ToVirtualNetworkPeeringPropertiesFormatResponseOutput() VirtualNetworkPeeringPropertiesFormatResponseOutput {
-	return i.ToVirtualNetworkPeeringPropertiesFormatResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkPeeringPropertiesFormatResponseArgs) ToVirtualNetworkPeeringPropertiesFormatResponseOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponseOutput)
-}
-
-func (i VirtualNetworkPeeringPropertiesFormatResponseArgs) ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePtrOutput {
-	return i.ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkPeeringPropertiesFormatResponseArgs) ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponseOutput).ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualNetworkPeeringPropertiesFormatResponsePtrInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatResponseArgs, VirtualNetworkPeeringPropertiesFormatResponsePtr and VirtualNetworkPeeringPropertiesFormatResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatResponsePtrInput` via:
-//
-//          VirtualNetworkPeeringPropertiesFormatResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualNetworkPeeringPropertiesFormatResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePtrOutput
-	ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatResponsePtrOutput
-}
-
-type virtualNetworkPeeringPropertiesFormatResponsePtrType VirtualNetworkPeeringPropertiesFormatResponseArgs
-
-func VirtualNetworkPeeringPropertiesFormatResponsePtr(v *VirtualNetworkPeeringPropertiesFormatResponseArgs) VirtualNetworkPeeringPropertiesFormatResponsePtrInput {
-	return (*virtualNetworkPeeringPropertiesFormatResponsePtrType)(v)
-}
-
-func (*virtualNetworkPeeringPropertiesFormatResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatResponse)(nil)).Elem()
-}
-
-func (i *virtualNetworkPeeringPropertiesFormatResponsePtrType) ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePtrOutput {
-	return i.ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNetworkPeeringPropertiesFormatResponsePtrType) ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponsePtrOutput)
-}
-
-// Properties of the virtual network peering.
-type VirtualNetworkPeeringPropertiesFormatResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualNetworkPeeringPropertiesFormatResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatResponse)(nil)).Elem()
-}
-
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) ToVirtualNetworkPeeringPropertiesFormatResponseOutput() VirtualNetworkPeeringPropertiesFormatResponseOutput {
-	return o
-}
-
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) ToVirtualNetworkPeeringPropertiesFormatResponseOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseOutput {
-	return o
-}
-
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePtrOutput {
-	return o.ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponse {
-		return &v
-	}).(VirtualNetworkPeeringPropertiesFormatResponsePtrOutput)
-}
-
-// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) AllowForwardedTraffic() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *bool { return v.AllowForwardedTraffic }).(pulumi.BoolPtrOutput)
-}
-
-// If gateway links can be used in remote virtual networking to link to this virtual network.
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) AllowGatewayTransit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *bool { return v.AllowGatewayTransit }).(pulumi.BoolPtrOutput)
-}
-
-// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) AllowVirtualNetworkAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *bool { return v.AllowVirtualNetworkAccess }).(pulumi.BoolPtrOutput)
-}
-
-// The reference to the databricks virtual network address space.
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) DatabricksAddressSpace() AddressSpaceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *AddressSpaceResponse {
-		return v.DatabricksAddressSpace
-	}).(AddressSpaceResponsePtrOutput)
-}
-
-//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) DatabricksVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
-		return v.DatabricksVirtualNetwork
-	}).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput)
-}
-
-// The status of the virtual network peering.
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) PeeringState() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) string { return v.PeeringState }).(pulumi.StringOutput)
-}
-
-// The provisioning state of the virtual network peering resource.
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The reference to the remote virtual network address space.
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) RemoteAddressSpace() AddressSpaceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *AddressSpaceResponse {
-		return v.RemoteAddressSpace
-	}).(AddressSpaceResponsePtrOutput)
-}
-
-//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) RemoteVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
-		return v.RemoteVirtualNetwork
-	}).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput)
-}
-
-// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) UseRemoteGateways() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *bool { return v.UseRemoteGateways }).(pulumi.BoolPtrOutput)
-}
-
-type VirtualNetworkPeeringPropertiesFormatResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatResponse)(nil)).Elem()
-}
-
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePtrOutput {
-	return o
-}
-
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePtrOutput {
-	return o
-}
-
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) VirtualNetworkPeeringPropertiesFormatResponse {
-		return *v
-	}).(VirtualNetworkPeeringPropertiesFormatResponseOutput)
-}
-
-// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) AllowForwardedTraffic() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowForwardedTraffic
-	}).(pulumi.BoolPtrOutput)
-}
-
-// If gateway links can be used in remote virtual networking to link to this virtual network.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) AllowGatewayTransit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowGatewayTransit
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) AllowVirtualNetworkAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowVirtualNetworkAccess
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The reference to the databricks virtual network address space.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) DatabricksAddressSpace() AddressSpaceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *AddressSpaceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DatabricksAddressSpace
-	}).(AddressSpaceResponsePtrOutput)
-}
-
-//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) DatabricksVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
-		if v == nil {
-			return nil
-		}
-		return v.DatabricksVirtualNetwork
-	}).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput)
-}
-
-// The status of the virtual network peering.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) PeeringState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PeeringState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state of the virtual network peering resource.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The reference to the remote virtual network address space.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) RemoteAddressSpace() AddressSpaceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *AddressSpaceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.RemoteAddressSpace
-	}).(AddressSpaceResponsePtrOutput)
-}
-
-//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) RemoteVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
-		if v == nil {
-			return nil
-		}
-		return &v.RemoteVirtualNetwork
-	}).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput)
-}
-
-// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) UseRemoteGateways() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.UseRemoteGateways
-	}).(pulumi.BoolPtrOutput)
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
@@ -3555,332 +3240,6 @@ func (o WorkspaceEncryptionParameterResponsePtrOutput) Value() EncryptionRespons
 	}).(EncryptionResponsePtrOutput)
 }
 
-// The workspace properties.
-type WorkspacePropertiesResponse struct {
-	// The workspace provider authorizations.
-	Authorizations []WorkspaceProviderAuthorizationResponse `pulumi:"authorizations"`
-	// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-	CreatedBy *CreatedByResponse `pulumi:"createdBy"`
-	// Specifies the date and time when the workspace is created.
-	CreatedDateTime *string `pulumi:"createdDateTime"`
-	// The managed resource group Id.
-	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
-	// The workspace's custom parameters.
-	Parameters *WorkspaceCustomParametersResponse `pulumi:"parameters"`
-	// The workspace provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The details of Managed Identity of Storage Account
-	StorageAccountIdentity *ManagedIdentityConfigurationResponse `pulumi:"storageAccountIdentity"`
-	// The blob URI where the UI definition file is located.
-	UiDefinitionUri *string `pulumi:"uiDefinitionUri"`
-	// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-	UpdatedBy *CreatedByResponse `pulumi:"updatedBy"`
-	// The unique identifier of the databricks workspace in databricks control plane.
-	WorkspaceId string `pulumi:"workspaceId"`
-	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-	WorkspaceUrl string `pulumi:"workspaceUrl"`
-}
-
-// WorkspacePropertiesResponseInput is an input type that accepts WorkspacePropertiesResponseArgs and WorkspacePropertiesResponseOutput values.
-// You can construct a concrete instance of `WorkspacePropertiesResponseInput` via:
-//
-//          WorkspacePropertiesResponseArgs{...}
-type WorkspacePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToWorkspacePropertiesResponseOutput() WorkspacePropertiesResponseOutput
-	ToWorkspacePropertiesResponseOutputWithContext(context.Context) WorkspacePropertiesResponseOutput
-}
-
-// The workspace properties.
-type WorkspacePropertiesResponseArgs struct {
-	// The workspace provider authorizations.
-	Authorizations WorkspaceProviderAuthorizationResponseArrayInput `pulumi:"authorizations"`
-	// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-	CreatedBy CreatedByResponsePtrInput `pulumi:"createdBy"`
-	// Specifies the date and time when the workspace is created.
-	CreatedDateTime pulumi.StringPtrInput `pulumi:"createdDateTime"`
-	// The managed resource group Id.
-	ManagedResourceGroupId pulumi.StringInput `pulumi:"managedResourceGroupId"`
-	// The workspace's custom parameters.
-	Parameters WorkspaceCustomParametersResponsePtrInput `pulumi:"parameters"`
-	// The workspace provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The details of Managed Identity of Storage Account
-	StorageAccountIdentity ManagedIdentityConfigurationResponsePtrInput `pulumi:"storageAccountIdentity"`
-	// The blob URI where the UI definition file is located.
-	UiDefinitionUri pulumi.StringPtrInput `pulumi:"uiDefinitionUri"`
-	// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-	UpdatedBy CreatedByResponsePtrInput `pulumi:"updatedBy"`
-	// The unique identifier of the databricks workspace in databricks control plane.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
-	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-	WorkspaceUrl pulumi.StringInput `pulumi:"workspaceUrl"`
-}
-
-func (WorkspacePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (i WorkspacePropertiesResponseArgs) ToWorkspacePropertiesResponseOutput() WorkspacePropertiesResponseOutput {
-	return i.ToWorkspacePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i WorkspacePropertiesResponseArgs) ToWorkspacePropertiesResponseOutputWithContext(ctx context.Context) WorkspacePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesResponseOutput)
-}
-
-func (i WorkspacePropertiesResponseArgs) ToWorkspacePropertiesResponsePtrOutput() WorkspacePropertiesResponsePtrOutput {
-	return i.ToWorkspacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WorkspacePropertiesResponseArgs) ToWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) WorkspacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesResponseOutput).ToWorkspacePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// WorkspacePropertiesResponsePtrInput is an input type that accepts WorkspacePropertiesResponseArgs, WorkspacePropertiesResponsePtr and WorkspacePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `WorkspacePropertiesResponsePtrInput` via:
-//
-//          WorkspacePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type WorkspacePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToWorkspacePropertiesResponsePtrOutput() WorkspacePropertiesResponsePtrOutput
-	ToWorkspacePropertiesResponsePtrOutputWithContext(context.Context) WorkspacePropertiesResponsePtrOutput
-}
-
-type workspacePropertiesResponsePtrType WorkspacePropertiesResponseArgs
-
-func WorkspacePropertiesResponsePtr(v *WorkspacePropertiesResponseArgs) WorkspacePropertiesResponsePtrInput {
-	return (*workspacePropertiesResponsePtrType)(v)
-}
-
-func (*workspacePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (i *workspacePropertiesResponsePtrType) ToWorkspacePropertiesResponsePtrOutput() WorkspacePropertiesResponsePtrOutput {
-	return i.ToWorkspacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *workspacePropertiesResponsePtrType) ToWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) WorkspacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesResponsePtrOutput)
-}
-
-// The workspace properties.
-type WorkspacePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (WorkspacePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (o WorkspacePropertiesResponseOutput) ToWorkspacePropertiesResponseOutput() WorkspacePropertiesResponseOutput {
-	return o
-}
-
-func (o WorkspacePropertiesResponseOutput) ToWorkspacePropertiesResponseOutputWithContext(ctx context.Context) WorkspacePropertiesResponseOutput {
-	return o
-}
-
-func (o WorkspacePropertiesResponseOutput) ToWorkspacePropertiesResponsePtrOutput() WorkspacePropertiesResponsePtrOutput {
-	return o.ToWorkspacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WorkspacePropertiesResponseOutput) ToWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) WorkspacePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) *WorkspacePropertiesResponse {
-		return &v
-	}).(WorkspacePropertiesResponsePtrOutput)
-}
-
-// The workspace provider authorizations.
-func (o WorkspacePropertiesResponseOutput) Authorizations() WorkspaceProviderAuthorizationResponseArrayOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) []WorkspaceProviderAuthorizationResponse { return v.Authorizations }).(WorkspaceProviderAuthorizationResponseArrayOutput)
-}
-
-// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-func (o WorkspacePropertiesResponseOutput) CreatedBy() CreatedByResponsePtrOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) *CreatedByResponse { return v.CreatedBy }).(CreatedByResponsePtrOutput)
-}
-
-// Specifies the date and time when the workspace is created.
-func (o WorkspacePropertiesResponseOutput) CreatedDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) *string { return v.CreatedDateTime }).(pulumi.StringPtrOutput)
-}
-
-// The managed resource group Id.
-func (o WorkspacePropertiesResponseOutput) ManagedResourceGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) string { return v.ManagedResourceGroupId }).(pulumi.StringOutput)
-}
-
-// The workspace's custom parameters.
-func (o WorkspacePropertiesResponseOutput) Parameters() WorkspaceCustomParametersResponsePtrOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) *WorkspaceCustomParametersResponse { return v.Parameters }).(WorkspaceCustomParametersResponsePtrOutput)
-}
-
-// The workspace provisioning state.
-func (o WorkspacePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The details of Managed Identity of Storage Account
-func (o WorkspacePropertiesResponseOutput) StorageAccountIdentity() ManagedIdentityConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) *ManagedIdentityConfigurationResponse {
-		return v.StorageAccountIdentity
-	}).(ManagedIdentityConfigurationResponsePtrOutput)
-}
-
-// The blob URI where the UI definition file is located.
-func (o WorkspacePropertiesResponseOutput) UiDefinitionUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) *string { return v.UiDefinitionUri }).(pulumi.StringPtrOutput)
-}
-
-// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-func (o WorkspacePropertiesResponseOutput) UpdatedBy() CreatedByResponsePtrOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) *CreatedByResponse { return v.UpdatedBy }).(CreatedByResponsePtrOutput)
-}
-
-// The unique identifier of the databricks workspace in databricks control plane.
-func (o WorkspacePropertiesResponseOutput) WorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
-}
-
-// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-func (o WorkspacePropertiesResponseOutput) WorkspaceUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspacePropertiesResponse) string { return v.WorkspaceUrl }).(pulumi.StringOutput)
-}
-
-type WorkspacePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspacePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (o WorkspacePropertiesResponsePtrOutput) ToWorkspacePropertiesResponsePtrOutput() WorkspacePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o WorkspacePropertiesResponsePtrOutput) ToWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) WorkspacePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o WorkspacePropertiesResponsePtrOutput) Elem() WorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) WorkspacePropertiesResponse { return *v }).(WorkspacePropertiesResponseOutput)
-}
-
-// The workspace provider authorizations.
-func (o WorkspacePropertiesResponsePtrOutput) Authorizations() WorkspaceProviderAuthorizationResponseArrayOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) []WorkspaceProviderAuthorizationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Authorizations
-	}).(WorkspaceProviderAuthorizationResponseArrayOutput)
-}
-
-// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-func (o WorkspacePropertiesResponsePtrOutput) CreatedBy() CreatedByResponsePtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *CreatedByResponse {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(CreatedByResponsePtrOutput)
-}
-
-// Specifies the date and time when the workspace is created.
-func (o WorkspacePropertiesResponsePtrOutput) CreatedDateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedDateTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The managed resource group Id.
-func (o WorkspacePropertiesResponsePtrOutput) ManagedResourceGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ManagedResourceGroupId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The workspace's custom parameters.
-func (o WorkspacePropertiesResponsePtrOutput) Parameters() WorkspaceCustomParametersResponsePtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *WorkspaceCustomParametersResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(WorkspaceCustomParametersResponsePtrOutput)
-}
-
-// The workspace provisioning state.
-func (o WorkspacePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The details of Managed Identity of Storage Account
-func (o WorkspacePropertiesResponsePtrOutput) StorageAccountIdentity() ManagedIdentityConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *ManagedIdentityConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccountIdentity
-	}).(ManagedIdentityConfigurationResponsePtrOutput)
-}
-
-// The blob URI where the UI definition file is located.
-func (o WorkspacePropertiesResponsePtrOutput) UiDefinitionUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UiDefinitionUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-func (o WorkspacePropertiesResponsePtrOutput) UpdatedBy() CreatedByResponsePtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *CreatedByResponse {
-		if v == nil {
-			return nil
-		}
-		return v.UpdatedBy
-	}).(CreatedByResponsePtrOutput)
-}
-
-// The unique identifier of the databricks workspace in databricks control plane.
-func (o WorkspacePropertiesResponsePtrOutput) WorkspaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkspaceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-func (o WorkspacePropertiesResponsePtrOutput) WorkspaceUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkspaceUrl
-	}).(pulumi.StringPtrOutput)
-}
-
 // The workspace provider authorization.
 type WorkspaceProviderAuthorization struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
@@ -4120,8 +3479,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput{})
@@ -4142,8 +3499,6 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterResponsePtrOutput{})
-	pulumi.RegisterOutputType(WorkspacePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(WorkspacePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationResponseOutput{})

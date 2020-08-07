@@ -42,6 +42,18 @@ export interface ListTaskDetailsArgs {
  */
 export interface ListTaskDetailsResult {
     /**
+     * The machine configuration of the run agent.
+     */
+    readonly agentConfiguration?: outputs.containerregistry.v20190401.AgentPropertiesResponse;
+    /**
+     * The creation date of task.
+     */
+    readonly creationDate: string;
+    /**
+     * The properties that describes a set of credentials that will be used when this run is invoked.
+     */
+    readonly credentials?: outputs.containerregistry.v20190401.CredentialsResponse;
+    /**
      * Identity for the resource.
      */
     readonly identity?: outputs.containerregistry.v20190401.IdentityPropertiesResponse;
@@ -54,13 +66,33 @@ export interface ListTaskDetailsResult {
      */
     readonly name: string;
     /**
-     * The properties of a task.
+     * The platform properties against which the run has to happen.
      */
-    readonly properties: outputs.containerregistry.v20190401.TaskPropertiesResponse;
+    readonly platform: outputs.containerregistry.v20190401.PlatformPropertiesResponse;
+    /**
+     * The provisioning state of the task.
+     */
+    readonly provisioningState: string;
+    /**
+     * The current status of task.
+     */
+    readonly status?: string;
+    /**
+     * The properties of a task step.
+     */
+    readonly step: outputs.containerregistry.v20190401.TaskStepPropertiesResponse;
     /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Run timeout in seconds.
+     */
+    readonly timeout?: number;
+    /**
+     * The properties that describe all triggers for the task.
+     */
+    readonly trigger?: outputs.containerregistry.v20190401.TriggerPropertiesResponse;
     /**
      * The type of the resource.
      */

@@ -37,17 +37,69 @@ export class ServerEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * Cloud Tiering.
+     */
+    public readonly cloudTiering!: pulumi.Output<string | undefined>;
+    /**
+     * Friendly Name
+     */
+    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    /**
+     * Resource Last Operation Name
+     */
+    public /*out*/ readonly lastOperationName!: pulumi.Output<string>;
+    /**
+     * ServerEndpoint lastWorkflowId
+     */
+    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Server Endpoint properties.
+     * Offline data transfer
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20190201.ServerEndpointPropertiesResponse>;
+    public readonly offlineDataTransfer!: pulumi.Output<string | undefined>;
+    /**
+     * Offline data transfer share name
+     */
+    public readonly offlineDataTransferShareName!: pulumi.Output<string | undefined>;
+    /**
+     * Offline data transfer storage account resource ID
+     */
+    public /*out*/ readonly offlineDataTransferStorageAccountResourceId!: pulumi.Output<string>;
+    /**
+     * Offline data transfer storage account tenant ID
+     */
+    public /*out*/ readonly offlineDataTransferStorageAccountTenantId!: pulumi.Output<string>;
+    /**
+     * ServerEndpoint Provisioning State
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Server Local path.
+     */
+    public readonly serverLocalPath!: pulumi.Output<string | undefined>;
+    /**
+     * Server Resource Id.
+     */
+    public readonly serverResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * Server Endpoint sync status
+     */
+    public /*out*/ readonly syncStatus!: pulumi.Output<outputs.storagesync.v20190201.ServerEndpointSyncStatusResponse>;
+    /**
+     * Tier files older than days.
+     */
+    public readonly tierFilesOlderThanDays!: pulumi.Output<number | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Level of free space to be maintained by Cloud Tiering if it is enabled.
+     */
+    public readonly volumeFreeSpacePercent!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ServerEndpoint resource with the given unique name, arguments, and options.
@@ -86,7 +138,12 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
             inputs["tierFilesOlderThanDays"] = args ? args.tierFilesOlderThanDays : undefined;
             inputs["volumeFreeSpacePercent"] = args ? args.volumeFreeSpacePercent : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastOperationName"] = undefined /*out*/;
+            inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["offlineDataTransferStorageAccountResourceId"] = undefined /*out*/;
+            inputs["offlineDataTransferStorageAccountTenantId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["syncStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

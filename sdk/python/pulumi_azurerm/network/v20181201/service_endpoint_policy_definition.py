@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    A description for this rule. Restricted to 140 chars.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -18,13 +22,17 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the service endpoint policy definition
-      * `description` (`str`) - A description for this rule. Restricted to 140 chars.
-      * `provisioning_state` (`str`) - The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-      * `service` (`str`) - Service endpoint name.
-      * `service_resources` (`list`) - A list of service resources.
+    The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    service: pulumi.Output[str]
+    """
+    Service endpoint name.
+    """
+    service_resources: pulumi.Output[list]
+    """
+    A list of service resources.
     """
     def __init__(__self__, resource_name, opts=None, description=None, etag=None, id=None, name=None, resource_group_name=None, service=None, service_endpoint_policy_name=None, service_resources=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -72,7 +80,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_endpoint_policy_name'")
             __props__['service_endpoint_policy_name'] = service_endpoint_policy_name
             __props__['service_resources'] = service_resources
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(ServiceEndpointPolicyDefinition, __self__).__init__(
             'azurerm:network/v20181201:ServiceEndpointPolicyDefinition',
             resource_name,

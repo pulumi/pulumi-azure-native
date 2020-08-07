@@ -14,13 +14,19 @@ import (
 type SiteRelayServiceConnectionSlot struct {
 	pulumi.CustomResourceState
 
+	BiztalkUri             pulumi.StringPtrOutput `pulumi:"biztalkUri"`
+	EntityConnectionString pulumi.StringPtrOutput `pulumi:"entityConnectionString"`
+	EntityName             pulumi.StringPtrOutput `pulumi:"entityName"`
+	Hostname               pulumi.StringPtrOutput `pulumi:"hostname"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput                               `pulumi:"name"`
-	Properties RelayServiceConnectionEntityResponsePropertiesOutput `pulumi:"properties"`
+	Name                     pulumi.StringPtrOutput `pulumi:"name"`
+	Port                     pulumi.IntPtrOutput    `pulumi:"port"`
+	ResourceConnectionString pulumi.StringPtrOutput `pulumi:"resourceConnectionString"`
+	ResourceType             pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -67,13 +73,19 @@ func GetSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteRelayServiceConnectionSlot resources.
 type siteRelayServiceConnectionSlotState struct {
+	BiztalkUri             *string `pulumi:"biztalkUri"`
+	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	EntityName             *string `pulumi:"entityName"`
+	Hostname               *string `pulumi:"hostname"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name
-	Name       *string                                         `pulumi:"name"`
-	Properties *RelayServiceConnectionEntityResponseProperties `pulumi:"properties"`
+	Name                     *string `pulumi:"name"`
+	Port                     *int    `pulumi:"port"`
+	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
+	ResourceType             *string `pulumi:"resourceType"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -81,13 +93,19 @@ type siteRelayServiceConnectionSlotState struct {
 }
 
 type SiteRelayServiceConnectionSlotState struct {
+	BiztalkUri             pulumi.StringPtrInput
+	EntityConnectionString pulumi.StringPtrInput
+	EntityName             pulumi.StringPtrInput
+	Hostname               pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties RelayServiceConnectionEntityResponsePropertiesPtrInput
+	Name                     pulumi.StringPtrInput
+	Port                     pulumi.IntPtrInput
+	ResourceConnectionString pulumi.StringPtrInput
+	ResourceType             pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

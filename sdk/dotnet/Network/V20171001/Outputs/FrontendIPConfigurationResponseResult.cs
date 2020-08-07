@@ -22,13 +22,45 @@ namespace Pulumi.AzureRM.Network.V20171001.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Read only. Inbound pools URIs that use this frontend IP.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> InboundNatPools;
+        /// <summary>
+        /// Read only. Inbound rules URIs that use this frontend IP.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> InboundNatRules;
+        /// <summary>
+        /// Gets load balancing rules URIs that use this frontend IP.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> LoadBalancingRules;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the load balancer probe.
+        /// Read only. Outbound rules URIs that use this frontend IP.
         /// </summary>
-        public readonly Outputs.FrontendIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> OutboundNatRules;
+        /// <summary>
+        /// The private IP address of the IP configuration.
+        /// </summary>
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// The Private IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The reference of the Public IP resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponseResult? PublicIPAddress;
+        /// <summary>
+        /// The reference of the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
         /// <summary>
         /// A list of availability zones denoting the IP allocated for the resource needs to come from.
         /// </summary>
@@ -40,16 +72,40 @@ namespace Pulumi.AzureRM.Network.V20171001.Outputs
 
             string? id,
 
+            ImmutableArray<Outputs.SubResourceResponseResult> inboundNatPools,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> inboundNatRules,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> loadBalancingRules,
+
             string? name,
 
-            Outputs.FrontendIPConfigurationPropertiesFormatResponseResult? properties,
+            ImmutableArray<Outputs.SubResourceResponseResult> outboundNatRules,
+
+            string? privateIPAddress,
+
+            string? privateIPAllocationMethod,
+
+            string? provisioningState,
+
+            Outputs.PublicIPAddressResponseResult? publicIPAddress,
+
+            Outputs.SubnetResponseResult? subnet,
 
             ImmutableArray<string> zones)
         {
             Etag = etag;
             Id = id;
+            InboundNatPools = inboundNatPools;
+            InboundNatRules = inboundNatRules;
+            LoadBalancingRules = loadBalancingRules;
             Name = name;
-            Properties = properties;
+            OutboundNatRules = outboundNatRules;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
             Zones = zones;
         }
     }

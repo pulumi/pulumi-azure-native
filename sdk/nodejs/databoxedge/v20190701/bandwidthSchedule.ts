@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,25 @@ export class BandwidthSchedule extends pulumi.CustomResource {
     }
 
     /**
+     * The days of the week when this schedule is applicable.
+     */
+    public readonly days!: pulumi.Output<string[]>;
+    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the bandwidth schedule.
+     * The bandwidth rate in Mbps.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190701.BandwidthSchedulePropertiesResponse>;
+    public readonly rateInMbps!: pulumi.Output<number>;
+    /**
+     * The start time of the schedule in UTC.
+     */
+    public readonly start!: pulumi.Output<string>;
+    /**
+     * The stop time of the schedule in UTC.
+     */
+    public readonly stop!: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
@@ -90,7 +100,6 @@ export class BandwidthSchedule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["start"] = args ? args.start : undefined;
             inputs["stop"] = args ? args.stop : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

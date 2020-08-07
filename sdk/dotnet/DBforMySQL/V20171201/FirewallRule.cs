@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The end IP address of the server firewall rule. Must be IPv4 format.
+        /// </summary>
+        [Output("endIpAddress")]
+        public Output<string> EndIpAddress { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of a firewall rule.
+        /// The start IP address of the server firewall rule. Must be IPv4 format.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FirewallRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("startIpAddress")]
+        public Output<string> StartIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

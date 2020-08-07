@@ -41,6 +41,14 @@ export interface GetStorageAccountCredentialArgs {
  */
 export interface GetStorageAccountCredentialResult {
     /**
+     * The details of the storage account password.
+     */
+    readonly accessKey?: outputs.storsimple.v20170601.AsymmetricEncryptedSecretResponse;
+    /**
+     * The storage endpoint
+     */
+    readonly endPoint: string;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     readonly kind?: string;
@@ -49,11 +57,15 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly name: string;
     /**
-     * The storage account credential properties.
+     * Signifies whether SSL needs to be enabled or not.
      */
-    readonly properties: outputs.storsimple.v20170601.StorageAccountCredentialPropertiesResponse;
+    readonly sslStatus: string;
     /**
      * The hierarchical type of the object.
      */
     readonly type: string;
+    /**
+     * The count of volumes using this storage account credential.
+     */
+    readonly volumesCount: number;
 }

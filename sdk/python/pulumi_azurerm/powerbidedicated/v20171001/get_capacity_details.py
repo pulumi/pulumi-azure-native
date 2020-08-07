@@ -13,7 +13,13 @@ class GetCapacityDetailsResult:
     """
     Represents an instance of a Dedicated Capacity resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, administration=None, location=None, name=None, provisioning_state=None, sku=None, state=None, tags=None, type=None):
+        if administration and not isinstance(administration, dict):
+            raise TypeError("Expected argument 'administration' to be a dict")
+        __self__.administration = administration
+        """
+        A collection of Dedicated capacity administrators
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +32,23 @@ class GetCapacityDetailsResult:
         """
         The name of the PowerBI Dedicated resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the provision operation request.
+        The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The SKU of the PowerBI Dedicated resource.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +70,12 @@ class AwaitableGetCapacityDetailsResult(GetCapacityDetailsResult):
         if False:
             yield self
         return GetCapacityDetailsResult(
+            administration=self.administration,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
+            state=self.state,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +97,11 @@ def get_capacity_details(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:powerbidedicated/v20171001:getCapacityDetails', __args__, opts=opts).value
 
     return AwaitableGetCapacityDetailsResult(
+        administration=__ret__.get('administration'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

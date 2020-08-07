@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Web.V20150801
     public partial class SiteSourceControl : Pulumi.CustomResource
     {
         /// <summary>
+        /// Name of branch to use for deployment
+        /// </summary>
+        [Output("branch")]
+        public Output<string?> Branch { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to manual or continuous integration
+        /// </summary>
+        [Output("deploymentRollbackEnabled")]
+        public Output<bool?> DeploymentRollbackEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to manual or continuous integration
+        /// </summary>
+        [Output("isManualIntegration")]
+        public Output<bool?> IsManualIntegration { get; private set; } = null!;
+
+        /// <summary>
+        /// Mercurial or Git repository type
+        /// </summary>
+        [Output("isMercurial")]
+        public Output<bool?> IsMercurial { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
@@ -32,8 +56,11 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.SiteSourceControlResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Repository or source control url
+        /// </summary>
+        [Output("repoUrl")]
+        public Output<string?> RepoUrl { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

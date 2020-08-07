@@ -41,13 +41,33 @@ export interface GetEmailTemplateArgs {
  */
 export interface GetEmailTemplateResult {
     /**
+     * Email Template Body. This should be a valid XDocument
+     */
+    readonly body: string;
+    /**
+     * Description of the Email Template.
+     */
+    readonly description?: string;
+    /**
+     * Whether the template is the default template provided by Api Management or has been edited.
+     */
+    readonly isDefault: boolean;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Email Template entity contract properties.
+     * Email Template Parameter values.
      */
-    readonly properties: outputs.apimanagement.v20180101.EmailTemplateContractPropertiesResponse;
+    readonly parameters?: outputs.apimanagement.v20180101.EmailTemplateParametersContractPropertiesResponse[];
+    /**
+     * Subject of the Template.
+     */
+    readonly subject: string;
+    /**
+     * Title of the Template.
+     */
+    readonly title?: string;
     /**
      * Resource type for API Management resource.
      */

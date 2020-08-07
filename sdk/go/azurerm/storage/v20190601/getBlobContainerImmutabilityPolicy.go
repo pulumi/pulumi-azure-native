@@ -29,12 +29,16 @@ type LookupBlobContainerImmutabilityPolicyArgs struct {
 
 // The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
 type LookupBlobContainerImmutabilityPolicyResult struct {
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
 	// Resource Etag.
 	Etag string `pulumi:"etag"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyPropertyResponse `pulumi:"properties"`
+	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+	State string `pulumi:"state"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

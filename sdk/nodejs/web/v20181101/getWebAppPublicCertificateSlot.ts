@@ -41,6 +41,10 @@ export interface GetWebAppPublicCertificateSlotArgs {
  */
 export interface GetWebAppPublicCertificateSlotResult {
     /**
+     * Public Certificate byte array
+     */
+    readonly blob?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -49,9 +53,13 @@ export interface GetWebAppPublicCertificateSlotResult {
      */
     readonly name: string;
     /**
-     * PublicCertificate resource specific properties
+     * Public Certificate Location
      */
-    readonly properties: outputs.web.v20181101.PublicCertificateResponseProperties;
+    readonly publicCertificateLocation?: string;
+    /**
+     * Certificate Thumbprint
+     */
+    readonly thumbprint: string;
     /**
      * Resource type.
      */

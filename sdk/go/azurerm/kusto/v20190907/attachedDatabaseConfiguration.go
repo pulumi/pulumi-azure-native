@@ -14,12 +14,20 @@ import (
 type AttachedDatabaseConfiguration struct {
 	pulumi.CustomResourceState
 
+	// The list of databases from the clusterResourceId which are currently attached to the cluster.
+	AttachedDatabaseNames pulumi.StringArrayOutput `pulumi:"attachedDatabaseNames"`
+	// The resource id of the cluster where the databases you would like to attach reside.
+	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// The default principals modification kind
+	DefaultPrincipalsModificationKind pulumi.StringOutput `pulumi:"defaultPrincipalsModificationKind"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the attached database configuration.
-	Properties AttachedDatabaseConfigurationPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -70,23 +78,39 @@ func GetAttachedDatabaseConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AttachedDatabaseConfiguration resources.
 type attachedDatabaseConfigurationState struct {
+	// The list of databases from the clusterResourceId which are currently attached to the cluster.
+	AttachedDatabaseNames []string `pulumi:"attachedDatabaseNames"`
+	// The resource id of the cluster where the databases you would like to attach reside.
+	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The default principals modification kind
+	DefaultPrincipalsModificationKind *string `pulumi:"defaultPrincipalsModificationKind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The properties of the attached database configuration.
-	Properties *AttachedDatabaseConfigurationPropertiesResponse `pulumi:"properties"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type AttachedDatabaseConfigurationState struct {
+	// The list of databases from the clusterResourceId which are currently attached to the cluster.
+	AttachedDatabaseNames pulumi.StringArrayInput
+	// The resource id of the cluster where the databases you would like to attach reside.
+	ClusterResourceId pulumi.StringPtrInput
+	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+	DatabaseName pulumi.StringPtrInput
+	// The default principals modification kind
+	DefaultPrincipalsModificationKind pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The properties of the attached database configuration.
-	Properties AttachedDatabaseConfigurationPropertiesResponsePtrInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

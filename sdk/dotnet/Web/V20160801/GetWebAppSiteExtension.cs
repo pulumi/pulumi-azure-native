@@ -40,36 +40,155 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class GetWebAppSiteExtensionResult
     {
         /// <summary>
+        /// List of authors.
+        /// </summary>
+        public readonly ImmutableArray<string> Authors;
+        /// <summary>
+        /// Site Extension comment.
+        /// </summary>
+        public readonly string? Comment;
+        /// <summary>
+        /// Detailed description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Count of downloads.
+        /// </summary>
+        public readonly int? DownloadCount;
+        /// <summary>
+        /// Extension URL.
+        /// </summary>
+        public readonly string? ExtensionUrl;
+        /// <summary>
+        /// Feed URL.
+        /// </summary>
+        public readonly string? FeedUrl;
+        /// <summary>
+        /// Icon URL.
+        /// </summary>
+        public readonly string? IconUrl;
+        /// <summary>
+        /// Installer command line parameters.
+        /// </summary>
+        public readonly string? InstallationArgs;
+        /// <summary>
+        /// Installed timestamp.
+        /// </summary>
+        public readonly string? InstalledDateTime;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// License URL.
+        /// </summary>
+        public readonly string? LicenseUrl;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the local version is the latest version; &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        public readonly bool? LocalIsLatestVersion;
+        /// <summary>
+        /// Local path.
+        /// </summary>
+        public readonly string? LocalPath;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// SiteExtensionInfo resource specific properties
+        /// Project URL.
         /// </summary>
-        public readonly Outputs.SiteExtensionInfoResponsePropertiesResult Properties;
+        public readonly string? ProjectUrl;
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Published timestamp.
+        /// </summary>
+        public readonly string? PublishedDateTime;
+        /// <summary>
+        /// Summary description.
+        /// </summary>
+        public readonly string? Summary;
+        /// <summary>
+        /// Site extension title.
+        /// </summary>
+        public readonly string? Title;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version information.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetWebAppSiteExtensionResult(
+            ImmutableArray<string> authors,
+
+            string? comment,
+
+            string? description,
+
+            int? downloadCount,
+
+            string? extensionUrl,
+
+            string? feedUrl,
+
+            string? iconUrl,
+
+            string? installationArgs,
+
+            string? installedDateTime,
+
             string? kind,
+
+            string? licenseUrl,
+
+            bool? localIsLatestVersion,
+
+            string? localPath,
 
             string name,
 
-            Outputs.SiteExtensionInfoResponsePropertiesResult properties,
+            string? projectUrl,
 
-            string type)
+            string? provisioningState,
+
+            string? publishedDateTime,
+
+            string? summary,
+
+            string? title,
+
+            string type,
+
+            string? version)
         {
+            Authors = authors;
+            Comment = comment;
+            Description = description;
+            DownloadCount = downloadCount;
+            ExtensionUrl = extensionUrl;
+            FeedUrl = feedUrl;
+            IconUrl = iconUrl;
+            InstallationArgs = installationArgs;
+            InstalledDateTime = installedDateTime;
             Kind = kind;
+            LicenseUrl = licenseUrl;
+            LocalIsLatestVersion = localIsLatestVersion;
+            LocalPath = localPath;
             Name = name;
-            Properties = properties;
+            ProjectUrl = projectUrl;
+            ProvisioningState = provisioningState;
+            PublishedDateTime = publishedDateTime;
+            Summary = summary;
+            Title = title;
             Type = type;
+            Version = version;
         }
     }
 }

@@ -36,29 +36,77 @@ export interface GetAzureFirewallArgs {
  */
 export interface GetAzureFirewallResult {
     /**
+     * The additional properties used to further config this azure firewall.
+     */
+    readonly additionalProperties?: {[key: string]: string};
+    /**
+     * Collection of application rule collections used by Azure Firewall.
+     */
+    readonly applicationRuleCollections?: outputs.network.v20200301.AzureFirewallApplicationRuleCollectionResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The firewallPolicy associated with this azure firewall.
+     */
+    readonly firewallPolicy?: outputs.network.v20200301.SubResourceResponse;
+    /**
+     * IP addresses associated with AzureFirewall.
+     */
+    readonly hubIpAddresses: outputs.network.v20200301.HubIPAddressesResponse;
+    /**
+     * IP configuration of the Azure Firewall resource.
+     */
+    readonly ipConfigurations?: outputs.network.v20200301.AzureFirewallIPConfigurationResponse[];
+    /**
+     * IpGroups associated with AzureFirewall.
+     */
+    readonly ipGroups: outputs.network.v20200301.AzureFirewallIpGroupsResponse[];
     /**
      * Resource location.
      */
     readonly location?: string;
     /**
+     * IP configuration of the Azure Firewall used for management traffic.
+     */
+    readonly managementIpConfiguration?: outputs.network.v20200301.AzureFirewallIPConfigurationResponse;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the azure firewall.
+     * Collection of NAT rule collections used by Azure Firewall.
      */
-    readonly properties: outputs.network.v20200301.AzureFirewallPropertiesFormatResponse;
+    readonly natRuleCollections?: outputs.network.v20200301.AzureFirewallNatRuleCollectionResponse[];
+    /**
+     * Collection of network rule collections used by Azure Firewall.
+     */
+    readonly networkRuleCollections?: outputs.network.v20200301.AzureFirewallNetworkRuleCollectionResponse[];
+    /**
+     * The provisioning state of the Azure firewall resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The Azure Firewall Resource SKU.
+     */
+    readonly sku?: outputs.network.v20200301.AzureFirewallSkuResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The operation mode for Threat Intelligence.
+     */
+    readonly threatIntelMode?: string;
+    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The virtualHub to which the firewall belongs.
+     */
+    readonly virtualHub?: outputs.network.v20200301.SubResourceResponse;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */

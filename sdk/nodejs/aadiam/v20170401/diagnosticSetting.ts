@@ -37,17 +37,37 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     }
 
     /**
+     * The resource Id for the event hub authorization rule.
+     */
+    public readonly eventHubAuthorizationRuleId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the event hub. If none is specified, the default event hub will be selected.
+     */
+    public readonly eventHubName!: pulumi.Output<string | undefined>;
+    /**
+     * The list of logs settings.
+     */
+    public readonly logs!: pulumi.Output<outputs.aadiam.v20170401.LogSettingsResponse[] | undefined>;
+    /**
      * Azure resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of a Diagnostic Settings Resource.
+     * The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.aadiam.v20170401.DiagnosticSettingsResponse>;
+    public readonly serviceBusRuleId!: pulumi.Output<string | undefined>;
+    /**
+     * The resource ID of the storage account to which you would like to send Diagnostic Logs.
+     */
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+     */
+    public readonly workspaceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DiagnosticSetting resource with the given unique name, arguments, and options.
@@ -72,7 +92,6 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["workspaceId"] = args ? args.workspaceId : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class GetVirtualApplianceSiteResult
     {
         /// <summary>
+        /// Address Prefix.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -54,9 +58,13 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the Virtual Appliance Sites.
+        /// Office 365 Policy.
         /// </summary>
-        public readonly Outputs.VirtualApplianceSitePropertiesResponseResult Properties;
+        public readonly Outputs.Office365PolicyPropertiesResponseResult? O365Policy;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Site type.
         /// </summary>
@@ -64,17 +72,23 @@ namespace Pulumi.AzureRM.Network.V20200501
 
         [OutputConstructor]
         private GetVirtualApplianceSiteResult(
+            string? addressPrefix,
+
             string etag,
 
             string? name,
 
-            Outputs.VirtualApplianceSitePropertiesResponseResult properties,
+            Outputs.Office365PolicyPropertiesResponseResult? o365Policy,
+
+            string provisioningState,
 
             string type)
         {
+            AddressPrefix = addressPrefix;
             Etag = etag;
             Name = name;
-            Properties = properties;
+            O365Policy = o365Policy;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

@@ -26,9 +26,29 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the private link service ip configuration.
+        /// Whether the ip configuration is primary or not.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceIpConfigurationPropertiesResponseResult? Properties;
+        public readonly bool? Primary;
+        /// <summary>
+        /// The private IP address of the IP configuration.
+        /// </summary>
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        /// </summary>
+        public readonly string? PrivateIPAddressVersion;
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// The provisioning state of the private link service IP configuration resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The reference to the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -42,14 +62,29 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
 
             string? name,
 
-            Outputs.PrivateLinkServiceIpConfigurationPropertiesResponseResult? properties,
+            bool? primary,
+
+            string? privateIPAddress,
+
+            string? privateIPAddressVersion,
+
+            string? privateIPAllocationMethod,
+
+            string provisioningState,
+
+            Outputs.SubnetResponseResult? subnet,
 
             string type)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Primary = primary;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAddressVersion = privateIPAddressVersion;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            Subnet = subnet;
             Type = type;
         }
     }

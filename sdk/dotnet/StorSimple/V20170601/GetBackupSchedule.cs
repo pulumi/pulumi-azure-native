@@ -58,17 +58,37 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class GetBackupScheduleResult
     {
         /// <summary>
+        /// The type of backup which needs to be taken.
+        /// </summary>
+        public readonly string BackupType;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The last successful backup run which was triggered for the schedule.
+        /// </summary>
+        public readonly string LastSuccessfulRun;
         /// <summary>
         /// The name of the object.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the backup schedule.
+        /// The number of backups to be retained.
         /// </summary>
-        public readonly Outputs.BackupSchedulePropertiesResponseResult Properties;
+        public readonly int RetentionCount;
+        /// <summary>
+        /// The schedule recurrence.
+        /// </summary>
+        public readonly Outputs.ScheduleRecurrenceResponseResult ScheduleRecurrence;
+        /// <summary>
+        /// The schedule status.
+        /// </summary>
+        public readonly string ScheduleStatus;
+        /// <summary>
+        /// The start time of the schedule.
+        /// </summary>
+        public readonly string StartTime;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -76,17 +96,32 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
 
         [OutputConstructor]
         private GetBackupScheduleResult(
+            string backupType,
+
             string? kind,
+
+            string lastSuccessfulRun,
 
             string name,
 
-            Outputs.BackupSchedulePropertiesResponseResult properties,
+            int retentionCount,
+
+            Outputs.ScheduleRecurrenceResponseResult scheduleRecurrence,
+
+            string scheduleStatus,
+
+            string startTime,
 
             string type)
         {
+            BackupType = backupType;
             Kind = kind;
+            LastSuccessfulRun = lastSuccessfulRun;
             Name = name;
-            Properties = properties;
+            RetentionCount = retentionCount;
+            ScheduleRecurrence = scheduleRecurrence;
+            ScheduleStatus = scheduleStatus;
+            StartTime = startTime;
             Type = type;
         }
     }

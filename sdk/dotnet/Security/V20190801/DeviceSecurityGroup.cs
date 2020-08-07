@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.Security.V20190801
     public partial class DeviceSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// The allow-list custom alert rules.
+        /// </summary>
+        [Output("allowlistRules")]
+        public Output<ImmutableArray<Outputs.AllowlistCustomAlertRuleResponseResult>> AllowlistRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The deny-list custom alert rules.
+        /// </summary>
+        [Output("denylistRules")]
+        public Output<ImmutableArray<Outputs.DenylistCustomAlertRuleResponseResult>> DenylistRules { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Device Security group data
+        /// The list of custom alert threshold rules.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DeviceSecurityGroupPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("thresholdRules")]
+        public Output<ImmutableArray<Outputs.ThresholdCustomAlertRuleResponseResult>> ThresholdRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of custom alert time-window rules.
+        /// </summary>
+        [Output("timeWindowRules")]
+        public Output<ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponseResult>> TimeWindowRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

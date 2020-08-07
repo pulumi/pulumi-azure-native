@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
+        /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        /// </summary>
+        [Output("administratorLogin")]
+        public Output<string?> AdministratorLogin { get; private set; } = null!;
+
+        /// <summary>
+        /// Earliest restore point creation time (ISO8601 format)
+        /// </summary>
+        [Output("earliestRestoreDate")]
+        public Output<string?> EarliestRestoreDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified domain name of a server.
+        /// </summary>
+        [Output("fullyQualifiedDomainName")]
+        public Output<string?> FullyQualifiedDomainName { get; private set; } = null!;
+
+        /// <summary>
         /// The location the resource resides in.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The master server id of a replica server.
+        /// </summary>
+        [Output("masterServerId")]
+        public Output<string?> MasterServerId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -27,16 +51,46 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the server.
+        /// List of private endpoint connections on a server
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum number of replicas that a master server can have.
+        /// </summary>
+        [Output("replicaCapacity")]
+        public Output<int?> ReplicaCapacity { get; private set; } = null!;
+
+        /// <summary>
+        /// The replication role of the server.
+        /// </summary>
+        [Output("replicationRole")]
+        public Output<string?> ReplicationRole { get; private set; } = null!;
 
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable ssl enforcement or not when connect to server.
+        /// </summary>
+        [Output("sslEnforcement")]
+        public Output<string?> SslEnforcement { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage profile of a server.
+        /// </summary>
+        [Output("storageProfile")]
+        public Output<Outputs.StorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Application-specific metadata in the form of key-value pairs.
@@ -49,6 +103,18 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A state of a server that is visible to user.
+        /// </summary>
+        [Output("userVisibleState")]
+        public Output<string?> UserVisibleState { get; private set; } = null!;
+
+        /// <summary>
+        /// Server version.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

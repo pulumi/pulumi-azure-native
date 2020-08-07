@@ -10,20 +10,24 @@ from ... import _utilities, _tables
 
 
 class StorageDomain(pulumi.CustomResource):
+    encryption_key: pulumi.Output[dict]
+    """
+    The encryption key used to encrypt the data. This is a user secret.
+      * `encryption_algorithm` (`str`) - Algorithm used to encrypt "Value"
+      * `encryption_certificate_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value"
+      * `value` (`str`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+    """
+    encryption_status: pulumi.Output[str]
+    """
+    The encryption status "Enabled | Disabled".
+    """
     name: pulumi.Output[str]
     """
     The name.
     """
-    properties: pulumi.Output[dict]
+    storage_account_credential_ids: pulumi.Output[list]
     """
-    The properties.
-      * `encryption_key` (`dict`) - The encryption key used to encrypt the data. This is a user secret.
-        * `encryption_algorithm` (`str`) - Algorithm used to encrypt "Value"
-        * `encryption_certificate_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value"
-        * `value` (`str`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-
-      * `encryption_status` (`str`) - The encryption status "Enabled | Disabled".
-      * `storage_account_credential_ids` (`list`) - The storage account credentials.
+    The storage account credentials.
     """
     type: pulumi.Output[str]
     """
@@ -81,7 +85,6 @@ class StorageDomain(pulumi.CustomResource):
             if storage_account_credential_ids is None:
                 raise TypeError("Missing required property 'storage_account_credential_ids'")
             __props__['storage_account_credential_ids'] = storage_account_credential_ids
-            __props__['properties'] = None
             __props__['type'] = None
         super(StorageDomain, __self__).__init__(
             'azurerm:storsimple/v20161001:StorageDomain',

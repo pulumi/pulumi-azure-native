@@ -13,12 +13,42 @@ class GetBookmarkResult:
     """
     Represents a bookmark in Azure Security Insights.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, created=None, created_by=None, display_name=None, etag=None, incident_info=None, labels=None, name=None, notes=None, query=None, query_result=None, type=None, updated=None, updated_by=None):
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The time the bookmark was created
+        """
+        if created_by and not isinstance(created_by, dict):
+            raise TypeError("Expected argument 'created_by' to be a dict")
+        __self__.created_by = created_by
+        """
+        Describes a user that created the bookmark
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The display name of the bookmark
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Etag of the azure resource
+        """
+        if incident_info and not isinstance(incident_info, dict):
+            raise TypeError("Expected argument 'incident_info' to be a dict")
+        __self__.incident_info = incident_info
+        """
+        Describes an incident that relates to bookmark
+        """
+        if labels and not isinstance(labels, list):
+            raise TypeError("Expected argument 'labels' to be a list")
+        __self__.labels = labels
+        """
+        List of labels relevant to this bookmark
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +56,41 @@ class GetBookmarkResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        __self__.notes = notes
         """
-        Bookmark properties
+        The notes of the bookmark
+        """
+        if query and not isinstance(query, str):
+            raise TypeError("Expected argument 'query' to be a str")
+        __self__.query = query
+        """
+        The query of the bookmark.
+        """
+        if query_result and not isinstance(query_result, str):
+            raise TypeError("Expected argument 'query_result' to be a str")
+        __self__.query_result = query_result
+        """
+        The query result of the bookmark.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Azure resource type
+        """
+        if updated and not isinstance(updated, str):
+            raise TypeError("Expected argument 'updated' to be a str")
+        __self__.updated = updated
+        """
+        The last time the bookmark was updated
+        """
+        if updated_by and not isinstance(updated_by, dict):
+            raise TypeError("Expected argument 'updated_by' to be a dict")
+        __self__.updated_by = updated_by
+        """
+        Describes a user that updated the bookmark
         """
 
 
@@ -46,10 +100,19 @@ class AwaitableGetBookmarkResult(GetBookmarkResult):
         if False:
             yield self
         return GetBookmarkResult(
+            created=self.created,
+            created_by=self.created_by,
+            display_name=self.display_name,
             etag=self.etag,
+            incident_info=self.incident_info,
+            labels=self.labels,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            notes=self.notes,
+            query=self.query,
+            query_result=self.query_result,
+            type=self.type,
+            updated=self.updated,
+            updated_by=self.updated_by)
 
 
 def get_bookmark(name=None, resource_group_name=None, workspace_name=None, opts=None):
@@ -71,7 +134,16 @@ def get_bookmark(name=None, resource_group_name=None, workspace_name=None, opts=
     __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20200101:getBookmark', __args__, opts=opts).value
 
     return AwaitableGetBookmarkResult(
+        created=__ret__.get('created'),
+        created_by=__ret__.get('createdBy'),
+        display_name=__ret__.get('displayName'),
         etag=__ret__.get('etag'),
+        incident_info=__ret__.get('incidentInfo'),
+        labels=__ret__.get('labels'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        notes=__ret__.get('notes'),
+        query=__ret__.get('query'),
+        query_result=__ret__.get('queryResult'),
+        type=__ret__.get('type'),
+        updated=__ret__.get('updated'),
+        updated_by=__ret__.get('updatedBy'))

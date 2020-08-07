@@ -13,12 +13,30 @@ class GetFlowLogResult:
     """
     A flow log resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, enabled=None, etag=None, flow_analytics_configuration=None, format=None, location=None, name=None, provisioning_state=None, retention_policy=None, storage_id=None, tags=None, target_resource_guid=None, target_resource_id=None, type=None):
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        Flag to enable/disable flow logging.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if flow_analytics_configuration and not isinstance(flow_analytics_configuration, dict):
+            raise TypeError("Expected argument 'flow_analytics_configuration' to be a dict")
+        __self__.flow_analytics_configuration = flow_analytics_configuration
+        """
+        Parameters that define the configuration of traffic analytics.
+        """
+        if format and not isinstance(format, dict):
+            raise TypeError("Expected argument 'format' to be a dict")
+        __self__.format = format
+        """
+        Parameters that define the flow log format.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,17 +50,41 @@ class GetFlowLogResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the flow log.
+        The provisioning state of the flow log.
+        """
+        if retention_policy and not isinstance(retention_policy, dict):
+            raise TypeError("Expected argument 'retention_policy' to be a dict")
+        __self__.retention_policy = retention_policy
+        """
+        Parameters that define the retention policy for flow log.
+        """
+        if storage_id and not isinstance(storage_id, str):
+            raise TypeError("Expected argument 'storage_id' to be a str")
+        __self__.storage_id = storage_id
+        """
+        ID of the storage account which is used to store the flow log.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags.
+        """
+        if target_resource_guid and not isinstance(target_resource_guid, str):
+            raise TypeError("Expected argument 'target_resource_guid' to be a str")
+        __self__.target_resource_guid = target_resource_guid
+        """
+        Guid of network security group to which flow log will be applied.
+        """
+        if target_resource_id and not isinstance(target_resource_id, str):
+            raise TypeError("Expected argument 'target_resource_id' to be a str")
+        __self__.target_resource_id = target_resource_id
+        """
+        ID of network security group to which flow log will be applied.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -58,11 +100,18 @@ class AwaitableGetFlowLogResult(GetFlowLogResult):
         if False:
             yield self
         return GetFlowLogResult(
+            enabled=self.enabled,
             etag=self.etag,
+            flow_analytics_configuration=self.flow_analytics_configuration,
+            format=self.format,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            retention_policy=self.retention_policy,
+            storage_id=self.storage_id,
             tags=self.tags,
+            target_resource_guid=self.target_resource_guid,
+            target_resource_id=self.target_resource_id,
             type=self.type)
 
 
@@ -85,9 +134,16 @@ def get_flow_log(name=None, network_watcher_name=None, resource_group_name=None,
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20191101:getFlowLog', __args__, opts=opts).value
 
     return AwaitableGetFlowLogResult(
+        enabled=__ret__.get('enabled'),
         etag=__ret__.get('etag'),
+        flow_analytics_configuration=__ret__.get('flowAnalyticsConfiguration'),
+        format=__ret__.get('format'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        retention_policy=__ret__.get('retentionPolicy'),
+        storage_id=__ret__.get('storageId'),
         tags=__ret__.get('tags'),
+        target_resource_guid=__ret__.get('targetResourceGuid'),
+        target_resource_id=__ret__.get('targetResourceId'),
         type=__ret__.get('type'))

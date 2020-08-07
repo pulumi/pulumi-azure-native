@@ -41,13 +41,21 @@ export interface GetAccountFilterArgs {
  */
 export interface GetAccountFilterResult {
     /**
+     * The first quality.
+     */
+    readonly firstQuality?: outputs.media.v20200501.FirstQualityResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The Media Filter properties.
+     * The presentation time range.
      */
-    readonly properties: outputs.media.v20200501.MediaFilterPropertiesResponse;
+    readonly presentationTimeRange?: outputs.media.v20200501.PresentationTimeRangeResponse;
+    /**
+     * The tracks selection conditions.
+     */
+    readonly tracks?: outputs.media.v20200501.FilterTrackSelectionResponse[];
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

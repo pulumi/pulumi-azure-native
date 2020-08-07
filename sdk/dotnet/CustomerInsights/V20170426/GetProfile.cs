@@ -46,29 +46,148 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public sealed class GetProfileResult
     {
         /// <summary>
+        /// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+        /// </summary>
+        public readonly string? ApiEntitySetName;
+        /// <summary>
+        /// The attributes for the Type.
+        /// </summary>
+        public readonly ImmutableDictionary<string, ImmutableArray<string>>? Attributes;
+        /// <summary>
+        /// Localized descriptions for the property.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Description;
+        /// <summary>
+        /// Localized display names for the property.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? DisplayName;
+        /// <summary>
+        /// Type of entity.
+        /// </summary>
+        public readonly string? EntityType;
+        /// <summary>
+        /// The properties of the Profile.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PropertyDefinitionResponseResult> Fields;
+        /// <summary>
+        /// The instance count.
+        /// </summary>
+        public readonly int? InstancesCount;
+        /// <summary>
+        /// Large Image associated with the Property or EntityType.
+        /// </summary>
+        public readonly string? LargeImage;
+        /// <summary>
+        /// The last changed time for the type definition.
+        /// </summary>
+        public readonly string LastChangedUtc;
+        /// <summary>
+        /// Any custom localized attributes for the Type.
+        /// </summary>
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, string>>? LocalizedAttributes;
+        /// <summary>
+        /// Medium Image associated with the Property or EntityType.
+        /// </summary>
+        public readonly string? MediumImage;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The profile type definition.
+        /// Provisioning state.
         /// </summary>
-        public readonly Outputs.ProfileTypeDefinitionResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The schema org link. This helps ACI identify and suggest semantic models.
+        /// </summary>
+        public readonly string? SchemaItemTypeLink;
+        /// <summary>
+        /// Small Image associated with the Property or EntityType.
+        /// </summary>
+        public readonly string? SmallImage;
+        /// <summary>
+        /// The strong IDs.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StrongIdResponseResult> StrongIds;
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
+        /// The timestamp property name. Represents the time when the interaction or profile update happened.
+        /// </summary>
+        public readonly string? TimestampFieldName;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The name of the entity.
+        /// </summary>
+        public readonly string? TypeName;
 
         [OutputConstructor]
         private GetProfileResult(
+            string? apiEntitySetName,
+
+            ImmutableDictionary<string, ImmutableArray<string>>? attributes,
+
+            ImmutableDictionary<string, string>? description,
+
+            ImmutableDictionary<string, string>? displayName,
+
+            string? entityType,
+
+            ImmutableArray<Outputs.PropertyDefinitionResponseResult> fields,
+
+            int? instancesCount,
+
+            string? largeImage,
+
+            string lastChangedUtc,
+
+            ImmutableDictionary<string, ImmutableDictionary<string, string>>? localizedAttributes,
+
+            string? mediumImage,
+
             string name,
 
-            Outputs.ProfileTypeDefinitionResponseResult properties,
+            string provisioningState,
 
-            string type)
+            string? schemaItemTypeLink,
+
+            string? smallImage,
+
+            ImmutableArray<Outputs.StrongIdResponseResult> strongIds,
+
+            string tenantId,
+
+            string? timestampFieldName,
+
+            string type,
+
+            string? typeName)
         {
+            ApiEntitySetName = apiEntitySetName;
+            Attributes = attributes;
+            Description = description;
+            DisplayName = displayName;
+            EntityType = entityType;
+            Fields = fields;
+            InstancesCount = instancesCount;
+            LargeImage = largeImage;
+            LastChangedUtc = lastChangedUtc;
+            LocalizedAttributes = localizedAttributes;
+            MediumImage = mediumImage;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SchemaItemTypeLink = schemaItemTypeLink;
+            SmallImage = smallImage;
+            StrongIds = strongIds;
+            TenantId = tenantId;
+            TimestampFieldName = timestampFieldName;
             Type = type;
+            TypeName = typeName;
         }
     }
 }

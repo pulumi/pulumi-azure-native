@@ -13,18 +13,30 @@ class GetPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint and not isinstance(private_endpoint, dict):
+            raise TypeError("Expected argument 'private_endpoint' to be a dict")
+        __self__.private_endpoint = private_endpoint
         """
-        Resource properties.
+        The resource of private end point.
+        """
+        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
+            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
+        __self__.private_link_service_connection_state = private_link_service_connection_state
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the private endpoint connection resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +53,9 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             yield self
         return GetPrivateEndpointConnectionResult(
             name=self.name,
-            properties=self.properties,
+            private_endpoint=self.private_endpoint,
+            private_link_service_connection_state=self.private_link_service_connection_state,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -65,5 +79,7 @@ def get_private_endpoint_connection(name=None, resource_group_name=None, storage
 
     return AwaitableGetPrivateEndpointConnectionResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint=__ret__.get('privateEndpoint'),
+        private_link_service_connection_state=__ret__.get('privateLinkServiceConnectionState'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

@@ -14,13 +14,30 @@ import (
 type SiteDeploymentSlot struct {
 	pulumi.CustomResourceState
 
+	// Active
+	Active pulumi.BoolPtrOutput `pulumi:"active"`
+	// Author
+	Author pulumi.StringPtrOutput `pulumi:"author"`
+	// AuthorEmail
+	Author_email pulumi.StringPtrOutput `pulumi:"author_email"`
+	// Deployer
+	Deployer pulumi.StringPtrOutput `pulumi:"deployer"`
+	// Detail
+	Details pulumi.StringPtrOutput `pulumi:"details"`
+	// EndTime
+	End_time pulumi.StringPtrOutput `pulumi:"end_time"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Message
+	Message pulumi.StringPtrOutput `pulumi:"message"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput             `pulumi:"name"`
-	Properties DeploymentResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// StartTime
+	Start_time pulumi.StringPtrOutput `pulumi:"start_time"`
+	// Status
+	Status pulumi.IntPtrOutput `pulumi:"status"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -67,13 +84,30 @@ func GetSiteDeploymentSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteDeploymentSlot resources.
 type siteDeploymentSlotState struct {
+	// Active
+	Active *bool `pulumi:"active"`
+	// Author
+	Author *string `pulumi:"author"`
+	// AuthorEmail
+	Author_email *string `pulumi:"author_email"`
+	// Deployer
+	Deployer *string `pulumi:"deployer"`
+	// Detail
+	Details *string `pulumi:"details"`
+	// EndTime
+	End_time *string `pulumi:"end_time"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location *string `pulumi:"location"`
+	// Message
+	Message *string `pulumi:"message"`
 	// Resource Name
-	Name       *string                       `pulumi:"name"`
-	Properties *DeploymentResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// StartTime
+	Start_time *string `pulumi:"start_time"`
+	// Status
+	Status *int `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -81,13 +115,30 @@ type siteDeploymentSlotState struct {
 }
 
 type SiteDeploymentSlotState struct {
+	// Active
+	Active pulumi.BoolPtrInput
+	// Author
+	Author pulumi.StringPtrInput
+	// AuthorEmail
+	Author_email pulumi.StringPtrInput
+	// Deployer
+	Deployer pulumi.StringPtrInput
+	// Detail
+	Details pulumi.StringPtrInput
+	// EndTime
+	End_time pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
+	// Message
+	Message pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties DeploymentResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// StartTime
+	Start_time pulumi.StringPtrInput
+	// Status
+	Status pulumi.IntPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

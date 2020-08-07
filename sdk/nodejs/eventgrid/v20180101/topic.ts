@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class Topic extends pulumi.CustomResource {
     }
 
     /**
+     * Endpoint for the topic.
+     */
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
      * Location of the resource
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +47,9 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the topic
+     * Provisioning state of the topic.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.eventgrid.v20180101.TopicPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Tags of the resource
      */
@@ -83,7 +85,8 @@ export class Topic extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

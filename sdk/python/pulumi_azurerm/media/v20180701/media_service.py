@@ -14,17 +14,19 @@ class MediaService(pulumi.CustomResource):
     """
     The Azure Region of the resource.
     """
+    media_service_id: pulumi.Output[str]
+    """
+    The Media Services account ID.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    storage_accounts: pulumi.Output[list]
     """
-    The resource properties.
-      * `media_service_id` (`str`) - The Media Services account ID.
-      * `storage_accounts` (`list`) - The storage accounts for this resource.
-        * `id` (`str`) - The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-        * `type` (`str`) - The type of the storage account.
+    The storage accounts for this resource.
+      * `id` (`str`) - The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+      * `type` (`str`) - The type of the storage account.
     """
     tags: pulumi.Output[dict]
     """
@@ -77,7 +79,7 @@ class MediaService(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['media_service_id'] = None
             __props__['type'] = None
         super(MediaService, __self__).__init__(
             'azurerm:media/v20180701:MediaService',

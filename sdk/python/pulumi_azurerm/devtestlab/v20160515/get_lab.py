@@ -13,7 +13,37 @@ class GetLabResult:
     """
     A lab.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, artifacts_storage_account=None, created_date=None, default_premium_storage_account=None, default_storage_account=None, lab_storage_type=None, location=None, name=None, premium_data_disk_storage_account=None, premium_data_disks=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vault_name=None):
+        if artifacts_storage_account and not isinstance(artifacts_storage_account, str):
+            raise TypeError("Expected argument 'artifacts_storage_account' to be a str")
+        __self__.artifacts_storage_account = artifacts_storage_account
+        """
+        The lab's artifact storage account.
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The creation date of the lab.
+        """
+        if default_premium_storage_account and not isinstance(default_premium_storage_account, str):
+            raise TypeError("Expected argument 'default_premium_storage_account' to be a str")
+        __self__.default_premium_storage_account = default_premium_storage_account
+        """
+        The lab's default premium storage account.
+        """
+        if default_storage_account and not isinstance(default_storage_account, str):
+            raise TypeError("Expected argument 'default_storage_account' to be a str")
+        __self__.default_storage_account = default_storage_account
+        """
+        The lab's default storage account.
+        """
+        if lab_storage_type and not isinstance(lab_storage_type, str):
+            raise TypeError("Expected argument 'lab_storage_type' to be a str")
+        __self__.lab_storage_type = lab_storage_type
+        """
+        Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,25 @@ class GetLabResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if premium_data_disk_storage_account and not isinstance(premium_data_disk_storage_account, str):
+            raise TypeError("Expected argument 'premium_data_disk_storage_account' to be a str")
+        __self__.premium_data_disk_storage_account = premium_data_disk_storage_account
         """
-        The properties of the resource.
+        The lab's premium data disk storage account.
+        """
+        if premium_data_disks and not isinstance(premium_data_disks, str):
+            raise TypeError("Expected argument 'premium_data_disks' to be a str")
+        __self__.premium_data_disks = premium_data_disks
+        """
+        The setting to enable usage of premium data disks.
+        When its value is 'Enabled', creation of standard or premium data disks is allowed.
+        When its value is 'Disabled', only creation of standard data disks is allowed.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +88,18 @@ class GetLabResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if vault_name and not isinstance(vault_name, str):
+            raise TypeError("Expected argument 'vault_name' to be a str")
+        __self__.vault_name = vault_name
+        """
+        The lab's Key vault.
+        """
 
 
 class AwaitableGetLabResult(GetLabResult):
@@ -52,11 +108,20 @@ class AwaitableGetLabResult(GetLabResult):
         if False:
             yield self
         return GetLabResult(
+            artifacts_storage_account=self.artifacts_storage_account,
+            created_date=self.created_date,
+            default_premium_storage_account=self.default_premium_storage_account,
+            default_storage_account=self.default_storage_account,
+            lab_storage_type=self.lab_storage_type,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            premium_data_disk_storage_account=self.premium_data_disk_storage_account,
+            premium_data_disks=self.premium_data_disks,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            vault_name=self.vault_name)
 
 
 def get_lab(name=None, resource_group_name=None, opts=None):
@@ -76,8 +141,17 @@ def get_lab(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getLab', __args__, opts=opts).value
 
     return AwaitableGetLabResult(
+        artifacts_storage_account=__ret__.get('artifactsStorageAccount'),
+        created_date=__ret__.get('createdDate'),
+        default_premium_storage_account=__ret__.get('defaultPremiumStorageAccount'),
+        default_storage_account=__ret__.get('defaultStorageAccount'),
+        lab_storage_type=__ret__.get('labStorageType'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        premium_data_disk_storage_account=__ret__.get('premiumDataDiskStorageAccount'),
+        premium_data_disks=__ret__.get('premiumDataDisks'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        vault_name=__ret__.get('vaultName'))

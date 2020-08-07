@@ -46,13 +46,53 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class GetRelationshipLinkResult
     {
         /// <summary>
+        /// Localized descriptions for the Relationship Link.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Description;
+        /// <summary>
+        /// Localized display name for the Relationship Link.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? DisplayName;
+        /// <summary>
+        /// The InteractionType associated with the Relationship Link.
+        /// </summary>
+        public readonly string InteractionType;
+        /// <summary>
+        /// The name of the Relationship Link.
+        /// </summary>
+        public readonly string LinkName;
+        /// <summary>
+        /// The mappings between Interaction and Relationship fields.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RelationshipLinkFieldMappingResponseResult> Mappings;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The definition of relationship link.
+        /// The property references for the Profile of the Relationship.
         /// </summary>
-        public readonly Outputs.RelationshipLinkDefinitionResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult> ProfilePropertyReferences;
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The property references for the Related Profile of the Relationship.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult> RelatedProfilePropertyReferences;
+        /// <summary>
+        /// The relationship guid id.
+        /// </summary>
+        public readonly string RelationshipGuidId;
+        /// <summary>
+        /// The Relationship associated with the Link.
+        /// </summary>
+        public readonly string RelationshipName;
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -60,14 +100,44 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
 
         [OutputConstructor]
         private GetRelationshipLinkResult(
+            ImmutableDictionary<string, string>? description,
+
+            ImmutableDictionary<string, string>? displayName,
+
+            string interactionType,
+
+            string linkName,
+
+            ImmutableArray<Outputs.RelationshipLinkFieldMappingResponseResult> mappings,
+
             string name,
 
-            Outputs.RelationshipLinkDefinitionResponseResult properties,
+            ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult> profilePropertyReferences,
+
+            string provisioningState,
+
+            ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult> relatedProfilePropertyReferences,
+
+            string relationshipGuidId,
+
+            string relationshipName,
+
+            string tenantId,
 
             string type)
         {
+            Description = description;
+            DisplayName = displayName;
+            InteractionType = interactionType;
+            LinkName = linkName;
+            Mappings = mappings;
             Name = name;
-            Properties = properties;
+            ProfilePropertyReferences = profilePropertyReferences;
+            ProvisioningState = provisioningState;
+            RelatedProfilePropertyReferences = relatedProfilePropertyReferences;
+            RelationshipGuidId = relationshipGuidId;
+            RelationshipName = relationshipName;
+            TenantId = tenantId;
             Type = type;
         }
     }

@@ -13,18 +13,42 @@ class GetOpenIdConnectProviderResult:
     """
     OpenId Connect Provider details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, client_id=None, client_secret=None, description=None, display_name=None, metadata_endpoint=None, name=None, type=None):
+        if client_id and not isinstance(client_id, str):
+            raise TypeError("Expected argument 'client_id' to be a str")
+        __self__.client_id = client_id
+        """
+        Client ID of developer console which is the client application.
+        """
+        if client_secret and not isinstance(client_secret, str):
+            raise TypeError("Expected argument 'client_secret' to be a str")
+        __self__.client_secret = client_secret
+        """
+        Client Secret of developer console which is the client application.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        User-friendly description of OpenID Connect Provider.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        User-friendly OpenID Connect Provider name.
+        """
+        if metadata_endpoint and not isinstance(metadata_endpoint, str):
+            raise TypeError("Expected argument 'metadata_endpoint' to be a str")
+        __self__.metadata_endpoint = metadata_endpoint
+        """
+        Metadata endpoint URI.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        OpenId Connect Provider contract properties.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetOpenIdConnectProviderResult(GetOpenIdConnectProviderResult):
         if False:
             yield self
         return GetOpenIdConnectProviderResult(
+            client_id=self.client_id,
+            client_secret=self.client_secret,
+            description=self.description,
+            display_name=self.display_name,
+            metadata_endpoint=self.metadata_endpoint,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -64,6 +92,10 @@ def get_open_id_connect_provider(name=None, resource_group_name=None, service_na
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20180101:getOpenIdConnectProvider', __args__, opts=opts).value
 
     return AwaitableGetOpenIdConnectProviderResult(
+        client_id=__ret__.get('clientId'),
+        client_secret=__ret__.get('clientSecret'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        metadata_endpoint=__ret__.get('metadataEndpoint'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

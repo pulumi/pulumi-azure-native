@@ -14,10 +14,38 @@ import (
 type ConnectorMapping struct {
 	pulumi.CustomResourceState
 
+	// The connector mapping name
+	ConnectorMappingName pulumi.StringOutput `pulumi:"connectorMappingName"`
+	// The connector name.
+	ConnectorName pulumi.StringOutput `pulumi:"connectorName"`
+	// Type of connector.
+	ConnectorType pulumi.StringPtrOutput `pulumi:"connectorType"`
+	// The created time.
+	Created pulumi.StringOutput `pulumi:"created"`
+	// The DataFormat ID.
+	DataFormatId pulumi.StringOutput `pulumi:"dataFormatId"`
+	// The description of the connector mapping.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Display name for the connector mapping.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// Defines which entity type the file should map to.
+	EntityType pulumi.StringOutput `pulumi:"entityType"`
+	// The mapping entity name.
+	EntityTypeName pulumi.StringOutput `pulumi:"entityTypeName"`
+	// The last modified time.
+	LastModified pulumi.StringOutput `pulumi:"lastModified"`
+	// The properties of the mapping.
+	MappingProperties ConnectorMappingPropertiesResponseOutput `pulumi:"mappingProperties"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The connector mapping definition.
-	Properties ConnectorMappingResponseOutput `pulumi:"properties"`
+	// The next run time based on customer's settings.
+	NextRunTime pulumi.StringOutput `pulumi:"nextRunTime"`
+	// The RunId.
+	RunId pulumi.StringOutput `pulumi:"runId"`
+	// State of connector mapping.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The hub name.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,19 +99,75 @@ func GetConnectorMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectorMapping resources.
 type connectorMappingState struct {
+	// The connector mapping name
+	ConnectorMappingName *string `pulumi:"connectorMappingName"`
+	// The connector name.
+	ConnectorName *string `pulumi:"connectorName"`
+	// Type of connector.
+	ConnectorType *string `pulumi:"connectorType"`
+	// The created time.
+	Created *string `pulumi:"created"`
+	// The DataFormat ID.
+	DataFormatId *string `pulumi:"dataFormatId"`
+	// The description of the connector mapping.
+	Description *string `pulumi:"description"`
+	// Display name for the connector mapping.
+	DisplayName *string `pulumi:"displayName"`
+	// Defines which entity type the file should map to.
+	EntityType *string `pulumi:"entityType"`
+	// The mapping entity name.
+	EntityTypeName *string `pulumi:"entityTypeName"`
+	// The last modified time.
+	LastModified *string `pulumi:"lastModified"`
+	// The properties of the mapping.
+	MappingProperties *ConnectorMappingPropertiesResponse `pulumi:"mappingProperties"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The connector mapping definition.
-	Properties *ConnectorMappingResponse `pulumi:"properties"`
+	// The next run time based on customer's settings.
+	NextRunTime *string `pulumi:"nextRunTime"`
+	// The RunId.
+	RunId *string `pulumi:"runId"`
+	// State of connector mapping.
+	State *string `pulumi:"state"`
+	// The hub name.
+	TenantId *string `pulumi:"tenantId"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type ConnectorMappingState struct {
+	// The connector mapping name
+	ConnectorMappingName pulumi.StringPtrInput
+	// The connector name.
+	ConnectorName pulumi.StringPtrInput
+	// Type of connector.
+	ConnectorType pulumi.StringPtrInput
+	// The created time.
+	Created pulumi.StringPtrInput
+	// The DataFormat ID.
+	DataFormatId pulumi.StringPtrInput
+	// The description of the connector mapping.
+	Description pulumi.StringPtrInput
+	// Display name for the connector mapping.
+	DisplayName pulumi.StringPtrInput
+	// Defines which entity type the file should map to.
+	EntityType pulumi.StringPtrInput
+	// The mapping entity name.
+	EntityTypeName pulumi.StringPtrInput
+	// The last modified time.
+	LastModified pulumi.StringPtrInput
+	// The properties of the mapping.
+	MappingProperties ConnectorMappingPropertiesResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The connector mapping definition.
-	Properties ConnectorMappingResponsePtrInput
+	// The next run time based on customer's settings.
+	NextRunTime pulumi.StringPtrInput
+	// The RunId.
+	RunId pulumi.StringPtrInput
+	// State of connector mapping.
+	State pulumi.StringPtrInput
+	// The hub name.
+	TenantId pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

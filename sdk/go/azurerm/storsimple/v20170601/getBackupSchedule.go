@@ -31,12 +31,22 @@ type LookupBackupScheduleArgs struct {
 
 // The backup schedule.
 type LookupBackupScheduleResult struct {
+	// The type of backup which needs to be taken.
+	BackupType string `pulumi:"backupType"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
+	// The last successful backup run which was triggered for the schedule.
+	LastSuccessfulRun string `pulumi:"lastSuccessfulRun"`
 	// The name of the object.
 	Name string `pulumi:"name"`
-	// The properties of the backup schedule.
-	Properties BackupSchedulePropertiesResponse `pulumi:"properties"`
+	// The number of backups to be retained.
+	RetentionCount int `pulumi:"retentionCount"`
+	// The schedule recurrence.
+	ScheduleRecurrence ScheduleRecurrenceResponse `pulumi:"scheduleRecurrence"`
+	// The schedule status.
+	ScheduleStatus string `pulumi:"scheduleStatus"`
+	// The start time of the schedule.
+	StartTime string `pulumi:"startTime"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

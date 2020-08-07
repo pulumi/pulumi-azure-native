@@ -10,47 +10,84 @@ from ... import _utilities, _tables
 
 
 class ApiOperation(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    Description of the operation. May include HTML formatting tags.
+    """
+    display_name: pulumi.Output[str]
+    """
+    Operation Name.
+    """
+    method: pulumi.Output[str]
+    """
+    A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    policies: pulumi.Output[str]
     """
-    Properties of the Operation Contract.
-      * `description` (`str`) - Description of the operation. May include HTML formatting tags.
-      * `display_name` (`str`) - Operation Name.
-      * `method` (`str`) - A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-      * `policies` (`str`) - Operation Policies
-      * `request` (`dict`) - An entity containing request details.
-        * `description` (`str`) - Operation request description.
-        * `headers` (`list`) - Collection of operation request headers.
-          * `default_value` (`str`) - Default parameter value.
-          * `description` (`str`) - Parameter description.
-          * `name` (`str`) - Parameter name.
-          * `required` (`bool`) - Specifies whether parameter is required or not.
-          * `type` (`str`) - Parameter type.
-          * `values` (`list`) - Parameter values.
+    Operation Policies
+    """
+    request: pulumi.Output[dict]
+    """
+    An entity containing request details.
+      * `description` (`str`) - Operation request description.
+      * `headers` (`list`) - Collection of operation request headers.
+        * `default_value` (`str`) - Default parameter value.
+        * `description` (`str`) - Parameter description.
+        * `name` (`str`) - Parameter name.
+        * `required` (`bool`) - Specifies whether parameter is required or not.
+        * `type` (`str`) - Parameter type.
+        * `values` (`list`) - Parameter values.
 
-        * `query_parameters` (`list`) - Collection of operation request query parameters.
-        * `representations` (`list`) - Collection of operation request representations.
-          * `content_type` (`str`) - Specifies a registered or custom content type for this representation, e.g. application/xml.
-          * `form_parameters` (`list`) - Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
-          * `sample` (`str`) - An example of the representation.
-          * `schema_id` (`str`) - Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-          * `type_name` (`str`) - Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+      * `query_parameters` (`list`) - Collection of operation request query parameters.
+      * `representations` (`list`) - Collection of operation request representations.
+        * `content_type` (`str`) - Specifies a registered or custom content type for this representation, e.g. application/xml.
+        * `form_parameters` (`list`) - Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+        * `sample` (`str`) - An example of the representation.
+        * `schema_id` (`str`) - Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+        * `type_name` (`str`) - Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+    """
+    responses: pulumi.Output[list]
+    """
+    Array of Operation responses.
+      * `description` (`str`) - Operation response description.
+      * `headers` (`list`) - Collection of operation response headers.
+        * `default_value` (`str`) - Default parameter value.
+        * `description` (`str`) - Parameter description.
+        * `name` (`str`) - Parameter name.
+        * `required` (`bool`) - Specifies whether parameter is required or not.
+        * `type` (`str`) - Parameter type.
+        * `values` (`list`) - Parameter values.
 
-      * `responses` (`list`) - Array of Operation responses.
-        * `description` (`str`) - Operation response description.
-        * `headers` (`list`) - Collection of operation response headers.
-        * `representations` (`list`) - Collection of operation response representations.
-        * `status_code` (`float`) - Operation response HTTP status code.
+      * `representations` (`list`) - Collection of operation response representations.
+        * `content_type` (`str`) - Specifies a registered or custom content type for this representation, e.g. application/xml.
+        * `form_parameters` (`list`) - Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+        * `sample` (`str`) - An example of the representation.
+        * `schema_id` (`str`) - Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+        * `type_name` (`str`) - Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 
-      * `template_parameters` (`list`) - Collection of URL template parameters.
-      * `url_template` (`str`) - Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+      * `status_code` (`float`) - Operation response HTTP status code.
+    """
+    template_parameters: pulumi.Output[list]
+    """
+    Collection of URL template parameters.
+      * `default_value` (`str`) - Default parameter value.
+      * `description` (`str`) - Parameter description.
+      * `name` (`str`) - Parameter name.
+      * `required` (`bool`) - Specifies whether parameter is required or not.
+      * `type` (`str`) - Parameter type.
+      * `values` (`list`) - Parameter values.
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    url_template: pulumi.Output[str]
+    """
+    Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
     """
     def __init__(__self__, resource_name, opts=None, api_id=None, description=None, display_name=None, method=None, name=None, policies=None, request=None, resource_group_name=None, responses=None, service_name=None, template_parameters=None, url_template=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -140,7 +177,6 @@ class ApiOperation(pulumi.CustomResource):
             if url_template is None:
                 raise TypeError("Missing required property 'url_template'")
             __props__['url_template'] = url_template
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiOperation, __self__).__init__(
             'azurerm:apimanagement/v20191201:ApiOperation',

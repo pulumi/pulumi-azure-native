@@ -14,6 +14,16 @@ class VirtualRouter(pulumi.CustomResource):
     """
     A unique read-only string that changes whenever the resource is updated.
     """
+    hosted_gateway: pulumi.Output[dict]
+    """
+    The Gateway on which VirtualRouter is hosted.
+      * `id` (`str`) - Resource ID.
+    """
+    hosted_subnet: pulumi.Output[dict]
+    """
+    The Subnet on which VirtualRouter is hosted.
+      * `id` (`str`) - Resource ID.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -22,17 +32,14 @@ class VirtualRouter(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    peerings: pulumi.Output[list]
     """
-    Properties of the Virtual Router.
-      * `hosted_gateway` (`dict`) - The Gateway on which VirtualRouter is hosted.
-        * `id` (`str`) - Resource ID.
-
-      * `hosted_subnet` (`dict`) - The Subnet on which VirtualRouter is hosted.
-      * `peerings` (`list`) - List of references to VirtualRouterPeerings.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `virtual_router_asn` (`float`) - VirtualRouter ASN.
-      * `virtual_router_ips` (`list`) - VirtualRouter IPs.
+    List of references to VirtualRouterPeerings.
+      * `id` (`str`) - Resource ID.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -41,6 +48,14 @@ class VirtualRouter(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_router_asn: pulumi.Output[float]
+    """
+    VirtualRouter ASN.
+    """
+    virtual_router_ips: pulumi.Output[list]
+    """
+    VirtualRouter IPs.
     """
     def __init__(__self__, resource_name, opts=None, hosted_gateway=None, hosted_subnet=None, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_router_asn=None, virtual_router_ips=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -93,7 +108,8 @@ class VirtualRouter(pulumi.CustomResource):
             __props__['virtual_router_asn'] = virtual_router_asn
             __props__['virtual_router_ips'] = virtual_router_ips
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['peerings'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(VirtualRouter, __self__).__init__(
             'azurerm:network/v20190901:VirtualRouter',

@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {
         /// <summary>
+        /// The details of the storage account password.
+        /// </summary>
+        [Output("accessKey")]
+        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> AccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage endpoint
+        /// </summary>
+        [Output("endPoint")]
+        public Output<string> EndPoint { get; private set; } = null!;
+
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Output("kind")]
@@ -27,16 +39,22 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The storage account credential properties.
+        /// Signifies whether SSL needs to be enabled or not.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageAccountCredentialPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("sslStatus")]
+        public Output<string> SslStatus { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The count of volumes using this storage account credential.
+        /// </summary>
+        [Output("volumesCount")]
+        public Output<int> VolumesCount { get; private set; } = null!;
 
 
         /// <summary>

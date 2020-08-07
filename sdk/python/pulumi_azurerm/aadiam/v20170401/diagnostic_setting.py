@@ -10,29 +10,42 @@ from ... import _utilities, _tables
 
 
 class DiagnosticSetting(pulumi.CustomResource):
+    event_hub_authorization_rule_id: pulumi.Output[str]
+    """
+    The resource Id for the event hub authorization rule.
+    """
+    event_hub_name: pulumi.Output[str]
+    """
+    The name of the event hub. If none is specified, the default event hub will be selected.
+    """
+    logs: pulumi.Output[list]
+    """
+    The list of logs settings.
+      * `category` (`str`) - Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+      * `enabled` (`bool`) - A value indicating whether this log is enabled.
+      * `retention_policy` (`dict`) - The retention policy for this log.
+        * `days` (`float`) - The number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        * `enabled` (`bool`) - A value indicating whether the retention policy is enabled.
+    """
     name: pulumi.Output[str]
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    service_bus_rule_id: pulumi.Output[str]
     """
-    Properties of a Diagnostic Settings Resource.
-      * `event_hub_authorization_rule_id` (`str`) - The resource Id for the event hub authorization rule.
-      * `event_hub_name` (`str`) - The name of the event hub. If none is specified, the default event hub will be selected.
-      * `logs` (`list`) - The list of logs settings.
-        * `category` (`str`) - Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        * `enabled` (`bool`) - A value indicating whether this log is enabled.
-        * `retention_policy` (`dict`) - The retention policy for this log.
-          * `days` (`float`) - The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-          * `enabled` (`bool`) - A value indicating whether the retention policy is enabled.
-
-      * `service_bus_rule_id` (`str`) - The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-      * `storage_account_id` (`str`) - The resource ID of the storage account to which you would like to send Diagnostic Logs.
-      * `workspace_id` (`str`) - The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+    The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+    """
+    storage_account_id: pulumi.Output[str]
+    """
+    The resource ID of the storage account to which you would like to send Diagnostic Logs.
     """
     type: pulumi.Output[str]
     """
     Azure resource type
+    """
+    workspace_id: pulumi.Output[str]
+    """
+    The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
     """
     def __init__(__self__, resource_name, opts=None, event_hub_authorization_rule_id=None, event_hub_name=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, workspace_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -82,7 +95,6 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__['service_bus_rule_id'] = service_bus_rule_id
             __props__['storage_account_id'] = storage_account_id
             __props__['workspace_id'] = workspace_id
-            __props__['properties'] = None
             __props__['type'] = None
         super(DiagnosticSetting, __self__).__init__(
             'azurerm:aadiam/v20170401:DiagnosticSetting',

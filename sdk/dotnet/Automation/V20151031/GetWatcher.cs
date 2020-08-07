@@ -46,9 +46,29 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetWatcherResult
     {
         /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Gets or sets the frequency at which the watcher is invoked.
+        /// </summary>
+        public readonly int? ExecutionFrequencyInSeconds;
+        /// <summary>
+        /// Details of the user who last modified the watcher.
+        /// </summary>
+        public readonly string LastModifiedBy;
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        public readonly string LastModifiedTime;
         /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
@@ -58,9 +78,21 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the watcher properties.
+        /// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
         /// </summary>
-        public readonly Outputs.WatcherPropertiesResponseResult Properties;
+        public readonly string? ScriptName;
+        /// <summary>
+        /// Gets or sets the parameters of the script.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ScriptParameters;
+        /// <summary>
+        /// Gets or sets the name of the hybrid worker group the watcher will run on.
+        /// </summary>
+        public readonly string? ScriptRunOn;
+        /// <summary>
+        /// Gets the current status of the watcher.
+        /// </summary>
+        public readonly string Status;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,22 +104,46 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
         [OutputConstructor]
         private GetWatcherResult(
+            string creationTime,
+
+            string? description,
+
             string? etag,
+
+            int? executionFrequencyInSeconds,
+
+            string lastModifiedBy,
+
+            string lastModifiedTime,
 
             string? location,
 
             string name,
 
-            Outputs.WatcherPropertiesResponseResult properties,
+            string? scriptName,
+
+            ImmutableDictionary<string, string>? scriptParameters,
+
+            string? scriptRunOn,
+
+            string status,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            CreationTime = creationTime;
+            Description = description;
             Etag = etag;
+            ExecutionFrequencyInSeconds = executionFrequencyInSeconds;
+            LastModifiedBy = lastModifiedBy;
+            LastModifiedTime = lastModifiedTime;
             Location = location;
             Name = name;
-            Properties = properties;
+            ScriptName = scriptName;
+            ScriptParameters = scriptParameters;
+            ScriptRunOn = scriptRunOn;
+            Status = status;
             Tags = tags;
             Type = type;
         }

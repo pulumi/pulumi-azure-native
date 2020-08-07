@@ -31,8 +31,10 @@ type LookupBandwidthSettingResult struct {
 	Kind *string `pulumi:"kind"`
 	// The name of the object.
 	Name string `pulumi:"name"`
-	// The properties of the bandwidth setting.
-	Properties BandwidthRateSettingPropertiesResponse `pulumi:"properties"`
+	// The schedules.
+	Schedules []BandwidthScheduleResponse `pulumi:"schedules"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+	// The number of volumes that uses the bandwidth setting.
+	VolumeCount int `pulumi:"volumeCount"`
 }

@@ -10,6 +10,31 @@ from ... import _utilities, _tables
 
 
 class SmartDetectorAlertRule(pulumi.CustomResource):
+    action_groups: pulumi.Output[dict]
+    """
+    The alert rule actions.
+      * `custom_email_subject` (`str`) - An optional custom email subject to use in email notifications.
+      * `custom_webhook_payload` (`str`) - An optional custom web-hook payload to use in web-hook notifications.
+      * `group_ids` (`list`) - The Action Group resource IDs.
+    """
+    description: pulumi.Output[str]
+    """
+    The alert rule description.
+    """
+    detector: pulumi.Output[dict]
+    """
+    The alert rule's detector.
+      * `description` (`str`) - The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+      * `id` (`str`) - The detector id.
+      * `image_paths` (`list`) - The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+      * `name` (`str`) - The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+      * `parameters` (`dict`) - The detector's parameters.'
+      * `supported_resource_types` (`list`) - The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+    """
+    frequency: pulumi.Output[str]
+    """
+    The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
@@ -18,33 +43,26 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     """
     The resource name.
     """
-    properties: pulumi.Output[dict]
+    scope: pulumi.Output[list]
     """
-    The properties of the alert rule.
-      * `action_groups` (`dict`) - The alert rule actions.
-        * `custom_email_subject` (`str`) - An optional custom email subject to use in email notifications.
-        * `custom_webhook_payload` (`str`) - An optional custom web-hook payload to use in web-hook notifications.
-        * `group_ids` (`list`) - The Action Group resource IDs.
-
-      * `description` (`str`) - The alert rule description.
-      * `detector` (`dict`) - The alert rule's detector.
-        * `description` (`str`) - The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
-        * `id` (`str`) - The detector id.
-        * `image_paths` (`list`) - The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
-        * `name` (`str`) - The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
-        * `parameters` (`dict`) - The detector's parameters.'
-        * `supported_resource_types` (`list`) - The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
-
-      * `frequency` (`str`) - The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
-      * `scope` (`list`) - The alert rule resources scope.
-      * `severity` (`str`) - The alert rule severity.
-      * `state` (`str`) - The alert rule state.
-      * `throttling` (`dict`) - The alert rule throttling information.
-        * `duration` (`str`) - The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
+    The alert rule resources scope.
+    """
+    severity: pulumi.Output[str]
+    """
+    The alert rule severity.
+    """
+    state: pulumi.Output[str]
+    """
+    The alert rule state.
     """
     tags: pulumi.Output[dict]
     """
     The resource tags.
+    """
+    throttling: pulumi.Output[dict]
+    """
+    The alert rule throttling information.
+      * `duration` (`str`) - The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
     """
     type: pulumi.Output[str]
     """
@@ -133,7 +151,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             __props__['state'] = state
             __props__['tags'] = tags
             __props__['throttling'] = throttling
-            __props__['properties'] = None
             __props__['type'] = None
         super(SmartDetectorAlertRule, __self__).__init__(
             'azurerm:alertsmanagement/v20190601:SmartDetectorAlertRule',

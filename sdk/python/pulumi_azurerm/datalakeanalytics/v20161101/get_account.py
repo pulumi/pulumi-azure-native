@@ -13,12 +13,102 @@ class GetAccountResult:
     """
     A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None):
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
+        __self__.account_id = account_id
+        """
+        The unique identifier associated with this Data Lake Analytics account.
+        """
+        if compute_policies and not isinstance(compute_policies, list):
+            raise TypeError("Expected argument 'compute_policies' to be a list")
+        __self__.compute_policies = compute_policies
+        """
+        The list of compute policies associated with this account.
+        """
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        The account creation time.
+        """
+        if current_tier and not isinstance(current_tier, str):
+            raise TypeError("Expected argument 'current_tier' to be a str")
+        __self__.current_tier = current_tier
+        """
+        The commitment tier in use for the current month.
+        """
+        if data_lake_store_accounts and not isinstance(data_lake_store_accounts, list):
+            raise TypeError("Expected argument 'data_lake_store_accounts' to be a list")
+        __self__.data_lake_store_accounts = data_lake_store_accounts
+        """
+        The list of Data Lake Store accounts associated with this account.
+        """
+        if default_data_lake_store_account and not isinstance(default_data_lake_store_account, str):
+            raise TypeError("Expected argument 'default_data_lake_store_account' to be a str")
+        __self__.default_data_lake_store_account = default_data_lake_store_account
+        """
+        The default Data Lake Store account associated with this account.
+        """
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        __self__.endpoint = endpoint
+        """
+        The full CName endpoint for this account.
+        """
+        if firewall_allow_azure_ips and not isinstance(firewall_allow_azure_ips, str):
+            raise TypeError("Expected argument 'firewall_allow_azure_ips' to be a str")
+        __self__.firewall_allow_azure_ips = firewall_allow_azure_ips
+        """
+        The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        """
+        if firewall_rules and not isinstance(firewall_rules, list):
+            raise TypeError("Expected argument 'firewall_rules' to be a list")
+        __self__.firewall_rules = firewall_rules
+        """
+        The list of firewall rules associated with this account.
+        """
+        if firewall_state and not isinstance(firewall_state, str):
+            raise TypeError("Expected argument 'firewall_state' to be a str")
+        __self__.firewall_state = firewall_state
+        """
+        The current state of the IP address firewall for this account.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        The account last modified time.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The resource location.
+        """
+        if max_degree_of_parallelism and not isinstance(max_degree_of_parallelism, float):
+            raise TypeError("Expected argument 'max_degree_of_parallelism' to be a float")
+        __self__.max_degree_of_parallelism = max_degree_of_parallelism
+        """
+        The maximum supported degree of parallelism for this account.
+        """
+        if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, float):
+            raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a float")
+        __self__.max_degree_of_parallelism_per_job = max_degree_of_parallelism_per_job
+        """
+        The maximum supported degree of parallelism per job for this account.
+        """
+        if max_job_count and not isinstance(max_job_count, float):
+            raise TypeError("Expected argument 'max_job_count' to be a float")
+        __self__.max_job_count = max_job_count
+        """
+        The maximum supported jobs running under the account at the same time.
+        """
+        if min_priority_per_job and not isinstance(min_priority_per_job, float):
+            raise TypeError("Expected argument 'min_priority_per_job' to be a float")
+        __self__.min_priority_per_job = min_priority_per_job
+        """
+        The minimum supported priority per job for this account.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +116,47 @@ class GetAccountResult:
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if new_tier and not isinstance(new_tier, str):
+            raise TypeError("Expected argument 'new_tier' to be a str")
+        __self__.new_tier = new_tier
         """
-        The properties defined by Data Lake Analytics all properties are specific to each resource provider.
+        The commitment tier for the next month.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the Data Lake Analytics account.
+        """
+        if query_store_retention and not isinstance(query_store_retention, float):
+            raise TypeError("Expected argument 'query_store_retention' to be a float")
+        __self__.query_store_retention = query_store_retention
+        """
+        The number of days that job metadata is retained.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The state of the Data Lake Analytics account.
+        """
+        if storage_accounts and not isinstance(storage_accounts, list):
+            raise TypeError("Expected argument 'storage_accounts' to be a list")
+        __self__.storage_accounts = storage_accounts
+        """
+        The list of Azure Blob Storage accounts associated with this account.
+        """
+        if system_max_degree_of_parallelism and not isinstance(system_max_degree_of_parallelism, float):
+            raise TypeError("Expected argument 'system_max_degree_of_parallelism' to be a float")
+        __self__.system_max_degree_of_parallelism = system_max_degree_of_parallelism
+        """
+        The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
+        """
+        if system_max_job_count and not isinstance(system_max_job_count, float):
+            raise TypeError("Expected argument 'system_max_job_count' to be a float")
+        __self__.system_max_job_count = system_max_job_count
+        """
+        The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +178,30 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            account_id=self.account_id,
+            compute_policies=self.compute_policies,
+            creation_time=self.creation_time,
+            current_tier=self.current_tier,
+            data_lake_store_accounts=self.data_lake_store_accounts,
+            default_data_lake_store_account=self.default_data_lake_store_account,
+            endpoint=self.endpoint,
+            firewall_allow_azure_ips=self.firewall_allow_azure_ips,
+            firewall_rules=self.firewall_rules,
+            firewall_state=self.firewall_state,
+            last_modified_time=self.last_modified_time,
             location=self.location,
+            max_degree_of_parallelism=self.max_degree_of_parallelism,
+            max_degree_of_parallelism_per_job=self.max_degree_of_parallelism_per_job,
+            max_job_count=self.max_job_count,
+            min_priority_per_job=self.min_priority_per_job,
             name=self.name,
-            properties=self.properties,
+            new_tier=self.new_tier,
+            provisioning_state=self.provisioning_state,
+            query_store_retention=self.query_store_retention,
+            state=self.state,
+            storage_accounts=self.storage_accounts,
+            system_max_degree_of_parallelism=self.system_max_degree_of_parallelism,
+            system_max_job_count=self.system_max_job_count,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +223,29 @@ def get_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:datalakeanalytics/v20161101:getAccount', __args__, opts=opts).value
 
     return AwaitableGetAccountResult(
+        account_id=__ret__.get('accountId'),
+        compute_policies=__ret__.get('computePolicies'),
+        creation_time=__ret__.get('creationTime'),
+        current_tier=__ret__.get('currentTier'),
+        data_lake_store_accounts=__ret__.get('dataLakeStoreAccounts'),
+        default_data_lake_store_account=__ret__.get('defaultDataLakeStoreAccount'),
+        endpoint=__ret__.get('endpoint'),
+        firewall_allow_azure_ips=__ret__.get('firewallAllowAzureIps'),
+        firewall_rules=__ret__.get('firewallRules'),
+        firewall_state=__ret__.get('firewallState'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         location=__ret__.get('location'),
+        max_degree_of_parallelism=__ret__.get('maxDegreeOfParallelism'),
+        max_degree_of_parallelism_per_job=__ret__.get('maxDegreeOfParallelismPerJob'),
+        max_job_count=__ret__.get('maxJobCount'),
+        min_priority_per_job=__ret__.get('minPriorityPerJob'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        new_tier=__ret__.get('newTier'),
+        provisioning_state=__ret__.get('provisioningState'),
+        query_store_retention=__ret__.get('queryStoreRetention'),
+        state=__ret__.get('state'),
+        storage_accounts=__ret__.get('storageAccounts'),
+        system_max_degree_of_parallelism=__ret__.get('systemMaxDegreeOfParallelism'),
+        system_max_job_count=__ret__.get('systemMaxJobCount'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

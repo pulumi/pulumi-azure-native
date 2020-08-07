@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
     public sealed class ApplicationGatewayBackendHttpSettingsResponseResult
     {
         /// <summary>
+        /// Array of references to Application Gateway Authentication Certificates
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> AuthenticationCertificates;
+        /// <summary>
+        /// Cookie affinity
+        /// </summary>
+        public readonly string? CookieBasedAffinity;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
@@ -26,24 +34,58 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of Backend address pool settings of application gateway
+        /// Port
         /// </summary>
-        public readonly Outputs.ApplicationGatewayBackendHttpSettingsPropertiesFormatResponseResult? Properties;
+        public readonly int? Port;
+        /// <summary>
+        /// Probe resource of application gateway 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Probe;
+        /// <summary>
+        /// Protocol
+        /// </summary>
+        public readonly string? Protocol;
+        /// <summary>
+        /// Provisioning state of the backend http settings resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Request timeout
+        /// </summary>
+        public readonly int? RequestTimeout;
 
         [OutputConstructor]
         private ApplicationGatewayBackendHttpSettingsResponseResult(
+            ImmutableArray<Outputs.SubResourceResponseResult> authenticationCertificates,
+
+            string? cookieBasedAffinity,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayBackendHttpSettingsPropertiesFormatResponseResult? properties)
+            int? port,
+
+            Outputs.SubResourceResponseResult? probe,
+
+            string? protocol,
+
+            string? provisioningState,
+
+            int? requestTimeout)
         {
+            AuthenticationCertificates = authenticationCertificates;
+            CookieBasedAffinity = cookieBasedAffinity;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Port = port;
+            Probe = probe;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            RequestTimeout = requestTimeout;
         }
     }
 }

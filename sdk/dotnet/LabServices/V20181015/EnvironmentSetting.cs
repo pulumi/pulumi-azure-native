@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public partial class EnvironmentSetting : Pulumi.CustomResource
     {
         /// <summary>
+        /// Describes the user's progress in configuring their environment setting
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string?> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the environment and its resource settings
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when the template VM was last changed.
+        /// </summary>
+        [Output("lastChanged")]
+        public Output<string> LastChanged { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when the template VM was last sent for publishing.
+        /// </summary>
+        [Output("lastPublished")]
+        public Output<string> LastPublished { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        [Output("latestOperationResult")]
+        public Output<Outputs.LatestOperationResultResponseResult> LatestOperationResult { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +57,22 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the Environment Setting resource
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EnvironmentSettingPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the readiness of this environment setting
+        /// </summary>
+        [Output("publishingState")]
+        public Output<string> PublishingState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource specific settings
+        /// </summary>
+        [Output("resourceSettings")]
+        public Output<Outputs.ResourceSettingsResponseResult> ResourceSettings { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -39,10 +81,22 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Brief title describing the environment and its resource settings
+        /// </summary>
+        [Output("title")]
+        public Output<string?> Title { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>

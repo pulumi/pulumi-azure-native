@@ -13,18 +13,24 @@ class GetSuppressionResult:
     """
     The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, suppression_id=None, ttl=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if suppression_id and not isinstance(suppression_id, str):
+            raise TypeError("Expected argument 'suppression_id' to be a str")
+        __self__.suppression_id = suppression_id
         """
-        The properties of the suppression.
+        The GUID of the suppression.
+        """
+        if ttl and not isinstance(ttl, str):
+            raise TypeError("Expected argument 'ttl' to be a str")
+        __self__.ttl = ttl
+        """
+        The duration for which the suppression is valid.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +47,8 @@ class AwaitableGetSuppressionResult(GetSuppressionResult):
             yield self
         return GetSuppressionResult(
             name=self.name,
-            properties=self.properties,
+            suppression_id=self.suppression_id,
+            ttl=self.ttl,
             type=self.type)
 
 
@@ -65,5 +72,6 @@ def get_suppression(name=None, recommendation_id=None, resource_uri=None, opts=N
 
     return AwaitableGetSuppressionResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        suppression_id=__ret__.get('suppressionId'),
+        ttl=__ret__.get('ttl'),
         type=__ret__.get('type'))

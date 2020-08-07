@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>
+        /// Endpoint for the topic.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the resource
         /// </summary>
         [Output("location")]
@@ -27,10 +33,10 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the topic
+        /// Provisioning state of the topic.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TopicPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the resource

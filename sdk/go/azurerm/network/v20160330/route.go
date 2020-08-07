@@ -14,12 +14,18 @@ import (
 type Route struct {
 	pulumi.CustomResourceState
 
+	// Gets or sets the destination CIDR to which the route applies.
+	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Route resource
-	Properties RoutePropertiesFormatResponseOutput `pulumi:"properties"`
+	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+	NextHopIpAddress pulumi.StringPtrOutput `pulumi:"nextHopIpAddress"`
+	// Gets or sets the type of Azure hop the packet should be sent to.
+	NextHopType pulumi.StringOutput `pulumi:"nextHopType"`
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
@@ -62,21 +68,33 @@ func GetRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Route resources.
 type routeState struct {
+	// Gets or sets the destination CIDR to which the route applies.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 	Name *string `pulumi:"name"`
-	// Route resource
-	Properties *RoutePropertiesFormatResponse `pulumi:"properties"`
+	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
+	// Gets or sets the type of Azure hop the packet should be sent to.
+	NextHopType *string `pulumi:"nextHopType"`
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 type RouteState struct {
+	// Gets or sets the destination CIDR to which the route applies.
+	AddressPrefix pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
 	Name pulumi.StringPtrInput
-	// Route resource
-	Properties RoutePropertiesFormatResponsePtrInput
+	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+	NextHopIpAddress pulumi.StringPtrInput
+	// Gets or sets the type of Azure hop the packet should be sent to.
+	NextHopType pulumi.StringPtrInput
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 }
 
 func (RouteState) ElementType() reflect.Type {

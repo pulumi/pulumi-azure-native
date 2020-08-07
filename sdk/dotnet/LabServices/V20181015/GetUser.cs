@@ -52,6 +52,22 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class GetUserResult
     {
         /// <summary>
+        /// The user email address, as it was specified during registration.
+        /// </summary>
+        public readonly string Email;
+        /// <summary>
+        /// The user family name, as it was specified during registration.
+        /// </summary>
+        public readonly string FamilyName;
+        /// <summary>
+        /// The user given name, as it was specified during registration.
+        /// </summary>
+        public readonly string GivenName;
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -60,35 +76,68 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// These are the properties for the user registered under a lab.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.UserPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The user tenant ID, as it was specified during registration.
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
+        /// How long the user has used his VMs in this lab
+        /// </summary>
+        public readonly string TotalUsage;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
 
         [OutputConstructor]
         private GetUserResult(
+            string email,
+
+            string familyName,
+
+            string givenName,
+
+            Outputs.LatestOperationResultResponseResult latestOperationResult,
+
             string? location,
 
             string name,
 
-            Outputs.UserPropertiesResponseResult properties,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string tenantId,
+
+            string totalUsage,
+
+            string type,
+
+            string? uniqueIdentifier)
         {
+            Email = email;
+            FamilyName = familyName;
+            GivenName = givenName;
+            LatestOperationResult = latestOperationResult;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
+            TenantId = tenantId;
+            TotalUsage = totalUsage;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

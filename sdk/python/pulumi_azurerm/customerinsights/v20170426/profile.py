@@ -10,69 +10,115 @@ from ... import _utilities, _tables
 
 
 class Profile(pulumi.CustomResource):
+    api_entity_set_name: pulumi.Output[str]
+    """
+    The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+    """
+    attributes: pulumi.Output[dict]
+    """
+    The attributes for the Type.
+    """
+    description: pulumi.Output[dict]
+    """
+    Localized descriptions for the property.
+    """
+    display_name: pulumi.Output[dict]
+    """
+    Localized display names for the property.
+    """
+    entity_type: pulumi.Output[str]
+    """
+    Type of entity.
+    """
+    fields: pulumi.Output[list]
+    """
+    The properties of the Profile.
+      * `array_value_separator` (`str`) - Array value separator for properties with isArray set.
+      * `data_source_precedence_rules` (`list`) - This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
+        * `data_source_reference_id` (`str`) - The data source reference id.
+        * `data_source_type` (`str`) - The data source type.
+        * `id` (`float`) - The data source ID.
+        * `name` (`str`) - The data source name
+        * `precedence` (`float`) - the precedence value.
+        * `status` (`str`) - The data source status.
+
+      * `enum_valid_values` (`list`) - Describes valid values for an enum property.
+        * `localized_value_names` (`dict`) - Localized names of the enum member.
+        * `value` (`float`) - The integer value of the enum member.
+
+      * `field_name` (`str`) - Name of the property.
+      * `field_type` (`str`) - Type of the property.
+      * `is_array` (`bool`) - Indicates if the property is actually an array of the fieldType above on the data api.
+      * `is_available_in_graph` (`bool`) - Whether property is available in graph or not.
+      * `is_enum` (`bool`) - Indicates if the property is an enum.
+      * `is_flag_enum` (`bool`) - Indicates if the property is an flag enum.
+      * `is_image` (`bool`) - Whether the property is an Image.
+      * `is_localized_string` (`bool`) - Whether the property is a localized string.
+      * `is_name` (`bool`) - Whether the property is a name or a part of name.
+      * `is_required` (`bool`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
+      * `max_length` (`float`) - Max length of string. Used only if type is string.
+      * `property_id` (`str`) - The ID associated with the property.
+      * `schema_item_prop_link` (`str`) - URL encoded schema.org item prop link for the property.
+    """
+    instances_count: pulumi.Output[float]
+    """
+    The instance count.
+    """
+    large_image: pulumi.Output[str]
+    """
+    Large Image associated with the Property or EntityType.
+    """
+    last_changed_utc: pulumi.Output[str]
+    """
+    The last changed time for the type definition.
+    """
+    localized_attributes: pulumi.Output[dict]
+    """
+    Any custom localized attributes for the Type.
+    """
+    medium_image: pulumi.Output[str]
+    """
+    Medium Image associated with the Property or EntityType.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The profile type definition.
-      * `api_entity_set_name` (`str`) - The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
-      * `attributes` (`dict`) - The attributes for the Type.
-      * `description` (`dict`) - Localized descriptions for the property.
-      * `display_name` (`dict`) - Localized display names for the property.
-      * `entity_type` (`str`) - Type of entity.
-      * `fields` (`list`) - The properties of the Profile.
-        * `array_value_separator` (`str`) - Array value separator for properties with isArray set.
-        * `data_source_precedence_rules` (`list`) - This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
-          * `data_source` (`dict`) - Data Source is a way for us to know the source of instances. A single type can have data coming in from multiple places. In activities we use this to determine precedence rules.
-            * `data_source_reference_id` (`str`) - The data source reference id.
-            * `data_source_type` (`str`) - The data source type.
-            * `id` (`float`) - The data source ID.
-            * `name` (`str`) - The data source name
-            * `status` (`str`) - The data source status.
-
-          * `precedence` (`float`) - the precedence value.
-
-        * `enum_valid_values` (`list`) - Describes valid values for an enum property.
-          * `localized_value_names` (`dict`) - Localized names of the enum member.
-          * `value` (`float`) - The integer value of the enum member.
-
-        * `field_name` (`str`) - Name of the property.
-        * `field_type` (`str`) - Type of the property.
-        * `is_array` (`bool`) - Indicates if the property is actually an array of the fieldType above on the data api.
-        * `is_available_in_graph` (`bool`) - Whether property is available in graph or not.
-        * `is_enum` (`bool`) - Indicates if the property is an enum.
-        * `is_flag_enum` (`bool`) - Indicates if the property is an flag enum.
-        * `is_image` (`bool`) - Whether the property is an Image.
-        * `is_localized_string` (`bool`) - Whether the property is a localized string.
-        * `is_name` (`bool`) - Whether the property is a name or a part of name.
-        * `is_required` (`bool`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-        * `max_length` (`float`) - Max length of string. Used only if type is string.
-        * `property_id` (`str`) - The ID associated with the property.
-        * `schema_item_prop_link` (`str`) - URL encoded schema.org item prop link for the property.
-
-      * `instances_count` (`float`) - The instance count.
-      * `large_image` (`str`) - Large Image associated with the Property or EntityType.
-      * `last_changed_utc` (`str`) - The last changed time for the type definition.
-      * `localized_attributes` (`dict`) - Any custom localized attributes for the Type.
-      * `medium_image` (`str`) - Medium Image associated with the Property or EntityType.
-      * `provisioning_state` (`str`) - Provisioning state.
-      * `schema_item_type_link` (`str`) - The schema org link. This helps ACI identify and suggest semantic models.
-      * `small_image` (`str`) - Small Image associated with the Property or EntityType.
-      * `strong_ids` (`list`) - The strong IDs.
-        * `description` (`dict`) - Localized descriptions.
-        * `display_name` (`dict`) - Localized display name.
-        * `key_property_names` (`list`) - The properties which make up the unique ID.
-        * `strong_id_name` (`str`) - The Name identifying the strong ID.
-
-      * `tenant_id` (`str`) - The hub name.
-      * `timestamp_field_name` (`str`) - The timestamp property name. Represents the time when the interaction or profile update happened.
-      * `type_name` (`str`) - The name of the entity.
+    Provisioning state.
+    """
+    schema_item_type_link: pulumi.Output[str]
+    """
+    The schema org link. This helps ACI identify and suggest semantic models.
+    """
+    small_image: pulumi.Output[str]
+    """
+    Small Image associated with the Property or EntityType.
+    """
+    strong_ids: pulumi.Output[list]
+    """
+    The strong IDs.
+      * `description` (`dict`) - Localized descriptions.
+      * `display_name` (`dict`) - Localized display name.
+      * `key_property_names` (`list`) - The properties which make up the unique ID.
+      * `strong_id_name` (`str`) - The Name identifying the strong ID.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The hub name.
+    """
+    timestamp_field_name: pulumi.Output[str]
+    """
+    The timestamp property name. Represents the time when the interaction or profile update happened.
     """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    type_name: pulumi.Output[str]
+    """
+    The name of the entity.
     """
     def __init__(__self__, resource_name, opts=None, api_entity_set_name=None, attributes=None, description=None, display_name=None, entity_type=None, fields=None, hub_name=None, instances_count=None, large_image=None, localized_attributes=None, medium_image=None, name=None, resource_group_name=None, schema_item_type_link=None, small_image=None, strong_ids=None, timestamp_field_name=None, type_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -168,7 +214,9 @@ class Profile(pulumi.CustomResource):
             __props__['strong_ids'] = strong_ids
             __props__['timestamp_field_name'] = timestamp_field_name
             __props__['type_name'] = type_name
-            __props__['properties'] = None
+            __props__['last_changed_utc'] = None
+            __props__['provisioning_state'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(Profile, __self__).__init__(
             'azurerm:customerinsights/v20170426:Profile',

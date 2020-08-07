@@ -10,35 +10,51 @@ from ... import _utilities, _tables
 
 
 class Certificate(pulumi.CustomResource):
+    delete_certificate_error: pulumi.Output[dict]
+    """
+    This is only returned when the certificate provisioningState is 'Failed'.
+      * `code` (`str`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+      * `details` (`list`) - A list of additional details about the error.
+      * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
+      * `target` (`str`) - The target of the particular error. For example, the name of the property in error.
+    """
     etag: pulumi.Output[str]
     """
     The ETag of the resource, used for concurrency statements.
+    """
+    format: pulumi.Output[str]
+    """
+    The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
     """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    previous_provisioning_state: pulumi.Output[str]
     """
-    The properties associated with the certificate.
-      * `delete_certificate_error` (`dict`) - This is only returned when the certificate provisioningState is 'Failed'.
-        * `code` (`str`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        * `details` (`list`) - A list of additional details about the error.
-        * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
-        * `target` (`str`) - The target of the particular error. For example, the name of the property in error.
+    The previous provisioned state of the resource
+    """
+    previous_provisioning_state_transition_time: pulumi.Output[str]
+    provisioning_state: pulumi.Output[str]
+    """
+    Values are:
 
-      * `format` (`str`) - The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-      * `previous_provisioning_state` (`str`) - The previous provisioned state of the resource
-      * `previous_provisioning_state_transition_time` (`str`)
-      * `provisioning_state` (`str`) - Values are:
-        
-         Succeeded - The certificate is available for use in pools.
-         Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
-         Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
-      * `provisioning_state_transition_time` (`str`)
-      * `public_data` (`str`) - The public key of the certificate.
-      * `thumbprint` (`str`) - This must match the thumbprint from the name.
-      * `thumbprint_algorithm` (`str`) - This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+     Succeeded - The certificate is available for use in pools.
+     Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
+     Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
+    """
+    provisioning_state_transition_time: pulumi.Output[str]
+    public_data: pulumi.Output[str]
+    """
+    The public key of the certificate.
+    """
+    thumbprint: pulumi.Output[str]
+    """
+    This must match the thumbprint from the name.
+    """
+    thumbprint_algorithm: pulumi.Output[str]
+    """
+    This must match the first portion of the certificate name. Currently required to be 'SHA1'.
     """
     type: pulumi.Output[str]
     """
@@ -92,8 +108,13 @@ class Certificate(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['thumbprint'] = thumbprint
             __props__['thumbprint_algorithm'] = thumbprint_algorithm
+            __props__['delete_certificate_error'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['previous_provisioning_state'] = None
+            __props__['previous_provisioning_state_transition_time'] = None
+            __props__['provisioning_state'] = None
+            __props__['provisioning_state_transition_time'] = None
+            __props__['public_data'] = None
             __props__['type'] = None
         super(Certificate, __self__).__init__(
             'azurerm:batch/v20170901:Certificate',

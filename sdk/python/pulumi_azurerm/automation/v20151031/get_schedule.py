@@ -13,18 +13,96 @@ class GetScheduleResult:
     """
     Definition of the schedule.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, advanced_schedule=None, creation_time=None, description=None, expiry_time=None, expiry_time_offset_minutes=None, frequency=None, interval=None, is_enabled=None, last_modified_time=None, name=None, next_run=None, next_run_offset_minutes=None, start_time=None, start_time_offset_minutes=None, time_zone=None, type=None):
+        if advanced_schedule and not isinstance(advanced_schedule, dict):
+            raise TypeError("Expected argument 'advanced_schedule' to be a dict")
+        __self__.advanced_schedule = advanced_schedule
+        """
+        Gets or sets the advanced schedule.
+        """
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets or sets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
+        if expiry_time and not isinstance(expiry_time, str):
+            raise TypeError("Expected argument 'expiry_time' to be a str")
+        __self__.expiry_time = expiry_time
+        """
+        Gets or sets the end time of the schedule.
+        """
+        if expiry_time_offset_minutes and not isinstance(expiry_time_offset_minutes, float):
+            raise TypeError("Expected argument 'expiry_time_offset_minutes' to be a float")
+        __self__.expiry_time_offset_minutes = expiry_time_offset_minutes
+        """
+        Gets or sets the expiry time's offset in minutes.
+        """
+        if frequency and not isinstance(frequency, str):
+            raise TypeError("Expected argument 'frequency' to be a str")
+        __self__.frequency = frequency
+        """
+        Gets or sets the frequency of the schedule.
+        """
+        if interval and not isinstance(interval, dict):
+            raise TypeError("Expected argument 'interval' to be a dict")
+        __self__.interval = interval
+        """
+        Gets or sets the interval of the schedule.
+        """
+        if is_enabled and not isinstance(is_enabled, bool):
+            raise TypeError("Expected argument 'is_enabled' to be a bool")
+        __self__.is_enabled = is_enabled
+        """
+        Gets or sets a value indicating whether this schedule is enabled.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets or sets the last modified time.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if next_run and not isinstance(next_run, str):
+            raise TypeError("Expected argument 'next_run' to be a str")
+        __self__.next_run = next_run
         """
-        Gets or sets the properties of the schedule.
+        Gets or sets the next run time of the schedule.
+        """
+        if next_run_offset_minutes and not isinstance(next_run_offset_minutes, float):
+            raise TypeError("Expected argument 'next_run_offset_minutes' to be a float")
+        __self__.next_run_offset_minutes = next_run_offset_minutes
+        """
+        Gets or sets the next run time's offset in minutes.
+        """
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        __self__.start_time = start_time
+        """
+        Gets or sets the start time of the schedule.
+        """
+        if start_time_offset_minutes and not isinstance(start_time_offset_minutes, float):
+            raise TypeError("Expected argument 'start_time_offset_minutes' to be a float")
+        __self__.start_time_offset_minutes = start_time_offset_minutes
+        """
+        Gets the start time's offset in minutes.
+        """
+        if time_zone and not isinstance(time_zone, str):
+            raise TypeError("Expected argument 'time_zone' to be a str")
+        __self__.time_zone = time_zone
+        """
+        Gets or sets the time zone of the schedule.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +118,21 @@ class AwaitableGetScheduleResult(GetScheduleResult):
         if False:
             yield self
         return GetScheduleResult(
+            advanced_schedule=self.advanced_schedule,
+            creation_time=self.creation_time,
+            description=self.description,
+            expiry_time=self.expiry_time,
+            expiry_time_offset_minutes=self.expiry_time_offset_minutes,
+            frequency=self.frequency,
+            interval=self.interval,
+            is_enabled=self.is_enabled,
+            last_modified_time=self.last_modified_time,
             name=self.name,
-            properties=self.properties,
+            next_run=self.next_run,
+            next_run_offset_minutes=self.next_run_offset_minutes,
+            start_time=self.start_time,
+            start_time_offset_minutes=self.start_time_offset_minutes,
+            time_zone=self.time_zone,
             type=self.type)
 
 
@@ -64,6 +155,19 @@ def get_schedule(automation_account_name=None, name=None, resource_group_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getSchedule', __args__, opts=opts).value
 
     return AwaitableGetScheduleResult(
+        advanced_schedule=__ret__.get('advancedSchedule'),
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
+        expiry_time=__ret__.get('expiryTime'),
+        expiry_time_offset_minutes=__ret__.get('expiryTimeOffsetMinutes'),
+        frequency=__ret__.get('frequency'),
+        interval=__ret__.get('interval'),
+        is_enabled=__ret__.get('isEnabled'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        next_run=__ret__.get('nextRun'),
+        next_run_offset_minutes=__ret__.get('nextRunOffsetMinutes'),
+        start_time=__ret__.get('startTime'),
+        start_time_offset_minutes=__ret__.get('startTimeOffsetMinutes'),
+        time_zone=__ret__.get('timeZone'),
         type=__ret__.get('type'))

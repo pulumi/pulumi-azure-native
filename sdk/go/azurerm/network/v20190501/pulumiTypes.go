@@ -309,205 +309,20 @@ func (o BackendPoolArrayOutput) Index(i pulumi.IntInput) BackendPoolOutput {
 	}).(BackendPoolOutput)
 }
 
-// The JSON object that contains the properties required to create a routing rule.
-type BackendPoolPropertiesResponse struct {
+// A backend pool is a collection of backends that can be routed to.
+type BackendPoolResponse struct {
 	// The set of backends for this pool
 	Backends []BackendResponse `pulumi:"backends"`
 	// L7 health probe settings for a backend pool
 	HealthProbeSettings *SubResourceResponse `pulumi:"healthProbeSettings"`
-	// Load balancing settings for a backend pool
-	LoadBalancingSettings *SubResourceResponse `pulumi:"loadBalancingSettings"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
-}
-
-// BackendPoolPropertiesResponseInput is an input type that accepts BackendPoolPropertiesResponseArgs and BackendPoolPropertiesResponseOutput values.
-// You can construct a concrete instance of `BackendPoolPropertiesResponseInput` via:
-//
-//          BackendPoolPropertiesResponseArgs{...}
-type BackendPoolPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToBackendPoolPropertiesResponseOutput() BackendPoolPropertiesResponseOutput
-	ToBackendPoolPropertiesResponseOutputWithContext(context.Context) BackendPoolPropertiesResponseOutput
-}
-
-// The JSON object that contains the properties required to create a routing rule.
-type BackendPoolPropertiesResponseArgs struct {
-	// The set of backends for this pool
-	Backends BackendResponseArrayInput `pulumi:"backends"`
-	// L7 health probe settings for a backend pool
-	HealthProbeSettings SubResourceResponsePtrInput `pulumi:"healthProbeSettings"`
-	// Load balancing settings for a backend pool
-	LoadBalancingSettings SubResourceResponsePtrInput `pulumi:"loadBalancingSettings"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
-}
-
-func (BackendPoolPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackendPoolPropertiesResponse)(nil)).Elem()
-}
-
-func (i BackendPoolPropertiesResponseArgs) ToBackendPoolPropertiesResponseOutput() BackendPoolPropertiesResponseOutput {
-	return i.ToBackendPoolPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i BackendPoolPropertiesResponseArgs) ToBackendPoolPropertiesResponseOutputWithContext(ctx context.Context) BackendPoolPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendPoolPropertiesResponseOutput)
-}
-
-func (i BackendPoolPropertiesResponseArgs) ToBackendPoolPropertiesResponsePtrOutput() BackendPoolPropertiesResponsePtrOutput {
-	return i.ToBackendPoolPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BackendPoolPropertiesResponseArgs) ToBackendPoolPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendPoolPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendPoolPropertiesResponseOutput).ToBackendPoolPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// BackendPoolPropertiesResponsePtrInput is an input type that accepts BackendPoolPropertiesResponseArgs, BackendPoolPropertiesResponsePtr and BackendPoolPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `BackendPoolPropertiesResponsePtrInput` via:
-//
-//          BackendPoolPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type BackendPoolPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToBackendPoolPropertiesResponsePtrOutput() BackendPoolPropertiesResponsePtrOutput
-	ToBackendPoolPropertiesResponsePtrOutputWithContext(context.Context) BackendPoolPropertiesResponsePtrOutput
-}
-
-type backendPoolPropertiesResponsePtrType BackendPoolPropertiesResponseArgs
-
-func BackendPoolPropertiesResponsePtr(v *BackendPoolPropertiesResponseArgs) BackendPoolPropertiesResponsePtrInput {
-	return (*backendPoolPropertiesResponsePtrType)(v)
-}
-
-func (*backendPoolPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackendPoolPropertiesResponse)(nil)).Elem()
-}
-
-func (i *backendPoolPropertiesResponsePtrType) ToBackendPoolPropertiesResponsePtrOutput() BackendPoolPropertiesResponsePtrOutput {
-	return i.ToBackendPoolPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *backendPoolPropertiesResponsePtrType) ToBackendPoolPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendPoolPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendPoolPropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties required to create a routing rule.
-type BackendPoolPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (BackendPoolPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackendPoolPropertiesResponse)(nil)).Elem()
-}
-
-func (o BackendPoolPropertiesResponseOutput) ToBackendPoolPropertiesResponseOutput() BackendPoolPropertiesResponseOutput {
-	return o
-}
-
-func (o BackendPoolPropertiesResponseOutput) ToBackendPoolPropertiesResponseOutputWithContext(ctx context.Context) BackendPoolPropertiesResponseOutput {
-	return o
-}
-
-func (o BackendPoolPropertiesResponseOutput) ToBackendPoolPropertiesResponsePtrOutput() BackendPoolPropertiesResponsePtrOutput {
-	return o.ToBackendPoolPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BackendPoolPropertiesResponseOutput) ToBackendPoolPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendPoolPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BackendPoolPropertiesResponse) *BackendPoolPropertiesResponse {
-		return &v
-	}).(BackendPoolPropertiesResponsePtrOutput)
-}
-
-// The set of backends for this pool
-func (o BackendPoolPropertiesResponseOutput) Backends() BackendResponseArrayOutput {
-	return o.ApplyT(func(v BackendPoolPropertiesResponse) []BackendResponse { return v.Backends }).(BackendResponseArrayOutput)
-}
-
-// L7 health probe settings for a backend pool
-func (o BackendPoolPropertiesResponseOutput) HealthProbeSettings() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v BackendPoolPropertiesResponse) *SubResourceResponse { return v.HealthProbeSettings }).(SubResourceResponsePtrOutput)
-}
-
-// Load balancing settings for a backend pool
-func (o BackendPoolPropertiesResponseOutput) LoadBalancingSettings() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v BackendPoolPropertiesResponse) *SubResourceResponse { return v.LoadBalancingSettings }).(SubResourceResponsePtrOutput)
-}
-
-// Resource status.
-func (o BackendPoolPropertiesResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackendPoolPropertiesResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
-type BackendPoolPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (BackendPoolPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackendPoolPropertiesResponse)(nil)).Elem()
-}
-
-func (o BackendPoolPropertiesResponsePtrOutput) ToBackendPoolPropertiesResponsePtrOutput() BackendPoolPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o BackendPoolPropertiesResponsePtrOutput) ToBackendPoolPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendPoolPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o BackendPoolPropertiesResponsePtrOutput) Elem() BackendPoolPropertiesResponseOutput {
-	return o.ApplyT(func(v *BackendPoolPropertiesResponse) BackendPoolPropertiesResponse { return *v }).(BackendPoolPropertiesResponseOutput)
-}
-
-// The set of backends for this pool
-func (o BackendPoolPropertiesResponsePtrOutput) Backends() BackendResponseArrayOutput {
-	return o.ApplyT(func(v *BackendPoolPropertiesResponse) []BackendResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Backends
-	}).(BackendResponseArrayOutput)
-}
-
-// L7 health probe settings for a backend pool
-func (o BackendPoolPropertiesResponsePtrOutput) HealthProbeSettings() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *BackendPoolPropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.HealthProbeSettings
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Load balancing settings for a backend pool
-func (o BackendPoolPropertiesResponsePtrOutput) LoadBalancingSettings() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *BackendPoolPropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.LoadBalancingSettings
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Resource status.
-func (o BackendPoolPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackendPoolPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceState
-	}).(pulumi.StringPtrOutput)
-}
-
-// A backend pool is a collection of backends that can be routed to.
-type BackendPoolResponse struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// Load balancing settings for a backend pool
+	LoadBalancingSettings *SubResourceResponse `pulumi:"loadBalancingSettings"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Front Door Backend Pool
-	Properties *BackendPoolPropertiesResponse `pulumi:"properties"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -525,12 +340,18 @@ type BackendPoolResponseInput interface {
 
 // A backend pool is a collection of backends that can be routed to.
 type BackendPoolResponseArgs struct {
+	// The set of backends for this pool
+	Backends BackendResponseArrayInput `pulumi:"backends"`
+	// L7 health probe settings for a backend pool
+	HealthProbeSettings SubResourceResponsePtrInput `pulumi:"healthProbeSettings"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Load balancing settings for a backend pool
+	LoadBalancingSettings SubResourceResponsePtrInput `pulumi:"loadBalancingSettings"`
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties of the Front Door Backend Pool
-	Properties BackendPoolPropertiesResponsePtrInput `pulumi:"properties"`
+	// Resource status.
+	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -587,9 +408,24 @@ func (o BackendPoolResponseOutput) ToBackendPoolResponseOutputWithContext(ctx co
 	return o
 }
 
+// The set of backends for this pool
+func (o BackendPoolResponseOutput) Backends() BackendResponseArrayOutput {
+	return o.ApplyT(func(v BackendPoolResponse) []BackendResponse { return v.Backends }).(BackendResponseArrayOutput)
+}
+
+// L7 health probe settings for a backend pool
+func (o BackendPoolResponseOutput) HealthProbeSettings() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v BackendPoolResponse) *SubResourceResponse { return v.HealthProbeSettings }).(SubResourceResponsePtrOutput)
+}
+
 // Resource ID.
 func (o BackendPoolResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendPoolResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Load balancing settings for a backend pool
+func (o BackendPoolResponseOutput) LoadBalancingSettings() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v BackendPoolResponse) *SubResourceResponse { return v.LoadBalancingSettings }).(SubResourceResponsePtrOutput)
 }
 
 // Resource name.
@@ -597,9 +433,9 @@ func (o BackendPoolResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendPoolResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Properties of the Front Door Backend Pool
-func (o BackendPoolResponseOutput) Properties() BackendPoolPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BackendPoolResponse) *BackendPoolPropertiesResponse { return v.Properties }).(BackendPoolPropertiesResponsePtrOutput)
+// Resource status.
+func (o BackendPoolResponseOutput) ResourceState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackendPoolResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
 }
 
 // Resource type.
@@ -1091,14 +927,18 @@ func (o BackendResponseArrayOutput) Index(i pulumi.IntInput) BackendResponseOutp
 type CustomHttpsConfigurationResponse struct {
 	// Defines the source of the SSL certificate
 	CertificateSource string `pulumi:"certificateSource"`
-	// Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)
-	FrontDoorCertificateSourceParameters *FrontDoorCertificateSourceParametersResponse `pulumi:"frontDoorCertificateSourceParameters"`
-	// KeyVault certificate source parameters (if certificateSource=AzureKeyVault)
-	KeyVaultCertificateSourceParameters *KeyVaultCertificateSourceParametersResponse `pulumi:"keyVaultCertificateSourceParameters"`
+	// Defines the type of the certificate used for secure connections to a frontendEndpoint
+	CertificateType *string `pulumi:"certificateType"`
 	// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
 	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
 	// Defines the TLS extension protocol that is used for secure delivery
 	ProtocolType string `pulumi:"protocolType"`
+	// The name of the Key Vault secret representing the full certificate PFX
+	SecretName *string `pulumi:"secretName"`
+	// The version of the Key Vault secret representing the full certificate PFX
+	SecretVersion *string `pulumi:"secretVersion"`
+	// The Key Vault containing the SSL certificate
+	Vault *KeyVaultCertificateSourceParametersResponseVault `pulumi:"vault"`
 }
 
 // CustomHttpsConfigurationResponseInput is an input type that accepts CustomHttpsConfigurationResponseArgs and CustomHttpsConfigurationResponseOutput values.
@@ -1116,14 +956,18 @@ type CustomHttpsConfigurationResponseInput interface {
 type CustomHttpsConfigurationResponseArgs struct {
 	// Defines the source of the SSL certificate
 	CertificateSource pulumi.StringInput `pulumi:"certificateSource"`
-	// Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)
-	FrontDoorCertificateSourceParameters FrontDoorCertificateSourceParametersResponsePtrInput `pulumi:"frontDoorCertificateSourceParameters"`
-	// KeyVault certificate source parameters (if certificateSource=AzureKeyVault)
-	KeyVaultCertificateSourceParameters KeyVaultCertificateSourceParametersResponsePtrInput `pulumi:"keyVaultCertificateSourceParameters"`
+	// Defines the type of the certificate used for secure connections to a frontendEndpoint
+	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
 	// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
 	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
 	// Defines the TLS extension protocol that is used for secure delivery
 	ProtocolType pulumi.StringInput `pulumi:"protocolType"`
+	// The name of the Key Vault secret representing the full certificate PFX
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
+	// The version of the Key Vault secret representing the full certificate PFX
+	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+	// The Key Vault containing the SSL certificate
+	Vault KeyVaultCertificateSourceParametersResponseVaultPtrInput `pulumi:"vault"`
 }
 
 func (CustomHttpsConfigurationResponseArgs) ElementType() reflect.Type {
@@ -1136,47 +980,6 @@ func (i CustomHttpsConfigurationResponseArgs) ToCustomHttpsConfigurationResponse
 
 func (i CustomHttpsConfigurationResponseArgs) ToCustomHttpsConfigurationResponseOutputWithContext(ctx context.Context) CustomHttpsConfigurationResponseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationResponseOutput)
-}
-
-func (i CustomHttpsConfigurationResponseArgs) ToCustomHttpsConfigurationResponsePtrOutput() CustomHttpsConfigurationResponsePtrOutput {
-	return i.ToCustomHttpsConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CustomHttpsConfigurationResponseArgs) ToCustomHttpsConfigurationResponsePtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationResponseOutput).ToCustomHttpsConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-// CustomHttpsConfigurationResponsePtrInput is an input type that accepts CustomHttpsConfigurationResponseArgs, CustomHttpsConfigurationResponsePtr and CustomHttpsConfigurationResponsePtrOutput values.
-// You can construct a concrete instance of `CustomHttpsConfigurationResponsePtrInput` via:
-//
-//          CustomHttpsConfigurationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CustomHttpsConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToCustomHttpsConfigurationResponsePtrOutput() CustomHttpsConfigurationResponsePtrOutput
-	ToCustomHttpsConfigurationResponsePtrOutputWithContext(context.Context) CustomHttpsConfigurationResponsePtrOutput
-}
-
-type customHttpsConfigurationResponsePtrType CustomHttpsConfigurationResponseArgs
-
-func CustomHttpsConfigurationResponsePtr(v *CustomHttpsConfigurationResponseArgs) CustomHttpsConfigurationResponsePtrInput {
-	return (*customHttpsConfigurationResponsePtrType)(v)
-}
-
-func (*customHttpsConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomHttpsConfigurationResponse)(nil)).Elem()
-}
-
-func (i *customHttpsConfigurationResponsePtrType) ToCustomHttpsConfigurationResponsePtrOutput() CustomHttpsConfigurationResponsePtrOutput {
-	return i.ToCustomHttpsConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *customHttpsConfigurationResponsePtrType) ToCustomHttpsConfigurationResponsePtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationResponsePtrOutput)
 }
 
 // Https settings for a domain
@@ -1194,33 +997,14 @@ func (o CustomHttpsConfigurationResponseOutput) ToCustomHttpsConfigurationRespon
 	return o
 }
 
-func (o CustomHttpsConfigurationResponseOutput) ToCustomHttpsConfigurationResponsePtrOutput() CustomHttpsConfigurationResponsePtrOutput {
-	return o.ToCustomHttpsConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CustomHttpsConfigurationResponseOutput) ToCustomHttpsConfigurationResponsePtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *CustomHttpsConfigurationResponse {
-		return &v
-	}).(CustomHttpsConfigurationResponsePtrOutput)
-}
-
 // Defines the source of the SSL certificate
 func (o CustomHttpsConfigurationResponseOutput) CertificateSource() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationResponse) string { return v.CertificateSource }).(pulumi.StringOutput)
 }
 
-// Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)
-func (o CustomHttpsConfigurationResponseOutput) FrontDoorCertificateSourceParameters() FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *FrontDoorCertificateSourceParametersResponse {
-		return v.FrontDoorCertificateSourceParameters
-	}).(FrontDoorCertificateSourceParametersResponsePtrOutput)
-}
-
-// KeyVault certificate source parameters (if certificateSource=AzureKeyVault)
-func (o CustomHttpsConfigurationResponseOutput) KeyVaultCertificateSourceParameters() KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *KeyVaultCertificateSourceParametersResponse {
-		return v.KeyVaultCertificateSourceParameters
-	}).(KeyVaultCertificateSourceParametersResponsePtrOutput)
+// Defines the type of the certificate used for secure connections to a frontendEndpoint
+func (o CustomHttpsConfigurationResponseOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
 }
 
 // The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
@@ -1233,534 +1017,21 @@ func (o CustomHttpsConfigurationResponseOutput) ProtocolType() pulumi.StringOutp
 	return o.ApplyT(func(v CustomHttpsConfigurationResponse) string { return v.ProtocolType }).(pulumi.StringOutput)
 }
 
-type CustomHttpsConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CustomHttpsConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomHttpsConfigurationResponse)(nil)).Elem()
-}
-
-func (o CustomHttpsConfigurationResponsePtrOutput) ToCustomHttpsConfigurationResponsePtrOutput() CustomHttpsConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o CustomHttpsConfigurationResponsePtrOutput) ToCustomHttpsConfigurationResponsePtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o CustomHttpsConfigurationResponsePtrOutput) Elem() CustomHttpsConfigurationResponseOutput {
-	return o.ApplyT(func(v *CustomHttpsConfigurationResponse) CustomHttpsConfigurationResponse { return *v }).(CustomHttpsConfigurationResponseOutput)
-}
-
-// Defines the source of the SSL certificate
-func (o CustomHttpsConfigurationResponsePtrOutput) CertificateSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomHttpsConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CertificateSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)
-func (o CustomHttpsConfigurationResponsePtrOutput) FrontDoorCertificateSourceParameters() FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return o.ApplyT(func(v *CustomHttpsConfigurationResponse) *FrontDoorCertificateSourceParametersResponse {
-		if v == nil {
-			return nil
-		}
-		return v.FrontDoorCertificateSourceParameters
-	}).(FrontDoorCertificateSourceParametersResponsePtrOutput)
-}
-
-// KeyVault certificate source parameters (if certificateSource=AzureKeyVault)
-func (o CustomHttpsConfigurationResponsePtrOutput) KeyVaultCertificateSourceParameters() KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return o.ApplyT(func(v *CustomHttpsConfigurationResponse) *KeyVaultCertificateSourceParametersResponse {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultCertificateSourceParameters
-	}).(KeyVaultCertificateSourceParametersResponsePtrOutput)
-}
-
-// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
-func (o CustomHttpsConfigurationResponsePtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomHttpsConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MinimumTlsVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the TLS extension protocol that is used for secure delivery
-func (o CustomHttpsConfigurationResponsePtrOutput) ProtocolType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomHttpsConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProtocolType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Parameters required for enabling SSL with Front Door-managed certificates
-type FrontDoorCertificateSourceParametersResponse struct {
-	// Defines the type of the certificate used for secure connections to a frontendEndpoint
-	CertificateType *string `pulumi:"certificateType"`
-}
-
-// FrontDoorCertificateSourceParametersResponseInput is an input type that accepts FrontDoorCertificateSourceParametersResponseArgs and FrontDoorCertificateSourceParametersResponseOutput values.
-// You can construct a concrete instance of `FrontDoorCertificateSourceParametersResponseInput` via:
-//
-//          FrontDoorCertificateSourceParametersResponseArgs{...}
-type FrontDoorCertificateSourceParametersResponseInput interface {
-	pulumi.Input
-
-	ToFrontDoorCertificateSourceParametersResponseOutput() FrontDoorCertificateSourceParametersResponseOutput
-	ToFrontDoorCertificateSourceParametersResponseOutputWithContext(context.Context) FrontDoorCertificateSourceParametersResponseOutput
-}
-
-// Parameters required for enabling SSL with Front Door-managed certificates
-type FrontDoorCertificateSourceParametersResponseArgs struct {
-	// Defines the type of the certificate used for secure connections to a frontendEndpoint
-	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
-}
-
-func (FrontDoorCertificateSourceParametersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorCertificateSourceParametersResponse)(nil)).Elem()
-}
-
-func (i FrontDoorCertificateSourceParametersResponseArgs) ToFrontDoorCertificateSourceParametersResponseOutput() FrontDoorCertificateSourceParametersResponseOutput {
-	return i.ToFrontDoorCertificateSourceParametersResponseOutputWithContext(context.Background())
-}
-
-func (i FrontDoorCertificateSourceParametersResponseArgs) ToFrontDoorCertificateSourceParametersResponseOutputWithContext(ctx context.Context) FrontDoorCertificateSourceParametersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorCertificateSourceParametersResponseOutput)
-}
-
-func (i FrontDoorCertificateSourceParametersResponseArgs) ToFrontDoorCertificateSourceParametersResponsePtrOutput() FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return i.ToFrontDoorCertificateSourceParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FrontDoorCertificateSourceParametersResponseArgs) ToFrontDoorCertificateSourceParametersResponsePtrOutputWithContext(ctx context.Context) FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorCertificateSourceParametersResponseOutput).ToFrontDoorCertificateSourceParametersResponsePtrOutputWithContext(ctx)
-}
-
-// FrontDoorCertificateSourceParametersResponsePtrInput is an input type that accepts FrontDoorCertificateSourceParametersResponseArgs, FrontDoorCertificateSourceParametersResponsePtr and FrontDoorCertificateSourceParametersResponsePtrOutput values.
-// You can construct a concrete instance of `FrontDoorCertificateSourceParametersResponsePtrInput` via:
-//
-//          FrontDoorCertificateSourceParametersResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FrontDoorCertificateSourceParametersResponsePtrInput interface {
-	pulumi.Input
-
-	ToFrontDoorCertificateSourceParametersResponsePtrOutput() FrontDoorCertificateSourceParametersResponsePtrOutput
-	ToFrontDoorCertificateSourceParametersResponsePtrOutputWithContext(context.Context) FrontDoorCertificateSourceParametersResponsePtrOutput
-}
-
-type frontDoorCertificateSourceParametersResponsePtrType FrontDoorCertificateSourceParametersResponseArgs
-
-func FrontDoorCertificateSourceParametersResponsePtr(v *FrontDoorCertificateSourceParametersResponseArgs) FrontDoorCertificateSourceParametersResponsePtrInput {
-	return (*frontDoorCertificateSourceParametersResponsePtrType)(v)
-}
-
-func (*frontDoorCertificateSourceParametersResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontDoorCertificateSourceParametersResponse)(nil)).Elem()
-}
-
-func (i *frontDoorCertificateSourceParametersResponsePtrType) ToFrontDoorCertificateSourceParametersResponsePtrOutput() FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return i.ToFrontDoorCertificateSourceParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *frontDoorCertificateSourceParametersResponsePtrType) ToFrontDoorCertificateSourceParametersResponsePtrOutputWithContext(ctx context.Context) FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorCertificateSourceParametersResponsePtrOutput)
-}
-
-// Parameters required for enabling SSL with Front Door-managed certificates
-type FrontDoorCertificateSourceParametersResponseOutput struct{ *pulumi.OutputState }
-
-func (FrontDoorCertificateSourceParametersResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorCertificateSourceParametersResponse)(nil)).Elem()
-}
-
-func (o FrontDoorCertificateSourceParametersResponseOutput) ToFrontDoorCertificateSourceParametersResponseOutput() FrontDoorCertificateSourceParametersResponseOutput {
-	return o
-}
-
-func (o FrontDoorCertificateSourceParametersResponseOutput) ToFrontDoorCertificateSourceParametersResponseOutputWithContext(ctx context.Context) FrontDoorCertificateSourceParametersResponseOutput {
-	return o
-}
-
-func (o FrontDoorCertificateSourceParametersResponseOutput) ToFrontDoorCertificateSourceParametersResponsePtrOutput() FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return o.ToFrontDoorCertificateSourceParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FrontDoorCertificateSourceParametersResponseOutput) ToFrontDoorCertificateSourceParametersResponsePtrOutputWithContext(ctx context.Context) FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return o.ApplyT(func(v FrontDoorCertificateSourceParametersResponse) *FrontDoorCertificateSourceParametersResponse {
-		return &v
-	}).(FrontDoorCertificateSourceParametersResponsePtrOutput)
-}
-
-// Defines the type of the certificate used for secure connections to a frontendEndpoint
-func (o FrontDoorCertificateSourceParametersResponseOutput) CertificateType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontDoorCertificateSourceParametersResponse) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
-}
-
-type FrontDoorCertificateSourceParametersResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (FrontDoorCertificateSourceParametersResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontDoorCertificateSourceParametersResponse)(nil)).Elem()
-}
-
-func (o FrontDoorCertificateSourceParametersResponsePtrOutput) ToFrontDoorCertificateSourceParametersResponsePtrOutput() FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return o
-}
-
-func (o FrontDoorCertificateSourceParametersResponsePtrOutput) ToFrontDoorCertificateSourceParametersResponsePtrOutputWithContext(ctx context.Context) FrontDoorCertificateSourceParametersResponsePtrOutput {
-	return o
-}
-
-func (o FrontDoorCertificateSourceParametersResponsePtrOutput) Elem() FrontDoorCertificateSourceParametersResponseOutput {
-	return o.ApplyT(func(v *FrontDoorCertificateSourceParametersResponse) FrontDoorCertificateSourceParametersResponse {
-		return *v
-	}).(FrontDoorCertificateSourceParametersResponseOutput)
-}
-
-// Defines the type of the certificate used for secure connections to a frontendEndpoint
-func (o FrontDoorCertificateSourceParametersResponsePtrOutput) CertificateType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontDoorCertificateSourceParametersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The JSON object that contains the properties required to create an endpoint.
-type FrontDoorPropertiesResponse struct {
-	// Backend pools available to routing rules.
-	BackendPools []BackendPoolResponse `pulumi:"backendPools"`
-	// Settings for all backendPools
-	BackendPoolsSettings *BackendPoolsSettingsResponse `pulumi:"backendPoolsSettings"`
-	// The host that each frontendEndpoint must CNAME to.
-	Cname string `pulumi:"cname"`
-	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState *string `pulumi:"enabledState"`
-	// A friendly name for the frontDoor
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Frontend endpoints available to routing rules.
-	FrontendEndpoints []FrontendEndpointResponse `pulumi:"frontendEndpoints"`
-	// Health probe settings associated with this Front Door instance.
-	HealthProbeSettings []HealthProbeSettingsModelResponse `pulumi:"healthProbeSettings"`
-	// Load balancing settings associated with this Front Door instance.
-	LoadBalancingSettings []LoadBalancingSettingsModelResponse `pulumi:"loadBalancingSettings"`
-	// Provisioning state of the Front Door.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the Front Door.
-	ResourceState *string `pulumi:"resourceState"`
-	// Routing rules associated with this Front Door.
-	RoutingRules []RoutingRuleResponse `pulumi:"routingRules"`
-}
-
-// FrontDoorPropertiesResponseInput is an input type that accepts FrontDoorPropertiesResponseArgs and FrontDoorPropertiesResponseOutput values.
-// You can construct a concrete instance of `FrontDoorPropertiesResponseInput` via:
-//
-//          FrontDoorPropertiesResponseArgs{...}
-type FrontDoorPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToFrontDoorPropertiesResponseOutput() FrontDoorPropertiesResponseOutput
-	ToFrontDoorPropertiesResponseOutputWithContext(context.Context) FrontDoorPropertiesResponseOutput
-}
-
-// The JSON object that contains the properties required to create an endpoint.
-type FrontDoorPropertiesResponseArgs struct {
-	// Backend pools available to routing rules.
-	BackendPools BackendPoolResponseArrayInput `pulumi:"backendPools"`
-	// Settings for all backendPools
-	BackendPoolsSettings BackendPoolsSettingsResponsePtrInput `pulumi:"backendPoolsSettings"`
-	// The host that each frontendEndpoint must CNAME to.
-	Cname pulumi.StringInput `pulumi:"cname"`
-	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// A friendly name for the frontDoor
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Frontend endpoints available to routing rules.
-	FrontendEndpoints FrontendEndpointResponseArrayInput `pulumi:"frontendEndpoints"`
-	// Health probe settings associated with this Front Door instance.
-	HealthProbeSettings HealthProbeSettingsModelResponseArrayInput `pulumi:"healthProbeSettings"`
-	// Load balancing settings associated with this Front Door instance.
-	LoadBalancingSettings LoadBalancingSettingsModelResponseArrayInput `pulumi:"loadBalancingSettings"`
-	// Provisioning state of the Front Door.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Resource status of the Front Door.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
-	// Routing rules associated with this Front Door.
-	RoutingRules RoutingRuleResponseArrayInput `pulumi:"routingRules"`
-}
-
-func (FrontDoorPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorPropertiesResponse)(nil)).Elem()
-}
-
-func (i FrontDoorPropertiesResponseArgs) ToFrontDoorPropertiesResponseOutput() FrontDoorPropertiesResponseOutput {
-	return i.ToFrontDoorPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i FrontDoorPropertiesResponseArgs) ToFrontDoorPropertiesResponseOutputWithContext(ctx context.Context) FrontDoorPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorPropertiesResponseOutput)
-}
-
-func (i FrontDoorPropertiesResponseArgs) ToFrontDoorPropertiesResponsePtrOutput() FrontDoorPropertiesResponsePtrOutput {
-	return i.ToFrontDoorPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FrontDoorPropertiesResponseArgs) ToFrontDoorPropertiesResponsePtrOutputWithContext(ctx context.Context) FrontDoorPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorPropertiesResponseOutput).ToFrontDoorPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// FrontDoorPropertiesResponsePtrInput is an input type that accepts FrontDoorPropertiesResponseArgs, FrontDoorPropertiesResponsePtr and FrontDoorPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `FrontDoorPropertiesResponsePtrInput` via:
-//
-//          FrontDoorPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FrontDoorPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToFrontDoorPropertiesResponsePtrOutput() FrontDoorPropertiesResponsePtrOutput
-	ToFrontDoorPropertiesResponsePtrOutputWithContext(context.Context) FrontDoorPropertiesResponsePtrOutput
-}
-
-type frontDoorPropertiesResponsePtrType FrontDoorPropertiesResponseArgs
-
-func FrontDoorPropertiesResponsePtr(v *FrontDoorPropertiesResponseArgs) FrontDoorPropertiesResponsePtrInput {
-	return (*frontDoorPropertiesResponsePtrType)(v)
-}
-
-func (*frontDoorPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontDoorPropertiesResponse)(nil)).Elem()
-}
-
-func (i *frontDoorPropertiesResponsePtrType) ToFrontDoorPropertiesResponsePtrOutput() FrontDoorPropertiesResponsePtrOutput {
-	return i.ToFrontDoorPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *frontDoorPropertiesResponsePtrType) ToFrontDoorPropertiesResponsePtrOutputWithContext(ctx context.Context) FrontDoorPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorPropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties required to create an endpoint.
-type FrontDoorPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (FrontDoorPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorPropertiesResponse)(nil)).Elem()
-}
-
-func (o FrontDoorPropertiesResponseOutput) ToFrontDoorPropertiesResponseOutput() FrontDoorPropertiesResponseOutput {
-	return o
-}
-
-func (o FrontDoorPropertiesResponseOutput) ToFrontDoorPropertiesResponseOutputWithContext(ctx context.Context) FrontDoorPropertiesResponseOutput {
-	return o
-}
-
-func (o FrontDoorPropertiesResponseOutput) ToFrontDoorPropertiesResponsePtrOutput() FrontDoorPropertiesResponsePtrOutput {
-	return o.ToFrontDoorPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FrontDoorPropertiesResponseOutput) ToFrontDoorPropertiesResponsePtrOutputWithContext(ctx context.Context) FrontDoorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) *FrontDoorPropertiesResponse {
-		return &v
-	}).(FrontDoorPropertiesResponsePtrOutput)
-}
-
-// Backend pools available to routing rules.
-func (o FrontDoorPropertiesResponseOutput) BackendPools() BackendPoolResponseArrayOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) []BackendPoolResponse { return v.BackendPools }).(BackendPoolResponseArrayOutput)
-}
-
-// Settings for all backendPools
-func (o FrontDoorPropertiesResponseOutput) BackendPoolsSettings() BackendPoolsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) *BackendPoolsSettingsResponse { return v.BackendPoolsSettings }).(BackendPoolsSettingsResponsePtrOutput)
-}
-
-// The host that each frontendEndpoint must CNAME to.
-func (o FrontDoorPropertiesResponseOutput) Cname() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) string { return v.Cname }).(pulumi.StringOutput)
-}
-
-// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-func (o FrontDoorPropertiesResponseOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
-}
-
-// A friendly name for the frontDoor
-func (o FrontDoorPropertiesResponseOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
-}
-
-// Frontend endpoints available to routing rules.
-func (o FrontDoorPropertiesResponseOutput) FrontendEndpoints() FrontendEndpointResponseArrayOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) []FrontendEndpointResponse { return v.FrontendEndpoints }).(FrontendEndpointResponseArrayOutput)
-}
-
-// Health probe settings associated with this Front Door instance.
-func (o FrontDoorPropertiesResponseOutput) HealthProbeSettings() HealthProbeSettingsModelResponseArrayOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) []HealthProbeSettingsModelResponse { return v.HealthProbeSettings }).(HealthProbeSettingsModelResponseArrayOutput)
-}
-
-// Load balancing settings associated with this Front Door instance.
-func (o FrontDoorPropertiesResponseOutput) LoadBalancingSettings() LoadBalancingSettingsModelResponseArrayOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) []LoadBalancingSettingsModelResponse {
-		return v.LoadBalancingSettings
-	}).(LoadBalancingSettingsModelResponseArrayOutput)
-}
-
-// Provisioning state of the Front Door.
-func (o FrontDoorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Resource status of the Front Door.
-func (o FrontDoorPropertiesResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
-// Routing rules associated with this Front Door.
-func (o FrontDoorPropertiesResponseOutput) RoutingRules() RoutingRuleResponseArrayOutput {
-	return o.ApplyT(func(v FrontDoorPropertiesResponse) []RoutingRuleResponse { return v.RoutingRules }).(RoutingRuleResponseArrayOutput)
-}
-
-type FrontDoorPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (FrontDoorPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontDoorPropertiesResponse)(nil)).Elem()
-}
-
-func (o FrontDoorPropertiesResponsePtrOutput) ToFrontDoorPropertiesResponsePtrOutput() FrontDoorPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FrontDoorPropertiesResponsePtrOutput) ToFrontDoorPropertiesResponsePtrOutputWithContext(ctx context.Context) FrontDoorPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FrontDoorPropertiesResponsePtrOutput) Elem() FrontDoorPropertiesResponseOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) FrontDoorPropertiesResponse { return *v }).(FrontDoorPropertiesResponseOutput)
-}
-
-// Backend pools available to routing rules.
-func (o FrontDoorPropertiesResponsePtrOutput) BackendPools() BackendPoolResponseArrayOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) []BackendPoolResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BackendPools
-	}).(BackendPoolResponseArrayOutput)
-}
-
-// Settings for all backendPools
-func (o FrontDoorPropertiesResponsePtrOutput) BackendPoolsSettings() BackendPoolsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) *BackendPoolsSettingsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BackendPoolsSettings
-	}).(BackendPoolsSettingsResponsePtrOutput)
-}
-
-// The host that each frontendEndpoint must CNAME to.
-func (o FrontDoorPropertiesResponsePtrOutput) Cname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Cname
-	}).(pulumi.StringPtrOutput)
-}
-
-// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-func (o FrontDoorPropertiesResponsePtrOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnabledState
-	}).(pulumi.StringPtrOutput)
-}
-
-// A friendly name for the frontDoor
-func (o FrontDoorPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FriendlyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Frontend endpoints available to routing rules.
-func (o FrontDoorPropertiesResponsePtrOutput) FrontendEndpoints() FrontendEndpointResponseArrayOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) []FrontendEndpointResponse {
-		if v == nil {
-			return nil
-		}
-		return v.FrontendEndpoints
-	}).(FrontendEndpointResponseArrayOutput)
-}
-
-// Health probe settings associated with this Front Door instance.
-func (o FrontDoorPropertiesResponsePtrOutput) HealthProbeSettings() HealthProbeSettingsModelResponseArrayOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) []HealthProbeSettingsModelResponse {
-		if v == nil {
-			return nil
-		}
-		return v.HealthProbeSettings
-	}).(HealthProbeSettingsModelResponseArrayOutput)
-}
-
-// Load balancing settings associated with this Front Door instance.
-func (o FrontDoorPropertiesResponsePtrOutput) LoadBalancingSettings() LoadBalancingSettingsModelResponseArrayOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) []LoadBalancingSettingsModelResponse {
-		if v == nil {
-			return nil
-		}
-		return v.LoadBalancingSettings
-	}).(LoadBalancingSettingsModelResponseArrayOutput)
-}
-
-// Provisioning state of the Front Door.
-func (o FrontDoorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
+// The name of the Key Vault secret representing the full certificate PFX
+func (o CustomHttpsConfigurationResponseOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *string { return v.SecretName }).(pulumi.StringPtrOutput)
 }
 
-// Resource status of the Front Door.
-func (o FrontDoorPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceState
-	}).(pulumi.StringPtrOutput)
+// The version of the Key Vault secret representing the full certificate PFX
+func (o CustomHttpsConfigurationResponseOutput) SecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
 }
 
-// Routing rules associated with this Front Door.
-func (o FrontDoorPropertiesResponsePtrOutput) RoutingRules() RoutingRuleResponseArrayOutput {
-	return o.ApplyT(func(v *FrontDoorPropertiesResponse) []RoutingRuleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.RoutingRules
-	}).(RoutingRuleResponseArrayOutput)
+// The Key Vault containing the SSL certificate
+func (o CustomHttpsConfigurationResponseOutput) Vault() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationResponse) *KeyVaultCertificateSourceParametersResponseVault {
+		return v.Vault
+	}).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
 
 // A frontend endpoint used for routing.
@@ -1919,8 +1190,8 @@ func (o FrontendEndpointArrayOutput) Index(i pulumi.IntInput) FrontendEndpointOu
 	}).(FrontendEndpointOutput)
 }
 
-// The JSON object that contains the properties required to create a frontend endpoint.
-type FrontendEndpointPropertiesResponse struct {
+// A frontend endpoint used for routing.
+type FrontendEndpointResponse struct {
 	// The configuration specifying how to enable HTTPS
 	CustomHttpsConfiguration CustomHttpsConfigurationResponse `pulumi:"customHttpsConfiguration"`
 	// Provisioning status of Custom Https of the frontendEndpoint.
@@ -1929,277 +1200,20 @@ type FrontendEndpointPropertiesResponse struct {
 	CustomHttpsProvisioningSubstate string `pulumi:"customHttpsProvisioningSubstate"`
 	// The host name of the frontendEndpoint. Must be a domain name.
 	HostName *string `pulumi:"hostName"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Resource name.
+	Name *string `pulumi:"name"`
 	// Resource status.
 	ResourceState *string `pulumi:"resourceState"`
 	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 	SessionAffinityEnabledState *string `pulumi:"sessionAffinityEnabledState"`
 	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
 	SessionAffinityTtlSeconds *int `pulumi:"sessionAffinityTtlSeconds"`
-	// Defines the Web Application Firewall policy for each host (if applicable)
-	WebApplicationFirewallPolicyLink *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink `pulumi:"webApplicationFirewallPolicyLink"`
-}
-
-// FrontendEndpointPropertiesResponseInput is an input type that accepts FrontendEndpointPropertiesResponseArgs and FrontendEndpointPropertiesResponseOutput values.
-// You can construct a concrete instance of `FrontendEndpointPropertiesResponseInput` via:
-//
-//          FrontendEndpointPropertiesResponseArgs{...}
-type FrontendEndpointPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToFrontendEndpointPropertiesResponseOutput() FrontendEndpointPropertiesResponseOutput
-	ToFrontendEndpointPropertiesResponseOutputWithContext(context.Context) FrontendEndpointPropertiesResponseOutput
-}
-
-// The JSON object that contains the properties required to create a frontend endpoint.
-type FrontendEndpointPropertiesResponseArgs struct {
-	// The configuration specifying how to enable HTTPS
-	CustomHttpsConfiguration CustomHttpsConfigurationResponseInput `pulumi:"customHttpsConfiguration"`
-	// Provisioning status of Custom Https of the frontendEndpoint.
-	CustomHttpsProvisioningState pulumi.StringInput `pulumi:"customHttpsProvisioningState"`
-	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-	CustomHttpsProvisioningSubstate pulumi.StringInput `pulumi:"customHttpsProvisioningSubstate"`
-	// The host name of the frontendEndpoint. Must be a domain name.
-	HostName pulumi.StringPtrInput `pulumi:"hostName"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
-	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-	SessionAffinityEnabledState pulumi.StringPtrInput `pulumi:"sessionAffinityEnabledState"`
-	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-	SessionAffinityTtlSeconds pulumi.IntPtrInput `pulumi:"sessionAffinityTtlSeconds"`
-	// Defines the Web Application Firewall policy for each host (if applicable)
-	WebApplicationFirewallPolicyLink FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
-}
-
-func (FrontendEndpointPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendEndpointPropertiesResponse)(nil)).Elem()
-}
-
-func (i FrontendEndpointPropertiesResponseArgs) ToFrontendEndpointPropertiesResponseOutput() FrontendEndpointPropertiesResponseOutput {
-	return i.ToFrontendEndpointPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i FrontendEndpointPropertiesResponseArgs) ToFrontendEndpointPropertiesResponseOutputWithContext(ctx context.Context) FrontendEndpointPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointPropertiesResponseOutput)
-}
-
-func (i FrontendEndpointPropertiesResponseArgs) ToFrontendEndpointPropertiesResponsePtrOutput() FrontendEndpointPropertiesResponsePtrOutput {
-	return i.ToFrontendEndpointPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FrontendEndpointPropertiesResponseArgs) ToFrontendEndpointPropertiesResponsePtrOutputWithContext(ctx context.Context) FrontendEndpointPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointPropertiesResponseOutput).ToFrontendEndpointPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// FrontendEndpointPropertiesResponsePtrInput is an input type that accepts FrontendEndpointPropertiesResponseArgs, FrontendEndpointPropertiesResponsePtr and FrontendEndpointPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `FrontendEndpointPropertiesResponsePtrInput` via:
-//
-//          FrontendEndpointPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FrontendEndpointPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToFrontendEndpointPropertiesResponsePtrOutput() FrontendEndpointPropertiesResponsePtrOutput
-	ToFrontendEndpointPropertiesResponsePtrOutputWithContext(context.Context) FrontendEndpointPropertiesResponsePtrOutput
-}
-
-type frontendEndpointPropertiesResponsePtrType FrontendEndpointPropertiesResponseArgs
-
-func FrontendEndpointPropertiesResponsePtr(v *FrontendEndpointPropertiesResponseArgs) FrontendEndpointPropertiesResponsePtrInput {
-	return (*frontendEndpointPropertiesResponsePtrType)(v)
-}
-
-func (*frontendEndpointPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontendEndpointPropertiesResponse)(nil)).Elem()
-}
-
-func (i *frontendEndpointPropertiesResponsePtrType) ToFrontendEndpointPropertiesResponsePtrOutput() FrontendEndpointPropertiesResponsePtrOutput {
-	return i.ToFrontendEndpointPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *frontendEndpointPropertiesResponsePtrType) ToFrontendEndpointPropertiesResponsePtrOutputWithContext(ctx context.Context) FrontendEndpointPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointPropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties required to create a frontend endpoint.
-type FrontendEndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (FrontendEndpointPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendEndpointPropertiesResponse)(nil)).Elem()
-}
-
-func (o FrontendEndpointPropertiesResponseOutput) ToFrontendEndpointPropertiesResponseOutput() FrontendEndpointPropertiesResponseOutput {
-	return o
-}
-
-func (o FrontendEndpointPropertiesResponseOutput) ToFrontendEndpointPropertiesResponseOutputWithContext(ctx context.Context) FrontendEndpointPropertiesResponseOutput {
-	return o
-}
-
-func (o FrontendEndpointPropertiesResponseOutput) ToFrontendEndpointPropertiesResponsePtrOutput() FrontendEndpointPropertiesResponsePtrOutput {
-	return o.ToFrontendEndpointPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FrontendEndpointPropertiesResponseOutput) ToFrontendEndpointPropertiesResponsePtrOutputWithContext(ctx context.Context) FrontendEndpointPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) *FrontendEndpointPropertiesResponse {
-		return &v
-	}).(FrontendEndpointPropertiesResponsePtrOutput)
-}
-
-// The configuration specifying how to enable HTTPS
-func (o FrontendEndpointPropertiesResponseOutput) CustomHttpsConfiguration() CustomHttpsConfigurationResponseOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) CustomHttpsConfigurationResponse {
-		return v.CustomHttpsConfiguration
-	}).(CustomHttpsConfigurationResponseOutput)
-}
-
-// Provisioning status of Custom Https of the frontendEndpoint.
-func (o FrontendEndpointPropertiesResponseOutput) CustomHttpsProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) string { return v.CustomHttpsProvisioningState }).(pulumi.StringOutput)
-}
-
-// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-func (o FrontendEndpointPropertiesResponseOutput) CustomHttpsProvisioningSubstate() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) string { return v.CustomHttpsProvisioningSubstate }).(pulumi.StringOutput)
-}
-
-// The host name of the frontendEndpoint. Must be a domain name.
-func (o FrontendEndpointPropertiesResponseOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) *string { return v.HostName }).(pulumi.StringPtrOutput)
-}
-
-// Resource status.
-func (o FrontendEndpointPropertiesResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
-// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-func (o FrontendEndpointPropertiesResponseOutput) SessionAffinityEnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) *string { return v.SessionAffinityEnabledState }).(pulumi.StringPtrOutput)
-}
-
-// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-func (o FrontendEndpointPropertiesResponseOutput) SessionAffinityTtlSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) *int { return v.SessionAffinityTtlSeconds }).(pulumi.IntPtrOutput)
-}
-
-// Defines the Web Application Firewall policy for each host (if applicable)
-func (o FrontendEndpointPropertiesResponseOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
-		return v.WebApplicationFirewallPolicyLink
-	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
-}
-
-type FrontendEndpointPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (FrontendEndpointPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontendEndpointPropertiesResponse)(nil)).Elem()
-}
-
-func (o FrontendEndpointPropertiesResponsePtrOutput) ToFrontendEndpointPropertiesResponsePtrOutput() FrontendEndpointPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FrontendEndpointPropertiesResponsePtrOutput) ToFrontendEndpointPropertiesResponsePtrOutputWithContext(ctx context.Context) FrontendEndpointPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FrontendEndpointPropertiesResponsePtrOutput) Elem() FrontendEndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) FrontendEndpointPropertiesResponse { return *v }).(FrontendEndpointPropertiesResponseOutput)
-}
-
-// The configuration specifying how to enable HTTPS
-func (o FrontendEndpointPropertiesResponsePtrOutput) CustomHttpsConfiguration() CustomHttpsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *CustomHttpsConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.CustomHttpsConfiguration
-	}).(CustomHttpsConfigurationResponsePtrOutput)
-}
-
-// Provisioning status of Custom Https of the frontendEndpoint.
-func (o FrontendEndpointPropertiesResponsePtrOutput) CustomHttpsProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CustomHttpsProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-func (o FrontendEndpointPropertiesResponsePtrOutput) CustomHttpsProvisioningSubstate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CustomHttpsProvisioningSubstate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The host name of the frontendEndpoint. Must be a domain name.
-func (o FrontendEndpointPropertiesResponsePtrOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HostName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource status.
-func (o FrontendEndpointPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-func (o FrontendEndpointPropertiesResponsePtrOutput) SessionAffinityEnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SessionAffinityEnabledState
-	}).(pulumi.StringPtrOutput)
-}
-
-// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-func (o FrontendEndpointPropertiesResponsePtrOutput) SessionAffinityTtlSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.SessionAffinityTtlSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// Defines the Web Application Firewall policy for each host (if applicable)
-func (o FrontendEndpointPropertiesResponsePtrOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
-		if v == nil {
-			return nil
-		}
-		return v.WebApplicationFirewallPolicyLink
-	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
-}
-
-// A frontend endpoint used for routing.
-type FrontendEndpointResponse struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Properties of the Frontend endpoint
-	Properties *FrontendEndpointPropertiesResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Defines the Web Application Firewall policy for each host (if applicable)
+	WebApplicationFirewallPolicyLink *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
 // FrontendEndpointResponseInput is an input type that accepts FrontendEndpointResponseArgs and FrontendEndpointResponseOutput values.
@@ -2215,14 +1229,28 @@ type FrontendEndpointResponseInput interface {
 
 // A frontend endpoint used for routing.
 type FrontendEndpointResponseArgs struct {
+	// The configuration specifying how to enable HTTPS
+	CustomHttpsConfiguration CustomHttpsConfigurationResponseInput `pulumi:"customHttpsConfiguration"`
+	// Provisioning status of Custom Https of the frontendEndpoint.
+	CustomHttpsProvisioningState pulumi.StringInput `pulumi:"customHttpsProvisioningState"`
+	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+	CustomHttpsProvisioningSubstate pulumi.StringInput `pulumi:"customHttpsProvisioningSubstate"`
+	// The host name of the frontendEndpoint. Must be a domain name.
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties of the Frontend endpoint
-	Properties FrontendEndpointPropertiesResponsePtrInput `pulumi:"properties"`
+	// Resource status.
+	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
+	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+	SessionAffinityEnabledState pulumi.StringPtrInput `pulumi:"sessionAffinityEnabledState"`
+	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
+	SessionAffinityTtlSeconds pulumi.IntPtrInput `pulumi:"sessionAffinityTtlSeconds"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
+	// Defines the Web Application Firewall policy for each host (if applicable)
+	WebApplicationFirewallPolicyLink FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
 func (FrontendEndpointResponseArgs) ElementType() reflect.Type {
@@ -2277,6 +1305,26 @@ func (o FrontendEndpointResponseOutput) ToFrontendEndpointResponseOutputWithCont
 	return o
 }
 
+// The configuration specifying how to enable HTTPS
+func (o FrontendEndpointResponseOutput) CustomHttpsConfiguration() CustomHttpsConfigurationResponseOutput {
+	return o.ApplyT(func(v FrontendEndpointResponse) CustomHttpsConfigurationResponse { return v.CustomHttpsConfiguration }).(CustomHttpsConfigurationResponseOutput)
+}
+
+// Provisioning status of Custom Https of the frontendEndpoint.
+func (o FrontendEndpointResponseOutput) CustomHttpsProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontendEndpointResponse) string { return v.CustomHttpsProvisioningState }).(pulumi.StringOutput)
+}
+
+// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+func (o FrontendEndpointResponseOutput) CustomHttpsProvisioningSubstate() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontendEndpointResponse) string { return v.CustomHttpsProvisioningSubstate }).(pulumi.StringOutput)
+}
+
+// The host name of the frontendEndpoint. Must be a domain name.
+func (o FrontendEndpointResponseOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
 // Resource ID.
 func (o FrontendEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -2287,14 +1335,31 @@ func (o FrontendEndpointResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Properties of the Frontend endpoint
-func (o FrontendEndpointResponseOutput) Properties() FrontendEndpointPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FrontendEndpointResponse) *FrontendEndpointPropertiesResponse { return v.Properties }).(FrontendEndpointPropertiesResponsePtrOutput)
+// Resource status.
+func (o FrontendEndpointResponseOutput) ResourceState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
+}
+
+// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+func (o FrontendEndpointResponseOutput) SessionAffinityEnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointResponse) *string { return v.SessionAffinityEnabledState }).(pulumi.StringPtrOutput)
+}
+
+// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
+func (o FrontendEndpointResponseOutput) SessionAffinityTtlSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointResponse) *int { return v.SessionAffinityTtlSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Resource type.
 func (o FrontendEndpointResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontendEndpointResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Defines the Web Application Firewall policy for each host (if applicable)
+func (o FrontendEndpointResponseOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointResponse) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
+		return v.WebApplicationFirewallPolicyLink
+	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
 type FrontendEndpointResponseArrayOutput struct{ *pulumi.OutputState }
@@ -2754,12 +1819,22 @@ func (o HealthProbeSettingsModelArrayOutput) Index(i pulumi.IntInput) HealthProb
 
 // Load balancing settings for a backend pool
 type HealthProbeSettingsModelResponse struct {
+	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
+	EnabledState *string `pulumi:"enabledState"`
+	// Configures which HTTP method to use to probe the backends defined under backendPools.
+	HealthProbeMethod *string `pulumi:"healthProbeMethod"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The number of seconds between health probes.
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the health probe settings
-	Properties *HealthProbeSettingsPropertiesResponse `pulumi:"properties"`
+	// The path to use for the health probe. Default is /
+	Path *string `pulumi:"path"`
+	// Protocol scheme to use for this probe
+	Protocol *string `pulumi:"protocol"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -2777,12 +1852,22 @@ type HealthProbeSettingsModelResponseInput interface {
 
 // Load balancing settings for a backend pool
 type HealthProbeSettingsModelResponseArgs struct {
+	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
+	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
+	// Configures which HTTP method to use to probe the backends defined under backendPools.
+	HealthProbeMethod pulumi.StringPtrInput `pulumi:"healthProbeMethod"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The number of seconds between health probes.
+	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties of the health probe settings
-	Properties HealthProbeSettingsPropertiesResponsePtrInput `pulumi:"properties"`
+	// The path to use for the health probe. Default is /
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Protocol scheme to use for this probe
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Resource status.
+	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2839,9 +1924,24 @@ func (o HealthProbeSettingsModelResponseOutput) ToHealthProbeSettingsModelRespon
 	return o
 }
 
+// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
+func (o HealthProbeSettingsModelResponseOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// Configures which HTTP method to use to probe the backends defined under backendPools.
+func (o HealthProbeSettingsModelResponseOutput) HealthProbeMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.HealthProbeMethod }).(pulumi.StringPtrOutput)
+}
+
 // Resource ID.
 func (o HealthProbeSettingsModelResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds between health probes.
+func (o HealthProbeSettingsModelResponseOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Resource name.
@@ -2849,9 +1949,19 @@ func (o HealthProbeSettingsModelResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Properties of the health probe settings
-func (o HealthProbeSettingsModelResponseOutput) Properties() HealthProbeSettingsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *HealthProbeSettingsPropertiesResponse { return v.Properties }).(HealthProbeSettingsPropertiesResponsePtrOutput)
+// The path to use for the health probe. Default is /
+func (o HealthProbeSettingsModelResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Protocol scheme to use for this probe
+func (o HealthProbeSettingsModelResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Resource status.
+func (o HealthProbeSettingsModelResponseOutput) ResourceState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthProbeSettingsModelResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
 }
 
 // Resource type.
@@ -2877,411 +1987,6 @@ func (o HealthProbeSettingsModelResponseArrayOutput) Index(i pulumi.IntInput) He
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthProbeSettingsModelResponse {
 		return vs[0].([]HealthProbeSettingsModelResponse)[vs[1].(int)]
 	}).(HealthProbeSettingsModelResponseOutput)
-}
-
-// The JSON object that contains the properties required to create a health probe settings.
-type HealthProbeSettingsPropertiesResponse struct {
-	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-	EnabledState *string `pulumi:"enabledState"`
-	// Configures which HTTP method to use to probe the backends defined under backendPools.
-	HealthProbeMethod *string `pulumi:"healthProbeMethod"`
-	// The number of seconds between health probes.
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// The path to use for the health probe. Default is /
-	Path *string `pulumi:"path"`
-	// Protocol scheme to use for this probe
-	Protocol *string `pulumi:"protocol"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
-}
-
-// HealthProbeSettingsPropertiesResponseInput is an input type that accepts HealthProbeSettingsPropertiesResponseArgs and HealthProbeSettingsPropertiesResponseOutput values.
-// You can construct a concrete instance of `HealthProbeSettingsPropertiesResponseInput` via:
-//
-//          HealthProbeSettingsPropertiesResponseArgs{...}
-type HealthProbeSettingsPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToHealthProbeSettingsPropertiesResponseOutput() HealthProbeSettingsPropertiesResponseOutput
-	ToHealthProbeSettingsPropertiesResponseOutputWithContext(context.Context) HealthProbeSettingsPropertiesResponseOutput
-}
-
-// The JSON object that contains the properties required to create a health probe settings.
-type HealthProbeSettingsPropertiesResponseArgs struct {
-	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Configures which HTTP method to use to probe the backends defined under backendPools.
-	HealthProbeMethod pulumi.StringPtrInput `pulumi:"healthProbeMethod"`
-	// The number of seconds between health probes.
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// The path to use for the health probe. Default is /
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Protocol scheme to use for this probe
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
-}
-
-func (HealthProbeSettingsPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthProbeSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (i HealthProbeSettingsPropertiesResponseArgs) ToHealthProbeSettingsPropertiesResponseOutput() HealthProbeSettingsPropertiesResponseOutput {
-	return i.ToHealthProbeSettingsPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i HealthProbeSettingsPropertiesResponseArgs) ToHealthProbeSettingsPropertiesResponseOutputWithContext(ctx context.Context) HealthProbeSettingsPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthProbeSettingsPropertiesResponseOutput)
-}
-
-func (i HealthProbeSettingsPropertiesResponseArgs) ToHealthProbeSettingsPropertiesResponsePtrOutput() HealthProbeSettingsPropertiesResponsePtrOutput {
-	return i.ToHealthProbeSettingsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i HealthProbeSettingsPropertiesResponseArgs) ToHealthProbeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HealthProbeSettingsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthProbeSettingsPropertiesResponseOutput).ToHealthProbeSettingsPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// HealthProbeSettingsPropertiesResponsePtrInput is an input type that accepts HealthProbeSettingsPropertiesResponseArgs, HealthProbeSettingsPropertiesResponsePtr and HealthProbeSettingsPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `HealthProbeSettingsPropertiesResponsePtrInput` via:
-//
-//          HealthProbeSettingsPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type HealthProbeSettingsPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToHealthProbeSettingsPropertiesResponsePtrOutput() HealthProbeSettingsPropertiesResponsePtrOutput
-	ToHealthProbeSettingsPropertiesResponsePtrOutputWithContext(context.Context) HealthProbeSettingsPropertiesResponsePtrOutput
-}
-
-type healthProbeSettingsPropertiesResponsePtrType HealthProbeSettingsPropertiesResponseArgs
-
-func HealthProbeSettingsPropertiesResponsePtr(v *HealthProbeSettingsPropertiesResponseArgs) HealthProbeSettingsPropertiesResponsePtrInput {
-	return (*healthProbeSettingsPropertiesResponsePtrType)(v)
-}
-
-func (*healthProbeSettingsPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthProbeSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (i *healthProbeSettingsPropertiesResponsePtrType) ToHealthProbeSettingsPropertiesResponsePtrOutput() HealthProbeSettingsPropertiesResponsePtrOutput {
-	return i.ToHealthProbeSettingsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *healthProbeSettingsPropertiesResponsePtrType) ToHealthProbeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HealthProbeSettingsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthProbeSettingsPropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties required to create a health probe settings.
-type HealthProbeSettingsPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (HealthProbeSettingsPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthProbeSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (o HealthProbeSettingsPropertiesResponseOutput) ToHealthProbeSettingsPropertiesResponseOutput() HealthProbeSettingsPropertiesResponseOutput {
-	return o
-}
-
-func (o HealthProbeSettingsPropertiesResponseOutput) ToHealthProbeSettingsPropertiesResponseOutputWithContext(ctx context.Context) HealthProbeSettingsPropertiesResponseOutput {
-	return o
-}
-
-func (o HealthProbeSettingsPropertiesResponseOutput) ToHealthProbeSettingsPropertiesResponsePtrOutput() HealthProbeSettingsPropertiesResponsePtrOutput {
-	return o.ToHealthProbeSettingsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o HealthProbeSettingsPropertiesResponseOutput) ToHealthProbeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HealthProbeSettingsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsPropertiesResponse) *HealthProbeSettingsPropertiesResponse {
-		return &v
-	}).(HealthProbeSettingsPropertiesResponsePtrOutput)
-}
-
-// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-func (o HealthProbeSettingsPropertiesResponseOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsPropertiesResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
-}
-
-// Configures which HTTP method to use to probe the backends defined under backendPools.
-func (o HealthProbeSettingsPropertiesResponseOutput) HealthProbeMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsPropertiesResponse) *string { return v.HealthProbeMethod }).(pulumi.StringPtrOutput)
-}
-
-// The number of seconds between health probes.
-func (o HealthProbeSettingsPropertiesResponseOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsPropertiesResponse) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
-}
-
-// The path to use for the health probe. Default is /
-func (o HealthProbeSettingsPropertiesResponseOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsPropertiesResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// Protocol scheme to use for this probe
-func (o HealthProbeSettingsPropertiesResponseOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsPropertiesResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
-}
-
-// Resource status.
-func (o HealthProbeSettingsPropertiesResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthProbeSettingsPropertiesResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
-type HealthProbeSettingsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (HealthProbeSettingsPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthProbeSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (o HealthProbeSettingsPropertiesResponsePtrOutput) ToHealthProbeSettingsPropertiesResponsePtrOutput() HealthProbeSettingsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o HealthProbeSettingsPropertiesResponsePtrOutput) ToHealthProbeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HealthProbeSettingsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o HealthProbeSettingsPropertiesResponsePtrOutput) Elem() HealthProbeSettingsPropertiesResponseOutput {
-	return o.ApplyT(func(v *HealthProbeSettingsPropertiesResponse) HealthProbeSettingsPropertiesResponse { return *v }).(HealthProbeSettingsPropertiesResponseOutput)
-}
-
-// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-func (o HealthProbeSettingsPropertiesResponsePtrOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthProbeSettingsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnabledState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Configures which HTTP method to use to probe the backends defined under backendPools.
-func (o HealthProbeSettingsPropertiesResponsePtrOutput) HealthProbeMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthProbeSettingsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HealthProbeMethod
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of seconds between health probes.
-func (o HealthProbeSettingsPropertiesResponsePtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HealthProbeSettingsPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.IntervalInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// The path to use for the health probe. Default is /
-func (o HealthProbeSettingsPropertiesResponsePtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthProbeSettingsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// Protocol scheme to use for this probe
-func (o HealthProbeSettingsPropertiesResponsePtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthProbeSettingsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Protocol
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource status.
-func (o HealthProbeSettingsPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthProbeSettingsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Parameters required for bring-your-own-certification via Key Vault
-type KeyVaultCertificateSourceParametersResponse struct {
-	// The name of the Key Vault secret representing the full certificate PFX
-	SecretName *string `pulumi:"secretName"`
-	// The version of the Key Vault secret representing the full certificate PFX
-	SecretVersion *string `pulumi:"secretVersion"`
-	// The Key Vault containing the SSL certificate
-	Vault *KeyVaultCertificateSourceParametersResponseVault `pulumi:"vault"`
-}
-
-// KeyVaultCertificateSourceParametersResponseInput is an input type that accepts KeyVaultCertificateSourceParametersResponseArgs and KeyVaultCertificateSourceParametersResponseOutput values.
-// You can construct a concrete instance of `KeyVaultCertificateSourceParametersResponseInput` via:
-//
-//          KeyVaultCertificateSourceParametersResponseArgs{...}
-type KeyVaultCertificateSourceParametersResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultCertificateSourceParametersResponseOutput() KeyVaultCertificateSourceParametersResponseOutput
-	ToKeyVaultCertificateSourceParametersResponseOutputWithContext(context.Context) KeyVaultCertificateSourceParametersResponseOutput
-}
-
-// Parameters required for bring-your-own-certification via Key Vault
-type KeyVaultCertificateSourceParametersResponseArgs struct {
-	// The name of the Key Vault secret representing the full certificate PFX
-	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
-	// The version of the Key Vault secret representing the full certificate PFX
-	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
-	// The Key Vault containing the SSL certificate
-	Vault KeyVaultCertificateSourceParametersResponseVaultPtrInput `pulumi:"vault"`
-}
-
-func (KeyVaultCertificateSourceParametersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultCertificateSourceParametersResponse)(nil)).Elem()
-}
-
-func (i KeyVaultCertificateSourceParametersResponseArgs) ToKeyVaultCertificateSourceParametersResponseOutput() KeyVaultCertificateSourceParametersResponseOutput {
-	return i.ToKeyVaultCertificateSourceParametersResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultCertificateSourceParametersResponseArgs) ToKeyVaultCertificateSourceParametersResponseOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponseOutput)
-}
-
-func (i KeyVaultCertificateSourceParametersResponseArgs) ToKeyVaultCertificateSourceParametersResponsePtrOutput() KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return i.ToKeyVaultCertificateSourceParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultCertificateSourceParametersResponseArgs) ToKeyVaultCertificateSourceParametersResponsePtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponseOutput).ToKeyVaultCertificateSourceParametersResponsePtrOutputWithContext(ctx)
-}
-
-// KeyVaultCertificateSourceParametersResponsePtrInput is an input type that accepts KeyVaultCertificateSourceParametersResponseArgs, KeyVaultCertificateSourceParametersResponsePtr and KeyVaultCertificateSourceParametersResponsePtrOutput values.
-// You can construct a concrete instance of `KeyVaultCertificateSourceParametersResponsePtrInput` via:
-//
-//          KeyVaultCertificateSourceParametersResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultCertificateSourceParametersResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultCertificateSourceParametersResponsePtrOutput() KeyVaultCertificateSourceParametersResponsePtrOutput
-	ToKeyVaultCertificateSourceParametersResponsePtrOutputWithContext(context.Context) KeyVaultCertificateSourceParametersResponsePtrOutput
-}
-
-type keyVaultCertificateSourceParametersResponsePtrType KeyVaultCertificateSourceParametersResponseArgs
-
-func KeyVaultCertificateSourceParametersResponsePtr(v *KeyVaultCertificateSourceParametersResponseArgs) KeyVaultCertificateSourceParametersResponsePtrInput {
-	return (*keyVaultCertificateSourceParametersResponsePtrType)(v)
-}
-
-func (*keyVaultCertificateSourceParametersResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultCertificateSourceParametersResponse)(nil)).Elem()
-}
-
-func (i *keyVaultCertificateSourceParametersResponsePtrType) ToKeyVaultCertificateSourceParametersResponsePtrOutput() KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return i.ToKeyVaultCertificateSourceParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultCertificateSourceParametersResponsePtrType) ToKeyVaultCertificateSourceParametersResponsePtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponsePtrOutput)
-}
-
-// Parameters required for bring-your-own-certification via Key Vault
-type KeyVaultCertificateSourceParametersResponseOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultCertificateSourceParametersResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultCertificateSourceParametersResponse)(nil)).Elem()
-}
-
-func (o KeyVaultCertificateSourceParametersResponseOutput) ToKeyVaultCertificateSourceParametersResponseOutput() KeyVaultCertificateSourceParametersResponseOutput {
-	return o
-}
-
-func (o KeyVaultCertificateSourceParametersResponseOutput) ToKeyVaultCertificateSourceParametersResponseOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseOutput {
-	return o
-}
-
-func (o KeyVaultCertificateSourceParametersResponseOutput) ToKeyVaultCertificateSourceParametersResponsePtrOutput() KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return o.ToKeyVaultCertificateSourceParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultCertificateSourceParametersResponseOutput) ToKeyVaultCertificateSourceParametersResponsePtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) *KeyVaultCertificateSourceParametersResponse {
-		return &v
-	}).(KeyVaultCertificateSourceParametersResponsePtrOutput)
-}
-
-// The name of the Key Vault secret representing the full certificate PFX
-func (o KeyVaultCertificateSourceParametersResponseOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) *string { return v.SecretName }).(pulumi.StringPtrOutput)
-}
-
-// The version of the Key Vault secret representing the full certificate PFX
-func (o KeyVaultCertificateSourceParametersResponseOutput) SecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
-}
-
-// The Key Vault containing the SSL certificate
-func (o KeyVaultCertificateSourceParametersResponseOutput) Vault() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) *KeyVaultCertificateSourceParametersResponseVault {
-		return v.Vault
-	}).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
-}
-
-type KeyVaultCertificateSourceParametersResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultCertificateSourceParametersResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultCertificateSourceParametersResponse)(nil)).Elem()
-}
-
-func (o KeyVaultCertificateSourceParametersResponsePtrOutput) ToKeyVaultCertificateSourceParametersResponsePtrOutput() KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultCertificateSourceParametersResponsePtrOutput) ToKeyVaultCertificateSourceParametersResponsePtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultCertificateSourceParametersResponsePtrOutput) Elem() KeyVaultCertificateSourceParametersResponseOutput {
-	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponse) KeyVaultCertificateSourceParametersResponse {
-		return *v
-	}).(KeyVaultCertificateSourceParametersResponseOutput)
-}
-
-// The name of the Key Vault secret representing the full certificate PFX
-func (o KeyVaultCertificateSourceParametersResponsePtrOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the Key Vault secret representing the full certificate PFX
-func (o KeyVaultCertificateSourceParametersResponsePtrOutput) SecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Key Vault containing the SSL certificate
-func (o KeyVaultCertificateSourceParametersResponsePtrOutput) Vault() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
-	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponse) *KeyVaultCertificateSourceParametersResponseVault {
-		if v == nil {
-			return nil
-		}
-		return v.Vault
-	}).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
 
 // The Key Vault containing the SSL certificate
@@ -3567,12 +2272,18 @@ func (o LoadBalancingSettingsModelArrayOutput) Index(i pulumi.IntInput) LoadBala
 
 // Load balancing settings for a backend pool
 type LoadBalancingSettingsModelResponse struct {
+	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+	AdditionalLatencyMilliseconds *int `pulumi:"additionalLatencyMilliseconds"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the load balancing settings
-	Properties *LoadBalancingSettingsPropertiesResponse `pulumi:"properties"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
+	// The number of samples to consider for load balancing decisions
+	SampleSize *int `pulumi:"sampleSize"`
+	// The number of samples within the sample period that must succeed
+	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -3590,12 +2301,18 @@ type LoadBalancingSettingsModelResponseInput interface {
 
 // Load balancing settings for a backend pool
 type LoadBalancingSettingsModelResponseArgs struct {
+	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+	AdditionalLatencyMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyMilliseconds"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties of the load balancing settings
-	Properties LoadBalancingSettingsPropertiesResponsePtrInput `pulumi:"properties"`
+	// Resource status.
+	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
+	// The number of samples to consider for load balancing decisions
+	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
+	// The number of samples within the sample period that must succeed
+	SuccessfulSamplesRequired pulumi.IntPtrInput `pulumi:"successfulSamplesRequired"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -3652,6 +2369,11 @@ func (o LoadBalancingSettingsModelResponseOutput) ToLoadBalancingSettingsModelRe
 	return o
 }
 
+// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+func (o LoadBalancingSettingsModelResponseOutput) AdditionalLatencyMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *int { return v.AdditionalLatencyMilliseconds }).(pulumi.IntPtrOutput)
+}
+
 // Resource ID.
 func (o LoadBalancingSettingsModelResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -3662,11 +2384,19 @@ func (o LoadBalancingSettingsModelResponseOutput) Name() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Properties of the load balancing settings
-func (o LoadBalancingSettingsModelResponseOutput) Properties() LoadBalancingSettingsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *LoadBalancingSettingsPropertiesResponse {
-		return v.Properties
-	}).(LoadBalancingSettingsPropertiesResponsePtrOutput)
+// Resource status.
+func (o LoadBalancingSettingsModelResponseOutput) ResourceState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
+}
+
+// The number of samples to consider for load balancing decisions
+func (o LoadBalancingSettingsModelResponseOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
+}
+
+// The number of samples within the sample period that must succeed
+func (o LoadBalancingSettingsModelResponseOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancingSettingsModelResponse) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
 }
 
 // Resource type.
@@ -3692,197 +2422,6 @@ func (o LoadBalancingSettingsModelResponseArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancingSettingsModelResponse {
 		return vs[0].([]LoadBalancingSettingsModelResponse)[vs[1].(int)]
 	}).(LoadBalancingSettingsModelResponseOutput)
-}
-
-// The JSON object that contains the properties required to create load balancing settings
-type LoadBalancingSettingsPropertiesResponse struct {
-	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
-	AdditionalLatencyMilliseconds *int `pulumi:"additionalLatencyMilliseconds"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
-	// The number of samples to consider for load balancing decisions
-	SampleSize *int `pulumi:"sampleSize"`
-	// The number of samples within the sample period that must succeed
-	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
-}
-
-// LoadBalancingSettingsPropertiesResponseInput is an input type that accepts LoadBalancingSettingsPropertiesResponseArgs and LoadBalancingSettingsPropertiesResponseOutput values.
-// You can construct a concrete instance of `LoadBalancingSettingsPropertiesResponseInput` via:
-//
-//          LoadBalancingSettingsPropertiesResponseArgs{...}
-type LoadBalancingSettingsPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToLoadBalancingSettingsPropertiesResponseOutput() LoadBalancingSettingsPropertiesResponseOutput
-	ToLoadBalancingSettingsPropertiesResponseOutputWithContext(context.Context) LoadBalancingSettingsPropertiesResponseOutput
-}
-
-// The JSON object that contains the properties required to create load balancing settings
-type LoadBalancingSettingsPropertiesResponseArgs struct {
-	// The additional latency in milliseconds for probes to fall into the lowest latency bucket
-	AdditionalLatencyMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyMilliseconds"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
-	// The number of samples to consider for load balancing decisions
-	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
-	// The number of samples within the sample period that must succeed
-	SuccessfulSamplesRequired pulumi.IntPtrInput `pulumi:"successfulSamplesRequired"`
-}
-
-func (LoadBalancingSettingsPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancingSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (i LoadBalancingSettingsPropertiesResponseArgs) ToLoadBalancingSettingsPropertiesResponseOutput() LoadBalancingSettingsPropertiesResponseOutput {
-	return i.ToLoadBalancingSettingsPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i LoadBalancingSettingsPropertiesResponseArgs) ToLoadBalancingSettingsPropertiesResponseOutputWithContext(ctx context.Context) LoadBalancingSettingsPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsPropertiesResponseOutput)
-}
-
-func (i LoadBalancingSettingsPropertiesResponseArgs) ToLoadBalancingSettingsPropertiesResponsePtrOutput() LoadBalancingSettingsPropertiesResponsePtrOutput {
-	return i.ToLoadBalancingSettingsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LoadBalancingSettingsPropertiesResponseArgs) ToLoadBalancingSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancingSettingsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsPropertiesResponseOutput).ToLoadBalancingSettingsPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// LoadBalancingSettingsPropertiesResponsePtrInput is an input type that accepts LoadBalancingSettingsPropertiesResponseArgs, LoadBalancingSettingsPropertiesResponsePtr and LoadBalancingSettingsPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `LoadBalancingSettingsPropertiesResponsePtrInput` via:
-//
-//          LoadBalancingSettingsPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LoadBalancingSettingsPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancingSettingsPropertiesResponsePtrOutput() LoadBalancingSettingsPropertiesResponsePtrOutput
-	ToLoadBalancingSettingsPropertiesResponsePtrOutputWithContext(context.Context) LoadBalancingSettingsPropertiesResponsePtrOutput
-}
-
-type loadBalancingSettingsPropertiesResponsePtrType LoadBalancingSettingsPropertiesResponseArgs
-
-func LoadBalancingSettingsPropertiesResponsePtr(v *LoadBalancingSettingsPropertiesResponseArgs) LoadBalancingSettingsPropertiesResponsePtrInput {
-	return (*loadBalancingSettingsPropertiesResponsePtrType)(v)
-}
-
-func (*loadBalancingSettingsPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancingSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (i *loadBalancingSettingsPropertiesResponsePtrType) ToLoadBalancingSettingsPropertiesResponsePtrOutput() LoadBalancingSettingsPropertiesResponsePtrOutput {
-	return i.ToLoadBalancingSettingsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancingSettingsPropertiesResponsePtrType) ToLoadBalancingSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancingSettingsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingSettingsPropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties required to create load balancing settings
-type LoadBalancingSettingsPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancingSettingsPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancingSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (o LoadBalancingSettingsPropertiesResponseOutput) ToLoadBalancingSettingsPropertiesResponseOutput() LoadBalancingSettingsPropertiesResponseOutput {
-	return o
-}
-
-func (o LoadBalancingSettingsPropertiesResponseOutput) ToLoadBalancingSettingsPropertiesResponseOutputWithContext(ctx context.Context) LoadBalancingSettingsPropertiesResponseOutput {
-	return o
-}
-
-func (o LoadBalancingSettingsPropertiesResponseOutput) ToLoadBalancingSettingsPropertiesResponsePtrOutput() LoadBalancingSettingsPropertiesResponsePtrOutput {
-	return o.ToLoadBalancingSettingsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancingSettingsPropertiesResponseOutput) ToLoadBalancingSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancingSettingsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LoadBalancingSettingsPropertiesResponse) *LoadBalancingSettingsPropertiesResponse {
-		return &v
-	}).(LoadBalancingSettingsPropertiesResponsePtrOutput)
-}
-
-// The additional latency in milliseconds for probes to fall into the lowest latency bucket
-func (o LoadBalancingSettingsPropertiesResponseOutput) AdditionalLatencyMilliseconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancingSettingsPropertiesResponse) *int { return v.AdditionalLatencyMilliseconds }).(pulumi.IntPtrOutput)
-}
-
-// Resource status.
-func (o LoadBalancingSettingsPropertiesResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancingSettingsPropertiesResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
-// The number of samples to consider for load balancing decisions
-func (o LoadBalancingSettingsPropertiesResponseOutput) SampleSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancingSettingsPropertiesResponse) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
-}
-
-// The number of samples within the sample period that must succeed
-func (o LoadBalancingSettingsPropertiesResponseOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancingSettingsPropertiesResponse) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
-}
-
-type LoadBalancingSettingsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancingSettingsPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancingSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (o LoadBalancingSettingsPropertiesResponsePtrOutput) ToLoadBalancingSettingsPropertiesResponsePtrOutput() LoadBalancingSettingsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LoadBalancingSettingsPropertiesResponsePtrOutput) ToLoadBalancingSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancingSettingsPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LoadBalancingSettingsPropertiesResponsePtrOutput) Elem() LoadBalancingSettingsPropertiesResponseOutput {
-	return o.ApplyT(func(v *LoadBalancingSettingsPropertiesResponse) LoadBalancingSettingsPropertiesResponse { return *v }).(LoadBalancingSettingsPropertiesResponseOutput)
-}
-
-// The additional latency in milliseconds for probes to fall into the lowest latency bucket
-func (o LoadBalancingSettingsPropertiesResponsePtrOutput) AdditionalLatencyMilliseconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LoadBalancingSettingsPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalLatencyMilliseconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// Resource status.
-func (o LoadBalancingSettingsPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancingSettingsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of samples to consider for load balancing decisions
-func (o LoadBalancingSettingsPropertiesResponsePtrOutput) SampleSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LoadBalancingSettingsPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.SampleSize
-	}).(pulumi.IntPtrOutput)
-}
-
-// The number of samples within the sample period that must succeed
-func (o LoadBalancingSettingsPropertiesResponsePtrOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LoadBalancingSettingsPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.SuccessfulSamplesRequired
-	}).(pulumi.IntPtrOutput)
 }
 
 // A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
@@ -4039,224 +2578,22 @@ func (o RoutingRuleArrayOutput) Index(i pulumi.IntInput) RoutingRuleOutput {
 	}).(RoutingRuleOutput)
 }
 
-// The JSON object that contains the properties required to create a routing rule.
-type RoutingRulePropertiesResponse struct {
+// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
+type RoutingRuleResponse struct {
 	// Protocol schemes to match for this rule
 	AcceptedProtocols []string `pulumi:"acceptedProtocols"`
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 	EnabledState *string `pulumi:"enabledState"`
 	// Frontend endpoints associated with this rule
 	FrontendEndpoints []SubResourceResponse `pulumi:"frontendEndpoints"`
-	// The route patterns of the rule.
-	PatternsToMatch []string `pulumi:"patternsToMatch"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
-}
-
-// RoutingRulePropertiesResponseInput is an input type that accepts RoutingRulePropertiesResponseArgs and RoutingRulePropertiesResponseOutput values.
-// You can construct a concrete instance of `RoutingRulePropertiesResponseInput` via:
-//
-//          RoutingRulePropertiesResponseArgs{...}
-type RoutingRulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToRoutingRulePropertiesResponseOutput() RoutingRulePropertiesResponseOutput
-	ToRoutingRulePropertiesResponseOutputWithContext(context.Context) RoutingRulePropertiesResponseOutput
-}
-
-// The JSON object that contains the properties required to create a routing rule.
-type RoutingRulePropertiesResponseArgs struct {
-	// Protocol schemes to match for this rule
-	AcceptedProtocols pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Frontend endpoints associated with this rule
-	FrontendEndpoints SubResourceResponseArrayInput `pulumi:"frontendEndpoints"`
-	// The route patterns of the rule.
-	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
-	// Resource status.
-	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
-}
-
-func (RoutingRulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i RoutingRulePropertiesResponseArgs) ToRoutingRulePropertiesResponseOutput() RoutingRulePropertiesResponseOutput {
-	return i.ToRoutingRulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i RoutingRulePropertiesResponseArgs) ToRoutingRulePropertiesResponseOutputWithContext(ctx context.Context) RoutingRulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoutingRulePropertiesResponseOutput)
-}
-
-func (i RoutingRulePropertiesResponseArgs) ToRoutingRulePropertiesResponsePtrOutput() RoutingRulePropertiesResponsePtrOutput {
-	return i.ToRoutingRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RoutingRulePropertiesResponseArgs) ToRoutingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) RoutingRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoutingRulePropertiesResponseOutput).ToRoutingRulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// RoutingRulePropertiesResponsePtrInput is an input type that accepts RoutingRulePropertiesResponseArgs, RoutingRulePropertiesResponsePtr and RoutingRulePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `RoutingRulePropertiesResponsePtrInput` via:
-//
-//          RoutingRulePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RoutingRulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToRoutingRulePropertiesResponsePtrOutput() RoutingRulePropertiesResponsePtrOutput
-	ToRoutingRulePropertiesResponsePtrOutputWithContext(context.Context) RoutingRulePropertiesResponsePtrOutput
-}
-
-type routingRulePropertiesResponsePtrType RoutingRulePropertiesResponseArgs
-
-func RoutingRulePropertiesResponsePtr(v *RoutingRulePropertiesResponseArgs) RoutingRulePropertiesResponsePtrInput {
-	return (*routingRulePropertiesResponsePtrType)(v)
-}
-
-func (*routingRulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoutingRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *routingRulePropertiesResponsePtrType) ToRoutingRulePropertiesResponsePtrOutput() RoutingRulePropertiesResponsePtrOutput {
-	return i.ToRoutingRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *routingRulePropertiesResponsePtrType) ToRoutingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) RoutingRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoutingRulePropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties required to create a routing rule.
-type RoutingRulePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (RoutingRulePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o RoutingRulePropertiesResponseOutput) ToRoutingRulePropertiesResponseOutput() RoutingRulePropertiesResponseOutput {
-	return o
-}
-
-func (o RoutingRulePropertiesResponseOutput) ToRoutingRulePropertiesResponseOutputWithContext(ctx context.Context) RoutingRulePropertiesResponseOutput {
-	return o
-}
-
-func (o RoutingRulePropertiesResponseOutput) ToRoutingRulePropertiesResponsePtrOutput() RoutingRulePropertiesResponsePtrOutput {
-	return o.ToRoutingRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RoutingRulePropertiesResponseOutput) ToRoutingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) RoutingRulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RoutingRulePropertiesResponse) *RoutingRulePropertiesResponse {
-		return &v
-	}).(RoutingRulePropertiesResponsePtrOutput)
-}
-
-// Protocol schemes to match for this rule
-func (o RoutingRulePropertiesResponseOutput) AcceptedProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RoutingRulePropertiesResponse) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
-}
-
-// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-func (o RoutingRulePropertiesResponseOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoutingRulePropertiesResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
-}
-
-// Frontend endpoints associated with this rule
-func (o RoutingRulePropertiesResponseOutput) FrontendEndpoints() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v RoutingRulePropertiesResponse) []SubResourceResponse { return v.FrontendEndpoints }).(SubResourceResponseArrayOutput)
-}
-
-// The route patterns of the rule.
-func (o RoutingRulePropertiesResponseOutput) PatternsToMatch() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RoutingRulePropertiesResponse) []string { return v.PatternsToMatch }).(pulumi.StringArrayOutput)
-}
-
-// Resource status.
-func (o RoutingRulePropertiesResponseOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoutingRulePropertiesResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
-}
-
-type RoutingRulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RoutingRulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoutingRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o RoutingRulePropertiesResponsePtrOutput) ToRoutingRulePropertiesResponsePtrOutput() RoutingRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RoutingRulePropertiesResponsePtrOutput) ToRoutingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) RoutingRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o RoutingRulePropertiesResponsePtrOutput) Elem() RoutingRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *RoutingRulePropertiesResponse) RoutingRulePropertiesResponse { return *v }).(RoutingRulePropertiesResponseOutput)
-}
-
-// Protocol schemes to match for this rule
-func (o RoutingRulePropertiesResponsePtrOutput) AcceptedProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RoutingRulePropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AcceptedProtocols
-	}).(pulumi.StringArrayOutput)
-}
-
-// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-func (o RoutingRulePropertiesResponsePtrOutput) EnabledState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoutingRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnabledState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Frontend endpoints associated with this rule
-func (o RoutingRulePropertiesResponsePtrOutput) FrontendEndpoints() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v *RoutingRulePropertiesResponse) []SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.FrontendEndpoints
-	}).(SubResourceResponseArrayOutput)
-}
-
-// The route patterns of the rule.
-func (o RoutingRulePropertiesResponsePtrOutput) PatternsToMatch() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RoutingRulePropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PatternsToMatch
-	}).(pulumi.StringArrayOutput)
-}
-
-// Resource status.
-func (o RoutingRulePropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoutingRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceState
-	}).(pulumi.StringPtrOutput)
-}
-
-// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
-type RoutingRuleResponse struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Front Door Routing Rule
-	Properties *RoutingRulePropertiesResponse `pulumi:"properties"`
+	// The route patterns of the rule.
+	PatternsToMatch []string `pulumi:"patternsToMatch"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -4274,12 +2611,20 @@ type RoutingRuleResponseInput interface {
 
 // A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 type RoutingRuleResponseArgs struct {
+	// Protocol schemes to match for this rule
+	AcceptedProtocols pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
+	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
+	// Frontend endpoints associated with this rule
+	FrontendEndpoints SubResourceResponseArrayInput `pulumi:"frontendEndpoints"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Resource name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties of the Front Door Routing Rule
-	Properties RoutingRulePropertiesResponsePtrInput `pulumi:"properties"`
+	// The route patterns of the rule.
+	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
+	// Resource status.
+	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -4336,6 +2681,21 @@ func (o RoutingRuleResponseOutput) ToRoutingRuleResponseOutputWithContext(ctx co
 	return o
 }
 
+// Protocol schemes to match for this rule
+func (o RoutingRuleResponseOutput) AcceptedProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoutingRuleResponse) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
+}
+
+// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+func (o RoutingRuleResponseOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoutingRuleResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// Frontend endpoints associated with this rule
+func (o RoutingRuleResponseOutput) FrontendEndpoints() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v RoutingRuleResponse) []SubResourceResponse { return v.FrontendEndpoints }).(SubResourceResponseArrayOutput)
+}
+
 // Resource ID.
 func (o RoutingRuleResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -4346,9 +2706,14 @@ func (o RoutingRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Properties of the Front Door Routing Rule
-func (o RoutingRuleResponseOutput) Properties() RoutingRulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RoutingRuleResponse) *RoutingRulePropertiesResponse { return v.Properties }).(RoutingRulePropertiesResponsePtrOutput)
+// The route patterns of the rule.
+func (o RoutingRuleResponseOutput) PatternsToMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoutingRuleResponse) []string { return v.PatternsToMatch }).(pulumi.StringArrayOutput)
+}
+
+// Resource status.
+func (o RoutingRuleResponseOutput) ResourceState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoutingRuleResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
 }
 
 // Resource type.
@@ -4739,8 +3104,6 @@ func init() {
 	pulumi.RegisterOutputType(BackendArrayOutput{})
 	pulumi.RegisterOutputType(BackendPoolOutput{})
 	pulumi.RegisterOutputType(BackendPoolArrayOutput{})
-	pulumi.RegisterOutputType(BackendPoolPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(BackendPoolPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BackendPoolResponseOutput{})
 	pulumi.RegisterOutputType(BackendPoolResponseArrayOutput{})
 	pulumi.RegisterOutputType(BackendPoolsSettingsOutput{})
@@ -4750,15 +3113,8 @@ func init() {
 	pulumi.RegisterOutputType(BackendResponseOutput{})
 	pulumi.RegisterOutputType(BackendResponseArrayOutput{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(CustomHttpsConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(FrontDoorCertificateSourceParametersResponseOutput{})
-	pulumi.RegisterOutputType(FrontDoorCertificateSourceParametersResponsePtrOutput{})
-	pulumi.RegisterOutputType(FrontDoorPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(FrontDoorPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FrontendEndpointOutput{})
 	pulumi.RegisterOutputType(FrontendEndpointArrayOutput{})
-	pulumi.RegisterOutputType(FrontendEndpointPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(FrontendEndpointPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FrontendEndpointResponseOutput{})
 	pulumi.RegisterOutputType(FrontendEndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput{})
@@ -4769,22 +3125,14 @@ func init() {
 	pulumi.RegisterOutputType(HealthProbeSettingsModelArrayOutput{})
 	pulumi.RegisterOutputType(HealthProbeSettingsModelResponseOutput{})
 	pulumi.RegisterOutputType(HealthProbeSettingsModelResponseArrayOutput{})
-	pulumi.RegisterOutputType(HealthProbeSettingsPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(HealthProbeSettingsPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponseVaultOutput{})
 	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponseVaultPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelResponseArrayOutput{})
-	pulumi.RegisterOutputType(LoadBalancingSettingsPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LoadBalancingSettingsPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RoutingRuleOutput{})
 	pulumi.RegisterOutputType(RoutingRuleArrayOutput{})
-	pulumi.RegisterOutputType(RoutingRulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(RoutingRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RoutingRuleResponseOutput{})
 	pulumi.RegisterOutputType(RoutingRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SubResourceOutput{})

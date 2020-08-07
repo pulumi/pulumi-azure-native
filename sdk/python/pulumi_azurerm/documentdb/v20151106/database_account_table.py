@@ -18,11 +18,6 @@ class DatabaseAccountTable(pulumi.CustomResource):
     """
     The name of the database account.
     """
-    properties: pulumi.Output[dict]
-    """
-    The properties of an Azure Cosmos DB Table
-      * `id` (`str`) - Name of the Cosmos DB table
-    """
     tags: pulumi.Output[dict]
     """
     Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -80,7 +75,6 @@ class DatabaseAccountTable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['location'] = None
-            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(DatabaseAccountTable, __self__).__init__(

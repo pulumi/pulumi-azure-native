@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class WebAppFunction(pulumi.CustomResource):
+    config: pulumi.Output[dict]
+    """
+    Config information.
+    """
+    config_href: pulumi.Output[str]
+    """
+    Config URI.
+    """
+    files: pulumi.Output[dict]
+    """
+    File list.
+    """
+    function_app_id: pulumi.Output[str]
+    """
+    Function App ID.
+    """
+    href: pulumi.Output[str]
+    """
+    Function URI.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,19 +38,21 @@ class WebAppFunction(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    script_href: pulumi.Output[str]
     """
-    FunctionEnvelope resource specific properties
-      * `config` (`dict`) - Config information.
-      * `config_href` (`str`) - Config URI.
-      * `files` (`dict`) - File list.
-      * `function_app_id` (`str`) - Function App ID.
-      * `href` (`str`) - Function URI.
-      * `name` (`str`) - Function name.
-      * `script_href` (`str`) - Script URI.
-      * `script_root_path_href` (`str`) - Script root path URI.
-      * `secrets_file_href` (`str`) - Secrets file URI.
-      * `test_data` (`str`) - Test data used when testing via the Azure Portal.
+    Script URI.
+    """
+    script_root_path_href: pulumi.Output[str]
+    """
+    Script root path URI.
+    """
+    secrets_file_href: pulumi.Output[str]
+    """
+    Secrets file URI.
+    """
+    test_data: pulumi.Output[str]
+    """
+    Test data used when testing via the Azure Portal.
     """
     type: pulumi.Output[str]
     """
@@ -86,7 +108,7 @@ class WebAppFunction(pulumi.CustomResource):
             __props__['script_root_path_href'] = script_root_path_href
             __props__['secrets_file_href'] = secrets_file_href
             __props__['test_data'] = test_data
-            __props__['properties'] = None
+            __props__['function_app_id'] = None
             __props__['type'] = None
         super(WebAppFunction, __self__).__init__(
             'azurerm:web/v20160801:WebAppFunction',

@@ -27,12 +27,30 @@ type LookupBookmarkArgs struct {
 
 // Represents a bookmark in Azure Security Insights.
 type LookupBookmarkResult struct {
+	// The time the bookmark was created
+	Created *string `pulumi:"created"`
+	// Describes a user that created the bookmark
+	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	// The display name of the bookmark
+	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Describes an incident that relates to bookmark
+	IncidentInfo *IncidentInfoResponse `pulumi:"incidentInfo"`
+	// List of labels relevant to this bookmark
+	Labels []string `pulumi:"labels"`
 	// Azure resource name
 	Name string `pulumi:"name"`
-	// Bookmark properties
-	Properties BookmarkPropertiesResponse `pulumi:"properties"`
+	// The notes of the bookmark
+	Notes *string `pulumi:"notes"`
+	// The query of the bookmark.
+	Query string `pulumi:"query"`
+	// The query result of the bookmark.
+	QueryResult *string `pulumi:"queryResult"`
 	// Azure resource type
 	Type string `pulumi:"type"`
+	// The last time the bookmark was updated
+	Updated *string `pulumi:"updated"`
+	// Describes a user that updated the bookmark
+	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
 }

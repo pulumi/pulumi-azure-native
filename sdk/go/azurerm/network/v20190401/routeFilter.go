@@ -16,12 +16,18 @@ type RouteFilter struct {
 
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// A collection of references to express route circuit ipv6 peerings.
+	Ipv6Peerings ExpressRouteCircuitPeeringResponseArrayOutput `pulumi:"ipv6Peerings"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the route filter.
-	Properties RouteFilterPropertiesFormatResponseOutput `pulumi:"properties"`
+	// A collection of references to express route circuit peerings.
+	Peerings ExpressRouteCircuitPeeringResponseArrayOutput `pulumi:"peerings"`
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Collection of RouteFilterRules contained within a route filter.
+	Rules RouteFilterRuleResponseArrayOutput `pulumi:"rules"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -67,12 +73,18 @@ func GetRouteFilter(ctx *pulumi.Context,
 type routeFilterState struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// A collection of references to express route circuit ipv6 peerings.
+	Ipv6Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"ipv6Peerings"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the route filter.
-	Properties *RouteFilterPropertiesFormatResponse `pulumi:"properties"`
+	// A collection of references to express route circuit peerings.
+	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Collection of RouteFilterRules contained within a route filter.
+	Rules []RouteFilterRuleResponse `pulumi:"rules"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -82,12 +94,18 @@ type routeFilterState struct {
 type RouteFilterState struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// A collection of references to express route circuit ipv6 peerings.
+	Ipv6Peerings ExpressRouteCircuitPeeringResponseArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the route filter.
-	Properties RouteFilterPropertiesFormatResponsePtrInput
+	// A collection of references to express route circuit peerings.
+	Peerings ExpressRouteCircuitPeeringResponseArrayInput
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// Collection of RouteFilterRules contained within a route filter.
+	Rules RouteFilterRuleResponseArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

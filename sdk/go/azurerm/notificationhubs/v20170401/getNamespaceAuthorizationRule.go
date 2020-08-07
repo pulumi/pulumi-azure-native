@@ -27,12 +27,28 @@ type LookupNamespaceAuthorizationRuleArgs struct {
 
 // Description of a Namespace AuthorizationRules.
 type LookupNamespaceAuthorizationRuleResult struct {
+	// A string that describes the claim type
+	ClaimType string `pulumi:"claimType"`
+	// A string that describes the claim value
+	ClaimValue string `pulumi:"claimValue"`
+	// The created time for this rule
+	CreatedTime string `pulumi:"createdTime"`
+	// A string that describes the authorization rule.
+	KeyName string `pulumi:"keyName"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// The last modified time for this rule
+	ModifiedTime string `pulumi:"modifiedTime"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the Namespace AuthorizationRule.
-	Properties SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey string `pulumi:"primaryKey"`
+	// The revision number for the rule
+	Revision int `pulumi:"revision"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey string `pulumi:"secondaryKey"`
 	// The sku of the created namespace
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags

@@ -37,9 +37,29 @@ export class StorageAccount extends pulumi.CustomResource {
     }
 
     /**
+     * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+     */
+    public readonly accessTier!: pulumi.Output<string>;
+    /**
+     * Gets the creation date and time of the storage account in UTC.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Gets the custom domain the user assigned to this storage account.
+     */
+    public readonly customDomain!: pulumi.Output<outputs.storage.v20160501.CustomDomainResponse>;
+    /**
+     * Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+     */
+    public readonly encryption!: pulumi.Output<outputs.storage.v20160501.EncryptionResponse>;
+    /**
      * Gets the Kind.
      */
     public readonly kind!: pulumi.Output<string>;
+    /**
+     * Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+     */
+    public /*out*/ readonly lastGeoFailoverTime!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -49,13 +69,37 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the storage account.
+     * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20160501.StorageAccountPropertiesResponse>;
+    public /*out*/ readonly primaryEndpoints!: pulumi.Output<outputs.storage.v20160501.EndpointsResponse>;
+    /**
+     * Gets the location of the primary data center for the storage account.
+     */
+    public /*out*/ readonly primaryLocation!: pulumi.Output<string>;
+    /**
+     * Gets the status of the storage account at the time the operation was called.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+     */
+    public /*out*/ readonly secondaryEndpoints!: pulumi.Output<outputs.storage.v20160501.EndpointsResponse>;
+    /**
+     * Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+     */
+    public /*out*/ readonly secondaryLocation!: pulumi.Output<string>;
     /**
      * Gets the SKU.
      */
     public readonly sku!: pulumi.Output<outputs.storage.v20160501.SkuResponse>;
+    /**
+     * Gets the status indicating whether the primary location of the storage account is available or unavailable.
+     */
+    public /*out*/ readonly statusOfPrimary!: pulumi.Output<string>;
+    /**
+     * Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+     */
+    public /*out*/ readonly statusOfSecondary!: pulumi.Output<string>;
     /**
      * Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
      */
@@ -102,7 +146,15 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["lastGeoFailoverTime"] = undefined /*out*/;
+            inputs["primaryEndpoints"] = undefined /*out*/;
+            inputs["primaryLocation"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["secondaryEndpoints"] = undefined /*out*/;
+            inputs["secondaryLocation"] = undefined /*out*/;
+            inputs["statusOfPrimary"] = undefined /*out*/;
+            inputs["statusOfSecondary"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

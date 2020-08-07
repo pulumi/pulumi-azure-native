@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        /// </summary>
+        [Output("endIpAddress")]
+        public Output<string> EndIpAddress { get; private set; } = null!;
+
+        /// <summary>
         /// The resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The firewall rule properties.
+        /// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FirewallRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("startIpAddress")]
+        public Output<string> StartIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

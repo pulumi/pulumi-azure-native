@@ -13,12 +13,24 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, location=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        The time the namespace was created.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The Geo-location where the resource lives
+        """
+        if metric_id and not isinstance(metric_id, str):
+            raise TypeError("Expected argument 'metric_id' to be a str")
+        __self__.metric_id = metric_id
+        """
+        Identifier for Azure Insights metrics
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +38,17 @@ class GetNamespaceResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the namespace.
+        Provisioning state of the namespace.
+        """
+        if service_bus_endpoint and not isinstance(service_bus_endpoint, str):
+            raise TypeError("Expected argument 'service_bus_endpoint' to be a str")
+        __self__.service_bus_endpoint = service_bus_endpoint
+        """
+        Endpoint you can use to perform Service Bus operations.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -50,6 +68,12 @@ class GetNamespaceResult:
         """
         Resource type
         """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The time the namespace was updated.
+        """
 
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
@@ -58,12 +82,16 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
         if False:
             yield self
         return GetNamespaceResult(
+            created_at=self.created_at,
             location=self.location,
+            metric_id=self.metric_id,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            updated_at=self.updated_at)
 
 
 def get_namespace(name=None, resource_group_name=None, opts=None):
@@ -83,9 +111,13 @@ def get_namespace(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:servicebus/v20170401:getNamespace', __args__, opts=opts).value
 
     return AwaitableGetNamespaceResult(
+        created_at=__ret__.get('createdAt'),
         location=__ret__.get('location'),
+        metric_id=__ret__.get('metricId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_bus_endpoint=__ret__.get('serviceBusEndpoint'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'))

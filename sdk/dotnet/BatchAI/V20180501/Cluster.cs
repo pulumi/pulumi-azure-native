@@ -15,22 +15,106 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+        /// </summary>
+        [Output("allocationState")]
+        public Output<string> AllocationState { get; private set; } = null!;
+
+        /// <summary>
+        /// The time at which the cluster entered its current allocation state.
+        /// </summary>
+        [Output("allocationStateTransitionTime")]
+        public Output<string> AllocationStateTransitionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The time when the cluster was created.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of compute nodes currently assigned to the cluster.
+        /// </summary>
+        [Output("currentNodeCount")]
+        public Output<int> CurrentNodeCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of errors encountered by various compute nodes during node setup.
+        /// </summary>
+        [Output("errors")]
+        public Output<ImmutableArray<Outputs.BatchAIErrorResponseResult>> Errors { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the Cluster.
+        /// Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nodeSetup")]
+        public Output<Outputs.NodeSetupResponseResult?> NodeSetup { get; private set; } = null!;
+
+        /// <summary>
+        /// Counts of various node states on the cluster.
+        /// </summary>
+        [Output("nodeStateCounts")]
+        public Output<Outputs.NodeStateCountsResponseResult> NodeStateCounts { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when the provisioning state was changed.
+        /// </summary>
+        [Output("provisioningStateTransitionTime")]
+        public Output<string> ProvisioningStateTransitionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Scale settings of the cluster.
+        /// </summary>
+        [Output("scaleSettings")]
+        public Output<Outputs.ScaleSettingsResponseResult?> ScaleSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual network subnet resource ID the cluster nodes belong to.
+        /// </summary>
+        [Output("subnet")]
+        public Output<Outputs.ResourceIdResponseResult?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Administrator user account settings which can be used to SSH to compute nodes.
+        /// </summary>
+        [Output("userAccountSettings")]
+        public Output<Outputs.UserAccountSettingsResponseResult?> UserAccountSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
+        /// </summary>
+        [Output("virtualMachineConfiguration")]
+        public Output<Outputs.VirtualMachineConfigurationResponseResult?> VirtualMachineConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// VM priority of cluster nodes.
+        /// </summary>
+        [Output("vmPriority")]
+        public Output<string?> VmPriority { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
+        /// </summary>
+        [Output("vmSize")]
+        public Output<string?> VmSize { get; private set; } = null!;
 
 
         /// <summary>

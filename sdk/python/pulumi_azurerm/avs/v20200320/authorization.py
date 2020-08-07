@@ -10,16 +10,21 @@ from ... import _utilities, _tables
 
 
 class Authorization(pulumi.CustomResource):
+    express_route_authorization_id: pulumi.Output[str]
+    """
+    The ID of the ExpressRoute Circuit Authorization
+    """
+    express_route_authorization_key: pulumi.Output[str]
+    """
+    The key of the ExpressRoute Circuit Authorization
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of an ExpressRoute Circuit Authorization resource
-      * `express_route_authorization_id` (`str`) - The ID of the ExpressRoute Circuit Authorization
-      * `express_route_authorization_key` (`str`) - The key of the ExpressRoute Circuit Authorization
-      * `provisioning_state` (`str`) - The state of the  ExpressRoute Circuit Authorization provisioning
+    The state of the  ExpressRoute Circuit Authorization provisioning
     """
     type: pulumi.Output[str]
     """
@@ -61,7 +66,9 @@ class Authorization(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['express_route_authorization_id'] = None
+            __props__['express_route_authorization_key'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Authorization, __self__).__init__(
             'azurerm:avs/v20200320:Authorization',

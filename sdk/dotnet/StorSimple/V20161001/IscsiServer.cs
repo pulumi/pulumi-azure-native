@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public partial class IscsiServer : Pulumi.CustomResource
     {
         /// <summary>
+        /// The backup policy id.
+        /// </summary>
+        [Output("backupScheduleGroupId")]
+        public Output<string> BackupScheduleGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The chap id.
+        /// </summary>
+        [Output("chapId")]
+        public Output<string?> ChapId { get; private set; } = null!;
+
+        /// <summary>
+        /// The description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties.
+        /// The reverse chap id.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ISCSIServerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("reverseChapId")]
+        public Output<string?> ReverseChapId { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage domain id.
+        /// </summary>
+        [Output("storageDomainId")]
+        public Output<string> StorageDomainId { get; private set; } = null!;
 
         /// <summary>
         /// The type.

@@ -21,16 +21,22 @@ namespace Pulumi.AzureRM.Storage.V20190401
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The immutability period for the blobs in the container since the policy creation, in days.
+        /// </summary>
+        [Output("immutabilityPeriodSinceCreationInDays")]
+        public Output<int> ImmutabilityPeriodSinceCreationInDays { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of an ImmutabilityPolicy of a blob container.
+        /// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ImmutabilityPolicyPropertyResponseResult> Properties { get; private set; } = null!;
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

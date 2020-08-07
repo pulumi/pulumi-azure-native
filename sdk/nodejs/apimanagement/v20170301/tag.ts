@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,13 @@ export class Tag extends pulumi.CustomResource {
     }
 
     /**
+     * Tag name.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Tag entity contract properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.TagContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -78,7 +76,6 @@ export class Tag extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

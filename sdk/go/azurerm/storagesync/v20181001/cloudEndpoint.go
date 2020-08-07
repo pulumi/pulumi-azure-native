@@ -14,10 +14,26 @@ import (
 type CloudEndpoint struct {
 	pulumi.CustomResourceState
 
+	// Backup Enabled
+	BackupEnabled pulumi.StringOutput `pulumi:"backupEnabled"`
+	// Friendly Name
+	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	// Resource Last Operation Name
+	LastOperationName pulumi.StringPtrOutput `pulumi:"lastOperationName"`
+	// CloudEndpoint lastWorkflowId
+	LastWorkflowId pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Cloud Endpoint properties.
-	Properties CloudEndpointPropertiesResponseOutput `pulumi:"properties"`
+	// Partnership Id
+	PartnershipId pulumi.StringPtrOutput `pulumi:"partnershipId"`
+	// CloudEndpoint Provisioning State
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Storage Account Resource Id
+	StorageAccountResourceId pulumi.StringPtrOutput `pulumi:"storageAccountResourceId"`
+	// Storage Account Share name
+	StorageAccountShareName pulumi.StringPtrOutput `pulumi:"storageAccountShareName"`
+	// Storage Account Tenant Id
+	StorageAccountTenantId pulumi.StringPtrOutput `pulumi:"storageAccountTenantId"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +78,51 @@ func GetCloudEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudEndpoint resources.
 type cloudEndpointState struct {
+	// Backup Enabled
+	BackupEnabled *string `pulumi:"backupEnabled"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Resource Last Operation Name
+	LastOperationName *string `pulumi:"lastOperationName"`
+	// CloudEndpoint lastWorkflowId
+	LastWorkflowId *string `pulumi:"lastWorkflowId"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Cloud Endpoint properties.
-	Properties *CloudEndpointPropertiesResponse `pulumi:"properties"`
+	// Partnership Id
+	PartnershipId *string `pulumi:"partnershipId"`
+	// CloudEndpoint Provisioning State
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Storage Account Resource Id
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
+	// Storage Account Share name
+	StorageAccountShareName *string `pulumi:"storageAccountShareName"`
+	// Storage Account Tenant Id
+	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type CloudEndpointState struct {
+	// Backup Enabled
+	BackupEnabled pulumi.StringPtrInput
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput
+	// Resource Last Operation Name
+	LastOperationName pulumi.StringPtrInput
+	// CloudEndpoint lastWorkflowId
+	LastWorkflowId pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Cloud Endpoint properties.
-	Properties CloudEndpointPropertiesResponsePtrInput
+	// Partnership Id
+	PartnershipId pulumi.StringPtrInput
+	// CloudEndpoint Provisioning State
+	ProvisioningState pulumi.StringPtrInput
+	// Storage Account Resource Id
+	StorageAccountResourceId pulumi.StringPtrInput
+	// Storage Account Share name
+	StorageAccountShareName pulumi.StringPtrInput
+	// Storage Account Tenant Id
+	StorageAccountTenantId pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

@@ -45,13 +45,25 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionResult {
      */
     readonly etag: string;
     /**
+     * The consumer link id.
+     */
+    readonly linkIdentifier: string;
+    /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: string;
     /**
-     * Properties of the private end point connection.
+     * The resource of private end point.
      */
-    readonly properties: outputs.network.v20200301.PrivateEndpointConnectionPropertiesResponse;
+    readonly privateEndpoint: outputs.network.v20200301.PrivateEndpointResponse;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    readonly privateLinkServiceConnectionState?: outputs.network.v20200301.PrivateLinkServiceConnectionStateResponse;
+    /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    readonly provisioningState: string;
     /**
      * The resource type.
      */

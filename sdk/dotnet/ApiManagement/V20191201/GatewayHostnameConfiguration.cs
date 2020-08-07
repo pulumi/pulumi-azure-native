@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class GatewayHostnameConfiguration : Pulumi.CustomResource
     {
         /// <summary>
+        /// Identifier of Certificate entity that will be used for TLS connection establishment
+        /// </summary>
+        [Output("certificateId")]
+        public Output<string?> CertificateId { get; private set; } = null!;
+
+        /// <summary>
+        /// Hostname value. Supports valid domain name, partial or full wildcard
+        /// </summary>
+        [Output("hostname")]
+        public Output<string?> Hostname { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gateway hostname configuration details.
+        /// Determines whether gateway requests client certificate
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GatewayHostnameConfigurationContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("negotiateClientCertificate")]
+        public Output<bool?> NegotiateClientCertificate { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

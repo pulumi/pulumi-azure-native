@@ -37,17 +37,73 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+     */
+    public /*out*/ readonly allocationState!: pulumi.Output<string>;
+    /**
+     * The time at which the cluster entered its current allocation state.
+     */
+    public /*out*/ readonly allocationStateTransitionTime!: pulumi.Output<string>;
+    /**
+     * The time when the cluster was created.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The number of compute nodes currently assigned to the cluster.
+     */
+    public /*out*/ readonly currentNodeCount!: pulumi.Output<number>;
+    /**
+     * Collection of errors encountered by various compute nodes during node setup.
+     */
+    public /*out*/ readonly errors!: pulumi.Output<outputs.batchai.v20180501.BatchAIErrorResponse[]>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties associated with the Cluster.
+     * Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.batchai.v20180501.ClusterPropertiesResponse>;
+    public readonly nodeSetup!: pulumi.Output<outputs.batchai.v20180501.NodeSetupResponse | undefined>;
+    /**
+     * Counts of various node states on the cluster.
+     */
+    public /*out*/ readonly nodeStateCounts!: pulumi.Output<outputs.batchai.v20180501.NodeStateCountsResponse>;
+    /**
+     * Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Time when the provisioning state was changed.
+     */
+    public /*out*/ readonly provisioningStateTransitionTime!: pulumi.Output<string>;
+    /**
+     * Scale settings of the cluster.
+     */
+    public readonly scaleSettings!: pulumi.Output<outputs.batchai.v20180501.ScaleSettingsResponse | undefined>;
+    /**
+     * Virtual network subnet resource ID the cluster nodes belong to.
+     */
+    public readonly subnet!: pulumi.Output<outputs.batchai.v20180501.ResourceIdResponse | undefined>;
     /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Administrator user account settings which can be used to SSH to compute nodes.
+     */
+    public readonly userAccountSettings!: pulumi.Output<outputs.batchai.v20180501.UserAccountSettingsResponse | undefined>;
+    /**
+     * Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
+     */
+    public readonly virtualMachineConfiguration!: pulumi.Output<outputs.batchai.v20180501.VirtualMachineConfigurationResponse | undefined>;
+    /**
+     * VM priority of cluster nodes.
+     */
+    public readonly vmPriority!: pulumi.Output<string | undefined>;
+    /**
+     * The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
+     */
+    public readonly vmSize!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -87,7 +143,14 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vmPriority"] = args ? args.vmPriority : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["allocationState"] = undefined /*out*/;
+            inputs["allocationStateTransitionTime"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["currentNodeCount"] = undefined /*out*/;
+            inputs["errors"] = undefined /*out*/;
+            inputs["nodeStateCounts"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

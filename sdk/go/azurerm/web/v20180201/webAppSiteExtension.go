@@ -14,14 +14,51 @@ import (
 type WebAppSiteExtension struct {
 	pulumi.CustomResourceState
 
+	// List of authors.
+	Authors pulumi.StringArrayOutput `pulumi:"authors"`
+	// Site Extension comment.
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Detailed description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Count of downloads.
+	Download_count pulumi.IntPtrOutput `pulumi:"download_count"`
+	// Site extension ID.
+	Extension_id pulumi.StringPtrOutput `pulumi:"extension_id"`
+	// Site extension type.
+	Extension_type pulumi.StringPtrOutput `pulumi:"extension_type"`
+	// Extension URL.
+	Extension_url pulumi.StringPtrOutput `pulumi:"extension_url"`
+	// Feed URL.
+	Feed_url pulumi.StringPtrOutput `pulumi:"feed_url"`
+	// Icon URL.
+	Icon_url pulumi.StringPtrOutput `pulumi:"icon_url"`
+	// Installed timestamp.
+	Installed_date_time pulumi.StringPtrOutput `pulumi:"installed_date_time"`
+	// Installer command line parameters.
+	Installer_command_line_params pulumi.StringPtrOutput `pulumi:"installer_command_line_params"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// License URL.
+	License_url pulumi.StringPtrOutput `pulumi:"license_url"`
+	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+	Local_is_latest_version pulumi.BoolPtrOutput `pulumi:"local_is_latest_version"`
+	// Local path.
+	Local_path pulumi.StringPtrOutput `pulumi:"local_path"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// SiteExtensionInfo resource specific properties
-	Properties SiteExtensionInfoResponsePropertiesOutput `pulumi:"properties"`
+	// Project URL.
+	Project_url pulumi.StringPtrOutput `pulumi:"project_url"`
+	// Provisioning state.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Published timestamp.
+	Published_date_time pulumi.StringPtrOutput `pulumi:"published_date_time"`
+	// Summary description.
+	Summary pulumi.StringPtrOutput `pulumi:"summary"`
+	Title   pulumi.StringPtrOutput `pulumi:"title"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Version information.
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewWebAppSiteExtension registers a new resource with the given unique name, arguments, and options.
@@ -58,25 +95,99 @@ func GetWebAppSiteExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppSiteExtension resources.
 type webAppSiteExtensionState struct {
+	// List of authors.
+	Authors []string `pulumi:"authors"`
+	// Site Extension comment.
+	Comment *string `pulumi:"comment"`
+	// Detailed description.
+	Description *string `pulumi:"description"`
+	// Count of downloads.
+	Download_count *int `pulumi:"download_count"`
+	// Site extension ID.
+	Extension_id *string `pulumi:"extension_id"`
+	// Site extension type.
+	Extension_type *string `pulumi:"extension_type"`
+	// Extension URL.
+	Extension_url *string `pulumi:"extension_url"`
+	// Feed URL.
+	Feed_url *string `pulumi:"feed_url"`
+	// Icon URL.
+	Icon_url *string `pulumi:"icon_url"`
+	// Installed timestamp.
+	Installed_date_time *string `pulumi:"installed_date_time"`
+	// Installer command line parameters.
+	Installer_command_line_params *string `pulumi:"installer_command_line_params"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// License URL.
+	License_url *string `pulumi:"license_url"`
+	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+	Local_is_latest_version *bool `pulumi:"local_is_latest_version"`
+	// Local path.
+	Local_path *string `pulumi:"local_path"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// SiteExtensionInfo resource specific properties
-	Properties *SiteExtensionInfoResponseProperties `pulumi:"properties"`
+	// Project URL.
+	Project_url *string `pulumi:"project_url"`
+	// Provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Published timestamp.
+	Published_date_time *string `pulumi:"published_date_time"`
+	// Summary description.
+	Summary *string `pulumi:"summary"`
+	Title   *string `pulumi:"title"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// Version information.
+	Version *string `pulumi:"version"`
 }
 
 type WebAppSiteExtensionState struct {
+	// List of authors.
+	Authors pulumi.StringArrayInput
+	// Site Extension comment.
+	Comment pulumi.StringPtrInput
+	// Detailed description.
+	Description pulumi.StringPtrInput
+	// Count of downloads.
+	Download_count pulumi.IntPtrInput
+	// Site extension ID.
+	Extension_id pulumi.StringPtrInput
+	// Site extension type.
+	Extension_type pulumi.StringPtrInput
+	// Extension URL.
+	Extension_url pulumi.StringPtrInput
+	// Feed URL.
+	Feed_url pulumi.StringPtrInput
+	// Icon URL.
+	Icon_url pulumi.StringPtrInput
+	// Installed timestamp.
+	Installed_date_time pulumi.StringPtrInput
+	// Installer command line parameters.
+	Installer_command_line_params pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
+	// License URL.
+	License_url pulumi.StringPtrInput
+	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+	Local_is_latest_version pulumi.BoolPtrInput
+	// Local path.
+	Local_path pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// SiteExtensionInfo resource specific properties
-	Properties SiteExtensionInfoResponsePropertiesPtrInput
+	// Project URL.
+	Project_url pulumi.StringPtrInput
+	// Provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// Published timestamp.
+	Published_date_time pulumi.StringPtrInput
+	// Summary description.
+	Summary pulumi.StringPtrInput
+	Title   pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// Version information.
+	Version pulumi.StringPtrInput
 }
 
 func (WebAppSiteExtensionState) ElementType() reflect.Type {

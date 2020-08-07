@@ -21,16 +21,22 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// SyncGroup properties.
+        /// Sync group status
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SyncGroupPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("syncGroupStatus")]
+        public Output<string> SyncGroupStatus { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique Id
+        /// </summary>
+        [Output("uniqueId")]
+        public Output<string> UniqueId { get; private set; } = null!;
 
 
         /// <summary>

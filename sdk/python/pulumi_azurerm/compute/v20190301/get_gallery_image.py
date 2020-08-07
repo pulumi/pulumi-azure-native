@@ -13,7 +13,37 @@ class GetGalleryImageResult:
     """
     Specifies information about the gallery Image Definition that you want to create or update.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, description=None, disallowed=None, end_of_life_date=None, eula=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of this gallery Image Definition resource. This property is updatable.
+        """
+        if disallowed and not isinstance(disallowed, dict):
+            raise TypeError("Expected argument 'disallowed' to be a dict")
+        __self__.disallowed = disallowed
+        """
+        Describes the disallowed disk types.
+        """
+        if end_of_life_date and not isinstance(end_of_life_date, str):
+            raise TypeError("Expected argument 'end_of_life_date' to be a str")
+        __self__.end_of_life_date = end_of_life_date
+        """
+        The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        """
+        if eula and not isinstance(eula, str):
+            raise TypeError("Expected argument 'eula' to be a str")
+        __self__.eula = eula
+        """
+        The Eula agreement for the gallery Image Definition.
+        """
+        if identifier and not isinstance(identifier, dict):
+            raise TypeError("Expected argument 'identifier' to be a dict")
+        __self__.identifier = identifier
+        """
+        This is the gallery Image Definition identifier.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,47 @@ class GetGalleryImageResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if os_state and not isinstance(os_state, str):
+            raise TypeError("Expected argument 'os_state' to be a str")
+        __self__.os_state = os_state
         """
-        Describes the properties of a gallery Image Definition.
+        This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+        """
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        __self__.os_type = os_type
+        """
+        This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        """
+        if privacy_statement_uri and not isinstance(privacy_statement_uri, str):
+            raise TypeError("Expected argument 'privacy_statement_uri' to be a str")
+        __self__.privacy_statement_uri = privacy_statement_uri
+        """
+        The privacy statement uri.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state, which only appears in the response.
+        """
+        if purchase_plan and not isinstance(purchase_plan, dict):
+            raise TypeError("Expected argument 'purchase_plan' to be a dict")
+        __self__.purchase_plan = purchase_plan
+        """
+        Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        """
+        if recommended and not isinstance(recommended, dict):
+            raise TypeError("Expected argument 'recommended' to be a dict")
+        __self__.recommended = recommended
+        """
+        The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+        """
+        if release_note_uri and not isinstance(release_note_uri, str):
+            raise TypeError("Expected argument 'release_note_uri' to be a str")
+        __self__.release_note_uri = release_note_uri
+        """
+        The release note uri.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +118,20 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
         if False:
             yield self
         return GetGalleryImageResult(
+            description=self.description,
+            disallowed=self.disallowed,
+            end_of_life_date=self.end_of_life_date,
+            eula=self.eula,
+            identifier=self.identifier,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            os_state=self.os_state,
+            os_type=self.os_type,
+            privacy_statement_uri=self.privacy_statement_uri,
+            provisioning_state=self.provisioning_state,
+            purchase_plan=self.purchase_plan,
+            recommended=self.recommended,
+            release_note_uri=self.release_note_uri,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +155,19 @@ def get_gallery_image(gallery_name=None, name=None, resource_group_name=None, op
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190301:getGalleryImage', __args__, opts=opts).value
 
     return AwaitableGetGalleryImageResult(
+        description=__ret__.get('description'),
+        disallowed=__ret__.get('disallowed'),
+        end_of_life_date=__ret__.get('endOfLifeDate'),
+        eula=__ret__.get('eula'),
+        identifier=__ret__.get('identifier'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        os_state=__ret__.get('osState'),
+        os_type=__ret__.get('osType'),
+        privacy_statement_uri=__ret__.get('privacyStatementUri'),
+        provisioning_state=__ret__.get('provisioningState'),
+        purchase_plan=__ret__.get('purchasePlan'),
+        recommended=__ret__.get('recommended'),
+        release_note_uri=__ret__.get('releaseNoteUri'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

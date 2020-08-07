@@ -10,9 +10,60 @@ from ... import _utilities, _tables
 
 
 class CertificateOrder(pulumi.CustomResource):
+    auto_renew: pulumi.Output[bool]
+    """
+    Auto renew
+    """
+    certificates: pulumi.Output[dict]
+    """
+    State of the Key Vault secret
+    """
+    csr: pulumi.Output[str]
+    """
+    Last CSR that was created for this order
+    """
+    distinguished_name: pulumi.Output[str]
+    """
+    Certificate distinguished name
+    """
+    domain_verification_token: pulumi.Output[str]
+    """
+    Domain Verification Token
+    """
+    expiration_time: pulumi.Output[str]
+    """
+    Certificate expiration time
+    """
+    intermediate: pulumi.Output[dict]
+    """
+    Intermediate certificate
+      * `id` (`str`) - Resource Id
+      * `issuer` (`str`) - Issuer
+      * `kind` (`str`) - Kind of resource
+      * `location` (`str`) - Resource Location
+      * `name` (`str`) - Resource Name
+      * `not_after` (`str`) - Valid to
+      * `not_before` (`str`) - Valid from
+      * `raw_data` (`str`) - Raw certificate data
+      * `serial_number` (`str`) - Serial Number
+      * `signature_algorithm` (`str`) - Signature Algorithm
+      * `subject` (`str`) - Subject
+      * `tags` (`dict`) - Resource tags
+      * `thumbprint` (`str`) - Thumbprint
+      * `type` (`str`) - Resource type
+      * `version` (`float`) - Version
+    """
+    key_size: pulumi.Output[float]
+    """
+    Certificate Key Size
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
+    """
+    last_certificate_issuance_time: pulumi.Output[str]
+    """
+    Certificate last issuance time
     """
     location: pulumi.Output[str]
     """
@@ -22,7 +73,60 @@ class CertificateOrder(pulumi.CustomResource):
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    product_type: pulumi.Output[str]
+    """
+    Certificate product type
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Status of certificate order
+    """
+    root: pulumi.Output[dict]
+    """
+    Root certificate
+      * `id` (`str`) - Resource Id
+      * `issuer` (`str`) - Issuer
+      * `kind` (`str`) - Kind of resource
+      * `location` (`str`) - Resource Location
+      * `name` (`str`) - Resource Name
+      * `not_after` (`str`) - Valid to
+      * `not_before` (`str`) - Valid from
+      * `raw_data` (`str`) - Raw certificate data
+      * `serial_number` (`str`) - Serial Number
+      * `signature_algorithm` (`str`) - Signature Algorithm
+      * `subject` (`str`) - Subject
+      * `tags` (`dict`) - Resource tags
+      * `thumbprint` (`str`) - Thumbprint
+      * `type` (`str`) - Resource type
+      * `version` (`float`) - Version
+    """
+    serial_number: pulumi.Output[str]
+    """
+    Current serial number of the certificate
+    """
+    signed_certificate: pulumi.Output[dict]
+    """
+    Signed certificate
+      * `id` (`str`) - Resource Id
+      * `issuer` (`str`) - Issuer
+      * `kind` (`str`) - Kind of resource
+      * `location` (`str`) - Resource Location
+      * `name` (`str`) - Resource Name
+      * `not_after` (`str`) - Valid to
+      * `not_before` (`str`) - Valid from
+      * `raw_data` (`str`) - Raw certificate data
+      * `serial_number` (`str`) - Serial Number
+      * `signature_algorithm` (`str`) - Signature Algorithm
+      * `subject` (`str`) - Subject
+      * `tags` (`dict`) - Resource tags
+      * `thumbprint` (`str`) - Thumbprint
+      * `type` (`str`) - Resource type
+      * `version` (`float`) - Version
+    """
+    status: pulumi.Output[str]
+    """
+    Current order status
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -30,6 +134,10 @@ class CertificateOrder(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    validity_in_years: pulumi.Output[float]
+    """
+    Duration in years (must be between 1 and 3)
     """
     def __init__(__self__, resource_name, opts=None, auto_renew=None, certificates=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, id=None, intermediate=None, key_size=None, kind=None, last_certificate_issuance_time=None, location=None, name=None, product_type=None, provisioning_state=None, resource_group_name=None, root=None, serial_number=None, signed_certificate=None, status=None, tags=None, type=None, validity_in_years=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -125,7 +233,6 @@ class CertificateOrder(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['validity_in_years'] = validity_in_years
-            __props__['properties'] = None
         super(CertificateOrder, __self__).__init__(
             'azurerm:certificateregistration/v20150801:CertificateOrder',
             resource_name,

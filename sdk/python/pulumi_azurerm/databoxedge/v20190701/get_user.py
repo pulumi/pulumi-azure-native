@@ -13,18 +13,24 @@ class GetUserResult:
     """
     Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, encrypted_password=None, name=None, share_access_rights=None, type=None):
+        if encrypted_password and not isinstance(encrypted_password, dict):
+            raise TypeError("Expected argument 'encrypted_password' to be a dict")
+        __self__.encrypted_password = encrypted_password
+        """
+        The password details.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The object name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if share_access_rights and not isinstance(share_access_rights, list):
+            raise TypeError("Expected argument 'share_access_rights' to be a list")
+        __self__.share_access_rights = share_access_rights
         """
-        The storage account credential properties.
+        List of shares that the user has rights on. This field should not be specified during user creation.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +46,9 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            encrypted_password=self.encrypted_password,
             name=self.name,
-            properties=self.properties,
+            share_access_rights=self.share_access_rights,
             type=self.type)
 
 
@@ -64,6 +71,7 @@ def get_user(device_name=None, name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190701:getUser', __args__, opts=opts).value
 
     return AwaitableGetUserResult(
+        encrypted_password=__ret__.get('encryptedPassword'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        share_access_rights=__ret__.get('shareAccessRights'),
         type=__ret__.get('type'))

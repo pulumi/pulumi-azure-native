@@ -52,6 +52,14 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
     public sealed class GetApplicationTypeVersionResult
     {
         /// <summary>
+        /// The URL to the application package
+        /// </summary>
+        public readonly string AppPackageUrl;
+        /// <summary>
+        /// List of application type parameters that can be overridden when creating or updating the application.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> DefaultParameterList;
+        /// <summary>
         /// Azure resource etag.
         /// </summary>
         public readonly string Etag;
@@ -64,9 +72,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the application type version resource.
+        /// The current deployment or provisioning state, which only appears in the response
         /// </summary>
-        public readonly Outputs.ApplicationTypeVersionResourcePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -78,22 +86,28 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
 
         [OutputConstructor]
         private GetApplicationTypeVersionResult(
+            string appPackageUrl,
+
+            ImmutableDictionary<string, string> defaultParameterList,
+
             string etag,
 
             string? location,
 
             string name,
 
-            Outputs.ApplicationTypeVersionResourcePropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AppPackageUrl = appPackageUrl;
+            DefaultParameterList = defaultParameterList;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

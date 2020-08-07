@@ -36,6 +36,74 @@ export interface GetComponentArgs {
  */
 export interface GetComponentResult {
     /**
+     * Application Insights Unique ID for your Application.
+     */
+    readonly AppId: string;
+    /**
+     * The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
+     */
+    readonly ApplicationId: string;
+    /**
+     * Type of application being monitored.
+     */
+    readonly Application_Type: string;
+    /**
+     * Application Insights component connection string.
+     */
+    readonly ConnectionString: string;
+    /**
+     * Creation Date for the Application Insights component, in ISO 8601 format.
+     */
+    readonly CreationDate: string;
+    /**
+     * Disable IP masking.
+     */
+    readonly DisableIpMasking?: boolean;
+    /**
+     * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+     */
+    readonly Flow_Type?: string;
+    /**
+     * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+     */
+    readonly HockeyAppId?: string;
+    /**
+     * Token used to authenticate communications with between Application Insights and HockeyApp.
+     */
+    readonly HockeyAppToken: string;
+    /**
+     * Purge data immediately after 30 days.
+     */
+    readonly ImmediatePurgeDataOn30Days?: boolean;
+    /**
+     * Indicates the flow of the ingestion.
+     */
+    readonly IngestionMode?: string;
+    /**
+     * Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
+     */
+    readonly InstrumentationKey: string;
+    /**
+     * List of linked private link scope resources.
+     */
+    readonly PrivateLinkScopedResources: outputs.insights.v20150501.PrivateLinkScopedResourceResponse[];
+    /**
+     * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+     */
+    readonly Request_Source?: string;
+    /**
+     * Retention period in days.
+     */
+    readonly RetentionInDays?: number;
+    /**
+     * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+     */
+    readonly SamplingPercentage?: number;
+    /**
+     * Azure Tenant Id.
+     */
+    readonly TenantId: string;
+    /**
      * The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
      */
     readonly kind: string;
@@ -48,9 +116,9 @@ export interface GetComponentResult {
      */
     readonly name: string;
     /**
-     * Properties that define an Application Insights component resource.
+     * Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
-    readonly properties: outputs.insights.v20150501.ApplicationInsightsComponentPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Resource tags
      */

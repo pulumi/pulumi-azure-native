@@ -25,12 +25,20 @@ type ListWebAppBackupConfigurationArgs struct {
 
 // Description of a backup which will be performed.
 type ListWebAppBackupConfigurationResult struct {
+	// Name of the backup.
+	BackupName *string `pulumi:"backupName"`
+	// Schedule for the backup if it is executed periodically.
+	BackupSchedule *BackupScheduleResponse `pulumi:"backupSchedule"`
+	// Databases included in the backup.
+	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// BackupRequest resource specific properties
-	Properties BackupRequestResponseProperties `pulumi:"properties"`
+	// SAS URL to the container.
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

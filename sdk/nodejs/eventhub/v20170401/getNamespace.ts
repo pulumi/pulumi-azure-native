@@ -36,17 +36,41 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * The time the Namespace was created.
+     */
+    readonly createdAt: string;
+    /**
+     * Value that indicates whether AutoInflate is enabled for eventhub namespace.
+     */
+    readonly isAutoInflateEnabled?: boolean;
+    /**
+     * Value that indicates whether Kafka is enabled for eventhub namespace.
+     */
+    readonly kafkaEnabled?: boolean;
+    /**
      * Resource location.
      */
     readonly location?: string;
+    /**
+     * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+     */
+    readonly maximumThroughputUnits?: number;
+    /**
+     * Identifier for Azure Insights metrics.
+     */
+    readonly metricId: string;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Namespace properties supplied for create namespace operation.
+     * Provisioning state of the Namespace.
      */
-    readonly properties: outputs.eventhub.v20170401.EHNamespaceResponseProperties;
+    readonly provisioningState: string;
+    /**
+     * Endpoint you can use to perform Service Bus operations.
+     */
+    readonly serviceBusEndpoint: string;
     /**
      * Properties of sku resource
      */
@@ -59,4 +83,8 @@ export interface GetNamespaceResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The time the Namespace was updated.
+     */
+    readonly updatedAt: string;
 }

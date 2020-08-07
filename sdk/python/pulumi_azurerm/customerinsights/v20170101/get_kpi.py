@@ -13,24 +13,132 @@ class GetKpiResult:
     """
     The KPI resource format.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, aliases=None, calculation_window=None, calculation_window_field_name=None, description=None, display_name=None, entity_type=None, entity_type_name=None, expression=None, extracts=None, filter=None, function=None, group_by=None, group_by_metadata=None, kpi_name=None, name=None, participant_profiles_metadata=None, provisioning_state=None, tenant_id=None, thres_holds=None, type=None, unit=None):
+        if aliases and not isinstance(aliases, list):
+            raise TypeError("Expected argument 'aliases' to be a list")
+        __self__.aliases = aliases
+        """
+        The aliases.
+        """
+        if calculation_window and not isinstance(calculation_window, str):
+            raise TypeError("Expected argument 'calculation_window' to be a str")
+        __self__.calculation_window = calculation_window
+        """
+        The calculation window.
+        """
+        if calculation_window_field_name and not isinstance(calculation_window_field_name, str):
+            raise TypeError("Expected argument 'calculation_window_field_name' to be a str")
+        __self__.calculation_window_field_name = calculation_window_field_name
+        """
+        Name of calculation window field.
+        """
+        if description and not isinstance(description, dict):
+            raise TypeError("Expected argument 'description' to be a dict")
+        __self__.description = description
+        """
+        Localized description for the KPI.
+        """
+        if display_name and not isinstance(display_name, dict):
+            raise TypeError("Expected argument 'display_name' to be a dict")
+        __self__.display_name = display_name
+        """
+        Localized display name for the KPI.
+        """
+        if entity_type and not isinstance(entity_type, str):
+            raise TypeError("Expected argument 'entity_type' to be a str")
+        __self__.entity_type = entity_type
+        """
+        The mapping entity type.
+        """
+        if entity_type_name and not isinstance(entity_type_name, str):
+            raise TypeError("Expected argument 'entity_type_name' to be a str")
+        __self__.entity_type_name = entity_type_name
+        """
+        The mapping entity name.
+        """
+        if expression and not isinstance(expression, str):
+            raise TypeError("Expected argument 'expression' to be a str")
+        __self__.expression = expression
+        """
+        The computation expression for the KPI.
+        """
+        if extracts and not isinstance(extracts, list):
+            raise TypeError("Expected argument 'extracts' to be a list")
+        __self__.extracts = extracts
+        """
+        The KPI extracts.
+        """
+        if filter and not isinstance(filter, str):
+            raise TypeError("Expected argument 'filter' to be a str")
+        __self__.filter = filter
+        """
+        The filter expression for the KPI.
+        """
+        if function and not isinstance(function, str):
+            raise TypeError("Expected argument 'function' to be a str")
+        __self__.function = function
+        """
+        The computation function for the KPI.
+        """
+        if group_by and not isinstance(group_by, list):
+            raise TypeError("Expected argument 'group_by' to be a list")
+        __self__.group_by = group_by
+        """
+        the group by properties for the KPI.
+        """
+        if group_by_metadata and not isinstance(group_by_metadata, list):
+            raise TypeError("Expected argument 'group_by_metadata' to be a list")
+        __self__.group_by_metadata = group_by_metadata
+        """
+        The KPI GroupByMetadata.
+        """
+        if kpi_name and not isinstance(kpi_name, str):
+            raise TypeError("Expected argument 'kpi_name' to be a str")
+        __self__.kpi_name = kpi_name
+        """
+        The KPI name.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if participant_profiles_metadata and not isinstance(participant_profiles_metadata, list):
+            raise TypeError("Expected argument 'participant_profiles_metadata' to be a list")
+        __self__.participant_profiles_metadata = participant_profiles_metadata
         """
-        Defines the KPI Threshold limits.
+        The participant profiles.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The hub name.
+        """
+        if thres_holds and not isinstance(thres_holds, dict):
+            raise TypeError("Expected argument 'thres_holds' to be a dict")
+        __self__.thres_holds = thres_holds
+        """
+        The KPI thresholds.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if unit and not isinstance(unit, str):
+            raise TypeError("Expected argument 'unit' to be a str")
+        __self__.unit = unit
+        """
+        The unit of measurement for the KPI.
         """
 
 
@@ -40,9 +148,27 @@ class AwaitableGetKpiResult(GetKpiResult):
         if False:
             yield self
         return GetKpiResult(
+            aliases=self.aliases,
+            calculation_window=self.calculation_window,
+            calculation_window_field_name=self.calculation_window_field_name,
+            description=self.description,
+            display_name=self.display_name,
+            entity_type=self.entity_type,
+            entity_type_name=self.entity_type_name,
+            expression=self.expression,
+            extracts=self.extracts,
+            filter=self.filter,
+            function=self.function,
+            group_by=self.group_by,
+            group_by_metadata=self.group_by_metadata,
+            kpi_name=self.kpi_name,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            participant_profiles_metadata=self.participant_profiles_metadata,
+            provisioning_state=self.provisioning_state,
+            tenant_id=self.tenant_id,
+            thres_holds=self.thres_holds,
+            type=self.type,
+            unit=self.unit)
 
 
 def get_kpi(hub_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +190,24 @@ def get_kpi(hub_name=None, name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:customerinsights/v20170101:getKpi', __args__, opts=opts).value
 
     return AwaitableGetKpiResult(
+        aliases=__ret__.get('aliases'),
+        calculation_window=__ret__.get('calculationWindow'),
+        calculation_window_field_name=__ret__.get('calculationWindowFieldName'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        entity_type=__ret__.get('entityType'),
+        entity_type_name=__ret__.get('entityTypeName'),
+        expression=__ret__.get('expression'),
+        extracts=__ret__.get('extracts'),
+        filter=__ret__.get('filter'),
+        function=__ret__.get('function'),
+        group_by=__ret__.get('groupBy'),
+        group_by_metadata=__ret__.get('groupByMetadata'),
+        kpi_name=__ret__.get('kpiName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        participant_profiles_metadata=__ret__.get('participantProfilesMetadata'),
+        provisioning_state=__ret__.get('provisioningState'),
+        tenant_id=__ret__.get('tenantId'),
+        thres_holds=__ret__.get('thresHolds'),
+        type=__ret__.get('type'),
+        unit=__ret__.get('unit'))

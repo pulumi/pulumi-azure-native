@@ -40,13 +40,25 @@ namespace Pulumi.AzureRM.Security.V20190801
     public sealed class GetDeviceSecurityGroupResult
     {
         /// <summary>
+        /// The allow-list custom alert rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AllowlistCustomAlertRuleResponseResult> AllowlistRules;
+        /// <summary>
+        /// The deny-list custom alert rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DenylistCustomAlertRuleResponseResult> DenylistRules;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Device Security group data
+        /// The list of custom alert threshold rules.
         /// </summary>
-        public readonly Outputs.DeviceSecurityGroupPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ThresholdCustomAlertRuleResponseResult> ThresholdRules;
+        /// <summary>
+        /// The list of custom alert time-window rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponseResult> TimeWindowRules;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -54,14 +66,23 @@ namespace Pulumi.AzureRM.Security.V20190801
 
         [OutputConstructor]
         private GetDeviceSecurityGroupResult(
+            ImmutableArray<Outputs.AllowlistCustomAlertRuleResponseResult> allowlistRules,
+
+            ImmutableArray<Outputs.DenylistCustomAlertRuleResponseResult> denylistRules,
+
             string name,
 
-            Outputs.DeviceSecurityGroupPropertiesResponseResult properties,
+            ImmutableArray<Outputs.ThresholdCustomAlertRuleResponseResult> thresholdRules,
+
+            ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponseResult> timeWindowRules,
 
             string type)
         {
+            AllowlistRules = allowlistRules;
+            DenylistRules = denylistRules;
             Name = name;
-            Properties = properties;
+            ThresholdRules = thresholdRules;
+            TimeWindowRules = timeWindowRules;
             Type = type;
         }
     }

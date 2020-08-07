@@ -37,9 +37,17 @@ export class AzureFirewall extends pulumi.CustomResource {
     }
 
     /**
+     * Collection of application rule collections used by Azure Firewall.
+     */
+    public readonly applicationRuleCollections!: pulumi.Output<outputs.network.v20181201.AzureFirewallApplicationRuleCollectionResponse[] | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * IP configuration of the Azure Firewall resource.
+     */
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.v20181201.AzureFirewallIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -49,13 +57,25 @@ export class AzureFirewall extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Azure Firewall.
+     * Collection of NAT rule collections used by Azure Firewall.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181201.AzureFirewallPropertiesFormatResponse>;
+    public readonly natRuleCollections!: pulumi.Output<outputs.network.v20181201.AzureFirewallNatRuleCollectionResponse[] | undefined>;
+    /**
+     * Collection of network rule collections used by Azure Firewall.
+     */
+    public readonly networkRuleCollections!: pulumi.Output<outputs.network.v20181201.AzureFirewallNetworkRuleCollectionResponse[] | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The operation mode for Threat Intelligence.
+     */
+    public readonly threatIntelMode!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -92,7 +112,6 @@ export class AzureFirewall extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.NetApp.V20191101
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// Active Directories
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ActiveDirectoryResponseResult> ActiveDirectories;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +52,9 @@ namespace Pulumi.AzureRM.NetApp.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// NetApp Account properties
+        /// Azure lifecycle management
         /// </summary>
-        public readonly Outputs.AccountPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -62,19 +66,22 @@ namespace Pulumi.AzureRM.NetApp.V20191101
 
         [OutputConstructor]
         private GetAccountResult(
+            ImmutableArray<Outputs.ActiveDirectoryResponseResult> activeDirectories,
+
             string location,
 
             string name,
 
-            Outputs.AccountPropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ActiveDirectories = activeDirectories;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

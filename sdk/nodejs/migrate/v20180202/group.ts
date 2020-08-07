@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,21 +35,33 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
+     * List of References to Assessments created on this group.
+     */
+    public /*out*/ readonly assessments!: pulumi.Output<string[]>;
+    /**
+     * Time when this project was created. Date-Time represented in ISO-8601 format.
+     */
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    /**
      * For optimistic concurrency control.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
+    /**
+     * List of machine names that are part of this group.
+     */
+    public readonly machines!: pulumi.Output<string[]>;
     /**
      * Name of the group.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the group.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.migrate.v20180202.GroupPropertiesResponse>;
-    /**
      * Type of the object = [Microsoft.Migrate/projects/groups].
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Time when this project was last updated. Date-Time represented in ISO-8601 format.
+     */
+    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -83,8 +93,10 @@ export class Group extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["assessments"] = undefined /*out*/;
+            inputs["createdTimestamp"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedTimestamp"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

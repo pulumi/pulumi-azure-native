@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class GetVirtualHubRouteTableV2Result
     {
         /// <summary>
+        /// List of all connections attached to this route table v2.
+        /// </summary>
+        public readonly ImmutableArray<string> AttachedConnections;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -54,21 +58,31 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the virtual hub route table v2.
+        /// The provisioning state of the virtual hub route table v2 resource.
         /// </summary>
-        public readonly Outputs.VirtualHubRouteTableV2PropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// List of all routes.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualHubRouteV2ResponseResult> Routes;
 
         [OutputConstructor]
         private GetVirtualHubRouteTableV2Result(
+            ImmutableArray<string> attachedConnections,
+
             string etag,
 
             string? name,
 
-            Outputs.VirtualHubRouteTableV2PropertiesResponseResult properties)
+            string provisioningState,
+
+            ImmutableArray<Outputs.VirtualHubRouteV2ResponseResult> routes)
         {
+            AttachedConnections = attachedConnections;
             Etag = etag;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Routes = routes;
         }
     }
 }

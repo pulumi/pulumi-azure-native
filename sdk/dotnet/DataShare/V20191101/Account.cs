@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
+        /// Time at which the account was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
         /// Identity Info on the Account
         /// </summary>
         [Output("identity")]
@@ -33,10 +39,10 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties on the account
+        /// Provisioning state of the Account
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Tags on the azure resource.
@@ -49,6 +55,18 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Email of the user who created the resource
+        /// </summary>
+        [Output("userEmail")]
+        public Output<string> UserEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the user who created the resource
+        /// </summary>
+        [Output("userName")]
+        public Output<string> UserName { get; private set; } = null!;
 
 
         /// <summary>

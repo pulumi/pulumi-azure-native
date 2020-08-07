@@ -37,6 +37,10 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * The cluster data ingestion URI.
+     */
+    public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,21 +49,33 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The cluster properties.
+     * The provisioned state of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.kusto.v20190121.ClusterPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The SKU of the cluster.
      */
     public readonly sku!: pulumi.Output<outputs.kusto.v20190121.AzureSkuResponse>;
     /**
+     * The state of the resource.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The cluster's external tenants.
+     */
+    public readonly trustedExternalTenants!: pulumi.Output<outputs.kusto.v20190121.TrustedExternalTenantResponse[] | undefined>;
+    /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The cluster URI.
+     */
+    public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -92,8 +108,11 @@ export class Cluster extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["dataIngestionUri"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uri"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

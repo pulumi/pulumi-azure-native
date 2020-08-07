@@ -13,18 +13,60 @@ class GetAssetResult:
     """
     An Asset.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, alternate_id=None, asset_id=None, container=None, created=None, description=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, type=None):
+        if alternate_id and not isinstance(alternate_id, str):
+            raise TypeError("Expected argument 'alternate_id' to be a str")
+        __self__.alternate_id = alternate_id
+        """
+        The alternate ID of the Asset.
+        """
+        if asset_id and not isinstance(asset_id, str):
+            raise TypeError("Expected argument 'asset_id' to be a str")
+        __self__.asset_id = asset_id
+        """
+        The Asset ID.
+        """
+        if container and not isinstance(container, str):
+            raise TypeError("Expected argument 'container' to be a str")
+        __self__.container = container
+        """
+        The name of the asset blob container.
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The creation date of the Asset.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The Asset description.
+        """
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        __self__.last_modified = last_modified
+        """
+        The last modified date of the Asset.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if storage_account_name and not isinstance(storage_account_name, str):
+            raise TypeError("Expected argument 'storage_account_name' to be a str")
+        __self__.storage_account_name = storage_account_name
         """
-        The resource properties.
+        The name of the storage account.
+        """
+        if storage_encryption_format and not isinstance(storage_encryption_format, str):
+            raise TypeError("Expected argument 'storage_encryption_format' to be a str")
+        __self__.storage_encryption_format = storage_encryption_format
+        """
+        The Asset encryption format. One of None or MediaStorageEncryption.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +82,15 @@ class AwaitableGetAssetResult(GetAssetResult):
         if False:
             yield self
         return GetAssetResult(
+            alternate_id=self.alternate_id,
+            asset_id=self.asset_id,
+            container=self.container,
+            created=self.created,
+            description=self.description,
+            last_modified=self.last_modified,
             name=self.name,
-            properties=self.properties,
+            storage_account_name=self.storage_account_name,
+            storage_encryption_format=self.storage_encryption_format,
             type=self.type)
 
 
@@ -64,6 +113,13 @@ def get_asset(account_name=None, name=None, resource_group_name=None, opts=None)
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getAsset', __args__, opts=opts).value
 
     return AwaitableGetAssetResult(
+        alternate_id=__ret__.get('alternateId'),
+        asset_id=__ret__.get('assetId'),
+        container=__ret__.get('container'),
+        created=__ret__.get('created'),
+        description=__ret__.get('description'),
+        last_modified=__ret__.get('lastModified'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        storage_account_name=__ret__.get('storageAccountName'),
+        storage_encryption_format=__ret__.get('storageEncryptionFormat'),
         type=__ret__.get('type'))

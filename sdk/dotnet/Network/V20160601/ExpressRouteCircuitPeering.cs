@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.Network.V20160601
     public partial class ExpressRouteCircuitPeering : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the azure ASN
+        /// </summary>
+        [Output("azureASN")]
+        public Output<int?> AzureASN { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the GatewayManager Etag
+        /// </summary>
+        [Output("gatewayManagerEtag")]
+        public Output<string?> GatewayManagerEtag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets whether the provider or the customer last modified the peering
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the Microsoft peering config
+        /// </summary>
+        [Output("microsoftPeeringConfig")]
+        public Output<Outputs.ExpressRouteCircuitPeeringConfigResponseResult?> MicrosoftPeeringConfig { get; private set; } = null!;
 
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -26,8 +50,71 @@ namespace Pulumi.AzureRM.Network.V20160601
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitPeeringPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Gets or sets the peer ASN
+        /// </summary>
+        [Output("peerASN")]
+        public Output<int?> PeerASN { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets PeeringType
+        /// </summary>
+        [Output("peeringType")]
+        public Output<string?> PeeringType { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the primary port
+        /// </summary>
+        [Output("primaryAzurePort")]
+        public Output<string?> PrimaryAzurePort { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the primary address prefix
+        /// </summary>
+        [Output("primaryPeerAddressPrefix")]
+        public Output<string?> PrimaryPeerAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the secondary port
+        /// </summary>
+        [Output("secondaryAzurePort")]
+        public Output<string?> SecondaryAzurePort { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the secondary address prefix
+        /// </summary>
+        [Output("secondaryPeerAddressPrefix")]
+        public Output<string?> SecondaryPeerAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the shared key
+        /// </summary>
+        [Output("sharedKey")]
+        public Output<string?> SharedKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets state of Peering
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or peering stats
+        /// </summary>
+        [Output("stats")]
+        public Output<Outputs.ExpressRouteCircuitStatsResponseResult?> Stats { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the vlan id
+        /// </summary>
+        [Output("vlanId")]
+        public Output<int?> VlanId { get; private set; } = null!;
 
 
         /// <summary>

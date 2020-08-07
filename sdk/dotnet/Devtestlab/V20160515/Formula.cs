@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public partial class Formula : Pulumi.CustomResource
     {
         /// <summary>
+        /// The author of the formula.
+        /// </summary>
+        [Output("author")]
+        public Output<string?> Author { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation date of the formula.
+        /// </summary>
+        [Output("creationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the formula.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The content of the formula.
+        /// </summary>
+        [Output("formulaContent")]
+        public Output<Outputs.LabVirtualMachineCreationParameterResponseResult?> FormulaContent { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +51,16 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The OS type of the formula.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FormulaPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("osType")]
+        public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +73,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about a VM from which a formula is to be created.
+        /// </summary>
+        [Output("vm")]
+        public Output<Outputs.FormulaPropertiesFromVmResponseResult?> Vm { get; private set; } = null!;
 
 
         /// <summary>

@@ -15,6 +15,72 @@ namespace Pulumi.AzureRM.Web.V20160301
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// Raw bytes of .cer file
+        /// </summary>
+        [Output("cerBlob")]
+        public Output<string> CerBlob { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate expiration date.
+        /// </summary>
+        [Output("expirationDate")]
+        public Output<string> ExpirationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Friendly name of the certificate.
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Region of the certificate.
+        /// </summary>
+        [Output("geoRegion")]
+        public Output<string> GeoRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// Host names the certificate applies to.
+        /// </summary>
+        [Output("hostNames")]
+        public Output<ImmutableArray<string>> HostNames { get; private set; } = null!;
+
+        /// <summary>
+        /// Specification for the App Service Environment to use for the certificate.
+        /// </summary>
+        [Output("hostingEnvironmentProfile")]
+        public Output<Outputs.HostingEnvironmentProfileResponseResult> HostingEnvironmentProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate issue Date.
+        /// </summary>
+        [Output("issueDate")]
+        public Output<string> IssueDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate issuer.
+        /// </summary>
+        [Output("issuer")]
+        public Output<string> Issuer { get; private set; } = null!;
+
+        /// <summary>
+        /// Key Vault Csm resource Id.
+        /// </summary>
+        [Output("keyVaultId")]
+        public Output<string?> KeyVaultId { get; private set; } = null!;
+
+        /// <summary>
+        /// Key Vault secret name.
+        /// </summary>
+        [Output("keyVaultSecretName")]
+        public Output<string?> KeyVaultSecretName { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of the Key Vault secret.
+        /// </summary>
+        [Output("keyVaultSecretStatus")]
+        public Output<string> KeyVaultSecretStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
@@ -33,10 +99,46 @@ namespace Pulumi.AzureRM.Web.V20160301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate resource specific properties
+        /// Certificate password.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CertificateResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("password")]
+        public Output<string> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// Pfx blob.
+        /// </summary>
+        [Output("pfxBlob")]
+        public Output<string?> PfxBlob { get; private set; } = null!;
+
+        /// <summary>
+        /// Public key hash.
+        /// </summary>
+        [Output("publicKeyHash")]
+        public Output<string> PublicKeyHash { get; private set; } = null!;
+
+        /// <summary>
+        /// Self link.
+        /// </summary>
+        [Output("selfLink")]
+        public Output<string> SelfLink { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        /// </summary>
+        [Output("serverFarmId")]
+        public Output<string?> ServerFarmId { get; private set; } = null!;
+
+        /// <summary>
+        /// App name.
+        /// </summary>
+        [Output("siteName")]
+        public Output<string> SiteName { get; private set; } = null!;
+
+        /// <summary>
+        /// Subject name of the certificate.
+        /// </summary>
+        [Output("subjectName")]
+        public Output<string> SubjectName { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -45,10 +147,22 @@ namespace Pulumi.AzureRM.Web.V20160301
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Certificate thumbprint.
+        /// </summary>
+        [Output("thumbprint")]
+        public Output<string> Thumbprint { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the certificate valid?.
+        /// </summary>
+        [Output("valid")]
+        public Output<bool> Valid { get; private set; } = null!;
 
 
         /// <summary>

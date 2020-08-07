@@ -10,29 +10,61 @@ from ... import _utilities, _tables
 
 
 class Subscription(pulumi.CustomResource):
+    created_date: pulumi.Output[str]
+    """
+    Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The name of the subscription, or null if the subscription has no name.
+    """
+    end_date: pulumi.Output[str]
+    """
+    Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
+    expiration_date: pulumi.Output[str]
+    """
+    Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    notification_date: pulumi.Output[str]
     """
-    Subscription contract properties.
-      * `created_date` (`str`) - Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-      * `display_name` (`str`) - The name of the subscription, or null if the subscription has no name.
-      * `end_date` (`str`) - Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-      * `expiration_date` (`str`) - Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-      * `notification_date` (`str`) - Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-      * `primary_key` (`str`) - Subscription primary key.
-      * `product_id` (`str`) - The product resource identifier of the subscribed product. The value is a valid relative URL in the format of /products/{productId} where {productId} is a product identifier.
-      * `secondary_key` (`str`) - Subscription secondary key.
-      * `start_date` (`str`) - Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-      * `state` (`str`) - Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-      * `state_comment` (`str`) - Optional subscription comment added by an administrator.
-      * `user_id` (`str`) - The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{uid} where {uid} is a user identifier.
+    Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
+    primary_key: pulumi.Output[str]
+    """
+    Subscription primary key.
+    """
+    product_id: pulumi.Output[str]
+    """
+    The product resource identifier of the subscribed product. The value is a valid relative URL in the format of /products/{productId} where {productId} is a product identifier.
+    """
+    secondary_key: pulumi.Output[str]
+    """
+    Subscription secondary key.
+    """
+    start_date: pulumi.Output[str]
+    """
+    Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
+    state: pulumi.Output[str]
+    """
+    Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+    """
+    state_comment: pulumi.Output[str]
+    """
+    Optional subscription comment added by an administrator.
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    user_id: pulumi.Output[str]
+    """
+    The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{uid} where {uid} is a user identifier.
     """
     def __init__(__self__, resource_name, opts=None, display_name=None, name=None, notify=None, primary_key=None, product_id=None, resource_group_name=None, secondary_key=None, service_name=None, state=None, user_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -92,7 +124,12 @@ class Subscription(pulumi.CustomResource):
             if user_id is None:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
-            __props__['properties'] = None
+            __props__['created_date'] = None
+            __props__['end_date'] = None
+            __props__['expiration_date'] = None
+            __props__['notification_date'] = None
+            __props__['start_date'] = None
+            __props__['state_comment'] = None
             __props__['type'] = None
         super(Subscription, __self__).__init__(
             'azurerm:apimanagement/v20180101:Subscription',

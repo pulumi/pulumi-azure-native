@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Web.V20150801.Outputs
     public sealed class VnetRouteResponseResult
     {
         /// <summary>
+        /// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+        /// </summary>
+        public readonly string? EndAddress;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string? Id;
@@ -29,7 +33,20 @@ namespace Pulumi.AzureRM.Web.V20150801.Outputs
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.VnetRouteResponsePropertiesResult? Properties;
+        /// <summary>
+        /// The type of route this is:
+        ///             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+        ///             INHERITED - Routes inherited from the real Virtual Network routes
+        ///             STATIC - Static route set on the web app only
+        ///             
+        ///             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+        ///             with new INHERITED routes.
+        /// </summary>
+        public readonly string? RouteType;
+        /// <summary>
+        /// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+        /// </summary>
+        public readonly string? StartAddress;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -41,6 +58,8 @@ namespace Pulumi.AzureRM.Web.V20150801.Outputs
 
         [OutputConstructor]
         private VnetRouteResponseResult(
+            string? endAddress,
+
             string? id,
 
             string? kind,
@@ -49,17 +68,21 @@ namespace Pulumi.AzureRM.Web.V20150801.Outputs
 
             string? name,
 
-            Outputs.VnetRouteResponsePropertiesResult? properties,
+            string? routeType,
+
+            string? startAddress,
 
             ImmutableDictionary<string, string>? tags,
 
             string? type)
         {
+            EndAddress = endAddress;
             Id = id;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            RouteType = routeType;
+            StartAddress = startAddress;
             Tags = tags;
             Type = type;
         }

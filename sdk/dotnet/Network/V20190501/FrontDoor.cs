@@ -15,6 +15,54 @@ namespace Pulumi.AzureRM.Network.V20190501
     public partial class FrontDoor : Pulumi.CustomResource
     {
         /// <summary>
+        /// Backend pools available to routing rules.
+        /// </summary>
+        [Output("backendPools")]
+        public Output<ImmutableArray<Outputs.BackendPoolResponseResult>> BackendPools { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings for all backendPools
+        /// </summary>
+        [Output("backendPoolsSettings")]
+        public Output<Outputs.BackendPoolsSettingsResponseResult?> BackendPoolsSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The host that each frontendEndpoint must CNAME to.
+        /// </summary>
+        [Output("cname")]
+        public Output<string> Cname { get; private set; } = null!;
+
+        /// <summary>
+        /// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+        /// </summary>
+        [Output("enabledState")]
+        public Output<string?> EnabledState { get; private set; } = null!;
+
+        /// <summary>
+        /// A friendly name for the frontDoor
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string?> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Frontend endpoints available to routing rules.
+        /// </summary>
+        [Output("frontendEndpoints")]
+        public Output<ImmutableArray<Outputs.FrontendEndpointResponseResult>> FrontendEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// Health probe settings associated with this Front Door instance.
+        /// </summary>
+        [Output("healthProbeSettings")]
+        public Output<ImmutableArray<Outputs.HealthProbeSettingsModelResponseResult>> HealthProbeSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Load balancing settings associated with this Front Door instance.
+        /// </summary>
+        [Output("loadBalancingSettings")]
+        public Output<ImmutableArray<Outputs.LoadBalancingSettingsModelResponseResult>> LoadBalancingSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +75,22 @@ namespace Pulumi.AzureRM.Network.V20190501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Front Door Load Balancer
+        /// Provisioning state of the Front Door.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FrontDoorPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the Front Door.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string?> ResourceState { get; private set; } = null!;
+
+        /// <summary>
+        /// Routing rules associated with this Front Door.
+        /// </summary>
+        [Output("routingRules")]
+        public Output<ImmutableArray<Outputs.RoutingRuleResponseResult>> RoutingRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -40,6 +40,34 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetCertificateResult
     {
         /// <summary>
+        /// Raw bytes of .cer file
+        /// </summary>
+        public readonly string? CerBlob;
+        /// <summary>
+        /// Certificate expiration date
+        /// </summary>
+        public readonly string? ExpirationDate;
+        /// <summary>
+        /// Friendly name of the certificate
+        /// </summary>
+        public readonly string? FriendlyName;
+        /// <summary>
+        /// Host names the certificate applies to
+        /// </summary>
+        public readonly ImmutableArray<string> HostNames;
+        /// <summary>
+        /// Specification for the hosting environment (App Service Environment) to use for the certificate
+        /// </summary>
+        public readonly Outputs.HostingEnvironmentProfileResponseResult? HostingEnvironmentProfile;
+        /// <summary>
+        /// Certificate issue Date
+        /// </summary>
+        public readonly string? IssueDate;
+        /// <summary>
+        /// Certificate issuer
+        /// </summary>
+        public readonly string? Issuer;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -51,36 +79,109 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.CertificateResponsePropertiesResult Properties;
+        /// <summary>
+        /// Certificate password
+        /// </summary>
+        public readonly string? Password;
+        /// <summary>
+        /// Pfx blob
+        /// </summary>
+        public readonly string? PfxBlob;
+        /// <summary>
+        /// Public key hash
+        /// </summary>
+        public readonly string? PublicKeyHash;
+        /// <summary>
+        /// Self link
+        /// </summary>
+        public readonly string? SelfLink;
+        /// <summary>
+        /// App name
+        /// </summary>
+        public readonly string? SiteName;
+        /// <summary>
+        /// Subject name of the certificate
+        /// </summary>
+        public readonly string? SubjectName;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Certificate thumbprint
+        /// </summary>
+        public readonly string? Thumbprint;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Is the certificate valid?
+        /// </summary>
+        public readonly bool? Valid;
 
         [OutputConstructor]
         private GetCertificateResult(
+            string? cerBlob,
+
+            string? expirationDate,
+
+            string? friendlyName,
+
+            ImmutableArray<string> hostNames,
+
+            Outputs.HostingEnvironmentProfileResponseResult? hostingEnvironmentProfile,
+
+            string? issueDate,
+
+            string? issuer,
+
             string? kind,
 
             string location,
 
             string? name,
 
-            Outputs.CertificateResponsePropertiesResult properties,
+            string? password,
+
+            string? pfxBlob,
+
+            string? publicKeyHash,
+
+            string? selfLink,
+
+            string? siteName,
+
+            string? subjectName,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? type)
+            string? thumbprint,
+
+            string? type,
+
+            bool? valid)
         {
+            CerBlob = cerBlob;
+            ExpirationDate = expirationDate;
+            FriendlyName = friendlyName;
+            HostNames = hostNames;
+            HostingEnvironmentProfile = hostingEnvironmentProfile;
+            IssueDate = issueDate;
+            Issuer = issuer;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            Password = password;
+            PfxBlob = pfxBlob;
+            PublicKeyHash = publicKeyHash;
+            SelfLink = selfLink;
+            SiteName = siteName;
+            SubjectName = subjectName;
             Tags = tags;
+            Thumbprint = thumbprint;
             Type = type;
+            Valid = valid;
         }
     }
 }

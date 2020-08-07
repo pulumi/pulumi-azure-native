@@ -41,17 +41,45 @@ export interface GetMapArgs {
  */
 export interface GetMapResult {
     /**
+     * The changed time.
+     */
+    readonly changedTime: string;
+    /**
+     * The content.
+     */
+    readonly content?: string;
+    /**
+     * The content link.
+     */
+    readonly contentLink: outputs.logic.v20160601.ContentLinkResponse;
+    /**
+     * The content type.
+     */
+    readonly contentType?: string;
+    /**
+     * The created time.
+     */
+    readonly createdTime: string;
+    /**
      * The resource location.
      */
     readonly location?: string;
+    /**
+     * The map type.
+     */
+    readonly mapType: string;
+    /**
+     * The metadata.
+     */
+    readonly metadata?: {[key: string]: any};
     /**
      * Gets the resource name.
      */
     readonly name: string;
     /**
-     * The integration account map properties.
+     * The parameters schema of integration account map.
      */
-    readonly properties: outputs.logic.v20160601.IntegrationAccountMapPropertiesResponse;
+    readonly parametersSchema?: outputs.logic.v20160601.IntegrationAccountMapPropertiesResponseParametersSchema;
     /**
      * The resource tags.
      */

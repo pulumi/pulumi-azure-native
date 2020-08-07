@@ -13,7 +13,25 @@ class GetSessionResult:
     """
     The integration account session.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, changed_time=None, content=None, created_time=None, location=None, name=None, tags=None, type=None):
+        if changed_time and not isinstance(changed_time, str):
+            raise TypeError("Expected argument 'changed_time' to be a str")
+        __self__.changed_time = changed_time
+        """
+        The changed time.
+        """
+        if content and not isinstance(content, dict):
+            raise TypeError("Expected argument 'content' to be a dict")
+        __self__.content = content
+        """
+        The session content.
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        The created time.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -25,12 +43,6 @@ class GetSessionResult:
         __self__.name = name
         """
         Gets the resource name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The integration account session properties.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +64,11 @@ class AwaitableGetSessionResult(GetSessionResult):
         if False:
             yield self
         return GetSessionResult(
+            changed_time=self.changed_time,
+            content=self.content,
+            created_time=self.created_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +92,10 @@ def get_session(integration_account_name=None, name=None, resource_group_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:getSession', __args__, opts=opts).value
 
     return AwaitableGetSessionResult(
+        changed_time=__ret__.get('changedTime'),
+        content=__ret__.get('content'),
+        created_time=__ret__.get('createdTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

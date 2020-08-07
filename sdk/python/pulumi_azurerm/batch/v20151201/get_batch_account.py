@@ -13,7 +13,31 @@ class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, core_quota=None, location=None, name=None, pool_quota=None, provisioning_state=None, tags=None, type=None):
+        if account_endpoint and not isinstance(account_endpoint, str):
+            raise TypeError("Expected argument 'account_endpoint' to be a str")
+        __self__.account_endpoint = account_endpoint
+        """
+        The endpoint used by this account to interact with the Batch services.
+        """
+        if active_job_and_job_schedule_quota and not isinstance(active_job_and_job_schedule_quota, float):
+            raise TypeError("Expected argument 'active_job_and_job_schedule_quota' to be a float")
+        __self__.active_job_and_job_schedule_quota = active_job_and_job_schedule_quota
+        """
+        The active job and job schedule quota for this Batch account.
+        """
+        if auto_storage and not isinstance(auto_storage, dict):
+            raise TypeError("Expected argument 'auto_storage' to be a dict")
+        __self__.auto_storage = auto_storage
+        """
+        The properties and status of any auto storage account associated with the account.
+        """
+        if core_quota and not isinstance(core_quota, float):
+            raise TypeError("Expected argument 'core_quota' to be a float")
+        __self__.core_quota = core_quota
+        """
+        The core quota for this Batch account.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +50,17 @@ class GetBatchAccountResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if pool_quota and not isinstance(pool_quota, float):
+            raise TypeError("Expected argument 'pool_quota' to be a float")
+        __self__.pool_quota = pool_quota
         """
-        The properties associated with the account.
+        The pool quota for this Batch account.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioned state of the resource
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +82,14 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
         if False:
             yield self
         return GetBatchAccountResult(
+            account_endpoint=self.account_endpoint,
+            active_job_and_job_schedule_quota=self.active_job_and_job_schedule_quota,
+            auto_storage=self.auto_storage,
+            core_quota=self.core_quota,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            pool_quota=self.pool_quota,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +111,13 @@ def get_batch_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:batch/v20151201:getBatchAccount', __args__, opts=opts).value
 
     return AwaitableGetBatchAccountResult(
+        account_endpoint=__ret__.get('accountEndpoint'),
+        active_job_and_job_schedule_quota=__ret__.get('activeJobAndJobScheduleQuota'),
+        auto_storage=__ret__.get('autoStorage'),
+        core_quota=__ret__.get('coreQuota'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        pool_quota=__ret__.get('poolQuota'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

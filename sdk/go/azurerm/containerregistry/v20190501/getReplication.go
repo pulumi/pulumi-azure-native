@@ -31,8 +31,10 @@ type LookupReplicationResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the replication.
-	Properties ReplicationPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the replication at the time the operation was called.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The status of the replication at the time the operation was called.
+	Status StatusResponse `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

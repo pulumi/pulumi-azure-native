@@ -25,13 +25,24 @@ type LookupVirtualNetworkArgs struct {
 
 // Virtual Network resource
 type LookupVirtualNetworkResult struct {
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"VirtualNetworkPeerings"`
+	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
+	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+	DhcpOptions *DhcpOptionsResponse `pulumi:"dhcpOptions"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
-	Name       string                                 `pulumi:"name"`
-	Properties VirtualNetworkPropertiesFormatResponse `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets resource guid property of the VirtualNetwork resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Gets or sets list of subnets in a VirtualNetwork
+	Subnets []SubnetResponse `pulumi:"subnets"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

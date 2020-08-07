@@ -41,17 +41,41 @@ export interface GetDisasterRecoveryConfigurationArgs {
  */
 export interface GetDisasterRecoveryConfigurationResult {
     /**
+     * Whether or not failover can be done automatically.
+     */
+    readonly autoFailover: string;
+    /**
+     * How aggressive the automatic failover should be.
+     */
+    readonly failoverPolicy: string;
+    /**
      * Location of the server that contains this disaster recovery configuration.
      */
     readonly location: string;
+    /**
+     * Logical name of the server.
+     */
+    readonly logicalServerName: string;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The properties representing the resource.
+     * Logical name of the partner server.
      */
-    readonly properties: outputs.sql.v20140401.DisasterRecoveryConfigurationPropertiesResponse;
+    readonly partnerLogicalServerName: string;
+    /**
+     * Id of the partner server.
+     */
+    readonly partnerServerId: string;
+    /**
+     * The role of the current server in the disaster recovery configuration.
+     */
+    readonly role: string;
+    /**
+     * The status of the disaster recovery configuration.
+     */
+    readonly status: string;
     /**
      * Resource type.
      */

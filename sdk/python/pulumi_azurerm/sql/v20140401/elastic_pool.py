@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class ElasticPool(pulumi.CustomResource):
+    creation_date: pulumi.Output[str]
+    """
+    The creation date of the elastic pool (ISO8601 format).
+    """
+    database_dtu_max: pulumi.Output[float]
+    """
+    The maximum DTU any one database can consume.
+    """
+    database_dtu_min: pulumi.Output[float]
+    """
+    The minimum DTU all databases are guaranteed.
+    """
+    dtu: pulumi.Output[float]
+    """
+    The total shared DTU for the database elastic pool.
+    """
+    edition: pulumi.Output[str]
+    """
+    The edition of the elastic pool.
+    """
     kind: pulumi.Output[str]
     """
     Kind of elastic pool.  This is metadata used for the Azure portal experience.
@@ -22,17 +42,13 @@ class ElasticPool(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    state: pulumi.Output[str]
     """
-    The properties representing the resource.
-      * `creation_date` (`str`) - The creation date of the elastic pool (ISO8601 format).
-      * `database_dtu_max` (`float`) - The maximum DTU any one database can consume.
-      * `database_dtu_min` (`float`) - The minimum DTU all databases are guaranteed.
-      * `dtu` (`float`) - The total shared DTU for the database elastic pool.
-      * `edition` (`str`) - The edition of the elastic pool.
-      * `state` (`str`) - The state of the elastic pool.
-      * `storage_mb` (`float`) - Gets storage limit for the database elastic pool in MB.
-      * `zone_redundant` (`bool`) - Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+    The state of the elastic pool.
+    """
+    storage_mb: pulumi.Output[float]
+    """
+    Gets storage limit for the database elastic pool in MB.
     """
     tags: pulumi.Output[dict]
     """
@@ -41,6 +57,10 @@ class ElasticPool(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    zone_redundant: pulumi.Output[bool]
+    """
+    Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
     """
     def __init__(__self__, resource_name, opts=None, database_dtu_max=None, database_dtu_min=None, dtu=None, edition=None, location=None, name=None, resource_group_name=None, server_name=None, storage_mb=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -96,8 +116,9 @@ class ElasticPool(pulumi.CustomResource):
             __props__['storage_mb'] = storage_mb
             __props__['tags'] = tags
             __props__['zone_redundant'] = zone_redundant
+            __props__['creation_date'] = None
             __props__['kind'] = None
-            __props__['properties'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(ElasticPool, __self__).__init__(
             'azurerm:sql/v20140401:ElasticPool',

@@ -31,13 +31,21 @@ export interface GetHierarchySettingArgs {
  */
 export interface GetHierarchySettingResult {
     /**
+     * Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+     */
+    readonly defaultManagementGroup?: string;
+    /**
      * The name of the object. In this case, default.
      */
     readonly name: string;
     /**
-     * The generic properties of hierarchy settings.
+     * Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
      */
-    readonly properties: outputs.management.v20200201.HierarchySettingsPropertiesResponse;
+    readonly requireAuthorizationForGroupCreation?: boolean;
+    /**
+     * The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
+     */
+    readonly tenantId?: string;
     /**
      * The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
      */

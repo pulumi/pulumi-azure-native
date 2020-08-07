@@ -13,7 +13,61 @@ class GetJobResult:
     """
     Job Resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_shipping_address_editable=None, location=None, name=None, sku=None, start_time=None, status=None, tags=None, type=None):
+        if cancellation_reason and not isinstance(cancellation_reason, str):
+            raise TypeError("Expected argument 'cancellation_reason' to be a str")
+        __self__.cancellation_reason = cancellation_reason
+        """
+        Reason for cancellation.
+        """
+        if delivery_info and not isinstance(delivery_info, dict):
+            raise TypeError("Expected argument 'delivery_info' to be a dict")
+        __self__.delivery_info = delivery_info
+        """
+        Delivery Info of Job.
+        """
+        if delivery_type and not isinstance(delivery_type, str):
+            raise TypeError("Expected argument 'delivery_type' to be a str")
+        __self__.delivery_type = delivery_type
+        """
+        Delivery type of Job.
+        """
+        if details and not isinstance(details, dict):
+            raise TypeError("Expected argument 'details' to be a dict")
+        __self__.details = details
+        """
+        Details of a job run. This field will only be sent for expand details filter.
+        """
+        if error and not isinstance(error, dict):
+            raise TypeError("Expected argument 'error' to be a dict")
+        __self__.error = error
+        """
+        Top level error for the job.
+        """
+        if is_cancellable and not isinstance(is_cancellable, bool):
+            raise TypeError("Expected argument 'is_cancellable' to be a bool")
+        __self__.is_cancellable = is_cancellable
+        """
+        Describes whether the job is cancellable or not.
+        """
+        if is_cancellable_without_fee and not isinstance(is_cancellable_without_fee, bool):
+            raise TypeError("Expected argument 'is_cancellable_without_fee' to be a bool")
+        __self__.is_cancellable_without_fee = is_cancellable_without_fee
+        """
+        Flag to indicate cancellation of scheduled job.
+        """
+        if is_deletable and not isinstance(is_deletable, bool):
+            raise TypeError("Expected argument 'is_deletable' to be a bool")
+        __self__.is_deletable = is_deletable
+        """
+        Describes whether the job is deletable or not.
+        """
+        if is_shipping_address_editable and not isinstance(is_shipping_address_editable, bool):
+            raise TypeError("Expected argument 'is_shipping_address_editable' to be a bool")
+        __self__.is_shipping_address_editable = is_shipping_address_editable
+        """
+        Describes whether the shipping address is editable or not.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +80,23 @@ class GetJobResult:
         """
         Name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Properties of a job.
-        """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The sku type.
+        """
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        __self__.start_time = start_time
+        """
+        Time at which the job was started in UTC ISO 8601 format.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Name of the stage which is in progress.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +118,20 @@ class AwaitableGetJobResult(GetJobResult):
         if False:
             yield self
         return GetJobResult(
+            cancellation_reason=self.cancellation_reason,
+            delivery_info=self.delivery_info,
+            delivery_type=self.delivery_type,
+            details=self.details,
+            error=self.error,
+            is_cancellable=self.is_cancellable,
+            is_cancellable_without_fee=self.is_cancellable_without_fee,
+            is_deletable=self.is_deletable,
+            is_shipping_address_editable=self.is_shipping_address_editable,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             sku=self.sku,
+            start_time=self.start_time,
+            status=self.status,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +153,19 @@ def get_job(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:databox/v20190901:getJob', __args__, opts=opts).value
 
     return AwaitableGetJobResult(
+        cancellation_reason=__ret__.get('cancellationReason'),
+        delivery_info=__ret__.get('deliveryInfo'),
+        delivery_type=__ret__.get('deliveryType'),
+        details=__ret__.get('details'),
+        error=__ret__.get('error'),
+        is_cancellable=__ret__.get('isCancellable'),
+        is_cancellable_without_fee=__ret__.get('isCancellableWithoutFee'),
+        is_deletable=__ret__.get('isDeletable'),
+        is_shipping_address_editable=__ret__.get('isShippingAddressEditable'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         sku=__ret__.get('sku'),
+        start_time=__ret__.get('startTime'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

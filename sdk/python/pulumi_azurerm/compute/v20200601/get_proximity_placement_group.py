@@ -13,7 +13,19 @@ class GetProximityPlacementGroupResult:
     """
     Specifies information about the proximity placement group.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, availability_sets=None, colocation_status=None, location=None, name=None, proximity_placement_group_type=None, tags=None, type=None, virtual_machine_scale_sets=None, virtual_machines=None):
+        if availability_sets and not isinstance(availability_sets, list):
+            raise TypeError("Expected argument 'availability_sets' to be a list")
+        __self__.availability_sets = availability_sets
+        """
+        A list of references to all availability sets in the proximity placement group.
+        """
+        if colocation_status and not isinstance(colocation_status, dict):
+            raise TypeError("Expected argument 'colocation_status' to be a dict")
+        __self__.colocation_status = colocation_status
+        """
+        Describes colocation status of the Proximity Placement Group.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +38,11 @@ class GetProximityPlacementGroupResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if proximity_placement_group_type and not isinstance(proximity_placement_group_type, str):
+            raise TypeError("Expected argument 'proximity_placement_group_type' to be a str")
+        __self__.proximity_placement_group_type = proximity_placement_group_type
         """
-        Describes the properties of a Proximity Placement Group.
+        Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +56,18 @@ class GetProximityPlacementGroupResult:
         """
         Resource type
         """
+        if virtual_machine_scale_sets and not isinstance(virtual_machine_scale_sets, list):
+            raise TypeError("Expected argument 'virtual_machine_scale_sets' to be a list")
+        __self__.virtual_machine_scale_sets = virtual_machine_scale_sets
+        """
+        A list of references to all virtual machine scale sets in the proximity placement group.
+        """
+        if virtual_machines and not isinstance(virtual_machines, list):
+            raise TypeError("Expected argument 'virtual_machines' to be a list")
+        __self__.virtual_machines = virtual_machines
+        """
+        A list of references to all virtual machines in the proximity placement group.
+        """
 
 
 class AwaitableGetProximityPlacementGroupResult(GetProximityPlacementGroupResult):
@@ -52,11 +76,15 @@ class AwaitableGetProximityPlacementGroupResult(GetProximityPlacementGroupResult
         if False:
             yield self
         return GetProximityPlacementGroupResult(
+            availability_sets=self.availability_sets,
+            colocation_status=self.colocation_status,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            proximity_placement_group_type=self.proximity_placement_group_type,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_machine_scale_sets=self.virtual_machine_scale_sets,
+            virtual_machines=self.virtual_machines)
 
 
 def get_proximity_placement_group(include_colocation_status=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +106,12 @@ def get_proximity_placement_group(include_colocation_status=None, name=None, res
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200601:getProximityPlacementGroup', __args__, opts=opts).value
 
     return AwaitableGetProximityPlacementGroupResult(
+        availability_sets=__ret__.get('availabilitySets'),
+        colocation_status=__ret__.get('colocationStatus'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        proximity_placement_group_type=__ret__.get('proximityPlacementGroupType'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_machine_scale_sets=__ret__.get('virtualMachineScaleSets'),
+        virtual_machines=__ret__.get('virtualMachines'))

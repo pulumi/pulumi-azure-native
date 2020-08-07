@@ -36,6 +36,18 @@ export interface ListSiteBackupConfigurationSlotArgs {
  */
 export interface ListSiteBackupConfigurationSlotResult {
     /**
+     * Schedule for the backup if it is executed periodically
+     */
+    readonly backupSchedule?: outputs.web.v20150801.BackupScheduleResponse;
+    /**
+     * Databases included in the backup
+     */
+    readonly databases?: outputs.web.v20150801.DatabaseBackupSettingResponse[];
+    /**
+     * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+     */
+    readonly enabled?: boolean;
+    /**
      * Kind of resource
      */
     readonly kind?: string;
@@ -47,7 +59,10 @@ export interface ListSiteBackupConfigurationSlotResult {
      * Resource Name
      */
     readonly name?: string;
-    readonly properties: outputs.web.v20150801.BackupRequestResponseProperties;
+    /**
+     * SAS URL to the container
+     */
+    readonly storageAccountUrl?: string;
     /**
      * Resource tags
      */
@@ -55,5 +70,5 @@ export interface ListSiteBackupConfigurationSlotResult {
     /**
      * Resource type
      */
-    readonly type?: string;
+    readonly type: string;
 }

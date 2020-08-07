@@ -29,10 +29,26 @@ type LookupJobArgs struct {
 
 // A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 type LookupJobResult struct {
+	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+	CorrelationData map[string]string `pulumi:"correlationData"`
+	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	Created string `pulumi:"created"`
+	// Optional customer supplied description of the Job.
+	Description *string `pulumi:"description"`
+	// The UTC date and time at which this Job finished processing.
+	EndTime string `pulumi:"endTime"`
+	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	LastModified string `pulumi:"lastModified"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties JobPropertiesResponse `pulumi:"properties"`
+	// The outputs for the Job.
+	Outputs []JobOutputResponse `pulumi:"outputs"`
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+	Priority *string `pulumi:"priority"`
+	// The UTC date and time at which this Job began processing.
+	StartTime string `pulumi:"startTime"`
+	// The current state of the job.
+	State string `pulumi:"state"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

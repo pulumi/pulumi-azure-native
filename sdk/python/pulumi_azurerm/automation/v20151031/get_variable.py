@@ -13,24 +13,48 @@ class GetVariableResult:
     """
     Definition of the variable.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, is_encrypted=None, last_modified_time=None, name=None, type=None, value=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets or sets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
+        if is_encrypted and not isinstance(is_encrypted, bool):
+            raise TypeError("Expected argument 'is_encrypted' to be a bool")
+        __self__.is_encrypted = is_encrypted
+        """
+        Gets or sets the encrypted flag of the variable.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets or sets the last modified time.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Gets or sets the properties of the variable.
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource.
+        """
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        __self__.value = value
+        """
+        Gets or sets the value of the variable.
         """
 
 
@@ -40,9 +64,13 @@ class AwaitableGetVariableResult(GetVariableResult):
         if False:
             yield self
         return GetVariableResult(
+            creation_time=self.creation_time,
+            description=self.description,
+            is_encrypted=self.is_encrypted,
+            last_modified_time=self.last_modified_time,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            value=self.value)
 
 
 def get_variable(automation_account_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +92,10 @@ def get_variable(automation_account_name=None, name=None, resource_group_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getVariable', __args__, opts=opts).value
 
     return AwaitableGetVariableResult(
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
+        is_encrypted=__ret__.get('isEncrypted'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        value=__ret__.get('value'))

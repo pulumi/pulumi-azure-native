@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class WebAppHybridConnectionSlot(pulumi.CustomResource):
+    hostname: pulumi.Output[str]
+    """
+    The hostname of the endpoint.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,18 +22,34 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    port: pulumi.Output[float]
     """
-    HybridConnection resource specific properties
-      * `hostname` (`str`) - The hostname of the endpoint.
-      * `port` (`float`) - The port of the endpoint.
-      * `relay_arm_uri` (`str`) - The ARM URI to the Service Bus relay.
-      * `relay_name` (`str`) - The name of the Service Bus relay.
-      * `send_key_name` (`str`) - The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
-      * `send_key_value` (`str`) - The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
-        normally, use the POST /listKeys API instead.
-      * `service_bus_namespace` (`str`) - The name of the Service Bus namespace.
-      * `service_bus_suffix` (`str`) - The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+    The port of the endpoint.
+    """
+    relay_arm_uri: pulumi.Output[str]
+    """
+    The ARM URI to the Service Bus relay.
+    """
+    relay_name: pulumi.Output[str]
+    """
+    The name of the Service Bus relay.
+    """
+    send_key_name: pulumi.Output[str]
+    """
+    The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+    """
+    send_key_value: pulumi.Output[str]
+    """
+    The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+    normally, use the POST /listKeys API instead.
+    """
+    service_bus_namespace: pulumi.Output[str]
+    """
+    The name of the Service Bus namespace.
+    """
+    service_bus_suffix: pulumi.Output[str]
+    """
+    The suffix for the service bus endpoint. By default this is .servicebus.windows.net
     """
     type: pulumi.Output[str]
     """
@@ -92,7 +112,7 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
-            __props__['properties'] = None
+            __props__['relay_name'] = None
             __props__['type'] = None
         super(WebAppHybridConnectionSlot, __self__).__init__(
             'azurerm:web/v20180201:WebAppHybridConnectionSlot',

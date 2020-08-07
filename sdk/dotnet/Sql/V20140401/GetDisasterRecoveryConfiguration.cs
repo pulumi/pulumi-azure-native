@@ -46,17 +46,41 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class GetDisasterRecoveryConfigurationResult
     {
         /// <summary>
+        /// Whether or not failover can be done automatically.
+        /// </summary>
+        public readonly string AutoFailover;
+        /// <summary>
+        /// How aggressive the automatic failover should be.
+        /// </summary>
+        public readonly string FailoverPolicy;
+        /// <summary>
         /// Location of the server that contains this disaster recovery configuration.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Logical name of the server.
+        /// </summary>
+        public readonly string LogicalServerName;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties representing the resource.
+        /// Logical name of the partner server.
         /// </summary>
-        public readonly Outputs.DisasterRecoveryConfigurationPropertiesResponseResult Properties;
+        public readonly string PartnerLogicalServerName;
+        /// <summary>
+        /// Id of the partner server.
+        /// </summary>
+        public readonly string PartnerServerId;
+        /// <summary>
+        /// The role of the current server in the disaster recovery configuration.
+        /// </summary>
+        public readonly string Role;
+        /// <summary>
+        /// The status of the disaster recovery configuration.
+        /// </summary>
+        public readonly string Status;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -64,17 +88,35 @@ namespace Pulumi.AzureRM.Sql.V20140401
 
         [OutputConstructor]
         private GetDisasterRecoveryConfigurationResult(
+            string autoFailover,
+
+            string failoverPolicy,
+
             string location,
+
+            string logicalServerName,
 
             string name,
 
-            Outputs.DisasterRecoveryConfigurationPropertiesResponseResult properties,
+            string partnerLogicalServerName,
+
+            string partnerServerId,
+
+            string role,
+
+            string status,
 
             string type)
         {
+            AutoFailover = autoFailover;
+            FailoverPolicy = failoverPolicy;
             Location = location;
+            LogicalServerName = logicalServerName;
             Name = name;
-            Properties = properties;
+            PartnerLogicalServerName = partnerLogicalServerName;
+            PartnerServerId = partnerServerId;
+            Role = role;
+            Status = status;
             Type = type;
         }
     }

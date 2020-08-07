@@ -10,27 +10,49 @@ from ... import _utilities, _tables
 
 
 class Disk(pulumi.CustomResource):
+    created_date: pulumi.Output[str]
+    """
+    The creation date of the disk.
+    """
+    disk_blob_name: pulumi.Output[str]
+    """
+    When backed by a blob, the name of the VHD blob without extension.
+    """
+    disk_size_gi_b: pulumi.Output[float]
+    """
+    The size of the disk in Gibibytes.
+    """
+    disk_type: pulumi.Output[str]
+    """
+    The storage type for the disk (i.e. Standard, Premium).
+    """
+    disk_uri: pulumi.Output[str]
+    """
+    When backed by a blob, the URI of underlying blob.
+    """
+    host_caching: pulumi.Output[str]
+    """
+    The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+    """
+    leased_by_lab_vm_id: pulumi.Output[str]
+    """
+    The resource ID of the VM to which this disk is leased.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
+    """
+    managed_disk_id: pulumi.Output[str]
+    """
+    When backed by managed disk, this is the ID of the compute disk resource.
     """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `created_date` (`str`) - The creation date of the disk.
-      * `disk_blob_name` (`str`) - When backed by a blob, the name of the VHD blob without extension.
-      * `disk_size_gi_b` (`float`) - The size of the disk in Gibibytes.
-      * `disk_type` (`str`) - The storage type for the disk (i.e. Standard, Premium).
-      * `disk_uri` (`str`) - When backed by a blob, the URI of underlying blob.
-      * `host_caching` (`str`) - The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-      * `leased_by_lab_vm_id` (`str`) - The resource ID of the VM to which this disk is leased.
-      * `managed_disk_id` (`str`) - When backed by managed disk, this is the ID of the compute disk resource.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -39,6 +61,10 @@ class Disk(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, lab_name=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -102,7 +128,7 @@ class Disk(pulumi.CustomResource):
             if user_name is None:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
-            __props__['properties'] = None
+            __props__['created_date'] = None
             __props__['type'] = None
         super(Disk, __self__).__init__(
             'azurerm:devtestlab/v20160515:Disk',

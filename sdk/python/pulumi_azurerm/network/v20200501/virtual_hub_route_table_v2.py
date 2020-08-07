@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class VirtualHubRouteTableV2(pulumi.CustomResource):
+    attached_connections: pulumi.Output[list]
+    """
+    List of all connections attached to this route table v2.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -18,16 +22,17 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the virtual hub route table v2.
-      * `attached_connections` (`list`) - List of all connections attached to this route table v2.
-      * `provisioning_state` (`str`) - The provisioning state of the virtual hub route table v2 resource.
-      * `routes` (`list`) - List of all routes.
-        * `destination_type` (`str`) - The type of destinations.
-        * `destinations` (`list`) - List of all destinations.
-        * `next_hop_type` (`str`) - The type of next hops.
-        * `next_hops` (`list`) - NextHops ip address.
+    The provisioning state of the virtual hub route table v2 resource.
+    """
+    routes: pulumi.Output[list]
+    """
+    List of all routes.
+      * `destination_type` (`str`) - The type of destinations.
+      * `destinations` (`list`) - List of all destinations.
+      * `next_hop_type` (`str`) - The type of next hops.
+      * `next_hops` (`list`) - NextHops ip address.
     """
     def __init__(__self__, resource_name, opts=None, attached_connections=None, id=None, name=None, resource_group_name=None, routes=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -79,7 +84,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(VirtualHubRouteTableV2, __self__).__init__(
             'azurerm:network/v20200501:VirtualHubRouteTableV2',
             resource_name,

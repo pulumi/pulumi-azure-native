@@ -18,8 +18,12 @@ type GalleryApplicationVersion struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of a gallery Image Version.
-	Properties GalleryApplicationVersionPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile GalleryApplicationVersionPublishingProfileResponseOutput `pulumi:"publishingProfile"`
+	// This is the replication status of the gallery Image Version.
+	ReplicationStatus ReplicationStatusResponseOutput `pulumi:"replicationStatus"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -76,8 +80,12 @@ type galleryApplicationVersionState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Describes the properties of a gallery Image Version.
-	Properties *GalleryApplicationVersionPropertiesResponse `pulumi:"properties"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile *GalleryApplicationVersionPublishingProfileResponse `pulumi:"publishingProfile"`
+	// This is the replication status of the gallery Image Version.
+	ReplicationStatus *ReplicationStatusResponse `pulumi:"replicationStatus"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -89,8 +97,12 @@ type GalleryApplicationVersionState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Describes the properties of a gallery Image Version.
-	Properties GalleryApplicationVersionPropertiesResponsePtrInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile GalleryApplicationVersionPublishingProfileResponsePtrInput
+	// This is the replication status of the gallery Image Version.
+	ReplicationStatus ReplicationStatusResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

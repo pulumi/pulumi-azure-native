@@ -37,17 +37,105 @@ export class AgentPool extends pulumi.CustomResource {
     }
 
     /**
+     * Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+     */
+    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    /**
+     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+     */
+    public readonly count!: pulumi.Output<number | undefined>;
+    /**
+     * Whether to enable auto-scaler
+     */
+    public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable public IP for nodes
+     */
+    public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
+    /**
+     * Maximum number of nodes for auto-scaling
+     */
+    public readonly maxCount!: pulumi.Output<number | undefined>;
+    /**
+     * Maximum number of pods that can run on a node.
+     */
+    public readonly maxPods!: pulumi.Output<number | undefined>;
+    /**
+     * Minimum number of nodes for auto-scaling
+     */
+    public readonly minCount!: pulumi.Output<number | undefined>;
+    /**
+     * AgentPoolMode represents mode of an agent pool
+     */
+    public readonly mode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of an agent pool.
+     * Version of node image
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20200601.ManagedClusterAgentPoolProfilePropertiesResponse>;
+    public readonly nodeImageVersion!: pulumi.Output<string | undefined>;
     /**
-     * Resource type
+     * Agent pool node labels to be persisted across all nodes in agent pool.
+     */
+    public readonly nodeLabels!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+     */
+    public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
+    /**
+     * Version of orchestrator specified when creating the managed cluster.
+     */
+    public readonly orchestratorVersion!: pulumi.Output<string | undefined>;
+    /**
+     * OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+     */
+    public readonly osDiskSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+     */
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * The current deployment or provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The ID for Proximity Placement Group.
+     */
+    public readonly proximityPlacementGroupID!: pulumi.Output<string | undefined>;
+    /**
+     * ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+     */
+    public readonly scaleSetEvictionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+     */
+    public readonly scaleSetPriority!: pulumi.Output<string | undefined>;
+    /**
+     * SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+     */
+    public readonly spotMaxPrice!: pulumi.Output<number | undefined>;
+    /**
+     * Agent pool tags to be persisted on the agent pool virtual machine scale set.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * AgentPoolType represents types of an agent pool
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Settings for upgrading the agentpool
+     */
+    public readonly upgradeSettings!: pulumi.Output<outputs.containerservice.v20200601.AgentPoolUpgradeSettingsResponse | undefined>;
+    /**
+     * Size of agent VMs.
+     */
+    public readonly vmSize!: pulumi.Output<string | undefined>;
+    /**
+     * VNet SubnetID specifies the VNet's subnet identifier.
+     */
+    public readonly vnetSubnetID!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AgentPool resource with the given unique name, arguments, and options.
@@ -97,7 +185,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

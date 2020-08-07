@@ -10,46 +10,68 @@ from ... import _utilities, _tables
 
 
 class Share(pulumi.CustomResource):
+    access_protocol: pulumi.Output[str]
+    """
+    Access protocol to be used by the share.
+    """
+    azure_container_info: pulumi.Output[dict]
+    """
+    Azure container mapping for the share.
+      * `container_name` (`str`) - Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
+      * `data_format` (`str`) - Storage format used for the file represented by the share.
+      * `storage_account_credential_id` (`str`) - ID of the storage account credential used to access storage.
+    """
+    client_access_rights: pulumi.Output[list]
+    """
+    List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+      * `access_permission` (`str`) - Type of access to be allowed for the client.
+      * `client` (`str`) - IP of the client.
+    """
+    data_policy: pulumi.Output[str]
+    """
+    Data policy of the share.
+    """
+    description: pulumi.Output[str]
+    """
+    Description for the share.
+    """
+    monitoring_status: pulumi.Output[str]
+    """
+    Current monitoring status of the share.
+    """
     name: pulumi.Output[str]
     """
     The object name.
     """
-    properties: pulumi.Output[dict]
+    refresh_details: pulumi.Output[dict]
     """
-    The share properties.
-      * `access_protocol` (`str`) - Access protocol to be used by the share.
-      * `azure_container_info` (`dict`) - Azure container mapping for the share.
-        * `container_name` (`str`) - Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-        * `data_format` (`str`) - Storage format used for the file represented by the share.
-        * `storage_account_credential_id` (`str`) - ID of the storage account credential used to access storage.
-
-      * `client_access_rights` (`list`) - List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-        * `access_permission` (`str`) - Type of access to be allowed for the client.
-        * `client` (`str`) - IP of the client.
-
-      * `data_policy` (`str`) - Data policy of the share.
-      * `description` (`str`) - Description for the share.
-      * `monitoring_status` (`str`) - Current monitoring status of the share.
-      * `refresh_details` (`dict`) - Details of the refresh job on this share.
-        * `error_manifest_file` (`str`) - Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-        * `in_progress_refresh_job_id` (`str`) - If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-        * `last_completed_refresh_job_time_in_utc` (`str`) - Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
-        * `last_job` (`str`) - Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-
-      * `share_mappings` (`list`) - Share mount point to the role.
-        * `mount_point` (`str`) - Mount point for the share.
-        * `role_id` (`str`) - ID of the role to which share is mounted.
-        * `role_type` (`str`) - Role type.
-        * `share_id` (`str`) - ID of the share mounted to the role VM.
-
-      * `share_status` (`str`) - Current status of the share.
-      * `user_access_rights` (`list`) - Mapping of users and corresponding access rights on the share (required for SMB protocol).
-        * `access_type` (`str`) - Type of access to be allowed for the user.
-        * `user_id` (`str`) - User ID (already existing in the device).
+    Details of the refresh job on this share.
+      * `error_manifest_file` (`str`) - Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
+      * `in_progress_refresh_job_id` (`str`) - If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+      * `last_completed_refresh_job_time_in_utc` (`str`) - Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+      * `last_job` (`str`) - Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
+    """
+    share_mappings: pulumi.Output[list]
+    """
+    Share mount point to the role.
+      * `mount_point` (`str`) - Mount point for the share.
+      * `role_id` (`str`) - ID of the role to which share is mounted.
+      * `role_type` (`str`) - Role type.
+      * `share_id` (`str`) - ID of the share mounted to the role VM.
+    """
+    share_status: pulumi.Output[str]
+    """
+    Current status of the share.
     """
     type: pulumi.Output[str]
     """
     The hierarchical type of the object.
+    """
+    user_access_rights: pulumi.Output[list]
+    """
+    Mapping of users and corresponding access rights on the share (required for SMB protocol).
+      * `access_type` (`str`) - Type of access to be allowed for the user.
+      * `user_id` (`str`) - User ID (already existing in the device).
     """
     def __init__(__self__, resource_name, opts=None, access_protocol=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, device_name=None, monitoring_status=None, name=None, refresh_details=None, resource_group_name=None, share_status=None, user_access_rights=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -134,7 +156,7 @@ class Share(pulumi.CustomResource):
                 raise TypeError("Missing required property 'share_status'")
             __props__['share_status'] = share_status
             __props__['user_access_rights'] = user_access_rights
-            __props__['properties'] = None
+            __props__['share_mappings'] = None
             __props__['type'] = None
         super(Share, __self__).__init__(
             'azurerm:databoxedge/v20190801:Share',

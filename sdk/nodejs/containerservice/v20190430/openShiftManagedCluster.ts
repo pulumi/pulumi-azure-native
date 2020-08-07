@@ -37,21 +37,57 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
     }
 
     /**
+     * Configuration of OpenShift cluster VMs.
+     */
+    public readonly agentPoolProfiles!: pulumi.Output<outputs.containerservice.v20190430.OpenShiftManagedClusterAgentPoolProfileResponse[] | undefined>;
+    /**
+     * Configures OpenShift authentication.
+     */
+    public readonly authProfile!: pulumi.Output<outputs.containerservice.v20190430.OpenShiftManagedClusterAuthProfileResponse | undefined>;
+    /**
+     * Version of OpenShift specified when creating the cluster.
+     */
+    public /*out*/ readonly clusterVersion!: pulumi.Output<string>;
+    /**
+     * Service generated FQDN for OpenShift API server loadbalancer internal hostname.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Configuration for OpenShift master VMs.
+     */
+    public readonly masterPoolProfile!: pulumi.Output<outputs.containerservice.v20190430.OpenShiftManagedClusterMasterPoolProfileResponse | undefined>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Configuration for OpenShift networking.
+     */
+    public readonly networkProfile!: pulumi.Output<outputs.containerservice.v20190430.NetworkProfileResponse | undefined>;
+    /**
+     * Version of OpenShift specified when creating the cluster.
+     */
+    public readonly openShiftVersion!: pulumi.Output<string>;
+    /**
      * Define the resource plan as required by ARM for billing purposes
      */
     public readonly plan!: pulumi.Output<outputs.containerservice.v20190430.PurchasePlanResponse | undefined>;
     /**
-     * Properties of a OpenShift managed cluster.
+     * The current deployment or provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20190430.OpenShiftManagedClusterPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Service generated FQDN for OpenShift API server.
+     */
+    public /*out*/ readonly publicHostname!: pulumi.Output<string>;
+    /**
+     * Configuration for OpenShift router(s).
+     */
+    public readonly routerProfiles!: pulumi.Output<outputs.containerservice.v20190430.OpenShiftRouterProfileResponse[] | undefined>;
     /**
      * Resource tags
      */
@@ -97,7 +133,10 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routerProfiles"] = args ? args.routerProfiles : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["clusterVersion"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicHostname"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

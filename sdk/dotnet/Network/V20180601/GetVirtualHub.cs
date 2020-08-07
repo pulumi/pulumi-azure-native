@@ -40,9 +40,17 @@ namespace Pulumi.AzureRM.Network.V20180601
     public sealed class GetVirtualHubResult
     {
         /// <summary>
+        /// Address-prefix for this VirtualHub.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// list of all vnet connections with this VirtualHub.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult> HubVirtualNetworkConnections;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +60,9 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters for VirtualHub
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.VirtualHubPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +71,40 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VirtualWAN to which the VirtualHub belongs
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualWan;
 
         [OutputConstructor]
         private GetVirtualHubResult(
+            string? addressPrefix,
+
             string etag,
+
+            ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult> hubVirtualNetworkConnections,
 
             string location,
 
             string name,
 
-            Outputs.VirtualHubPropertiesResponseResult properties,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualWan)
         {
+            AddressPrefix = addressPrefix;
             Etag = etag;
+            HubVirtualNetworkConnections = hubVirtualNetworkConnections;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            VirtualWan = virtualWan;
         }
     }
 }

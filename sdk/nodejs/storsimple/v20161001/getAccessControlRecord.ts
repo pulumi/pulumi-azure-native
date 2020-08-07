@@ -41,13 +41,13 @@ export interface GetAccessControlRecordArgs {
  */
 export interface GetAccessControlRecordResult {
     /**
+     * The Iscsi initiator name (IQN)
+     */
+    readonly initiatorName: string;
+    /**
      * The name.
      */
     readonly name: string;
-    /**
-     * Properties of AccessControlRecord
-     */
-    readonly properties: outputs.storsimple.v20161001.AccessControlRecordPropertiesResponse;
     /**
      * The type.
      */

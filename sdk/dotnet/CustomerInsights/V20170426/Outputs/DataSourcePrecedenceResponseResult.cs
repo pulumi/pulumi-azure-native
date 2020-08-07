@@ -14,22 +14,50 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
     public sealed class DataSourcePrecedenceResponseResult
     {
         /// <summary>
-        /// Data Source is a way for us to know the source of instances. A single type can have data coming in from multiple places. In activities we use this to determine precedence rules.
+        /// The data source reference id.
         /// </summary>
-        public readonly Outputs.DataSourceResponseResult? DataSource;
+        public readonly string DataSourceReferenceId;
+        /// <summary>
+        /// The data source type.
+        /// </summary>
+        public readonly string DataSourceType;
+        /// <summary>
+        /// The data source ID.
+        /// </summary>
+        public readonly int Id;
+        /// <summary>
+        /// The data source name
+        /// </summary>
+        public readonly string Name;
         /// <summary>
         /// the precedence value.
         /// </summary>
         public readonly int? Precedence;
+        /// <summary>
+        /// The data source status.
+        /// </summary>
+        public readonly string Status;
 
         [OutputConstructor]
         private DataSourcePrecedenceResponseResult(
-            Outputs.DataSourceResponseResult? dataSource,
+            string dataSourceReferenceId,
 
-            int? precedence)
+            string dataSourceType,
+
+            int id,
+
+            string name,
+
+            int? precedence,
+
+            string status)
         {
-            DataSource = dataSource;
+            DataSourceReferenceId = dataSourceReferenceId;
+            DataSourceType = dataSourceType;
+            Id = id;
+            Name = name;
             Precedence = precedence;
+            Status = status;
         }
     }
 }

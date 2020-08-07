@@ -15,22 +15,70 @@ namespace Pulumi.AzureRM.HybridData.V20190601
     public partial class JobDefinition : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        /// </summary>
+        [Output("customerSecrets")]
+        public Output<ImmutableArray<Outputs.CustomerSecretResponseResult>> CustomerSecrets { get; private set; } = null!;
+
+        /// <summary>
+        /// A generic json used differently by each data service type.
+        /// </summary>
+        [Output("dataServiceInput")]
+        public Output<ImmutableDictionary<string, object>?> DataServiceInput { get; private set; } = null!;
+
+        /// <summary>
+        /// Data Sink Id associated to the job definition.
+        /// </summary>
+        [Output("dataSinkId")]
+        public Output<string> DataSinkId { get; private set; } = null!;
+
+        /// <summary>
+        /// Data Source Id associated to the job definition.
+        /// </summary>
+        [Output("dataSourceId")]
+        public Output<string> DataSourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Last modified time of the job definition.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the object.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// JobDefinition properties.
+        /// This is the preferred geo location for the job to run.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.JobDefinitionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("runLocation")]
+        public Output<string?> RunLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Schedule for running the job definition
+        /// </summary>
+        [Output("schedules")]
+        public Output<ImmutableArray<Outputs.ScheduleResponseResult>> Schedules { get; private set; } = null!;
+
+        /// <summary>
+        /// State of the job definition.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+        /// </summary>
+        [Output("userConfirmation")]
+        public Output<string?> UserConfirmation { get; private set; } = null!;
 
 
         /// <summary>

@@ -53,9 +53,17 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Resource properties.
+     * The resource of private end point.
      */
-    readonly properties: outputs.machinelearningservices.v20200601.PrivateEndpointConnectionPropertiesResponse;
+    readonly privateEndpoint?: outputs.machinelearningservices.v20200601.PrivateEndpointResponse;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    readonly privateLinkServiceConnectionState: outputs.machinelearningservices.v20200601.PrivateLinkServiceConnectionStateResponse;
+    /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    readonly provisioningState?: string;
     /**
      * The sku of the workspace.
      */

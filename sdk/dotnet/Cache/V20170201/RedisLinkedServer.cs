@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.Cache.V20170201
     public partial class RedisLinkedServer : Pulumi.CustomResource
     {
         /// <summary>
+        /// Fully qualified resourceId of the linked redis cache.
+        /// </summary>
+        [Output("linkedRedisCacheId")]
+        public Output<string> LinkedRedisCacheId { get; private set; } = null!;
+
+        /// <summary>
+        /// Location of the linked redis cache.
+        /// </summary>
+        [Output("linkedRedisCacheLocation")]
+        public Output<string> LinkedRedisCacheLocation { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the linked server.
+        /// Terminal state of the link between primary and secondary redis cache.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RedisLinkedServerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Role of the linked server.
+        /// </summary>
+        [Output("serverRole")]
+        public Output<string> ServerRole { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

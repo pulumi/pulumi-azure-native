@@ -36,6 +36,14 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
+     * Windows IoT Device Service OEM AAD domain
+     */
+    readonly adminDomainName?: string;
+    /**
+     * Windows IoT Device Service ODM AAD domain
+     */
+    readonly billingDomainName?: string;
+    /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
     readonly etag?: string;
@@ -48,9 +56,17 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
-     * The properties of a Windows IoT Device Service.
+     * Windows IoT Device Service notes.
      */
-    readonly properties: outputs.windowsiot.v20190601.DeviceServicePropertiesResponse;
+    readonly notes?: string;
+    /**
+     * Windows IoT Device Service device allocation,
+     */
+    readonly quantity?: number;
+    /**
+     * Windows IoT Device Service start date,
+     */
+    readonly startDate: string;
     /**
      * Resource tags.
      */

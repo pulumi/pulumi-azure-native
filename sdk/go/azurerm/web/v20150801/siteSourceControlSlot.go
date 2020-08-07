@@ -14,13 +14,22 @@ import (
 type SiteSourceControlSlot struct {
 	pulumi.CustomResourceState
 
+	// Name of branch to use for deployment
+	Branch pulumi.StringPtrOutput `pulumi:"branch"`
+	// Whether to manual or continuous integration
+	DeploymentRollbackEnabled pulumi.BoolPtrOutput `pulumi:"deploymentRollbackEnabled"`
+	// Whether to manual or continuous integration
+	IsManualIntegration pulumi.BoolPtrOutput `pulumi:"isManualIntegration"`
+	// Mercurial or Git repository type
+	IsMercurial pulumi.BoolPtrOutput `pulumi:"isMercurial"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput                    `pulumi:"name"`
-	Properties SiteSourceControlResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Repository or source control url
+	RepoUrl pulumi.StringPtrOutput `pulumi:"repoUrl"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -64,13 +73,22 @@ func GetSiteSourceControlSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteSourceControlSlot resources.
 type siteSourceControlSlotState struct {
+	// Name of branch to use for deployment
+	Branch *string `pulumi:"branch"`
+	// Whether to manual or continuous integration
+	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// Whether to manual or continuous integration
+	IsManualIntegration *bool `pulumi:"isManualIntegration"`
+	// Mercurial or Git repository type
+	IsMercurial *bool `pulumi:"isMercurial"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name
-	Name       *string                              `pulumi:"name"`
-	Properties *SiteSourceControlResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Repository or source control url
+	RepoUrl *string `pulumi:"repoUrl"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -78,13 +96,22 @@ type siteSourceControlSlotState struct {
 }
 
 type SiteSourceControlSlotState struct {
+	// Name of branch to use for deployment
+	Branch pulumi.StringPtrInput
+	// Whether to manual or continuous integration
+	DeploymentRollbackEnabled pulumi.BoolPtrInput
+	// Whether to manual or continuous integration
+	IsManualIntegration pulumi.BoolPtrInput
+	// Mercurial or Git repository type
+	IsMercurial pulumi.BoolPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties SiteSourceControlResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// Repository or source control url
+	RepoUrl pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

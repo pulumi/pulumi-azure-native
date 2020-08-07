@@ -10,21 +10,29 @@ from ... import _utilities, _tables
 
 
 class Container(pulumi.CustomResource):
+    container_status: pulumi.Output[str]
+    """
+    Current status of the container.
+    """
+    created_date_time: pulumi.Output[str]
+    """
+    The UTC time when container got created.
+    """
+    data_format: pulumi.Output[str]
+    """
+    DataFormat for Container
+    """
     name: pulumi.Output[str]
     """
     The object name.
     """
-    properties: pulumi.Output[dict]
+    refresh_details: pulumi.Output[dict]
     """
-    The container properties.
-      * `container_status` (`str`) - Current status of the container.
-      * `created_date_time` (`str`) - The UTC time when container got created.
-      * `data_format` (`str`) - DataFormat for Container
-      * `refresh_details` (`dict`) - Details of the refresh job on this container.
-        * `error_manifest_file` (`str`) - Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-        * `in_progress_refresh_job_id` (`str`) - If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-        * `last_completed_refresh_job_time_in_utc` (`str`) - Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
-        * `last_job` (`str`) - Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
+    Details of the refresh job on this container.
+      * `error_manifest_file` (`str`) - Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
+      * `in_progress_refresh_job_id` (`str`) - If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+      * `last_completed_refresh_job_time_in_utc` (`str`) - Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+      * `last_job` (`str`) - Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
     """
     type: pulumi.Output[str]
     """
@@ -74,7 +82,9 @@ class Container(pulumi.CustomResource):
             if storage_account_name is None:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
-            __props__['properties'] = None
+            __props__['container_status'] = None
+            __props__['created_date_time'] = None
+            __props__['refresh_details'] = None
             __props__['type'] = None
         super(Container, __self__).__init__(
             'azurerm:databoxedge/v20190801:Container',

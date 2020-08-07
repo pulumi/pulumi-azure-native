@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,13 +43,25 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Premier add on Marketplace offer.
+     */
+    public readonly marketplaceOffer!: pulumi.Output<string | undefined>;
+    /**
+     * Premier add on Marketplace publisher.
+     */
+    public readonly marketplacePublisher!: pulumi.Output<string | undefined>;
+    /**
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * PremierAddOn resource specific properties
+     * Premier add on Product.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.PremierAddOnResponseProperties>;
+    public readonly product!: pulumi.Output<string | undefined>;
+    /**
+     * Premier add on SKU.
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +70,10 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Premier add on Vendor.
+     */
+    public readonly vendor!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebAppPremierAddOnSlot resource with the given unique name, arguments, and options.
@@ -97,7 +111,6 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vendor"] = args ? args.vendor : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

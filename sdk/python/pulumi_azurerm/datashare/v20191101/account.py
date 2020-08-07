@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Account(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    Time at which the account was created.
+    """
     identity: pulumi.Output[dict]
     """
     Identity Info on the Account
@@ -25,13 +29,9 @@ class Account(pulumi.CustomResource):
     """
     Name of the azure resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties on the account
-      * `created_at` (`str`) - Time at which the account was created.
-      * `provisioning_state` (`str`) - Provisioning state of the Account
-      * `user_email` (`str`) - Email of the user who created the resource
-      * `user_name` (`str`) - Name of the user who created the resource
+    Provisioning state of the Account
     """
     tags: pulumi.Output[dict]
     """
@@ -40,6 +40,14 @@ class Account(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Type of the azure resource
+    """
+    user_email: pulumi.Output[str]
+    """
+    Email of the user who created the resource
+    """
+    user_name: pulumi.Output[str]
+    """
+    Name of the user who created the resource
     """
     def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -85,8 +93,11 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['user_email'] = None
+            __props__['user_name'] = None
         super(Account, __self__).__init__(
             'azurerm:datashare/v20191101:Account',
             resource_name,

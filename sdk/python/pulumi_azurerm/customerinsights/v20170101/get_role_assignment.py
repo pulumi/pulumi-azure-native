@@ -13,24 +13,138 @@ class GetRoleAssignmentResult:
     """
     The Role Assignment resource format.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, assignment_name=None, conflation_policies=None, connectors=None, description=None, display_name=None, interactions=None, kpis=None, links=None, name=None, principals=None, profiles=None, provisioning_state=None, relationship_links=None, relationships=None, role=None, role_assignments=None, sas_policies=None, segments=None, tenant_id=None, type=None, views=None, widget_types=None):
+        if assignment_name and not isinstance(assignment_name, str):
+            raise TypeError("Expected argument 'assignment_name' to be a str")
+        __self__.assignment_name = assignment_name
+        """
+        The name of the metadata object.
+        """
+        if conflation_policies and not isinstance(conflation_policies, dict):
+            raise TypeError("Expected argument 'conflation_policies' to be a dict")
+        __self__.conflation_policies = conflation_policies
+        """
+        Widget types set for the assignment.
+        """
+        if connectors and not isinstance(connectors, dict):
+            raise TypeError("Expected argument 'connectors' to be a dict")
+        __self__.connectors = connectors
+        """
+        Connectors set for the assignment.
+        """
+        if description and not isinstance(description, dict):
+            raise TypeError("Expected argument 'description' to be a dict")
+        __self__.description = description
+        """
+        Localized description for the metadata.
+        """
+        if display_name and not isinstance(display_name, dict):
+            raise TypeError("Expected argument 'display_name' to be a dict")
+        __self__.display_name = display_name
+        """
+        Localized display names for the metadata.
+        """
+        if interactions and not isinstance(interactions, dict):
+            raise TypeError("Expected argument 'interactions' to be a dict")
+        __self__.interactions = interactions
+        """
+        Interactions set for the assignment.
+        """
+        if kpis and not isinstance(kpis, dict):
+            raise TypeError("Expected argument 'kpis' to be a dict")
+        __self__.kpis = kpis
+        """
+        Kpis set for the assignment.
+        """
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        __self__.links = links
+        """
+        Links set for the assignment.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if principals and not isinstance(principals, list):
+            raise TypeError("Expected argument 'principals' to be a list")
+        __self__.principals = principals
         """
-        The Role Assignment definition.
+        The principals being assigned to.
+        """
+        if profiles and not isinstance(profiles, dict):
+            raise TypeError("Expected argument 'profiles' to be a dict")
+        __self__.profiles = profiles
+        """
+        Profiles set for the assignment.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state.
+        """
+        if relationship_links and not isinstance(relationship_links, dict):
+            raise TypeError("Expected argument 'relationship_links' to be a dict")
+        __self__.relationship_links = relationship_links
+        """
+        The Role assignments set for the relationship links.
+        """
+        if relationships and not isinstance(relationships, dict):
+            raise TypeError("Expected argument 'relationships' to be a dict")
+        __self__.relationships = relationships
+        """
+        The Role assignments set for the relationships.
+        """
+        if role and not isinstance(role, str):
+            raise TypeError("Expected argument 'role' to be a str")
+        __self__.role = role
+        """
+        Type of roles.
+        """
+        if role_assignments and not isinstance(role_assignments, dict):
+            raise TypeError("Expected argument 'role_assignments' to be a dict")
+        __self__.role_assignments = role_assignments
+        """
+        The Role assignments set for the assignment.
+        """
+        if sas_policies and not isinstance(sas_policies, dict):
+            raise TypeError("Expected argument 'sas_policies' to be a dict")
+        __self__.sas_policies = sas_policies
+        """
+        Sas Policies set for the assignment.
+        """
+        if segments and not isinstance(segments, dict):
+            raise TypeError("Expected argument 'segments' to be a dict")
+        __self__.segments = segments
+        """
+        The Role assignments set for the assignment.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The hub name.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if views and not isinstance(views, dict):
+            raise TypeError("Expected argument 'views' to be a dict")
+        __self__.views = views
+        """
+        Views set for the assignment.
+        """
+        if widget_types and not isinstance(widget_types, dict):
+            raise TypeError("Expected argument 'widget_types' to be a dict")
+        __self__.widget_types = widget_types
+        """
+        Widget types set for the assignment.
         """
 
 
@@ -40,9 +154,28 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
         if False:
             yield self
         return GetRoleAssignmentResult(
+            assignment_name=self.assignment_name,
+            conflation_policies=self.conflation_policies,
+            connectors=self.connectors,
+            description=self.description,
+            display_name=self.display_name,
+            interactions=self.interactions,
+            kpis=self.kpis,
+            links=self.links,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            principals=self.principals,
+            profiles=self.profiles,
+            provisioning_state=self.provisioning_state,
+            relationship_links=self.relationship_links,
+            relationships=self.relationships,
+            role=self.role,
+            role_assignments=self.role_assignments,
+            sas_policies=self.sas_policies,
+            segments=self.segments,
+            tenant_id=self.tenant_id,
+            type=self.type,
+            views=self.views,
+            widget_types=self.widget_types)
 
 
 def get_role_assignment(hub_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +197,25 @@ def get_role_assignment(hub_name=None, name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:customerinsights/v20170101:getRoleAssignment', __args__, opts=opts).value
 
     return AwaitableGetRoleAssignmentResult(
+        assignment_name=__ret__.get('assignmentName'),
+        conflation_policies=__ret__.get('conflationPolicies'),
+        connectors=__ret__.get('connectors'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        interactions=__ret__.get('interactions'),
+        kpis=__ret__.get('kpis'),
+        links=__ret__.get('links'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        principals=__ret__.get('principals'),
+        profiles=__ret__.get('profiles'),
+        provisioning_state=__ret__.get('provisioningState'),
+        relationship_links=__ret__.get('relationshipLinks'),
+        relationships=__ret__.get('relationships'),
+        role=__ret__.get('role'),
+        role_assignments=__ret__.get('roleAssignments'),
+        sas_policies=__ret__.get('sasPolicies'),
+        segments=__ret__.get('segments'),
+        tenant_id=__ret__.get('tenantId'),
+        type=__ret__.get('type'),
+        views=__ret__.get('views'),
+        widget_types=__ret__.get('widgetTypes'))

@@ -40,21 +40,49 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
     public sealed class GetRegistryResult
     {
         /// <summary>
+        /// The value that indicates whether the admin user is enabled.
+        /// </summary>
+        public readonly bool? AdminUserEnabled;
+        /// <summary>
+        /// The creation date of the container registry in ISO8601 format.
+        /// </summary>
+        public readonly string CreationDate;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The URL that can be used to log into the container registry.
+        /// </summary>
+        public readonly string LoginServer;
         /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the container registry.
+        /// The network rule set for a container registry.
         /// </summary>
-        public readonly Outputs.RegistryPropertiesResponseResult Properties;
+        public readonly Outputs.NetworkRuleSetResponseResult? NetworkRuleSet;
+        /// <summary>
+        /// The policies for a container registry.
+        /// </summary>
+        public readonly Outputs.PoliciesResponseResult? Policies;
+        /// <summary>
+        /// The provisioning state of the container registry at the time the operation was called.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
         public readonly Outputs.SkuResponseResult Sku;
+        /// <summary>
+        /// The status of the container registry at the time the operation was called.
+        /// </summary>
+        public readonly Outputs.StatusResponseResult Status;
+        /// <summary>
+        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
+        /// </summary>
+        public readonly Outputs.StorageAccountPropertiesResponseResult? StorageAccount;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -66,22 +94,43 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
 
         [OutputConstructor]
         private GetRegistryResult(
+            bool? adminUserEnabled,
+
+            string creationDate,
+
             string location,
+
+            string loginServer,
 
             string name,
 
-            Outputs.RegistryPropertiesResponseResult properties,
+            Outputs.NetworkRuleSetResponseResult? networkRuleSet,
+
+            Outputs.PoliciesResponseResult? policies,
+
+            string provisioningState,
 
             Outputs.SkuResponseResult sku,
+
+            Outputs.StatusResponseResult status,
+
+            Outputs.StorageAccountPropertiesResponseResult? storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AdminUserEnabled = adminUserEnabled;
+            CreationDate = creationDate;
             Location = location;
+            LoginServer = loginServer;
             Name = name;
-            Properties = properties;
+            NetworkRuleSet = networkRuleSet;
+            Policies = policies;
+            ProvisioningState = provisioningState;
             Sku = sku;
+            Status = status;
+            StorageAccount = storageAccount;
             Tags = tags;
             Type = type;
         }

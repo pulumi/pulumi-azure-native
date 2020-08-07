@@ -10,15 +10,17 @@ from ... import _utilities, _tables
 
 
 class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
+    level: pulumi.Output[str]
+    """
+    The lock level of the management lock.
+    """
     name: pulumi.Output[str]
     """
     The name of the lock.
     """
-    properties: pulumi.Output[dict]
+    notes: pulumi.Output[str]
     """
-    The properties of the lock.
-      * `level` (`str`) - The lock level of the management lock.
-      * `notes` (`str`) - The notes of the management lock.
+    The notes of the management lock.
     """
     type: pulumi.Output[str]
     """
@@ -60,7 +62,6 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(ManagementLockAtResourceGroupLevel, __self__).__init__(
             'azurerm:authorization/v20150101:ManagementLockAtResourceGroupLevel',

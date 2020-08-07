@@ -27,16 +27,30 @@ type LookupElasticPoolArgs struct {
 
 // Represents a database elastic pool.
 type LookupElasticPoolResult struct {
+	// The creation date of the elastic pool (ISO8601 format).
+	CreationDate string `pulumi:"creationDate"`
+	// The maximum DTU any one database can consume.
+	DatabaseDtuMax *int `pulumi:"databaseDtuMax"`
+	// The minimum DTU all databases are guaranteed.
+	DatabaseDtuMin *int `pulumi:"databaseDtuMin"`
+	// The total shared DTU for the database elastic pool.
+	Dtu *int `pulumi:"dtu"`
+	// The edition of the elastic pool.
+	Edition *string `pulumi:"edition"`
 	// Kind of elastic pool.  This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties representing the resource.
-	Properties ElasticPoolPropertiesResponse `pulumi:"properties"`
+	// The state of the elastic pool.
+	State string `pulumi:"state"`
+	// Gets storage limit for the database elastic pool in MB.
+	StorageMB *int `pulumi:"storageMB"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }

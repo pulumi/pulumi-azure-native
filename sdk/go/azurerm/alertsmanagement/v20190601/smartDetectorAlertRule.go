@@ -14,14 +14,28 @@ import (
 type SmartDetectorAlertRule struct {
 	pulumi.CustomResourceState
 
+	// The alert rule actions.
+	ActionGroups ActionGroupsInformationResponseOutput `pulumi:"actionGroups"`
+	// The alert rule description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The alert rule's detector.
+	Detector DetectorResponseOutput `pulumi:"detector"`
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+	Frequency pulumi.StringOutput `pulumi:"frequency"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the alert rule.
-	Properties AlertRulePropertiesResponseOutput `pulumi:"properties"`
+	// The alert rule resources scope.
+	Scope pulumi.StringArrayOutput `pulumi:"scope"`
+	// The alert rule severity.
+	Severity pulumi.StringOutput `pulumi:"severity"`
+	// The alert rule state.
+	State pulumi.StringOutput `pulumi:"state"`
 	// The resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
+	// The alert rule throttling information.
+	Throttling ThrottlingInformationResponsePtrOutput `pulumi:"throttling"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -78,27 +92,55 @@ func GetSmartDetectorAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SmartDetectorAlertRule resources.
 type smartDetectorAlertRuleState struct {
+	// The alert rule actions.
+	ActionGroups *ActionGroupsInformationResponse `pulumi:"actionGroups"`
+	// The alert rule description.
+	Description *string `pulumi:"description"`
+	// The alert rule's detector.
+	Detector *DetectorResponse `pulumi:"detector"`
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+	Frequency *string `pulumi:"frequency"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
 	Name *string `pulumi:"name"`
-	// The properties of the alert rule.
-	Properties *AlertRulePropertiesResponse `pulumi:"properties"`
+	// The alert rule resources scope.
+	Scope []string `pulumi:"scope"`
+	// The alert rule severity.
+	Severity *string `pulumi:"severity"`
+	// The alert rule state.
+	State *string `pulumi:"state"`
 	// The resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
+	// The alert rule throttling information.
+	Throttling *ThrottlingInformationResponse `pulumi:"throttling"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
 
 type SmartDetectorAlertRuleState struct {
+	// The alert rule actions.
+	ActionGroups ActionGroupsInformationResponsePtrInput
+	// The alert rule description.
+	Description pulumi.StringPtrInput
+	// The alert rule's detector.
+	Detector DetectorResponsePtrInput
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+	Frequency pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The resource name.
 	Name pulumi.StringPtrInput
-	// The properties of the alert rule.
-	Properties AlertRulePropertiesResponsePtrInput
+	// The alert rule resources scope.
+	Scope pulumi.StringArrayInput
+	// The alert rule severity.
+	Severity pulumi.StringPtrInput
+	// The alert rule state.
+	State pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.MapInput
+	// The alert rule throttling information.
+	Throttling ThrottlingInformationResponsePtrInput
 	// The resource type.
 	Type pulumi.StringPtrInput
 }

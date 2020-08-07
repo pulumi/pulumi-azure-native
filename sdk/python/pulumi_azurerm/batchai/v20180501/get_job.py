@@ -13,18 +13,186 @@ class GetJobResult:
     """
     Information about a Job.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, caffe2_settings=None, caffe_settings=None, chainer_settings=None, cluster=None, cntk_settings=None, constraints=None, container_settings=None, creation_time=None, custom_mpi_settings=None, custom_toolkit_settings=None, environment_variables=None, execution_info=None, execution_state=None, execution_state_transition_time=None, horovod_settings=None, input_directories=None, job_output_directory_path_segment=None, job_preparation=None, mount_volumes=None, name=None, node_count=None, output_directories=None, provisioning_state=None, provisioning_state_transition_time=None, py_torch_settings=None, scheduling_priority=None, secrets=None, std_out_err_path_prefix=None, tensor_flow_settings=None, tool_type=None, type=None):
+        if caffe2_settings and not isinstance(caffe2_settings, dict):
+            raise TypeError("Expected argument 'caffe2_settings' to be a dict")
+        __self__.caffe2_settings = caffe2_settings
+        """
+        Caffe2 job settings.
+        """
+        if caffe_settings and not isinstance(caffe_settings, dict):
+            raise TypeError("Expected argument 'caffe_settings' to be a dict")
+        __self__.caffe_settings = caffe_settings
+        """
+        Caffe job settings.
+        """
+        if chainer_settings and not isinstance(chainer_settings, dict):
+            raise TypeError("Expected argument 'chainer_settings' to be a dict")
+        __self__.chainer_settings = chainer_settings
+        """
+        Chainer job settings.
+        """
+        if cluster and not isinstance(cluster, dict):
+            raise TypeError("Expected argument 'cluster' to be a dict")
+        __self__.cluster = cluster
+        """
+        Resource ID of the cluster associated with the job.
+        """
+        if cntk_settings and not isinstance(cntk_settings, dict):
+            raise TypeError("Expected argument 'cntk_settings' to be a dict")
+        __self__.cntk_settings = cntk_settings
+        """
+        CNTK (aka Microsoft Cognitive Toolkit) job settings.
+        """
+        if constraints and not isinstance(constraints, dict):
+            raise TypeError("Expected argument 'constraints' to be a dict")
+        __self__.constraints = constraints
+        """
+        Constraints associated with the Job.
+        """
+        if container_settings and not isinstance(container_settings, dict):
+            raise TypeError("Expected argument 'container_settings' to be a dict")
+        __self__.container_settings = container_settings
+        """
+        If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
+        """
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        The creation time of the job.
+        """
+        if custom_mpi_settings and not isinstance(custom_mpi_settings, dict):
+            raise TypeError("Expected argument 'custom_mpi_settings' to be a dict")
+        __self__.custom_mpi_settings = custom_mpi_settings
+        """
+        Custom MPI job settings.
+        """
+        if custom_toolkit_settings and not isinstance(custom_toolkit_settings, dict):
+            raise TypeError("Expected argument 'custom_toolkit_settings' to be a dict")
+        __self__.custom_toolkit_settings = custom_toolkit_settings
+        """
+        Custom tool kit job settings.
+        """
+        if environment_variables and not isinstance(environment_variables, list):
+            raise TypeError("Expected argument 'environment_variables' to be a list")
+        __self__.environment_variables = environment_variables
+        """
+        A collection of user defined environment variables to be setup for the job.
+        """
+        if execution_info and not isinstance(execution_info, dict):
+            raise TypeError("Expected argument 'execution_info' to be a dict")
+        __self__.execution_info = execution_info
+        """
+        Information about the execution of a job.
+        """
+        if execution_state and not isinstance(execution_state, str):
+            raise TypeError("Expected argument 'execution_state' to be a str")
+        __self__.execution_state = execution_state
+        """
+        The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
+        """
+        if execution_state_transition_time and not isinstance(execution_state_transition_time, str):
+            raise TypeError("Expected argument 'execution_state_transition_time' to be a str")
+        __self__.execution_state_transition_time = execution_state_transition_time
+        """
+        The time at which the job entered its current execution state.
+        """
+        if horovod_settings and not isinstance(horovod_settings, dict):
+            raise TypeError("Expected argument 'horovod_settings' to be a dict")
+        __self__.horovod_settings = horovod_settings
+        """
+        Specifies the settings for Horovod job.
+        """
+        if input_directories and not isinstance(input_directories, list):
+            raise TypeError("Expected argument 'input_directories' to be a list")
+        __self__.input_directories = input_directories
+        """
+        A list of input directories for the job.
+        """
+        if job_output_directory_path_segment and not isinstance(job_output_directory_path_segment, str):
+            raise TypeError("Expected argument 'job_output_directory_path_segment' to be a str")
+        __self__.job_output_directory_path_segment = job_output_directory_path_segment
+        """
+        A segment of job's output directories path created by Batch AI. Batch AI creates job's output directories under an unique path to avoid conflicts between jobs. This value contains a path segment generated by Batch AI to make the path unique and can be used to find the output directory on the node or mounted filesystem.
+        """
+        if job_preparation and not isinstance(job_preparation, dict):
+            raise TypeError("Expected argument 'job_preparation' to be a dict")
+        __self__.job_preparation = job_preparation
+        """
+        The specified actions will run on all the nodes that are part of the job
+        """
+        if mount_volumes and not isinstance(mount_volumes, dict):
+            raise TypeError("Expected argument 'mount_volumes' to be a dict")
+        __self__.mount_volumes = mount_volumes
+        """
+        Collection of mount volumes available to the job during execution. These volumes are mounted before the job execution and unmounted after the job completion. The volumes are mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if node_count and not isinstance(node_count, float):
+            raise TypeError("Expected argument 'node_count' to be a float")
+        __self__.node_count = node_count
         """
-        The properties associated with the Job.
+        The job will be gang scheduled on that many compute nodes
+        """
+        if output_directories and not isinstance(output_directories, list):
+            raise TypeError("Expected argument 'output_directories' to be a list")
+        __self__.output_directories = output_directories
+        """
+        A list of output directories for the job.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioned state of the Batch AI job
+        """
+        if provisioning_state_transition_time and not isinstance(provisioning_state_transition_time, str):
+            raise TypeError("Expected argument 'provisioning_state_transition_time' to be a str")
+        __self__.provisioning_state_transition_time = provisioning_state_transition_time
+        """
+        The time at which the job entered its current provisioning state.
+        """
+        if py_torch_settings and not isinstance(py_torch_settings, dict):
+            raise TypeError("Expected argument 'py_torch_settings' to be a dict")
+        __self__.py_torch_settings = py_torch_settings
+        """
+        pyTorch job settings.
+        """
+        if scheduling_priority and not isinstance(scheduling_priority, str):
+            raise TypeError("Expected argument 'scheduling_priority' to be a str")
+        __self__.scheduling_priority = scheduling_priority
+        """
+        Scheduling priority associated with the job.
+        """
+        if secrets and not isinstance(secrets, list):
+            raise TypeError("Expected argument 'secrets' to be a list")
+        __self__.secrets = secrets
+        """
+        A collection of user defined environment variables with secret values to be setup for the job. Server will never report values of these variables back.
+        """
+        if std_out_err_path_prefix and not isinstance(std_out_err_path_prefix, str):
+            raise TypeError("Expected argument 'std_out_err_path_prefix' to be a str")
+        __self__.std_out_err_path_prefix = std_out_err_path_prefix
+        """
+        The path where the Batch AI service stores stdout, stderror and execution log of the job.
+        """
+        if tensor_flow_settings and not isinstance(tensor_flow_settings, dict):
+            raise TypeError("Expected argument 'tensor_flow_settings' to be a dict")
+        __self__.tensor_flow_settings = tensor_flow_settings
+        """
+        TensorFlow job settings.
+        """
+        if tool_type and not isinstance(tool_type, str):
+            raise TypeError("Expected argument 'tool_type' to be a str")
+        __self__.tool_type = tool_type
+        """
+        Possible values are: cntk, tensorflow, caffe, caffe2, chainer, pytorch, custom, custommpi, horovod.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +208,36 @@ class AwaitableGetJobResult(GetJobResult):
         if False:
             yield self
         return GetJobResult(
+            caffe2_settings=self.caffe2_settings,
+            caffe_settings=self.caffe_settings,
+            chainer_settings=self.chainer_settings,
+            cluster=self.cluster,
+            cntk_settings=self.cntk_settings,
+            constraints=self.constraints,
+            container_settings=self.container_settings,
+            creation_time=self.creation_time,
+            custom_mpi_settings=self.custom_mpi_settings,
+            custom_toolkit_settings=self.custom_toolkit_settings,
+            environment_variables=self.environment_variables,
+            execution_info=self.execution_info,
+            execution_state=self.execution_state,
+            execution_state_transition_time=self.execution_state_transition_time,
+            horovod_settings=self.horovod_settings,
+            input_directories=self.input_directories,
+            job_output_directory_path_segment=self.job_output_directory_path_segment,
+            job_preparation=self.job_preparation,
+            mount_volumes=self.mount_volumes,
             name=self.name,
-            properties=self.properties,
+            node_count=self.node_count,
+            output_directories=self.output_directories,
+            provisioning_state=self.provisioning_state,
+            provisioning_state_transition_time=self.provisioning_state_transition_time,
+            py_torch_settings=self.py_torch_settings,
+            scheduling_priority=self.scheduling_priority,
+            secrets=self.secrets,
+            std_out_err_path_prefix=self.std_out_err_path_prefix,
+            tensor_flow_settings=self.tensor_flow_settings,
+            tool_type=self.tool_type,
             type=self.type)
 
 
@@ -66,6 +262,34 @@ def get_job(experiment_name=None, name=None, resource_group_name=None, workspace
     __ret__ = pulumi.runtime.invoke('azurerm:batchai/v20180501:getJob', __args__, opts=opts).value
 
     return AwaitableGetJobResult(
+        caffe2_settings=__ret__.get('caffe2Settings'),
+        caffe_settings=__ret__.get('caffeSettings'),
+        chainer_settings=__ret__.get('chainerSettings'),
+        cluster=__ret__.get('cluster'),
+        cntk_settings=__ret__.get('cntkSettings'),
+        constraints=__ret__.get('constraints'),
+        container_settings=__ret__.get('containerSettings'),
+        creation_time=__ret__.get('creationTime'),
+        custom_mpi_settings=__ret__.get('customMpiSettings'),
+        custom_toolkit_settings=__ret__.get('customToolkitSettings'),
+        environment_variables=__ret__.get('environmentVariables'),
+        execution_info=__ret__.get('executionInfo'),
+        execution_state=__ret__.get('executionState'),
+        execution_state_transition_time=__ret__.get('executionStateTransitionTime'),
+        horovod_settings=__ret__.get('horovodSettings'),
+        input_directories=__ret__.get('inputDirectories'),
+        job_output_directory_path_segment=__ret__.get('jobOutputDirectoryPathSegment'),
+        job_preparation=__ret__.get('jobPreparation'),
+        mount_volumes=__ret__.get('mountVolumes'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        node_count=__ret__.get('nodeCount'),
+        output_directories=__ret__.get('outputDirectories'),
+        provisioning_state=__ret__.get('provisioningState'),
+        provisioning_state_transition_time=__ret__.get('provisioningStateTransitionTime'),
+        py_torch_settings=__ret__.get('pyTorchSettings'),
+        scheduling_priority=__ret__.get('schedulingPriority'),
+        secrets=__ret__.get('secrets'),
+        std_out_err_path_prefix=__ret__.get('stdOutErrPathPrefix'),
+        tensor_flow_settings=__ret__.get('tensorFlowSettings'),
+        tool_type=__ret__.get('toolType'),
         type=__ret__.get('type'))

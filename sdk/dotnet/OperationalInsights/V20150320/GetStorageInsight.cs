@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
     public sealed class GetStorageInsightResult
     {
         /// <summary>
+        /// The names of the blob containers that the workspace should read
+        /// </summary>
+        public readonly ImmutableArray<string> Containers;
+        /// <summary>
         /// The ETag of the storage insight.
         /// </summary>
         public readonly string? ETag;
@@ -54,9 +58,17 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Storage insight properties.
+        /// The status of the storage insight
         /// </summary>
-        public readonly Outputs.StorageInsightPropertiesResponseResult Properties;
+        public readonly Outputs.StorageInsightStatusResponseResult Status;
+        /// <summary>
+        /// The storage account connection details
+        /// </summary>
+        public readonly Outputs.StorageAccountResponseResult StorageAccount;
+        /// <summary>
+        /// The names of the Azure tables that the workspace should read
+        /// </summary>
+        public readonly ImmutableArray<string> Tables;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -68,19 +80,28 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
 
         [OutputConstructor]
         private GetStorageInsightResult(
+            ImmutableArray<string> containers,
+
             string? eTag,
 
             string name,
 
-            Outputs.StorageInsightPropertiesResponseResult properties,
+            Outputs.StorageInsightStatusResponseResult status,
+
+            Outputs.StorageAccountResponseResult storageAccount,
+
+            ImmutableArray<string> tables,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Containers = containers;
             ETag = eTag;
             Name = name;
-            Properties = properties;
+            Status = status;
+            StorageAccount = storageAccount;
+            Tables = tables;
             Tags = tags;
             Type = type;
         }

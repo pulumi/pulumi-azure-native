@@ -10,25 +10,39 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteCircuitConnection(pulumi.CustomResource):
+    address_prefix: pulumi.Output[str]
+    """
+    /29 IP address space to carve out Customer addresses for tunnels.
+    """
+    authorization_key: pulumi.Output[str]
+    """
+    The authorization key.
+    """
+    circuit_connection_status: pulumi.Output[str]
+    """
+    Express Route Circuit connection state.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    express_route_circuit_peering: pulumi.Output[dict]
+    """
+    Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+      * `id` (`str`) - Resource ID.
     """
     name: pulumi.Output[str]
     """
     Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    peer_express_route_circuit_peering: pulumi.Output[dict]
     """
-    Properties of the express route circuit connection.
-      * `address_prefix` (`str`) - /29 IP address space to carve out Customer addresses for tunnels.
-      * `authorization_key` (`str`) - The authorization key.
-      * `circuit_connection_status` (`str`) - Express Route Circuit connection state.
-      * `express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-        * `id` (`str`) - Resource ID.
-
-      * `peer_express_route_circuit_peering` (`dict`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-      * `provisioning_state` (`str`) - Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+    Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+      * `id` (`str`) - Resource ID.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
     """
     type: pulumi.Output[str]
     """
@@ -91,7 +105,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ExpressRouteCircuitConnection, __self__).__init__(
             'azurerm:network/v20190401:ExpressRouteCircuitConnection',

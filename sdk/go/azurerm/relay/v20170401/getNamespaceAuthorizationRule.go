@@ -29,8 +29,8 @@ type LookupNamespaceAuthorizationRuleArgs struct {
 type LookupNamespaceAuthorizationRuleResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Authorization rule properties.
-	Properties AuthorizationRuleResponseProperties `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

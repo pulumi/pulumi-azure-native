@@ -18,8 +18,14 @@ type Pool struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Capacity pool properties
-	Properties PoolPropertiesResponseOutput `pulumi:"properties"`
+	// UUID v4 used to identify the Pool
+	PoolId pulumi.StringOutput `pulumi:"poolId"`
+	// Azure lifecycle management
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The service level of the file system
+	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
+	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+	Size pulumi.IntOutput `pulumi:"size"`
 	// Resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Resource type
@@ -76,8 +82,14 @@ type poolState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Capacity pool properties
-	Properties *PoolPropertiesResponse `pulumi:"properties"`
+	// UUID v4 used to identify the Pool
+	PoolId *string `pulumi:"poolId"`
+	// Azure lifecycle management
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The service level of the file system
+	ServiceLevel *string `pulumi:"serviceLevel"`
+	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+	Size *int `pulumi:"size"`
 	// Resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Resource type
@@ -89,8 +101,14 @@ type PoolState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Capacity pool properties
-	Properties PoolPropertiesResponsePtrInput
+	// UUID v4 used to identify the Pool
+	PoolId pulumi.StringPtrInput
+	// Azure lifecycle management
+	ProvisioningState pulumi.StringPtrInput
+	// The service level of the file system
+	ServiceLevel pulumi.StringPtrInput
+	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+	Size pulumi.IntPtrInput
 	// Resource tags
 	Tags pulumi.MapInput
 	// Resource type

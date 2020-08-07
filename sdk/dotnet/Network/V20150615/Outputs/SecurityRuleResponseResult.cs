@@ -14,6 +14,26 @@ namespace Pulumi.AzureRM.Network.V20150615.Outputs
     public sealed class SecurityRuleResponseResult
     {
         /// <summary>
+        /// The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+        /// </summary>
+        public readonly string Access;
+        /// <summary>
+        /// A description for this rule. Restricted to 140 chars.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        /// </summary>
+        public readonly string DestinationAddressPrefix;
+        /// <summary>
+        /// The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        /// </summary>
+        public readonly string? DestinationPortRange;
+        /// <summary>
+        /// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
+        /// </summary>
+        public readonly string Direction;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -25,22 +45,68 @@ namespace Pulumi.AzureRM.Network.V20150615.Outputs
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.SecurityRulePropertiesFormatResponseResult? Properties;
+        /// <summary>
+        /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        /// </summary>
+        public readonly int? Priority;
+        /// <summary>
+        /// Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+        /// </summary>
+        public readonly string Protocol;
+        /// <summary>
+        /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        /// </summary>
+        public readonly string SourceAddressPrefix;
+        /// <summary>
+        /// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        /// </summary>
+        public readonly string? SourcePortRange;
 
         [OutputConstructor]
         private SecurityRuleResponseResult(
+            string access,
+
+            string? description,
+
+            string destinationAddressPrefix,
+
+            string? destinationPortRange,
+
+            string direction,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.SecurityRulePropertiesFormatResponseResult? properties)
+            int? priority,
+
+            string protocol,
+
+            string? provisioningState,
+
+            string sourceAddressPrefix,
+
+            string? sourcePortRange)
         {
+            Access = access;
+            Description = description;
+            DestinationAddressPrefix = destinationAddressPrefix;
+            DestinationPortRange = destinationPortRange;
+            Direction = direction;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Priority = priority;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            SourceAddressPrefix = sourceAddressPrefix;
+            SourcePortRange = sourcePortRange;
         }
     }
 }

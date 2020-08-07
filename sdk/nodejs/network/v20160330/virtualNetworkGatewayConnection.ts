@@ -37,9 +37,37 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The authorizationKey.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
+     * Virtual network Gateway connection status
+     */
+    public readonly connectionStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+     */
+    public readonly connectionType!: pulumi.Output<string | undefined>;
+    /**
+     * The Egress Bytes Transferred in this connection
+     */
+    public readonly egressBytesTransferred!: pulumi.Output<number | undefined>;
+    /**
+     * EnableBgp Flag
+     */
+    public readonly enableBgp!: pulumi.Output<boolean | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * The Ingress Bytes Transferred in this connection
+     */
+    public readonly ingressBytesTransferred!: pulumi.Output<number | undefined>;
+    /**
+     * A common class for general resource information
+     */
+    public readonly localNetworkGateway2!: pulumi.Output<outputs.network.v20160330.LocalNetworkGatewayResponse | undefined>;
     /**
      * Resource location
      */
@@ -49,9 +77,25 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * VirtualNetworkGatewayConnection properties
+     * The reference to peerings resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160330.VirtualNetworkGatewayConnectionPropertiesFormatResponse>;
+    public readonly peer!: pulumi.Output<outputs.network.v20160330.SubResourceResponse | undefined>;
+    /**
+     * Gets or sets Provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets resource GUID property of the VirtualNetworkGatewayConnection resource
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * The Routing weight.
+     */
+    public readonly routingWeight!: pulumi.Output<number | undefined>;
+    /**
+     * The IPsec share key.
+     */
+    public readonly sharedKey!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -60,6 +104,14 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A common class for general resource information
+     */
+    public readonly virtualNetworkGateway1!: pulumi.Output<outputs.network.v20160330.VirtualNetworkGatewayResponse | undefined>;
+    /**
+     * A common class for general resource information
+     */
+    public readonly virtualNetworkGateway2!: pulumi.Output<outputs.network.v20160330.VirtualNetworkGatewayResponse | undefined>;
 
     /**
      * Create a VirtualNetworkGatewayConnection resource with the given unique name, arguments, and options.
@@ -100,7 +152,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
             inputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

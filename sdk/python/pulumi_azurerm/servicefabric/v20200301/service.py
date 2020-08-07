@@ -10,6 +10,16 @@ from ... import _utilities, _tables
 
 
 class Service(pulumi.CustomResource):
+    correlation_scheme: pulumi.Output[list]
+    """
+    A list that describes the correlation of the service with other services.
+      * `scheme` (`str`) - The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+      * `service_name` (`str`) - The name of the service that the correlation relationship is established with.
+    """
+    default_move_cost: pulumi.Output[str]
+    """
+    Specifies the move cost for the service.
+    """
     etag: pulumi.Output[str]
     """
     Azure resource etag.
@@ -22,33 +32,48 @@ class Service(pulumi.CustomResource):
     """
     Azure resource name.
     """
-    properties: pulumi.Output[dict]
+    partition_description: pulumi.Output[dict]
     """
-    The service resource properties.
-      * `correlation_scheme` (`list`) - A list that describes the correlation of the service with other services.
-        * `scheme` (`str`) - The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
-        * `service_name` (`str`) - The name of the service that the correlation relationship is established with.
-
-      * `default_move_cost` (`str`) - Specifies the move cost for the service.
-      * `partition_description` (`dict`) - Describes how the service is partitioned.
-        * `partition_scheme` (`str`) - Specifies how the service is partitioned.
-
-      * `placement_constraints` (`str`) - The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response
-      * `service_dns_name` (`str`) - Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
-      * `service_kind` (`str`) - The kind of service (Stateless or Stateful).
-      * `service_load_metrics` (`list`) - The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-        * `default_load` (`float`) - Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
-        * `name` (`str`) - The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
-        * `primary_default_load` (`float`) - Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
-        * `secondary_default_load` (`float`) - Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
-        * `weight` (`str`) - The service load metric relative weight, compared to other metrics configured for this service, as a number.
-
-      * `service_package_activation_mode` (`str`) - The activation Mode of the service package
-      * `service_placement_policies` (`list`) - A list that describes the correlation of the service with other services.
-        * `type` (`str`) - The type of placement policy for a service fabric service. Following are the possible values.
-
-      * `service_type_name` (`str`) - The name of the service type
+    Describes how the service is partitioned.
+      * `partition_scheme` (`str`) - Specifies how the service is partitioned.
+    """
+    placement_constraints: pulumi.Output[str]
+    """
+    The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The current deployment or provisioning state, which only appears in the response
+    """
+    service_dns_name: pulumi.Output[str]
+    """
+    Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
+    """
+    service_kind: pulumi.Output[str]
+    """
+    The kind of service (Stateless or Stateful).
+    """
+    service_load_metrics: pulumi.Output[list]
+    """
+    The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+      * `default_load` (`float`) - Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+      * `name` (`str`) - The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
+      * `primary_default_load` (`float`) - Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+      * `secondary_default_load` (`float`) - Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+      * `weight` (`str`) - The service load metric relative weight, compared to other metrics configured for this service, as a number.
+    """
+    service_package_activation_mode: pulumi.Output[str]
+    """
+    The activation Mode of the service package
+    """
+    service_placement_policies: pulumi.Output[list]
+    """
+    A list that describes the correlation of the service with other services.
+      * `type` (`str`) - The type of placement policy for a service fabric service. Following are the possible values.
+    """
+    service_type_name: pulumi.Output[str]
+    """
+    The name of the service type
     """
     tags: pulumi.Output[dict]
     """
@@ -146,7 +171,7 @@ class Service(pulumi.CustomResource):
             __props__['service_type_name'] = service_type_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Service, __self__).__init__(
             'azurerm:servicefabric/v20200301:Service',

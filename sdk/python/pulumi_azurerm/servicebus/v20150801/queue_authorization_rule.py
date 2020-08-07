@@ -18,10 +18,9 @@ class QueueAuthorizationRule(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    rights: pulumi.Output[list]
     """
-    SharedAccessAuthorizationRule properties.
-      * `rights` (`list`) - The rights associated with the rule.
+    The rights associated with the rule.
     """
     type: pulumi.Output[str]
     """
@@ -73,7 +72,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             if rights is None:
                 raise TypeError("Missing required property 'rights'")
             __props__['rights'] = rights
-            __props__['properties'] = None
             __props__['type'] = None
         super(QueueAuthorizationRule, __self__).__init__(
             'azurerm:servicebus/v20150801:QueueAuthorizationRule',

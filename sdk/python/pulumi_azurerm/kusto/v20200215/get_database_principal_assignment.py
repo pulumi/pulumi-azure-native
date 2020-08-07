@@ -13,18 +13,54 @@ class GetDatabasePrincipalAssignmentResult:
     """
     Class representing a database principal assignment.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, tenant_id=None, tenant_name=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if principal_id and not isinstance(principal_id, str):
+            raise TypeError("Expected argument 'principal_id' to be a str")
+        __self__.principal_id = principal_id
         """
-        The database principal.
+        The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
+        """
+        if principal_name and not isinstance(principal_name, str):
+            raise TypeError("Expected argument 'principal_name' to be a str")
+        __self__.principal_name = principal_name
+        """
+        The principal name
+        """
+        if principal_type and not isinstance(principal_type, str):
+            raise TypeError("Expected argument 'principal_type' to be a str")
+        __self__.principal_type = principal_type
+        """
+        Principal type.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioned state of the resource.
+        """
+        if role and not isinstance(role, str):
+            raise TypeError("Expected argument 'role' to be a str")
+        __self__.role = role
+        """
+        Database principal role.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The tenant id of the principal
+        """
+        if tenant_name and not isinstance(tenant_name, str):
+            raise TypeError("Expected argument 'tenant_name' to be a str")
+        __self__.tenant_name = tenant_name
+        """
+        The tenant name of the principal
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +77,13 @@ class AwaitableGetDatabasePrincipalAssignmentResult(GetDatabasePrincipalAssignme
             yield self
         return GetDatabasePrincipalAssignmentResult(
             name=self.name,
-            properties=self.properties,
+            principal_id=self.principal_id,
+            principal_name=self.principal_name,
+            principal_type=self.principal_type,
+            provisioning_state=self.provisioning_state,
+            role=self.role,
+            tenant_id=self.tenant_id,
+            tenant_name=self.tenant_name,
             type=self.type)
 
 
@@ -67,5 +109,11 @@ def get_database_principal_assignment(cluster_name=None, database_name=None, nam
 
     return AwaitableGetDatabasePrincipalAssignmentResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        principal_id=__ret__.get('principalId'),
+        principal_name=__ret__.get('principalName'),
+        principal_type=__ret__.get('principalType'),
+        provisioning_state=__ret__.get('provisioningState'),
+        role=__ret__.get('role'),
+        tenant_id=__ret__.get('tenantId'),
+        tenant_name=__ret__.get('tenantName'),
         type=__ret__.get('type'))

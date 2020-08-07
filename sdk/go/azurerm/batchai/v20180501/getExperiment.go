@@ -27,10 +27,14 @@ type LookupExperimentArgs struct {
 
 // Experiment information.
 type LookupExperimentResult struct {
+	// Time when the Experiment was created.
+	CreationTime string `pulumi:"creationTime"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties associated with the experiment.
-	Properties ExperimentPropertiesResponse `pulumi:"properties"`
+	// The provisioned state of the experiment
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The time at which the experiment entered its current provisioning state.
+	ProvisioningStateTransitionTime string `pulumi:"provisioningStateTransitionTime"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

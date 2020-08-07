@@ -36,9 +36,25 @@ export interface GetLocalNetworkGatewayArgs {
  */
 export interface GetLocalNetworkGatewayResult {
     /**
+     * Local network gateway's BGP speaker settings.
+     */
+    readonly bgpSettings?: outputs.network.v20200401.BgpSettingsResponse;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * FQDN of local network gateway.
+     */
+    readonly fqdn?: string;
+    /**
+     * IP address of local network gateway.
+     */
+    readonly gatewayIpAddress?: string;
+    /**
+     * Local network site address space.
+     */
+    readonly localNetworkAddressSpace?: outputs.network.v20200401.AddressSpaceResponse;
     /**
      * Resource location.
      */
@@ -48,9 +64,13 @@ export interface GetLocalNetworkGatewayResult {
      */
     readonly name: string;
     /**
-     * Properties of the local network gateway.
+     * The provisioning state of the local network gateway resource.
      */
-    readonly properties: outputs.network.v20200401.LocalNetworkGatewayPropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * The resource GUID property of the local network gateway resource.
+     */
+    readonly resourceGuid: string;
     /**
      * Resource tags.
      */

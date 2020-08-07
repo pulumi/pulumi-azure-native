@@ -13,18 +13,18 @@ class GetChapSettingResult:
     """
     Challenge-Handshake Authentication Protocol (CHAP) setting
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, password=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if password and not isinstance(password, dict):
+            raise TypeError("Expected argument 'password' to be a dict")
+        __self__.password = password
         """
-        Chap properties
+        The chap password.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +41,7 @@ class AwaitableGetChapSettingResult(GetChapSettingResult):
             yield self
         return GetChapSettingResult(
             name=self.name,
-            properties=self.properties,
+            password=self.password,
             type=self.type)
 
 
@@ -67,5 +67,5 @@ def get_chap_setting(device_name=None, manager_name=None, name=None, resource_gr
 
     return AwaitableGetChapSettingResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        password=__ret__.get('password'),
         type=__ret__.get('type'))

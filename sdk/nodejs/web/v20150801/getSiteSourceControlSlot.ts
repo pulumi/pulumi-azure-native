@@ -36,6 +36,22 @@ export interface GetSiteSourceControlSlotArgs {
  */
 export interface GetSiteSourceControlSlotResult {
     /**
+     * Name of branch to use for deployment
+     */
+    readonly branch?: string;
+    /**
+     * Whether to manual or continuous integration
+     */
+    readonly deploymentRollbackEnabled?: boolean;
+    /**
+     * Whether to manual or continuous integration
+     */
+    readonly isManualIntegration?: boolean;
+    /**
+     * Mercurial or Git repository type
+     */
+    readonly isMercurial?: boolean;
+    /**
      * Kind of resource
      */
     readonly kind?: string;
@@ -47,7 +63,10 @@ export interface GetSiteSourceControlSlotResult {
      * Resource Name
      */
     readonly name?: string;
-    readonly properties: outputs.web.v20150801.SiteSourceControlResponseProperties;
+    /**
+     * Repository or source control url
+     */
+    readonly repoUrl?: string;
     /**
      * Resource tags
      */

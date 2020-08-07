@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Web.V20160601.Outputs
     public sealed class ConnectionErrorResponseResult
     {
         /// <summary>
+        /// Code of the status
+        /// </summary>
+        public readonly string? Code;
+        /// <summary>
         /// Resource ETag
         /// </summary>
         public readonly string? Etag;
@@ -26,10 +30,13 @@ namespace Pulumi.AzureRM.Web.V20160601.Outputs
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Description of the status
+        /// </summary>
+        public readonly string? Message;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ConnectionErrorResponsePropertiesResult? Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -41,25 +48,28 @@ namespace Pulumi.AzureRM.Web.V20160601.Outputs
 
         [OutputConstructor]
         private ConnectionErrorResponseResult(
+            string? code,
+
             string? etag,
 
             string id,
 
             string? location,
 
-            string name,
+            string? message,
 
-            Outputs.ConnectionErrorResponsePropertiesResult? properties,
+            string name,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Code = code;
             Etag = etag;
             Id = id;
             Location = location;
+            Message = message;
             Name = name;
-            Properties = properties;
             Tags = tags;
             Type = type;
         }

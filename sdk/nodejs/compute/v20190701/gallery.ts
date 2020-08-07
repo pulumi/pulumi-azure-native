@@ -37,6 +37,14 @@ export class Gallery extends pulumi.CustomResource {
     }
 
     /**
+     * The description of this Shared Image Gallery resource. This property is updatable.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Describes the gallery unique name.
+     */
+    public /*out*/ readonly identifier!: pulumi.Output<outputs.compute.v20190701.GalleryIdentifierResponse | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +53,9 @@ export class Gallery extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Describes the properties of a Shared Image Gallery.
+     * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20190701.GalleryPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -84,7 +92,8 @@ export class Gallery extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["identifier"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

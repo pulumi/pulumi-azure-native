@@ -46,15 +46,39 @@ export interface GetViewArgs {
  */
 export interface GetViewResult {
     /**
+     * Date time when view was last modified.
+     */
+    readonly changed: string;
+    /**
+     * Date time when view was created.
+     */
+    readonly created: string;
+    /**
+     * View definition.
+     */
+    readonly definition: string;
+    /**
+     * Localized display name for the view.
+     */
+    readonly displayName?: {[key: string]: string};
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The view in Customer 360 web application.
+     * the hub name.
      */
-    readonly properties: outputs.customerinsights.v20170101.ViewResponse;
+    readonly tenantId: string;
     /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * the user ID.
+     */
+    readonly userId?: string;
+    /**
+     * Name of the view.
+     */
+    readonly viewName: string;
 }

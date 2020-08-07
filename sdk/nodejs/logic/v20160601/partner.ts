@@ -37,17 +37,33 @@ export class Partner extends pulumi.CustomResource {
     }
 
     /**
+     * The changed time.
+     */
+    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    /**
+     * The partner content.
+     */
+    public readonly content!: pulumi.Output<outputs.logic.v20160601.PartnerContentResponse>;
+    /**
+     * The created time.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Gets the resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The integration account partner properties.
+     * The partner type.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountPartnerPropertiesResponse>;
+    public readonly partnerType!: pulumi.Output<string>;
     /**
      * The resource tags.
      */
@@ -93,7 +109,8 @@ export class Partner extends pulumi.CustomResource {
             inputs["partnerType"] = args ? args.partnerType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

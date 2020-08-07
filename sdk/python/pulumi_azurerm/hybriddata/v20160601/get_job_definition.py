@@ -13,24 +13,72 @@ class GetJobDefinitionResult:
     """
     Job Definition.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, customer_secrets=None, data_service_input=None, data_sink_id=None, data_source_id=None, last_modified_time=None, name=None, run_location=None, schedules=None, state=None, type=None, user_confirmation=None):
+        if customer_secrets and not isinstance(customer_secrets, list):
+            raise TypeError("Expected argument 'customer_secrets' to be a list")
+        __self__.customer_secrets = customer_secrets
+        """
+        List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        """
+        if data_service_input and not isinstance(data_service_input, dict):
+            raise TypeError("Expected argument 'data_service_input' to be a dict")
+        __self__.data_service_input = data_service_input
+        """
+        A generic json used differently by each data service type.
+        """
+        if data_sink_id and not isinstance(data_sink_id, str):
+            raise TypeError("Expected argument 'data_sink_id' to be a str")
+        __self__.data_sink_id = data_sink_id
+        """
+        Data Sink Id associated to the job definition.
+        """
+        if data_source_id and not isinstance(data_source_id, str):
+            raise TypeError("Expected argument 'data_source_id' to be a str")
+        __self__.data_source_id = data_source_id
+        """
+        Data Source Id associated to the job definition.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Last modified time of the job definition.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if run_location and not isinstance(run_location, str):
+            raise TypeError("Expected argument 'run_location' to be a str")
+        __self__.run_location = run_location
         """
-        JobDefinition properties.
+        This is the preferred geo location for the job to run.
+        """
+        if schedules and not isinstance(schedules, list):
+            raise TypeError("Expected argument 'schedules' to be a list")
+        __self__.schedules = schedules
+        """
+        Schedule for running the job definition
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        State of the job definition.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Type of the object.
+        """
+        if user_confirmation and not isinstance(user_confirmation, str):
+            raise TypeError("Expected argument 'user_confirmation' to be a str")
+        __self__.user_confirmation = user_confirmation
+        """
+        Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         """
 
 
@@ -40,9 +88,17 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
         if False:
             yield self
         return GetJobDefinitionResult(
+            customer_secrets=self.customer_secrets,
+            data_service_input=self.data_service_input,
+            data_sink_id=self.data_sink_id,
+            data_source_id=self.data_source_id,
+            last_modified_time=self.last_modified_time,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            run_location=self.run_location,
+            schedules=self.schedules,
+            state=self.state,
+            type=self.type,
+            user_confirmation=self.user_confirmation)
 
 
 def get_job_definition(data_manager_name=None, data_service_name=None, name=None, resource_group_name=None, opts=None):
@@ -66,6 +122,14 @@ def get_job_definition(data_manager_name=None, data_service_name=None, name=None
     __ret__ = pulumi.runtime.invoke('azurerm:hybriddata/v20160601:getJobDefinition', __args__, opts=opts).value
 
     return AwaitableGetJobDefinitionResult(
+        customer_secrets=__ret__.get('customerSecrets'),
+        data_service_input=__ret__.get('dataServiceInput'),
+        data_sink_id=__ret__.get('dataSinkId'),
+        data_source_id=__ret__.get('dataSourceId'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        run_location=__ret__.get('runLocation'),
+        schedules=__ret__.get('schedules'),
+        state=__ret__.get('state'),
+        type=__ret__.get('type'),
+        user_confirmation=__ret__.get('userConfirmation'))

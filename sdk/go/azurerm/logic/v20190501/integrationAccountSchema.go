@@ -14,14 +14,32 @@ import (
 type IntegrationAccountSchema struct {
 	pulumi.CustomResourceState
 
+	// The changed time.
+	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
+	// The content.
+	Content pulumi.StringPtrOutput `pulumi:"content"`
+	// The content link.
+	ContentLink ContentLinkResponseOutput `pulumi:"contentLink"`
+	// The content type.
+	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
+	// The created time.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The document name.
+	DocumentName pulumi.StringPtrOutput `pulumi:"documentName"`
+	// The file name.
+	FileName pulumi.StringPtrOutput `pulumi:"fileName"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The metadata.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The integration account schema properties.
-	Properties IntegrationAccountSchemaPropertiesResponseOutput `pulumi:"properties"`
+	// The schema type.
+	SchemaType pulumi.StringOutput `pulumi:"schemaType"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The target namespace of the schema.
+	TargetNamespace pulumi.StringPtrOutput `pulumi:"targetNamespace"`
 	// Gets the resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -66,27 +84,63 @@ func GetIntegrationAccountSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountSchema resources.
 type integrationAccountSchemaState struct {
+	// The changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// The content.
+	Content *string `pulumi:"content"`
+	// The content link.
+	ContentLink *ContentLinkResponse `pulumi:"contentLink"`
+	// The content type.
+	ContentType *string `pulumi:"contentType"`
+	// The created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The document name.
+	DocumentName *string `pulumi:"documentName"`
+	// The file name.
+	FileName *string `pulumi:"fileName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
-	// The integration account schema properties.
-	Properties *IntegrationAccountSchemaPropertiesResponse `pulumi:"properties"`
+	// The schema type.
+	SchemaType *string `pulumi:"schemaType"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The target namespace of the schema.
+	TargetNamespace *string `pulumi:"targetNamespace"`
 	// Gets the resource type.
 	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountSchemaState struct {
+	// The changed time.
+	ChangedTime pulumi.StringPtrInput
+	// The content.
+	Content pulumi.StringPtrInput
+	// The content link.
+	ContentLink ContentLinkResponsePtrInput
+	// The content type.
+	ContentType pulumi.StringPtrInput
+	// The created time.
+	CreatedTime pulumi.StringPtrInput
+	// The document name.
+	DocumentName pulumi.StringPtrInput
+	// The file name.
+	FileName pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.MapInput
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
-	// The integration account schema properties.
-	Properties IntegrationAccountSchemaPropertiesResponsePtrInput
+	// The schema type.
+	SchemaType pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
+	// The target namespace of the schema.
+	TargetNamespace pulumi.StringPtrInput
 	// Gets the resource type.
 	Type pulumi.StringPtrInput
 }

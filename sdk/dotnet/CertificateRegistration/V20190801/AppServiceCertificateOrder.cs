@@ -15,10 +15,76 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20190801
     public partial class AppServiceCertificateOrder : Pulumi.CustomResource
     {
         /// <summary>
+        /// Reasons why App Service Certificate is not renewable at the current moment.
+        /// </summary>
+        [Output("appServiceCertificateNotRenewableReasons")]
+        public Output<ImmutableArray<string>> AppServiceCertificateNotRenewableReasons { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the certificate should be automatically renewed when it expires; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Output("autoRenew")]
+        public Output<bool?> AutoRenew { get; private set; } = null!;
+
+        /// <summary>
+        /// State of the Key Vault secret.
+        /// </summary>
+        [Output("certificates")]
+        public Output<ImmutableDictionary<string, Outputs.AppServiceCertificateResponseResult>?> Certificates { get; private set; } = null!;
+
+        /// <summary>
+        /// Last CSR that was created for this order.
+        /// </summary>
+        [Output("csr")]
+        public Output<string?> Csr { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate distinguished name.
+        /// </summary>
+        [Output("distinguishedName")]
+        public Output<string?> DistinguishedName { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain verification token.
+        /// </summary>
+        [Output("domainVerificationToken")]
+        public Output<string> DomainVerificationToken { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate expiration time.
+        /// </summary>
+        [Output("expirationTime")]
+        public Output<string> ExpirationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Intermediate certificate.
+        /// </summary>
+        [Output("intermediate")]
+        public Output<Outputs.CertificateDetailsResponseResult> Intermediate { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if private key is external; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Output("isPrivateKeyExternal")]
+        public Output<bool> IsPrivateKeyExternal { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate key size.
+        /// </summary>
+        [Output("keySize")]
+        public Output<int?> KeySize { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate last issuance time.
+        /// </summary>
+        [Output("lastCertificateIssuanceTime")]
+        public Output<string> LastCertificateIssuanceTime { get; private set; } = null!;
 
         /// <summary>
         /// Resource Location.
@@ -33,10 +99,46 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20190801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// AppServiceCertificateOrder resource specific properties
+        /// Time stamp when the certificate would be auto renewed next
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AppServiceCertificateOrderResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("nextAutoRenewalTimeStamp")]
+        public Output<string> NextAutoRenewalTimeStamp { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate product type.
+        /// </summary>
+        [Output("productType")]
+        public Output<string> ProductType { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of certificate order.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Root certificate.
+        /// </summary>
+        [Output("root")]
+        public Output<Outputs.CertificateDetailsResponseResult> Root { get; private set; } = null!;
+
+        /// <summary>
+        /// Current serial number of the certificate.
+        /// </summary>
+        [Output("serialNumber")]
+        public Output<string> SerialNumber { get; private set; } = null!;
+
+        /// <summary>
+        /// Signed certificate.
+        /// </summary>
+        [Output("signedCertificate")]
+        public Output<Outputs.CertificateDetailsResponseResult> SignedCertificate { get; private set; } = null!;
+
+        /// <summary>
+        /// Current order status.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +151,12 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20190801
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Duration in years (must be between 1 and 3).
+        /// </summary>
+        [Output("validityInYears")]
+        public Output<int?> ValidityInYears { get; private set; } = null!;
 
 
         /// <summary>

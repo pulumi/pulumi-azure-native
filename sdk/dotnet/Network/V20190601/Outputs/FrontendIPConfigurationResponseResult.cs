@@ -22,13 +22,53 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Read only. Inbound pools URIs that use this frontend IP.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> InboundNatPools;
+        /// <summary>
+        /// Read only. Inbound rules URIs that use this frontend IP.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> InboundNatRules;
+        /// <summary>
+        /// Gets load balancing rules URIs that use this frontend IP.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> LoadBalancingRules;
+        /// <summary>
         /// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the load balancer probe.
+        /// Read only. Outbound rules URIs that use this frontend IP.
         /// </summary>
-        public readonly Outputs.FrontendIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> OutboundRules;
+        /// <summary>
+        /// The private IP address of the IP configuration.
+        /// </summary>
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// It represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+        /// </summary>
+        public readonly string? PrivateIPAddressVersion;
+        /// <summary>
+        /// The Private IP allocation method.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The reference of the Public IP resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponseResult? PublicIPAddress;
+        /// <summary>
+        /// The reference of the Public IP Prefix resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PublicIPPrefix;
+        /// <summary>
+        /// The reference of the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -44,9 +84,29 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
 
             string? id,
 
+            ImmutableArray<Outputs.SubResourceResponseResult> inboundNatPools,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> inboundNatRules,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> loadBalancingRules,
+
             string? name,
 
-            Outputs.FrontendIPConfigurationPropertiesFormatResponseResult? properties,
+            ImmutableArray<Outputs.SubResourceResponseResult> outboundRules,
+
+            string? privateIPAddress,
+
+            string? privateIPAddressVersion,
+
+            string? privateIPAllocationMethod,
+
+            string? provisioningState,
+
+            Outputs.PublicIPAddressResponseResult? publicIPAddress,
+
+            Outputs.SubResourceResponseResult? publicIPPrefix,
+
+            Outputs.SubnetResponseResult? subnet,
 
             string type,
 
@@ -54,8 +114,18 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
         {
             Etag = etag;
             Id = id;
+            InboundNatPools = inboundNatPools;
+            InboundNatRules = inboundNatRules;
+            LoadBalancingRules = loadBalancingRules;
             Name = name;
-            Properties = properties;
+            OutboundRules = outboundRules;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAddressVersion = privateIPAddressVersion;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            PublicIPPrefix = publicIPPrefix;
+            Subnet = subnet;
             Type = type;
             Zones = zones;
         }

@@ -10,31 +10,46 @@ from ... import _utilities, _tables
 
 
 class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    The policy set definition description.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The display name of the policy set definition.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+    """
     name: pulumi.Output[str]
     """
     The name of the policy set definition.
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[dict]
     """
-    The policy definition properties.
-      * `description` (`str`) - The policy set definition description.
-      * `display_name` (`str`) - The display name of the policy set definition.
-      * `metadata` (`dict`) - The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-      * `parameters` (`dict`) - The policy set definition parameters that can be used in policy definition references.
-      * `policy_definition_groups` (`list`) - The metadata describing groups of policy definition references within the policy set definition.
-        * `additional_metadata_id` (`str`) - A resource ID of a resource that contains additional metadata about the group.
-        * `category` (`str`) - The group's category.
-        * `description` (`str`) - The group's description.
-        * `display_name` (`str`) - The group's display name.
-        * `name` (`str`) - The name of the group.
-
-      * `policy_definitions` (`list`) - An array of policy definition references.
-        * `group_names` (`list`) - The name of the groups that this policy definition reference belongs to.
-        * `parameters` (`dict`) - The parameter values for the referenced policy rule. The keys are the parameter names.
-        * `policy_definition_id` (`str`) - The ID of the policy definition or policy set definition.
-        * `policy_definition_reference_id` (`str`) - A unique id (within the policy set definition) for this policy definition reference.
-
-      * `policy_type` (`str`) - The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+    The policy set definition parameters that can be used in policy definition references.
+    """
+    policy_definition_groups: pulumi.Output[list]
+    """
+    The metadata describing groups of policy definition references within the policy set definition.
+      * `additional_metadata_id` (`str`) - A resource ID of a resource that contains additional metadata about the group.
+      * `category` (`str`) - The group's category.
+      * `description` (`str`) - The group's description.
+      * `display_name` (`str`) - The group's display name.
+      * `name` (`str`) - The name of the group.
+    """
+    policy_definitions: pulumi.Output[list]
+    """
+    An array of policy definition references.
+      * `group_names` (`list`) - The name of the groups that this policy definition reference belongs to.
+      * `parameters` (`dict`) - The parameter values for the referenced policy rule. The keys are the parameter names.
+      * `policy_definition_id` (`str`) - The ID of the policy definition or policy set definition.
+      * `policy_definition_reference_id` (`str`) - A unique id (within the policy set definition) for this policy definition reference.
+    """
+    policy_type: pulumi.Output[str]
+    """
+    The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
     """
     type: pulumi.Output[str]
     """
@@ -103,7 +118,6 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_definitions'")
             __props__['policy_definitions'] = policy_definitions
             __props__['policy_type'] = policy_type
-            __props__['properties'] = None
             __props__['type'] = None
         super(PolicySetDefinitionAtManagementGroup, __self__).__init__(
             'azurerm:management/v20190901:PolicySetDefinitionAtManagementGroup',

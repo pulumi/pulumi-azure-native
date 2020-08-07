@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
     }
 
     /**
+     * Correspond domain name of certain Spatial Anchors Account
+     */
+    public /*out*/ readonly accountDomain!: pulumi.Output<string>;
+    /**
+     * unique id of certain account.
+     */
+    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -44,10 +50,6 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Property bag.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.mixedreality.v20200501.MixedRealityAccountPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -83,7 +85,8 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accountDomain"] = undefined /*out*/;
+            inputs["accountId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

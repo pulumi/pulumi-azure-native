@@ -15,22 +15,40 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
     public partial class WorkspaceConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Authorization type of the workspace connection.
+        /// </summary>
+        [Output("authType")]
+        public Output<string?> AuthType { get; private set; } = null!;
+
+        /// <summary>
+        /// Category of the workspace connection.
+        /// </summary>
+        [Output("category")]
+        public Output<string?> Category { get; private set; } = null!;
+
+        /// <summary>
         /// Friendly name of the workspace connection.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of workspace connection.
+        /// Target of the workspace connection.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WorkspaceConnectionPropsResponseResult> Properties { get; private set; } = null!;
+        [Output("target")]
+        public Output<string?> Target { get; private set; } = null!;
 
         /// <summary>
         /// Resource type of workspace connection.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Value details of the workspace connection.
+        /// </summary>
+        [Output("value")]
+        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>

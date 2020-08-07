@@ -13,7 +13,19 @@ class GetBackendResult:
     """
     Backend details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, credentials=None, description=None, name=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
+        if credentials and not isinstance(credentials, dict):
+            raise TypeError("Expected argument 'credentials' to be a dict")
+        __self__.credentials = credentials
+        """
+        Backend Credentials Contract Properties
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Backend Description.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -24,13 +36,49 @@ class GetBackendResult:
             raise TypeError("Expected argument 'properties' to be a dict")
         __self__.properties = properties
         """
-        Backend entity contract properties.
+        Backend Properties contract
+        """
+        if protocol and not isinstance(protocol, str):
+            raise TypeError("Expected argument 'protocol' to be a str")
+        __self__.protocol = protocol
+        """
+        Backend communication protocol.
+        """
+        if proxy and not isinstance(proxy, dict):
+            raise TypeError("Expected argument 'proxy' to be a dict")
+        __self__.proxy = proxy
+        """
+        Backend Proxy Contract Properties
+        """
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        __self__.resource_id = resource_id
+        """
+        Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        """
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        __self__.title = title
+        """
+        Backend Title.
+        """
+        if tls and not isinstance(tls, dict):
+            raise TypeError("Expected argument 'tls' to be a dict")
+        __self__.tls = tls
+        """
+        Backend TLS Properties
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if url and not isinstance(url, str):
+            raise TypeError("Expected argument 'url' to be a str")
+        __self__.url = url
+        """
+        Runtime Url of the Backend.
         """
 
 
@@ -40,9 +88,17 @@ class AwaitableGetBackendResult(GetBackendResult):
         if False:
             yield self
         return GetBackendResult(
+            credentials=self.credentials,
+            description=self.description,
             name=self.name,
             properties=self.properties,
-            type=self.type)
+            protocol=self.protocol,
+            proxy=self.proxy,
+            resource_id=self.resource_id,
+            title=self.title,
+            tls=self.tls,
+            type=self.type,
+            url=self.url)
 
 
 def get_backend(name=None, resource_group_name=None, service_name=None, opts=None):
@@ -64,6 +120,14 @@ def get_backend(name=None, resource_group_name=None, service_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getBackend', __args__, opts=opts).value
 
     return AwaitableGetBackendResult(
+        credentials=__ret__.get('credentials'),
+        description=__ret__.get('description'),
         name=__ret__.get('name'),
         properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        protocol=__ret__.get('protocol'),
+        proxy=__ret__.get('proxy'),
+        resource_id=__ret__.get('resourceId'),
+        title=__ret__.get('title'),
+        tls=__ret__.get('tls'),
+        type=__ret__.get('type'),
+        url=__ret__.get('url'))

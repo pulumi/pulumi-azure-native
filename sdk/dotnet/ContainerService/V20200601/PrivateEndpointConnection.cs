@@ -21,10 +21,22 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of a private endpoint connection.
+        /// The resource of private endpoint.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpoint")]
+        public Output<Outputs.PrivateEndpointResponseResult?> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        [Output("privateLinkServiceConnectionState")]
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponseResult> PrivateLinkServiceConnectionState { get; private set; } = null!;
+
+        /// <summary>
+        /// The current provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

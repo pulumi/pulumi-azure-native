@@ -13,12 +13,48 @@ class GetPrivateCloudResult:
     """
     A private cloud resource
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, circuit=None, endpoints=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, sku=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, vmotion_network=None):
+        if circuit and not isinstance(circuit, dict):
+            raise TypeError("Expected argument 'circuit' to be a dict")
+        __self__.circuit = circuit
+        """
+        An ExpressRoute Circuit
+        """
+        if endpoints and not isinstance(endpoints, dict):
+            raise TypeError("Expected argument 'endpoints' to be a dict")
+        __self__.endpoints = endpoints
+        """
+        The endpoints
+        """
+        if identity_sources and not isinstance(identity_sources, list):
+            raise TypeError("Expected argument 'identity_sources' to be a list")
+        __self__.identity_sources = identity_sources
+        """
+        vCenter Single Sign On Identity Sources
+        """
+        if internet and not isinstance(internet, str):
+            raise TypeError("Expected argument 'internet' to be a str")
+        __self__.internet = internet
+        """
+        Connectivity to internet is enabled or disabled
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if management_cluster and not isinstance(management_cluster, dict):
+            raise TypeError("Expected argument 'management_cluster' to be a dict")
+        __self__.management_cluster = management_cluster
+        """
+        The default cluster used for management
+        """
+        if management_network and not isinstance(management_network, str):
+            raise TypeError("Expected argument 'management_network' to be a str")
+        __self__.management_network = management_network
+        """
+        Network used to access vCenter Server and NSX-T Manager
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +62,35 @@ class GetPrivateCloudResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_block and not isinstance(network_block, str):
+            raise TypeError("Expected argument 'network_block' to be a str")
+        __self__.network_block = network_block
         """
-        The properties of a private cloud resource
+        The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        """
+        if nsxt_certificate_thumbprint and not isinstance(nsxt_certificate_thumbprint, str):
+            raise TypeError("Expected argument 'nsxt_certificate_thumbprint' to be a str")
+        __self__.nsxt_certificate_thumbprint = nsxt_certificate_thumbprint
+        """
+        Thumbprint of the NSX-T Manager SSL certificate
+        """
+        if nsxt_password and not isinstance(nsxt_password, str):
+            raise TypeError("Expected argument 'nsxt_password' to be a str")
+        __self__.nsxt_password = nsxt_password
+        """
+        Optionally, set the NSX-T Manager password when the private cloud is created
+        """
+        if provisioning_network and not isinstance(provisioning_network, str):
+            raise TypeError("Expected argument 'provisioning_network' to be a str")
+        __self__.provisioning_network = provisioning_network
+        """
+        Used for virtual machine cold migration, cloning, and snapshot migration
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -50,6 +110,24 @@ class GetPrivateCloudResult:
         """
         Resource type.
         """
+        if vcenter_certificate_thumbprint and not isinstance(vcenter_certificate_thumbprint, str):
+            raise TypeError("Expected argument 'vcenter_certificate_thumbprint' to be a str")
+        __self__.vcenter_certificate_thumbprint = vcenter_certificate_thumbprint
+        """
+        Thumbprint of the vCenter Server SSL certificate
+        """
+        if vcenter_password and not isinstance(vcenter_password, str):
+            raise TypeError("Expected argument 'vcenter_password' to be a str")
+        __self__.vcenter_password = vcenter_password
+        """
+        Optionally, set the vCenter admin password when the private cloud is created
+        """
+        if vmotion_network and not isinstance(vmotion_network, str):
+            raise TypeError("Expected argument 'vmotion_network' to be a str")
+        __self__.vmotion_network = vmotion_network
+        """
+        Used for live migration of virtual machines
+        """
 
 
 class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
@@ -58,12 +136,25 @@ class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
         if False:
             yield self
         return GetPrivateCloudResult(
+            circuit=self.circuit,
+            endpoints=self.endpoints,
+            identity_sources=self.identity_sources,
+            internet=self.internet,
             location=self.location,
+            management_cluster=self.management_cluster,
+            management_network=self.management_network,
             name=self.name,
-            properties=self.properties,
+            network_block=self.network_block,
+            nsxt_certificate_thumbprint=self.nsxt_certificate_thumbprint,
+            nsxt_password=self.nsxt_password,
+            provisioning_network=self.provisioning_network,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            vcenter_certificate_thumbprint=self.vcenter_certificate_thumbprint,
+            vcenter_password=self.vcenter_password,
+            vmotion_network=self.vmotion_network)
 
 
 def get_private_cloud(name=None, resource_group_name=None, opts=None):
@@ -83,9 +174,22 @@ def get_private_cloud(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getPrivateCloud', __args__, opts=opts).value
 
     return AwaitableGetPrivateCloudResult(
+        circuit=__ret__.get('circuit'),
+        endpoints=__ret__.get('endpoints'),
+        identity_sources=__ret__.get('identitySources'),
+        internet=__ret__.get('internet'),
         location=__ret__.get('location'),
+        management_cluster=__ret__.get('managementCluster'),
+        management_network=__ret__.get('managementNetwork'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_block=__ret__.get('networkBlock'),
+        nsxt_certificate_thumbprint=__ret__.get('nsxtCertificateThumbprint'),
+        nsxt_password=__ret__.get('nsxtPassword'),
+        provisioning_network=__ret__.get('provisioningNetwork'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        vcenter_certificate_thumbprint=__ret__.get('vcenterCertificateThumbprint'),
+        vcenter_password=__ret__.get('vcenterPassword'),
+        vmotion_network=__ret__.get('vmotionNetwork'))

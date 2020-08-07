@@ -15,10 +15,58 @@ namespace Pulumi.AzureRM.CostManagement.V20191101
     public partial class View : Pulumi.CustomResource
     {
         /// <summary>
+        /// Show costs accumulated over time.
+        /// </summary>
+        [Output("accumulated")]
+        public Output<string?> Accumulated { get; private set; } = null!;
+
+        /// <summary>
+        /// Chart type of the main view in Cost Analysis. Required.
+        /// </summary>
+        [Output("chart")]
+        public Output<string?> Chart { get; private set; } = null!;
+
+        /// <summary>
+        /// Date the user created this view.
+        /// </summary>
+        [Output("createdOn")]
+        public Output<string> CreatedOn { get; private set; } = null!;
+
+        /// <summary>
+        /// Has definition for data in this report config.
+        /// </summary>
+        [Output("dataset")]
+        public Output<Outputs.ReportConfigDatasetResponseResult?> Dataset { get; private set; } = null!;
+
+        /// <summary>
+        /// User input name of the view. Required.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// List of KPIs to show in Cost Analysis UI.
+        /// </summary>
+        [Output("kpis")]
+        public Output<ImmutableArray<Outputs.KpiPropertiesResponseResult>> Kpis { get; private set; } = null!;
+
+        /// <summary>
+        /// Metric to use when displaying costs.
+        /// </summary>
+        [Output("metric")]
+        public Output<string?> Metric { get; private set; } = null!;
+
+        /// <summary>
+        /// Date when the user last modified this view.
+        /// </summary>
+        [Output("modifiedOn")]
+        public Output<string> ModifiedOn { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -27,10 +75,28 @@ namespace Pulumi.AzureRM.CostManagement.V20191101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the view.
+        /// Configuration of 3 sub-views in the Cost Analysis UI.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ViewPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("pivots")]
+        public Output<ImmutableArray<Outputs.PivotPropertiesResponseResult>> Pivots { get; private set; } = null!;
+
+        /// <summary>
+        /// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        /// </summary>
+        [Output("scope")]
+        public Output<string?> Scope { get; private set; } = null!;
+
+        /// <summary>
+        /// Has time period for pulling data for the report.
+        /// </summary>
+        [Output("timePeriod")]
+        public Output<Outputs.ReportConfigTimePeriodResponseResult?> TimePeriod { get; private set; } = null!;
+
+        /// <summary>
+        /// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+        /// </summary>
+        [Output("timeframe")]
+        public Output<string> Timeframe { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

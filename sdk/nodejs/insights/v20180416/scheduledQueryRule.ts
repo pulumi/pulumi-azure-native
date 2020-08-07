@@ -37,6 +37,18 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     }
 
     /**
+     * The description of the Log Search rule.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+     */
+    public readonly enabled!: pulumi.Output<string | undefined>;
+    /**
+     * Last time the rule was updated in IS08601 format.
+     */
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +57,17 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The rule properties of the resource.
+     * Provisioning state of the scheduled query rule
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20180416.LogSearchRuleResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+     */
+    public readonly schedule!: pulumi.Output<outputs.insights.v20180416.ScheduleResponse | undefined>;
+    /**
+     * Data Source against which rule will Query Data
+     */
+    public readonly source!: pulumi.Output<outputs.insights.v20180416.SourceResponse>;
     /**
      * Resource tags
      */
@@ -90,7 +110,8 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastUpdatedTime"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

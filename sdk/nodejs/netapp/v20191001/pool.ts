@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,9 +43,21 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Capacity pool properties
+     * UUID v4 used to identify the Pool
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.netapp.v20191001.PoolPropertiesResponse>;
+    public /*out*/ readonly poolId!: pulumi.Output<string>;
+    /**
+     * Azure lifecycle management
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The service level of the file system
+     */
+    public readonly serviceLevel!: pulumi.Output<string>;
+    /**
+     * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+     */
+    public readonly size!: pulumi.Output<number>;
     /**
      * Resource tags
      */
@@ -95,7 +105,8 @@ export class Pool extends pulumi.CustomResource {
             inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
             inputs["size"] = args ? args.size : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["poolId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

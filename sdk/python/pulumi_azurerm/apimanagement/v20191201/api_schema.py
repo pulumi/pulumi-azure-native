@@ -10,21 +10,25 @@ from ... import _utilities, _tables
 
 
 class ApiSchema(pulumi.CustomResource):
+    content_type: pulumi.Output[str]
+    """
+    Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
+    """
+    definitions: pulumi.Output[dict]
+    """
+    Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the Schema.
-      * `content_type` (`str`) - Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
-      * `document` (`dict`) - Create or update Properties of the Schema Document.
-        * `definitions` (`dict`) - Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-        * `value` (`str`) - Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-    """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    value: pulumi.Output[str]
+    """
+    Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
     """
     def __init__(__self__, resource_name, opts=None, api_id=None, content_type=None, definitions=None, name=None, resource_group_name=None, service_name=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -74,7 +78,6 @@ class ApiSchema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['value'] = value
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiSchema, __self__).__init__(
             'azurerm:apimanagement/v20191201:ApiSchema',

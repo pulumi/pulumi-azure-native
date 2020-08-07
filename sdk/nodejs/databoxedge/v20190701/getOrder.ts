@@ -36,13 +36,37 @@ export interface GetOrderArgs {
  */
 export interface GetOrderResult {
     /**
+     * The contact details.
+     */
+    readonly contactInformation: outputs.databoxedge.v20190701.ContactDetailsResponse;
+    /**
+     * Current status of the order.
+     */
+    readonly currentStatus?: outputs.databoxedge.v20190701.OrderStatusResponse;
+    /**
+     * Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+     */
+    readonly deliveryTrackingInfo: outputs.databoxedge.v20190701.TrackingInfoResponse[];
+    /**
      * The object name.
      */
     readonly name: string;
     /**
-     * The order properties.
+     * List of status changes in the order.
      */
-    readonly properties: outputs.databoxedge.v20190701.OrderPropertiesResponse;
+    readonly orderHistory: outputs.databoxedge.v20190701.OrderStatusResponse[];
+    /**
+     * Tracking information for the package returned from the customer whether it has an original or a replacement device.
+     */
+    readonly returnTrackingInfo: outputs.databoxedge.v20190701.TrackingInfoResponse[];
+    /**
+     * Serial number of the device.
+     */
+    readonly serialNumber: string;
+    /**
+     * The shipping address.
+     */
+    readonly shippingAddress: outputs.databoxedge.v20190701.AddressResponse;
     /**
      * The hierarchical type of the object.
      */

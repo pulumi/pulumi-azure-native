@@ -41,6 +41,18 @@ export interface GetVirtualMachineExtensionArgs {
  */
 export interface GetVirtualMachineExtensionResult {
     /**
+     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+     */
+    readonly autoUpgradeMinorVersion?: boolean;
+    /**
+     * How the extension handler should be forced to update even if the extension configuration has not changed.
+     */
+    readonly forceUpdateTag?: string;
+    /**
+     * The virtual machine extension instance view.
+     */
+    readonly instanceView?: outputs.compute.v20150615.VirtualMachineExtensionInstanceViewResponse;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -49,9 +61,21 @@ export interface GetVirtualMachineExtensionResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of a Virtual Machine Extension.
+     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly properties: outputs.compute.v20150615.VirtualMachineExtensionPropertiesResponse;
+    readonly protectedSettings?: {[key: string]: any};
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * The name of the extension handler publisher.
+     */
+    readonly publisher?: string;
+    /**
+     * Json formatted public settings for the extension.
+     */
+    readonly settings?: {[key: string]: any};
     /**
      * Resource tags
      */
@@ -60,4 +84,8 @@ export interface GetVirtualMachineExtensionResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Specifies the version of the script handler.
+     */
+    readonly typeHandlerVersion?: string;
 }

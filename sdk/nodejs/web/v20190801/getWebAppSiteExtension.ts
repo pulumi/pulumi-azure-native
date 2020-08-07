@@ -36,19 +36,92 @@ export interface GetWebAppSiteExtensionArgs {
  */
 export interface GetWebAppSiteExtensionResult {
     /**
+     * List of authors.
+     */
+    readonly authors?: string[];
+    /**
+     * Site Extension comment.
+     */
+    readonly comment?: string;
+    /**
+     * Detailed description.
+     */
+    readonly description?: string;
+    /**
+     * Count of downloads.
+     */
+    readonly download_count?: number;
+    /**
+     * Site extension ID.
+     */
+    readonly extension_id?: string;
+    /**
+     * Site extension type.
+     */
+    readonly extension_type?: string;
+    /**
+     * Extension URL.
+     */
+    readonly extension_url?: string;
+    /**
+     * Feed URL.
+     */
+    readonly feed_url?: string;
+    /**
+     * Icon URL.
+     */
+    readonly icon_url?: string;
+    /**
+     * Installed timestamp.
+     */
+    readonly installed_date_time?: string;
+    /**
+     * Installer command line parameters.
+     */
+    readonly installer_command_line_params?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
+    /**
+     * License URL.
+     */
+    readonly license_url?: string;
+    /**
+     * <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+     */
+    readonly local_is_latest_version?: boolean;
+    /**
+     * Local path.
+     */
+    readonly local_path?: string;
     /**
      * Resource Name.
      */
     readonly name: string;
     /**
-     * SiteExtensionInfo resource specific properties
+     * Project URL.
      */
-    readonly properties: outputs.web.v20190801.SiteExtensionInfoResponseProperties;
+    readonly project_url?: string;
+    /**
+     * Provisioning state.
+     */
+    readonly provisioningState?: string;
+    /**
+     * Published timestamp.
+     */
+    readonly published_date_time?: string;
+    /**
+     * Summary description.
+     */
+    readonly summary?: string;
+    readonly title?: string;
     /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Version information.
+     */
+    readonly version?: string;
 }

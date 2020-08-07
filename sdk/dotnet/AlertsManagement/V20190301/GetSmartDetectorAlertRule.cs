@@ -46,13 +46,41 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
     public sealed class GetSmartDetectorAlertRuleResult
     {
         /// <summary>
+        /// The alert rule actions.
+        /// </summary>
+        public readonly Outputs.ActionGroupsInformationResponseResult ActionGroups;
+        /// <summary>
+        /// The alert rule description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The alert rule's detector.
+        /// </summary>
+        public readonly Outputs.DetectorResponseResult Detector;
+        /// <summary>
+        /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        /// </summary>
+        public readonly string Frequency;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the alert rule.
+        /// The alert rule resources scope.
         /// </summary>
-        public readonly Outputs.AlertRulePropertiesResponseResult Properties;
+        public readonly ImmutableArray<string> Scope;
+        /// <summary>
+        /// The alert rule severity.
+        /// </summary>
+        public readonly string Severity;
+        /// <summary>
+        /// The alert rule state.
+        /// </summary>
+        public readonly string State;
+        /// <summary>
+        /// The alert rule throttling information.
+        /// </summary>
+        public readonly Outputs.ThrottlingInformationResponseResult? Throttling;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -60,14 +88,35 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
 
         [OutputConstructor]
         private GetSmartDetectorAlertRuleResult(
+            Outputs.ActionGroupsInformationResponseResult actionGroups,
+
+            string? description,
+
+            Outputs.DetectorResponseResult detector,
+
+            string frequency,
+
             string name,
 
-            Outputs.AlertRulePropertiesResponseResult properties,
+            ImmutableArray<string> scope,
+
+            string severity,
+
+            string state,
+
+            Outputs.ThrottlingInformationResponseResult? throttling,
 
             string type)
         {
+            ActionGroups = actionGroups;
+            Description = description;
+            Detector = detector;
+            Frequency = frequency;
             Name = name;
-            Properties = properties;
+            Scope = scope;
+            Severity = severity;
+            State = state;
+            Throttling = throttling;
             Type = type;
         }
     }

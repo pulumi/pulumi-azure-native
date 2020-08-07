@@ -15,22 +15,76 @@ namespace Pulumi.AzureRM.Databricks.V20180401
     public partial class VNetPeering : Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        /// </summary>
+        [Output("allowForwardedTraffic")]
+        public Output<bool?> AllowForwardedTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// If gateway links can be used in remote virtual networking to link to this virtual network.
+        /// </summary>
+        [Output("allowGatewayTransit")]
+        public Output<bool?> AllowGatewayTransit { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        /// </summary>
+        [Output("allowVirtualNetworkAccess")]
+        public Output<bool?> AllowVirtualNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the databricks virtual network address space.
+        /// </summary>
+        [Output("databricksAddressSpace")]
+        public Output<Outputs.AddressSpaceResponseResult?> DatabricksAddressSpace { get; private set; } = null!;
+
+        /// <summary>
+        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// </summary>
+        [Output("databricksVirtualNetwork")]
+        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkResult?> DatabricksVirtualNetwork { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the virtual network peering resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of properties for vNet Peering
+        /// The status of the virtual network peering.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peeringState")]
+        public Output<string> PeeringState { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the virtual network peering resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the remote virtual network address space.
+        /// </summary>
+        [Output("remoteAddressSpace")]
+        public Output<Outputs.AddressSpaceResponseResult?> RemoteAddressSpace { get; private set; } = null!;
+
+        /// <summary>
+        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// </summary>
+        [Output("remoteVirtualNetwork")]
+        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkResult> RemoteVirtualNetwork { get; private set; } = null!;
 
         /// <summary>
         /// type of the virtual network peering resource
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        /// </summary>
+        [Output("useRemoteGateways")]
+        public Output<bool?> UseRemoteGateways { get; private set; } = null!;
 
 
         /// <summary>

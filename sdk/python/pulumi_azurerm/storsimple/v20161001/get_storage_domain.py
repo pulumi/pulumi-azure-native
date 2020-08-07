@@ -13,18 +13,30 @@ class GetStorageDomainResult:
     """
     The storage domain.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, encryption_key=None, encryption_status=None, name=None, storage_account_credential_ids=None, type=None):
+        if encryption_key and not isinstance(encryption_key, dict):
+            raise TypeError("Expected argument 'encryption_key' to be a dict")
+        __self__.encryption_key = encryption_key
+        """
+        The encryption key used to encrypt the data. This is a user secret.
+        """
+        if encryption_status and not isinstance(encryption_status, str):
+            raise TypeError("Expected argument 'encryption_status' to be a str")
+        __self__.encryption_status = encryption_status
+        """
+        The encryption status "Enabled | Disabled".
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if storage_account_credential_ids and not isinstance(storage_account_credential_ids, list):
+            raise TypeError("Expected argument 'storage_account_credential_ids' to be a list")
+        __self__.storage_account_credential_ids = storage_account_credential_ids
         """
-        The properties.
+        The storage account credentials.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetStorageDomainResult(GetStorageDomainResult):
         if False:
             yield self
         return GetStorageDomainResult(
+            encryption_key=self.encryption_key,
+            encryption_status=self.encryption_status,
             name=self.name,
-            properties=self.properties,
+            storage_account_credential_ids=self.storage_account_credential_ids,
             type=self.type)
 
 
@@ -64,6 +78,8 @@ def get_storage_domain(manager_name=None, name=None, resource_group_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getStorageDomain', __args__, opts=opts).value
 
     return AwaitableGetStorageDomainResult(
+        encryption_key=__ret__.get('encryptionKey'),
+        encryption_status=__ret__.get('encryptionStatus'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        storage_account_credential_ids=__ret__.get('storageAccountCredentialIds'),
         type=__ret__.get('type'))

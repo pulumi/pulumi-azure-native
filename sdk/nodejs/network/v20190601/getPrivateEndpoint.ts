@@ -44,13 +44,29 @@ export interface GetPrivateEndpointResult {
      */
     readonly location?: string;
     /**
+     * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+     */
+    readonly manualPrivateLinkServiceConnections?: outputs.network.v20190601.PrivateLinkServiceConnectionResponse[];
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the private endpoint.
+     * Gets an array of references to the network interfaces created for this private endpoint.
      */
-    readonly properties: outputs.network.v20190601.PrivateEndpointPropertiesResponse;
+    readonly networkInterfaces: outputs.network.v20190601.NetworkInterfaceResponse[];
+    /**
+     * A grouping of information about the connection to the remote resource.
+     */
+    readonly privateLinkServiceConnections?: outputs.network.v20190601.PrivateLinkServiceConnectionResponse[];
+    /**
+     * The provisioning state of the private endpoint.
+     */
+    readonly provisioningState?: string;
+    /**
+     * The ID of the subnet from which the private IP will be allocated.
+     */
+    readonly subnet?: outputs.network.v20190601.SubnetResponse;
     /**
      * Resource tags.
      */

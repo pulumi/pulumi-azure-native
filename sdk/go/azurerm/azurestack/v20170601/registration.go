@@ -14,14 +14,18 @@ import (
 type Registration struct {
 	pulumi.CustomResourceState
 
+	// Specifies the billing mode for the Azure Stack registration.
+	BillingModel pulumi.StringPtrOutput `pulumi:"billingModel"`
+	// The identifier of the registered Azure Stack.
+	CloudId pulumi.StringPtrOutput `pulumi:"cloudId"`
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Registration resource.
-	Properties RegistrationPropertiesResponseOutput `pulumi:"properties"`
+	// The object identifier associated with the Azure Stack connecting to Azure.
+	ObjectId pulumi.StringPtrOutput `pulumi:"objectId"`
 	// Custom tags for the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of Resource.
@@ -68,14 +72,18 @@ func GetRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registration resources.
 type registrationState struct {
+	// Specifies the billing mode for the Azure Stack registration.
+	BillingModel *string `pulumi:"billingModel"`
+	// The identifier of the registered Azure Stack.
+	CloudId *string `pulumi:"cloudId"`
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag *string `pulumi:"etag"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// Name of the resource.
 	Name *string `pulumi:"name"`
-	// Registration resource.
-	Properties *RegistrationPropertiesResponse `pulumi:"properties"`
+	// The object identifier associated with the Azure Stack connecting to Azure.
+	ObjectId *string `pulumi:"objectId"`
 	// Custom tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Resource.
@@ -83,14 +91,18 @@ type registrationState struct {
 }
 
 type RegistrationState struct {
+	// Specifies the billing mode for the Azure Stack registration.
+	BillingModel pulumi.StringPtrInput
+	// The identifier of the registered Azure Stack.
+	CloudId pulumi.StringPtrInput
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag pulumi.StringPtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// Name of the resource.
 	Name pulumi.StringPtrInput
-	// Registration resource.
-	Properties RegistrationPropertiesResponsePtrInput
+	// The object identifier associated with the Azure Stack connecting to Azure.
+	ObjectId pulumi.StringPtrInput
 	// Custom tags for the resource.
 	Tags pulumi.StringMapInput
 	// Type of Resource.

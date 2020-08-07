@@ -13,7 +13,37 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kubernetes_version=None, linux_profile=None, location=None, name=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None):
+        if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
+            raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
+        __self__.agent_pool_profiles = agent_pool_profiles
+        """
+        Properties of the agent pool.
+        """
+        if dns_prefix and not isinstance(dns_prefix, str):
+            raise TypeError("Expected argument 'dns_prefix' to be a str")
+        __self__.dns_prefix = dns_prefix
+        """
+        DNS prefix specified when creating the managed cluster.
+        """
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        __self__.fqdn = fqdn
+        """
+        FQDN for the master pool.
+        """
+        if kubernetes_version and not isinstance(kubernetes_version, str):
+            raise TypeError("Expected argument 'kubernetes_version' to be a str")
+        __self__.kubernetes_version = kubernetes_version
+        """
+        Version of Kubernetes specified when creating the managed cluster.
+        """
+        if linux_profile and not isinstance(linux_profile, dict):
+            raise TypeError("Expected argument 'linux_profile' to be a dict")
+        __self__.linux_profile = linux_profile
+        """
+        Profile for Linux VMs in the container service cluster.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,17 @@ class GetManagedClusterResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of a managed cluster.
+        The current deployment or provisioning state, which only appears in the response.
+        """
+        if service_principal_profile and not isinstance(service_principal_profile, dict):
+            raise TypeError("Expected argument 'service_principal_profile' to be a dict")
+        __self__.service_principal_profile = service_principal_profile
+        """
+        Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +88,15 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
         if False:
             yield self
         return GetManagedClusterResult(
+            agent_pool_profiles=self.agent_pool_profiles,
+            dns_prefix=self.dns_prefix,
+            fqdn=self.fqdn,
+            kubernetes_version=self.kubernetes_version,
+            linux_profile=self.linux_profile,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            service_principal_profile=self.service_principal_profile,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +118,14 @@ def get_managed_cluster(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20170831:getManagedCluster', __args__, opts=opts).value
 
     return AwaitableGetManagedClusterResult(
+        agent_pool_profiles=__ret__.get('agentPoolProfiles'),
+        dns_prefix=__ret__.get('dnsPrefix'),
+        fqdn=__ret__.get('fqdn'),
+        kubernetes_version=__ret__.get('kubernetesVersion'),
+        linux_profile=__ret__.get('linuxProfile'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_principal_profile=__ret__.get('servicePrincipalProfile'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

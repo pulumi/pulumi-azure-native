@@ -37,9 +37,22 @@ export class PublicIPAddress extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets FQDN of the DNS record associated with the public IP address
+     */
+    public readonly dnsSettings!: pulumi.Output<outputs.network.v20160601.PublicIPAddressDnsSettingsResponse | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the idle timeout of the public IP address
+     */
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
+    /**
+     * IPConfiguration
+     */
+    public /*out*/ readonly ipConfiguration!: pulumi.Output<outputs.network.v20160601.IPConfigurationResponse>;
     /**
      * Resource location
      */
@@ -49,9 +62,21 @@ export class PublicIPAddress extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * PublicIpAddress properties
+     * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.PublicIPAddressPropertiesFormatResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets PublicIP address version (IPv4/IPv6)
+     */
+    public readonly publicIPAddressVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets PublicIP allocation method (Static/Dynamic)
+     */
+    public readonly publicIPAllocationMethod!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets resource guid property of the PublicIP resource
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -93,7 +118,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ipConfiguration"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

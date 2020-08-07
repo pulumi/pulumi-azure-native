@@ -14,14 +14,24 @@ import (
 type EventHub struct {
 	pulumi.CustomResourceState
 
+	// Exact time the Event Hub was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// Number of days to retain the events for this Event Hub.
+	MessageRetentionInDays pulumi.IntPtrOutput `pulumi:"messageRetentionInDays"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties EventHubPropertiesResponseOutput `pulumi:"properties"`
+	// Number of partitions created for the Event Hub.
+	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
+	// Current number of shards on the Event Hub.
+	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
+	// Enumerates the possible values for the status of the Event Hub.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewEventHub registers a new resource with the given unique name, arguments, and options.
@@ -64,25 +74,45 @@ func GetEventHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventHub resources.
 type eventHubState struct {
+	// Exact time the Event Hub was created.
+	CreatedAt *string `pulumi:"createdAt"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Number of days to retain the events for this Event Hub.
+	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties *EventHubPropertiesResponse `pulumi:"properties"`
+	// Number of partitions created for the Event Hub.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// Current number of shards on the Event Hub.
+	PartitionIds []string `pulumi:"partitionIds"`
+	// Enumerates the possible values for the status of the Event Hub.
+	Status *string `pulumi:"status"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type EventHubState struct {
+	// Exact time the Event Hub was created.
+	CreatedAt pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// Number of days to retain the events for this Event Hub.
+	MessageRetentionInDays pulumi.IntPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties EventHubPropertiesResponsePtrInput
+	// Number of partitions created for the Event Hub.
+	PartitionCount pulumi.IntPtrInput
+	// Current number of shards on the Event Hub.
+	PartitionIds pulumi.StringArrayInput
+	// Enumerates the possible values for the status of the Event Hub.
+	Status pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The exact time the message was updated.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (EventHubState) ElementType() reflect.Type {

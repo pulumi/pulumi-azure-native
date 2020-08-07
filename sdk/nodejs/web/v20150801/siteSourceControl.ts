@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,22 @@ export class SiteSourceControl extends pulumi.CustomResource {
     }
 
     /**
+     * Name of branch to use for deployment
+     */
+    public readonly branch!: pulumi.Output<string | undefined>;
+    /**
+     * Whether to manual or continuous integration
+     */
+    public readonly deploymentRollbackEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to manual or continuous integration
+     */
+    public readonly isManualIntegration!: pulumi.Output<boolean | undefined>;
+    /**
+     * Mercurial or Git repository type
+     */
+    public readonly isMercurial!: pulumi.Output<boolean | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -48,7 +62,10 @@ export class SiteSourceControl extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.SiteSourceControlResponseProperties>;
+    /**
+     * Repository or source control url
+     */
+    public readonly repoUrl!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -92,7 +109,6 @@ export class SiteSourceControl extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

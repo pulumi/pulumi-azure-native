@@ -14,6 +14,22 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301.Outputs
     public sealed class GroupContractResponseResult
     {
         /// <summary>
+        /// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+        /// </summary>
+        public readonly bool BuiltIn;
+        /// <summary>
+        /// Group description. Can contain HTML formatting tags.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Group name.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;; otherwise the value is null.
+        /// </summary>
+        public readonly string? ExternalId;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -22,27 +38,32 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Group entity contract properties.
-        /// </summary>
-        public readonly Outputs.GroupContractPropertiesResponseResult? Properties;
-        /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GroupContractResponseResult(
+            bool builtIn,
+
+            string? description,
+
+            string displayName,
+
+            string? externalId,
+
             string id,
 
             string name,
 
-            Outputs.GroupContractPropertiesResponseResult? properties,
-
             string type)
         {
+            BuiltIn = builtIn;
+            Description = description;
+            DisplayName = displayName;
+            ExternalId = externalId;
             Id = id;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

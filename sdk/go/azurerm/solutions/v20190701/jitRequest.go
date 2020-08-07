@@ -14,16 +14,30 @@ import (
 type JitRequest struct {
 	pulumi.CustomResourceState
 
+	// The parent application id.
+	ApplicationResourceId pulumi.StringOutput `pulumi:"applicationResourceId"`
+	// The client entity that created the JIT request.
+	CreatedBy ApplicationClientDetailsResponseOutput `pulumi:"createdBy"`
+	// The JIT authorization policies.
+	JitAuthorizationPolicies JitAuthorizationPoliciesResponseArrayOutput `pulumi:"jitAuthorizationPolicies"`
+	// The JIT request state.
+	JitRequestState pulumi.StringOutput `pulumi:"jitRequestState"`
+	// The JIT request properties.
+	JitSchedulingPolicy JitSchedulingPolicyResponseOutput `pulumi:"jitSchedulingPolicy"`
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The JIT request properties.
-	Properties JitRequestPropertiesResponseOutput `pulumi:"properties"`
+	// The JIT request provisioning state.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The publisher tenant id.
+	PublisherTenantId pulumi.StringOutput `pulumi:"publisherTenantId"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The client entity that last updated the JIT request.
+	UpdatedBy ApplicationClientDetailsResponseOutput `pulumi:"updatedBy"`
 }
 
 // NewJitRequest registers a new resource with the given unique name, arguments, and options.
@@ -69,29 +83,57 @@ func GetJitRequest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JitRequest resources.
 type jitRequestState struct {
+	// The parent application id.
+	ApplicationResourceId *string `pulumi:"applicationResourceId"`
+	// The client entity that created the JIT request.
+	CreatedBy *ApplicationClientDetailsResponse `pulumi:"createdBy"`
+	// The JIT authorization policies.
+	JitAuthorizationPolicies []JitAuthorizationPoliciesResponse `pulumi:"jitAuthorizationPolicies"`
+	// The JIT request state.
+	JitRequestState *string `pulumi:"jitRequestState"`
+	// The JIT request properties.
+	JitSchedulingPolicy *JitSchedulingPolicyResponse `pulumi:"jitSchedulingPolicy"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// The JIT request properties.
-	Properties *JitRequestPropertiesResponse `pulumi:"properties"`
+	// The JIT request provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The publisher tenant id.
+	PublisherTenantId *string `pulumi:"publisherTenantId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The client entity that last updated the JIT request.
+	UpdatedBy *ApplicationClientDetailsResponse `pulumi:"updatedBy"`
 }
 
 type JitRequestState struct {
+	// The parent application id.
+	ApplicationResourceId pulumi.StringPtrInput
+	// The client entity that created the JIT request.
+	CreatedBy ApplicationClientDetailsResponsePtrInput
+	// The JIT authorization policies.
+	JitAuthorizationPolicies JitAuthorizationPoliciesResponseArrayInput
+	// The JIT request state.
+	JitRequestState pulumi.StringPtrInput
+	// The JIT request properties.
+	JitSchedulingPolicy JitSchedulingPolicyResponsePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// The JIT request properties.
-	Properties JitRequestPropertiesResponsePtrInput
+	// The JIT request provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// The publisher tenant id.
+	PublisherTenantId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The client entity that last updated the JIT request.
+	UpdatedBy ApplicationClientDetailsResponsePtrInput
 }
 
 func (JitRequestState) ElementType() reflect.Type {

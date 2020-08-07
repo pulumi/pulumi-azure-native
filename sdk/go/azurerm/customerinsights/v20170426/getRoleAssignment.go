@@ -27,10 +27,48 @@ type LookupRoleAssignmentArgs struct {
 
 // The Role Assignment resource format.
 type LookupRoleAssignmentResult struct {
+	// The name of the metadata object.
+	AssignmentName string `pulumi:"assignmentName"`
+	// Widget types set for the assignment.
+	ConflationPolicies *ResourceSetDescriptionResponse `pulumi:"conflationPolicies"`
+	// Connectors set for the assignment.
+	Connectors *ResourceSetDescriptionResponse `pulumi:"connectors"`
+	// Localized description for the metadata.
+	Description map[string]string `pulumi:"description"`
+	// Localized display names for the metadata.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// Interactions set for the assignment.
+	Interactions *ResourceSetDescriptionResponse `pulumi:"interactions"`
+	// Kpis set for the assignment.
+	Kpis *ResourceSetDescriptionResponse `pulumi:"kpis"`
+	// Links set for the assignment.
+	Links *ResourceSetDescriptionResponse `pulumi:"links"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The Role Assignment definition.
-	Properties RoleAssignmentResponse `pulumi:"properties"`
+	// The principals being assigned to.
+	Principals []AssignmentPrincipalResponse `pulumi:"principals"`
+	// Profiles set for the assignment.
+	Profiles *ResourceSetDescriptionResponse `pulumi:"profiles"`
+	// Provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The Role assignments set for the relationship links.
+	RelationshipLinks *ResourceSetDescriptionResponse `pulumi:"relationshipLinks"`
+	// The Role assignments set for the relationships.
+	Relationships *ResourceSetDescriptionResponse `pulumi:"relationships"`
+	// Type of roles.
+	Role string `pulumi:"role"`
+	// The Role assignments set for the assignment.
+	RoleAssignments *ResourceSetDescriptionResponse `pulumi:"roleAssignments"`
+	// Sas Policies set for the assignment.
+	SasPolicies *ResourceSetDescriptionResponse `pulumi:"sasPolicies"`
+	// The Role assignments set for the assignment.
+	Segments *ResourceSetDescriptionResponse `pulumi:"segments"`
+	// The hub name.
+	TenantId string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Views set for the assignment.
+	Views *ResourceSetDescriptionResponse `pulumi:"views"`
+	// Widget types set for the assignment.
+	WidgetTypes *ResourceSetDescriptionResponse `pulumi:"widgetTypes"`
 }

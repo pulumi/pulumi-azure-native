@@ -13,12 +13,60 @@ class GetIntegrationAccountSchemaResult:
     """
     The integration account schema.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, changed_time=None, content=None, content_link=None, content_type=None, created_time=None, document_name=None, file_name=None, location=None, metadata=None, name=None, schema_type=None, tags=None, target_namespace=None, type=None):
+        if changed_time and not isinstance(changed_time, str):
+            raise TypeError("Expected argument 'changed_time' to be a str")
+        __self__.changed_time = changed_time
+        """
+        The changed time.
+        """
+        if content and not isinstance(content, str):
+            raise TypeError("Expected argument 'content' to be a str")
+        __self__.content = content
+        """
+        The content.
+        """
+        if content_link and not isinstance(content_link, dict):
+            raise TypeError("Expected argument 'content_link' to be a dict")
+        __self__.content_link = content_link
+        """
+        The content link.
+        """
+        if content_type and not isinstance(content_type, str):
+            raise TypeError("Expected argument 'content_type' to be a str")
+        __self__.content_type = content_type
+        """
+        The content type.
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        The created time.
+        """
+        if document_name and not isinstance(document_name, str):
+            raise TypeError("Expected argument 'document_name' to be a str")
+        __self__.document_name = document_name
+        """
+        The document name.
+        """
+        if file_name and not isinstance(file_name, str):
+            raise TypeError("Expected argument 'file_name' to be a str")
+        __self__.file_name = file_name
+        """
+        The file name.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The resource location.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The metadata.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +74,23 @@ class GetIntegrationAccountSchemaResult:
         """
         Gets the resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if schema_type and not isinstance(schema_type, str):
+            raise TypeError("Expected argument 'schema_type' to be a str")
+        __self__.schema_type = schema_type
         """
-        The integration account schema properties.
+        The schema type.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         The resource tags.
+        """
+        if target_namespace and not isinstance(target_namespace, str):
+            raise TypeError("Expected argument 'target_namespace' to be a str")
+        __self__.target_namespace = target_namespace
+        """
+        The target namespace of the schema.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -52,10 +106,19 @@ class AwaitableGetIntegrationAccountSchemaResult(GetIntegrationAccountSchemaResu
         if False:
             yield self
         return GetIntegrationAccountSchemaResult(
+            changed_time=self.changed_time,
+            content=self.content,
+            content_link=self.content_link,
+            content_type=self.content_type,
+            created_time=self.created_time,
+            document_name=self.document_name,
+            file_name=self.file_name,
             location=self.location,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            schema_type=self.schema_type,
             tags=self.tags,
+            target_namespace=self.target_namespace,
             type=self.type)
 
 
@@ -78,8 +141,17 @@ def get_integration_account_schema(integration_account_name=None, name=None, res
     __ret__ = pulumi.runtime.invoke('azurerm:logic/v20190501:getIntegrationAccountSchema', __args__, opts=opts).value
 
     return AwaitableGetIntegrationAccountSchemaResult(
+        changed_time=__ret__.get('changedTime'),
+        content=__ret__.get('content'),
+        content_link=__ret__.get('contentLink'),
+        content_type=__ret__.get('contentType'),
+        created_time=__ret__.get('createdTime'),
+        document_name=__ret__.get('documentName'),
+        file_name=__ret__.get('fileName'),
         location=__ret__.get('location'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        schema_type=__ret__.get('schemaType'),
         tags=__ret__.get('tags'),
+        target_namespace=__ret__.get('targetNamespace'),
         type=__ret__.get('type'))

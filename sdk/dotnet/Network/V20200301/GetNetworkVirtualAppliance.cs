@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class GetNetworkVirtualApplianceResult
     {
         /// <summary>
+        /// BootStrapConfigurationBlob storage URLs.
+        /// </summary>
+        public readonly ImmutableArray<string> BootStrapConfigurationBlob;
+        /// <summary>
+        /// CloudInitConfigurationBlob storage URLs.
+        /// </summary>
+        public readonly ImmutableArray<string> CloudInitConfigurationBlob;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -56,9 +64,9 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Network Virtual Appliance.
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.NetworkVirtualAppliancePropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Network Virtual Appliance SKU.
         /// </summary>
@@ -71,9 +79,25 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// VirtualAppliance ASN.
+        /// </summary>
+        public readonly int? VirtualApplianceAsn;
+        /// <summary>
+        /// List of Virtual Appliance Network Interfaces.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult> VirtualApplianceNics;
+        /// <summary>
+        /// The Virtual Hub where Network Virtual Appliance is being deployed.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualHub;
 
         [OutputConstructor]
         private GetNetworkVirtualApplianceResult(
+            ImmutableArray<string> bootStrapConfigurationBlob,
+
+            ImmutableArray<string> cloudInitConfigurationBlob,
+
             string etag,
 
             Outputs.ManagedServiceIdentityResponseResult? identity,
@@ -82,22 +106,33 @@ namespace Pulumi.AzureRM.Network.V20200301
 
             string name,
 
-            Outputs.NetworkVirtualAppliancePropertiesFormatResponseResult properties,
+            string provisioningState,
 
             Outputs.VirtualApplianceSkuPropertiesResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            int? virtualApplianceAsn,
+
+            ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult> virtualApplianceNics,
+
+            Outputs.SubResourceResponseResult? virtualHub)
         {
+            BootStrapConfigurationBlob = bootStrapConfigurationBlob;
+            CloudInitConfigurationBlob = cloudInitConfigurationBlob;
             Etag = etag;
             Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;
+            VirtualApplianceAsn = virtualApplianceAsn;
+            VirtualApplianceNics = virtualApplianceNics;
+            VirtualHub = virtualHub;
         }
     }
 }

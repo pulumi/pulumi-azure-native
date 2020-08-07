@@ -46,13 +46,25 @@ export interface GetTagDescriptionArgs {
  */
 export interface GetTagDescriptionResult {
     /**
+     * Description of the Tag.
+     */
+    readonly description?: string;
+    /**
+     * Tag name.
+     */
+    readonly displayName?: string;
+    /**
+     * Description of the external resources describing the tag.
+     */
+    readonly externalDocsDescription?: string;
+    /**
+     * Absolute URL of external resources describing the tag.
+     */
+    readonly externalDocsUrl?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * TagDescription entity contract properties.
-     */
-    readonly properties: outputs.apimanagement.v20180101.TagDescriptionContractPropertiesResponse;
     /**
      * Resource type for API Management resource.
      */

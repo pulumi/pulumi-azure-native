@@ -13,12 +13,36 @@ class GetManagerExtendedInfoResult:
     """
     The extended info of the manager.
     """
-    def __init__(__self__, etag=None, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, algorithm=None, encryption_key=None, encryption_key_thumbprint=None, etag=None, integrity_key=None, kind=None, name=None, portal_certificate_thumbprint=None, type=None, version=None):
+        if algorithm and not isinstance(algorithm, str):
+            raise TypeError("Expected argument 'algorithm' to be a str")
+        __self__.algorithm = algorithm
+        """
+        Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
+        """
+        if encryption_key and not isinstance(encryption_key, str):
+            raise TypeError("Expected argument 'encryption_key' to be a str")
+        __self__.encryption_key = encryption_key
+        """
+        Represents the CEK of the resource.
+        """
+        if encryption_key_thumbprint and not isinstance(encryption_key_thumbprint, str):
+            raise TypeError("Expected argument 'encryption_key_thumbprint' to be a str")
+        __self__.encryption_key_thumbprint = encryption_key_thumbprint
+        """
+        Represents the Cert thumbprint that was used to encrypt the CEK.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         The etag of the resource.
+        """
+        if integrity_key and not isinstance(integrity_key, str):
+            raise TypeError("Expected argument 'integrity_key' to be a str")
+        __self__.integrity_key = integrity_key
+        """
+        Represents the CIK of the resource.
         """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -32,17 +56,23 @@ class GetManagerExtendedInfoResult:
         """
         The name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if portal_certificate_thumbprint and not isinstance(portal_certificate_thumbprint, str):
+            raise TypeError("Expected argument 'portal_certificate_thumbprint' to be a str")
+        __self__.portal_certificate_thumbprint = portal_certificate_thumbprint
         """
-        The extended info properties.
+        Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The hierarchical type of the object.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        The version of the extended info being persisted.
         """
 
 
@@ -52,11 +82,16 @@ class AwaitableGetManagerExtendedInfoResult(GetManagerExtendedInfoResult):
         if False:
             yield self
         return GetManagerExtendedInfoResult(
+            algorithm=self.algorithm,
+            encryption_key=self.encryption_key,
+            encryption_key_thumbprint=self.encryption_key_thumbprint,
             etag=self.etag,
+            integrity_key=self.integrity_key,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            portal_certificate_thumbprint=self.portal_certificate_thumbprint,
+            type=self.type,
+            version=self.version)
 
 
 def get_manager_extended_info(name=None, resource_group_name=None, opts=None):
@@ -76,8 +111,13 @@ def get_manager_extended_info(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:getManagerExtendedInfo', __args__, opts=opts).value
 
     return AwaitableGetManagerExtendedInfoResult(
+        algorithm=__ret__.get('algorithm'),
+        encryption_key=__ret__.get('encryptionKey'),
+        encryption_key_thumbprint=__ret__.get('encryptionKeyThumbprint'),
         etag=__ret__.get('etag'),
+        integrity_key=__ret__.get('integrityKey'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        portal_certificate_thumbprint=__ret__.get('portalCertificateThumbprint'),
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

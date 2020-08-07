@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.MixedReality.V20200501
     public partial class SpatialAnchorsAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// Correspond domain name of certain Spatial Anchors Account
+        /// </summary>
+        [Output("accountDomain")]
+        public Output<string> AccountDomain { get; private set; } = null!;
+
+        /// <summary>
+        /// unique id of certain account.
+        /// </summary>
+        [Output("accountId")]
+        public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -25,12 +37,6 @@ namespace Pulumi.AzureRM.MixedReality.V20200501
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Property bag.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.MixedRealityAccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

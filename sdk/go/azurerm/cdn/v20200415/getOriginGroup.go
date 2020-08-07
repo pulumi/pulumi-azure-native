@@ -29,10 +29,20 @@ type LookupOriginGroupArgs struct {
 
 // Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 type LookupOriginGroupResult struct {
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The JSON object that contains the properties of the origin group.
-	Properties OriginGroupPropertiesResponse `pulumi:"properties"`
+	// The source of the content being delivered via CDN within given origin group.
+	Origins []ResourceReferenceResponse `pulumi:"origins"`
+	// Provisioning status of the origin group.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource status of the origin group.
+	ResourceState string `pulumi:"resourceState"`
+	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersResponse `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

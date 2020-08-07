@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// Time at which the account was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
         /// Identity Info on the Account
         /// </summary>
         public readonly Outputs.IdentityResponseResult Identity;
@@ -52,9 +56,9 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties on the account
+        /// Provisioning state of the Account
         /// </summary>
-        public readonly Outputs.AccountPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Tags on the azure resource.
         /// </summary>
@@ -63,27 +67,44 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// Type of the azure resource
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Email of the user who created the resource
+        /// </summary>
+        public readonly string UserEmail;
+        /// <summary>
+        /// Name of the user who created the resource
+        /// </summary>
+        public readonly string UserName;
 
         [OutputConstructor]
         private GetAccountResult(
+            string createdAt,
+
             Outputs.IdentityResponseResult identity,
 
             string? location,
 
             string name,
 
-            Outputs.AccountPropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string userEmail,
+
+            string userName)
         {
+            CreatedAt = createdAt;
             Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            UserEmail = userEmail;
+            UserName = userName;
         }
     }
 }

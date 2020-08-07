@@ -10,43 +10,66 @@ from ... import _utilities, _tables
 
 
 class Order(pulumi.CustomResource):
+    contact_information: pulumi.Output[dict]
+    """
+    The contact details.
+      * `company_name` (`str`) - The name of the company.
+      * `contact_person` (`str`) - The contact person name.
+      * `email_list` (`list`) - The email list.
+      * `phone` (`str`) - The phone number.
+    """
+    current_status: pulumi.Output[dict]
+    """
+    Current status of the order.
+      * `additional_order_details` (`dict`) - Dictionary to hold generic information which is not stored
+        by the already existing properties
+      * `comments` (`str`) - Comments related to this status change.
+      * `status` (`str`) - Status of the order as per the allowed status types.
+      * `update_date_time` (`str`) - Time of status update.
+    """
+    delivery_tracking_info: pulumi.Output[list]
+    """
+    Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+      * `carrier_name` (`str`) - Name of the carrier used in the delivery.
+      * `serial_number` (`str`) - Serial number of the device being tracked.
+      * `tracking_id` (`str`) - Tracking ID of the shipment.
+      * `tracking_url` (`str`) - Tracking URL of the shipment.
+    """
     name: pulumi.Output[str]
     """
     The object name.
     """
-    properties: pulumi.Output[dict]
+    order_history: pulumi.Output[list]
     """
-    The order properties.
-      * `contact_information` (`dict`) - The contact details.
-        * `company_name` (`str`) - The name of the company.
-        * `contact_person` (`str`) - The contact person name.
-        * `email_list` (`list`) - The email list.
-        * `phone` (`str`) - The phone number.
-
-      * `current_status` (`dict`) - Current status of the order.
-        * `additional_order_details` (`dict`) - Dictionary to hold generic information which is not stored
-          by the already existing properties
-        * `comments` (`str`) - Comments related to this status change.
-        * `status` (`str`) - Status of the order as per the allowed status types.
-        * `update_date_time` (`str`) - Time of status update.
-
-      * `delivery_tracking_info` (`list`) - Tracking information for the package delivered to the customer whether it has an original or a replacement device.
-        * `carrier_name` (`str`) - Name of the carrier used in the delivery.
-        * `serial_number` (`str`) - Serial number of the device being tracked.
-        * `tracking_id` (`str`) - Tracking ID of the shipment.
-        * `tracking_url` (`str`) - Tracking URL of the shipment.
-
-      * `order_history` (`list`) - List of status changes in the order.
-      * `return_tracking_info` (`list`) - Tracking information for the package returned from the customer whether it has an original or a replacement device.
-      * `serial_number` (`str`) - Serial number of the device.
-      * `shipping_address` (`dict`) - The shipping address.
-        * `address_line1` (`str`) - The address line1.
-        * `address_line2` (`str`) - The address line2.
-        * `address_line3` (`str`) - The address line3.
-        * `city` (`str`) - The city name.
-        * `country` (`str`) - The country name.
-        * `postal_code` (`str`) - The postal code.
-        * `state` (`str`) - The state name.
+    List of status changes in the order.
+      * `additional_order_details` (`dict`) - Dictionary to hold generic information which is not stored
+        by the already existing properties
+      * `comments` (`str`) - Comments related to this status change.
+      * `status` (`str`) - Status of the order as per the allowed status types.
+      * `update_date_time` (`str`) - Time of status update.
+    """
+    return_tracking_info: pulumi.Output[list]
+    """
+    Tracking information for the package returned from the customer whether it has an original or a replacement device.
+      * `carrier_name` (`str`) - Name of the carrier used in the delivery.
+      * `serial_number` (`str`) - Serial number of the device being tracked.
+      * `tracking_id` (`str`) - Tracking ID of the shipment.
+      * `tracking_url` (`str`) - Tracking URL of the shipment.
+    """
+    serial_number: pulumi.Output[str]
+    """
+    Serial number of the device.
+    """
+    shipping_address: pulumi.Output[dict]
+    """
+    The shipping address.
+      * `address_line1` (`str`) - The address line1.
+      * `address_line2` (`str`) - The address line2.
+      * `address_line3` (`str`) - The address line3.
+      * `city` (`str`) - The city name.
+      * `country` (`str`) - The country name.
+      * `postal_code` (`str`) - The postal code.
+      * `state` (`str`) - The state name.
     """
     type: pulumi.Output[str]
     """
@@ -116,7 +139,10 @@ class Order(pulumi.CustomResource):
             if shipping_address is None:
                 raise TypeError("Missing required property 'shipping_address'")
             __props__['shipping_address'] = shipping_address
-            __props__['properties'] = None
+            __props__['delivery_tracking_info'] = None
+            __props__['order_history'] = None
+            __props__['return_tracking_info'] = None
+            __props__['serial_number'] = None
             __props__['type'] = None
         super(Order, __self__).__init__(
             'azurerm:databoxedge/v20190801:Order',

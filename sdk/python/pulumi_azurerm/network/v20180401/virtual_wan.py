@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class VirtualWAN(pulumi.CustomResource):
+    disable_vpn_encryption: pulumi.Output[bool]
+    """
+    Vpn encryption to be disabled or not.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
@@ -22,15 +26,9 @@ class VirtualWAN(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Parameters for VirtualWAN
-      * `disable_vpn_encryption` (`bool`) - Vpn encryption to be disabled or not.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `virtual_hubs` (`list`) - List of VirtualHubs in the VirtualWAN.
-        * `id` (`str`) - Resource ID.
-
-      * `vpn_sites` (`list`)
+    The provisioning state of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -40,6 +38,12 @@ class VirtualWAN(pulumi.CustomResource):
     """
     Resource type.
     """
+    virtual_hubs: pulumi.Output[list]
+    """
+    List of VirtualHubs in the VirtualWAN.
+      * `id` (`str`) - Resource ID.
+    """
+    vpn_sites: pulumi.Output[list]
     def __init__(__self__, resource_name, opts=None, disable_vpn_encryption=None, id=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         VirtualWAN Resource.
@@ -85,8 +89,9 @@ class VirtualWAN(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
             __props__['type'] = None
+            __props__['virtual_hubs'] = None
+            __props__['vpn_sites'] = None
         super(VirtualWAN, __self__).__init__(
             'azurerm:network/v20180401:VirtualWAN',
             resource_name,

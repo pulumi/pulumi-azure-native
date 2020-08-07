@@ -41,15 +41,47 @@ export interface ListProductDetailsArgs {
  */
 export interface ListProductDetailsResult {
     /**
+     * Specifies kind of compute role included in the package.
+     */
+    readonly computeRole: string;
+    /**
+     * List of attached data disks.
+     */
+    readonly dataDiskImages: outputs.azurestack.v20170601.DataDiskImageResponse[];
+    /**
      * The URI to the .azpkg file that provides information required for showing product in the gallery.
      */
     readonly galleryPackageBlobSasUri: string;
+    /**
+     * Specifies if product is a Virtual Machine Extension.
+     */
+    readonly isSystemExtension: boolean;
+    /**
+     * OS disk image used by product.
+     */
+    readonly osDiskImage: outputs.azurestack.v20170601.OsDiskImageResponse;
     /**
      * Specifies the kind of the product (virtualMachine or virtualMachineExtension).
      */
     readonly productKind: string;
     /**
-     * Specifies additional properties describing the product.
+     * Indicates if specified product supports multiple extensions.
      */
-    readonly properties: outputs.azurestack.v20170601.ExtendedProductPropertiesResponse;
+    readonly supportMultipleExtensions: boolean;
+    /**
+     * The URI.
+     */
+    readonly uri: string;
+    /**
+     * Specifies product version.
+     */
+    readonly version: string;
+    /**
+     * Specifies operating system used by the product.
+     */
+    readonly vmOsType: string;
+    /**
+     * Indicates if virtual machine Scale Set is enabled in the specified product.
+     */
+    readonly vmScaleSetEnabled: boolean;
 }

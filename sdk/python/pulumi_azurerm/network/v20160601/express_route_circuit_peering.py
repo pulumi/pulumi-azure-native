@@ -10,15 +10,82 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
+    azure_asn: pulumi.Output[float]
+    """
+    Gets or sets the azure ASN
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated
+    """
+    gateway_manager_etag: pulumi.Output[str]
+    """
+    Gets or sets the GatewayManager Etag
+    """
+    last_modified_by: pulumi.Output[str]
+    """
+    Gets whether the provider or the customer last modified the peering
+    """
+    microsoft_peering_config: pulumi.Output[dict]
+    """
+    Gets or sets the Microsoft peering config
+      * `advertised_public_prefixes` (`list`) - Gets or sets the reference of AdvertisedPublicPrefixes
+      * `advertised_public_prefixes_state` (`str`) - Gets or sets AdvertisedPublicPrefixState of the Peering resource 
+      * `customer_asn` (`float`) - Gets or Sets CustomerAsn of the peering.
+      * `routing_registry_name` (`str`) - Gets or Sets RoutingRegistryName of the config.
     """
     name: pulumi.Output[str]
     """
     Gets name of the resource that is unique within a resource group. This name can be used to access the resource
     """
-    properties: pulumi.Output[dict]
+    peer_asn: pulumi.Output[float]
+    """
+    Gets or sets the peer ASN
+    """
+    peering_type: pulumi.Output[str]
+    """
+    Gets or sets PeeringType
+    """
+    primary_azure_port: pulumi.Output[str]
+    """
+    Gets or sets the primary port
+    """
+    primary_peer_address_prefix: pulumi.Output[str]
+    """
+    Gets or sets the primary address prefix
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+    """
+    secondary_azure_port: pulumi.Output[str]
+    """
+    Gets or sets the secondary port
+    """
+    secondary_peer_address_prefix: pulumi.Output[str]
+    """
+    Gets or sets the secondary address prefix
+    """
+    shared_key: pulumi.Output[str]
+    """
+    Gets or sets the shared key
+    """
+    state: pulumi.Output[str]
+    """
+    Gets or sets state of Peering
+    """
+    stats: pulumi.Output[dict]
+    """
+    Gets or peering stats
+      * `primarybytes_in` (`float`) - Gets BytesIn of the peering.
+      * `primarybytes_out` (`float`) - Gets BytesOut of the peering.
+      * `secondarybytes_in` (`float`) - Gets BytesIn of the peering.
+      * `secondarybytes_out` (`float`) - Gets BytesOut of the peering.
+    """
+    vlan_id: pulumi.Output[float]
+    """
+    Gets or sets the vlan id
+    """
     def __init__(__self__, resource_name, opts=None, azure_asn=None, circuit_name=None, etag=None, gateway_manager_etag=None, id=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, resource_group_name=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Peering in a ExpressRouteCircuit resource
@@ -103,7 +170,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__['state'] = state
             __props__['stats'] = stats
             __props__['vlan_id'] = vlan_id
-            __props__['properties'] = None
         super(ExpressRouteCircuitPeering, __self__).__init__(
             'azurerm:network/v20160601:ExpressRouteCircuitPeering',
             resource_name,

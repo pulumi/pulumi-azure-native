@@ -46,13 +46,17 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
     public sealed class GetDatabaseResult
     {
         /// <summary>
+        /// The charset of the database.
+        /// </summary>
+        public readonly string? Charset;
+        /// <summary>
+        /// The collation of the database.
+        /// </summary>
+        public readonly string? Collation;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The properties of a database.
-        /// </summary>
-        public readonly Outputs.DatabasePropertiesResponseResult Properties;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -60,14 +64,17 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
 
         [OutputConstructor]
         private GetDatabaseResult(
-            string name,
+            string? charset,
 
-            Outputs.DatabasePropertiesResponseResult properties,
+            string? collation,
+
+            string name,
 
             string type)
         {
+            Charset = charset;
+            Collation = collation;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

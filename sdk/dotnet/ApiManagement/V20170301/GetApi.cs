@@ -46,13 +46,65 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public sealed class GetApiResult
     {
         /// <summary>
+        /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        /// </summary>
+        public readonly string? ApiRevision;
+        /// <summary>
+        /// Type of API.
+        /// </summary>
+        public readonly string? ApiType;
+        /// <summary>
+        /// Indicates the Version identifier of the API if the API is versioned
+        /// </summary>
+        public readonly string? ApiVersion;
+        /// <summary>
+        /// Api Version Set Contract details.
+        /// </summary>
+        public readonly Outputs.ApiVersionSetContractResponseResult? ApiVersionSet;
+        /// <summary>
+        /// A resource identifier for the related ApiVersionSet.
+        /// </summary>
+        public readonly string? ApiVersionSetId;
+        /// <summary>
+        /// Collection of authentication settings included into this API.
+        /// </summary>
+        public readonly Outputs.AuthenticationSettingsContractResponseResult? AuthenticationSettings;
+        /// <summary>
+        /// Description of the API. May include HTML formatting tags.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// API name.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Indicates if API revision is current api revision.
+        /// </summary>
+        public readonly bool IsCurrent;
+        /// <summary>
+        /// Indicates if API revision is accessible via the gateway.
+        /// </summary>
+        public readonly bool IsOnline;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Api entity contract properties.
+        /// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
         /// </summary>
-        public readonly Outputs.ApiContractPropertiesResponseResult Properties;
+        public readonly string Path;
+        /// <summary>
+        /// Describes on which protocols the operations in this API can be invoked.
+        /// </summary>
+        public readonly ImmutableArray<string> Protocols;
+        /// <summary>
+        /// Absolute URL of the backend service implementing this API.
+        /// </summary>
+        public readonly string? ServiceUrl;
+        /// <summary>
+        /// Protocols over which API is made available.
+        /// </summary>
+        public readonly Outputs.SubscriptionKeyParameterNamesContractResponseResult? SubscriptionKeyParameterNames;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +112,53 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
         [OutputConstructor]
         private GetApiResult(
+            string? apiRevision,
+
+            string? apiType,
+
+            string? apiVersion,
+
+            Outputs.ApiVersionSetContractResponseResult? apiVersionSet,
+
+            string? apiVersionSetId,
+
+            Outputs.AuthenticationSettingsContractResponseResult? authenticationSettings,
+
+            string? description,
+
+            string? displayName,
+
+            bool isCurrent,
+
+            bool isOnline,
+
             string name,
 
-            Outputs.ApiContractPropertiesResponseResult properties,
+            string path,
+
+            ImmutableArray<string> protocols,
+
+            string? serviceUrl,
+
+            Outputs.SubscriptionKeyParameterNamesContractResponseResult? subscriptionKeyParameterNames,
 
             string type)
         {
+            ApiRevision = apiRevision;
+            ApiType = apiType;
+            ApiVersion = apiVersion;
+            ApiVersionSet = apiVersionSet;
+            ApiVersionSetId = apiVersionSetId;
+            AuthenticationSettings = authenticationSettings;
+            Description = description;
+            DisplayName = displayName;
+            IsCurrent = isCurrent;
+            IsOnline = isOnline;
             Name = name;
-            Properties = properties;
+            Path = path;
+            Protocols = protocols;
+            ServiceUrl = serviceUrl;
+            SubscriptionKeyParameterNames = subscriptionKeyParameterNames;
             Type = type;
         }
     }

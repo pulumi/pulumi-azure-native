@@ -37,17 +37,33 @@ export class LogProfile extends pulumi.CustomResource {
     }
 
     /**
+     * the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+     */
+    public readonly categories!: pulumi.Output<string[]>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+     */
+    public readonly locations!: pulumi.Output<string[]>;
     /**
      * Azure resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The log profile properties of the resource.
+     * the retention policy for the events in the log.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20160301.LogProfilePropertiesResponse>;
+    public readonly retentionPolicy!: pulumi.Output<outputs.insights.v20160301.RetentionPolicyResponse>;
+    /**
+     * The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+     */
+    public readonly serviceBusRuleId!: pulumi.Output<string | undefined>;
+    /**
+     * the resource id of the storage account to which you would like to send the Activity Log.
+     */
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -93,7 +109,6 @@ export class LogProfile extends pulumi.CustomResource {
             inputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

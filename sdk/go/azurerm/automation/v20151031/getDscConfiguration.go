@@ -27,14 +27,32 @@ type LookupDscConfigurationArgs struct {
 
 // Definition of the configuration type.
 type LookupDscConfigurationResult struct {
+	// Gets or sets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Gets or sets the job count of the configuration.
+	JobCount *int `pulumi:"jobCount"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
+	// Gets or sets verbose log option.
+	LogVerbose *bool `pulumi:"logVerbose"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets the configuration properties.
-	Properties DscConfigurationPropertiesResponse `pulumi:"properties"`
+	// Gets the number of compiled node configurations.
+	NodeConfigurationCount *int `pulumi:"nodeConfigurationCount"`
+	// Gets or sets the configuration parameters.
+	Parameters map[string]DscConfigurationParameterResponse `pulumi:"parameters"`
+	// Gets or sets the provisioning state of the configuration.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets the source.
+	Source *ContentSourceResponse `pulumi:"source"`
+	// Gets or sets the state of the configuration.
+	State *string `pulumi:"state"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

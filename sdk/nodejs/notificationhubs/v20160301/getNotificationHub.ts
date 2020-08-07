@@ -41,17 +41,41 @@ export interface GetNotificationHubArgs {
  */
 export interface GetNotificationHubResult {
     /**
+     * The AdmCredential of the created NotificationHub
+     */
+    readonly admCredential?: outputs.notificationhubs.v20160301.AdmCredentialResponse;
+    /**
+     * The ApnsCredential of the created NotificationHub
+     */
+    readonly apnsCredential?: outputs.notificationhubs.v20160301.ApnsCredentialResponse;
+    /**
+     * The AuthorizationRules of the created NotificationHub
+     */
+    readonly authorizationRules?: outputs.notificationhubs.v20160301.SharedAccessAuthorizationRulePropertiesResponse[];
+    /**
+     * The BaiduCredential of the created NotificationHub
+     */
+    readonly baiduCredential?: outputs.notificationhubs.v20160301.BaiduCredentialResponse;
+    /**
+     * The GcmCredential of the created NotificationHub
+     */
+    readonly gcmCredential?: outputs.notificationhubs.v20160301.GcmCredentialResponse;
+    /**
      * Resource location
      */
     readonly location: string;
+    /**
+     * The MpnsCredential of the created NotificationHub
+     */
+    readonly mpnsCredential?: outputs.notificationhubs.v20160301.MpnsCredentialResponse;
     /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Properties of the NotificationHub.
+     * The RegistrationTtl of the created NotificationHub
      */
-    readonly properties: outputs.notificationhubs.v20160301.NotificationHubPropertiesResponse;
+    readonly registrationTtl?: string;
     /**
      * The sku of the created namespace
      */
@@ -64,4 +88,8 @@ export interface GetNotificationHubResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * The WnsCredential of the created NotificationHub
+     */
+    readonly wnsCredential?: outputs.notificationhubs.v20160301.WnsCredentialResponse;
 }

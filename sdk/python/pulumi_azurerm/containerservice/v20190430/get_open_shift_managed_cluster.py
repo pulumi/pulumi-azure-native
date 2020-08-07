@@ -13,12 +13,42 @@ class GetOpenShiftManagedClusterResult:
     """
     OpenShift Managed cluster.
     """
-    def __init__(__self__, location=None, name=None, plan=None, properties=None, tags=None, type=None):
+    def __init__(__self__, agent_pool_profiles=None, auth_profile=None, cluster_version=None, fqdn=None, location=None, master_pool_profile=None, name=None, network_profile=None, open_shift_version=None, plan=None, provisioning_state=None, public_hostname=None, router_profiles=None, tags=None, type=None):
+        if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
+            raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
+        __self__.agent_pool_profiles = agent_pool_profiles
+        """
+        Configuration of OpenShift cluster VMs.
+        """
+        if auth_profile and not isinstance(auth_profile, dict):
+            raise TypeError("Expected argument 'auth_profile' to be a dict")
+        __self__.auth_profile = auth_profile
+        """
+        Configures OpenShift authentication.
+        """
+        if cluster_version and not isinstance(cluster_version, str):
+            raise TypeError("Expected argument 'cluster_version' to be a str")
+        __self__.cluster_version = cluster_version
+        """
+        Version of OpenShift specified when creating the cluster.
+        """
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        __self__.fqdn = fqdn
+        """
+        Service generated FQDN for OpenShift API server loadbalancer internal hostname.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if master_pool_profile and not isinstance(master_pool_profile, dict):
+            raise TypeError("Expected argument 'master_pool_profile' to be a dict")
+        __self__.master_pool_profile = master_pool_profile
+        """
+        Configuration for OpenShift master VMs.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +56,41 @@ class GetOpenShiftManagedClusterResult:
         """
         Resource name
         """
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        __self__.network_profile = network_profile
+        """
+        Configuration for OpenShift networking.
+        """
+        if open_shift_version and not isinstance(open_shift_version, str):
+            raise TypeError("Expected argument 'open_shift_version' to be a str")
+        __self__.open_shift_version = open_shift_version
+        """
+        Version of OpenShift specified when creating the cluster.
+        """
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         __self__.plan = plan
         """
         Define the resource plan as required by ARM for billing purposes
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of a OpenShift managed cluster.
+        The current deployment or provisioning state, which only appears in the response.
+        """
+        if public_hostname and not isinstance(public_hostname, str):
+            raise TypeError("Expected argument 'public_hostname' to be a str")
+        __self__.public_hostname = public_hostname
+        """
+        Service generated FQDN for OpenShift API server.
+        """
+        if router_profiles and not isinstance(router_profiles, list):
+            raise TypeError("Expected argument 'router_profiles' to be a list")
+        __self__.router_profiles = router_profiles
+        """
+        Configuration for OpenShift router(s).
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +112,19 @@ class AwaitableGetOpenShiftManagedClusterResult(GetOpenShiftManagedClusterResult
         if False:
             yield self
         return GetOpenShiftManagedClusterResult(
+            agent_pool_profiles=self.agent_pool_profiles,
+            auth_profile=self.auth_profile,
+            cluster_version=self.cluster_version,
+            fqdn=self.fqdn,
             location=self.location,
+            master_pool_profile=self.master_pool_profile,
             name=self.name,
+            network_profile=self.network_profile,
+            open_shift_version=self.open_shift_version,
             plan=self.plan,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            public_hostname=self.public_hostname,
+            router_profiles=self.router_profiles,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +146,18 @@ def get_open_shift_managed_cluster(name=None, resource_group_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20190430:getOpenShiftManagedCluster', __args__, opts=opts).value
 
     return AwaitableGetOpenShiftManagedClusterResult(
+        agent_pool_profiles=__ret__.get('agentPoolProfiles'),
+        auth_profile=__ret__.get('authProfile'),
+        cluster_version=__ret__.get('clusterVersion'),
+        fqdn=__ret__.get('fqdn'),
         location=__ret__.get('location'),
+        master_pool_profile=__ret__.get('masterPoolProfile'),
         name=__ret__.get('name'),
+        network_profile=__ret__.get('networkProfile'),
+        open_shift_version=__ret__.get('openShiftVersion'),
         plan=__ret__.get('plan'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_hostname=__ret__.get('publicHostname'),
+        router_profiles=__ret__.get('routerProfiles'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

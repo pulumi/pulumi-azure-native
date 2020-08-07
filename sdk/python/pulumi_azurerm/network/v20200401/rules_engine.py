@@ -14,30 +14,32 @@ class RulesEngine(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    resource_state: pulumi.Output[str]
     """
-    Properties of the Rules Engine Configuration.
-      * `resource_state` (`str`) - Resource status.
-      * `rules` (`list`) - A list of rules that define a particular Rules Engine Configuration.
-        * `action` (`dict`) - Actions to perform on the request and response if all of the match conditions are met.
-          * `request_header_actions` (`list`) - A list of header actions to apply from the request from AFD to the origin.
-            * `header_action_type` (`str`) - Which type of manipulation to apply to the header.
-            * `header_name` (`str`) - The name of the header this action will apply to.
-            * `value` (`str`) - The value to update the given header name with. This value is not used if the actionType is Delete.
+    Resource status.
+    """
+    rules: pulumi.Output[list]
+    """
+    A list of rules that define a particular Rules Engine Configuration.
+      * `action` (`dict`) - Actions to perform on the request and response if all of the match conditions are met.
+        * `request_header_actions` (`list`) - A list of header actions to apply from the request from AFD to the origin.
+          * `header_action_type` (`str`) - Which type of manipulation to apply to the header.
+          * `header_name` (`str`) - The name of the header this action will apply to.
+          * `value` (`str`) - The value to update the given header name with. This value is not used if the actionType is Delete.
 
-          * `response_header_actions` (`list`) - A list of header actions to apply from the response from AFD to the client.
+        * `response_header_actions` (`list`) - A list of header actions to apply from the response from AFD to the client.
 
-        * `match_conditions` (`list`) - A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
-          * `negate_condition` (`bool`) - Describes if this is negate condition or not
-          * `rules_engine_match_value` (`list`) - Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-          * `rules_engine_match_variable` (`str`) - Match Variable
-          * `rules_engine_operator` (`str`) - Describes operator to apply to the match condition.
-          * `selector` (`str`) - Name of selector in RequestHeader or RequestBody to be matched
-          * `transforms` (`list`) - List of transforms
+      * `match_conditions` (`list`) - A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
+        * `negate_condition` (`bool`) - Describes if this is negate condition or not
+        * `rules_engine_match_value` (`list`) - Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+        * `rules_engine_match_variable` (`str`) - Match Variable
+        * `rules_engine_operator` (`str`) - Describes operator to apply to the match condition.
+        * `selector` (`str`) - Name of selector in RequestHeader or RequestBody to be matched
+        * `transforms` (`list`) - List of transforms
 
-        * `match_processing_behavior` (`str`) - If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-        * `name` (`str`) - A name to refer to this specific rule.
-        * `priority` (`float`) - A priority assigned to this rule. 
+      * `match_processing_behavior` (`str`) - If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
+      * `name` (`str`) - A name to refer to this specific rule.
+      * `priority` (`float`) - A priority assigned to this rule. 
     """
     type: pulumi.Output[str]
     """
@@ -105,7 +107,6 @@ class RulesEngine(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_state'] = resource_state
             __props__['rules'] = rules
-            __props__['properties'] = None
             __props__['type'] = None
         super(RulesEngine, __self__).__init__(
             'azurerm:network/v20200401:RulesEngine',

@@ -44,6 +44,10 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The idle timeout of the nat gateway.
+        /// </summary>
+        public readonly int? IdleTimeoutInMinutes;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -52,13 +56,29 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Nat Gateway properties.
+        /// The provisioning state of the NAT gateway resource.
         /// </summary>
-        public readonly Outputs.NatGatewayPropertiesFormatResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// An array of public ip addresses associated with the nat gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PublicIpAddresses;
+        /// <summary>
+        /// An array of public ip prefixes associated with the nat gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PublicIpPrefixes;
+        /// <summary>
+        /// The resource GUID property of the NAT gateway resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
         /// <summary>
         /// The nat gateway SKU.
         /// </summary>
         public readonly Outputs.NatGatewaySkuResponseResult? Sku;
+        /// <summary>
+        /// An array of references to the subnets using this nat gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -76,13 +96,23 @@ namespace Pulumi.AzureRM.Network.V20190701
         private GetNatGatewayResult(
             string? etag,
 
+            int? idleTimeoutInMinutes,
+
             string? location,
 
             string name,
 
-            Outputs.NatGatewayPropertiesFormatResponseResult properties,
+            string? provisioningState,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> publicIpAddresses,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> publicIpPrefixes,
+
+            string? resourceGuid,
 
             Outputs.NatGatewaySkuResponseResult? sku,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -91,10 +121,15 @@ namespace Pulumi.AzureRM.Network.V20190701
             ImmutableArray<string> zones)
         {
             Etag = etag;
+            IdleTimeoutInMinutes = idleTimeoutInMinutes;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublicIpAddresses = publicIpAddresses;
+            PublicIpPrefixes = publicIpPrefixes;
+            ResourceGuid = resourceGuid;
             Sku = sku;
+            Subnets = subnets;
             Tags = tags;
             Type = type;
             Zones = zones;

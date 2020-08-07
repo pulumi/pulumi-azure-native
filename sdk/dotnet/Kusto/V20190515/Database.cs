@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Kusto.V20190515
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the data should be kept in cache for fast queries in TimeSpan.
+        /// </summary>
+        [Output("hotCachePeriod")]
+        public Output<string?> HotCachePeriod { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +33,22 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The database properties.
+        /// The provisioned state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DatabasePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+        /// </summary>
+        [Output("softDeletePeriod")]
+        public Output<string?> SoftDeletePeriod { get; private set; } = null!;
+
+        /// <summary>
+        /// The statistics of the database.
+        /// </summary>
+        [Output("statistics")]
+        public Output<Outputs.DatabaseStatisticsResponseResult?> Statistics { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

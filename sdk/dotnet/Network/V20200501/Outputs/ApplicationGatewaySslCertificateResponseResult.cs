@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
     public sealed class ApplicationGatewaySslCertificateResponseResult
     {
         /// <summary>
+        /// Base-64 encoded pfx certificate. Only applicable in PUT Request.
+        /// </summary>
+        public readonly string? Data;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -22,13 +26,25 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        /// </summary>
+        public readonly string? KeyVaultSecretId;
+        /// <summary>
         /// Name of the SSL certificate that is unique within an Application Gateway.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway SSL certificate.
+        /// Password for the pfx file specified in data. Only applicable in PUT request.
         /// </summary>
-        public readonly Outputs.ApplicationGatewaySslCertificatePropertiesFormatResponseResult? Properties;
+        public readonly string? Password;
+        /// <summary>
+        /// The provisioning state of the SSL certificate resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
+        /// </summary>
+        public readonly string PublicCertData;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +52,32 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
 
         [OutputConstructor]
         private ApplicationGatewaySslCertificateResponseResult(
+            string? data,
+
             string etag,
 
             string? id,
 
+            string? keyVaultSecretId,
+
             string? name,
 
-            Outputs.ApplicationGatewaySslCertificatePropertiesFormatResponseResult? properties,
+            string? password,
+
+            string provisioningState,
+
+            string publicCertData,
 
             string type)
         {
+            Data = data;
             Etag = etag;
             Id = id;
+            KeyVaultSecretId = keyVaultSecretId;
             Name = name;
-            Properties = properties;
+            Password = password;
+            ProvisioningState = provisioningState;
+            PublicCertData = publicCertData;
             Type = type;
         }
     }

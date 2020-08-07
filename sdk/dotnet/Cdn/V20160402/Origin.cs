@@ -15,13 +15,40 @@ namespace Pulumi.AzureRM.Cdn.V20160402
     public partial class Origin : Pulumi.CustomResource
     {
         /// <summary>
+        /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// The value of the HTTP port. Must be between 1 and 65535.
+        /// </summary>
+        [Output("httpPort")]
+        public Output<int?> HttpPort { get; private set; } = null!;
+
+        /// <summary>
+        /// The value of the https port. Must be between 1 and 65535.
+        /// </summary>
+        [Output("httpsPort")]
+        public Output<int?> HttpsPort { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.OriginPropertiesResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Provisioning status of the origin.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the origin.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

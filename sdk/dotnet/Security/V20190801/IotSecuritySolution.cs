@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Security.V20190801
     public partial class IotSecuritySolution : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of resources that were automatically discovered as relevant to the security solution.
+        /// </summary>
+        [Output("autoDiscoveredResources")]
+        public Output<ImmutableArray<string>> AutoDiscoveredResources { get; private set; } = null!;
+
+        /// <summary>
+        /// Disabled data sources. Disabling these data sources compromises the system.
+        /// </summary>
+        [Output("disabledDataSources")]
+        public Output<ImmutableArray<string>> DisabledDataSources { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource display name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// List of additional options for exporting to workspace data.
+        /// </summary>
+        [Output("export")]
+        public Output<ImmutableArray<string>> Export { get; private set; } = null!;
+
+        /// <summary>
+        /// IoT Hub resource IDs
+        /// </summary>
+        [Output("iotHubs")]
+        public Output<ImmutableArray<string>> IotHubs { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +57,16 @@ namespace Pulumi.AzureRM.Security.V20190801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Security Solution data
+        /// List of the configuration status for each recommendation type.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IoTSecuritySolutionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("recommendationsConfiguration")]
+        public Output<ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult>> RecommendationsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of the IoT Security solution.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -43,6 +79,24 @@ namespace Pulumi.AzureRM.Security.V20190801
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Unmasked IP address logging status
+        /// </summary>
+        [Output("unmaskedIpLoggingStatus")]
+        public Output<string?> UnmaskedIpLoggingStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of the IoT Security solution's user defined resources.
+        /// </summary>
+        [Output("userDefinedResources")]
+        public Output<Outputs.UserDefinedResourcesPropertiesResponseResult?> UserDefinedResources { get; private set; } = null!;
+
+        /// <summary>
+        /// Workspace resource ID
+        /// </summary>
+        [Output("workspace")]
+        public Output<string?> Workspace { get; private set; } = null!;
 
 
         /// <summary>

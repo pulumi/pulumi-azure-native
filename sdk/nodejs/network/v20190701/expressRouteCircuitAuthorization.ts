@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     }
 
     /**
+     * The authorization key.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
+     * The authorization use status.
+     */
+    public readonly authorizationUseStatus!: pulumi.Output<string | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -45,9 +51,9 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the express route circuit authorization.
+     * The provisioning state of the authorization resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190701.AuthorizationPropertiesFormatResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Type of the resource.
      */
@@ -83,7 +89,6 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

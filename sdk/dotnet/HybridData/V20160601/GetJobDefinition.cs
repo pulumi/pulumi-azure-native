@@ -52,29 +52,85 @@ namespace Pulumi.AzureRM.HybridData.V20160601
     public sealed class GetJobDefinitionResult
     {
         /// <summary>
+        /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CustomerSecretResponseResult> CustomerSecrets;
+        /// <summary>
+        /// A generic json used differently by each data service type.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? DataServiceInput;
+        /// <summary>
+        /// Data Sink Id associated to the job definition.
+        /// </summary>
+        public readonly string DataSinkId;
+        /// <summary>
+        /// Data Source Id associated to the job definition.
+        /// </summary>
+        public readonly string DataSourceId;
+        /// <summary>
+        /// Last modified time of the job definition.
+        /// </summary>
+        public readonly string? LastModifiedTime;
+        /// <summary>
         /// Name of the object.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// JobDefinition properties.
+        /// This is the preferred geo location for the job to run.
         /// </summary>
-        public readonly Outputs.JobDefinitionPropertiesResponseResult Properties;
+        public readonly string? RunLocation;
+        /// <summary>
+        /// Schedule for running the job definition
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ScheduleResponseResult> Schedules;
+        /// <summary>
+        /// State of the job definition.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// Type of the object.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+        /// </summary>
+        public readonly string? UserConfirmation;
 
         [OutputConstructor]
         private GetJobDefinitionResult(
+            ImmutableArray<Outputs.CustomerSecretResponseResult> customerSecrets,
+
+            ImmutableDictionary<string, object>? dataServiceInput,
+
+            string dataSinkId,
+
+            string dataSourceId,
+
+            string? lastModifiedTime,
+
             string name,
 
-            Outputs.JobDefinitionPropertiesResponseResult properties,
+            string? runLocation,
 
-            string type)
+            ImmutableArray<Outputs.ScheduleResponseResult> schedules,
+
+            string state,
+
+            string type,
+
+            string? userConfirmation)
         {
+            CustomerSecrets = customerSecrets;
+            DataServiceInput = dataServiceInput;
+            DataSinkId = dataSinkId;
+            DataSourceId = dataSourceId;
+            LastModifiedTime = lastModifiedTime;
             Name = name;
-            Properties = properties;
+            RunLocation = runLocation;
+            Schedules = schedules;
+            State = state;
             Type = type;
+            UserConfirmation = userConfirmation;
         }
     }
 }

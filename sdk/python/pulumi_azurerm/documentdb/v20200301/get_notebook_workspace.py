@@ -13,18 +13,24 @@ class GetNotebookWorkspaceResult:
     """
     A notebook workspace resource
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, notebook_server_endpoint=None, status=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the database account.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notebook_server_endpoint and not isinstance(notebook_server_endpoint, str):
+            raise TypeError("Expected argument 'notebook_server_endpoint' to be a str")
+        __self__.notebook_server_endpoint = notebook_server_endpoint
         """
-        Resource properties.
+        Specifies the endpoint of Notebook server.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +47,8 @@ class AwaitableGetNotebookWorkspaceResult(GetNotebookWorkspaceResult):
             yield self
         return GetNotebookWorkspaceResult(
             name=self.name,
-            properties=self.properties,
+            notebook_server_endpoint=self.notebook_server_endpoint,
+            status=self.status,
             type=self.type)
 
 
@@ -65,5 +72,6 @@ def get_notebook_workspace(account_name=None, name=None, resource_group_name=Non
 
     return AwaitableGetNotebookWorkspaceResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notebook_server_endpoint=__ret__.get('notebookServerEndpoint'),
+        status=__ret__.get('status'),
         type=__ret__.get('type'))

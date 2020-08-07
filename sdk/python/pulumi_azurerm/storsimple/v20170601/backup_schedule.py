@@ -10,27 +10,40 @@ from ... import _utilities, _tables
 
 
 class BackupSchedule(pulumi.CustomResource):
+    backup_type: pulumi.Output[str]
+    """
+    The type of backup which needs to be taken.
+    """
     kind: pulumi.Output[str]
     """
     The Kind of the object. Currently only Series8000 is supported
+    """
+    last_successful_run: pulumi.Output[str]
+    """
+    The last successful backup run which was triggered for the schedule.
     """
     name: pulumi.Output[str]
     """
     The name of the object.
     """
-    properties: pulumi.Output[dict]
+    retention_count: pulumi.Output[float]
     """
-    The properties of the backup schedule.
-      * `backup_type` (`str`) - The type of backup which needs to be taken.
-      * `last_successful_run` (`str`) - The last successful backup run which was triggered for the schedule.
-      * `retention_count` (`float`) - The number of backups to be retained.
-      * `schedule_recurrence` (`dict`) - The schedule recurrence.
-        * `recurrence_type` (`str`) - The recurrence type.
-        * `recurrence_value` (`float`) - The recurrence value.
-        * `weekly_days_list` (`list`) - The week days list. Applicable only for schedules of recurrence type 'weekly'.
-
-      * `schedule_status` (`str`) - The schedule status.
-      * `start_time` (`str`) - The start time of the schedule.
+    The number of backups to be retained.
+    """
+    schedule_recurrence: pulumi.Output[dict]
+    """
+    The schedule recurrence.
+      * `recurrence_type` (`str`) - The recurrence type.
+      * `recurrence_value` (`float`) - The recurrence value.
+      * `weekly_days_list` (`list`) - The week days list. Applicable only for schedules of recurrence type 'weekly'.
+    """
+    schedule_status: pulumi.Output[str]
+    """
+    The schedule status.
+    """
+    start_time: pulumi.Output[str]
+    """
+    The start time of the schedule.
     """
     type: pulumi.Output[str]
     """
@@ -108,7 +121,7 @@ class BackupSchedule(pulumi.CustomResource):
             if start_time is None:
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time
-            __props__['properties'] = None
+            __props__['last_successful_run'] = None
             __props__['type'] = None
         super(BackupSchedule, __self__).__init__(
             'azurerm:storsimple/v20170601:BackupSchedule',

@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Kusto.V20200614
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// The cluster data ingestion URI.
+        /// </summary>
+        [Output("dataIngestionUri")]
+        public Output<string> DataIngestionUri { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean value that indicates if the cluster's disks are encrypted.
+        /// </summary>
+        [Output("enableDiskEncryption")]
+        public Output<bool?> EnableDiskEncryption { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean value that indicates if double encryption is enabled.
+        /// </summary>
+        [Output("enableDoubleEncryption")]
+        public Output<bool?> EnableDoubleEncryption { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean value that indicates if the purge operations are enabled.
+        /// </summary>
+        [Output("enablePurge")]
+        public Output<bool?> EnablePurge { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean value that indicates if the streaming ingest is enabled.
+        /// </summary>
+        [Output("enableStreamingIngest")]
+        public Output<bool?> EnableStreamingIngest { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// KeyVault properties for the cluster encryption.
+        /// </summary>
+        [Output("keyVaultProperties")]
+        public Output<Outputs.KeyVaultPropertiesResponseResult?> KeyVaultProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// List of the cluster's language extensions.
+        /// </summary>
+        [Output("languageExtensions")]
+        public Output<Outputs.LanguageExtensionsListResponseResult> LanguageExtensions { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -33,10 +75,16 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster properties.
+        /// Optimized auto scale definition.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("optimizedAutoscale")]
+        public Output<Outputs.OptimizedAutoscaleResponseResult?> OptimizedAutoscale { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the cluster.
@@ -45,16 +93,46 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         public Output<Outputs.AzureSkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The state of the resource.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The reason for the cluster's current state.
+        /// </summary>
+        [Output("stateReason")]
+        public Output<string> StateReason { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The cluster's external tenants.
+        /// </summary>
+        [Output("trustedExternalTenants")]
+        public Output<ImmutableArray<Outputs.TrustedExternalTenantResponseResult>> TrustedExternalTenants { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster URI.
+        /// </summary>
+        [Output("uri")]
+        public Output<string> Uri { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual network definition.
+        /// </summary>
+        [Output("virtualNetworkConfiguration")]
+        public Output<Outputs.VirtualNetworkConfigurationResponseResult?> VirtualNetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The availability zones of the cluster.

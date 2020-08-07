@@ -52,17 +52,57 @@ namespace Pulumi.AzureRM.Network.V20160401
     public sealed class GetRecordSetResult
     {
         /// <summary>
+        /// The list of A records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ARecordResponseResult> ARecords;
+        /// <summary>
+        /// The TTL (time-to-live) of the records in the record set.
+        /// </summary>
+        public readonly int? TTL;
+        /// <summary>
+        /// The list of AAAA records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AaaaRecordResponseResult> AaaaRecords;
+        /// <summary>
+        /// The CNAME record in the  record set.
+        /// </summary>
+        public readonly Outputs.CnameRecordResponseResult? CnameRecord;
+        /// <summary>
         /// The etag of the record set.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// The metadata attached to the record set.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Metadata;
+        /// <summary>
+        /// The list of MX records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MxRecordResponseResult> MxRecords;
         /// <summary>
         /// The name of the record set.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the record set.
+        /// The list of NS records in the record set.
         /// </summary>
-        public readonly Outputs.RecordSetPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.NsRecordResponseResult> NsRecords;
+        /// <summary>
+        /// The list of PTR records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PtrRecordResponseResult> PtrRecords;
+        /// <summary>
+        /// The SOA record in the record set.
+        /// </summary>
+        public readonly Outputs.SoaRecordResponseResult? SoaRecord;
+        /// <summary>
+        /// The list of SRV records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SrvRecordResponseResult> SrvRecords;
+        /// <summary>
+        /// The list of TXT records in the record set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TxtRecordResponseResult> TxtRecords;
         /// <summary>
         /// The type of the record set.
         /// </summary>
@@ -70,17 +110,47 @@ namespace Pulumi.AzureRM.Network.V20160401
 
         [OutputConstructor]
         private GetRecordSetResult(
+            ImmutableArray<Outputs.ARecordResponseResult> ARecords,
+
+            int? TTL,
+
+            ImmutableArray<Outputs.AaaaRecordResponseResult> aaaaRecords,
+
+            Outputs.CnameRecordResponseResult? cnameRecord,
+
             string? etag,
+
+            ImmutableDictionary<string, string>? metadata,
+
+            ImmutableArray<Outputs.MxRecordResponseResult> mxRecords,
 
             string? name,
 
-            Outputs.RecordSetPropertiesResponseResult properties,
+            ImmutableArray<Outputs.NsRecordResponseResult> nsRecords,
+
+            ImmutableArray<Outputs.PtrRecordResponseResult> ptrRecords,
+
+            Outputs.SoaRecordResponseResult? soaRecord,
+
+            ImmutableArray<Outputs.SrvRecordResponseResult> srvRecords,
+
+            ImmutableArray<Outputs.TxtRecordResponseResult> txtRecords,
 
             string? type)
         {
+            this.ARecords = ARecords;
+            this.TTL = TTL;
+            AaaaRecords = aaaaRecords;
+            CnameRecord = cnameRecord;
             Etag = etag;
+            Metadata = metadata;
+            MxRecords = mxRecords;
             Name = name;
-            Properties = properties;
+            NsRecords = nsRecords;
+            PtrRecords = ptrRecords;
+            SoaRecord = soaRecord;
+            SrvRecords = srvRecords;
+            TxtRecords = txtRecords;
             Type = type;
         }
     }

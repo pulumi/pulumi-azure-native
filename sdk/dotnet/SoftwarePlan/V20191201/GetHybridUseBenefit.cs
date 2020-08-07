@@ -40,17 +40,25 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20191201
     public sealed class GetHybridUseBenefitResult
     {
         /// <summary>
+        /// Created date
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
         /// Indicates the revision of the hybrid use benefit
         /// </summary>
         public readonly int Etag;
+        /// <summary>
+        /// Last updated date
+        /// </summary>
+        public readonly string LastUpdatedDate;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Property bag for a hybrid use benefit response
+        /// Provisioning state
         /// </summary>
-        public readonly Outputs.HybridUseBenefitPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Hybrid use benefit SKU
         /// </summary>
@@ -62,19 +70,25 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20191201
 
         [OutputConstructor]
         private GetHybridUseBenefitResult(
+            string createdDate,
+
             int etag,
+
+            string lastUpdatedDate,
 
             string name,
 
-            Outputs.HybridUseBenefitPropertiesResponseResult properties,
+            string provisioningState,
 
             Outputs.SkuResponseResult sku,
 
             string type)
         {
+            CreatedDate = createdDate;
             Etag = etag;
+            LastUpdatedDate = lastUpdatedDate;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Type = type;
         }

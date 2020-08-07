@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
     public partial class ConfigurationStore : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation date of configuration store.
+        /// </summary>
+        [Output("creationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The DNS endpoint where the configuration store API will be available.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The managed identity information, if configured.
         /// </summary>
         [Output("identity")]
@@ -33,10 +45,10 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of a configuration store.
+        /// The provisioning state of the configuration store.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConfigurationStorePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the configuration store.

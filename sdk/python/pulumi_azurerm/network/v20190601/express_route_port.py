@@ -10,46 +10,72 @@ from ... import _utilities, _tables
 
 
 class ExpressRoutePort(pulumi.CustomResource):
+    allocation_date: pulumi.Output[str]
+    """
+    Date of the physical port allocation to be used in Letter of Authorization.
+    """
+    bandwidth_in_gbps: pulumi.Output[float]
+    """
+    Bandwidth of procured ports in Gbps.
+    """
+    circuits: pulumi.Output[list]
+    """
+    Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
+      * `id` (`str`) - Resource ID.
+    """
+    encapsulation: pulumi.Output[str]
+    """
+    Encapsulation method on physical ports.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    ether_type: pulumi.Output[str]
+    """
+    Ether type of the physical port.
+    """
+    links: pulumi.Output[list]
+    """
+    The set of physical links of the ExpressRoutePort resource.
+      * `admin_state` (`str`) - Administrative state of the physical port.
+      * `connector_type` (`str`) - Physical fiber port type.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `interface_name` (`str`) - Name of Azure router interface.
+      * `name` (`str`) - Name of child port resource that is unique among child port resources of the parent.
+      * `patch_panel_id` (`str`) - Mapping between physical port to patch panel port.
+      * `provisioning_state` (`str`) - The provisioning state of the ExpressRouteLink resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+      * `rack_id` (`str`) - Mapping of physical patch panel to rack.
+      * `router_name` (`str`) - Name of Azure router associated with physical port.
     """
     location: pulumi.Output[str]
     """
     Resource location.
     """
+    mtu: pulumi.Output[str]
+    """
+    Maximum transmission unit of the physical port pair(s).
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    peering_location: pulumi.Output[str]
     """
-    ExpressRoutePort properties.
-      * `allocation_date` (`str`) - Date of the physical port allocation to be used in Letter of Authorization.
-      * `bandwidth_in_gbps` (`float`) - Bandwidth of procured ports in Gbps.
-      * `circuits` (`list`) - Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
-        * `id` (`str`) - Resource ID.
-
-      * `encapsulation` (`str`) - Encapsulation method on physical ports.
-      * `ether_type` (`str`) - Ether type of the physical port.
-      * `links` (`list`) - The set of physical links of the ExpressRoutePort resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of child port resource that is unique among child port resources of the parent.
-        * `properties` (`dict`) - ExpressRouteLink properties.
-          * `admin_state` (`str`) - Administrative state of the physical port.
-          * `connector_type` (`str`) - Physical fiber port type.
-          * `interface_name` (`str`) - Name of Azure router interface.
-          * `patch_panel_id` (`str`) - Mapping between physical port to patch panel port.
-          * `provisioning_state` (`str`) - The provisioning state of the ExpressRouteLink resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-          * `rack_id` (`str`) - Mapping of physical patch panel to rack.
-          * `router_name` (`str`) - Name of Azure router associated with physical port.
-
-      * `mtu` (`str`) - Maximum transmission unit of the physical port pair(s).
-      * `peering_location` (`str`) - The name of the peering location that the ExpressRoutePort is mapped to physically.
-      * `provisioned_bandwidth_in_gbps` (`float`) - Aggregate Gbps of associated circuit bandwidths.
-      * `provisioning_state` (`str`) - The provisioning state of the ExpressRoutePort resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-      * `resource_guid` (`str`) - The resource GUID property of the ExpressRoutePort resource.
+    The name of the peering location that the ExpressRoutePort is mapped to physically.
+    """
+    provisioned_bandwidth_in_gbps: pulumi.Output[float]
+    """
+    Aggregate Gbps of associated circuit bandwidths.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the ExpressRoutePort resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    The resource GUID property of the ExpressRoutePort resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -113,8 +139,13 @@ class ExpressRoutePort(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid
             __props__['tags'] = tags
+            __props__['allocation_date'] = None
+            __props__['circuits'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['ether_type'] = None
+            __props__['mtu'] = None
+            __props__['provisioned_bandwidth_in_gbps'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ExpressRoutePort, __self__).__init__(
             'azurerm:network/v20190601:ExpressRoutePort',

@@ -25,16 +25,28 @@ type LookupNamespaceArgs struct {
 
 // Single Namespace item in List or Get Operation
 type LookupNamespaceResult struct {
+	// The time the Namespace was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Specifies whether this instance is enabled.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// Identifier for Azure Insights metrics
+	MetricId string `pulumi:"metricId"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the Namespace supplied for create or update Namespace operation
-	Properties NamespacePropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the Namespace.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
 	// SKU parameters supplied to the create Namespace operation
 	Sku *SkuResponse `pulumi:"sku"`
+	// State of the Namespace.
+	Status *string `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The time the Namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }

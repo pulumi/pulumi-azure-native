@@ -37,17 +37,55 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+     */
+    public readonly assessmentType!: pulumi.Output<string>;
+    public readonly category!: pulumi.Output<string[] | undefined>;
+    /**
+     * Human readable description of the assessment
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * User friendly display name of the assessment
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The implementation effort required to remediate this assessment
+     */
+    public readonly implementationEffort!: pulumi.Output<string | undefined>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Describes properties of an assessment metadata.
+     * Describes the partner that created the assessment
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20200101.SecurityAssessmentMetadataPropertiesResponse>;
+    public readonly partnerData!: pulumi.Output<outputs.security.v20200101.SecurityAssessmentMetadataPartnerDataResponse | undefined>;
+    /**
+     * Azure resource ID of the policy definition that turns this assessment calculation on
+     */
+    public /*out*/ readonly policyDefinitionId!: pulumi.Output<string>;
+    /**
+     * True if this assessment is in preview release status
+     */
+    public readonly preview!: pulumi.Output<boolean | undefined>;
+    /**
+     * Human readable description of what you should do to mitigate this security issue
+     */
+    public readonly remediationDescription!: pulumi.Output<string | undefined>;
+    /**
+     * The severity level of the assessment
+     */
+    public readonly severity!: pulumi.Output<string>;
+    public readonly threats!: pulumi.Output<string[] | undefined>;
     /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The user impact of the assessment
+     */
+    public readonly userImpact!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AssessmentMetadataInSubscription resource with the given unique name, arguments, and options.
@@ -86,7 +124,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
             inputs["severity"] = args ? args.severity : undefined;
             inputs["threats"] = args ? args.threats : undefined;
             inputs["userImpact"] = args ? args.userImpact : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["policyDefinitionId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

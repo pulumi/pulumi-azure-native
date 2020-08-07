@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public partial class BandwidthSchedule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The days of the week when this schedule is applicable.
+        /// </summary>
+        [Output("days")]
+        public Output<ImmutableArray<string>> Days { get; private set; } = null!;
+
+        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the bandwidth schedule.
+        /// The bandwidth rate in Mbps.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BandwidthSchedulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("rateInMbps")]
+        public Output<int> RateInMbps { get; private set; } = null!;
+
+        /// <summary>
+        /// The start time of the schedule in UTC.
+        /// </summary>
+        [Output("start")]
+        public Output<string> Start { get; private set; } = null!;
+
+        /// <summary>
+        /// The stop time of the schedule in UTC.
+        /// </summary>
+        [Output("stop")]
+        public Output<string> Stop { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

@@ -37,6 +37,22 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     }
 
     /**
+     * The actions that will activate when the condition is met.
+     */
+    public readonly actions!: pulumi.Output<outputs.insights.v20170401.ActivityLogAlertActionListResponse>;
+    /**
+     * The condition that will cause this alert to activate.
+     */
+    public readonly condition!: pulumi.Output<outputs.insights.v20170401.ActivityLogAlertAllOfConditionResponse>;
+    /**
+     * A description of this activity log alert.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +61,9 @@ export class ActivityLogAlert extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The activity log alert properties of the resource.
+     * A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20170401.ActivityLogAlertResponse>;
+    public readonly scopes!: pulumi.Output<string[]>;
     /**
      * Resource tags
      */
@@ -97,7 +113,6 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopes"] = args ? args.scopes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

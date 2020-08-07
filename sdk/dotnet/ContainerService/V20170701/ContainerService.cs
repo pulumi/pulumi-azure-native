@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
     public partial class ContainerService : Pulumi.CustomResource
     {
         /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        [Output("agentPoolProfiles")]
+        public Output<ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult>> AgentPoolProfiles { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties to configure a custom container service cluster.
+        /// </summary>
+        [Output("customProfile")]
+        public Output<Outputs.ContainerServiceCustomProfileResponseResult?> CustomProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile for diagnostics in the container service cluster.
+        /// </summary>
+        [Output("diagnosticsProfile")]
+        public Output<Outputs.ContainerServiceDiagnosticsProfileResponseResult?> DiagnosticsProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        [Output("linuxProfile")]
+        public Output<Outputs.ContainerServiceLinuxProfileResponseResult> LinuxProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile for the container service master.
+        /// </summary>
+        [Output("masterProfile")]
+        public Output<Outputs.ContainerServiceMasterProfileResponseResult> MasterProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,10 +57,22 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the container service.
+        /// Profile for the container service orchestrator.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ContainerServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("orchestratorProfile")]
+        public Output<Outputs.ContainerServiceOrchestratorProfileResponseResult> OrchestratorProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+        /// </summary>
+        [Output("servicePrincipalProfile")]
+        public Output<Outputs.ContainerServiceServicePrincipalProfileResponseResult?> ServicePrincipalProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -43,6 +85,12 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile for Windows VMs in the container service cluster.
+        /// </summary>
+        [Output("windowsProfile")]
+        public Output<Outputs.ContainerServiceWindowsProfileResponseResult?> WindowsProfile { get; private set; } = null!;
 
 
         /// <summary>

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,21 @@ export class RegisteredAsn extends pulumi.CustomResource {
     }
 
     /**
+     * The customer's ASN from which traffic originates.
+     */
+    public readonly asn!: pulumi.Output<number | undefined>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties that define a registered ASN.
+     * The peering service prefix key that is to be shared with the customer.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringRegisteredAsnPropertiesResponse>;
+    public /*out*/ readonly peeringServicePrefixKey!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -75,7 +81,8 @@ export class RegisteredAsn extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["peeringServicePrefixKey"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

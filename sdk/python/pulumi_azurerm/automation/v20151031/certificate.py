@@ -10,19 +10,33 @@ from ... import _utilities, _tables
 
 
 class Certificate(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Gets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
+    expiry_time: pulumi.Output[str]
+    """
+    Gets the expiry time of the certificate.
+    """
+    is_exportable: pulumi.Output[bool]
+    """
+    Gets the is exportable flag of the certificate.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets the last modified time.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    thumbprint: pulumi.Output[str]
     """
-    Gets or sets the properties of the certificate.
-      * `creation_time` (`str`) - Gets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `expiry_time` (`str`) - Gets the expiry time of the certificate.
-      * `is_exportable` (`bool`) - Gets the is exportable flag of the certificate.
-      * `last_modified_time` (`str`) - Gets the last modified time.
-      * `thumbprint` (`str`) - Gets the thumbprint of the certificate.
+    Gets the thumbprint of the certificate.
     """
     type: pulumi.Output[str]
     """
@@ -74,7 +88,9 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['thumbprint'] = thumbprint
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['expiry_time'] = None
+            __props__['last_modified_time'] = None
             __props__['type'] = None
         super(Certificate, __self__).__init__(
             'azurerm:automation/v20151031:Certificate',

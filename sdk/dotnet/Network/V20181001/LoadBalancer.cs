@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.Network.V20181001
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>
+        /// Collection of backend address pools used by a load balancer
+        /// </summary>
+        [Output("backendAddressPools")]
+        public Output<ImmutableArray<Outputs.BackendAddressPoolResponseResult>> BackendAddressPools { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Object representing the frontend IPs to be used for the load balancer
+        /// </summary>
+        [Output("frontendIPConfigurations")]
+        public Output<ImmutableArray<Outputs.FrontendIPConfigurationResponseResult>> FrontendIPConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        /// </summary>
+        [Output("inboundNatPools")]
+        public Output<ImmutableArray<Outputs.InboundNatPoolResponseResult>> InboundNatPools { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+        /// </summary>
+        [Output("inboundNatRules")]
+        public Output<ImmutableArray<Outputs.InboundNatRuleResponseResult>> InboundNatRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Object collection representing the load balancing rules Gets the provisioning 
+        /// </summary>
+        [Output("loadBalancingRules")]
+        public Output<ImmutableArray<Outputs.LoadBalancingRuleResponseResult>> LoadBalancingRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +63,28 @@ namespace Pulumi.AzureRM.Network.V20181001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of load balancer.
+        /// The outbound rules.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LoadBalancerPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("outboundRules")]
+        public Output<ImmutableArray<Outputs.OutboundRuleResponseResult>> OutboundRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of probe objects used in the load balancer
+        /// </summary>
+        [Output("probes")]
+        public Output<ImmutableArray<Outputs.ProbeResponseResult>> Probes { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the load balancer resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The load balancer SKU.

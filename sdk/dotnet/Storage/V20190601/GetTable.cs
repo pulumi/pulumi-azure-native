@@ -50,9 +50,9 @@ namespace Pulumi.AzureRM.Storage.V20190601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Table resource properties.
+        /// Table name under the specified account
         /// </summary>
-        public readonly Outputs.TablePropertiesResponseResult Properties;
+        public readonly string TableName;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureRM.Storage.V20190601
         private GetTableResult(
             string name,
 
-            Outputs.TablePropertiesResponseResult properties,
+            string tableName,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            TableName = tableName;
             Type = type;
         }
     }

@@ -13,18 +13,48 @@ class GetOriginGroupResult:
     """
     Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, health_probe_settings=None, name=None, origins=None, provisioning_state=None, resource_state=None, response_based_origin_error_detection_settings=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+        if health_probe_settings and not isinstance(health_probe_settings, dict):
+            raise TypeError("Expected argument 'health_probe_settings' to be a dict")
+        __self__.health_probe_settings = health_probe_settings
+        """
+        Health probe settings to the origin that is used to determine the health of the origin.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if origins and not isinstance(origins, list):
+            raise TypeError("Expected argument 'origins' to be a list")
+        __self__.origins = origins
         """
-        The JSON object that contains the properties of the origin group.
+        The source of the content being delivered via CDN within given origin group.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning status of the origin group.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the origin group.
+        """
+        if response_based_origin_error_detection_settings and not isinstance(response_based_origin_error_detection_settings, dict):
+            raise TypeError("Expected argument 'response_based_origin_error_detection_settings' to be a dict")
+        __self__.response_based_origin_error_detection_settings = response_based_origin_error_detection_settings
+        """
+        The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+        """
+        if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes and not isinstance(traffic_restoration_time_to_healed_or_new_endpoints_in_minutes, float):
+            raise TypeError("Expected argument 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes' to be a float")
+        __self__.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes = traffic_restoration_time_to_healed_or_new_endpoints_in_minutes
+        """
+        Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +70,13 @@ class AwaitableGetOriginGroupResult(GetOriginGroupResult):
         if False:
             yield self
         return GetOriginGroupResult(
+            health_probe_settings=self.health_probe_settings,
             name=self.name,
-            properties=self.properties,
+            origins=self.origins,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
+            response_based_origin_error_detection_settings=self.response_based_origin_error_detection_settings,
+            traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=self.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
             type=self.type)
 
 
@@ -66,6 +101,11 @@ def get_origin_group(endpoint_name=None, name=None, profile_name=None, resource_
     __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20200331:getOriginGroup', __args__, opts=opts).value
 
     return AwaitableGetOriginGroupResult(
+        health_probe_settings=__ret__.get('healthProbeSettings'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        origins=__ret__.get('origins'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
+        response_based_origin_error_detection_settings=__ret__.get('responseBasedOriginErrorDetectionSettings'),
+        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=__ret__.get('trafficRestorationTimeToHealedOrNewEndpointsInMinutes'),
         type=__ret__.get('type'))

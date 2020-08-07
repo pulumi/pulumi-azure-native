@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class VirtualApplianceSite(pulumi.CustomResource):
+    address_prefix: pulumi.Output[str]
+    """
+    Address Prefix.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -18,17 +22,17 @@ class VirtualApplianceSite(pulumi.CustomResource):
     """
     Name of the virtual appliance site.
     """
-    properties: pulumi.Output[dict]
+    o365_policy: pulumi.Output[dict]
     """
-    The properties of the Virtual Appliance Sites.
-      * `address_prefix` (`str`) - Address Prefix.
-      * `o365_policy` (`dict`) - Office 365 Policy.
-        * `break_out_categories` (`dict`) - Office 365 breakout categories.
-          * `allow` (`bool`) - Flag to control breakout of o365 allow category.
-          * `default` (`bool`) - Flag to control breakout of o365 default category.
-          * `optimize` (`bool`) - Flag to control breakout of o365 optimize category.
-
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    Office 365 Policy.
+      * `break_out_categories` (`dict`) - Office 365 breakout categories.
+        * `allow` (`bool`) - Flag to control breakout of o365 allow category.
+        * `default` (`bool`) - Flag to control breakout of o365 default category.
+        * `optimize` (`bool`) - Flag to control breakout of o365 optimize category.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     type: pulumi.Output[str]
     """
@@ -84,7 +88,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(VirtualApplianceSite, __self__).__init__(
             'azurerm:network/v20200501:VirtualApplianceSite',

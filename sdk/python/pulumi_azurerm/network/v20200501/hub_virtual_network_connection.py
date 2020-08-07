@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class HubVirtualNetworkConnection(pulumi.CustomResource):
+    allow_hub_to_remote_vnet_transit: pulumi.Output[bool]
+    """
+    Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+    """
+    allow_remote_vnet_to_use_hub_vnet_gateways: pulumi.Output[bool]
+    """
+    Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+    """
+    enable_internet_security: pulumi.Output[bool]
+    """
+    Enable internet security.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -18,27 +30,30 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the hub virtual network connection.
-      * `allow_hub_to_remote_vnet_transit` (`bool`) - Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
-      * `allow_remote_vnet_to_use_hub_vnet_gateways` (`bool`) - Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
-      * `enable_internet_security` (`bool`) - Enable internet security.
-      * `provisioning_state` (`str`) - The provisioning state of the hub virtual network connection resource.
-      * `remote_virtual_network` (`dict`) - Reference to the remote virtual network.
+    The provisioning state of the hub virtual network connection resource.
+    """
+    remote_virtual_network: pulumi.Output[dict]
+    """
+    Reference to the remote virtual network.
+      * `id` (`str`) - Resource ID.
+    """
+    routing_configuration: pulumi.Output[dict]
+    """
+    The Routing Configuration indicating the associated and propagated route tables on this connection.
+      * `associated_route_table` (`dict`) - The resource id RouteTable associated with this RoutingConfiguration.
         * `id` (`str`) - Resource ID.
 
-      * `routing_configuration` (`dict`) - The Routing Configuration indicating the associated and propagated route tables on this connection.
-        * `associated_route_table` (`dict`) - The resource id RouteTable associated with this RoutingConfiguration.
-        * `propagated_route_tables` (`dict`) - The list of RouteTables to advertise the routes to.
-          * `ids` (`list`) - The list of resource ids of all the RouteTables.
-          * `labels` (`list`) - The list of labels.
+      * `propagated_route_tables` (`dict`) - The list of RouteTables to advertise the routes to.
+        * `ids` (`list`) - The list of resource ids of all the RouteTables.
+        * `labels` (`list`) - The list of labels.
 
-        * `vnet_routes` (`dict`) - List of routes that control routing from VirtualHub into a virtual network connection.
-          * `static_routes` (`list`) - List of all Static Routes.
-            * `address_prefixes` (`list`) - List of all address prefixes.
-            * `name` (`str`) - The name of the StaticRoute that is unique within a VnetRoute.
-            * `next_hop_ip_address` (`str`) - The ip address of the next hop.
+      * `vnet_routes` (`dict`) - List of routes that control routing from VirtualHub into a virtual network connection.
+        * `static_routes` (`list`) - List of all Static Routes.
+          * `address_prefixes` (`list`) - List of all address prefixes.
+          * `name` (`str`) - The name of the StaticRoute that is unique within a VnetRoute.
+          * `next_hop_ip_address` (`str`) - The ip address of the next hop.
     """
     def __init__(__self__, resource_name, opts=None, allow_hub_to_remote_vnet_transit=None, allow_remote_vnet_to_use_hub_vnet_gateways=None, enable_internet_security=None, id=None, name=None, remote_virtual_network=None, resource_group_name=None, routing_configuration=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -106,7 +121,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(HubVirtualNetworkConnection, __self__).__init__(
             'azurerm:network/v20200501:HubVirtualNetworkConnection',
             resource_name,

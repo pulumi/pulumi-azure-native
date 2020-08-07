@@ -41,13 +41,17 @@ export interface GetDatabaseArgs {
  */
 export interface GetDatabaseResult {
     /**
+     * The charset of the database.
+     */
+    readonly charset?: string;
+    /**
+     * The collation of the database.
+     */
+    readonly collation?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * The properties of a database.
-     */
-    readonly properties: outputs.dbforpostgresql.v20171201.DatabasePropertiesResponse;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

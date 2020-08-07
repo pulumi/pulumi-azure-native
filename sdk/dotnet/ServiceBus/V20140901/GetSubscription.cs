@@ -52,36 +52,141 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public sealed class GetSubscriptionResult
     {
         /// <summary>
+        /// Last time there was a receive request to this subscription.
+        /// </summary>
+        public readonly string AccessedAt;
+        /// <summary>
+        /// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        public readonly string? AutoDeleteOnIdle;
+        /// <summary>
+        /// Message Count Details.
+        /// </summary>
+        public readonly Outputs.MessageCountDetailsResponseResult CountDetails;
+        /// <summary>
+        /// Exact time the message was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+        /// </summary>
+        public readonly bool? DeadLetteringOnFilterEvaluationExceptions;
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support when a message expires.
+        /// </summary>
+        public readonly bool? DeadLetteringOnMessageExpiration;
+        /// <summary>
+        /// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        public readonly string? DefaultMessageTimeToLive;
+        /// <summary>
+        /// Value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        public readonly bool? EnableBatchedOperations;
+        /// <summary>
+        /// Entity availability status for the topic.
+        /// </summary>
+        public readonly string? EntityAvailabilityStatus;
+        /// <summary>
+        /// Value that indicates whether the entity description is read-only.
+        /// </summary>
+        public readonly bool? IsReadOnly;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The lock duration time span for the subscription.
+        /// </summary>
+        public readonly string? LockDuration;
+        /// <summary>
+        /// Number of maximum deliveries.
+        /// </summary>
+        public readonly int? MaxDeliveryCount;
+        /// <summary>
+        /// Number of messages.
+        /// </summary>
+        public readonly int MessageCount;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Description of Subscription Resource.
+        /// Value indicating if a subscription supports the concept of sessions.
         /// </summary>
-        public readonly Outputs.SubscriptionPropertiesResponseResult Properties;
+        public readonly bool? RequiresSession;
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
 
         [OutputConstructor]
         private GetSubscriptionResult(
+            string accessedAt,
+
+            string? autoDeleteOnIdle,
+
+            Outputs.MessageCountDetailsResponseResult countDetails,
+
+            string createdAt,
+
+            bool? deadLetteringOnFilterEvaluationExceptions,
+
+            bool? deadLetteringOnMessageExpiration,
+
+            string? defaultMessageTimeToLive,
+
+            bool? enableBatchedOperations,
+
+            string? entityAvailabilityStatus,
+
+            bool? isReadOnly,
+
             string? location,
+
+            string? lockDuration,
+
+            int? maxDeliveryCount,
+
+            int messageCount,
 
             string name,
 
-            Outputs.SubscriptionPropertiesResponseResult properties,
+            bool? requiresSession,
 
-            string type)
+            string? status,
+
+            string type,
+
+            string updatedAt)
         {
+            AccessedAt = accessedAt;
+            AutoDeleteOnIdle = autoDeleteOnIdle;
+            CountDetails = countDetails;
+            CreatedAt = createdAt;
+            DeadLetteringOnFilterEvaluationExceptions = deadLetteringOnFilterEvaluationExceptions;
+            DeadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
+            DefaultMessageTimeToLive = defaultMessageTimeToLive;
+            EnableBatchedOperations = enableBatchedOperations;
+            EntityAvailabilityStatus = entityAvailabilityStatus;
+            IsReadOnly = isReadOnly;
             Location = location;
+            LockDuration = lockDuration;
+            MaxDeliveryCount = maxDeliveryCount;
+            MessageCount = messageCount;
             Name = name;
-            Properties = properties;
+            RequiresSession = requiresSession;
+            Status = status;
             Type = type;
+            UpdatedAt = updatedAt;
         }
     }
 }

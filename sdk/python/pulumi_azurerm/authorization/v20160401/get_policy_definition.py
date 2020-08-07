@@ -13,18 +13,36 @@ class GetPolicyDefinitionResult:
     """
     The policy definition.
     """
-    def __init__(__self__, name=None, properties=None):
+    def __init__(__self__, description=None, display_name=None, name=None, policy_rule=None, policy_type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The policy definition description.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The display name of the policy definition.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if policy_rule and not isinstance(policy_rule, dict):
+            raise TypeError("Expected argument 'policy_rule' to be a dict")
+        __self__.policy_rule = policy_rule
         """
-        The policy definition properties.
+        The policy rule.
+        """
+        if policy_type and not isinstance(policy_type, str):
+            raise TypeError("Expected argument 'policy_type' to be a str")
+        __self__.policy_type = policy_type
+        """
+        The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
 
 
@@ -34,8 +52,11 @@ class AwaitableGetPolicyDefinitionResult(GetPolicyDefinitionResult):
         if False:
             yield self
         return GetPolicyDefinitionResult(
+            description=self.description,
+            display_name=self.display_name,
             name=self.name,
-            properties=self.properties)
+            policy_rule=self.policy_rule,
+            policy_type=self.policy_type)
 
 
 def get_policy_definition(name=None, opts=None):
@@ -53,5 +74,8 @@ def get_policy_definition(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20160401:getPolicyDefinition', __args__, opts=opts).value
 
     return AwaitableGetPolicyDefinitionResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        policy_rule=__ret__.get('policyRule'),
+        policy_type=__ret__.get('policyType'))

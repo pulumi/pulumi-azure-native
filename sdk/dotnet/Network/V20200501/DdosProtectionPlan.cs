@@ -33,10 +33,16 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the DDoS protection plan.
+        /// The provisioning state of the DDoS protection plan resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DdosProtectionPlanPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +55,12 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+        /// </summary>
+        [Output("virtualNetworks")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualNetworks { get; private set; } = null!;
 
 
         /// <summary>

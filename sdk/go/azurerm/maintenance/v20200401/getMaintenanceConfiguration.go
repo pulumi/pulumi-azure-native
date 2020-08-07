@@ -25,12 +25,16 @@ type LookupMaintenanceConfigurationArgs struct {
 
 // Maintenance configuration record type
 type LookupMaintenanceConfigurationResult struct {
+	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+	ExtensionProperties map[string]string `pulumi:"extensionProperties"`
 	// Gets or sets location of the resource
 	Location *string `pulumi:"location"`
+	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+	MaintenanceScope *string `pulumi:"maintenanceScope"`
 	// Name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets properties of the resource
-	Properties MaintenanceConfigurationPropertiesResponse `pulumi:"properties"`
+	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
+	Namespace *string `pulumi:"namespace"`
 	// Gets or sets tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource

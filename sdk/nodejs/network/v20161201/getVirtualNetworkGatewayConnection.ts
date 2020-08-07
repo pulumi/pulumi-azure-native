@@ -36,9 +36,37 @@ export interface GetVirtualNetworkGatewayConnectionArgs {
  */
 export interface GetVirtualNetworkGatewayConnectionResult {
     /**
+     * The authorizationKey.
+     */
+    readonly authorizationKey?: string;
+    /**
+     * Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
+     */
+    readonly connectionStatus: string;
+    /**
+     * Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
+     */
+    readonly connectionType: string;
+    /**
+     * The egress bytes transferred in this connection.
+     */
+    readonly egressBytesTransferred: number;
+    /**
+     * EnableBgp flag
+     */
+    readonly enableBgp?: boolean;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
+    /**
+     * The ingress bytes transferred in this connection.
+     */
+    readonly ingressBytesTransferred: number;
+    /**
+     * A common class for general resource information
+     */
+    readonly localNetworkGateway2?: outputs.network.v20161201.LocalNetworkGatewayResponse;
     /**
      * Resource location.
      */
@@ -48,15 +76,43 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly name: string;
     /**
-     * VirtualNetworkGatewayConnection properties
+     * The reference to peerings resource.
      */
-    readonly properties: outputs.network.v20161201.VirtualNetworkGatewayConnectionPropertiesFormatResponse;
+    readonly peer?: outputs.network.v20161201.SubResourceResponse;
+    /**
+     * The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState: string;
+    /**
+     * The resource GUID property of the VirtualNetworkGatewayConnection resource.
+     */
+    readonly resourceGuid?: string;
+    /**
+     * The routing weight.
+     */
+    readonly routingWeight?: number;
+    /**
+     * The IPSec shared key.
+     */
+    readonly sharedKey?: string;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Collection of all tunnels' connection health status.
+     */
+    readonly tunnelConnectionStatus: outputs.network.v20161201.TunnelConnectionHealthResponse[];
+    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * A common class for general resource information
+     */
+    readonly virtualNetworkGateway1: outputs.network.v20161201.VirtualNetworkGatewayResponse;
+    /**
+     * A common class for general resource information
+     */
+    readonly virtualNetworkGateway2?: outputs.network.v20161201.VirtualNetworkGatewayResponse;
 }

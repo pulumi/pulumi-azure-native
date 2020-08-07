@@ -10,27 +10,38 @@ from ... import _utilities, _tables
 
 
 class HubRouteTable(pulumi.CustomResource):
+    associated_connections: pulumi.Output[list]
+    """
+    List of all connections associated with this route table.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    labels: pulumi.Output[list]
+    """
+    List of labels associated with this route table.
     """
     name: pulumi.Output[str]
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    propagating_connections: pulumi.Output[list]
     """
-    Properties of the RouteTable resource.
-      * `associated_connections` (`list`) - List of all connections associated with this route table.
-      * `labels` (`list`) - List of labels associated with this route table.
-      * `propagating_connections` (`list`) - List of all connections that advertise to this route table.
-      * `provisioning_state` (`str`) - The provisioning state of the RouteTable resource.
-      * `routes` (`list`) - List of all routes.
-        * `destination_type` (`str`) - The type of destinations (eg: CIDR, ResourceId, Service).
-        * `destinations` (`list`) - List of all destinations.
-        * `name` (`str`) - The name of the Route that is unique within a RouteTable. This name can be used to access this route.
-        * `next_hop` (`str`) - NextHop resource ID.
-        * `next_hop_type` (`str`) - The type of next hop (eg: ResourceId).
+    List of all connections that advertise to this route table.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the RouteTable resource.
+    """
+    routes: pulumi.Output[list]
+    """
+    List of all routes.
+      * `destination_type` (`str`) - The type of destinations (eg: CIDR, ResourceId, Service).
+      * `destinations` (`list`) - List of all destinations.
+      * `name` (`str`) - The name of the Route that is unique within a RouteTable. This name can be used to access this route.
+      * `next_hop` (`str`) - NextHop resource ID.
+      * `next_hop_type` (`str`) - The type of next hop (eg: ResourceId).
     """
     type: pulumi.Output[str]
     """
@@ -86,8 +97,10 @@ class HubRouteTable(pulumi.CustomResource):
             if virtual_hub_name is None:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
+            __props__['associated_connections'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['propagating_connections'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(HubRouteTable, __self__).__init__(
             'azurerm:network/v20200401:HubRouteTable',

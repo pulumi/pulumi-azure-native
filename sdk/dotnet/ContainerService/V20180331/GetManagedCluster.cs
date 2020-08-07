@@ -40,6 +40,38 @@ namespace Pulumi.AzureRM.ContainerService.V20180331
     public sealed class GetManagedClusterResult
     {
         /// <summary>
+        /// Profile of Azure Active Directory configuration.
+        /// </summary>
+        public readonly Outputs.ManagedClusterAADProfileResponseResult? AadProfile;
+        /// <summary>
+        /// Profile of managed cluster add-on.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? AddonProfiles;
+        /// <summary>
+        /// Properties of the agent pool. Currently only one agent pool can exist.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> AgentPoolProfiles;
+        /// <summary>
+        /// DNS prefix specified when creating the managed cluster.
+        /// </summary>
+        public readonly string? DnsPrefix;
+        /// <summary>
+        /// Whether to enable Kubernetes Role-Based Access Control.
+        /// </summary>
+        public readonly bool? EnableRBAC;
+        /// <summary>
+        /// FQDN for the master pool.
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
+        /// Version of Kubernetes specified when creating the managed cluster.
+        /// </summary>
+        public readonly string? KubernetesVersion;
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        public readonly Outputs.ContainerServiceLinuxProfileResponseResult? LinuxProfile;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +80,21 @@ namespace Pulumi.AzureRM.ContainerService.V20180331
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of a managed cluster.
+        /// Profile of network configuration.
         /// </summary>
-        public readonly Outputs.ManagedClusterPropertiesResponseResult Properties;
+        public readonly Outputs.ContainerServiceNetworkProfileResponseResult? NetworkProfile;
+        /// <summary>
+        /// Name of the resource group containing agent pool nodes.
+        /// </summary>
+        public readonly string NodeResourceGroup;
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        /// </summary>
+        public readonly Outputs.ManagedClusterServicePrincipalProfileResponseResult? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -62,19 +106,52 @@ namespace Pulumi.AzureRM.ContainerService.V20180331
 
         [OutputConstructor]
         private GetManagedClusterResult(
+            Outputs.ManagedClusterAADProfileResponseResult? aadProfile,
+
+            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? addonProfiles,
+
+            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> agentPoolProfiles,
+
+            string? dnsPrefix,
+
+            bool? enableRBAC,
+
+            string fqdn,
+
+            string? kubernetesVersion,
+
+            Outputs.ContainerServiceLinuxProfileResponseResult? linuxProfile,
+
             string location,
 
             string name,
 
-            Outputs.ManagedClusterPropertiesResponseResult properties,
+            Outputs.ContainerServiceNetworkProfileResponseResult? networkProfile,
+
+            string nodeResourceGroup,
+
+            string provisioningState,
+
+            Outputs.ManagedClusterServicePrincipalProfileResponseResult? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AadProfile = aadProfile;
+            AddonProfiles = addonProfiles;
+            AgentPoolProfiles = agentPoolProfiles;
+            DnsPrefix = dnsPrefix;
+            EnableRBAC = enableRBAC;
+            Fqdn = fqdn;
+            KubernetesVersion = kubernetesVersion;
+            LinuxProfile = linuxProfile;
             Location = location;
             Name = name;
-            Properties = properties;
+            NetworkProfile = networkProfile;
+            NodeResourceGroup = nodeResourceGroup;
+            ProvisioningState = provisioningState;
+            ServicePrincipalProfile = servicePrincipalProfile;
             Tags = tags;
             Type = type;
         }

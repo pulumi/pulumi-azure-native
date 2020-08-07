@@ -13,12 +13,18 @@ class GetAlertRuleActionResult:
     """
     Action for alert rule.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, logic_app_resource_id=None, name=None, type=None, workflow_id=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Etag of the action.
+        """
+        if logic_app_resource_id and not isinstance(logic_app_resource_id, str):
+            raise TypeError("Expected argument 'logic_app_resource_id' to be a str")
+        __self__.logic_app_resource_id = logic_app_resource_id
+        """
+        Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +32,17 @@ class GetAlertRuleActionResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Action properties for get request
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Azure resource type
+        """
+        if workflow_id and not isinstance(workflow_id, str):
+            raise TypeError("Expected argument 'workflow_id' to be a str")
+        __self__.workflow_id = workflow_id
+        """
+        The name of the logic app's workflow.
         """
 
 
@@ -47,9 +53,10 @@ class AwaitableGetAlertRuleActionResult(GetAlertRuleActionResult):
             yield self
         return GetAlertRuleActionResult(
             etag=self.etag,
+            logic_app_resource_id=self.logic_app_resource_id,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            workflow_id=self.workflow_id)
 
 
 def get_alert_rule_action(name=None, resource_group_name=None, rule_id=None, workspace_name=None, opts=None):
@@ -74,6 +81,7 @@ def get_alert_rule_action(name=None, resource_group_name=None, rule_id=None, wor
 
     return AwaitableGetAlertRuleActionResult(
         etag=__ret__.get('etag'),
+        logic_app_resource_id=__ret__.get('logicAppResourceId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        workflow_id=__ret__.get('workflowId'))

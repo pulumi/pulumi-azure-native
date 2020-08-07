@@ -18,8 +18,12 @@ type VirtualRouterPeering struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Gets name of the peering unique to VirtualRouter. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties of the Virtual Router Peering.
-	Properties VirtualRouterPeeringPropertiesResponseOutput `pulumi:"properties"`
+	// Peer ASN.
+	PeerAsn pulumi.IntPtrOutput `pulumi:"peerAsn"`
+	// Peer IP.
+	PeerIp pulumi.StringPtrOutput `pulumi:"peerIp"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Peering type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,8 +69,12 @@ type virtualRouterPeeringState struct {
 	Etag *string `pulumi:"etag"`
 	// Gets name of the peering unique to VirtualRouter. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the Virtual Router Peering.
-	Properties *VirtualRouterPeeringPropertiesResponse `pulumi:"properties"`
+	// Peer ASN.
+	PeerAsn *int `pulumi:"peerAsn"`
+	// Peer IP.
+	PeerIp *string `pulumi:"peerIp"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Peering type.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +84,12 @@ type VirtualRouterPeeringState struct {
 	Etag pulumi.StringPtrInput
 	// Gets name of the peering unique to VirtualRouter. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the Virtual Router Peering.
-	Properties VirtualRouterPeeringPropertiesResponsePtrInput
+	// Peer ASN.
+	PeerAsn pulumi.IntPtrInput
+	// Peer IP.
+	PeerIp pulumi.StringPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Peering type.
 	Type pulumi.StringPtrInput
 }

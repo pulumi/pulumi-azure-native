@@ -18,14 +18,22 @@ type WebAppPremierAddOnSlot struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Premier add on Marketplace offer.
+	MarketplaceOffer pulumi.StringPtrOutput `pulumi:"marketplaceOffer"`
+	// Premier add on Marketplace publisher.
+	MarketplacePublisher pulumi.StringPtrOutput `pulumi:"marketplacePublisher"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// PremierAddOn resource specific properties
-	Properties PremierAddOnResponsePropertiesOutput `pulumi:"properties"`
+	// Premier add on Product.
+	Product pulumi.StringPtrOutput `pulumi:"product"`
+	// Premier add on SKU.
+	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Premier add on Vendor.
+	Vendor pulumi.StringPtrOutput `pulumi:"vendor"`
 }
 
 // NewWebAppPremierAddOnSlot registers a new resource with the given unique name, arguments, and options.
@@ -72,14 +80,22 @@ type webAppPremierAddOnSlotState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location *string `pulumi:"location"`
+	// Premier add on Marketplace offer.
+	MarketplaceOffer *string `pulumi:"marketplaceOffer"`
+	// Premier add on Marketplace publisher.
+	MarketplacePublisher *string `pulumi:"marketplacePublisher"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// PremierAddOn resource specific properties
-	Properties *PremierAddOnResponseProperties `pulumi:"properties"`
+	// Premier add on Product.
+	Product *string `pulumi:"product"`
+	// Premier add on SKU.
+	Sku *string `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// Premier add on Vendor.
+	Vendor *string `pulumi:"vendor"`
 }
 
 type WebAppPremierAddOnSlotState struct {
@@ -87,14 +103,22 @@ type WebAppPremierAddOnSlotState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringPtrInput
+	// Premier add on Marketplace offer.
+	MarketplaceOffer pulumi.StringPtrInput
+	// Premier add on Marketplace publisher.
+	MarketplacePublisher pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// PremierAddOn resource specific properties
-	Properties PremierAddOnResponsePropertiesPtrInput
+	// Premier add on Product.
+	Product pulumi.StringPtrInput
+	// Premier add on SKU.
+	Sku pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// Premier add on Vendor.
+	Vendor pulumi.StringPtrInput
 }
 
 func (WebAppPremierAddOnSlotState) ElementType() reflect.Type {

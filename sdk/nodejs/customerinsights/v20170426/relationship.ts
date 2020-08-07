@@ -37,13 +37,57 @@ export class Relationship extends pulumi.CustomResource {
     }
 
     /**
+     * The Relationship Cardinality.
+     */
+    public readonly cardinality!: pulumi.Output<string | undefined>;
+    /**
+     * Localized descriptions for the Relationship.
+     */
+    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Localized display name for the Relationship.
+     */
+    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The expiry date time in UTC.
+     */
+    public readonly expiryDateTimeUtc!: pulumi.Output<string | undefined>;
+    /**
+     * The properties of the Relationship.
+     */
+    public readonly fields!: pulumi.Output<outputs.customerinsights.v20170426.PropertyDefinitionResponse[] | undefined>;
+    /**
+     * Optional property to be used to map fields in profile to their strong ids in related profile.
+     */
+    public readonly lookupMappings!: pulumi.Output<outputs.customerinsights.v20170426.RelationshipTypeMappingResponse[] | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The definition of Relationship.
+     * Profile type.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.RelationshipDefinitionResponse>;
+    public readonly profileType!: pulumi.Output<string>;
+    /**
+     * Provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Related profile being referenced.
+     */
+    public readonly relatedProfileType!: pulumi.Output<string>;
+    /**
+     * The relationship guid id.
+     */
+    public /*out*/ readonly relationshipGuidId!: pulumi.Output<string>;
+    /**
+     * The Relationship name.
+     */
+    public /*out*/ readonly relationshipName!: pulumi.Output<string>;
+    /**
+     * The hub name.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -88,7 +132,10 @@ export class Relationship extends pulumi.CustomResource {
             inputs["profileType"] = args ? args.profileType : undefined;
             inputs["relatedProfileType"] = args ? args.relatedProfileType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["relationshipGuidId"] = undefined /*out*/;
+            inputs["relationshipName"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

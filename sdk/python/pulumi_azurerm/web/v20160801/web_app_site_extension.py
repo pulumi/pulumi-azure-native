@@ -10,41 +10,89 @@ from ... import _utilities, _tables
 
 
 class WebAppSiteExtension(pulumi.CustomResource):
+    authors: pulumi.Output[list]
+    """
+    List of authors.
+    """
+    comment: pulumi.Output[str]
+    """
+    Site Extension comment.
+    """
+    description: pulumi.Output[str]
+    """
+    Detailed description.
+    """
+    download_count: pulumi.Output[float]
+    """
+    Count of downloads.
+    """
+    extension_url: pulumi.Output[str]
+    """
+    Extension URL.
+    """
+    feed_url: pulumi.Output[str]
+    """
+    Feed URL.
+    """
+    icon_url: pulumi.Output[str]
+    """
+    Icon URL.
+    """
+    installation_args: pulumi.Output[str]
+    """
+    Installer command line parameters.
+    """
+    installed_date_time: pulumi.Output[str]
+    """
+    Installed timestamp.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
+    """
+    license_url: pulumi.Output[str]
+    """
+    License URL.
+    """
+    local_is_latest_version: pulumi.Output[bool]
+    """
+    <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+    """
+    local_path: pulumi.Output[str]
+    """
+    Local path.
     """
     name: pulumi.Output[str]
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    project_url: pulumi.Output[str]
     """
-    SiteExtensionInfo resource specific properties
-      * `authors` (`list`) - List of authors.
-      * `comment` (`str`) - Site Extension comment.
-      * `description` (`str`) - Detailed description.
-      * `download_count` (`float`) - Count of downloads.
-      * `extension_url` (`str`) - Extension URL.
-      * `feed_url` (`str`) - Feed URL.
-      * `icon_url` (`str`) - Icon URL.
-      * `id` (`str`) - Site extension ID.
-      * `installation_args` (`str`) - Installer command line parameters.
-      * `installed_date_time` (`str`) - Installed timestamp.
-      * `license_url` (`str`) - License URL.
-      * `local_is_latest_version` (`bool`) - <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
-      * `local_path` (`str`) - Local path.
-      * `project_url` (`str`) - Project URL.
-      * `provisioning_state` (`str`) - Provisioning state.
-      * `published_date_time` (`str`) - Published timestamp.
-      * `summary` (`str`) - Summary description.
-      * `title` (`str`) - Site extension title.
-      * `type` (`str`) - Site extension type.
-      * `version` (`str`) - Version information.
+    Project URL.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state.
+    """
+    published_date_time: pulumi.Output[str]
+    """
+    Published timestamp.
+    """
+    summary: pulumi.Output[str]
+    """
+    Summary description.
+    """
+    title: pulumi.Output[str]
+    """
+    Site extension title.
     """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    version: pulumi.Output[str]
+    """
+    Version information.
     """
     def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -78,9 +126,26 @@ class WebAppSiteExtension(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['authors'] = None
+            __props__['comment'] = None
+            __props__['description'] = None
+            __props__['download_count'] = None
+            __props__['extension_url'] = None
+            __props__['feed_url'] = None
+            __props__['icon_url'] = None
+            __props__['installation_args'] = None
+            __props__['installed_date_time'] = None
             __props__['kind'] = None
-            __props__['properties'] = None
+            __props__['license_url'] = None
+            __props__['local_is_latest_version'] = None
+            __props__['local_path'] = None
+            __props__['project_url'] = None
+            __props__['provisioning_state'] = None
+            __props__['published_date_time'] = None
+            __props__['summary'] = None
+            __props__['title'] = None
             __props__['type'] = None
+            __props__['version'] = None
         super(WebAppSiteExtension, __self__).__init__(
             'azurerm:web/v20160801:WebAppSiteExtension',
             resource_name,

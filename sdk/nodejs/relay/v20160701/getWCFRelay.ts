@@ -41,15 +41,43 @@ export interface GetWCFRelayArgs {
  */
 export interface GetWCFRelayResult {
     /**
+     * The time the WCFRelay was created.
+     */
+    readonly createdAt: string;
+    /**
+     * true if the relay is dynamic; otherwise, false.
+     */
+    readonly isDynamic: boolean;
+    /**
+     * The number of listeners for this relay. min : 1 and max:25 supported
+     */
+    readonly listenerCount: number;
+    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Properties of WcfRelay
+     * WCFRelay Type.
      */
-    readonly properties: outputs.relay.v20160701.WcfRelayPropertiesResponse;
+    readonly relayType?: string;
+    /**
+     * true if client authorization is needed for this relay; otherwise, false.
+     */
+    readonly requiresClientAuthorization?: boolean;
+    /**
+     * true if transport security is needed for this relay; otherwise, false.
+     */
+    readonly requiresTransportSecurity?: boolean;
     /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * The time the namespace was updated.
+     */
+    readonly updatedAt: string;
+    /**
+     * usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+     */
+    readonly userMetadata?: string;
 }

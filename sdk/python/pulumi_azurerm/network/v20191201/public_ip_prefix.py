@@ -14,6 +14,21 @@ class PublicIPPrefix(pulumi.CustomResource):
     """
     A unique read-only string that changes whenever the resource is updated.
     """
+    ip_prefix: pulumi.Output[str]
+    """
+    The allocated Prefix.
+    """
+    ip_tags: pulumi.Output[list]
+    """
+    The list of tags associated with the public IP prefix.
+      * `ip_tag_type` (`str`) - The IP tag type. Example: FirstPartyUsage.
+      * `tag` (`str`) - The value of the IP tag associated with the public IP. Example: SQL.
+    """
+    load_balancer_frontend_ip_configuration: pulumi.Output[dict]
+    """
+    The reference to load balancer frontend IP configuration associated with the public IP prefix.
+      * `id` (`str`) - Resource ID.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -22,24 +37,26 @@ class PublicIPPrefix(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    prefix_length: pulumi.Output[float]
     """
-    Public IP prefix properties.
-      * `ip_prefix` (`str`) - The allocated Prefix.
-      * `ip_tags` (`list`) - The list of tags associated with the public IP prefix.
-        * `ip_tag_type` (`str`) - The IP tag type. Example: FirstPartyUsage.
-        * `tag` (`str`) - The value of the IP tag associated with the public IP. Example: SQL.
-
-      * `load_balancer_frontend_ip_configuration` (`dict`) - The reference to load balancer frontend IP configuration associated with the public IP prefix.
-        * `id` (`str`) - Resource ID.
-
-      * `prefix_length` (`float`) - The Length of the Public IP Prefix.
-      * `provisioning_state` (`str`) - The provisioning state of the public IP prefix resource.
-      * `public_ip_address_version` (`str`) - The public IP address version.
-      * `public_ip_addresses` (`list`) - The list of all referenced PublicIPAddresses.
-        * `id` (`str`) - The PublicIPAddress Reference.
-
-      * `resource_guid` (`str`) - The resource GUID property of the public IP prefix resource.
+    The Length of the Public IP Prefix.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the public IP prefix resource.
+    """
+    public_ip_address_version: pulumi.Output[str]
+    """
+    The public IP address version.
+    """
+    public_ip_addresses: pulumi.Output[list]
+    """
+    The list of all referenced PublicIPAddresses.
+      * `id` (`str`) - The PublicIPAddress Reference.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    The resource GUID property of the public IP prefix resource.
     """
     sku: pulumi.Output[dict]
     """
@@ -116,7 +133,11 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['zones'] = zones
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['ip_prefix'] = None
+            __props__['load_balancer_frontend_ip_configuration'] = None
+            __props__['provisioning_state'] = None
+            __props__['public_ip_addresses'] = None
+            __props__['resource_guid'] = None
             __props__['type'] = None
         super(PublicIPPrefix, __self__).__init__(
             'azurerm:network/v20191201:PublicIPPrefix',

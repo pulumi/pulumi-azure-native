@@ -36,6 +36,22 @@ export interface GetWebAppSourceControlSlotArgs {
  */
 export interface GetWebAppSourceControlSlotResult {
     /**
+     * Name of branch to use for deployment.
+     */
+    readonly branch?: string;
+    /**
+     * <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+     */
+    readonly deploymentRollbackEnabled?: boolean;
+    /**
+     * <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+     */
+    readonly isManualIntegration?: boolean;
+    /**
+     * <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+     */
+    readonly isMercurial?: boolean;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -44,9 +60,9 @@ export interface GetWebAppSourceControlSlotResult {
      */
     readonly name: string;
     /**
-     * SiteSourceControl resource specific properties
+     * Repository or source control URL.
      */
-    readonly properties: outputs.web.v20180201.SiteSourceControlResponseProperties;
+    readonly repoUrl?: string;
     /**
      * Resource type.
      */

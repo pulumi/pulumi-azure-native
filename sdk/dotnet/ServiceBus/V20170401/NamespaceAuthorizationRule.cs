@@ -21,10 +21,10 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// AuthorizationRule properties.
+        /// The rights associated with the rule.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SBAuthorizationRuleResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("rights")]
+        public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

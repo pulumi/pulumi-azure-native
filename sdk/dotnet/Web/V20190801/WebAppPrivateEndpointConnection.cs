@@ -27,10 +27,19 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Core resource properties
+        /// PrivateEndpoint of a remote private endpoint connection
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RemotePrivateEndpointConnectionResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpoint")]
+        public Output<Outputs.ArmIdWrapperResponseResult?> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of a private link connection
+        /// </summary>
+        [Output("privateLinkServiceConnectionState")]
+        public Output<Outputs.PrivateLinkConnectionStateResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

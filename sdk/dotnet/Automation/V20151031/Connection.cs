@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the connectionType of the connection.
+        /// </summary>
+        [Output("connectionType")]
+        public Output<Outputs.ConnectionTypeAssociationPropertyResponseResult?> ConnectionType { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the field definition values of the connection.
+        /// </summary>
+        [Output("fieldDefinitionValues")]
+        public Output<ImmutableDictionary<string, string>> FieldDefinitionValues { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the properties of the connection.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

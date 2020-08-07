@@ -36,6 +36,18 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * Indicates whether to create an ACS namespace.
+     */
+    readonly createACSNamespace?: boolean;
+    /**
+     * The time the namespace was created.
+     */
+    readonly createdAt: string;
+    /**
+     * Specifies whether this instance is enabled.
+     */
+    readonly enabled?: boolean;
+    /**
      * Resource location.
      */
     readonly location: string;
@@ -44,13 +56,21 @@ export interface GetNamespaceResult {
      */
     readonly name: string;
     /**
-     * Properties of the namespace.
+     * Provisioning state of the namespace.
      */
-    readonly properties: outputs.servicebus.v20140901.NamespacePropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Endpoint you can use to perform Service Bus operations.
+     */
+    readonly serviceBusEndpoint: string;
     /**
      * SKU of the namespace.
      */
     readonly sku?: outputs.servicebus.v20140901.SkuResponse;
+    /**
+     * State of the namespace.
+     */
+    readonly status?: string;
     /**
      * Resource tags
      */
@@ -59,4 +79,8 @@ export interface GetNamespaceResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * The time the namespace was updated.
+     */
+    readonly updatedAt: string;
 }

@@ -36,9 +36,41 @@ export interface GetDomainServiceArgs {
  */
 export interface GetDomainServiceResult {
     /**
+     * List of Domain Controller IP Address
+     */
+    readonly domainControllerIpAddress: string[];
+    /**
+     * The name of the Azure domain that the user would like to deploy Domain Services to.
+     */
+    readonly domainName?: string;
+    /**
+     * DomainSecurity Settings
+     */
+    readonly domainSecuritySettings?: outputs.aad.v20170101.DomainSecuritySettingsResponse;
+    /**
      * Resource etag
      */
     readonly etag?: string;
+    /**
+     * Enabled or Disabled flag to turn on Group-based filtered sync
+     */
+    readonly filteredSync?: string;
+    /**
+     * List of Domain Health Alerts
+     */
+    readonly healthAlerts: outputs.aad.v20170101.HealthAlertResponse[];
+    /**
+     * Last domain evaluation run DateTime
+     */
+    readonly healthLastEvaluated: string;
+    /**
+     * List of Domain Health Monitors
+     */
+    readonly healthMonitors: outputs.aad.v20170101.HealthMonitorResponse[];
+    /**
+     * Secure LDAP Settings
+     */
+    readonly ldapsSettings?: outputs.aad.v20170101.LdapsSettingsResponse;
     /**
      * Resource location
      */
@@ -48,15 +80,35 @@ export interface GetDomainServiceResult {
      */
     readonly name: string;
     /**
-     * Domain service properties
+     * Notification Settings
      */
-    readonly properties: outputs.aad.v20170101.DomainServicePropertiesResponse;
+    readonly notificationSettings?: outputs.aad.v20170101.NotificationSettingsResponse;
+    /**
+     * the current deployment or provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * Status of Domain Service instance
+     */
+    readonly serviceStatus: string;
+    /**
+     * The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+     */
+    readonly subnetId?: string;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Azure Active Directory tenant id
+     */
+    readonly tenantId: string;
+    /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * Virtual network site id
+     */
+    readonly vnetSiteId: string;
 }

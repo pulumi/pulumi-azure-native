@@ -27,10 +27,12 @@ type LookupDatabaseArgs struct {
 
 // Represents a Database.
 type LookupDatabaseResult struct {
+	// The charset of the database.
+	Charset *string `pulumi:"charset"`
+	// The collation of the database.
+	Collation *string `pulumi:"collation"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties of a database.
-	Properties DatabasePropertiesResponse `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

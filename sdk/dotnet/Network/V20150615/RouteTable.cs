@@ -33,10 +33,22 @@ namespace Pulumi.AzureRM.Network.V20150615
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Route Table resource
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RouteTablePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of routes contained within a route table.
+        /// </summary>
+        [Output("routes")]
+        public Output<ImmutableArray<Outputs.RouteResponseResult>> Routes { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        [Output("subnets")]
+        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

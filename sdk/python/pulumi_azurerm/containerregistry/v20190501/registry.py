@@ -10,57 +10,74 @@ from ... import _utilities, _tables
 
 
 class Registry(pulumi.CustomResource):
+    admin_user_enabled: pulumi.Output[bool]
+    """
+    The value that indicates whether the admin user is enabled.
+    """
+    creation_date: pulumi.Output[str]
+    """
+    The creation date of the container registry in ISO8601 format.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource. This cannot be changed after the resource is created.
+    """
+    login_server: pulumi.Output[str]
+    """
+    The URL that can be used to log into the container registry.
     """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    network_rule_set: pulumi.Output[dict]
     """
-    The properties of the container registry.
-      * `admin_user_enabled` (`bool`) - The value that indicates whether the admin user is enabled.
-      * `creation_date` (`str`) - The creation date of the container registry in ISO8601 format.
-      * `login_server` (`str`) - The URL that can be used to log into the container registry.
-      * `network_rule_set` (`dict`) - The network rule set for a container registry.
-        * `default_action` (`str`) - The default action of allow or deny when no other rules match.
-        * `ip_rules` (`list`) - The IP ACL rules.
-          * `action` (`str`) - The action of IP ACL rule.
-          * `value` (`str`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+    The network rule set for a container registry.
+      * `default_action` (`str`) - The default action of allow or deny when no other rules match.
+      * `ip_rules` (`list`) - The IP ACL rules.
+        * `action` (`str`) - The action of IP ACL rule.
+        * `i_p_address_or_range` (`str`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 
-        * `virtual_network_rules` (`list`) - The virtual network rules.
-          * `action` (`str`) - The action of virtual network rule.
-          * `id` (`str`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+      * `virtual_network_rules` (`list`) - The virtual network rules.
+        * `action` (`str`) - The action of virtual network rule.
+        * `virtual_network_resource_id` (`str`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+    """
+    policies: pulumi.Output[dict]
+    """
+    The policies for a container registry.
+      * `quarantine_policy` (`dict`) - The quarantine policy for a container registry.
+        * `status` (`str`) - The value that indicates whether the policy is enabled or not.
 
-      * `policies` (`dict`) - The policies for a container registry.
-        * `quarantine_policy` (`dict`) - The quarantine policy for a container registry.
-          * `status` (`str`) - The value that indicates whether the policy is enabled or not.
+      * `retention_policy` (`dict`) - The retention policy for a container registry.
+        * `days` (`float`) - The number of days to retain an untagged manifest after which it gets purged.
+        * `last_updated_time` (`str`) - The timestamp when the policy was last updated.
+        * `status` (`str`) - The value that indicates whether the policy is enabled or not.
 
-        * `retention_policy` (`dict`) - The retention policy for a container registry.
-          * `days` (`float`) - The number of days to retain an untagged manifest after which it gets purged.
-          * `last_updated_time` (`str`) - The timestamp when the policy was last updated.
-          * `status` (`str`) - The value that indicates whether the policy is enabled or not.
-
-        * `trust_policy` (`dict`) - The content trust policy for a container registry.
-          * `status` (`str`) - The value that indicates whether the policy is enabled or not.
-          * `type` (`str`) - The type of trust policy.
-
-      * `provisioning_state` (`str`) - The provisioning state of the container registry at the time the operation was called.
-      * `status` (`dict`) - The status of the container registry at the time the operation was called.
-        * `display_status` (`str`) - The short label for the status.
-        * `message` (`str`) - The detailed message for the status, including alerts and error messages.
-        * `timestamp` (`str`) - The timestamp when the status was changed to the current value.
-
-      * `storage_account` (`dict`) - The properties of the storage account for the container registry. Only applicable to Classic SKU.
-        * `id` (`str`) - The resource ID of the storage account.
+      * `trust_policy` (`dict`) - The content trust policy for a container registry.
+        * `status` (`str`) - The value that indicates whether the policy is enabled or not.
+        * `type` (`str`) - The type of trust policy.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the container registry at the time the operation was called.
     """
     sku: pulumi.Output[dict]
     """
     The SKU of the container registry.
       * `name` (`str`) - The SKU name of the container registry. Required for registry creation.
       * `tier` (`str`) - The SKU tier based on the SKU name.
+    """
+    status: pulumi.Output[dict]
+    """
+    The status of the container registry at the time the operation was called.
+      * `display_status` (`str`) - The short label for the status.
+      * `message` (`str`) - The detailed message for the status, including alerts and error messages.
+      * `timestamp` (`str`) - The timestamp when the status was changed to the current value.
+    """
+    storage_account: pulumi.Output[dict]
+    """
+    The properties of the storage account for the container registry. Only applicable to Classic SKU.
+      * `id` (`str`) - The resource ID of the storage account.
     """
     tags: pulumi.Output[dict]
     """
@@ -152,7 +169,10 @@ class Registry(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['storage_account'] = storage_account
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_date'] = None
+            __props__['login_server'] = None
+            __props__['provisioning_state'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(Registry, __self__).__init__(
             'azurerm:containerregistry/v20190501:Registry',

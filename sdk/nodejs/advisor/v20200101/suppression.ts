@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -41,9 +39,13 @@ export class Suppression extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the suppression.
+     * The GUID of the suppression.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.advisor.v20200101.SuppressionPropertiesResponse>;
+    public readonly suppressionId!: pulumi.Output<string | undefined>;
+    /**
+     * The duration for which the suppression is valid.
+     */
+    public readonly ttl!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
@@ -76,7 +78,6 @@ export class Suppression extends pulumi.CustomResource {
             inputs["resourceUri"] = args ? args.resourceUri : undefined;
             inputs["suppressionId"] = args ? args.suppressionId : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

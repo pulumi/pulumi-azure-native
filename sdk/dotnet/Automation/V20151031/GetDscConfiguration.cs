@@ -46,21 +46,57 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetDscConfigurationResult
     {
         /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        public readonly string? CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Gets or sets the job count of the configuration.
+        /// </summary>
+        public readonly int? JobCount;
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        public readonly string? LastModifiedTime;
         /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Gets or sets verbose log option.
+        /// </summary>
+        public readonly bool? LogVerbose;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the configuration properties.
+        /// Gets the number of compiled node configurations.
         /// </summary>
-        public readonly Outputs.DscConfigurationPropertiesResponseResult Properties;
+        public readonly int? NodeConfigurationCount;
+        /// <summary>
+        /// Gets or sets the configuration parameters.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.DscConfigurationParameterResponseResult>? Parameters;
+        /// <summary>
+        /// Gets or sets the provisioning state of the configuration.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        public readonly Outputs.ContentSourceResponseResult? Source;
+        /// <summary>
+        /// Gets or sets the state of the configuration.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,22 +108,49 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
         [OutputConstructor]
         private GetDscConfigurationResult(
+            string? creationTime,
+
+            string? description,
+
             string? etag,
+
+            int? jobCount,
+
+            string? lastModifiedTime,
 
             string? location,
 
+            bool? logVerbose,
+
             string name,
 
-            Outputs.DscConfigurationPropertiesResponseResult properties,
+            int? nodeConfigurationCount,
+
+            ImmutableDictionary<string, Outputs.DscConfigurationParameterResponseResult>? parameters,
+
+            string? provisioningState,
+
+            Outputs.ContentSourceResponseResult? source,
+
+            string? state,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            CreationTime = creationTime;
+            Description = description;
             Etag = etag;
+            JobCount = jobCount;
+            LastModifiedTime = lastModifiedTime;
             Location = location;
+            LogVerbose = logVerbose;
             Name = name;
-            Properties = properties;
+            NodeConfigurationCount = nodeConfigurationCount;
+            Parameters = parameters;
+            ProvisioningState = provisioningState;
+            Source = source;
+            State = state;
             Tags = tags;
             Type = type;
         }

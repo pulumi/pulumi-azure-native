@@ -10,20 +10,37 @@ from ... import _utilities, _tables
 
 
 class PolicyAssignment(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    This message will be part of response in case of policy violation.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The display name of the policy assignment.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    The policy assignment metadata.
+    """
     name: pulumi.Output[str]
     """
     The name of the policy assignment.
     """
-    properties: pulumi.Output[dict]
+    not_scopes: pulumi.Output[list]
     """
-    Properties for the policy assignment.
-      * `description` (`str`) - This message will be part of response in case of policy violation.
-      * `display_name` (`str`) - The display name of the policy assignment.
-      * `metadata` (`dict`) - The policy assignment metadata.
-      * `not_scopes` (`list`) - The policy's excluded scopes.
-      * `parameters` (`dict`) - Required if a parameter is used in policy rule.
-      * `policy_definition_id` (`str`) - The ID of the policy definition or policy set definition being assigned.
-      * `scope` (`str`) - The scope for the policy assignment.
+    The policy's excluded scopes.
+    """
+    parameters: pulumi.Output[dict]
+    """
+    Required if a parameter is used in policy rule.
+    """
+    policy_definition_id: pulumi.Output[str]
+    """
+    The ID of the policy definition or policy set definition being assigned.
+    """
+    scope: pulumi.Output[str]
+    """
+    The scope for the policy assignment.
     """
     sku: pulumi.Output[dict]
     """
@@ -86,7 +103,6 @@ class PolicyAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['sku'] = sku
-            __props__['properties'] = None
             __props__['type'] = None
         super(PolicyAssignment, __self__).__init__(
             'azurerm:authorization/v20180301:PolicyAssignment',

@@ -22,9 +22,9 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The virtual network rule properties.
+        /// The resource identifier for the subnet.
         /// </summary>
-        public readonly Outputs.VirtualNetworkRulePropertiesResponseResult Properties;
+        public readonly string SubnetId;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101.Outputs
 
             string name,
 
-            Outputs.VirtualNetworkRulePropertiesResponseResult properties,
+            string subnetId,
 
             string type)
         {
             Id = id;
             Name = name;
-            Properties = properties;
+            SubnetId = subnetId;
             Type = type;
         }
     }

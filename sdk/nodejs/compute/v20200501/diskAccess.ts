@@ -44,11 +44,22 @@ export class DiskAccess extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20200501.DiskAccessPropertiesResponse>;
+    /**
+     * A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.compute.v20200501.PrivateEndpointConnectionResponse[]>;
+    /**
+     * The disk access resource provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The time when the disk access was created.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -80,7 +91,9 @@ export class DiskAccess extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

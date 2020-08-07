@@ -13,12 +13,42 @@ class GetSubnetResult:
     """
     Subnet in a virtual network resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, address_prefix=None, address_prefixes=None, delegations=None, etag=None, ip_configuration_profiles=None, ip_configurations=None, name=None, nat_gateway=None, network_security_group=None, private_endpoint_network_policies=None, private_endpoints=None, private_link_service_network_policies=None, provisioning_state=None, purpose=None, resource_navigation_links=None, route_table=None, service_association_links=None, service_endpoint_policies=None, service_endpoints=None):
+        if address_prefix and not isinstance(address_prefix, str):
+            raise TypeError("Expected argument 'address_prefix' to be a str")
+        __self__.address_prefix = address_prefix
+        """
+        The address prefix for the subnet.
+        """
+        if address_prefixes and not isinstance(address_prefixes, list):
+            raise TypeError("Expected argument 'address_prefixes' to be a list")
+        __self__.address_prefixes = address_prefixes
+        """
+        List of address prefixes for the subnet.
+        """
+        if delegations and not isinstance(delegations, list):
+            raise TypeError("Expected argument 'delegations' to be a list")
+        __self__.delegations = delegations
+        """
+        Gets an array of references to the delegations on the subnet.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if ip_configuration_profiles and not isinstance(ip_configuration_profiles, list):
+            raise TypeError("Expected argument 'ip_configuration_profiles' to be a list")
+        __self__.ip_configuration_profiles = ip_configuration_profiles
+        """
+        Array of IP configuration profiles which reference this subnet.
+        """
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        __self__.ip_configurations = ip_configurations
+        """
+        Gets an array of references to the network interface IP configurations using subnet.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +56,77 @@ class GetSubnetResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if nat_gateway and not isinstance(nat_gateway, dict):
+            raise TypeError("Expected argument 'nat_gateway' to be a dict")
+        __self__.nat_gateway = nat_gateway
         """
-        Properties of the subnet.
+        Nat gateway associated with this subnet.
+        """
+        if network_security_group and not isinstance(network_security_group, dict):
+            raise TypeError("Expected argument 'network_security_group' to be a dict")
+        __self__.network_security_group = network_security_group
+        """
+        The reference of the NetworkSecurityGroup resource.
+        """
+        if private_endpoint_network_policies and not isinstance(private_endpoint_network_policies, str):
+            raise TypeError("Expected argument 'private_endpoint_network_policies' to be a str")
+        __self__.private_endpoint_network_policies = private_endpoint_network_policies
+        """
+        Enable or Disable apply network policies on private end point in the subnet.
+        """
+        if private_endpoints and not isinstance(private_endpoints, list):
+            raise TypeError("Expected argument 'private_endpoints' to be a list")
+        __self__.private_endpoints = private_endpoints
+        """
+        An array of references to private endpoints.
+        """
+        if private_link_service_network_policies and not isinstance(private_link_service_network_policies, str):
+            raise TypeError("Expected argument 'private_link_service_network_policies' to be a str")
+        __self__.private_link_service_network_policies = private_link_service_network_policies
+        """
+        Enable or Disable apply network policies on private link service in the subnet.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
+        """
+        if purpose and not isinstance(purpose, str):
+            raise TypeError("Expected argument 'purpose' to be a str")
+        __self__.purpose = purpose
+        """
+        A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+        """
+        if resource_navigation_links and not isinstance(resource_navigation_links, list):
+            raise TypeError("Expected argument 'resource_navigation_links' to be a list")
+        __self__.resource_navigation_links = resource_navigation_links
+        """
+        Gets an array of references to the external resources using subnet.
+        """
+        if route_table and not isinstance(route_table, dict):
+            raise TypeError("Expected argument 'route_table' to be a dict")
+        __self__.route_table = route_table
+        """
+        The reference of the RouteTable resource.
+        """
+        if service_association_links and not isinstance(service_association_links, list):
+            raise TypeError("Expected argument 'service_association_links' to be a list")
+        __self__.service_association_links = service_association_links
+        """
+        Gets an array of references to services injecting into this subnet.
+        """
+        if service_endpoint_policies and not isinstance(service_endpoint_policies, list):
+            raise TypeError("Expected argument 'service_endpoint_policies' to be a list")
+        __self__.service_endpoint_policies = service_endpoint_policies
+        """
+        An array of service endpoint policies.
+        """
+        if service_endpoints and not isinstance(service_endpoints, list):
+            raise TypeError("Expected argument 'service_endpoints' to be a list")
+        __self__.service_endpoints = service_endpoints
+        """
+        An array of service endpoints.
         """
 
 
@@ -40,9 +136,25 @@ class AwaitableGetSubnetResult(GetSubnetResult):
         if False:
             yield self
         return GetSubnetResult(
+            address_prefix=self.address_prefix,
+            address_prefixes=self.address_prefixes,
+            delegations=self.delegations,
             etag=self.etag,
+            ip_configuration_profiles=self.ip_configuration_profiles,
+            ip_configurations=self.ip_configurations,
             name=self.name,
-            properties=self.properties)
+            nat_gateway=self.nat_gateway,
+            network_security_group=self.network_security_group,
+            private_endpoint_network_policies=self.private_endpoint_network_policies,
+            private_endpoints=self.private_endpoints,
+            private_link_service_network_policies=self.private_link_service_network_policies,
+            provisioning_state=self.provisioning_state,
+            purpose=self.purpose,
+            resource_navigation_links=self.resource_navigation_links,
+            route_table=self.route_table,
+            service_association_links=self.service_association_links,
+            service_endpoint_policies=self.service_endpoint_policies,
+            service_endpoints=self.service_endpoints)
 
 
 def get_subnet(name=None, resource_group_name=None, virtual_network_name=None, opts=None):
@@ -64,6 +176,22 @@ def get_subnet(name=None, resource_group_name=None, virtual_network_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190601:getSubnet', __args__, opts=opts).value
 
     return AwaitableGetSubnetResult(
+        address_prefix=__ret__.get('addressPrefix'),
+        address_prefixes=__ret__.get('addressPrefixes'),
+        delegations=__ret__.get('delegations'),
         etag=__ret__.get('etag'),
+        ip_configuration_profiles=__ret__.get('ipConfigurationProfiles'),
+        ip_configurations=__ret__.get('ipConfigurations'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        nat_gateway=__ret__.get('natGateway'),
+        network_security_group=__ret__.get('networkSecurityGroup'),
+        private_endpoint_network_policies=__ret__.get('privateEndpointNetworkPolicies'),
+        private_endpoints=__ret__.get('privateEndpoints'),
+        private_link_service_network_policies=__ret__.get('privateLinkServiceNetworkPolicies'),
+        provisioning_state=__ret__.get('provisioningState'),
+        purpose=__ret__.get('purpose'),
+        resource_navigation_links=__ret__.get('resourceNavigationLinks'),
+        route_table=__ret__.get('routeTable'),
+        service_association_links=__ret__.get('serviceAssociationLinks'),
+        service_endpoint_policies=__ret__.get('serviceEndpointPolicies'),
+        service_endpoints=__ret__.get('serviceEndpoints'))

@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Insights.V20160301
     public partial class AlertRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// the condition that results in the alert rule being activated.
+        /// </summary>
+        [Output("condition")]
+        public Output<Outputs.RuleConditionResponseResult> Condition { get; private set; } = null!;
+
+        /// <summary>
+        /// the description of the alert rule that will be included in the alert email.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// the flag that indicates whether the alert rule is enabled.
+        /// </summary>
+        [Output("isEnabled")]
+        public Output<bool> IsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Last time the rule was updated in ISO8601 format.
+        /// </summary>
+        [Output("lastUpdatedTime")]
+        public Output<string> LastUpdatedTime { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -25,12 +49,6 @@ namespace Pulumi.AzureRM.Insights.V20160301
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The alert rule properties of the resource.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AlertRuleResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

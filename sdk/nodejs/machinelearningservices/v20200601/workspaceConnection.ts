@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,29 @@ export class WorkspaceConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Authorization type of the workspace connection.
+     */
+    public readonly authType!: pulumi.Output<string | undefined>;
+    /**
+     * Category of the workspace connection.
+     */
+    public readonly category!: pulumi.Output<string | undefined>;
+    /**
      * Friendly name of the workspace connection.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of workspace connection.
+     * Target of the workspace connection.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200601.WorkspaceConnectionPropsResponse>;
+    public readonly target!: pulumi.Output<string | undefined>;
     /**
      * Resource type of workspace connection.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Value details of the workspace connection.
+     */
+    public readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WorkspaceConnection resource with the given unique name, arguments, and options.
@@ -78,7 +88,6 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             inputs["target"] = args ? args.target : undefined;
             inputs["value"] = args ? args.value : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

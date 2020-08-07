@@ -36,13 +36,37 @@ export interface GetPolicyDefinitionAtManagementGroupArgs {
  */
 export interface GetPolicyDefinitionAtManagementGroupResult {
     /**
+     * The policy definition description.
+     */
+    readonly description?: string;
+    /**
+     * The display name of the policy definition.
+     */
+    readonly displayName?: string;
+    /**
+     * The policy definition metadata.
+     */
+    readonly metadata?: {[key: string]: any};
+    /**
+     * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+     */
+    readonly mode?: string;
+    /**
      * The name of the policy definition.
      */
     readonly name: string;
     /**
-     * The policy definition properties.
+     * Required if a parameter is used in policy rule.
      */
-    readonly properties: outputs.management.v20190601.PolicyDefinitionPropertiesResponse;
+    readonly parameters?: {[key: string]: any};
+    /**
+     * The policy rule.
+     */
+    readonly policyRule?: {[key: string]: any};
+    /**
+     * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+     */
+    readonly policyType?: string;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */

@@ -46,29 +46,78 @@ namespace Pulumi.AzureRM.Relay.V20160701
     public sealed class GetWCFRelayResult
     {
         /// <summary>
+        /// The time the WCFRelay was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// true if the relay is dynamic; otherwise, false.
+        /// </summary>
+        public readonly bool IsDynamic;
+        /// <summary>
+        /// The number of listeners for this relay. min : 1 and max:25 supported
+        /// </summary>
+        public readonly int ListenerCount;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of WcfRelay
+        /// WCFRelay Type.
         /// </summary>
-        public readonly Outputs.WcfRelayPropertiesResponseResult Properties;
+        public readonly string? RelayType;
+        /// <summary>
+        /// true if client authorization is needed for this relay; otherwise, false.
+        /// </summary>
+        public readonly bool? RequiresClientAuthorization;
+        /// <summary>
+        /// true if transport security is needed for this relay; otherwise, false.
+        /// </summary>
+        public readonly bool? RequiresTransportSecurity;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
+        /// <summary>
+        /// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+        /// </summary>
+        public readonly string? UserMetadata;
 
         [OutputConstructor]
         private GetWCFRelayResult(
+            string createdAt,
+
+            bool isDynamic,
+
+            int listenerCount,
+
             string name,
 
-            Outputs.WcfRelayPropertiesResponseResult properties,
+            string? relayType,
 
-            string type)
+            bool? requiresClientAuthorization,
+
+            bool? requiresTransportSecurity,
+
+            string type,
+
+            string updatedAt,
+
+            string? userMetadata)
         {
+            CreatedAt = createdAt;
+            IsDynamic = isDynamic;
+            ListenerCount = listenerCount;
             Name = name;
-            Properties = properties;
+            RelayType = relayType;
+            RequiresClientAuthorization = requiresClientAuthorization;
+            RequiresTransportSecurity = requiresTransportSecurity;
             Type = type;
+            UpdatedAt = updatedAt;
+            UserMetadata = userMetadata;
         }
     }
 }

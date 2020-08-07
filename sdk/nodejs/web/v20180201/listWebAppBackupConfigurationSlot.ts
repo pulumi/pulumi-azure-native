@@ -36,6 +36,22 @@ export interface ListWebAppBackupConfigurationSlotArgs {
  */
 export interface ListWebAppBackupConfigurationSlotResult {
     /**
+     * Name of the backup.
+     */
+    readonly backupName?: string;
+    /**
+     * Schedule for the backup if it is executed periodically.
+     */
+    readonly backupSchedule?: outputs.web.v20180201.BackupScheduleResponse;
+    /**
+     * Databases included in the backup.
+     */
+    readonly databases?: outputs.web.v20180201.DatabaseBackupSettingResponse[];
+    /**
+     * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+     */
+    readonly enabled?: boolean;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -44,9 +60,9 @@ export interface ListWebAppBackupConfigurationSlotResult {
      */
     readonly name: string;
     /**
-     * BackupRequest resource specific properties
+     * SAS URL to the container.
      */
-    readonly properties: outputs.web.v20180201.BackupRequestResponseProperties;
+    readonly storageAccountUrl: string;
     /**
      * Resource type.
      */

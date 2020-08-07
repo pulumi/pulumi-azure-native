@@ -37,6 +37,74 @@ export class Component extends pulumi.CustomResource {
     }
 
     /**
+     * Application Insights Unique ID for your Application.
+     */
+    public /*out*/ readonly AppId!: pulumi.Output<string>;
+    /**
+     * The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
+     */
+    public /*out*/ readonly ApplicationId!: pulumi.Output<string>;
+    /**
+     * Type of application being monitored.
+     */
+    public readonly Application_Type!: pulumi.Output<string>;
+    /**
+     * Application Insights component connection string.
+     */
+    public /*out*/ readonly ConnectionString!: pulumi.Output<string>;
+    /**
+     * Creation Date for the Application Insights component, in ISO 8601 format.
+     */
+    public /*out*/ readonly CreationDate!: pulumi.Output<string>;
+    /**
+     * Disable IP masking.
+     */
+    public readonly DisableIpMasking!: pulumi.Output<boolean | undefined>;
+    /**
+     * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+     */
+    public readonly Flow_Type!: pulumi.Output<string | undefined>;
+    /**
+     * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+     */
+    public readonly HockeyAppId!: pulumi.Output<string | undefined>;
+    /**
+     * Token used to authenticate communications with between Application Insights and HockeyApp.
+     */
+    public /*out*/ readonly HockeyAppToken!: pulumi.Output<string>;
+    /**
+     * Purge data immediately after 30 days.
+     */
+    public readonly ImmediatePurgeDataOn30Days!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates the flow of the ingestion.
+     */
+    public readonly IngestionMode!: pulumi.Output<string | undefined>;
+    /**
+     * Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
+     */
+    public /*out*/ readonly InstrumentationKey!: pulumi.Output<string>;
+    /**
+     * List of linked private link scope resources.
+     */
+    public /*out*/ readonly PrivateLinkScopedResources!: pulumi.Output<outputs.insights.v20150501.PrivateLinkScopedResourceResponse[]>;
+    /**
+     * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+     */
+    public readonly Request_Source!: pulumi.Output<string | undefined>;
+    /**
+     * Retention period in days.
+     */
+    public readonly RetentionInDays!: pulumi.Output<number | undefined>;
+    /**
+     * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+     */
+    public readonly SamplingPercentage!: pulumi.Output<number | undefined>;
+    /**
+     * Azure Tenant Id.
+     */
+    public /*out*/ readonly TenantId!: pulumi.Output<string>;
+    /**
      * The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
      */
     public readonly kind!: pulumi.Output<string>;
@@ -49,9 +117,9 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties that define an Application Insights component resource.
+     * Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20150501.ApplicationInsightsComponentPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -103,7 +171,15 @@ export class Component extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["AppId"] = undefined /*out*/;
+            inputs["ApplicationId"] = undefined /*out*/;
+            inputs["ConnectionString"] = undefined /*out*/;
+            inputs["CreationDate"] = undefined /*out*/;
+            inputs["HockeyAppToken"] = undefined /*out*/;
+            inputs["InstrumentationKey"] = undefined /*out*/;
+            inputs["PrivateLinkScopedResources"] = undefined /*out*/;
+            inputs["TenantId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

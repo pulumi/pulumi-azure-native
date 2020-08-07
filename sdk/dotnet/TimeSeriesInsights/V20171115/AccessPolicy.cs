@@ -15,13 +15,28 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
     public partial class AccessPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// An description of the access policy.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.AccessPolicyResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// The objectId of the principal in Azure Active Directory.
+        /// </summary>
+        [Output("principalObjectId")]
+        public Output<string?> PrincipalObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of roles the principal is assigned on the environment.
+        /// </summary>
+        [Output("roles")]
+        public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

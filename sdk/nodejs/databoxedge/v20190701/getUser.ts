@@ -41,13 +41,17 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
+     * The password details.
+     */
+    readonly encryptedPassword?: outputs.databoxedge.v20190701.AsymmetricEncryptedSecretResponse;
+    /**
      * The object name.
      */
     readonly name: string;
     /**
-     * The storage account credential properties.
+     * List of shares that the user has rights on. This field should not be specified during user creation.
      */
-    readonly properties: outputs.databoxedge.v20190701.UserPropertiesResponse;
+    readonly shareAccessRights?: outputs.databoxedge.v20190701.ShareAccessRightResponse[];
     /**
      * The hierarchical type of the object.
      */

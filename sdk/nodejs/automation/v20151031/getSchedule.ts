@@ -41,13 +41,65 @@ export interface GetScheduleArgs {
  */
 export interface GetScheduleResult {
     /**
+     * Gets or sets the advanced schedule.
+     */
+    readonly advancedSchedule?: outputs.automation.v20151031.AdvancedScheduleResponse;
+    /**
+     * Gets or sets the creation time.
+     */
+    readonly creationTime?: string;
+    /**
+     * Gets or sets the description.
+     */
+    readonly description?: string;
+    /**
+     * Gets or sets the end time of the schedule.
+     */
+    readonly expiryTime?: string;
+    /**
+     * Gets or sets the expiry time's offset in minutes.
+     */
+    readonly expiryTimeOffsetMinutes?: number;
+    /**
+     * Gets or sets the frequency of the schedule.
+     */
+    readonly frequency?: string;
+    /**
+     * Gets or sets the interval of the schedule.
+     */
+    readonly interval?: {[key: string]: any};
+    /**
+     * Gets or sets a value indicating whether this schedule is enabled.
+     */
+    readonly isEnabled?: boolean;
+    /**
+     * Gets or sets the last modified time.
+     */
+    readonly lastModifiedTime?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets or sets the properties of the schedule.
+     * Gets or sets the next run time of the schedule.
      */
-    readonly properties: outputs.automation.v20151031.SchedulePropertiesResponse;
+    readonly nextRun?: string;
+    /**
+     * Gets or sets the next run time's offset in minutes.
+     */
+    readonly nextRunOffsetMinutes?: number;
+    /**
+     * Gets or sets the start time of the schedule.
+     */
+    readonly startTime?: string;
+    /**
+     * Gets the start time's offset in minutes.
+     */
+    readonly startTimeOffsetMinutes: number;
+    /**
+     * Gets or sets the time zone of the schedule.
+     */
+    readonly timeZone?: string;
     /**
      * The type of the resource.
      */

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,9 +35,37 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
+     * Time when this project was created. Date-Time represented in ISO-8601 format.
+     */
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    /**
+     * ARM ID of the Service Map workspace created by user.
+     */
+    public readonly customerWorkspaceId!: pulumi.Output<string | undefined>;
+    /**
+     * Location of the Service Map workspace created by user.
+     */
+    public readonly customerWorkspaceLocation!: pulumi.Output<string | undefined>;
+    /**
+     * Reports whether project is under discovery.
+     */
+    public /*out*/ readonly discoveryStatus!: pulumi.Output<string>;
+    /**
      * For optimistic concurrency control.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
+    /**
+     * Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+     */
+    public /*out*/ readonly lastAssessmentTimestamp!: pulumi.Output<string>;
+    /**
+     * Session id of the last discovery.
+     */
+    public /*out*/ readonly lastDiscoverySessionId!: pulumi.Output<string>;
+    /**
+     * Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
+     */
+    public /*out*/ readonly lastDiscoveryTimestamp!: pulumi.Output<string>;
     /**
      * Azure location in which project is created.
      */
@@ -49,9 +75,21 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the project.
+     * Number of assessments created in the project.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.migrate.v20180202.ProjectPropertiesResponse>;
+    public /*out*/ readonly numberOfAssessments!: pulumi.Output<number>;
+    /**
+     * Number of groups created in the project.
+     */
+    public /*out*/ readonly numberOfGroups!: pulumi.Output<number>;
+    /**
+     * Number of machines in the project.
+     */
+    public /*out*/ readonly numberOfMachines!: pulumi.Output<number>;
+    /**
+     * Provisioning state of the project.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Tags provided by Azure Tagging service.
      */
@@ -60,6 +98,10 @@ export class Project extends pulumi.CustomResource {
      * Type of the object = [Microsoft.Migrate/projects].
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Time when this project was last updated. Date-Time represented in ISO-8601 format.
+     */
+    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -88,8 +130,16 @@ export class Project extends pulumi.CustomResource {
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdTimestamp"] = undefined /*out*/;
+            inputs["discoveryStatus"] = undefined /*out*/;
+            inputs["lastAssessmentTimestamp"] = undefined /*out*/;
+            inputs["lastDiscoverySessionId"] = undefined /*out*/;
+            inputs["lastDiscoveryTimestamp"] = undefined /*out*/;
+            inputs["numberOfAssessments"] = undefined /*out*/;
+            inputs["numberOfGroups"] = undefined /*out*/;
+            inputs["numberOfMachines"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedTimestamp"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

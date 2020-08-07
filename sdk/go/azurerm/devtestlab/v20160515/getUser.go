@@ -27,14 +27,22 @@ type LookupUserArgs struct {
 
 // Profile of a lab user.
 type LookupUserResult struct {
+	// The creation date of the user profile.
+	CreatedDate string `pulumi:"createdDate"`
+	// The identity of the user.
+	Identity *UserIdentityResponse `pulumi:"identity"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties UserPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The secret store of the user.
+	SecretStore *UserSecretStoreResponse `pulumi:"secretStore"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }

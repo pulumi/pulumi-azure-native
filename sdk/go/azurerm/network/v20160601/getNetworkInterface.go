@@ -25,16 +25,32 @@ type LookupNetworkInterfaceArgs struct {
 
 // A NetworkInterface in a resource group
 type LookupNetworkInterfaceResult struct {
+	// Gets or sets DNS settings in network interface
+	DnsSettings *NetworkInterfaceDnsSettingsResponse `pulumi:"dnsSettings"`
+	// Gets or sets whether IPForwarding is enabled on the NIC
+	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Gets or sets list of IPConfigurations of the network interface
+	IpConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Gets the MAC address of the network interface
+	MacAddress *string `pulumi:"macAddress"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// NetworkInterface properties.
-	Properties NetworkInterfacePropertiesFormatResponse `pulumi:"properties"`
+	// Gets or sets the reference of the NetworkSecurityGroup resource
+	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	// Gets whether this is a primary NIC on a virtual machine
+	Primary *bool `pulumi:"primary"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets resource guid property of the network interface resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Gets or sets the reference of a VirtualMachine
+	VirtualMachine *SubResourceResponse `pulumi:"virtualMachine"`
 }

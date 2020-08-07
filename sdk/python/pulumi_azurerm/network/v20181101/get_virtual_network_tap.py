@@ -13,7 +13,25 @@ class GetVirtualNetworkTapResult:
     """
     Virtual Network Tap resource
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, destination_load_balancer_front_end_ip_configuration=None, destination_network_interface_ip_configuration=None, destination_port=None, etag=None, location=None, name=None, network_interface_tap_configurations=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+        if destination_load_balancer_front_end_ip_configuration and not isinstance(destination_load_balancer_front_end_ip_configuration, dict):
+            raise TypeError("Expected argument 'destination_load_balancer_front_end_ip_configuration' to be a dict")
+        __self__.destination_load_balancer_front_end_ip_configuration = destination_load_balancer_front_end_ip_configuration
+        """
+        The reference to the private IP address on the internal Load Balancer that will receive the tap
+        """
+        if destination_network_interface_ip_configuration and not isinstance(destination_network_interface_ip_configuration, dict):
+            raise TypeError("Expected argument 'destination_network_interface_ip_configuration' to be a dict")
+        __self__.destination_network_interface_ip_configuration = destination_network_interface_ip_configuration
+        """
+        The reference to the private IP Address of the collector nic that will receive the tap
+        """
+        if destination_port and not isinstance(destination_port, float):
+            raise TypeError("Expected argument 'destination_port' to be a float")
+        __self__.destination_port = destination_port
+        """
+        The VXLAN destination port that will receive the tapped traffic.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +50,23 @@ class GetVirtualNetworkTapResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_interface_tap_configurations and not isinstance(network_interface_tap_configurations, list):
+            raise TypeError("Expected argument 'network_interface_tap_configurations' to be a list")
+        __self__.network_interface_tap_configurations = network_interface_tap_configurations
         """
-        Virtual Network Tap Properties.
+        Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the virtual network tap. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resourceGuid property of the virtual network tap.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +88,15 @@ class AwaitableGetVirtualNetworkTapResult(GetVirtualNetworkTapResult):
         if False:
             yield self
         return GetVirtualNetworkTapResult(
+            destination_load_balancer_front_end_ip_configuration=self.destination_load_balancer_front_end_ip_configuration,
+            destination_network_interface_ip_configuration=self.destination_network_interface_ip_configuration,
+            destination_port=self.destination_port,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_interface_tap_configurations=self.network_interface_tap_configurations,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +118,14 @@ def get_virtual_network_tap(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20181101:getVirtualNetworkTap', __args__, opts=opts).value
 
     return AwaitableGetVirtualNetworkTapResult(
+        destination_load_balancer_front_end_ip_configuration=__ret__.get('destinationLoadBalancerFrontEndIPConfiguration'),
+        destination_network_interface_ip_configuration=__ret__.get('destinationNetworkInterfaceIPConfiguration'),
+        destination_port=__ret__.get('destinationPort'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_interface_tap_configurations=__ret__.get('networkInterfaceTapConfigurations'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

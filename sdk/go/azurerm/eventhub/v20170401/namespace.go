@@ -14,18 +14,32 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
+	// The time the Namespace was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+	IsAutoInflateEnabled pulumi.BoolPtrOutput `pulumi:"isAutoInflateEnabled"`
+	// Value that indicates whether Kafka is enabled for eventhub namespace.
+	KafkaEnabled pulumi.BoolPtrOutput `pulumi:"kafkaEnabled"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+	MaximumThroughputUnits pulumi.IntPtrOutput `pulumi:"maximumThroughputUnits"`
+	// Identifier for Azure Insights metrics.
+	MetricId pulumi.StringOutput `pulumi:"metricId"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Namespace properties supplied for create namespace operation.
-	Properties EHNamespaceResponsePropertiesOutput `pulumi:"properties"`
+	// Provisioning state of the Namespace.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
 	// Properties of sku resource
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The time the Namespace was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -62,33 +76,61 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
+	// The time the Namespace was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
+	// Value that indicates whether Kafka is enabled for eventhub namespace.
+	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
+	// Identifier for Azure Insights metrics.
+	MetricId *string `pulumi:"metricId"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Namespace properties supplied for create namespace operation.
-	Properties *EHNamespaceResponseProperties `pulumi:"properties"`
+	// Provisioning state of the Namespace.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
 	// Properties of sku resource
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The time the Namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type NamespaceState struct {
+	// The time the Namespace was created.
+	CreatedAt pulumi.StringPtrInput
+	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+	IsAutoInflateEnabled pulumi.BoolPtrInput
+	// Value that indicates whether Kafka is enabled for eventhub namespace.
+	KafkaEnabled pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+	MaximumThroughputUnits pulumi.IntPtrInput
+	// Identifier for Azure Insights metrics.
+	MetricId pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Namespace properties supplied for create namespace operation.
-	Properties EHNamespaceResponsePropertiesPtrInput
+	// Provisioning state of the Namespace.
+	ProvisioningState pulumi.StringPtrInput
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint pulumi.StringPtrInput
 	// Properties of sku resource
 	Sku SkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The time the Namespace was updated.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {

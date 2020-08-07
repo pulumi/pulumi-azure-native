@@ -41,13 +41,17 @@ export class MediaService extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * The Media Services account ID.
+     */
+    public /*out*/ readonly mediaServiceId!: pulumi.Output<string>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The resource properties.
+     * The storage accounts for this resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.MediaServicePropertiesResponse>;
+    public readonly storageAccounts!: pulumi.Output<outputs.media.v20180701.StorageAccountResponse[] | undefined>;
     /**
      * Resource tags.
      */
@@ -81,7 +85,7 @@ export class MediaService extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["mediaServiceId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

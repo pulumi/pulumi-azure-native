@@ -40,13 +40,25 @@ namespace Pulumi.AzureRM.CostManagement.V20180531
     public sealed class GetReportConfigByResourceGroupNameResult
     {
         /// <summary>
+        /// Has definition for the report config.
+        /// </summary>
+        public readonly Outputs.ReportConfigDefinitionResponseResult Definition;
+        /// <summary>
+        /// Has delivery information for the report config.
+        /// </summary>
+        public readonly Outputs.ReportConfigDeliveryInfoResponseResult DeliveryInfo;
+        /// <summary>
+        /// The format of the report being delivered.
+        /// </summary>
+        public readonly string? Format;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the report config.
+        /// Has schedule information for the report config.
         /// </summary>
-        public readonly Outputs.ReportConfigPropertiesResponseResult Properties;
+        public readonly Outputs.ReportConfigScheduleResponseResult? Schedule;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -58,16 +70,25 @@ namespace Pulumi.AzureRM.CostManagement.V20180531
 
         [OutputConstructor]
         private GetReportConfigByResourceGroupNameResult(
+            Outputs.ReportConfigDefinitionResponseResult definition,
+
+            Outputs.ReportConfigDeliveryInfoResponseResult deliveryInfo,
+
+            string? format,
+
             string name,
 
-            Outputs.ReportConfigPropertiesResponseResult properties,
+            Outputs.ReportConfigScheduleResponseResult? schedule,
 
             ImmutableDictionary<string, string> tags,
 
             string type)
         {
+            Definition = definition;
+            DeliveryInfo = deliveryInfo;
+            Format = format;
             Name = name;
-            Properties = properties;
+            Schedule = schedule;
             Tags = tags;
             Type = type;
         }

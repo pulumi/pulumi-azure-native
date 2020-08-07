@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Network.V20160401.Outputs
         /// <summary>
         /// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         /// </summary>
-        public readonly int? MinimumTTL;
+        public readonly int? MinimumTtl;
         /// <summary>
         /// The refresh value for this SOA record.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Network.V20160401.Outputs
 
             string? host,
 
-            int? minimumTTL,
+            int? minimumTtl,
 
             int? refreshTime,
 
@@ -61,7 +61,7 @@ namespace Pulumi.AzureRM.Network.V20160401.Outputs
             Email = email;
             ExpireTime = expireTime;
             Host = host;
-            MinimumTTL = minimumTTL;
+            MinimumTtl = minimumTtl;
             RefreshTime = refreshTime;
             RetryTime = retryTime;
             SerialNumber = serialNumber;

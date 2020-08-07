@@ -14,18 +14,26 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// The cluster data ingestion URI.
+	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The cluster properties.
-	Properties ClusterPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The SKU of the cluster.
 	Sku AzureSkuResponseOutput `pulumi:"sku"`
+	// The state of the resource.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The cluster's external tenants.
+	TrustedExternalTenants TrustedExternalTenantResponseArrayOutput `pulumi:"trustedExternalTenants"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The cluster URI.
+	Uri pulumi.StringOutput `pulumi:"uri"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -68,33 +76,49 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// The cluster data ingestion URI.
+	DataIngestionUri *string `pulumi:"dataIngestionUri"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The cluster properties.
-	Properties *ClusterPropertiesResponse `pulumi:"properties"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The SKU of the cluster.
 	Sku *AzureSkuResponse `pulumi:"sku"`
+	// The state of the resource.
+	State *string `pulumi:"state"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The cluster's external tenants.
+	TrustedExternalTenants []TrustedExternalTenantResponse `pulumi:"trustedExternalTenants"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// The cluster URI.
+	Uri *string `pulumi:"uri"`
 }
 
 type ClusterState struct {
+	// The cluster data ingestion URI.
+	DataIngestionUri pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The cluster properties.
-	Properties ClusterPropertiesResponsePtrInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The SKU of the cluster.
 	Sku AzureSkuResponsePtrInput
+	// The state of the resource.
+	State pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The cluster's external tenants.
+	TrustedExternalTenants TrustedExternalTenantResponseArrayInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// The cluster URI.
+	Uri pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {

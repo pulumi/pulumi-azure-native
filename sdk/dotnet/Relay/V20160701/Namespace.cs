@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Relay.V20160701
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the namespace was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Identifier for Azure Insights metrics
+        /// </summary>
+        [Output("metricId")]
+        public Output<string> MetricId { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,10 +39,16 @@ namespace Pulumi.AzureRM.Relay.V20160701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Description of Relay Namespace
+        /// Provisioning state of the namespace.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RelayNamespacePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Endpoint you can use to perform Service Bus operations.
+        /// </summary>
+        [Output("serviceBusEndpoint")]
+        public Output<string> ServiceBusEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Sku of the Namespace.
@@ -49,6 +67,12 @@ namespace Pulumi.AzureRM.Relay.V20160701
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

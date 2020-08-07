@@ -37,13 +37,33 @@ export class EmailTemplate extends pulumi.CustomResource {
     }
 
     /**
+     * Email Template Body. This should be a valid XDocument
+     */
+    public readonly body!: pulumi.Output<string>;
+    /**
+     * Description of the Email Template.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Whether the template is the default template provided by Api Management or has been edited.
+     */
+    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Email Template entity contract properties.
+     * Email Template Parameter values.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.EmailTemplateContractPropertiesResponse>;
+    public readonly parameters!: pulumi.Output<outputs.apimanagement.v20170301.EmailTemplateParametersContractPropertiesResponse[] | undefined>;
+    /**
+     * Subject of the Template.
+     */
+    public readonly subject!: pulumi.Output<string>;
+    /**
+     * Title of the Template.
+     */
+    public readonly title!: pulumi.Output<string | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -79,7 +99,7 @@ export class EmailTemplate extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["subject"] = args ? args.subject : undefined;
             inputs["title"] = args ? args.title : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["isDefault"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

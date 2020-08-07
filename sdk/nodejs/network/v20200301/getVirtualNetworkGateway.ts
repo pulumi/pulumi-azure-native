@@ -36,9 +36,49 @@ export interface GetVirtualNetworkGatewayArgs {
  */
 export interface GetVirtualNetworkGatewayResult {
     /**
+     * ActiveActive flag.
+     */
+    readonly activeActive?: boolean;
+    /**
+     * Virtual network gateway's BGP speaker settings.
+     */
+    readonly bgpSettings?: outputs.network.v20200301.BgpSettingsResponse;
+    /**
+     * The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+     */
+    readonly customRoutes?: outputs.network.v20200301.AddressSpaceResponse;
+    /**
+     * Whether BGP is enabled for this virtual network gateway or not.
+     */
+    readonly enableBgp?: boolean;
+    /**
+     * Whether dns forwarding is enabled or not.
+     */
+    readonly enableDnsForwarding?: boolean;
+    /**
+     * Whether private IP needs to be enabled on this gateway for connections or not.
+     */
+    readonly enablePrivateIpAddress?: boolean;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+     */
+    readonly gatewayDefaultSite?: outputs.network.v20200301.SubResourceResponse;
+    /**
+     * The type of this virtual network gateway.
+     */
+    readonly gatewayType?: string;
+    /**
+     * The IP address allocated by the gateway to which dns requests can be sent.
+     */
+    readonly inboundDnsForwardingEndpoint: string;
+    /**
+     * IP configurations for virtual network gateway.
+     */
+    readonly ipConfigurations?: outputs.network.v20200301.VirtualNetworkGatewayIPConfigurationResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +88,17 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly name: string;
     /**
-     * Properties of the virtual network gateway.
+     * The provisioning state of the virtual network gateway resource.
      */
-    readonly properties: outputs.network.v20200301.VirtualNetworkGatewayPropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * The resource GUID property of the virtual network gateway resource.
+     */
+    readonly resourceGuid: string;
+    /**
+     * The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+     */
+    readonly sku?: outputs.network.v20200301.VirtualNetworkGatewaySkuResponse;
     /**
      * Resource tags.
      */
@@ -59,4 +107,16 @@ export interface GetVirtualNetworkGatewayResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+     */
+    readonly vpnClientConfiguration?: outputs.network.v20200301.VpnClientConfigurationResponse;
+    /**
+     * The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+     */
+    readonly vpnGatewayGeneration?: string;
+    /**
+     * The type of this virtual network gateway.
+     */
+    readonly vpnType?: string;
 }

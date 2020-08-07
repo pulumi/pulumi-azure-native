@@ -37,17 +37,25 @@ export class HybridUseBenefit extends pulumi.CustomResource {
     }
 
     /**
+     * Created date
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
      * Indicates the revision of the hybrid use benefit
      */
     public /*out*/ readonly etag!: pulumi.Output<number>;
+    /**
+     * Last updated date
+     */
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Property bag for a hybrid use benefit response
+     * Provisioning state
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.softwareplan.v20191201.HybridUseBenefitPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Hybrid use benefit SKU
      */
@@ -82,8 +90,10 @@ export class HybridUseBenefit extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["createdDate"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastUpdatedDate"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

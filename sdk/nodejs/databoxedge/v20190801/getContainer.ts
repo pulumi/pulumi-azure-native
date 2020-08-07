@@ -46,13 +46,25 @@ export interface GetContainerArgs {
  */
 export interface GetContainerResult {
     /**
+     * Current status of the container.
+     */
+    readonly containerStatus: string;
+    /**
+     * The UTC time when container got created.
+     */
+    readonly createdDateTime: string;
+    /**
+     * DataFormat for Container
+     */
+    readonly dataFormat: string;
+    /**
      * The object name.
      */
     readonly name: string;
     /**
-     * The container properties.
+     * Details of the refresh job on this container.
      */
-    readonly properties: outputs.databoxedge.v20190801.ContainerPropertiesResponse;
+    readonly refreshDetails: outputs.databoxedge.v20190801.RefreshDetailsResponse;
     /**
      * The hierarchical type of the object.
      */

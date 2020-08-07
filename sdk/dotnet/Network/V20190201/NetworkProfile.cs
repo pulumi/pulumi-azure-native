@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20190201
     public partial class NetworkProfile : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of chid container network interface configurations.
+        /// </summary>
+        [Output("containerNetworkInterfaceConfigurations")]
+        public Output<ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponseResult>> ContainerNetworkInterfaceConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// List of child container network interfaces.
+        /// </summary>
+        [Output("containerNetworkInterfaces")]
+        public Output<ImmutableArray<Outputs.ContainerNetworkInterfaceResponseResult>> ContainerNetworkInterfaces { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,16 @@ namespace Pulumi.AzureRM.Network.V20190201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network profile properties.
+        /// The provisioning state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NetworkProfilePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the network interface resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

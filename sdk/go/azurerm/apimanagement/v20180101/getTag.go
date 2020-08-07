@@ -27,10 +27,10 @@ type LookupTagArgs struct {
 
 // Tag Contract details.
 type LookupTagResult struct {
+	// Tag name.
+	DisplayName string `pulumi:"displayName"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

@@ -27,10 +27,20 @@ type LookupDscNodeConfigurationArgs struct {
 
 // Definition of the dsc node configuration.
 type LookupDscNodeConfigurationResult struct {
+	// Gets or sets the configuration of the node.
+	Configuration *DscConfigurationAssociationPropertyResponse `pulumi:"configuration"`
+	// Gets or sets creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// If a new build version of NodeConfiguration is required.
+	IncrementNodeConfigurationBuild *bool `pulumi:"incrementNodeConfigurationBuild"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets the configuration properties.
-	Properties DscNodeConfigurationPropertiesResponse `pulumi:"properties"`
+	// Number of nodes with this node configuration assigned
+	NodeCount *int `pulumi:"nodeCount"`
+	// Source of node configuration.
+	Source *string `pulumi:"source"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

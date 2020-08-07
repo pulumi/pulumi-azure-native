@@ -14,13 +14,24 @@ import (
 type CertificateCsr struct {
 	pulumi.CustomResourceState
 
+	// Actual CSR string created
+	CsrString pulumi.StringPtrOutput `pulumi:"csrString"`
+	// Distinguished name of certificate to be created
+	DistinguishedName pulumi.StringPtrOutput `pulumi:"distinguishedName"`
+	// Hosting environment
+	HostingEnvironment pulumi.StringPtrOutput `pulumi:"hostingEnvironment"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput      `pulumi:"name"`
-	Properties CsrResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// PFX password
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// PFX certificate of created certificate
+	PfxBlob pulumi.StringPtrOutput `pulumi:"pfxBlob"`
+	// Hash of the certificates public key
+	PublicKeyHash pulumi.StringPtrOutput `pulumi:"publicKeyHash"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -64,13 +75,24 @@ func GetCertificateCsr(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificateCsr resources.
 type certificateCsrState struct {
+	// Actual CSR string created
+	CsrString *string `pulumi:"csrString"`
+	// Distinguished name of certificate to be created
+	DistinguishedName *string `pulumi:"distinguishedName"`
+	// Hosting environment
+	HostingEnvironment *string `pulumi:"hostingEnvironment"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name
-	Name       *string                `pulumi:"name"`
-	Properties *CsrResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// PFX password
+	Password *string `pulumi:"password"`
+	// PFX certificate of created certificate
+	PfxBlob *string `pulumi:"pfxBlob"`
+	// Hash of the certificates public key
+	PublicKeyHash *string `pulumi:"publicKeyHash"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -78,13 +100,24 @@ type certificateCsrState struct {
 }
 
 type CertificateCsrState struct {
+	// Actual CSR string created
+	CsrString pulumi.StringPtrInput
+	// Distinguished name of certificate to be created
+	DistinguishedName pulumi.StringPtrInput
+	// Hosting environment
+	HostingEnvironment pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties CsrResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// PFX password
+	Password pulumi.StringPtrInput
+	// PFX certificate of created certificate
+	PfxBlob pulumi.StringPtrInput
+	// Hash of the certificates public key
+	PublicKeyHash pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

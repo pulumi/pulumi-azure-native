@@ -13,7 +13,7 @@ class GetServerCommunicationLinkResult:
     """
     Server communication link.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, location=None, name=None, partner_server=None, state=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,11 +32,17 @@ class GetServerCommunicationLinkResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partner_server and not isinstance(partner_server, str):
+            raise TypeError("Expected argument 'partner_server' to be a str")
+        __self__.partner_server = partner_server
         """
-        The properties of resource.
+        The name of the partner server.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The state.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -55,7 +61,8 @@ class AwaitableGetServerCommunicationLinkResult(GetServerCommunicationLinkResult
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            partner_server=self.partner_server,
+            state=self.state,
             type=self.type)
 
 
@@ -81,5 +88,6 @@ def get_server_communication_link(name=None, resource_group_name=None, server_na
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        partner_server=__ret__.get('partnerServer'),
+        state=__ret__.get('state'),
         type=__ret__.get('type'))

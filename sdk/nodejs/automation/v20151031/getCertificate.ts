@@ -41,13 +41,33 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
+     * Gets the creation time.
+     */
+    readonly creationTime: string;
+    /**
+     * Gets or sets the description.
+     */
+    readonly description?: string;
+    /**
+     * Gets the expiry time of the certificate.
+     */
+    readonly expiryTime: string;
+    /**
+     * Gets the is exportable flag of the certificate.
+     */
+    readonly isExportable: boolean;
+    /**
+     * Gets the last modified time.
+     */
+    readonly lastModifiedTime: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets or sets the properties of the certificate.
+     * Gets the thumbprint of the certificate.
      */
-    readonly properties: outputs.automation.v20151031.CertificatePropertiesResponse;
+    readonly thumbprint: string;
     /**
      * The type of the resource.
      */

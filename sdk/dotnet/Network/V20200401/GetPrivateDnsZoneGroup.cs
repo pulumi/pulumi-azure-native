@@ -54,9 +54,13 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the private dns zone group.
+        /// A collection of private dns zone configurations of the private dns zone group.
         /// </summary>
-        public readonly Outputs.PrivateDnsZoneGroupPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.PrivateDnsZoneConfigResponseResult> PrivateDnsZoneConfigs;
+        /// <summary>
+        /// The provisioning state of the private dns zone group resource.
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private GetPrivateDnsZoneGroupResult(
@@ -64,11 +68,14 @@ namespace Pulumi.AzureRM.Network.V20200401
 
             string? name,
 
-            Outputs.PrivateDnsZoneGroupPropertiesFormatResponseResult properties)
+            ImmutableArray<Outputs.PrivateDnsZoneConfigResponseResult> privateDnsZoneConfigs,
+
+            string provisioningState)
         {
             Etag = etag;
             Name = name;
-            Properties = properties;
+            PrivateDnsZoneConfigs = privateDnsZoneConfigs;
+            ProvisioningState = provisioningState;
         }
     }
 }

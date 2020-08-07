@@ -13,18 +13,48 @@ class GetEmailTemplateResult:
     """
     Email Template details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, body=None, description=None, is_default=None, name=None, parameters=None, subject=None, title=None, type=None):
+        if body and not isinstance(body, str):
+            raise TypeError("Expected argument 'body' to be a str")
+        __self__.body = body
+        """
+        Email Template Body. This should be a valid XDocument
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description of the Email Template.
+        """
+        if is_default and not isinstance(is_default, bool):
+            raise TypeError("Expected argument 'is_default' to be a bool")
+        __self__.is_default = is_default
+        """
+        Whether the template is the default template provided by Api Management or has been edited.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters and not isinstance(parameters, list):
+            raise TypeError("Expected argument 'parameters' to be a list")
+        __self__.parameters = parameters
         """
-        Email Template entity contract properties.
+        Email Template Parameter values.
+        """
+        if subject and not isinstance(subject, str):
+            raise TypeError("Expected argument 'subject' to be a str")
+        __self__.subject = subject
+        """
+        Subject of the Template.
+        """
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        __self__.title = title
+        """
+        Title of the Template.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +70,13 @@ class AwaitableGetEmailTemplateResult(GetEmailTemplateResult):
         if False:
             yield self
         return GetEmailTemplateResult(
+            body=self.body,
+            description=self.description,
+            is_default=self.is_default,
             name=self.name,
-            properties=self.properties,
+            parameters=self.parameters,
+            subject=self.subject,
+            title=self.title,
             type=self.type)
 
 
@@ -64,6 +99,11 @@ def get_email_template(name=None, resource_group_name=None, service_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getEmailTemplate', __args__, opts=opts).value
 
     return AwaitableGetEmailTemplateResult(
+        body=__ret__.get('body'),
+        description=__ret__.get('description'),
+        is_default=__ret__.get('isDefault'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        parameters=__ret__.get('parameters'),
+        subject=__ret__.get('subject'),
+        title=__ret__.get('title'),
         type=__ret__.get('type'))

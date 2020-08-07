@@ -25,16 +25,52 @@ type LookupCertificateArgs struct {
 
 // SSL certificate for an app.
 type LookupCertificateResult struct {
+	// Raw bytes of .cer file
+	CerBlob string `pulumi:"cerBlob"`
+	// Certificate expiration date.
+	ExpirationDate string `pulumi:"expirationDate"`
+	// Friendly name of the certificate.
+	FriendlyName string `pulumi:"friendlyName"`
+	// Host names the certificate applies to.
+	HostNames []string `pulumi:"hostNames"`
+	// Specification for the App Service Environment to use for the certificate.
+	HostingEnvironmentProfile HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	// Certificate issue Date.
+	IssueDate string `pulumi:"issueDate"`
+	// Certificate issuer.
+	Issuer string `pulumi:"issuer"`
+	// Key Vault Csm resource Id.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
+	// Status of the Key Vault secret.
+	KeyVaultSecretStatus string `pulumi:"keyVaultSecretStatus"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// Certificate resource specific properties
-	Properties CertificateResponseProperties `pulumi:"properties"`
+	// Certificate password.
+	Password string `pulumi:"password"`
+	// Pfx blob.
+	PfxBlob *string `pulumi:"pfxBlob"`
+	// Public key hash.
+	PublicKeyHash string `pulumi:"publicKeyHash"`
+	// Self link.
+	SelfLink string `pulumi:"selfLink"`
+	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+	ServerFarmId *string `pulumi:"serverFarmId"`
+	// App name.
+	SiteName string `pulumi:"siteName"`
+	// Subject name of the certificate.
+	SubjectName string `pulumi:"subjectName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Certificate thumbprint.
+	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Is the certificate valid?.
+	Valid bool `pulumi:"valid"`
 }

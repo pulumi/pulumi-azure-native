@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Authorization.V20190901
     public partial class PolicyAssignment : Pulumi.CustomResource
     {
         /// <summary>
+        /// This message will be part of response in case of policy violation.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+        /// </summary>
+        [Output("enforcementMode")]
+        public Output<string?> EnforcementMode { get; private set; } = null!;
+
+        /// <summary>
         /// The managed identity associated with the policy assignment.
         /// </summary>
         [Output("identity")]
@@ -27,16 +45,40 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties for the policy assignment.
+        /// The policy's excluded scopes.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PolicyAssignmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notScopes")]
+        public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
+
+        /// <summary>
+        /// The parameter values for the assigned policy rule. The keys are the parameter names.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, Outputs.ParameterValuesValueResponseResult>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the policy definition or policy set definition being assigned.
+        /// </summary>
+        [Output("policyDefinitionId")]
+        public Output<string?> PolicyDefinitionId { get; private set; } = null!;
+
+        /// <summary>
+        /// The scope for the policy assignment.
+        /// </summary>
+        [Output("scope")]
+        public Output<string?> Scope { get; private set; } = null!;
 
         /// <summary>
         /// The policy sku. This property is optional, obsolete, and will be ignored.

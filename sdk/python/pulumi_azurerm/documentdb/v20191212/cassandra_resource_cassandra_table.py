@@ -18,27 +18,7 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
     """
     The name of the ARM resource.
     """
-    properties: pulumi.Output[dict]
-    """
-    The properties of an Azure Cosmos DB Cassandra table
-      * `resource` (`dict`)
-        * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
-        * `_rid` (`str`) - A system generated property. A unique identifier.
-        * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
-        * `default_ttl` (`float`) - Time to live of the Cosmos DB Cassandra table
-        * `id` (`str`) - Name of the Cosmos DB Cassandra table
-        * `schema` (`dict`) - Schema of the Cosmos DB Cassandra table
-          * `cluster_keys` (`list`) - List of cluster key.
-            * `name` (`str`) - Name of the Cosmos DB Cassandra table cluster key
-            * `order_by` (`str`) - Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
-
-          * `columns` (`list`) - List of Cassandra table columns.
-            * `name` (`str`) - Name of the Cosmos DB Cassandra table column
-            * `type` (`str`) - Type of the Cosmos DB Cassandra table column
-
-          * `partition_keys` (`list`) - List of partition key.
-            * `name` (`str`) - Name of the Cosmos DB Cassandra table partition key
-    """
+    resource: pulumi.Output[dict]
     tags: pulumi.Output[dict]
     """
     Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -119,7 +99,6 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(CassandraResourceCassandraTable, __self__).__init__(
             'azurerm:documentdb/v20191212:CassandraResourceCassandraTable',

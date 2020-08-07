@@ -36,9 +36,17 @@ export interface GetAzureFirewallArgs {
  */
 export interface GetAzureFirewallResult {
     /**
+     * Collection of application rule collections used by Azure Firewall.
+     */
+    readonly applicationRuleCollections?: outputs.network.v20190201.AzureFirewallApplicationRuleCollectionResponse[];
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * IP configuration of the Azure Firewall resource.
+     */
+    readonly ipConfigurations?: outputs.network.v20190201.AzureFirewallIPConfigurationResponse[];
     /**
      * Resource location.
      */
@@ -48,13 +56,25 @@ export interface GetAzureFirewallResult {
      */
     readonly name: string;
     /**
-     * Properties of the azure firewall.
+     * Collection of NAT rule collections used by Azure Firewall.
      */
-    readonly properties: outputs.network.v20190201.AzureFirewallPropertiesFormatResponse;
+    readonly natRuleCollections?: outputs.network.v20190201.AzureFirewallNatRuleCollectionResponse[];
+    /**
+     * Collection of network rule collections used by Azure Firewall.
+     */
+    readonly networkRuleCollections?: outputs.network.v20190201.AzureFirewallNetworkRuleCollectionResponse[];
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: string;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The operation mode for Threat Intelligence.
+     */
+    readonly threatIntelMode?: string;
     /**
      * Resource type.
      */

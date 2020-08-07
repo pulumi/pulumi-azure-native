@@ -36,6 +36,18 @@ export interface GetConfigurationStoreArgs {
  */
 export interface GetConfigurationStoreResult {
     /**
+     * The creation date of configuration store.
+     */
+    readonly creationDate: string;
+    /**
+     * The encryption settings of the configuration store.
+     */
+    readonly encryption?: outputs.appconfiguration.v20200601.EncryptionPropertiesResponse;
+    /**
+     * The DNS endpoint where the configuration store API will be available.
+     */
+    readonly endpoint: string;
+    /**
      * The managed identity information, if configured.
      */
     readonly identity?: outputs.appconfiguration.v20200601.ResourceIdentityResponse;
@@ -48,9 +60,17 @@ export interface GetConfigurationStoreResult {
      */
     readonly name: string;
     /**
-     * The properties of a configuration store.
+     * The list of private endpoint connections that are set up for this resource.
      */
-    readonly properties: outputs.appconfiguration.v20200601.ConfigurationStorePropertiesResponse;
+    readonly privateEndpointConnections: outputs.appconfiguration.v20200601.PrivateEndpointConnectionReferenceResponse[];
+    /**
+     * The provisioning state of the configuration store.
+     */
+    readonly provisioningState: string;
+    /**
+     * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * The sku of the configuration store.
      */

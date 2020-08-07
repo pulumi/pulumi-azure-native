@@ -46,29 +46,50 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
     public sealed class GetWorkspaceConnectionResult
     {
         /// <summary>
+        /// Authorization type of the workspace connection.
+        /// </summary>
+        public readonly string? AuthType;
+        /// <summary>
+        /// Category of the workspace connection.
+        /// </summary>
+        public readonly string? Category;
+        /// <summary>
         /// Friendly name of the workspace connection.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of workspace connection.
+        /// Target of the workspace connection.
         /// </summary>
-        public readonly Outputs.WorkspaceConnectionPropsResponseResult Properties;
+        public readonly string? Target;
         /// <summary>
         /// Resource type of workspace connection.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Value details of the workspace connection.
+        /// </summary>
+        public readonly string? Value;
 
         [OutputConstructor]
         private GetWorkspaceConnectionResult(
+            string? authType,
+
+            string? category,
+
             string name,
 
-            Outputs.WorkspaceConnectionPropsResponseResult properties,
+            string? target,
 
-            string type)
+            string type,
+
+            string? value)
         {
+            AuthType = authType;
+            Category = category;
             Name = name;
-            Properties = properties;
+            Target = target;
             Type = type;
+            Value = value;
         }
     }
 }

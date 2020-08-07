@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Web.V20150801
     public partial class CertificateCsr : Pulumi.CustomResource
     {
         /// <summary>
+        /// Actual CSR string created
+        /// </summary>
+        [Output("csrString")]
+        public Output<string?> CsrString { get; private set; } = null!;
+
+        /// <summary>
+        /// Distinguished name of certificate to be created
+        /// </summary>
+        [Output("distinguishedName")]
+        public Output<string?> DistinguishedName { get; private set; } = null!;
+
+        /// <summary>
+        /// Hosting environment
+        /// </summary>
+        [Output("hostingEnvironment")]
+        public Output<string?> HostingEnvironment { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
@@ -32,8 +50,23 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.CsrResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// PFX password
+        /// </summary>
+        [Output("password")]
+        public Output<string?> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// PFX certificate of created certificate
+        /// </summary>
+        [Output("pfxBlob")]
+        public Output<string?> PfxBlob { get; private set; } = null!;
+
+        /// <summary>
+        /// Hash of the certificates public key
+        /// </summary>
+        [Output("publicKeyHash")]
+        public Output<string?> PublicKeyHash { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

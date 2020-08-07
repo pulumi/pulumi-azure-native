@@ -16,14 +16,24 @@ type NatGateway struct {
 
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The idle timeout of the nat gateway.
+	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Nat Gateway properties.
-	Properties NatGatewayPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the NAT gateway resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// An array of public ip addresses associated with the nat gateway resource.
+	PublicIpAddresses SubResourceResponseArrayOutput `pulumi:"publicIpAddresses"`
+	// An array of public ip prefixes associated with the nat gateway resource.
+	PublicIpPrefixes SubResourceResponseArrayOutput `pulumi:"publicIpPrefixes"`
+	// The resource GUID property of the NAT gateway resource.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// The nat gateway SKU.
 	Sku NatGatewaySkuResponsePtrOutput `pulumi:"sku"`
+	// An array of references to the subnets using this nat gateway resource.
+	Subnets SubResourceResponseArrayOutput `pulumi:"subnets"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -68,14 +78,24 @@ func GetNatGateway(ctx *pulumi.Context,
 type natGatewayState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The idle timeout of the nat gateway.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Nat Gateway properties.
-	Properties *NatGatewayPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the NAT gateway resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// An array of public ip addresses associated with the nat gateway resource.
+	PublicIpAddresses []SubResourceResponse `pulumi:"publicIpAddresses"`
+	// An array of public ip prefixes associated with the nat gateway resource.
+	PublicIpPrefixes []SubResourceResponse `pulumi:"publicIpPrefixes"`
+	// The resource GUID property of the NAT gateway resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The nat gateway SKU.
 	Sku *NatGatewaySkuResponse `pulumi:"sku"`
+	// An array of references to the subnets using this nat gateway resource.
+	Subnets []SubResourceResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -87,14 +107,24 @@ type natGatewayState struct {
 type NatGatewayState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The idle timeout of the nat gateway.
+	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Nat Gateway properties.
-	Properties NatGatewayPropertiesFormatResponsePtrInput
+	// The provisioning state of the NAT gateway resource.
+	ProvisioningState pulumi.StringPtrInput
+	// An array of public ip addresses associated with the nat gateway resource.
+	PublicIpAddresses SubResourceResponseArrayInput
+	// An array of public ip prefixes associated with the nat gateway resource.
+	PublicIpPrefixes SubResourceResponseArrayInput
+	// The resource GUID property of the NAT gateway resource.
+	ResourceGuid pulumi.StringPtrInput
 	// The nat gateway SKU.
 	Sku NatGatewaySkuResponsePtrInput
+	// An array of references to the subnets using this nat gateway resource.
+	Subnets SubResourceResponseArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

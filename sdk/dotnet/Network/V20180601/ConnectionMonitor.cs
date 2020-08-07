@@ -14,6 +14,18 @@ namespace Pulumi.AzureRM.Network.V20180601
     /// </summary>
     public partial class ConnectionMonitor : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Determines if the connection monitor will start automatically once created.
+        /// </summary>
+        [Output("autoStart")]
+        public Output<bool?> AutoStart { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the destination of connection monitor.
+        /// </summary>
+        [Output("destination")]
+        public Output<Outputs.ConnectionMonitorDestinationResponseResult> Destination { get; private set; } = null!;
+
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
 
@@ -24,16 +36,40 @@ namespace Pulumi.AzureRM.Network.V20180601
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Monitoring interval in seconds.
+        /// </summary>
+        [Output("monitoringIntervalInSeconds")]
+        public Output<int?> MonitoringIntervalInSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The monitoring status of the connection monitor.
+        /// </summary>
+        [Output("monitoringStatus")]
+        public Output<string?> MonitoringStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the connection monitor.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a connection monitor.
+        /// The provisioning state of the connection monitor.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConnectionMonitorResultPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the source of connection monitor.
+        /// </summary>
+        [Output("source")]
+        public Output<Outputs.ConnectionMonitorSourceResponseResult> Source { get; private set; } = null!;
+
+        /// <summary>
+        /// The date and time when the connection monitor was started.
+        /// </summary>
+        [Output("startTime")]
+        public Output<string?> StartTime { get; private set; } = null!;
 
         /// <summary>
         /// Connection monitor tags.

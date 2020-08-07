@@ -41,15 +41,23 @@ export interface GetVirtualNetworkRuleArgs {
  */
 export interface GetVirtualNetworkRuleResult {
     /**
+     * Create firewall rule before the virtual network has vnet service endpoint enabled.
+     */
+    readonly ignoreMissingVnetServiceEndpoint?: boolean;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource properties.
+     * Virtual Network Rule State
      */
-    readonly properties: outputs.dbformysql.v20171201.VirtualNetworkRulePropertiesResponse;
+    readonly state: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * The ARM resource id of the virtual network subnet.
+     */
+    readonly virtualNetworkSubnetId: string;
 }

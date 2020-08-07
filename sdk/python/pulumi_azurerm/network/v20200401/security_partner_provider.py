@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class SecurityPartnerProvider(pulumi.CustomResource):
+    connection_status: pulumi.Output[str]
+    """
+    The connection status with the Security Partner Provider.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -22,14 +26,13 @@ class SecurityPartnerProvider(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the Security Partner Provider.
-      * `connection_status` (`str`) - The connection status with the Security Partner Provider.
-      * `provisioning_state` (`str`) - The provisioning state of the Security Partner Provider resource.
-      * `security_provider_name` (`str`) - The security provider name.
-      * `virtual_hub` (`dict`) - The virtualHub to which the Security Partner Provider belongs.
-        * `id` (`str`) - Resource ID.
+    The provisioning state of the Security Partner Provider resource.
+    """
+    security_provider_name: pulumi.Output[str]
+    """
+    The security provider name.
     """
     tags: pulumi.Output[dict]
     """
@@ -38,6 +41,11 @@ class SecurityPartnerProvider(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_hub: pulumi.Output[dict]
+    """
+    The virtualHub to which the Security Partner Provider belongs.
+      * `id` (`str`) - Resource ID.
     """
     def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, resource_group_name=None, security_provider_name=None, tags=None, virtual_hub=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -85,8 +93,9 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             __props__['security_provider_name'] = security_provider_name
             __props__['tags'] = tags
             __props__['virtual_hub'] = virtual_hub
+            __props__['connection_status'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(SecurityPartnerProvider, __self__).__init__(
             'azurerm:network/v20200401:SecurityPartnerProvider',

@@ -29,14 +29,28 @@ type LookupUserArgs struct {
 
 // The User registered to a lab
 type LookupUserResult struct {
+	// The user email address, as it was specified during registration.
+	Email string `pulumi:"email"`
+	// The user family name, as it was specified during registration.
+	FamilyName string `pulumi:"familyName"`
+	// The user given name, as it was specified during registration.
+	GivenName string `pulumi:"givenName"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// These are the properties for the user registered under a lab.
-	Properties UserPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The user tenant ID, as it was specified during registration.
+	TenantId string `pulumi:"tenantId"`
+	// How long the user has used his VMs in this lab
+	TotalUsage string `pulumi:"totalUsage"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }

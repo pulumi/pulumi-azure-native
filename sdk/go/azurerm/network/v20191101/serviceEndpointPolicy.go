@@ -20,8 +20,14 @@ type ServiceEndpointPolicy struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the service end point policy.
-	Properties ServiceEndpointPolicyPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the service endpoint policy resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the service endpoint policy resource.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
+	// A collection of service endpoint policy definitions of the service endpoint policy.
+	ServiceEndpointPolicyDefinitions ServiceEndpointPolicyDefinitionResponseArrayOutput `pulumi:"serviceEndpointPolicyDefinitions"`
+	// A collection of references to subnets.
+	Subnets SubnetResponseArrayOutput `pulumi:"subnets"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -68,8 +74,14 @@ type serviceEndpointPolicyState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the service end point policy.
-	Properties *ServiceEndpointPolicyPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the service endpoint policy resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the service endpoint policy resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// A collection of service endpoint policy definitions of the service endpoint policy.
+	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionResponse `pulumi:"serviceEndpointPolicyDefinitions"`
+	// A collection of references to subnets.
+	Subnets []SubnetResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -83,8 +95,14 @@ type ServiceEndpointPolicyState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the service end point policy.
-	Properties ServiceEndpointPolicyPropertiesFormatResponsePtrInput
+	// The provisioning state of the service endpoint policy resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the service endpoint policy resource.
+	ResourceGuid pulumi.StringPtrInput
+	// A collection of service endpoint policy definitions of the service endpoint policy.
+	ServiceEndpointPolicyDefinitions ServiceEndpointPolicyDefinitionResponseArrayInput
+	// A collection of references to subnets.
+	Subnets SubnetResponseArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

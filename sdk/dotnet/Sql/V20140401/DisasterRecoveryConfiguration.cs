@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public partial class DisasterRecoveryConfiguration : Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether or not failover can be done automatically.
+        /// </summary>
+        [Output("autoFailover")]
+        public Output<string> AutoFailover { get; private set; } = null!;
+
+        /// <summary>
+        /// How aggressive the automatic failover should be.
+        /// </summary>
+        [Output("failoverPolicy")]
+        public Output<string> FailoverPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the server that contains this disaster recovery configuration.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Logical name of the server.
+        /// </summary>
+        [Output("logicalServerName")]
+        public Output<string> LogicalServerName { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -27,10 +45,28 @@ namespace Pulumi.AzureRM.Sql.V20140401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties representing the resource.
+        /// Logical name of the partner server.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DisasterRecoveryConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partnerLogicalServerName")]
+        public Output<string> PartnerLogicalServerName { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of the partner server.
+        /// </summary>
+        [Output("partnerServerId")]
+        public Output<string> PartnerServerId { get; private set; } = null!;
+
+        /// <summary>
+        /// The role of the current server in the disaster recovery configuration.
+        /// </summary>
+        [Output("role")]
+        public Output<string> Role { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the disaster recovery configuration.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

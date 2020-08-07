@@ -13,18 +13,42 @@ class GetDataStoreResult:
     """
     Data store.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, customer_secrets=None, data_store_type_id=None, extended_properties=None, name=None, repository_id=None, state=None, type=None):
+        if customer_secrets and not isinstance(customer_secrets, list):
+            raise TypeError("Expected argument 'customer_secrets' to be a list")
+        __self__.customer_secrets = customer_secrets
+        """
+        List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        """
+        if data_store_type_id and not isinstance(data_store_type_id, str):
+            raise TypeError("Expected argument 'data_store_type_id' to be a str")
+        __self__.data_store_type_id = data_store_type_id
+        """
+        The arm id of the data store type.
+        """
+        if extended_properties and not isinstance(extended_properties, dict):
+            raise TypeError("Expected argument 'extended_properties' to be a dict")
+        __self__.extended_properties = extended_properties
+        """
+        A generic json used differently by each data source type.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if repository_id and not isinstance(repository_id, str):
+            raise TypeError("Expected argument 'repository_id' to be a str")
+        __self__.repository_id = repository_id
         """
-        DataStore properties.
+        Arm Id for the manager resource to which the data source is associated. This is optional.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        State of the data source.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetDataStoreResult(GetDataStoreResult):
         if False:
             yield self
         return GetDataStoreResult(
+            customer_secrets=self.customer_secrets,
+            data_store_type_id=self.data_store_type_id,
+            extended_properties=self.extended_properties,
             name=self.name,
-            properties=self.properties,
+            repository_id=self.repository_id,
+            state=self.state,
             type=self.type)
 
 
@@ -64,6 +92,10 @@ def get_data_store(data_manager_name=None, name=None, resource_group_name=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:hybriddata/v20190601:getDataStore', __args__, opts=opts).value
 
     return AwaitableGetDataStoreResult(
+        customer_secrets=__ret__.get('customerSecrets'),
+        data_store_type_id=__ret__.get('dataStoreTypeId'),
+        extended_properties=__ret__.get('extendedProperties'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        repository_id=__ret__.get('repositoryId'),
+        state=__ret__.get('state'),
         type=__ret__.get('type'))

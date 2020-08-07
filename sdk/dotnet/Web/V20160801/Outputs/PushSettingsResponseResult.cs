@@ -14,9 +14,17 @@ namespace Pulumi.AzureRM.Web.V20160801.Outputs
     public sealed class PushSettingsResponseResult
     {
         /// <summary>
+        /// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+        /// </summary>
+        public readonly string? DynamicTagsJson;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Gets or sets a flag indicating whether the Push endpoint is enabled.
+        /// </summary>
+        public readonly bool IsPushEnabled;
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -26,9 +34,16 @@ namespace Pulumi.AzureRM.Web.V20160801.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// PushSettings resource specific properties
+        /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         /// </summary>
-        public readonly Outputs.PushSettingsResponsePropertiesResult? Properties;
+        public readonly string? TagWhitelistJson;
+        /// <summary>
+        /// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+        /// Tags can consist of alphanumeric characters and the following:
+        /// '_', '@', '#', '.', ':', '-'. 
+        /// Validation should be performed at the PushRequestHandler.
+        /// </summary>
+        public readonly string? TagsRequiringAuth;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -36,20 +51,29 @@ namespace Pulumi.AzureRM.Web.V20160801.Outputs
 
         [OutputConstructor]
         private PushSettingsResponseResult(
+            string? dynamicTagsJson,
+
             string id,
+
+            bool isPushEnabled,
 
             string? kind,
 
             string name,
 
-            Outputs.PushSettingsResponsePropertiesResult? properties,
+            string? tagWhitelistJson,
+
+            string? tagsRequiringAuth,
 
             string type)
         {
+            DynamicTagsJson = dynamicTagsJson;
             Id = id;
+            IsPushEnabled = isPushEnabled;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            TagWhitelistJson = tagWhitelistJson;
+            TagsRequiringAuth = tagsRequiringAuth;
             Type = type;
         }
     }

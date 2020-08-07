@@ -33,10 +33,16 @@ namespace Pulumi.AzureRM.Network.V20180901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual network link to the Private DNS zone.
+        /// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkLinkPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+        /// </summary>
+        [Output("registrationEnabled")]
+        public Output<bool?> RegistrationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +55,18 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference of the virtual network.
+        /// </summary>
+        [Output("virtualNetwork")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        [Output("virtualNetworkLinkState")]
+        public Output<string> VirtualNetworkLinkState { get; private set; } = null!;
 
 
         /// <summary>

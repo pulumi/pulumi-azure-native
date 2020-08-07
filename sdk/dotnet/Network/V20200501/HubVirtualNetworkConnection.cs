@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Network.V20200501
     public partial class HubVirtualNetworkConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+        /// </summary>
+        [Output("allowHubToRemoteVnetTransit")]
+        public Output<bool?> AllowHubToRemoteVnetTransit { get; private set; } = null!;
+
+        /// <summary>
+        /// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+        /// </summary>
+        [Output("allowRemoteVnetToUseHubVnetGateways")]
+        public Output<bool?> AllowRemoteVnetToUseHubVnetGateways { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable internet security.
+        /// </summary>
+        [Output("enableInternetSecurity")]
+        public Output<bool?> EnableInternetSecurity { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -27,10 +45,22 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the hub virtual network connection.
+        /// The provisioning state of the hub virtual network connection resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HubVirtualNetworkConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Reference to the remote virtual network.
+        /// </summary>
+        [Output("remoteVirtualNetwork")]
+        public Output<Outputs.SubResourceResponseResult?> RemoteVirtualNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
+        /// </summary>
+        [Output("routingConfiguration")]
+        public Output<Outputs.RoutingConfigurationResponseResult?> RoutingConfiguration { get; private set; } = null!;
 
 
         /// <summary>

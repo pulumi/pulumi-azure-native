@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class ConnectionType : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the field definitions of the connection type.
+        /// </summary>
+        [Output("fieldDefinitions")]
+        public Output<ImmutableDictionary<string, Outputs.FieldDefinitionResponseResult>> FieldDefinitions { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets a Boolean value to indicate if the connection type is global.
+        /// </summary>
+        [Output("isGlobal")]
+        public Output<bool?> IsGlobal { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// Gets the name of the connection type.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the properties of the connection type.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConnectionTypePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

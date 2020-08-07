@@ -25,16 +25,26 @@ type LookupADCCatalogArgs struct {
 
 // Azure Data Catalog.
 type LookupADCCatalogResult struct {
+	// Azure data catalog admin list.
+	Admins []PrincipalsResponse `pulumi:"admins"`
+	// Automatic unit adjustment enabled or not.
+	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Azure Data Catalog properties.
-	Properties ADCCatalogPropertiesResponse `pulumi:"properties"`
+	// Azure data catalog SKU.
+	Sku *string `pulumi:"sku"`
+	// Azure data catalog provision status.
+	SuccessfullyProvisioned *bool `pulumi:"successfullyProvisioned"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Azure data catalog units.
+	Units *int `pulumi:"units"`
+	// Azure data catalog user list.
+	Users []PrincipalsResponse `pulumi:"users"`
 }

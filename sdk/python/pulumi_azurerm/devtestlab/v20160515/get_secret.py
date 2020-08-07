@@ -13,7 +13,7 @@ class GetSecretResult:
     """
     A secret.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, value=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +26,11 @@ class GetSecretResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +44,18 @@ class GetSecretResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        __self__.value = value
+        """
+        The value of the secret for secret creation.
+        """
 
 
 class AwaitableGetSecretResult(GetSecretResult):
@@ -54,9 +66,11 @@ class AwaitableGetSecretResult(GetSecretResult):
         return GetSecretResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            value=self.value)
 
 
 def get_secret(lab_name=None, name=None, resource_group_name=None, user_name=None, opts=None):
@@ -82,6 +96,8 @@ def get_secret(lab_name=None, name=None, resource_group_name=None, user_name=Non
     return AwaitableGetSecretResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        value=__ret__.get('value'))

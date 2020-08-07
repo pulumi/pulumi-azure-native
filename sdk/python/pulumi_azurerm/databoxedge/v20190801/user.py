@@ -10,27 +10,30 @@ from ... import _utilities, _tables
 
 
 class User(pulumi.CustomResource):
+    encrypted_password: pulumi.Output[dict]
+    """
+    The password details.
+      * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
+      * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+      * `value` (`str`) - The value of the secret.
+    """
     name: pulumi.Output[str]
     """
     The object name.
     """
-    properties: pulumi.Output[dict]
+    share_access_rights: pulumi.Output[list]
     """
-    The storage account credential properties.
-      * `encrypted_password` (`dict`) - The password details.
-        * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
-        * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-        * `value` (`str`) - The value of the secret.
-
-      * `share_access_rights` (`list`) - List of shares that the user has rights on. This field should not be specified during user creation.
-        * `access_type` (`str`) - Type of access to be allowed on the share for this user.
-        * `share_id` (`str`) - The share ID.
-
-      * `user_type` (`str`) - Type of the user.
+    List of shares that the user has rights on. This field should not be specified during user creation.
+      * `access_type` (`str`) - Type of access to be allowed on the share for this user.
+      * `share_id` (`str`) - The share ID.
     """
     type: pulumi.Output[str]
     """
     The hierarchical type of the object.
+    """
+    user_type: pulumi.Output[str]
+    """
+    Type of the user.
     """
     def __init__(__self__, resource_name, opts=None, device_name=None, encrypted_password=None, name=None, resource_group_name=None, share_access_rights=None, user_type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -87,7 +90,6 @@ class User(pulumi.CustomResource):
             if user_type is None:
                 raise TypeError("Missing required property 'user_type'")
             __props__['user_type'] = user_type
-            __props__['properties'] = None
             __props__['type'] = None
         super(User, __self__).__init__(
             'azurerm:databoxedge/v20190801:User',

@@ -15,22 +15,52 @@ namespace Pulumi.AzureRM.Aadiam.V20170401
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>
+        /// The resource Id for the event hub authorization rule.
+        /// </summary>
+        [Output("eventHubAuthorizationRuleId")]
+        public Output<string?> EventHubAuthorizationRuleId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the event hub. If none is specified, the default event hub will be selected.
+        /// </summary>
+        [Output("eventHubName")]
+        public Output<string?> EventHubName { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of logs settings.
+        /// </summary>
+        [Output("logs")]
+        public Output<ImmutableArray<Outputs.LogSettingsResponseResult>> Logs { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of a Diagnostic Settings Resource.
+        /// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DiagnosticSettingsResponseResult> Properties { get; private set; } = null!;
+        [Output("serviceBusRuleId")]
+        public Output<string?> ServiceBusRuleId { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+        /// </summary>
+        [Output("workspaceId")]
+        public Output<string?> WorkspaceId { get; private set; } = null!;
 
 
         /// <summary>

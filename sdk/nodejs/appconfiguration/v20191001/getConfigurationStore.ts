@@ -36,6 +36,14 @@ export interface GetConfigurationStoreArgs {
  */
 export interface GetConfigurationStoreResult {
     /**
+     * The creation date of configuration store.
+     */
+    readonly creationDate: string;
+    /**
+     * The DNS endpoint where the configuration store API will be available.
+     */
+    readonly endpoint: string;
+    /**
      * The managed identity information, if configured.
      */
     readonly identity?: outputs.appconfiguration.v20191001.ResourceIdentityResponse;
@@ -48,9 +56,9 @@ export interface GetConfigurationStoreResult {
      */
     readonly name: string;
     /**
-     * The properties of a configuration store.
+     * The provisioning state of the configuration store.
      */
-    readonly properties: outputs.appconfiguration.v20191001.ConfigurationStorePropertiesResponse;
+    readonly provisioningState: string;
     /**
      * The sku of the configuration store.
      */

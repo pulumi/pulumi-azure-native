@@ -25,14 +25,26 @@ type LookupFileServerArgs struct {
 
 // Contains information about the File Server.
 type LookupFileServerResult struct {
+	CreationTime string `pulumi:"creationTime"`
+	// Settings for the data disk which would be created for the File Server.
+	DataDisks *DataDisksResponse `pulumi:"dataDisks"`
 	// The location of the resource
 	Location string `pulumi:"location"`
+	// Details of the File Server.
+	MountSettings MountSettingsResponse `pulumi:"mountSettings"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties associated with the File Server.
-	Properties FileServerPropertiesResponse `pulumi:"properties"`
+	// Possible values: creating - The File Server is getting created. updating - The File Server creation has been accepted and it is getting updated. deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted. failed - The File Server creation has failed with the specified errorCode. Details about the error code are specified in the message field. succeeded - The File Server creation has succeeded.
+	ProvisioningState               string `pulumi:"provisioningState"`
+	ProvisioningStateTransitionTime string `pulumi:"provisioningStateTransitionTime"`
+	// SSH configuration settings for the VM
+	SshConfiguration *SshConfigurationResponse `pulumi:"sshConfiguration"`
+	// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+	Subnet *ResourceIdResponse `pulumi:"subnet"`
 	// The tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource
 	Type string `pulumi:"type"`
+	// For information about available VM sizes for File Server from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+	VmSize *string `pulumi:"vmSize"`
 }

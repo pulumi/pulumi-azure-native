@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20200501
     public partial class IpAllocation : Pulumi.CustomResource
     {
         /// <summary>
+        /// IpAllocation tags.
+        /// </summary>
+        [Output("allocationTags")]
+        public Output<ImmutableDictionary<string, string>?> AllocationTags { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPAM allocation ID.
+        /// </summary>
+        [Output("ipamAllocationId")]
+        public Output<string?> IpamAllocationId { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +45,28 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the IpAllocation.
+        /// The address prefix for the IpAllocation.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IpAllocationPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("prefix")]
+        public Output<string?> Prefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The address prefix length for the IpAllocation.
+        /// </summary>
+        [Output("prefixLength")]
+        public Output<int?> PrefixLength { get; private set; } = null!;
+
+        /// <summary>
+        /// The address prefix Type for the IpAllocation.
+        /// </summary>
+        [Output("prefixType")]
+        public Output<string?> PrefixType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Subnet that using the prefix of this IpAllocation resource.
+        /// </summary>
+        [Output("subnet")]
+        public Output<Outputs.SubResourceResponseResult> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +79,12 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The VirtualNetwork that using the prefix of this IpAllocation resource.
+        /// </summary>
+        [Output("virtualNetwork")]
+        public Output<Outputs.SubResourceResponseResult> VirtualNetwork { get; private set; } = null!;
 
 
         /// <summary>

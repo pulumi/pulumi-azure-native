@@ -37,17 +37,33 @@ export class HubRouteTable extends pulumi.CustomResource {
     }
 
     /**
+     * List of all connections associated with this route table.
+     */
+    public /*out*/ readonly associatedConnections!: pulumi.Output<string[]>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * List of labels associated with this route table.
+     */
+    public readonly labels!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the RouteTable resource.
+     * List of all connections that advertise to this route table.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.HubRouteTablePropertiesResponse>;
+    public /*out*/ readonly propagatingConnections!: pulumi.Output<string[]>;
+    /**
+     * The provisioning state of the RouteTable resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * List of all routes.
+     */
+    public readonly routes!: pulumi.Output<outputs.network.v20200501.HubRouteResponse[] | undefined>;
     /**
      * Resource type.
      */
@@ -81,8 +97,10 @@ export class HubRouteTable extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            inputs["associatedConnections"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["propagatingConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

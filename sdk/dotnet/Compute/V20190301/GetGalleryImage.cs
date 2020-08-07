@@ -46,6 +46,26 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public sealed class GetGalleryImageResult
     {
         /// <summary>
+        /// The description of this gallery Image Definition resource. This property is updatable.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Describes the disallowed disk types.
+        /// </summary>
+        public readonly Outputs.DisallowedResponseResult? Disallowed;
+        /// <summary>
+        /// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        /// </summary>
+        public readonly string? EndOfLifeDate;
+        /// <summary>
+        /// The Eula agreement for the gallery Image Definition.
+        /// </summary>
+        public readonly string? Eula;
+        /// <summary>
+        /// This is the gallery Image Definition identifier.
+        /// </summary>
+        public readonly Outputs.GalleryImageIdentifierResponseResult Identifier;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -54,9 +74,33 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a gallery Image Definition.
+        /// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         /// </summary>
-        public readonly Outputs.GalleryImagePropertiesResponseResult Properties;
+        public readonly string OsState;
+        /// <summary>
+        /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// </summary>
+        public readonly string OsType;
+        /// <summary>
+        /// The privacy statement uri.
+        /// </summary>
+        public readonly string? PrivacyStatementUri;
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        /// </summary>
+        public readonly Outputs.ImagePurchasePlanResponseResult? PurchasePlan;
+        /// <summary>
+        /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+        /// </summary>
+        public readonly Outputs.RecommendedMachineConfigurationResponseResult? Recommended;
+        /// <summary>
+        /// The release note uri.
+        /// </summary>
+        public readonly string? ReleaseNoteUri;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -68,19 +112,52 @@ namespace Pulumi.AzureRM.Compute.V20190301
 
         [OutputConstructor]
         private GetGalleryImageResult(
+            string? description,
+
+            Outputs.DisallowedResponseResult? disallowed,
+
+            string? endOfLifeDate,
+
+            string? eula,
+
+            Outputs.GalleryImageIdentifierResponseResult identifier,
+
             string location,
 
             string name,
 
-            Outputs.GalleryImagePropertiesResponseResult properties,
+            string osState,
+
+            string osType,
+
+            string? privacyStatementUri,
+
+            string provisioningState,
+
+            Outputs.ImagePurchasePlanResponseResult? purchasePlan,
+
+            Outputs.RecommendedMachineConfigurationResponseResult? recommended,
+
+            string? releaseNoteUri,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Description = description;
+            Disallowed = disallowed;
+            EndOfLifeDate = endOfLifeDate;
+            Eula = eula;
+            Identifier = identifier;
             Location = location;
             Name = name;
-            Properties = properties;
+            OsState = osState;
+            OsType = osType;
+            PrivacyStatementUri = privacyStatementUri;
+            ProvisioningState = provisioningState;
+            PurchasePlan = purchasePlan;
+            Recommended = recommended;
+            ReleaseNoteUri = releaseNoteUri;
             Tags = tags;
             Type = type;
         }
