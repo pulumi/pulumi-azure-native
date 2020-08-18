@@ -425,14 +425,83 @@ func (k *azurermProvider) DiffConfig(ctx context.Context, req *rpc.DiffRequest) 
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
 func (k *azurermProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
-	// TODO: Actually figure out whether any properties require replacement
-	// * Anything that goes in `path` requies replacement
-	return &rpc.DiffResponse{
-		Changes:             0,
-		Replaces:            []string{},
+	urn := resource.URN(req.GetUrn())
+	label := fmt.Sprintf("%s.Diff(%s)", k.name, urn)
+
+	// Retrieve the old state.
+	oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	// Extract old inputs from the `__inputs` field of the old state.
+	oldInputs := parseCheckpointObject(oldState)
+
+	// Get new resource inputs. The user is submitting these as an update.
+	newResInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.news", label),
+		KeepUnknowns: true,
+		SkipNulls:    true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs %v %v", oldState, newResInputs)
+	}
+
+	// Calculate the difference between old and new inputs.
+	diff := oldInputs.Diff(newResInputs)
+
+	if diff == nil {
+		return &rpc.DiffResponse{
+			Changes:             0,
+			Replaces:            []string{},
+			Stables:             []string{},
+			DeleteBeforeReplace: false,
+		}, nil
+	}
+
+	resourceKey := string(urn.Type())
+	res, ok := k.resourceMap.Resources[resourceKey]
+	if !ok {
+		return nil, errors.Errorf("Resource type %s not found", resourceKey)
+	}
+
+	// Calculate the detailed diff object containing information about replacements.
+	detailedDiff, err := calculateDetailedDiff(&res, diff)
+	if err != nil {
+		return nil, errors.Wrap(err, "calculating detailed diff")
+	}
+
+	// Based on the detailed diff above, calculate the list of changes and replacements.
+	var changes, replaces []string
+	for k, v := range detailedDiff {
+		parts := strings.Split(k, ".")
+		changes = append(changes, parts[0])
+		v.InputDiff = true
+
+		switch v.Kind {
+		case rpc.PropertyDiff_ADD_REPLACE, rpc.PropertyDiff_DELETE_REPLACE, rpc.PropertyDiff_UPDATE_REPLACE:
+			replaces = append(replaces, k)
+		}
+	}
+
+	// TODO: Define delete-before-replace only if autonaming is off.
+	deleteBeforeReplace := len(replaces) > 0
+
+	response := rpc.DiffResponse{
+		Changes:             rpc.DiffResponse_DIFF_SOME,
+		Replaces:            replaces,
 		Stables:             []string{},
-		DeleteBeforeReplace: false,
-	}, nil
+		DeleteBeforeReplace: deleteBeforeReplace,
+		Diffs:               changes,
+		DetailedDiff:        detailedDiff,
+		HasDetailedDiff:     true,
+	}
+
+	return &response, nil
 }
 
 // Create allocates a new instance of the provided resource and returns its unique ID afterwards.
@@ -489,17 +558,20 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	// Map the raw response to the shape of outputs that the SDKs expect.
 	outputs := k.responseToSdkOutputs(res.Response, response)
 
+	// Store both outputs and inputs into the state.
+	obj := checkpointObject(inputs, outputs)
+
 	// Serialize and return RPC outputs
-	outputProperties, err := plugin.MarshalProperties(
-		resource.NewPropertyMapFromMap(outputs),
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.autonamedInputs", label), KeepUnknowns: true, SkipNulls: true},
+	checkpoint, err := plugin.MarshalProperties(
+		obj,
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
 		return nil, err
 	}
 	return &rpc.CreateResponse{
 		Id:         id,
-		Properties: outputProperties,
+		Properties: checkpoint,
 	}, nil
 }
 
@@ -509,6 +581,17 @@ func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.
 	label := fmt.Sprintf("%s.Read(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
 	id := req.GetId()
+
+	// Retrieve the old state.
+	oldState, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	// Extract old inputs from the `__inputs` field of the old state.
+	inputs := parseCheckpointObject(oldState)
 
 	resourceKey := string(urn.Type())
 	res, ok := k.resourceMap.Resources[resourceKey]
@@ -524,14 +607,18 @@ func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.
 	// Map the raw response to the shape of outputs that the SDKs expect.
 	outputs := k.responseToSdkOutputs(res.Response, response)
 
-	outputProperties, err := plugin.MarshalProperties(
-		resource.NewPropertyMapFromMap(outputs),
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.autonamedInputs", label), KeepUnknowns: true, SkipNulls: true},
+	// Store both outputs and inputs into the state.
+	obj := checkpointObject(inputs, outputs)
+
+	// Serialize and return RPC outputs.
+	checkpoint, err := plugin.MarshalProperties(
+		obj,
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
 		return nil, err
 	}
-	return &rpc.ReadResponse{Id: id, Properties: outputProperties}, nil
+	return &rpc.ReadResponse{Id: id, Properties: checkpoint}, nil
 }
 
 // Update updates an existing resource with new values.
@@ -573,15 +660,19 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 	// Map the raw response to the shape of outputs that the SDKs expect.
 	outputs := k.responseToSdkOutputs(res.Response, response)
 
-	outputProperties, err := plugin.MarshalProperties(
-		resource.NewPropertyMapFromMap(outputs),
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.autonamedInputs", label), KeepUnknowns: true, SkipNulls: true},
+	// Store both outputs and inputs into the state.
+	obj := checkpointObject(inputs, outputs)
+
+	// Serialize and return RPC outputs.
+	checkpoint, err := plugin.MarshalProperties(
+		obj,
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
 		return nil, err
 	}
 	return &rpc.UpdateResponse{
-		Properties: outputProperties,
+		Properties: checkpoint,
 	}, nil
 }
 
@@ -910,4 +1001,18 @@ func getUserAgent() (userAgent string) {
 
 	glog.V(9).Infof("AzureRM User Agent: ", userAgent)
 	return
+}
+
+// checkpointObject puts inputs in the `__inputs` field of the state.
+func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
+	object := resource.NewPropertyMapFromMap(outputs)
+	object["__inputs"] = resource.NewObjectProperty(inputs)
+	return object
+
+}
+
+// parseCheckpointObject returns inputs that are saved in the `__inputs` field of the state.
+func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
+	inputs := obj["__inputs"]
+	return inputs.ObjectValue()
 }
