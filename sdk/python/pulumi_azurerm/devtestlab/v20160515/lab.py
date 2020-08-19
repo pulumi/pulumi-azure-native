@@ -121,6 +121,8 @@ class Lab(pulumi.CustomResource):
             __props__['premium_data_disk_storage_account'] = None
             __props__['type'] = None
             __props__['vault_name'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/v20180915:Lab")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
             'azurerm:devtestlab/v20160515:Lab',
             resource_name,

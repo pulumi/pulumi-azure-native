@@ -158,6 +158,8 @@ class Device(pulumi.CustomResource):
             __props__['serial_number'] = None
             __props__['time_zone'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databoxedge/v20190301:Device"), pulumi.Alias(type_="azurerm:databoxedge/v20190801:Device")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Device, __self__).__init__(
             'azurerm:databoxedge/v20190701:Device',
             resource_name,

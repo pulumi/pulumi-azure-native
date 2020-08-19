@@ -81,6 +81,8 @@ class Group(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['type'] = type
             __props__['built_in'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Group"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Group"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Group"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Group"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Group")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
             'azurerm:apimanagement/v20180101:Group',
             resource_name,

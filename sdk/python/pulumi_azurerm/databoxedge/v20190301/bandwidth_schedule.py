@@ -87,6 +87,8 @@ class BandwidthSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stop'")
             __props__['stop'] = stop
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azurerm:databoxedge/v20190801:BandwidthSchedule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BandwidthSchedule, __self__).__init__(
             'azurerm:databoxedge/v20190301:BandwidthSchedule',
             resource_name,

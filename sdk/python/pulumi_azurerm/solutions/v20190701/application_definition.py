@@ -223,6 +223,8 @@ class ApplicationDefinition(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:solutions/v20170901:ApplicationDefinition"), pulumi.Alias(type_="azurerm:solutions/v20180601:ApplicationDefinition")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationDefinition, __self__).__init__(
             'azurerm:solutions/v20190701:ApplicationDefinition',
             resource_name,

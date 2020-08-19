@@ -127,6 +127,8 @@ class Map(pulumi.CustomResource):
             __props__['content_link'] = None
             __props__['created_time'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20190501:Map")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Map, __self__).__init__(
             'azurerm:logic/v20160601:Map',
             resource_name,

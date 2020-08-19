@@ -106,6 +106,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__['previous_keys'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azurerm:compute/v20200501:DiskEncryptionSet")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskEncryptionSet, __self__).__init__(
             'azurerm:compute/v20190701:DiskEncryptionSet',
             resource_name,

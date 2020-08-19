@@ -77,6 +77,8 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
             __props__['location'] = None
             __props__['tags'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20150401:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azurerm:documentdb/v20150408:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azurerm:documentdb/v20151106:DatabaseAccountMongoDBDatabase"), pulumi.Alias(type_="azurerm:documentdb/v20160331:DatabaseAccountMongoDBDatabase")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountMongoDBDatabase, __self__).__init__(
             'azurerm:documentdb/v20160319:DatabaseAccountMongoDBDatabase',
             resource_name,

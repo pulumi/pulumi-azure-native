@@ -256,6 +256,8 @@ class ContainerGroup(pulumi.CustomResource):
             __props__['instance_view'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerinstance/v20180601:ContainerGroup"), pulumi.Alias(type_="azurerm:containerinstance/v20180901:ContainerGroup"), pulumi.Alias(type_="azurerm:containerinstance/v20181001:ContainerGroup"), pulumi.Alias(type_="azurerm:containerinstance/v20191201:ContainerGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerGroup, __self__).__init__(
             'azurerm:containerinstance/v20180401:ContainerGroup',
             resource_name,

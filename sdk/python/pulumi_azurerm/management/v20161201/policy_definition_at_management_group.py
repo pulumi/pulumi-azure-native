@@ -88,6 +88,8 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
             __props__['parameters'] = parameters
             __props__['policy_rule'] = policy_rule
             __props__['policy_type'] = policy_type
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:management/v20180301:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azurerm:management/v20180501:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azurerm:management/v20190101:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azurerm:management/v20190601:PolicyDefinitionAtManagementGroup"), pulumi.Alias(type_="azurerm:management/v20190901:PolicyDefinitionAtManagementGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyDefinitionAtManagementGroup, __self__).__init__(
             'azurerm:management/v20161201:PolicyDefinitionAtManagementGroup',
             resource_name,

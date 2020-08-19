@@ -123,6 +123,8 @@ class ManagementPolicy(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['last_modified_time'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/v20181101:ManagementPolicy"), pulumi.Alias(type_="azurerm:storage/v20190401:ManagementPolicy")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementPolicy, __self__).__init__(
             'azurerm:storage/v20190601:ManagementPolicy',
             resource_name,

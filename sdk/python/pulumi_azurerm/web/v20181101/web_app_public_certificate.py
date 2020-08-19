@@ -74,6 +74,8 @@ class WebAppPublicCertificate(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['thumbprint'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20160801:WebAppPublicCertificate"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppPublicCertificate"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppPublicCertificate")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPublicCertificate, __self__).__init__(
             'azurerm:web/v20181101:WebAppPublicCertificate',
             resource_name,

@@ -83,6 +83,8 @@ class ExpressRouteConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['routing_weight'] = routing_weight
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180801:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20181001:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20181101:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20181201:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20190201:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20190401:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20190701:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20190801:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20190901:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20191101:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20191201:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20200301:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20200401:ExpressRouteConnection"), pulumi.Alias(type_="azurerm:network/v20200501:ExpressRouteConnection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRouteConnection, __self__).__init__(
             'azurerm:network/v20190601:ExpressRouteConnection',
             resource_name,

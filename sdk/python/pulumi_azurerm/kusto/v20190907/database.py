@@ -67,6 +67,8 @@ class Database(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:kusto/v20190121:Database"), pulumi.Alias(type_="azurerm:kusto/v20190515:Database"), pulumi.Alias(type_="azurerm:kusto/v20191109:Database"), pulumi.Alias(type_="azurerm:kusto/v20200215:Database"), pulumi.Alias(type_="azurerm:kusto/v20200614:Database")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azurerm:kusto/v20190907:Database',
             resource_name,

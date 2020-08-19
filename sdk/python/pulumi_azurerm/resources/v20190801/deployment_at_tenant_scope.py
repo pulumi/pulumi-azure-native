@@ -135,6 +135,8 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20190701:DeploymentAtTenantScope"), pulumi.Alias(type_="azurerm:resources/v20191001:DeploymentAtTenantScope"), pulumi.Alias(type_="azurerm:resources/v20200601:DeploymentAtTenantScope")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentAtTenantScope, __self__).__init__(
             'azurerm:resources/v20190801:DeploymentAtTenantScope',
             resource_name,

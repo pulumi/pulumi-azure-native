@@ -75,6 +75,8 @@ class Application(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['default_version'] = None
             __props__['packages'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:batch/v20151201:Application"), pulumi.Alias(type_="azurerm:batch/v20170101:Application"), pulumi.Alias(type_="azurerm:batch/v20170901:Application")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azurerm:batch/v20170501:Application',
             resource_name,

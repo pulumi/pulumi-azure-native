@@ -120,6 +120,8 @@ class Service(pulumi.CustomResource):
             __props__['status'] = None
             __props__['status_details'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:search/v20200313:Service")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azurerm:search/v20150819:Service',
             resource_name,

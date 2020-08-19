@@ -105,6 +105,8 @@ class EventSubscription(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['topic'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventgrid/v20190101:EventSubscription"), pulumi.Alias(type_="azurerm:eventgrid/v20190601:EventSubscription"), pulumi.Alias(type_="azurerm:eventgrid/v20200601:EventSubscription")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventSubscription, __self__).__init__(
             'azurerm:eventgrid/v20180101:EventSubscription',
             resource_name,

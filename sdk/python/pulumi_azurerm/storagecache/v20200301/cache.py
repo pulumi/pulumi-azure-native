@@ -167,6 +167,8 @@ class Cache(pulumi.CustomResource):
             __props__['mount_addresses'] = None
             __props__['type'] = None
             __props__['upgrade_status'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storagecache/v20191101:Cache")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cache, __self__).__init__(
             'azurerm:storagecache/v20200301:Cache',
             resource_name,

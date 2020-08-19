@@ -432,6 +432,8 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__['sku'] = None
             __props__['type'] = None
             __props__['vm_id'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20150615:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azurerm:compute/v20160330:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azurerm:compute/v20170330:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azurerm:compute/v20180401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azurerm:compute/v20180601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azurerm:compute/v20181001:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azurerm:compute/v20190301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azurerm:compute/v20190701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azurerm:compute/v20191201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azurerm:compute/v20200601:VirtualMachineScaleSetVM")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVM, __self__).__init__(
             'azurerm:compute/v20171201:VirtualMachineScaleSetVM',
             resource_name,

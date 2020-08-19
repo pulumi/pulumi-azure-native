@@ -137,6 +137,8 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:management/v20190501:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azurerm:management/v20190510:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azurerm:management/v20190801:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azurerm:management/v20191001:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azurerm:management/v20200601:DeploymentAtManagementGroupScope")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentAtManagementGroupScope, __self__).__init__(
             'azurerm:management/v20190701:DeploymentAtManagementGroupScope',
             resource_name,

@@ -74,6 +74,8 @@ class IntegrationAccount(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationAccount")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccount, __self__).__init__(
             'azurerm:logic/v20160601:IntegrationAccount',
             resource_name,

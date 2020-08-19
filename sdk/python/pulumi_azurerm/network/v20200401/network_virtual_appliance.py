@@ -141,6 +141,8 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['virtual_appliance_nics'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20191201:NetworkVirtualAppliance"), pulumi.Alias(type_="azurerm:network/v20200301:NetworkVirtualAppliance"), pulumi.Alias(type_="azurerm:network/v20200501:NetworkVirtualAppliance")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkVirtualAppliance, __self__).__init__(
             'azurerm:network/v20200401:NetworkVirtualAppliance',
             resource_name,

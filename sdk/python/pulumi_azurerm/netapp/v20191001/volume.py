@@ -214,6 +214,8 @@ class Volume(pulumi.CustomResource):
             __props__['file_system_id'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:netapp/v20190501:Volume"), pulumi.Alias(type_="azurerm:netapp/v20190601:Volume"), pulumi.Alias(type_="azurerm:netapp/v20190701:Volume"), pulumi.Alias(type_="azurerm:netapp/v20190801:Volume"), pulumi.Alias(type_="azurerm:netapp/v20191101:Volume")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azurerm:netapp/v20191001:Volume',
             resource_name,

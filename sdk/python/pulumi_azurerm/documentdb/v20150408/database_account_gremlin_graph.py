@@ -169,6 +169,8 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
             __props__['ts'] = None
             __props__['type'] = None
             __props__['unique_key_policy'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20150401:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azurerm:documentdb/v20151106:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azurerm:documentdb/v20160319:DatabaseAccountGremlinGraph"), pulumi.Alias(type_="azurerm:documentdb/v20160331:DatabaseAccountGremlinGraph")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountGremlinGraph, __self__).__init__(
             'azurerm:documentdb/v20150408:DatabaseAccountGremlinGraph',
             resource_name,

@@ -93,6 +93,8 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['location'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20180110:ReplicationNetworkMapping"), pulumi.Alias(type_="azurerm:recoveryservices/v20180710:ReplicationNetworkMapping")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationNetworkMapping, __self__).__init__(
             'azurerm:recoveryservices/v20160810:ReplicationNetworkMapping',
             resource_name,

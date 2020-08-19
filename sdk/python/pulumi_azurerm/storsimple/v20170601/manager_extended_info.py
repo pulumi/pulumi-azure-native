@@ -103,6 +103,8 @@ class ManagerExtendedInfo(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['version'] = version
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/v20161001:ManagerExtendedInfo")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagerExtendedInfo, __self__).__init__(
             'azurerm:storsimple/v20170601:ManagerExtendedInfo',
             resource_name,

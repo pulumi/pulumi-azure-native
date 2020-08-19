@@ -63,6 +63,8 @@ class AccessControlRecord(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/v20170601:AccessControlRecord")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessControlRecord, __self__).__init__(
             'azurerm:storsimple/v20161001:AccessControlRecord',
             resource_name,

@@ -69,6 +69,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rights'")
             __props__['rights'] = rights
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventhub/v20150801:NamespaceAuthorizationRule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azurerm:eventhub/v20140901:NamespaceAuthorizationRule',
             resource_name,

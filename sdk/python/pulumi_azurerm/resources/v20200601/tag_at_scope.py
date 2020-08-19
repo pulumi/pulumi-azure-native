@@ -60,6 +60,8 @@ class TagAtScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20191001:TagAtScope")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagAtScope, __self__).__init__(
             'azurerm:resources/v20200601:TagAtScope',
             resource_name,

@@ -124,6 +124,8 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
             __props__['time_period'] = time_period
             __props__['current_spend'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:consumption/v20180331:BudgetByResourceGroupName"), pulumi.Alias(type_="azurerm:consumption/v20180630:BudgetByResourceGroupName"), pulumi.Alias(type_="azurerm:consumption/v20180831:BudgetByResourceGroupName"), pulumi.Alias(type_="azurerm:consumption/v20181001:BudgetByResourceGroupName")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BudgetByResourceGroupName, __self__).__init__(
             'azurerm:consumption/v20180131:BudgetByResourceGroupName',
             resource_name,

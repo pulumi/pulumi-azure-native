@@ -586,6 +586,8 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
             __props__['virtual_network_tap'] = virtual_network_tap
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180801:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20181001:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20181101:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20181201:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20190201:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20190601:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20190701:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20190801:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20190901:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20191101:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20191201:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20200301:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20200401:NetworkInterfaceTapConfiguration"), pulumi.Alias(type_="azurerm:network/v20200501:NetworkInterfaceTapConfiguration")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkInterfaceTapConfiguration, __self__).__init__(
             'azurerm:network/v20190401:NetworkInterfaceTapConfiguration',
             resource_name,

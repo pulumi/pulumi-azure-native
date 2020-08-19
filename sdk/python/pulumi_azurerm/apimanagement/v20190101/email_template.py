@@ -99,6 +99,8 @@ class EmailTemplate(pulumi.CustomResource):
             __props__['title'] = title
             __props__['is_default'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:EmailTemplate"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:EmailTemplate")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EmailTemplate, __self__).__init__(
             'azurerm:apimanagement/v20190101:EmailTemplate',
             resource_name,

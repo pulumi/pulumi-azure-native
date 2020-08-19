@@ -126,6 +126,8 @@ class OriginGroup(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cdn/v20200331:OriginGroup"), pulumi.Alias(type_="azurerm:cdn/v20200415:OriginGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OriginGroup, __self__).__init__(
             'azurerm:cdn/v20191231:OriginGroup',
             resource_name,

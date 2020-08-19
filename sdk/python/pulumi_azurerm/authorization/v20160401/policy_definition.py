@@ -66,6 +66,8 @@ class PolicyDefinition(pulumi.CustomResource):
             __props__['name'] = name
             __props__['policy_rule'] = policy_rule
             __props__['policy_type'] = policy_type
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20151101:PolicyDefinition")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyDefinition, __self__).__init__(
             'azurerm:authorization/v20160401:PolicyDefinition',
             resource_name,

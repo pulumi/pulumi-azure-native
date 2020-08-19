@@ -206,6 +206,8 @@ class Disk(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20170330:Disk"), pulumi.Alias(type_="azurerm:compute/v20180401:Disk"), pulumi.Alias(type_="azurerm:compute/v20180601:Disk"), pulumi.Alias(type_="azurerm:compute/v20180930:Disk"), pulumi.Alias(type_="azurerm:compute/v20190701:Disk"), pulumi.Alias(type_="azurerm:compute/v20191101:Disk"), pulumi.Alias(type_="azurerm:compute/v20200501:Disk")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Disk, __self__).__init__(
             'azurerm:compute/v20190301:Disk',
             resource_name,

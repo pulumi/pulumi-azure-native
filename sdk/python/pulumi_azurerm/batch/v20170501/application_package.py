@@ -79,6 +79,8 @@ class ApplicationPackage(pulumi.CustomResource):
             __props__['state'] = None
             __props__['storage_url'] = None
             __props__['storage_url_expiry'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:batch/v20151201:ApplicationPackage"), pulumi.Alias(type_="azurerm:batch/v20170101:ApplicationPackage"), pulumi.Alias(type_="azurerm:batch/v20170901:ApplicationPackage")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationPackage, __self__).__init__(
             'azurerm:batch/v20170501:ApplicationPackage',
             resource_name,

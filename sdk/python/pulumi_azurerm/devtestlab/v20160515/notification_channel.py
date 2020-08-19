@@ -107,6 +107,8 @@ class NotificationChannel(pulumi.CustomResource):
             __props__['web_hook_url'] = web_hook_url
             __props__['created_date'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/v20180915:NotificationChannel")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationChannel, __self__).__init__(
             'azurerm:devtestlab/v20160515:NotificationChannel',
             resource_name,

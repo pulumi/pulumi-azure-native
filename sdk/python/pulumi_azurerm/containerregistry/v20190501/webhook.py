@@ -100,6 +100,8 @@ class Webhook(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/v20171001:Webhook")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Webhook, __self__).__init__(
             'azurerm:containerregistry/v20190501:Webhook',
             resource_name,

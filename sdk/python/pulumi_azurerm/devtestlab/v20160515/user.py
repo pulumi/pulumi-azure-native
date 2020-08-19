@@ -116,6 +116,8 @@ class User(pulumi.CustomResource):
             __props__['unique_identifier'] = unique_identifier
             __props__['created_date'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/v20180915:User")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azurerm:devtestlab/v20160515:User',
             resource_name,

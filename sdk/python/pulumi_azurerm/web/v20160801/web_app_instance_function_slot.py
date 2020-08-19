@@ -114,6 +114,8 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
             __props__['test_data'] = test_data
             __props__['function_app_id'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppInstanceFunctionSlot")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppInstanceFunctionSlot, __self__).__init__(
             'azurerm:web/v20160801:WebAppInstanceFunctionSlot',
             resource_name,

@@ -61,6 +61,8 @@ class PolicyAssignment(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20161201:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20180301:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20180501:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20190101:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20190601:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20190901:PolicyAssignment")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyAssignment, __self__).__init__(
             'azurerm:authorization/v20151101:PolicyAssignment',
             resource_name,

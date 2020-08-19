@@ -73,6 +73,8 @@ class PatchSchedule(pulumi.CustomResource):
             __props__['schedule_entries'] = schedule_entries
             __props__['location'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/v20170201:PatchSchedule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PatchSchedule, __self__).__init__(
             'azurerm:cache/v20160401:PatchSchedule',
             resource_name,

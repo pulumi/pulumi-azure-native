@@ -100,6 +100,8 @@ class ReferenceDataSet(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:timeseriesinsights/v20200515:ReferenceDataSet")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReferenceDataSet, __self__).__init__(
             'azurerm:timeseriesinsights/v20171115:ReferenceDataSet',
             resource_name,

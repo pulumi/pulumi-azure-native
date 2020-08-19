@@ -87,6 +87,8 @@ class SiteRelayServiceConnection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['entity_name'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20160801:SiteRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20180201:SiteRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20181101:SiteRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20190801:SiteRelayServiceConnection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteRelayServiceConnection, __self__).__init__(
             'azurerm:web/v20150801:SiteRelayServiceConnection',
             resource_name,

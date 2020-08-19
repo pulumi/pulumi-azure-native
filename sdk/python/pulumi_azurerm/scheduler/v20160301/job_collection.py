@@ -93,6 +93,8 @@ class JobCollection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:scheduler/v20160101:JobCollection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobCollection, __self__).__init__(
             'azurerm:scheduler/v20160301:JobCollection',
             resource_name,

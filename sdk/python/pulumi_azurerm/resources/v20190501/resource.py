@@ -147,6 +147,8 @@ class Resource(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20151101:Resource"), pulumi.Alias(type_="azurerm:resources/v20160201:Resource"), pulumi.Alias(type_="azurerm:resources/v20160701:Resource"), pulumi.Alias(type_="azurerm:resources/v20160901:Resource"), pulumi.Alias(type_="azurerm:resources/v20170510:Resource"), pulumi.Alias(type_="azurerm:resources/v20180201:Resource"), pulumi.Alias(type_="azurerm:resources/v20180501:Resource"), pulumi.Alias(type_="azurerm:resources/v20190301:Resource"), pulumi.Alias(type_="azurerm:resources/v20190510:Resource"), pulumi.Alias(type_="azurerm:resources/v20190701:Resource"), pulumi.Alias(type_="azurerm:resources/v20190801:Resource"), pulumi.Alias(type_="azurerm:resources/v20191001:Resource"), pulumi.Alias(type_="azurerm:resources/v20200601:Resource")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Resource, __self__).__init__(
             'azurerm:resources/v20190501:Resource',
             resource_name,

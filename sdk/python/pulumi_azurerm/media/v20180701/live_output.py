@@ -124,6 +124,8 @@ class LiveOutput(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20200501:LiveOutput")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LiveOutput, __self__).__init__(
             'azurerm:media/v20180701:LiveOutput',
             resource_name,

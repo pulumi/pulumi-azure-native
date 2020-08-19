@@ -83,6 +83,8 @@ class Property(pulumi.CustomResource):
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Property"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Property"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Property"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Property")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Property, __self__).__init__(
             'azurerm:apimanagement/v20180101:Property',
             resource_name,

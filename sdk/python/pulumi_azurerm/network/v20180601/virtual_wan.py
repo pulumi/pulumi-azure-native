@@ -92,6 +92,8 @@ class VirtualWAN(pulumi.CustomResource):
             __props__['type'] = None
             __props__['virtual_hubs'] = None
             __props__['vpn_sites'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180401:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20180701:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20180801:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20181001:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20181101:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20181201:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20190201:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20190401:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20190601:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20190701:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20190801:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20190901:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20191101:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20191201:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20200301:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20200401:VirtualWAN"), pulumi.Alias(type_="azurerm:network/v20200501:VirtualWAN")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualWAN, __self__).__init__(
             'azurerm:network/v20180601:VirtualWAN',
             resource_name,

@@ -59,6 +59,8 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['tags'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/v20170119:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azurerm:devices/v20170701:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azurerm:devices/v20180122:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azurerm:devices/v20180401:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azurerm:devices/v20190322:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azurerm:devices/v20191104:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azurerm:devices/v20200301:IotHubResourceEventHubConsumerGroup"), pulumi.Alias(type_="azurerm:devices/v20200401:IotHubResourceEventHubConsumerGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotHubResourceEventHubConsumerGroup, __self__).__init__(
             'azurerm:devices/v20160203:IotHubResourceEventHubConsumerGroup',
             resource_name,

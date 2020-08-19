@@ -888,6 +888,8 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['network_interfaces'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190401:PrivateEndpoint"), pulumi.Alias(type_="azurerm:network/v20190601:PrivateEndpoint"), pulumi.Alias(type_="azurerm:network/v20190701:PrivateEndpoint"), pulumi.Alias(type_="azurerm:network/v20190901:PrivateEndpoint"), pulumi.Alias(type_="azurerm:network/v20191101:PrivateEndpoint"), pulumi.Alias(type_="azurerm:network/v20191201:PrivateEndpoint"), pulumi.Alias(type_="azurerm:network/v20200301:PrivateEndpoint"), pulumi.Alias(type_="azurerm:network/v20200401:PrivateEndpoint"), pulumi.Alias(type_="azurerm:network/v20200501:PrivateEndpoint")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpoint, __self__).__init__(
             'azurerm:network/v20190801:PrivateEndpoint',
             resource_name,

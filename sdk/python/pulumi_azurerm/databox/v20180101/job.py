@@ -215,6 +215,8 @@ class Job(pulumi.CustomResource):
             __props__['start_time'] = None
             __props__['status'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databox/v20190901:Job")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azurerm:databox/v20180101:Job',
             resource_name,

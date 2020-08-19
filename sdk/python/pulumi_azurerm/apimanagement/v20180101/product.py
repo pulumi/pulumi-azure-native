@@ -99,6 +99,8 @@ class Product(pulumi.CustomResource):
             __props__['subscriptions_limit'] = subscriptions_limit
             __props__['terms'] = terms
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Product"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Product"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Product"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Product"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Product")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Product, __self__).__init__(
             'azurerm:apimanagement/v20180101:Product',
             resource_name,

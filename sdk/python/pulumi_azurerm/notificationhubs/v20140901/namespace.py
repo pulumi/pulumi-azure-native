@@ -98,6 +98,8 @@ class Namespace(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:notificationhubs/v20160301:Namespace"), pulumi.Alias(type_="azurerm:notificationhubs/v20170401:Namespace")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azurerm:notificationhubs/v20140901:Namespace',
             resource_name,

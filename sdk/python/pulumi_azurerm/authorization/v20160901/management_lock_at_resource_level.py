@@ -92,6 +92,8 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20150101:ManagementLockAtResourceLevel")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockAtResourceLevel, __self__).__init__(
             'azurerm:authorization/v20160901:ManagementLockAtResourceLevel',
             resource_name,

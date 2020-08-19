@@ -100,6 +100,8 @@ class CustomDomain(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['type'] = None
             __props__['validation_data'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cdn/v20150601:CustomDomain"), pulumi.Alias(type_="azurerm:cdn/v20160402:CustomDomain"), pulumi.Alias(type_="azurerm:cdn/v20161002:CustomDomain"), pulumi.Alias(type_="azurerm:cdn/v20170402:CustomDomain"), pulumi.Alias(type_="azurerm:cdn/v20171012:CustomDomain"), pulumi.Alias(type_="azurerm:cdn/v20190415:CustomDomain"), pulumi.Alias(type_="azurerm:cdn/v20191231:CustomDomain"), pulumi.Alias(type_="azurerm:cdn/v20200331:CustomDomain"), pulumi.Alias(type_="azurerm:cdn/v20200415:CustomDomain")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomDomain, __self__).__init__(
             'azurerm:cdn/v20190615:CustomDomain',
             resource_name,

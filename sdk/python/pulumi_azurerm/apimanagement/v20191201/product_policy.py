@@ -73,6 +73,8 @@ class ProductPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:ProductPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ProductPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ProductPolicy")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProductPolicy, __self__).__init__(
             'azurerm:apimanagement/v20191201:ProductPolicy',
             resource_name,

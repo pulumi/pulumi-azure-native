@@ -216,6 +216,8 @@ class RecordSet(pulumi.CustomResource):
             __props__['zone_name'] = zone_name
             __props__['fqdn'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20160401:RecordSet"), pulumi.Alias(type_="azurerm:network/v20170901:RecordSet"), pulumi.Alias(type_="azurerm:network/v20180501:RecordSet")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RecordSet, __self__).__init__(
             'azurerm:network/v20171001:RecordSet',
             resource_name,

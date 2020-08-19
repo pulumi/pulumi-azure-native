@@ -95,6 +95,8 @@ class View(pulumi.CustomResource):
             __props__['tenant_id'] = None
             __props__['type'] = None
             __props__['view_name'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customerinsights/v20170426:View")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(View, __self__).__init__(
             'azurerm:customerinsights/v20170101:View',
             resource_name,

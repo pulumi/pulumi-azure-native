@@ -165,6 +165,8 @@ class Backend(pulumi.CustomResource):
                 raise TypeError("Missing required property 'url'")
             __props__['url'] = url
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20191201:Backend")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backend, __self__).__init__(
             'azurerm:apimanagement/v20190101:Backend',
             resource_name,
