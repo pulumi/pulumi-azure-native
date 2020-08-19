@@ -44,8 +44,23 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	}
 	pythonModuleNames := map[string]string{}
 
+	// Collect all versions for each path in the API across all Swagger files.
+	pathVersions := map[string]codegen.StringSet{}
 	for _, swagger := range swaggers {
-		gen := packageGenerator{pkg: &pkg, metadata: &metadata, swagger: swagger}
+		gen := packageGenerator{swagger: swagger}
+		for key, _ := range swagger.Paths.Paths {
+			versions, ok := pathVersions[key]
+			if !ok {
+				versions = codegen.StringSet{}
+				pathVersions[key] = versions
+			}
+			versions.Add(gen.apiVersion())
+		}
+	}
+
+	// Generate resources and invokes.
+	for _, swagger := range swaggers {
+		gen := packageGenerator{pkg: &pkg, metadata: &metadata, swagger: swagger, pathVersions: pathVersions}
 
 		// Sort paths to make codegen deterministic.
 		var paths []string
@@ -96,9 +111,11 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 }
 
 type packageGenerator struct {
-	pkg      *pschema.PackageSpec
-	swagger  *openapi.Spec
-	metadata *provider.AzureApiMetadata
+	pkg          *pschema.PackageSpec
+	swagger      *openapi.Spec
+	metadata     *provider.AzureApiMetadata
+	// pathVersions contains all API versions for every path in API specs.
+	pathVersions map[string]codegen.StringSet
 }
 
 func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
@@ -145,6 +162,17 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 
 	gen.escapeCSharpNames(typeName, resourceResponse)
 
+	// Add an alias for each API version that has the same path in it.
+	var aliases []pschema.AliasSpec
+	if versions, ok := g.pathVersions[key]; ok {
+		for _, version := range versions.SortedValues() {
+			alias := fmt.Sprintf("%s:%s/v%s:%s", g.pkg.Name, strings.ToLower(prov), version, typeName)
+			if alias != resourceTok {
+				aliases = append(aliases, pschema.AliasSpec{Type: &alias})
+			}
+		}
+	}
+
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec:  pschema.ObjectTypeSpec{
 			Description: resourceResponse.description,
@@ -154,6 +182,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		},
 		InputProperties: resourceRequest.specs,
 		RequiredInputs:  resourceRequest.requiredSpecs.SortedValues(),
+		Aliases:         aliases,
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
 
