@@ -111,9 +111,9 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 }
 
 type packageGenerator struct {
-	pkg          *pschema.PackageSpec
-	swagger      *openapi.Spec
-	metadata     *provider.AzureApiMetadata
+	pkg      *pschema.PackageSpec
+	swagger  *openapi.Spec
+	metadata *provider.AzureApiMetadata
 	// pathVersions contains all API versions for every path in API specs.
 	pathVersions map[string]codegen.StringSet
 }
@@ -174,7 +174,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	}
 
 	resourceSpec := pschema.ResourceSpec{
-		ObjectTypeSpec:  pschema.ObjectTypeSpec{
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Description: resourceResponse.description,
 			Type:        "object",
 			Properties:  resourceResponse.specs,
@@ -318,7 +318,7 @@ func (g *packageGenerator) providerToModule(prov string) string {
 }
 
 // mergeParameters combines the Path Item parameters with Operation parameters.
-func (g *packageGenerator) mergeParameters (operation []spec.Parameter, pathItem []spec.Parameter) []spec.Parameter {
+func (g *packageGenerator) mergeParameters(operation []spec.Parameter, pathItem []spec.Parameter) []spec.Parameter {
 	// Open API spec for operations:
 	// > If a parameter is already defined at the Path Item, the new definition will override it.
 	// > A unique parameter is defined by a combination of a name and location.
