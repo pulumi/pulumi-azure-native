@@ -107,6 +107,8 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:media/v20180701:ContentKeyPolicy" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentKeyPolicy.__pulumiType, name, inputs, opts);
     }
 }

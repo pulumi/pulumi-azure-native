@@ -122,6 +122,8 @@ export class SiteHostNameBinding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160801:SiteHostNameBinding" }, { type: "azurerm:web/v20180201:SiteHostNameBinding" }, { type: "azurerm:web/v20181101:SiteHostNameBinding" }, { type: "azurerm:web/v20190801:SiteHostNameBinding" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteHostNameBinding.__pulumiType, name, inputs, opts);
     }
 }

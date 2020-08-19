@@ -134,6 +134,8 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20181201:WebApplicationFirewallPolicy" }, { type: "azurerm:network/v20190201:WebApplicationFirewallPolicy" }, { type: "azurerm:network/v20190401:WebApplicationFirewallPolicy" }, { type: "azurerm:network/v20190601:WebApplicationFirewallPolicy" }, { type: "azurerm:network/v20190701:WebApplicationFirewallPolicy" }, { type: "azurerm:network/v20190801:WebApplicationFirewallPolicy" }, { type: "azurerm:network/v20190901:WebApplicationFirewallPolicy" }, { type: "azurerm:network/v20191101:WebApplicationFirewallPolicy" }, { type: "azurerm:network/v20191201:WebApplicationFirewallPolicy" }, { type: "azurerm:network/v20200301:WebApplicationFirewallPolicy" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebApplicationFirewallPolicy.__pulumiType, name, inputs, opts);
     }
 }

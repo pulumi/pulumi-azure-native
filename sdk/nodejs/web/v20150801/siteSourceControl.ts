@@ -117,6 +117,8 @@ export class SiteSourceControl extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160801:SiteSourceControl" }, { type: "azurerm:web/v20180201:SiteSourceControl" }, { type: "azurerm:web/v20181101:SiteSourceControl" }, { type: "azurerm:web/v20190801:SiteSourceControl" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteSourceControl.__pulumiType, name, inputs, opts);
     }
 }

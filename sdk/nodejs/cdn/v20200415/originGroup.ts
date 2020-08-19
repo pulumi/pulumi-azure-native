@@ -116,6 +116,8 @@ export class OriginGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:cdn/v20191231:OriginGroup" }, { type: "azurerm:cdn/v20200331:OriginGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OriginGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -148,6 +148,8 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20180915:VirtualMachineSchedule" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineSchedule.__pulumiType, name, inputs, opts);
     }
 }

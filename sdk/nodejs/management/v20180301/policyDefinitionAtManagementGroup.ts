@@ -108,6 +108,8 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:management/v20161201:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20180501:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20190101:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20190601:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20190901:PolicyDefinitionAtManagementGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyDefinitionAtManagementGroup.__pulumiType, name, inputs, opts);
     }
 }

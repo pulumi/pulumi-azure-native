@@ -121,6 +121,8 @@ export class ServerDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:analysisservices/v20170714:ServerDetails" }, { type: "azurerm:analysisservices/v20170801:ServerDetails" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerDetails.__pulumiType, name, inputs, opts);
     }
 }

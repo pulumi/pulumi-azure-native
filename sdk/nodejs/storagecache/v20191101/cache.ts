@@ -120,6 +120,8 @@ export class Cache extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:storagecache/v20200301:Cache" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cache.__pulumiType, name, inputs, opts);
     }
 }

@@ -99,6 +99,8 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:CassandraResourceCassandraKeyspace" }, { type: "azurerm:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azurerm:documentdb/v20200301:CassandraResourceCassandraKeyspace" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CassandraResourceCassandraKeyspace.__pulumiType, name, inputs, opts);
     }
 }

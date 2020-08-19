@@ -115,6 +115,8 @@ export class ReferenceDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:timeseriesinsights/v20200515:ReferenceDataSet" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReferenceDataSet.__pulumiType, name, inputs, opts);
     }
 }

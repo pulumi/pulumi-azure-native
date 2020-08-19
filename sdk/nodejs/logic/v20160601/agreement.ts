@@ -152,6 +152,8 @@ export class Agreement extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20190501:Agreement" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Agreement.__pulumiType, name, inputs, opts);
     }
 }

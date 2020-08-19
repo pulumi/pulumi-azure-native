@@ -96,6 +96,8 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebAppRelayServiceConnectionSlot" }, { type: "azurerm:web/v20160801:WebAppRelayServiceConnectionSlot" }, { type: "azurerm:web/v20180201:WebAppRelayServiceConnectionSlot" }, { type: "azurerm:web/v20190801:WebAppRelayServiceConnectionSlot" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppRelayServiceConnectionSlot.__pulumiType, name, inputs, opts);
     }
 }

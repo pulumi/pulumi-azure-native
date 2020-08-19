@@ -109,6 +109,8 @@ export class BandwidthSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/v20190301:BandwidthSchedule" }, { type: "azurerm:databoxedge/v20190801:BandwidthSchedule" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BandwidthSchedule.__pulumiType, name, inputs, opts);
     }
 }

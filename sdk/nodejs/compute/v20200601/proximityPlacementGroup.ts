@@ -113,6 +113,8 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20180401:ProximityPlacementGroup" }, { type: "azurerm:compute/v20180601:ProximityPlacementGroup" }, { type: "azurerm:compute/v20181001:ProximityPlacementGroup" }, { type: "azurerm:compute/v20190301:ProximityPlacementGroup" }, { type: "azurerm:compute/v20190701:ProximityPlacementGroup" }, { type: "azurerm:compute/v20191201:ProximityPlacementGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProximityPlacementGroup.__pulumiType, name, inputs, opts);
     }
 }

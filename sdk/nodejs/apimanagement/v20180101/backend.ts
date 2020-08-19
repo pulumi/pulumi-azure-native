@@ -130,6 +130,8 @@ export class Backend extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:Backend" }, { type: "azurerm:apimanagement/v20161010:Backend" }, { type: "azurerm:apimanagement/v20170301:Backend" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backend.__pulumiType, name, inputs, opts);
     }
 }

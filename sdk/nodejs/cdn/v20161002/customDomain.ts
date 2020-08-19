@@ -119,6 +119,8 @@ export class CustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:cdn/v20150601:CustomDomain" }, { type: "azurerm:cdn/v20160402:CustomDomain" }, { type: "azurerm:cdn/v20170402:CustomDomain" }, { type: "azurerm:cdn/v20171012:CustomDomain" }, { type: "azurerm:cdn/v20190415:CustomDomain" }, { type: "azurerm:cdn/v20190615:CustomDomain" }, { type: "azurerm:cdn/v20191231:CustomDomain" }, { type: "azurerm:cdn/v20200331:CustomDomain" }, { type: "azurerm:cdn/v20200415:CustomDomain" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }
 }

@@ -85,6 +85,8 @@ export class Role extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/v20190301:Role" }, { type: "azurerm:databoxedge/v20190701:Role" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Role.__pulumiType, name, inputs, opts);
     }
 }

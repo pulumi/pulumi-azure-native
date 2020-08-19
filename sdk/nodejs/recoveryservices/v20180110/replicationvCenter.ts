@@ -93,6 +93,8 @@ export class ReplicationvCenter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/v20160810:ReplicationvCenter" }, { type: "azurerm:recoveryservices/v20180710:ReplicationvCenter" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationvCenter.__pulumiType, name, inputs, opts);
     }
 }

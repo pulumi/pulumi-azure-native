@@ -191,6 +191,8 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azurerm:certificateregistration/v20190801:AppServiceCertificateOrder" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceCertificateOrder.__pulumiType, name, inputs, opts);
     }
 }

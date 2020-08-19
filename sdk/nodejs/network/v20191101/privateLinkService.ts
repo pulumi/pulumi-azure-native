@@ -141,6 +141,8 @@ export class PrivateLinkService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20190401:PrivateLinkService" }, { type: "azurerm:network/v20190601:PrivateLinkService" }, { type: "azurerm:network/v20190701:PrivateLinkService" }, { type: "azurerm:network/v20190801:PrivateLinkService" }, { type: "azurerm:network/v20190901:PrivateLinkService" }, { type: "azurerm:network/v20191201:PrivateLinkService" }, { type: "azurerm:network/v20200301:PrivateLinkService" }, { type: "azurerm:network/v20200401:PrivateLinkService" }, { type: "azurerm:network/v20200501:PrivateLinkService" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateLinkService.__pulumiType, name, inputs, opts);
     }
 }

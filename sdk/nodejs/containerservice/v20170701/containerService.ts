@@ -142,6 +142,8 @@ export class ContainerService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/v20160330:ContainerService" }, { type: "azurerm:containerservice/v20160930:ContainerService" }, { type: "azurerm:containerservice/v20170131:ContainerService" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContainerService.__pulumiType, name, inputs, opts);
     }
 }

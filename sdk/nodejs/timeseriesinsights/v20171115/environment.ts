@@ -139,6 +139,8 @@ export class Environment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:timeseriesinsights/v20200515:Environment" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Environment.__pulumiType, name, inputs, opts);
     }
 }

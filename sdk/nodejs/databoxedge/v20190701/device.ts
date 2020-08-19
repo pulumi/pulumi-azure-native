@@ -168,6 +168,8 @@ export class Device extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/v20190301:Device" }, { type: "azurerm:databoxedge/v20190801:Device" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Device.__pulumiType, name, inputs, opts);
     }
 }

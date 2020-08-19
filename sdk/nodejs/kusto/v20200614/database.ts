@@ -90,6 +90,8 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:kusto/v20190121:Database" }, { type: "azurerm:kusto/v20190515:Database" }, { type: "azurerm:kusto/v20190907:Database" }, { type: "azurerm:kusto/v20191109:Database" }, { type: "azurerm:kusto/v20200215:Database" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }
 }

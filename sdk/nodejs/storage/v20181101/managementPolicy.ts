@@ -92,6 +92,8 @@ export class ManagementPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/v20190401:ManagementPolicy" }, { type: "azurerm:storage/v20190601:ManagementPolicy" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementPolicy.__pulumiType, name, inputs, opts);
     }
 }

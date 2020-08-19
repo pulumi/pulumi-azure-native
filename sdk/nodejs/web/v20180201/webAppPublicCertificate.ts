@@ -93,6 +93,8 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160801:WebAppPublicCertificate" }, { type: "azurerm:web/v20181101:WebAppPublicCertificate" }, { type: "azurerm:web/v20190801:WebAppPublicCertificate" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPublicCertificate.__pulumiType, name, inputs, opts);
     }
 }

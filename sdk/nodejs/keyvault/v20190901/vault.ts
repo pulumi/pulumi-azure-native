@@ -96,6 +96,8 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:keyvault/v20150601:Vault" }, { type: "azurerm:keyvault/v20161001:Vault" }, { type: "azurerm:keyvault/v20180214:Vault" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vault.__pulumiType, name, inputs, opts);
     }
 }

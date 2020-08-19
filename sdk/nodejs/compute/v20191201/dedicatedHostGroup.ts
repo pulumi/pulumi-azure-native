@@ -106,6 +106,8 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20190301:DedicatedHostGroup" }, { type: "azurerm:compute/v20190701:DedicatedHostGroup" }, { type: "azurerm:compute/v20200601:DedicatedHostGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DedicatedHostGroup.__pulumiType, name, inputs, opts);
     }
 }

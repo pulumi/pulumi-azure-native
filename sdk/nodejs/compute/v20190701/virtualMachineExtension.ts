@@ -132,6 +132,8 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20150615:VirtualMachineExtension" }, { type: "azurerm:compute/v20160330:VirtualMachineExtension" }, { type: "azurerm:compute/v20170330:VirtualMachineExtension" }, { type: "azurerm:compute/v20171201:VirtualMachineExtension" }, { type: "azurerm:compute/v20180401:VirtualMachineExtension" }, { type: "azurerm:compute/v20180601:VirtualMachineExtension" }, { type: "azurerm:compute/v20181001:VirtualMachineExtension" }, { type: "azurerm:compute/v20190301:VirtualMachineExtension" }, { type: "azurerm:compute/v20191201:VirtualMachineExtension" }, { type: "azurerm:compute/v20200601:VirtualMachineExtension" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineExtension.__pulumiType, name, inputs, opts);
     }
 }

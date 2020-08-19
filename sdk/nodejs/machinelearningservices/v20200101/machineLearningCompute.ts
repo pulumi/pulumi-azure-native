@@ -104,6 +104,8 @@ export class MachineLearningCompute extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/v20181119:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20190501:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20190601:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20191101:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200301:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200401:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200601:MachineLearningCompute" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningCompute.__pulumiType, name, inputs, opts);
     }
 }

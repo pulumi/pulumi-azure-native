@@ -116,6 +116,8 @@ export class Order extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/v20190701:Order" }, { type: "azurerm:databoxedge/v20190801:Order" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Order.__pulumiType, name, inputs, opts);
     }
 }

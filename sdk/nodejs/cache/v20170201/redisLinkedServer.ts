@@ -102,6 +102,8 @@ export class RedisLinkedServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:cache/v20171001:RedisLinkedServer" }, { type: "azurerm:cache/v20180301:RedisLinkedServer" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RedisLinkedServer.__pulumiType, name, inputs, opts);
     }
 }

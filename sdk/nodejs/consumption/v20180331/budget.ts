@@ -123,6 +123,8 @@ export class Budget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:consumption/v20180131:Budget" }, { type: "azurerm:consumption/v20180630:Budget" }, { type: "azurerm:consumption/v20180831:Budget" }, { type: "azurerm:consumption/v20181001:Budget" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Budget.__pulumiType, name, inputs, opts);
     }
 }

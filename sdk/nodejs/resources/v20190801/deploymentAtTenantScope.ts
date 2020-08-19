@@ -87,6 +87,8 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:resources/v20190701:DeploymentAtTenantScope" }, { type: "azurerm:resources/v20191001:DeploymentAtTenantScope" }, { type: "azurerm:resources/v20200601:DeploymentAtTenantScope" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtTenantScope.__pulumiType, name, inputs, opts);
     }
 }

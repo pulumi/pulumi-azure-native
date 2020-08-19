@@ -109,6 +109,8 @@ export class ConsumerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:eventhub/v20140901:ConsumerGroup" }, { type: "azurerm:eventhub/v20170401:ConsumerGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConsumerGroup.__pulumiType, name, inputs, opts);
     }
 }

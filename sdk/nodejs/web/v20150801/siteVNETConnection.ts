@@ -125,6 +125,8 @@ export class SiteVNETConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160801:SiteVNETConnection" }, { type: "azurerm:web/v20180201:SiteVNETConnection" }, { type: "azurerm:web/v20181101:SiteVNETConnection" }, { type: "azurerm:web/v20190801:SiteVNETConnection" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteVNETConnection.__pulumiType, name, inputs, opts);
     }
 }

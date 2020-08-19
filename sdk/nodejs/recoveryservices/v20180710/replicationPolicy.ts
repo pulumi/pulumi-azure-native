@@ -89,6 +89,8 @@ export class ReplicationPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/v20160810:ReplicationPolicy" }, { type: "azurerm:recoveryservices/v20180110:ReplicationPolicy" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationPolicy.__pulumiType, name, inputs, opts);
     }
 }

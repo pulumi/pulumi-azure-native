@@ -172,6 +172,8 @@ export class Runbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/v20151031:Runbook" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Runbook.__pulumiType, name, inputs, opts);
     }
 }

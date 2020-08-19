@@ -156,6 +156,8 @@ export class ServerFarm extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160901:ServerFarm" }, { type: "azurerm:web/v20180201:ServerFarm" }, { type: "azurerm:web/v20190801:ServerFarm" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerFarm.__pulumiType, name, inputs, opts);
     }
 }

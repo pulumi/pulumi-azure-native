@@ -120,6 +120,8 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:IntegrationAccountPartner" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountPartner.__pulumiType, name, inputs, opts);
     }
 }

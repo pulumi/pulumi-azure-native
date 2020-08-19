@@ -106,6 +106,8 @@ export class Zone extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20160401:Zone" }, { type: "azurerm:network/v20171001:Zone" }, { type: "azurerm:network/v20180501:Zone" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Zone.__pulumiType, name, inputs, opts);
     }
 }

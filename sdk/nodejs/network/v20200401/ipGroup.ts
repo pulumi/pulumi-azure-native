@@ -106,6 +106,8 @@ export class IpGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20190901:IpGroup" }, { type: "azurerm:network/v20191101:IpGroup" }, { type: "azurerm:network/v20191201:IpGroup" }, { type: "azurerm:network/v20200301:IpGroup" }, { type: "azurerm:network/v20200501:IpGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpGroup.__pulumiType, name, inputs, opts);
     }
 }

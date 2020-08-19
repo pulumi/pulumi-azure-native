@@ -142,6 +142,8 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:IntegrationAccountSchema" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountSchema.__pulumiType, name, inputs, opts);
     }
 }

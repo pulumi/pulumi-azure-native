@@ -116,6 +116,8 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebAppVnetConnection" }, { type: "azurerm:web/v20160801:WebAppVnetConnection" }, { type: "azurerm:web/v20180201:WebAppVnetConnection" }, { type: "azurerm:web/v20181101:WebAppVnetConnection" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppVnetConnection.__pulumiType, name, inputs, opts);
     }
 }

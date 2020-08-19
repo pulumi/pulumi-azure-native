@@ -122,6 +122,8 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20150401:DatabaseAccountSqlDatabase" }, { type: "azurerm:documentdb/v20150408:DatabaseAccountSqlDatabase" }, { type: "azurerm:documentdb/v20151106:DatabaseAccountSqlDatabase" }, { type: "azurerm:documentdb/v20160319:DatabaseAccountSqlDatabase" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountSqlDatabase.__pulumiType, name, inputs, opts);
     }
 }

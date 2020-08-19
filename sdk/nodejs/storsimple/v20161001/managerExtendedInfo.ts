@@ -114,6 +114,8 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20170601:ManagerExtendedInfo" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagerExtendedInfo.__pulumiType, name, inputs, opts);
     }
 }

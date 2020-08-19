@@ -123,6 +123,8 @@ export class WebAppDeployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebAppDeployment" }, { type: "azurerm:web/v20180201:WebAppDeployment" }, { type: "azurerm:web/v20181101:WebAppDeployment" }, { type: "azurerm:web/v20190801:WebAppDeployment" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDeployment.__pulumiType, name, inputs, opts);
     }
 }

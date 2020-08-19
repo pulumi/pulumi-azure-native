@@ -139,6 +139,8 @@ export class Endpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20151101:Endpoint" }, { type: "azurerm:network/v20170301:Endpoint" }, { type: "azurerm:network/v20170501:Endpoint" }, { type: "azurerm:network/v20180201:Endpoint" }, { type: "azurerm:network/v20180301:Endpoint" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }

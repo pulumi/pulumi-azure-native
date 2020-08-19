@@ -88,6 +88,8 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20181101:WebAppSwiftVirtualNetworkConnection" }, { type: "azurerm:web/v20190801:WebAppSwiftVirtualNetworkConnection" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSwiftVirtualNetworkConnection.__pulumiType, name, inputs, opts);
     }
 }

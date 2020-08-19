@@ -127,6 +127,8 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azurerm:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azurerm:web/v20190801:WebAppInstanceFunctionSlot" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppInstanceFunctionSlot.__pulumiType, name, inputs, opts);
     }
 }

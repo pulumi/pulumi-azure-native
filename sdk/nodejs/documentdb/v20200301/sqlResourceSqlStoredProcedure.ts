@@ -106,6 +106,8 @@ export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:SqlResourceSqlStoredProcedure" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlStoredProcedure" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlStoredProcedure" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlStoredProcedure.__pulumiType, name, inputs, opts);
     }
 }
