@@ -18,7 +18,7 @@ func LookupTagAtScope(ctx *pulumi.Context, args *LookupTagAtScopeArgs, opts ...p
 
 type LookupTagAtScopeArgs struct {
 	// The resource scope.
-	Name string `pulumi:"name"`
+	Scope string `pulumi:"scope"`
 }
 
 // Wrapper resource for tags API requests and responses.

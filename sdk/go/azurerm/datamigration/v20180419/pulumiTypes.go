@@ -171,6 +171,47 @@ func (i ConnectionInfoArgs) ToConnectionInfoOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInfoOutput)
 }
 
+func (i ConnectionInfoArgs) ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput {
+	return i.ToConnectionInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionInfoArgs) ToConnectionInfoPtrOutputWithContext(ctx context.Context) ConnectionInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInfoOutput).ToConnectionInfoPtrOutputWithContext(ctx)
+}
+
+// ConnectionInfoPtrInput is an input type that accepts ConnectionInfoArgs, ConnectionInfoPtr and ConnectionInfoPtrOutput values.
+// You can construct a concrete instance of `ConnectionInfoPtrInput` via:
+//
+//          ConnectionInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionInfoPtrInput interface {
+	pulumi.Input
+
+	ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput
+	ToConnectionInfoPtrOutputWithContext(context.Context) ConnectionInfoPtrOutput
+}
+
+type connectionInfoPtrType ConnectionInfoArgs
+
+func ConnectionInfoPtr(v *ConnectionInfoArgs) ConnectionInfoPtrInput {
+	return (*connectionInfoPtrType)(v)
+}
+
+func (*connectionInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionInfo)(nil)).Elem()
+}
+
+func (i *connectionInfoPtrType) ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput {
+	return i.ToConnectionInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionInfoPtrType) ToConnectionInfoPtrOutputWithContext(ctx context.Context) ConnectionInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInfoPtrOutput)
+}
+
 // Defines the connection properties of a server
 type ConnectionInfoOutput struct{ *pulumi.OutputState }
 
@@ -186,6 +227,16 @@ func (o ConnectionInfoOutput) ToConnectionInfoOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ConnectionInfoOutput) ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput {
+	return o.ToConnectionInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionInfoOutput) ToConnectionInfoPtrOutputWithContext(ctx context.Context) ConnectionInfoPtrOutput {
+	return o.ApplyT(func(v ConnectionInfo) *ConnectionInfo {
+		return &v
+	}).(ConnectionInfoPtrOutput)
+}
+
 // Password credential.
 func (o ConnectionInfoOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionInfo) *string { return v.Password }).(pulumi.StringPtrOutput)
@@ -199,6 +250,54 @@ func (o ConnectionInfoOutput) Type() pulumi.StringOutput {
 // User name
 func (o ConnectionInfoOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionInfo) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionInfo)(nil)).Elem()
+}
+
+func (o ConnectionInfoPtrOutput) ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput {
+	return o
+}
+
+func (o ConnectionInfoPtrOutput) ToConnectionInfoPtrOutputWithContext(ctx context.Context) ConnectionInfoPtrOutput {
+	return o
+}
+
+func (o ConnectionInfoPtrOutput) Elem() ConnectionInfoOutput {
+	return o.ApplyT(func(v *ConnectionInfo) ConnectionInfo { return *v }).(ConnectionInfoOutput)
+}
+
+// Password credential.
+func (o ConnectionInfoPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of connection info
+func (o ConnectionInfoPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// User name
+func (o ConnectionInfoPtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Defines the connection properties of a server
@@ -244,6 +343,47 @@ func (i ConnectionInfoResponseArgs) ToConnectionInfoResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInfoResponseOutput)
 }
 
+func (i ConnectionInfoResponseArgs) ToConnectionInfoResponsePtrOutput() ConnectionInfoResponsePtrOutput {
+	return i.ToConnectionInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionInfoResponseArgs) ToConnectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectionInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInfoResponseOutput).ToConnectionInfoResponsePtrOutputWithContext(ctx)
+}
+
+// ConnectionInfoResponsePtrInput is an input type that accepts ConnectionInfoResponseArgs, ConnectionInfoResponsePtr and ConnectionInfoResponsePtrOutput values.
+// You can construct a concrete instance of `ConnectionInfoResponsePtrInput` via:
+//
+//          ConnectionInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToConnectionInfoResponsePtrOutput() ConnectionInfoResponsePtrOutput
+	ToConnectionInfoResponsePtrOutputWithContext(context.Context) ConnectionInfoResponsePtrOutput
+}
+
+type connectionInfoResponsePtrType ConnectionInfoResponseArgs
+
+func ConnectionInfoResponsePtr(v *ConnectionInfoResponseArgs) ConnectionInfoResponsePtrInput {
+	return (*connectionInfoResponsePtrType)(v)
+}
+
+func (*connectionInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionInfoResponse)(nil)).Elem()
+}
+
+func (i *connectionInfoResponsePtrType) ToConnectionInfoResponsePtrOutput() ConnectionInfoResponsePtrOutput {
+	return i.ToConnectionInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *connectionInfoResponsePtrType) ToConnectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectionInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInfoResponsePtrOutput)
+}
+
 // Defines the connection properties of a server
 type ConnectionInfoResponseOutput struct{ *pulumi.OutputState }
 
@@ -259,6 +399,16 @@ func (o ConnectionInfoResponseOutput) ToConnectionInfoResponseOutputWithContext(
 	return o
 }
 
+func (o ConnectionInfoResponseOutput) ToConnectionInfoResponsePtrOutput() ConnectionInfoResponsePtrOutput {
+	return o.ToConnectionInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionInfoResponseOutput) ToConnectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectionInfoResponsePtrOutput {
+	return o.ApplyT(func(v ConnectionInfoResponse) *ConnectionInfoResponse {
+		return &v
+	}).(ConnectionInfoResponsePtrOutput)
+}
+
 // Password credential.
 func (o ConnectionInfoResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionInfoResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
@@ -272,6 +422,54 @@ func (o ConnectionInfoResponseOutput) Type() pulumi.StringOutput {
 // User name
 func (o ConnectionInfoResponseOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionInfoResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionInfoResponse)(nil)).Elem()
+}
+
+func (o ConnectionInfoResponsePtrOutput) ToConnectionInfoResponsePtrOutput() ConnectionInfoResponsePtrOutput {
+	return o
+}
+
+func (o ConnectionInfoResponsePtrOutput) ToConnectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectionInfoResponsePtrOutput {
+	return o
+}
+
+func (o ConnectionInfoResponsePtrOutput) Elem() ConnectionInfoResponseOutput {
+	return o.ApplyT(func(v *ConnectionInfoResponse) ConnectionInfoResponse { return *v }).(ConnectionInfoResponseOutput)
+}
+
+// Password credential.
+func (o ConnectionInfoResponsePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of connection info
+func (o ConnectionInfoResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// User name
+func (o ConnectionInfoResponsePtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Project Database Details
@@ -309,6 +507,31 @@ func (i DatabaseInfoArgs) ToDatabaseInfoOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInfoOutput)
 }
 
+// DatabaseInfoArrayInput is an input type that accepts DatabaseInfoArray and DatabaseInfoArrayOutput values.
+// You can construct a concrete instance of `DatabaseInfoArrayInput` via:
+//
+//          DatabaseInfoArray{ DatabaseInfoArgs{...} }
+type DatabaseInfoArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseInfoArrayOutput() DatabaseInfoArrayOutput
+	ToDatabaseInfoArrayOutputWithContext(context.Context) DatabaseInfoArrayOutput
+}
+
+type DatabaseInfoArray []DatabaseInfoInput
+
+func (DatabaseInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseInfo)(nil)).Elem()
+}
+
+func (i DatabaseInfoArray) ToDatabaseInfoArrayOutput() DatabaseInfoArrayOutput {
+	return i.ToDatabaseInfoArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseInfoArray) ToDatabaseInfoArrayOutputWithContext(ctx context.Context) DatabaseInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInfoArrayOutput)
+}
+
 // Project Database Details
 type DatabaseInfoOutput struct{ *pulumi.OutputState }
 
@@ -327,6 +550,26 @@ func (o DatabaseInfoOutput) ToDatabaseInfoOutputWithContext(ctx context.Context)
 // Name of the database
 func (o DatabaseInfoOutput) SourceDatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseInfo) string { return v.SourceDatabaseName }).(pulumi.StringOutput)
+}
+
+type DatabaseInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseInfo)(nil)).Elem()
+}
+
+func (o DatabaseInfoArrayOutput) ToDatabaseInfoArrayOutput() DatabaseInfoArrayOutput {
+	return o
+}
+
+func (o DatabaseInfoArrayOutput) ToDatabaseInfoArrayOutputWithContext(ctx context.Context) DatabaseInfoArrayOutput {
+	return o
+}
+
+func (o DatabaseInfoArrayOutput) Index(i pulumi.IntInput) DatabaseInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseInfo {
+		return vs[0].([]DatabaseInfo)[vs[1].(int)]
+	}).(DatabaseInfoOutput)
 }
 
 // Project Database Details
@@ -364,6 +607,31 @@ func (i DatabaseInfoResponseArgs) ToDatabaseInfoResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInfoResponseOutput)
 }
 
+// DatabaseInfoResponseArrayInput is an input type that accepts DatabaseInfoResponseArray and DatabaseInfoResponseArrayOutput values.
+// You can construct a concrete instance of `DatabaseInfoResponseArrayInput` via:
+//
+//          DatabaseInfoResponseArray{ DatabaseInfoResponseArgs{...} }
+type DatabaseInfoResponseArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseInfoResponseArrayOutput() DatabaseInfoResponseArrayOutput
+	ToDatabaseInfoResponseArrayOutputWithContext(context.Context) DatabaseInfoResponseArrayOutput
+}
+
+type DatabaseInfoResponseArray []DatabaseInfoResponseInput
+
+func (DatabaseInfoResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseInfoResponse)(nil)).Elem()
+}
+
+func (i DatabaseInfoResponseArray) ToDatabaseInfoResponseArrayOutput() DatabaseInfoResponseArrayOutput {
+	return i.ToDatabaseInfoResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseInfoResponseArray) ToDatabaseInfoResponseArrayOutputWithContext(ctx context.Context) DatabaseInfoResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInfoResponseArrayOutput)
+}
+
 // Project Database Details
 type DatabaseInfoResponseOutput struct{ *pulumi.OutputState }
 
@@ -382,6 +650,26 @@ func (o DatabaseInfoResponseOutput) ToDatabaseInfoResponseOutputWithContext(ctx 
 // Name of the database
 func (o DatabaseInfoResponseOutput) SourceDatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseInfoResponse) string { return v.SourceDatabaseName }).(pulumi.StringOutput)
+}
+
+type DatabaseInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseInfoResponse)(nil)).Elem()
+}
+
+func (o DatabaseInfoResponseArrayOutput) ToDatabaseInfoResponseArrayOutput() DatabaseInfoResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseInfoResponseArrayOutput) ToDatabaseInfoResponseArrayOutputWithContext(ctx context.Context) DatabaseInfoResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseInfoResponseArrayOutput) Index(i pulumi.IntInput) DatabaseInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseInfoResponse {
+		return vs[0].([]DatabaseInfoResponse)[vs[1].(int)]
+	}).(DatabaseInfoResponseOutput)
 }
 
 // Error information in OData format.
@@ -537,6 +825,47 @@ func (i ProjectTaskPropertiesArgs) ToProjectTaskPropertiesOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTaskPropertiesOutput)
 }
 
+func (i ProjectTaskPropertiesArgs) ToProjectTaskPropertiesPtrOutput() ProjectTaskPropertiesPtrOutput {
+	return i.ToProjectTaskPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectTaskPropertiesArgs) ToProjectTaskPropertiesPtrOutputWithContext(ctx context.Context) ProjectTaskPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTaskPropertiesOutput).ToProjectTaskPropertiesPtrOutputWithContext(ctx)
+}
+
+// ProjectTaskPropertiesPtrInput is an input type that accepts ProjectTaskPropertiesArgs, ProjectTaskPropertiesPtr and ProjectTaskPropertiesPtrOutput values.
+// You can construct a concrete instance of `ProjectTaskPropertiesPtrInput` via:
+//
+//          ProjectTaskPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectTaskPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToProjectTaskPropertiesPtrOutput() ProjectTaskPropertiesPtrOutput
+	ToProjectTaskPropertiesPtrOutputWithContext(context.Context) ProjectTaskPropertiesPtrOutput
+}
+
+type projectTaskPropertiesPtrType ProjectTaskPropertiesArgs
+
+func ProjectTaskPropertiesPtr(v *ProjectTaskPropertiesArgs) ProjectTaskPropertiesPtrInput {
+	return (*projectTaskPropertiesPtrType)(v)
+}
+
+func (*projectTaskPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTaskProperties)(nil)).Elem()
+}
+
+func (i *projectTaskPropertiesPtrType) ToProjectTaskPropertiesPtrOutput() ProjectTaskPropertiesPtrOutput {
+	return i.ToProjectTaskPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *projectTaskPropertiesPtrType) ToProjectTaskPropertiesPtrOutputWithContext(ctx context.Context) ProjectTaskPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTaskPropertiesPtrOutput)
+}
+
 // Base class for all types of DMS task properties. If task is not supported by current client, this object is returned.
 type ProjectTaskPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -552,9 +881,47 @@ func (o ProjectTaskPropertiesOutput) ToProjectTaskPropertiesOutputWithContext(ct
 	return o
 }
 
+func (o ProjectTaskPropertiesOutput) ToProjectTaskPropertiesPtrOutput() ProjectTaskPropertiesPtrOutput {
+	return o.ToProjectTaskPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectTaskPropertiesOutput) ToProjectTaskPropertiesPtrOutputWithContext(ctx context.Context) ProjectTaskPropertiesPtrOutput {
+	return o.ApplyT(func(v ProjectTaskProperties) *ProjectTaskProperties {
+		return &v
+	}).(ProjectTaskPropertiesPtrOutput)
+}
+
 // Task type.
 func (o ProjectTaskPropertiesOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
+}
+
+type ProjectTaskPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectTaskPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTaskProperties)(nil)).Elem()
+}
+
+func (o ProjectTaskPropertiesPtrOutput) ToProjectTaskPropertiesPtrOutput() ProjectTaskPropertiesPtrOutput {
+	return o
+}
+
+func (o ProjectTaskPropertiesPtrOutput) ToProjectTaskPropertiesPtrOutputWithContext(ctx context.Context) ProjectTaskPropertiesPtrOutput {
+	return o
+}
+
+func (o ProjectTaskPropertiesPtrOutput) Elem() ProjectTaskPropertiesOutput {
+	return o.ApplyT(func(v *ProjectTaskProperties) ProjectTaskProperties { return *v }).(ProjectTaskPropertiesOutput)
+}
+
+// Task type.
+func (o ProjectTaskPropertiesPtrOutput) TaskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectTaskProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Base class for all types of DMS task properties. If task is not supported by current client, this object is returned.
@@ -604,6 +971,47 @@ func (i ProjectTaskPropertiesResponseArgs) ToProjectTaskPropertiesResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectTaskPropertiesResponseOutput)
 }
 
+func (i ProjectTaskPropertiesResponseArgs) ToProjectTaskPropertiesResponsePtrOutput() ProjectTaskPropertiesResponsePtrOutput {
+	return i.ToProjectTaskPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProjectTaskPropertiesResponseArgs) ToProjectTaskPropertiesResponsePtrOutputWithContext(ctx context.Context) ProjectTaskPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTaskPropertiesResponseOutput).ToProjectTaskPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ProjectTaskPropertiesResponsePtrInput is an input type that accepts ProjectTaskPropertiesResponseArgs, ProjectTaskPropertiesResponsePtr and ProjectTaskPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ProjectTaskPropertiesResponsePtrInput` via:
+//
+//          ProjectTaskPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectTaskPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToProjectTaskPropertiesResponsePtrOutput() ProjectTaskPropertiesResponsePtrOutput
+	ToProjectTaskPropertiesResponsePtrOutputWithContext(context.Context) ProjectTaskPropertiesResponsePtrOutput
+}
+
+type projectTaskPropertiesResponsePtrType ProjectTaskPropertiesResponseArgs
+
+func ProjectTaskPropertiesResponsePtr(v *ProjectTaskPropertiesResponseArgs) ProjectTaskPropertiesResponsePtrInput {
+	return (*projectTaskPropertiesResponsePtrType)(v)
+}
+
+func (*projectTaskPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTaskPropertiesResponse)(nil)).Elem()
+}
+
+func (i *projectTaskPropertiesResponsePtrType) ToProjectTaskPropertiesResponsePtrOutput() ProjectTaskPropertiesResponsePtrOutput {
+	return i.ToProjectTaskPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *projectTaskPropertiesResponsePtrType) ToProjectTaskPropertiesResponsePtrOutputWithContext(ctx context.Context) ProjectTaskPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTaskPropertiesResponsePtrOutput)
+}
+
 // Base class for all types of DMS task properties. If task is not supported by current client, this object is returned.
 type ProjectTaskPropertiesResponseOutput struct{ *pulumi.OutputState }
 
@@ -617,6 +1025,16 @@ func (o ProjectTaskPropertiesResponseOutput) ToProjectTaskPropertiesResponseOutp
 
 func (o ProjectTaskPropertiesResponseOutput) ToProjectTaskPropertiesResponseOutputWithContext(ctx context.Context) ProjectTaskPropertiesResponseOutput {
 	return o
+}
+
+func (o ProjectTaskPropertiesResponseOutput) ToProjectTaskPropertiesResponsePtrOutput() ProjectTaskPropertiesResponsePtrOutput {
+	return o.ToProjectTaskPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProjectTaskPropertiesResponseOutput) ToProjectTaskPropertiesResponsePtrOutputWithContext(ctx context.Context) ProjectTaskPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ProjectTaskPropertiesResponse) *ProjectTaskPropertiesResponse {
+		return &v
+	}).(ProjectTaskPropertiesResponsePtrOutput)
 }
 
 // Array of command properties.
@@ -637,6 +1055,64 @@ func (o ProjectTaskPropertiesResponseOutput) State() pulumi.StringOutput {
 // Task type.
 func (o ProjectTaskPropertiesResponseOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectTaskPropertiesResponse) string { return v.TaskType }).(pulumi.StringOutput)
+}
+
+type ProjectTaskPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectTaskPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTaskPropertiesResponse)(nil)).Elem()
+}
+
+func (o ProjectTaskPropertiesResponsePtrOutput) ToProjectTaskPropertiesResponsePtrOutput() ProjectTaskPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ProjectTaskPropertiesResponsePtrOutput) ToProjectTaskPropertiesResponsePtrOutputWithContext(ctx context.Context) ProjectTaskPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ProjectTaskPropertiesResponsePtrOutput) Elem() ProjectTaskPropertiesResponseOutput {
+	return o.ApplyT(func(v *ProjectTaskPropertiesResponse) ProjectTaskPropertiesResponse { return *v }).(ProjectTaskPropertiesResponseOutput)
+}
+
+// Array of command properties.
+func (o ProjectTaskPropertiesResponsePtrOutput) Commands() CommandPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *ProjectTaskPropertiesResponse) []CommandPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Commands
+	}).(CommandPropertiesResponseArrayOutput)
+}
+
+// Array of errors. This is ignored if submitted.
+func (o ProjectTaskPropertiesResponsePtrOutput) Errors() ODataErrorResponseArrayOutput {
+	return o.ApplyT(func(v *ProjectTaskPropertiesResponse) []ODataErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(ODataErrorResponseArrayOutput)
+}
+
+// The state of the task. This is ignored if submitted.
+func (o ProjectTaskPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectTaskPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Task type.
+func (o ProjectTaskPropertiesResponsePtrOutput) TaskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectTaskPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskType
+	}).(pulumi.StringPtrOutput)
 }
 
 // An Azure SKU instance
@@ -690,6 +1166,47 @@ func (i ServiceSkuArgs) ToServiceSkuOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuOutput)
 }
 
+func (i ServiceSkuArgs) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
+	return i.ToServiceSkuPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceSkuArgs) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuOutput).ToServiceSkuPtrOutputWithContext(ctx)
+}
+
+// ServiceSkuPtrInput is an input type that accepts ServiceSkuArgs, ServiceSkuPtr and ServiceSkuPtrOutput values.
+// You can construct a concrete instance of `ServiceSkuPtrInput` via:
+//
+//          ServiceSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceSkuPtrInput interface {
+	pulumi.Input
+
+	ToServiceSkuPtrOutput() ServiceSkuPtrOutput
+	ToServiceSkuPtrOutputWithContext(context.Context) ServiceSkuPtrOutput
+}
+
+type serviceSkuPtrType ServiceSkuArgs
+
+func ServiceSkuPtr(v *ServiceSkuArgs) ServiceSkuPtrInput {
+	return (*serviceSkuPtrType)(v)
+}
+
+func (*serviceSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceSku)(nil)).Elem()
+}
+
+func (i *serviceSkuPtrType) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
+	return i.ToServiceSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceSkuPtrType) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuPtrOutput)
+}
+
 // An Azure SKU instance
 type ServiceSkuOutput struct{ *pulumi.OutputState }
 
@@ -703,6 +1220,16 @@ func (o ServiceSkuOutput) ToServiceSkuOutput() ServiceSkuOutput {
 
 func (o ServiceSkuOutput) ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput {
 	return o
+}
+
+func (o ServiceSkuOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
+	return o.ToServiceSkuPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
+	return o.ApplyT(func(v ServiceSku) *ServiceSku {
+		return &v
+	}).(ServiceSkuPtrOutput)
 }
 
 // The capacity of the SKU, if it supports scaling
@@ -728,6 +1255,74 @@ func (o ServiceSkuOutput) Size() pulumi.StringPtrOutput {
 // The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
 func (o ServiceSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type ServiceSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceSku)(nil)).Elem()
+}
+
+func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
+	return o
+}
+
+func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
+	return o
+}
+
+func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
+	return o.ApplyT(func(v *ServiceSku) ServiceSku { return *v }).(ServiceSkuOutput)
+}
+
+// The capacity of the SKU, if it supports scaling
+func (o ServiceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
+func (o ServiceSkuPtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique name of the SKU, such as 'P3'
+func (o ServiceSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
+func (o ServiceSkuPtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+func (o ServiceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
 }
 
 // An Azure SKU instance
@@ -781,6 +1376,47 @@ func (i ServiceSkuResponseArgs) ToServiceSkuResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuResponseOutput)
 }
 
+func (i ServiceSkuResponseArgs) ToServiceSkuResponsePtrOutput() ServiceSkuResponsePtrOutput {
+	return i.ToServiceSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceSkuResponseArgs) ToServiceSkuResponsePtrOutputWithContext(ctx context.Context) ServiceSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuResponseOutput).ToServiceSkuResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceSkuResponsePtrInput is an input type that accepts ServiceSkuResponseArgs, ServiceSkuResponsePtr and ServiceSkuResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceSkuResponsePtrInput` via:
+//
+//          ServiceSkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceSkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceSkuResponsePtrOutput() ServiceSkuResponsePtrOutput
+	ToServiceSkuResponsePtrOutputWithContext(context.Context) ServiceSkuResponsePtrOutput
+}
+
+type serviceSkuResponsePtrType ServiceSkuResponseArgs
+
+func ServiceSkuResponsePtr(v *ServiceSkuResponseArgs) ServiceSkuResponsePtrInput {
+	return (*serviceSkuResponsePtrType)(v)
+}
+
+func (*serviceSkuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceSkuResponse)(nil)).Elem()
+}
+
+func (i *serviceSkuResponsePtrType) ToServiceSkuResponsePtrOutput() ServiceSkuResponsePtrOutput {
+	return i.ToServiceSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceSkuResponsePtrType) ToServiceSkuResponsePtrOutputWithContext(ctx context.Context) ServiceSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuResponsePtrOutput)
+}
+
 // An Azure SKU instance
 type ServiceSkuResponseOutput struct{ *pulumi.OutputState }
 
@@ -794,6 +1430,16 @@ func (o ServiceSkuResponseOutput) ToServiceSkuResponseOutput() ServiceSkuRespons
 
 func (o ServiceSkuResponseOutput) ToServiceSkuResponseOutputWithContext(ctx context.Context) ServiceSkuResponseOutput {
 	return o
+}
+
+func (o ServiceSkuResponseOutput) ToServiceSkuResponsePtrOutput() ServiceSkuResponsePtrOutput {
+	return o.ToServiceSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceSkuResponseOutput) ToServiceSkuResponsePtrOutputWithContext(ctx context.Context) ServiceSkuResponsePtrOutput {
+	return o.ApplyT(func(v ServiceSkuResponse) *ServiceSkuResponse {
+		return &v
+	}).(ServiceSkuResponsePtrOutput)
 }
 
 // The capacity of the SKU, if it supports scaling
@@ -821,17 +1467,93 @@ func (o ServiceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
+type ServiceSkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceSkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceSkuResponse)(nil)).Elem()
+}
+
+func (o ServiceSkuResponsePtrOutput) ToServiceSkuResponsePtrOutput() ServiceSkuResponsePtrOutput {
+	return o
+}
+
+func (o ServiceSkuResponsePtrOutput) ToServiceSkuResponsePtrOutputWithContext(ctx context.Context) ServiceSkuResponsePtrOutput {
+	return o
+}
+
+func (o ServiceSkuResponsePtrOutput) Elem() ServiceSkuResponseOutput {
+	return o.ApplyT(func(v *ServiceSkuResponse) ServiceSkuResponse { return *v }).(ServiceSkuResponseOutput)
+}
+
+// The capacity of the SKU, if it supports scaling
+func (o ServiceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceSkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
+func (o ServiceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique name of the SKU, such as 'P3'
+func (o ServiceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
+func (o ServiceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+func (o ServiceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CommandPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CommandPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionInfoOutput{})
+	pulumi.RegisterOutputType(ConnectionInfoPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionInfoResponseOutput{})
+	pulumi.RegisterOutputType(ConnectionInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoOutput{})
+	pulumi.RegisterOutputType(DatabaseInfoArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ODataErrorResponseOutput{})
 	pulumi.RegisterOutputType(ODataErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProjectTaskPropertiesOutput{})
+	pulumi.RegisterOutputType(ProjectTaskPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProjectTaskPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ProjectTaskPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceSkuOutput{})
+	pulumi.RegisterOutputType(ServiceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSkuResponseOutput{})
+	pulumi.RegisterOutputType(ServiceSkuResponsePtrOutput{})
 }

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Resources.V20200601
         /// <summary>
         /// The resource scope.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("scope", required: true)]
+        public string Scope { get; set; } = null!;
 
         public GetTagAtScopeArgs()
         {

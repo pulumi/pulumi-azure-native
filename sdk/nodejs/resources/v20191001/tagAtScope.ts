@@ -39,7 +39,7 @@ export class TagAtScope extends pulumi.CustomResource {
     /**
      * The name of the tags wrapper resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The set of tags.
      */
@@ -62,14 +62,15 @@ export class TagAtScope extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as TagAtScopeArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            if (!args || args.scope === undefined) {
+                throw new Error("Missing required property 'scope'");
+            }
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["scope"] = args ? args.scope : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -90,11 +91,11 @@ export class TagAtScope extends pulumi.CustomResource {
  */
 export interface TagAtScopeArgs {
     /**
-     * The resource scope.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The set of tags.
      */
     readonly properties: pulumi.Input<inputs.resources.v20191001.Tags>;
+    /**
+     * The resource scope.
+     */
+    readonly scope: pulumi.Input<string>;
 }

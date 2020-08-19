@@ -40,6 +40,7 @@ from . import (
     datafactory,
     datalakeanalytics,
     datalakestore,
+    datamigration,
     datashare,
     dbformariadb,
     dbformysql,

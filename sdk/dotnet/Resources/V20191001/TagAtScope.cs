@@ -82,16 +82,16 @@ namespace Pulumi.AzureRM.Resources.V20191001
     public sealed class TagAtScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource scope.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The set of tags.
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.TagsArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// The resource scope.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
 
         public TagAtScopeArgs()
         {

@@ -23,14 +23,14 @@ class TagAtScope(pulumi.CustomResource):
     """
     The type of the tags wrapper resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, properties=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         Wrapper resource for tags API requests and responses.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The resource scope.
         :param pulumi.Input[dict] properties: The set of tags.
+        :param pulumi.Input[str] scope: The resource scope.
 
         The **properties** object supports the following:
 
@@ -53,12 +53,13 @@ class TagAtScope(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
+            if scope is None:
+                raise TypeError("Missing required property 'scope'")
+            __props__['scope'] = scope
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20191001:TagAtScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

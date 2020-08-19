@@ -1,6 +1,7 @@
 package openapi
 
 import (
+	"fmt"
 	"github.com/go-openapi/spec"
 	"github.com/go-openapi/swag"
 	"github.com/pkg/errors"
@@ -99,6 +100,35 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 
 	schema := ptr.value.(spec.Schema)
 	return &Schema{ptr.ReferenceContext, &schema}, nil
+}
+
+// MergeParameters combines the Path Item parameters with Operation parameters.
+func (ctx *ReferenceContext) MergeParameters (operation []spec.Parameter, pathItem []spec.Parameter) []spec.Parameter {
+	// Open API spec for operations:
+	// > If a parameter is already defined at the Path Item, the new definition will override it.
+	// > A unique parameter is defined by a combination of a name and location.
+	var result []spec.Parameter
+	seen := map[string]bool{}
+	for _, p := range operation {
+		schema, err := ctx.ResolveParameter(p)
+		if err != nil {
+			panic(err)
+		}
+		key := fmt.Sprintf("%s@%s", schema.Name, schema.In)
+		seen[key] = true
+		result = append(result, p)
+	}
+	for _, p := range pathItem {
+		schema, err := ctx.ResolveParameter(p)
+		if err != nil {
+			panic(err)
+		}
+		key := fmt.Sprintf("%s@%s", schema.Name, schema.In)
+		if _, ok := seen[key]; !ok {
+			result = append(result, p)
+		}
+	}
+	return result
 }
 
 type reference struct {

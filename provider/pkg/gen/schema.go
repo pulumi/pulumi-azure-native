@@ -141,7 +141,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		visitedTypes:  make(map[string]bool),
 	}
 
-	parameters := g.mergeParameters(path.Put.Parameters, path.Parameters)
+	parameters := g.swagger.MergeParameters(path.Put.Parameters, path.Parameters)
 	resourceRequest, err := gen.genMethodParameters(parameters, g.swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
@@ -151,6 +151,11 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, g.swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", resourceTok, err.Error())
+		return
+	}
+
+	if len(resourceResponse.specs) == 0 {
+		// Response is specified empty, do not generate a resource for it.
 		return
 	}
 
@@ -189,7 +194,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, typeName)
 
-	parameters = g.mergeParameters(path.Get.Parameters, path.Parameters)
+	parameters = g.swagger.MergeParameters(path.Get.Parameters, path.Parameters)
 	requestFunction, err := gen.genMethodParameters(parameters, g.swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
@@ -268,7 +273,7 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:list%s`, g.pkg.Name, module, typeName)
 
-	parameters := g.mergeParameters(path.Post.Parameters, path.Parameters)
+	parameters := g.swagger.MergeParameters(path.Post.Parameters, path.Parameters)
 	request, err := gen.genMethodParameters(parameters, g.swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
@@ -277,6 +282,11 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 	response, err := gen.genResponse(path.Post.Responses.StatusCodeResponses, g.swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
+		return
+	}
+
+	if len(response.specs) == 0 {
+		// Response is specified empty, do not generate an invoke for it.
 		return
 	}
 
@@ -317,27 +327,6 @@ func (g *packageGenerator) providerToModule(prov string) string {
 	return fmt.Sprintf("%s/v%s", strings.ToLower(prov), g.apiVersion())
 }
 
-// mergeParameters combines the Path Item parameters with Operation parameters.
-func (g *packageGenerator) mergeParameters(operation []spec.Parameter, pathItem []spec.Parameter) []spec.Parameter {
-	// Open API spec for operations:
-	// > If a parameter is already defined at the Path Item, the new definition will override it.
-	// > A unique parameter is defined by a combination of a name and location.
-	var result []spec.Parameter
-	seen := map[string]bool{}
-	for _, p := range operation {
-		key := fmt.Sprintf("%s@%s", p.Name, p.In)
-		seen[key] = true
-		result = append(result, p)
-	}
-	for _, p := range pathItem {
-		key := fmt.Sprintf("%s@%s", p.Name, p.In)
-		if _, ok := seen[key]; !ok {
-			result = append(result, p)
-		}
-	}
-	return result
-}
-
 type moduleGenerator struct {
 	pkg           *pschema.PackageSpec
 	metadata      *provider.AzureApiMetadata
@@ -355,7 +344,7 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *paramete
 	}
 
 	parts := strings.Split(path, "/")
-	for i := len(parts) - 1; i >= 0; i-- {
+	for i := len(parts) - 1; i >= 4; i-- {
 		part := parts[i]
 		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
 			name := part[1 : len(part)-1]
@@ -501,6 +490,10 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 	}
 	sort.Ints(codes)
 
+	if len(codes) == 0 {
+		return nil, errors.New("no 2xx response found")
+	}
+
 	// Find the lowest 2xx response with a schema definition and derive response properties from it.
 	for _, code := range codes {
 		resp := statusCodeResponses[code]
@@ -516,6 +509,10 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 		responseSchema, err = response.ResolveSchema(response.Schema)
 		if err != nil {
 			return nil, err
+		}
+
+		if len(responseSchema.Type) > 0 && responseSchema.Type[0] == "array" {
+			return nil, errors.New("array responses are not implemented yet (see issue #120)")
 		}
 
 		result, err := m.genProperties(responseSchema, true)
@@ -542,7 +539,9 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 		return result, nil
 	}
 
-	return nil, errors.New("no matching 2xx response found")
+	// There was at least one 2xx response defined, but it has no schema. This is not a valid resource for us,
+	// skip its processing.
+	return &propertyBag{}, nil
 }
 
 func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput bool) (*propertyBag, error) {
