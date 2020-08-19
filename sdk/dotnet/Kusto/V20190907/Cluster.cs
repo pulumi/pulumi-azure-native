@@ -139,6 +139,14 @@ namespace Pulumi.AzureRM.Kusto.V20190907
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:kusto/v20190121:Cluster"},
+                    new Alias { Type = "azurerm:kusto/v20190515:Cluster"},
+                    new Alias { Type = "azurerm:kusto/v20191109:Cluster"},
+                    new Alias { Type = "azurerm:kusto/v20200215:Cluster"},
+                    new Alias { Type = "azurerm:kusto/v20200614:Cluster"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

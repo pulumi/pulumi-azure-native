@@ -73,6 +73,39 @@ namespace Pulumi.AzureRM.Network.V20170801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20150615:Route"},
+                    new Alias { Type = "azurerm:network/v20160330:Route"},
+                    new Alias { Type = "azurerm:network/v20160601:Route"},
+                    new Alias { Type = "azurerm:network/v20160901:Route"},
+                    new Alias { Type = "azurerm:network/v20161201:Route"},
+                    new Alias { Type = "azurerm:network/v20170301:Route"},
+                    new Alias { Type = "azurerm:network/v20170601:Route"},
+                    new Alias { Type = "azurerm:network/v20170901:Route"},
+                    new Alias { Type = "azurerm:network/v20171001:Route"},
+                    new Alias { Type = "azurerm:network/v20171101:Route"},
+                    new Alias { Type = "azurerm:network/v20180101:Route"},
+                    new Alias { Type = "azurerm:network/v20180201:Route"},
+                    new Alias { Type = "azurerm:network/v20180401:Route"},
+                    new Alias { Type = "azurerm:network/v20180601:Route"},
+                    new Alias { Type = "azurerm:network/v20180701:Route"},
+                    new Alias { Type = "azurerm:network/v20180801:Route"},
+                    new Alias { Type = "azurerm:network/v20181001:Route"},
+                    new Alias { Type = "azurerm:network/v20181101:Route"},
+                    new Alias { Type = "azurerm:network/v20181201:Route"},
+                    new Alias { Type = "azurerm:network/v20190201:Route"},
+                    new Alias { Type = "azurerm:network/v20190401:Route"},
+                    new Alias { Type = "azurerm:network/v20190601:Route"},
+                    new Alias { Type = "azurerm:network/v20190701:Route"},
+                    new Alias { Type = "azurerm:network/v20190801:Route"},
+                    new Alias { Type = "azurerm:network/v20190901:Route"},
+                    new Alias { Type = "azurerm:network/v20191101:Route"},
+                    new Alias { Type = "azurerm:network/v20191201:Route"},
+                    new Alias { Type = "azurerm:network/v20200301:Route"},
+                    new Alias { Type = "azurerm:network/v20200401:Route"},
+                    new Alias { Type = "azurerm:network/v20200501:Route"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

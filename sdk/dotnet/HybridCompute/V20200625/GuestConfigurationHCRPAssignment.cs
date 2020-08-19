@@ -61,6 +61,10 @@ namespace Pulumi.AzureRM.HybridCompute.V20200625
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:hybridcompute/v20181120:GuestConfigurationHCRPAssignment"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

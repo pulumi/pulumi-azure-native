@@ -73,6 +73,10 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:eventgrid/v20200601:Domain"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

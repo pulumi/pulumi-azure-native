@@ -127,6 +127,10 @@ namespace Pulumi.AzureRM.Media.V20180701
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:media/v20200501:LiveEvent"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

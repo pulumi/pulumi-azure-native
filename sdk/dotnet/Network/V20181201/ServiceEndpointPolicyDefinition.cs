@@ -73,6 +73,24 @@ namespace Pulumi.AzureRM.Network.V20181201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180701:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20180801:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20181001:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20181101:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20190201:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20190401:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20190601:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20190701:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20190801:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20190901:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20191101:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20191201:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20200301:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20200401:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20200501:ServiceEndpointPolicyDefinition"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

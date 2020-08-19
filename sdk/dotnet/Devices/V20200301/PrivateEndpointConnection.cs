@@ -55,6 +55,10 @@ namespace Pulumi.AzureRM.Devices.V20200301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:devices/v20200401:PrivateEndpointConnection"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

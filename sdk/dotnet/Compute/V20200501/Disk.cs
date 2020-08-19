@@ -199,6 +199,16 @@ namespace Pulumi.AzureRM.Compute.V20200501
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:compute/v20170330:Disk"},
+                    new Alias { Type = "azurerm:compute/v20180401:Disk"},
+                    new Alias { Type = "azurerm:compute/v20180601:Disk"},
+                    new Alias { Type = "azurerm:compute/v20180930:Disk"},
+                    new Alias { Type = "azurerm:compute/v20190301:Disk"},
+                    new Alias { Type = "azurerm:compute/v20190701:Disk"},
+                    new Alias { Type = "azurerm:compute/v20191101:Disk"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -85,6 +85,12 @@ namespace Pulumi.AzureRM.Kusto.V20190907
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:kusto/v20191109:AttachedDatabaseConfiguration"},
+                    new Alias { Type = "azurerm:kusto/v20200215:AttachedDatabaseConfiguration"},
+                    new Alias { Type = "azurerm:kusto/v20200614:AttachedDatabaseConfiguration"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

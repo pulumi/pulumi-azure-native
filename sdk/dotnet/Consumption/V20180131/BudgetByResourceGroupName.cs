@@ -97,6 +97,13 @@ namespace Pulumi.AzureRM.Consumption.V20180131
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:consumption/v20180331:BudgetByResourceGroupName"},
+                    new Alias { Type = "azurerm:consumption/v20180630:BudgetByResourceGroupName"},
+                    new Alias { Type = "azurerm:consumption/v20180831:BudgetByResourceGroupName"},
+                    new Alias { Type = "azurerm:consumption/v20181001:BudgetByResourceGroupName"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

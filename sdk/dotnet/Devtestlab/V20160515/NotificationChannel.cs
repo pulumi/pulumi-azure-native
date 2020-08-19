@@ -97,6 +97,10 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:devtestlab/v20180915:NotificationChannel"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

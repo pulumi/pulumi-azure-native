@@ -109,6 +109,10 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:appconfiguration/v20191001:ConfigurationStore"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

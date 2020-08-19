@@ -139,6 +139,18 @@ namespace Pulumi.AzureRM.Cdn.V20161002
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:cdn/v20150601:Endpoint"},
+                    new Alias { Type = "azurerm:cdn/v20160402:Endpoint"},
+                    new Alias { Type = "azurerm:cdn/v20170402:Endpoint"},
+                    new Alias { Type = "azurerm:cdn/v20171012:Endpoint"},
+                    new Alias { Type = "azurerm:cdn/v20190415:Endpoint"},
+                    new Alias { Type = "azurerm:cdn/v20190615:Endpoint"},
+                    new Alias { Type = "azurerm:cdn/v20191231:Endpoint"},
+                    new Alias { Type = "azurerm:cdn/v20200331:Endpoint"},
+                    new Alias { Type = "azurerm:cdn/v20200415:Endpoint"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

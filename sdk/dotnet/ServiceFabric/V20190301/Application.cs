@@ -121,6 +121,10 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:servicefabric/v20200301:Application"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

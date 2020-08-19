@@ -115,6 +115,19 @@ namespace Pulumi.AzureRM.Network.V20190901
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20181201:WebApplicationFirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20190201:WebApplicationFirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20190401:WebApplicationFirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20190601:WebApplicationFirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20190701:WebApplicationFirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20190801:WebApplicationFirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20191101:WebApplicationFirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20191201:WebApplicationFirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20200301:WebApplicationFirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20200401:WebApplicationFirewallPolicy"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

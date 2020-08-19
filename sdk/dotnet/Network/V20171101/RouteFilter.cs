@@ -85,6 +85,35 @@ namespace Pulumi.AzureRM.Network.V20171101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20161201:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20170301:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20170601:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20170801:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20170901:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20171001:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20180101:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20180201:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20180401:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20180601:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20180701:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20180801:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20181001:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20181101:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20181201:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20190201:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20190401:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20190601:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20190701:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20190801:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20190901:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20191101:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20191201:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20200301:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20200401:RouteFilter"},
+                    new Alias { Type = "azurerm:network/v20200501:RouteFilter"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

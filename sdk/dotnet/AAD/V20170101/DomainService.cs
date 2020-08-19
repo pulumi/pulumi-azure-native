@@ -151,6 +151,11 @@ namespace Pulumi.AzureRM.AAD.V20170101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:aad/v20170601:DomainService"},
+                    new Alias { Type = "azurerm:aad/v20200101:DomainService"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

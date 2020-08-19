@@ -55,6 +55,12 @@ namespace Pulumi.AzureRM.Web.V20160801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:web/v20180201:WebAppDomainOwnershipIdentifierSlot"},
+                    new Alias { Type = "azurerm:web/v20181101:WebAppDomainOwnershipIdentifierSlot"},
+                    new Alias { Type = "azurerm:web/v20190801:WebAppDomainOwnershipIdentifierSlot"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

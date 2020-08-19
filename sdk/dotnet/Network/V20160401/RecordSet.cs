@@ -121,6 +121,12 @@ namespace Pulumi.AzureRM.Network.V20160401
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20170901:RecordSet"},
+                    new Alias { Type = "azurerm:network/v20171001:RecordSet"},
+                    new Alias { Type = "azurerm:network/v20180501:RecordSet"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

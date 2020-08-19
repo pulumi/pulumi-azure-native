@@ -61,6 +61,14 @@ namespace Pulumi.AzureRM.Kusto.V20200215
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:kusto/v20190121:Database"},
+                    new Alias { Type = "azurerm:kusto/v20190515:Database"},
+                    new Alias { Type = "azurerm:kusto/v20190907:Database"},
+                    new Alias { Type = "azurerm:kusto/v20191109:Database"},
+                    new Alias { Type = "azurerm:kusto/v20200614:Database"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -107,6 +107,14 @@ namespace Pulumi.AzureRM.Batch.V20170901
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:batch/v20181201:Certificate"},
+                    new Alias { Type = "azurerm:batch/v20190401:Certificate"},
+                    new Alias { Type = "azurerm:batch/v20190801:Certificate"},
+                    new Alias { Type = "azurerm:batch/v20200301:Certificate"},
+                    new Alias { Type = "azurerm:batch/v20200501:Certificate"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

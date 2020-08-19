@@ -103,6 +103,23 @@ namespace Pulumi.AzureRM.Network.V20190601
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180801:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20181001:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20181101:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20181201:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20190201:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20190401:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20190701:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20190801:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20190901:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20191101:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20191201:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20200301:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20200401:VirtualNetworkTap"},
+                    new Alias { Type = "azurerm:network/v20200501:VirtualNetworkTap"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

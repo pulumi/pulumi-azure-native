@@ -91,6 +91,13 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountSqlDatabase"},
+                    new Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountSqlDatabase"},
+                    new Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountSqlDatabase"},
+                    new Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountSqlDatabase"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

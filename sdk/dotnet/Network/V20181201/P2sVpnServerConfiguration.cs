@@ -106,6 +106,16 @@ namespace Pulumi.AzureRM.Network.V20181201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180801:P2sVpnServerConfiguration"},
+                    new Alias { Type = "azurerm:network/v20181001:P2sVpnServerConfiguration"},
+                    new Alias { Type = "azurerm:network/v20181101:P2sVpnServerConfiguration"},
+                    new Alias { Type = "azurerm:network/v20190201:P2sVpnServerConfiguration"},
+                    new Alias { Type = "azurerm:network/v20190401:P2sVpnServerConfiguration"},
+                    new Alias { Type = "azurerm:network/v20190601:P2sVpnServerConfiguration"},
+                    new Alias { Type = "azurerm:network/v20190701:P2sVpnServerConfiguration"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

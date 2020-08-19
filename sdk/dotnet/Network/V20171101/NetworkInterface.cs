@@ -127,6 +127,39 @@ namespace Pulumi.AzureRM.Network.V20171101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20150615:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20160330:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20160601:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20160901:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20161201:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20170301:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20170601:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20170801:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20170901:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20171001:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20180101:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20180201:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20180401:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20180601:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20180701:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20180801:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20181001:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20181101:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20181201:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20190201:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20190401:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20190601:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20190701:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20190801:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20190901:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20191101:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20191201:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20200301:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20200401:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20200501:NetworkInterface"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

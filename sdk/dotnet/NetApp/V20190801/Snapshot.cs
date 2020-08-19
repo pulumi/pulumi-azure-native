@@ -79,6 +79,14 @@ namespace Pulumi.AzureRM.NetApp.V20190801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:netapp/v20190501:Snapshot"},
+                    new Alias { Type = "azurerm:netapp/v20190601:Snapshot"},
+                    new Alias { Type = "azurerm:netapp/v20190701:Snapshot"},
+                    new Alias { Type = "azurerm:netapp/v20191001:Snapshot"},
+                    new Alias { Type = "azurerm:netapp/v20191101:Snapshot"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

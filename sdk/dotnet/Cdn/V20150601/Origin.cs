@@ -79,6 +79,18 @@ namespace Pulumi.AzureRM.Cdn.V20150601
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:cdn/v20160402:Origin"},
+                    new Alias { Type = "azurerm:cdn/v20161002:Origin"},
+                    new Alias { Type = "azurerm:cdn/v20170402:Origin"},
+                    new Alias { Type = "azurerm:cdn/v20171012:Origin"},
+                    new Alias { Type = "azurerm:cdn/v20190415:Origin"},
+                    new Alias { Type = "azurerm:cdn/v20190615:Origin"},
+                    new Alias { Type = "azurerm:cdn/v20191231:Origin"},
+                    new Alias { Type = "azurerm:cdn/v20200331:Origin"},
+                    new Alias { Type = "azurerm:cdn/v20200415:Origin"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

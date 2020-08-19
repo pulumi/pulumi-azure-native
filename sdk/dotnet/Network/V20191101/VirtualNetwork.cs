@@ -127,6 +127,39 @@ namespace Pulumi.AzureRM.Network.V20191101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20150615:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20160330:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20160601:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20160901:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20161201:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20170301:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20170601:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20170801:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20170901:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20171001:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20171101:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20180101:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20180201:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20180401:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20180601:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20180701:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20180801:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20181001:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20181101:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20181201:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20190201:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20190401:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20190601:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20190701:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20190801:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20190901:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20191201:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20200301:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20200401:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20200501:VirtualNetwork"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

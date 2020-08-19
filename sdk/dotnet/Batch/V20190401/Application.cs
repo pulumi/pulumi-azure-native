@@ -73,6 +73,13 @@ namespace Pulumi.AzureRM.Batch.V20190401
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:batch/v20181201:Application"},
+                    new Alias { Type = "azurerm:batch/v20190801:Application"},
+                    new Alias { Type = "azurerm:batch/v20200301:Application"},
+                    new Alias { Type = "azurerm:batch/v20200501:Application"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -115,6 +115,26 @@ namespace Pulumi.AzureRM.Network.V20190201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180401:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20180601:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20180701:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20180801:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20181001:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20181101:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20181201:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20190401:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20190601:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20190701:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20190801:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20190901:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20191101:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20191201:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20200301:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20200401:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20200501:VirtualHub"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

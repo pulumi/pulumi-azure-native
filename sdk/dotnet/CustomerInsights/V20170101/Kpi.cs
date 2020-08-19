@@ -163,6 +163,10 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:customerinsights/v20170426:Kpi"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

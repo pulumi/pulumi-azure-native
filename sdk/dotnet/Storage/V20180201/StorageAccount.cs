@@ -169,6 +169,19 @@ namespace Pulumi.AzureRM.Storage.V20180201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:storage/v20150615:StorageAccount"},
+                    new Alias { Type = "azurerm:storage/v20160101:StorageAccount"},
+                    new Alias { Type = "azurerm:storage/v20160501:StorageAccount"},
+                    new Alias { Type = "azurerm:storage/v20161201:StorageAccount"},
+                    new Alias { Type = "azurerm:storage/v20170601:StorageAccount"},
+                    new Alias { Type = "azurerm:storage/v20171001:StorageAccount"},
+                    new Alias { Type = "azurerm:storage/v20180701:StorageAccount"},
+                    new Alias { Type = "azurerm:storage/v20181101:StorageAccount"},
+                    new Alias { Type = "azurerm:storage/v20190401:StorageAccount"},
+                    new Alias { Type = "azurerm:storage/v20190601:StorageAccount"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

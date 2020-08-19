@@ -109,6 +109,13 @@ namespace Pulumi.AzureRM.Insights.V20170401
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:insights/v20180301:ActionGroup"},
+                    new Alias { Type = "azurerm:insights/v20180901:ActionGroup"},
+                    new Alias { Type = "azurerm:insights/v20190301:ActionGroup"},
+                    new Alias { Type = "azurerm:insights/v20190601:ActionGroup"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

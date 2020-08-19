@@ -91,6 +91,23 @@ namespace Pulumi.AzureRM.Network.V20190201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180801:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20181001:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20181101:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20181201:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20190401:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20190601:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20190701:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20190801:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20190901:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20191101:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20191201:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20200301:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20200401:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20200501:NetworkProfile"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

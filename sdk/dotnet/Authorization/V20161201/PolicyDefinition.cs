@@ -85,6 +85,14 @@ namespace Pulumi.AzureRM.Authorization.V20161201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:authorization/v20180301:PolicyDefinition"},
+                    new Alias { Type = "azurerm:authorization/v20180501:PolicyDefinition"},
+                    new Alias { Type = "azurerm:authorization/v20190101:PolicyDefinition"},
+                    new Alias { Type = "azurerm:authorization/v20190601:PolicyDefinition"},
+                    new Alias { Type = "azurerm:authorization/v20190901:PolicyDefinition"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

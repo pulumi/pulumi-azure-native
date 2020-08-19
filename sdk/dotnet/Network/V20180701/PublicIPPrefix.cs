@@ -127,6 +127,24 @@ namespace Pulumi.AzureRM.Network.V20180701
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180801:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20181001:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20181101:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20181201:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20190201:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20190401:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20190601:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20190701:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20190801:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20190901:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20191101:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20191201:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20200301:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20200401:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20200501:PublicIPPrefix"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

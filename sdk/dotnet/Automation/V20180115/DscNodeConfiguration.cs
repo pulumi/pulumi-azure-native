@@ -85,6 +85,10 @@ namespace Pulumi.AzureRM.Automation.V20180115
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:automation/v20151031:DscNodeConfiguration"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

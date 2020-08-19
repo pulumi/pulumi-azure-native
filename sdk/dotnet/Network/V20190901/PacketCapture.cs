@@ -91,6 +91,36 @@ namespace Pulumi.AzureRM.Network.V20190901
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20160901:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20161201:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20170301:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20170601:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20170801:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20170901:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20171001:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20171101:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20180101:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20180201:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20180401:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20180601:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20180701:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20180801:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20181001:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20181101:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20181201:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20190201:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20190401:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20190601:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20190701:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20190801:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20191101:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20191201:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20200301:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20200401:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20200501:PacketCapture"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

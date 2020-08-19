@@ -127,6 +127,39 @@ namespace Pulumi.AzureRM.Network.V20200301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20150615:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20160330:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20160601:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20160901:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20161201:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20170301:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20170601:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20170801:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20170901:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20171001:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20171101:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20180101:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20180201:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20180401:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20180601:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20180701:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20180801:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20181001:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20181101:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20181201:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20190201:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20190401:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20190601:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20190701:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20190801:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20190901:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20191101:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20191201:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20200401:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20200501:LoadBalancer"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

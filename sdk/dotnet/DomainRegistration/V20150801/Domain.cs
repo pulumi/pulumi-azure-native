@@ -163,6 +163,12 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:domainregistration/v20150401:Domain"},
+                    new Alias { Type = "azurerm:domainregistration/v20180201:Domain"},
+                    new Alias { Type = "azurerm:domainregistration/v20190801:Domain"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
