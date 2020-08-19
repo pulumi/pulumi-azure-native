@@ -55,6 +55,15 @@ func NewNamespace(ctx *pulumi.Context,
 	if args == nil {
 		args = &NamespaceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:servicebus/v20150801:Namespace"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicebus/v20170401:Namespace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Namespace
 	err := ctx.RegisterResource("azurerm:servicebus/v20140901:Namespace", name, args, &resource, opts...)
 	if err != nil {

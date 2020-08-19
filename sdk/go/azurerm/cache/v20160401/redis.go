@@ -68,6 +68,21 @@ func NewRedis(ctx *pulumi.Context,
 	if args == nil {
 		args = &RedisArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cache/v20150801:Redis"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20170201:Redis"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20171001:Redis"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20180301:Redis"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Redis
 	err := ctx.RegisterResource("azurerm:cache/v20160401:Redis", name, args, &resource, opts...)
 	if err != nil {

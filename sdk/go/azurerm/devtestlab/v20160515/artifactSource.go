@@ -61,6 +61,12 @@ func NewArtifactSource(ctx *pulumi.Context,
 	if args == nil {
 		args = &ArtifactSourceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20180915:ArtifactSource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ArtifactSource
 	err := ctx.RegisterResource("azurerm:devtestlab/v20160515:ArtifactSource", name, args, &resource, opts...)
 	if err != nil {

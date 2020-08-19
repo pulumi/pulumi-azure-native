@@ -54,6 +54,15 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 	if args == nil {
 		args = &GalleryApplicationVersionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20190301:GalleryApplicationVersion"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20191201:GalleryApplicationVersion"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource GalleryApplicationVersion
 	err := ctx.RegisterResource("azurerm:compute/v20190701:GalleryApplicationVersion", name, args, &resource, opts...)
 	if err != nil {

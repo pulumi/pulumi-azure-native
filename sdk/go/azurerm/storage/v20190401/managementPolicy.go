@@ -42,6 +42,15 @@ func NewManagementPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagementPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storage/v20181101:ManagementPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20190601:ManagementPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementPolicy
 	err := ctx.RegisterResource("azurerm:storage/v20190401:ManagementPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -52,6 +52,21 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 	if args == nil {
 		args = &DatabaseAccountCassandraTableArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20150408:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20151106:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20160331:DatabaseAccountCassandraTable"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DatabaseAccountCassandraTable
 	err := ctx.RegisterResource("azurerm:documentdb/v20160319:DatabaseAccountCassandraTable", name, args, &resource, opts...)
 	if err != nil {

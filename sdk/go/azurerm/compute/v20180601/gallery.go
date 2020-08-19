@@ -45,6 +45,18 @@ func NewGallery(ctx *pulumi.Context,
 	if args == nil {
 		args = &GalleryArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20190301:Gallery"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190701:Gallery"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20191201:Gallery"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Gallery
 	err := ctx.RegisterResource("azurerm:compute/v20180601:Gallery", name, args, &resource, opts...)
 	if err != nil {

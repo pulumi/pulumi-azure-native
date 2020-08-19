@@ -62,6 +62,21 @@ func NewSiteDeploymentSlot(ctx *pulumi.Context,
 	if args == nil {
 		args = &SiteDeploymentSlotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160801:SiteDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:SiteDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:SiteDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:SiteDeploymentSlot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SiteDeploymentSlot
 	err := ctx.RegisterResource("azurerm:web/v20150801:SiteDeploymentSlot", name, args, &resource, opts...)
 	if err != nil {

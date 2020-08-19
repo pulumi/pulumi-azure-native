@@ -50,6 +50,30 @@ func NewVirtualRouter(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualRouterArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20190701:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:VirtualRouter"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualRouter
 	err := ctx.RegisterResource("azurerm:network/v20200401:VirtualRouter", name, args, &resource, opts...)
 	if err != nil {

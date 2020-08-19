@@ -69,6 +69,99 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExpressRouteCircuitPeeringArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20150615:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160330:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160601:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ExpressRouteCircuitPeering"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ExpressRouteCircuitPeering
 	err := ctx.RegisterResource("azurerm:network/v20170601:ExpressRouteCircuitPeering", name, args, &resource, opts...)
 	if err != nil {

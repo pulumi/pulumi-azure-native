@@ -54,6 +54,21 @@ func NewSiteVNETConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &SiteVNETConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160801:SiteVNETConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:SiteVNETConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:SiteVNETConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:SiteVNETConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SiteVNETConnection
 	err := ctx.RegisterResource("azurerm:web/v20150801:SiteVNETConnection", name, args, &resource, opts...)
 	if err != nil {

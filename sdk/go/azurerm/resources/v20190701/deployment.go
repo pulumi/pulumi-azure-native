@@ -39,6 +39,48 @@ func NewDeployment(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeploymentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:resources/v20151101:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20160201:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20160701:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20160901:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20170510:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20180201:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20180501:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190301:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190501:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190510:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190801:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20191001:Deployment"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20200601:Deployment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Deployment
 	err := ctx.RegisterResource("azurerm:resources/v20190701:Deployment", name, args, &resource, opts...)
 	if err != nil {

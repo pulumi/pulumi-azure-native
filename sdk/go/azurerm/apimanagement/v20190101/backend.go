@@ -59,6 +59,12 @@ func NewBackend(ctx *pulumi.Context,
 	if args == nil {
 		args = &BackendArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:Backend"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Backend
 	err := ctx.RegisterResource("azurerm:apimanagement/v20190101:Backend", name, args, &resource, opts...)
 	if err != nil {

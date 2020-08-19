@@ -46,6 +46,12 @@ func NewTransform(ctx *pulumi.Context,
 	if args == nil {
 		args = &TransformArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/v20180701:Transform"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Transform
 	err := ctx.RegisterResource("azurerm:media/v20200501:Transform", name, args, &resource, opts...)
 	if err != nil {

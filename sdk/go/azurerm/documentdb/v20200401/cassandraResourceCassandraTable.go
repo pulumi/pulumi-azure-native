@@ -50,6 +50,18 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 	if args == nil {
 		args = &CassandraResourceCassandraTableArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20190801:CassandraResourceCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20191212:CassandraResourceCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200301:CassandraResourceCassandraTable"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CassandraResourceCassandraTable
 	err := ctx.RegisterResource("azurerm:documentdb/v20200401:CassandraResourceCassandraTable", name, args, &resource, opts...)
 	if err != nil {

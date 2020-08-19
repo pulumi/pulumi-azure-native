@@ -96,6 +96,18 @@ func NewDomain(ctx *pulumi.Context,
 	if args == nil {
 		args = &DomainArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:domainregistration/v20150401:Domain"),
+		},
+		{
+			Type: pulumi.String("azurerm:domainregistration/v20150801:Domain"),
+		},
+		{
+			Type: pulumi.String("azurerm:domainregistration/v20190801:Domain"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Domain
 	err := ctx.RegisterResource("azurerm:domainregistration/v20180201:Domain", name, args, &resource, opts...)
 	if err != nil {

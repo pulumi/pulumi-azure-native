@@ -39,6 +39,15 @@ func NewDpsCertificate(ctx *pulumi.Context,
 	if args == nil {
 		args = &DpsCertificateArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devices/v20171115:DpsCertificate"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20180122:DpsCertificate"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DpsCertificate
 	err := ctx.RegisterResource("azurerm:devices/v20200101:DpsCertificate", name, args, &resource, opts...)
 	if err != nil {

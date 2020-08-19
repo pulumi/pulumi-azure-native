@@ -51,6 +51,93 @@ func NewVirtualNetworkPeering(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualNetworkPeeringArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20160601:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:VirtualNetworkPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:VirtualNetworkPeering"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualNetworkPeering
 	err := ctx.RegisterResource("azurerm:network/v20180401:VirtualNetworkPeering", name, args, &resource, opts...)
 	if err != nil {

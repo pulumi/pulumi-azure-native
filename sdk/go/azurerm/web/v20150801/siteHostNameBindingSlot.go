@@ -56,6 +56,21 @@ func NewSiteHostNameBindingSlot(ctx *pulumi.Context,
 	if args == nil {
 		args = &SiteHostNameBindingSlotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160801:SiteHostNameBindingSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:SiteHostNameBindingSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:SiteHostNameBindingSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:SiteHostNameBindingSlot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SiteHostNameBindingSlot
 	err := ctx.RegisterResource("azurerm:web/v20150801:SiteHostNameBindingSlot", name, args, &resource, opts...)
 	if err != nil {

@@ -52,6 +52,21 @@ func NewExport(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExportArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:costmanagement/v20190101:Export"),
+		},
+		{
+			Type: pulumi.String("azurerm:costmanagement/v20190901:Export"),
+		},
+		{
+			Type: pulumi.String("azurerm:costmanagement/v20191001:Export"),
+		},
+		{
+			Type: pulumi.String("azurerm:costmanagement/v20191101:Export"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Export
 	err := ctx.RegisterResource("azurerm:costmanagement/v20200601:Export", name, args, &resource, opts...)
 	if err != nil {

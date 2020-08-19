@@ -53,6 +53,90 @@ func NewPacketCapture(ctx *pulumi.Context,
 	if args == nil {
 		args = &PacketCaptureArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20160901:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:PacketCapture"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PacketCapture
 	err := ctx.RegisterResource("azurerm:network/v20180601:PacketCapture", name, args, &resource, opts...)
 	if err != nil {

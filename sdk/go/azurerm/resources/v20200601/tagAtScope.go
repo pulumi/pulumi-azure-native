@@ -34,6 +34,12 @@ func NewTagAtScope(ctx *pulumi.Context,
 	if args == nil {
 		args = &TagAtScopeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:resources/v20191001:TagAtScope"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TagAtScope
 	err := ctx.RegisterResource("azurerm:resources/v20200601:TagAtScope", name, args, &resource, opts...)
 	if err != nil {

@@ -52,6 +52,21 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppVnetConnectionSlotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:WebAppVnetConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20160801:WebAppVnetConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebAppVnetConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:WebAppVnetConnectionSlot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppVnetConnectionSlot
 	err := ctx.RegisterResource("azurerm:web/v20190801:WebAppVnetConnectionSlot", name, args, &resource, opts...)
 	if err != nil {

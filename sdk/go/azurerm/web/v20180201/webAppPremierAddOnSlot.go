@@ -54,6 +54,21 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppPremierAddOnSlotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:WebAppPremierAddOnSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20160801:WebAppPremierAddOnSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:WebAppPremierAddOnSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:WebAppPremierAddOnSlot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppPremierAddOnSlot
 	err := ctx.RegisterResource("azurerm:web/v20180201:WebAppPremierAddOnSlot", name, args, &resource, opts...)
 	if err != nil {

@@ -58,6 +58,12 @@ func NewMap(ctx *pulumi.Context,
 	if args == nil {
 		args = &MapArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20190501:Map"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Map
 	err := ctx.RegisterResource("azurerm:logic/v20160601:Map", name, args, &resource, opts...)
 	if err != nil {

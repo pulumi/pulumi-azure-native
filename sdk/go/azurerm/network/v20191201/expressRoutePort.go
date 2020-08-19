@@ -62,6 +62,51 @@ func NewExpressRoutePort(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExpressRoutePortArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ExpressRoutePort"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ExpressRoutePort
 	err := ctx.RegisterResource("azurerm:network/v20191201:ExpressRoutePort", name, args, &resource, opts...)
 	if err != nil {

@@ -58,6 +58,12 @@ func NewConfigurationStore(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConfigurationStoreArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:appconfiguration/v20191001:ConfigurationStore"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConfigurationStore
 	err := ctx.RegisterResource("azurerm:appconfiguration/v20200601:ConfigurationStore", name, args, &resource, opts...)
 	if err != nil {

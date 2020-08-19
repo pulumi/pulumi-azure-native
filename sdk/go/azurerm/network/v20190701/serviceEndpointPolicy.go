@@ -46,6 +46,54 @@ func NewServiceEndpointPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServiceEndpointPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180701:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:ServiceEndpointPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ServiceEndpointPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServiceEndpointPolicy
 	err := ctx.RegisterResource("azurerm:network/v20190701:ServiceEndpointPolicy", name, args, &resource, opts...)
 	if err != nil {

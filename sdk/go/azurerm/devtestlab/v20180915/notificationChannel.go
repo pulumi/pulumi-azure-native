@@ -55,6 +55,12 @@ func NewNotificationChannel(ctx *pulumi.Context,
 	if args == nil {
 		args = &NotificationChannelArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20160515:NotificationChannel"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NotificationChannel
 	err := ctx.RegisterResource("azurerm:devtestlab/v20180915:NotificationChannel", name, args, &resource, opts...)
 	if err != nil {

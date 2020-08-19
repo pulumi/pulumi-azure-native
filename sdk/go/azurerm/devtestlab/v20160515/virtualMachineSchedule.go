@@ -64,6 +64,12 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualMachineScheduleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20180915:VirtualMachineSchedule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualMachineSchedule
 	err := ctx.RegisterResource("azurerm:devtestlab/v20160515:VirtualMachineSchedule", name, args, &resource, opts...)
 	if err != nil {

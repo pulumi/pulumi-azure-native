@@ -51,6 +51,21 @@ func NewDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 	if args == nil {
 		args = &DatabaseAccountGremlinDatabaseArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccountGremlinDatabase"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20151106:DatabaseAccountGremlinDatabase"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20160319:DatabaseAccountGremlinDatabase"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20160331:DatabaseAccountGremlinDatabase"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DatabaseAccountGremlinDatabase
 	err := ctx.RegisterResource("azurerm:documentdb/v20150408:DatabaseAccountGremlinDatabase", name, args, &resource, opts...)
 	if err != nil {

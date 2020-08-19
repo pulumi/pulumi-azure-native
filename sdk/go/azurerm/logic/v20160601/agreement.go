@@ -75,6 +75,12 @@ func NewAgreement(ctx *pulumi.Context,
 	if args == nil {
 		args = &AgreementArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20190501:Agreement"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Agreement
 	err := ctx.RegisterResource("azurerm:logic/v20160601:Agreement", name, args, &resource, opts...)
 	if err != nil {

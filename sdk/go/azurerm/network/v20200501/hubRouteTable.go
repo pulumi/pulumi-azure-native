@@ -47,6 +47,12 @@ func NewHubRouteTable(ctx *pulumi.Context,
 	if args == nil {
 		args = &HubRouteTableArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20200401:HubRouteTable"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HubRouteTable
 	err := ctx.RegisterResource("azurerm:network/v20200501:HubRouteTable", name, args, &resource, opts...)
 	if err != nil {

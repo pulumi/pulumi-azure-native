@@ -50,6 +50,18 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 	if args == nil {
 		args = &AppServicePlanRouteForVnetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:AppServicePlanRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:AppServicePlanRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:AppServicePlanRouteForVnet"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AppServicePlanRouteForVnet
 	err := ctx.RegisterResource("azurerm:web/v20160901:AppServicePlanRouteForVnet", name, args, &resource, opts...)
 	if err != nil {

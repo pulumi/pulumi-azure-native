@@ -51,6 +51,21 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppPremierAddOnArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:WebAppPremierAddOn"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20160801:WebAppPremierAddOn"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebAppPremierAddOn"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:WebAppPremierAddOn"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppPremierAddOn
 	err := ctx.RegisterResource("azurerm:web/v20181101:WebAppPremierAddOn", name, args, &resource, opts...)
 	if err != nil {

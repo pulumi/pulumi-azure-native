@@ -101,6 +101,21 @@ func NewSiteSlot(ctx *pulumi.Context,
 	if args == nil {
 		args = &SiteSlotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160801:SiteSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:SiteSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:SiteSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:SiteSlot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SiteSlot
 	err := ctx.RegisterResource("azurerm:web/v20150801:SiteSlot", name, args, &resource, opts...)
 	if err != nil {

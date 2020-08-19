@@ -45,6 +45,15 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReplicationProtectionContainerMappingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20180110:ReplicationProtectionContainerMapping"),
+		},
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20180710:ReplicationProtectionContainerMapping"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReplicationProtectionContainerMapping
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20160810:ReplicationProtectionContainerMapping", name, args, &resource, opts...)
 	if err != nil {

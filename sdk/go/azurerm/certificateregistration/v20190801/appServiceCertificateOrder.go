@@ -82,6 +82,15 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	if args == nil {
 		args = &AppServiceCertificateOrderArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:certificateregistration/v20150801:AppServiceCertificateOrder"),
+		},
+		{
+			Type: pulumi.String("azurerm:certificateregistration/v20180201:AppServiceCertificateOrder"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AppServiceCertificateOrder
 	err := ctx.RegisterResource("azurerm:certificateregistration/v20190801:AppServiceCertificateOrder", name, args, &resource, opts...)
 	if err != nil {

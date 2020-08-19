@@ -41,6 +41,24 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualHubRouteTableV2Args{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20190901:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:VirtualHubRouteTableV2"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualHubRouteTableV2
 	err := ctx.RegisterResource("azurerm:network/v20200501:VirtualHubRouteTableV2", name, args, &resource, opts...)
 	if err != nil {

@@ -51,6 +51,15 @@ func NewConsumerGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConsumerGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:eventhub/v20150801:ConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventhub/v20170401:ConsumerGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConsumerGroup
 	err := ctx.RegisterResource("azurerm:eventhub/v20140901:ConsumerGroup", name, args, &resource, opts...)
 	if err != nil {

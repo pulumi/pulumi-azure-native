@@ -51,6 +51,33 @@ func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualMachineScaleSetExtensionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20170330:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20171201:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180401:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20181001:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190301:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190701:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20191201:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200601:VirtualMachineScaleSetExtension"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualMachineScaleSetExtension
 	err := ctx.RegisterResource("azurerm:compute/v20180601:VirtualMachineScaleSetExtension", name, args, &resource, opts...)
 	if err != nil {

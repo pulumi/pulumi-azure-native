@@ -50,6 +50,21 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 	if args == nil {
 		args = &InterfaceEndpointArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180801:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:InterfaceEndpoint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource InterfaceEndpoint
 	err := ctx.RegisterResource("azurerm:network/v20181201:InterfaceEndpoint", name, args, &resource, opts...)
 	if err != nil {

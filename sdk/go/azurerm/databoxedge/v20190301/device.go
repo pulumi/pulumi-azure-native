@@ -69,6 +69,15 @@ func NewDevice(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeviceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190701:Device"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190801:Device"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Device
 	err := ctx.RegisterResource("azurerm:databoxedge/v20190301:Device", name, args, &resource, opts...)
 	if err != nil {

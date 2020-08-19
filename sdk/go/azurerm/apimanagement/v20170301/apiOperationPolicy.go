@@ -46,6 +46,18 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApiOperationPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiOperationPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiOperationPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiOperationPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApiOperationPolicy
 	err := ctx.RegisterResource("azurerm:apimanagement/v20170301:ApiOperationPolicy", name, args, &resource, opts...)
 	if err != nil {

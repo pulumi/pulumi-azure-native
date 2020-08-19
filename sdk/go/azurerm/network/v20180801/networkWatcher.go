@@ -40,6 +40,90 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 	if args == nil {
 		args = &NetworkWatcherArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20160901:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:NetworkWatcher"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:NetworkWatcher"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NetworkWatcher
 	err := ctx.RegisterResource("azurerm:network/v20180801:NetworkWatcher", name, args, &resource, opts...)
 	if err != nil {

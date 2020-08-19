@@ -46,6 +46,12 @@ func NewReplication(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReplicationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20171001:Replication"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Replication
 	err := ctx.RegisterResource("azurerm:containerregistry/v20190501:Replication", name, args, &resource, opts...)
 	if err != nil {

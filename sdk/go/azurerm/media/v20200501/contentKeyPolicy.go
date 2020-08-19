@@ -48,6 +48,12 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &ContentKeyPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/v20180701:ContentKeyPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ContentKeyPolicy
 	err := ctx.RegisterResource("azurerm:media/v20200501:ContentKeyPolicy", name, args, &resource, opts...)
 	if err != nil {

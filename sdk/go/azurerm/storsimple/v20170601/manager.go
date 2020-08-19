@@ -47,6 +47,12 @@ func NewManager(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/v20161001:Manager"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Manager
 	err := ctx.RegisterResource("azurerm:storsimple/v20170601:Manager", name, args, &resource, opts...)
 	if err != nil {

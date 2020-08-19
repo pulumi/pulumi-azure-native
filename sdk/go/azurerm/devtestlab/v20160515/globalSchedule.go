@@ -58,6 +58,12 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	if args == nil {
 		args = &GlobalScheduleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20180915:GlobalSchedule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource GlobalSchedule
 	err := ctx.RegisterResource("azurerm:devtestlab/v20160515:GlobalSchedule", name, args, &resource, opts...)
 	if err != nil {

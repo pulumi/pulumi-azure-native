@@ -58,6 +58,99 @@ func NewNetworkInterface(ctx *pulumi.Context,
 	if args == nil {
 		args = &NetworkInterfaceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20150615:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160330:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160601:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:NetworkInterface"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NetworkInterface
 	err := ctx.RegisterResource("azurerm:network/v20171001:NetworkInterface", name, args, &resource, opts...)
 	if err != nil {

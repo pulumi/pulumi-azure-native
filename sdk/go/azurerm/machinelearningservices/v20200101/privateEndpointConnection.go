@@ -52,6 +52,18 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateEndpointConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200301:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200401:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200601:PrivateEndpointConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
 	err := ctx.RegisterResource("azurerm:machinelearningservices/v20200101:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

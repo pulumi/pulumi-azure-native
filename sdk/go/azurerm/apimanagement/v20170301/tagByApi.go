@@ -40,6 +40,18 @@ func NewTagByApi(ctx *pulumi.Context,
 	if args == nil {
 		args = &TagByApiArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:TagByApi"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:TagByApi"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:TagByApi"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TagByApi
 	err := ctx.RegisterResource("azurerm:apimanagement/v20170301:TagByApi", name, args, &resource, opts...)
 	if err != nil {

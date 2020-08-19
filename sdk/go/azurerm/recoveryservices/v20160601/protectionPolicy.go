@@ -43,6 +43,18 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProtectionPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20161201:ProtectionPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20190513:ProtectionPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20190615:ProtectionPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ProtectionPolicy
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20160601:ProtectionPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -46,6 +46,51 @@ func NewNetworkProfile(ctx *pulumi.Context,
 	if args == nil {
 		args = &NetworkProfileArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180801:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:NetworkProfile"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NetworkProfile
 	err := ctx.RegisterResource("azurerm:network/v20190801:NetworkProfile", name, args, &resource, opts...)
 	if err != nil {

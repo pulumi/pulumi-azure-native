@@ -44,6 +44,12 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationAccountBatchConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20190501:IntegrationAccountBatchConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationAccountBatchConfiguration
 	err := ctx.RegisterResource("azurerm:logic/v20160601:IntegrationAccountBatchConfiguration", name, args, &resource, opts...)
 	if err != nil {

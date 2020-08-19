@@ -39,6 +39,12 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &GuestConfigurationHCRPAssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource GuestConfigurationHCRPAssignment
 	err := ctx.RegisterResource("azurerm:hybridcompute/v20181120:GuestConfigurationHCRPAssignment", name, args, &resource, opts...)
 	if err != nil {

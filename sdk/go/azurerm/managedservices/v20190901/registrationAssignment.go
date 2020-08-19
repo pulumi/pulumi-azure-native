@@ -34,6 +34,12 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegistrationAssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:managedservices/v20190601:RegistrationAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RegistrationAssignment
 	err := ctx.RegisterResource("azurerm:managedservices/v20190901:RegistrationAssignment", name, args, &resource, opts...)
 	if err != nil {

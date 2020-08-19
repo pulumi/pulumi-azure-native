@@ -49,6 +49,51 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExpressRouteGatewayArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ExpressRouteGateway"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ExpressRouteGateway
 	err := ctx.RegisterResource("azurerm:network/v20191101:ExpressRouteGateway", name, args, &resource, opts...)
 	if err != nil {

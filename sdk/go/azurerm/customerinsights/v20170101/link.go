@@ -66,6 +66,12 @@ func NewLink(ctx *pulumi.Context,
 	if args == nil {
 		args = &LinkArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:customerinsights/v20170426:Link"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Link
 	err := ctx.RegisterResource("azurerm:customerinsights/v20170101:Link", name, args, &resource, opts...)
 	if err != nil {

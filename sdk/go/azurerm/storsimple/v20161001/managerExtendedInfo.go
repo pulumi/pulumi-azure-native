@@ -52,6 +52,12 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagerExtendedInfoArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/v20170601:ManagerExtendedInfo"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagerExtendedInfo
 	err := ctx.RegisterResource("azurerm:storsimple/v20161001:ManagerExtendedInfo", name, args, &resource, opts...)
 	if err != nil {

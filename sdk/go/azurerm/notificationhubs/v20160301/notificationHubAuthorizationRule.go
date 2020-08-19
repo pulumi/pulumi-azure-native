@@ -52,6 +52,15 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &NotificationHubAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:notificationhubs/v20140901:NotificationHubAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:notificationhubs/v20170401:NotificationHubAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NotificationHubAuthorizationRule
 	err := ctx.RegisterResource("azurerm:notificationhubs/v20160301:NotificationHubAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

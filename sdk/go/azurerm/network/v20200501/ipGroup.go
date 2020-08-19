@@ -44,6 +44,24 @@ func NewIpGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &IpGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20190901:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:IpGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IpGroup
 	err := ctx.RegisterResource("azurerm:network/v20200501:IpGroup", name, args, &resource, opts...)
 	if err != nil {

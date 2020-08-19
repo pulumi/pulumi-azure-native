@@ -49,6 +49,15 @@ func NewEventHub(ctx *pulumi.Context,
 	if args == nil {
 		args = &EventHubArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:eventhub/v20140901:EventHub"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventhub/v20150801:EventHub"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource EventHub
 	err := ctx.RegisterResource("azurerm:eventhub/v20170401:EventHub", name, args, &resource, opts...)
 	if err != nil {

@@ -51,6 +51,12 @@ func NewAsset(ctx *pulumi.Context,
 	if args == nil {
 		args = &AssetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/v20180701:Asset"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Asset
 	err := ctx.RegisterResource("azurerm:media/v20200501:Asset", name, args, &resource, opts...)
 	if err != nil {

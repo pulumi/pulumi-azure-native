@@ -46,6 +46,45 @@ func NewDdosCustomPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &DdosCustomPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20181101:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:DdosCustomPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:DdosCustomPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DdosCustomPolicy
 	err := ctx.RegisterResource("azurerm:network/v20181201:DdosCustomPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -44,6 +44,12 @@ func NewAssetFilter(ctx *pulumi.Context,
 	if args == nil {
 		args = &AssetFilterArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/v20180701:AssetFilter"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AssetFilter
 	err := ctx.RegisterResource("azurerm:media/v20200501:AssetFilter", name, args, &resource, opts...)
 	if err != nil {

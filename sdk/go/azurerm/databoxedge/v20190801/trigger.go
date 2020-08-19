@@ -40,6 +40,15 @@ func NewTrigger(ctx *pulumi.Context,
 	if args == nil {
 		args = &TriggerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190301:Trigger"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190701:Trigger"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Trigger
 	err := ctx.RegisterResource("azurerm:databoxedge/v20190801:Trigger", name, args, &resource, opts...)
 	if err != nil {

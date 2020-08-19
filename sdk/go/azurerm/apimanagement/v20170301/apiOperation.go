@@ -63,6 +63,24 @@ func NewApiOperation(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApiOperationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20160707:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20161010:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiOperation"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiOperation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApiOperation
 	err := ctx.RegisterResource("azurerm:apimanagement/v20170301:ApiOperation", name, args, &resource, opts...)
 	if err != nil {

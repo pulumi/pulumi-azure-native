@@ -47,6 +47,36 @@ func NewCustomDomain(ctx *pulumi.Context,
 	if args == nil {
 		args = &CustomDomainArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cdn/v20150601:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20161002:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20170402:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20171012:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190415:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190615:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20191231:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20200331:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20200415:CustomDomain"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CustomDomain
 	err := ctx.RegisterResource("azurerm:cdn/v20160402:CustomDomain", name, args, &resource, opts...)
 	if err != nil {

@@ -64,6 +64,12 @@ func NewLiveOutput(ctx *pulumi.Context,
 	if args == nil {
 		args = &LiveOutputArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/v20180701:LiveOutput"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LiveOutput
 	err := ctx.RegisterResource("azurerm:media/v20200501:LiveOutput", name, args, &resource, opts...)
 	if err != nil {

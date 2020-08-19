@@ -50,6 +50,63 @@ func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExpressRouteCircuitConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180201:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:ExpressRouteCircuitConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ExpressRouteCircuitConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ExpressRouteCircuitConnection
 	err := ctx.RegisterResource("azurerm:network/v20180601:ExpressRouteCircuitConnection", name, args, &resource, opts...)
 	if err != nil {

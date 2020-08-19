@@ -44,6 +44,21 @@ func NewWebAppRelayServiceConnectionSlot(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppRelayServiceConnectionSlotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:WebAppRelayServiceConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebAppRelayServiceConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:WebAppRelayServiceConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:WebAppRelayServiceConnectionSlot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppRelayServiceConnectionSlot
 	err := ctx.RegisterResource("azurerm:web/v20160801:WebAppRelayServiceConnectionSlot", name, args, &resource, opts...)
 	if err != nil {

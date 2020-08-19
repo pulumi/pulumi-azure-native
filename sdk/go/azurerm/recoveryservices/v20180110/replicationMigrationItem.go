@@ -48,6 +48,12 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReplicationMigrationItemArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20180710:ReplicationMigrationItem"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReplicationMigrationItem
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20180110:ReplicationMigrationItem", name, args, &resource, opts...)
 	if err != nil {

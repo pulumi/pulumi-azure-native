@@ -47,6 +47,39 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 	if args == nil {
 		args = &AvailabilitySetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20160330:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20170330:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20171201:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180401:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180601:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20181001:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190301:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190701:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20191201:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200601:AvailabilitySet"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AvailabilitySet
 	err := ctx.RegisterResource("azurerm:compute/v20150615:AvailabilitySet", name, args, &resource, opts...)
 	if err != nil {

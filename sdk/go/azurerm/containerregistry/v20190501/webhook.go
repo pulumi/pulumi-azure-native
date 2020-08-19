@@ -56,6 +56,12 @@ func NewWebhook(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebhookArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20171001:Webhook"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Webhook
 	err := ctx.RegisterResource("azurerm:containerregistry/v20190501:Webhook", name, args, &resource, opts...)
 	if err != nil {

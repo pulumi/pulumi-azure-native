@@ -41,6 +41,12 @@ func NewServiceRunner(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServiceRunnerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20180915:ServiceRunner"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServiceRunner
 	err := ctx.RegisterResource("azurerm:devtestlab/v20160515:ServiceRunner", name, args, &resource, opts...)
 	if err != nil {

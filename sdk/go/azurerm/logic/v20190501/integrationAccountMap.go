@@ -58,6 +58,12 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationAccountMapArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountMap"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationAccountMap
 	err := ctx.RegisterResource("azurerm:logic/v20190501:IntegrationAccountMap", name, args, &resource, opts...)
 	if err != nil {

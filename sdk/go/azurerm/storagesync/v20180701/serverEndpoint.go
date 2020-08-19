@@ -58,6 +58,30 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerEndpointArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storagesync/v20180402:ServerEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20181001:ServerEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20190201:ServerEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20190301:ServerEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20190601:ServerEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20191001:ServerEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20200301:ServerEndpoint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerEndpoint
 	err := ctx.RegisterResource("azurerm:storagesync/v20180701:ServerEndpoint", name, args, &resource, opts...)
 	if err != nil {

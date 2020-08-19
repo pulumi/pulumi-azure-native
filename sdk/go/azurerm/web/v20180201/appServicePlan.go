@@ -82,6 +82,18 @@ func NewAppServicePlan(ctx *pulumi.Context,
 	if args == nil {
 		args = &AppServicePlanArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:AppServicePlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20160901:AppServicePlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:AppServicePlan"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AppServicePlan
 	err := ctx.RegisterResource("azurerm:web/v20180201:AppServicePlan", name, args, &resource, opts...)
 	if err != nil {

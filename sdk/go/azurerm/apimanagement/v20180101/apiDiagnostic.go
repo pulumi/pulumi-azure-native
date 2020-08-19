@@ -43,6 +43,18 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApiDiagnosticArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiDiagnostic"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiDiagnostic"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiDiagnostic"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApiDiagnostic
 	err := ctx.RegisterResource("azurerm:apimanagement/v20180101:ApiDiagnostic", name, args, &resource, opts...)
 	if err != nil {

@@ -48,6 +48,60 @@ func NewVirtualWAN(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualWANArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180401:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:VirtualWAN"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualWAN
 	err := ctx.RegisterResource("azurerm:network/v20180601:VirtualWAN", name, args, &resource, opts...)
 	if err != nil {

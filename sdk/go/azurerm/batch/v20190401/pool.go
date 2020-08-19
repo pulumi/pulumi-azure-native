@@ -77,6 +77,24 @@ func NewPool(ctx *pulumi.Context,
 	if args == nil {
 		args = &PoolArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:batch/v20170901:Pool"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20181201:Pool"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20190801:Pool"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20200301:Pool"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20200501:Pool"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Pool
 	err := ctx.RegisterResource("azurerm:batch/v20190401:Pool", name, args, &resource, opts...)
 	if err != nil {

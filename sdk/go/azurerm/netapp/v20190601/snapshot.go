@@ -54,6 +54,24 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args == nil {
 		args = &SnapshotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:netapp/v20190501:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20190701:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20190801:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20191001:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20191101:Snapshot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Snapshot
 	err := ctx.RegisterResource("azurerm:netapp/v20190601:Snapshot", name, args, &resource, opts...)
 	if err != nil {

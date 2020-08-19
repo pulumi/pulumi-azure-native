@@ -45,6 +45,12 @@ func NewIntegrationAccountSession(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationAccountSessionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountSession"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationAccountSession
 	err := ctx.RegisterResource("azurerm:logic/v20190501:IntegrationAccountSession", name, args, &resource, opts...)
 	if err != nil {

@@ -78,6 +78,12 @@ func NewLab(ctx *pulumi.Context,
 	if args == nil {
 		args = &LabArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20160515:Lab"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Lab
 	err := ctx.RegisterResource("azurerm:devtestlab/v20180915:Lab", name, args, &resource, opts...)
 	if err != nil {

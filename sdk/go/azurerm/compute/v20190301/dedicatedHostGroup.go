@@ -48,6 +48,18 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &DedicatedHostGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20190701:DedicatedHostGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20191201:DedicatedHostGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200601:DedicatedHostGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DedicatedHostGroup
 	err := ctx.RegisterResource("azurerm:compute/v20190301:DedicatedHostGroup", name, args, &resource, opts...)
 	if err != nil {

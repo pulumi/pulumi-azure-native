@@ -39,6 +39,15 @@ func NewReplicationPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReplicationPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20180110:ReplicationPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReplicationPolicy
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20180710:ReplicationPolicy", name, args, &resource, opts...)
 	if err != nil {

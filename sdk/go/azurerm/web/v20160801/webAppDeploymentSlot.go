@@ -55,6 +55,21 @@ func NewWebAppDeploymentSlot(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppDeploymentSlotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:WebAppDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebAppDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:WebAppDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:WebAppDeploymentSlot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppDeploymentSlot
 	err := ctx.RegisterResource("azurerm:web/v20160801:WebAppDeploymentSlot", name, args, &resource, opts...)
 	if err != nil {

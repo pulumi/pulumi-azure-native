@@ -52,6 +52,18 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 	if args == nil {
 		args = &SqlResourceSqlUserDefinedFunctionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlResourceSqlUserDefinedFunction
 	err := ctx.RegisterResource("azurerm:documentdb/v20190801:SqlResourceSqlUserDefinedFunction", name, args, &resource, opts...)
 	if err != nil {

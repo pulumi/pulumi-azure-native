@@ -75,6 +75,30 @@ func NewRegisteredServer(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegisteredServerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storagesync/v20180402:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20180701:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20181001:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20190201:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20190301:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20190601:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20191001:RegisteredServer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RegisteredServer
 	err := ctx.RegisterResource("azurerm:storagesync/v20200301:RegisteredServer", name, args, &resource, opts...)
 	if err != nil {

@@ -70,6 +70,18 @@ func NewWebAppSiteExtension(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppSiteExtensionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebAppSiteExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:WebAppSiteExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:WebAppSiteExtension"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppSiteExtension
 	err := ctx.RegisterResource("azurerm:web/v20160801:WebAppSiteExtension", name, args, &resource, opts...)
 	if err != nil {

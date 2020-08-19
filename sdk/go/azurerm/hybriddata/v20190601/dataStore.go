@@ -51,6 +51,12 @@ func NewDataStore(ctx *pulumi.Context,
 	if args == nil {
 		args = &DataStoreArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hybriddata/v20160601:DataStore"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataStore
 	err := ctx.RegisterResource("azurerm:hybriddata/v20190601:DataStore", name, args, &resource, opts...)
 	if err != nil {

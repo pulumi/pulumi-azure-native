@@ -36,6 +36,30 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeploymentAtSubscriptionScopeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:resources/v20180501:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190501:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190510:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190701:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190801:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20191001:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20200601:DeploymentAtSubscriptionScope"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DeploymentAtSubscriptionScope
 	err := ctx.RegisterResource("azurerm:resources/v20190301:DeploymentAtSubscriptionScope", name, args, &resource, opts...)
 	if err != nil {

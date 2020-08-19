@@ -39,6 +39,18 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 	if args == nil {
 		args = &NotebookWorkspaceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20190801:NotebookWorkspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200301:NotebookWorkspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200401:NotebookWorkspace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NotebookWorkspace
 	err := ctx.RegisterResource("azurerm:documentdb/v20191212:NotebookWorkspace", name, args, &resource, opts...)
 	if err != nil {

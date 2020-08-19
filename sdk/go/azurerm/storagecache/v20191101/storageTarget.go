@@ -47,6 +47,12 @@ func NewStorageTarget(ctx *pulumi.Context,
 	if args == nil {
 		args = &StorageTargetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storagecache/v20200301:StorageTarget"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StorageTarget
 	err := ctx.RegisterResource("azurerm:storagecache/v20191101:StorageTarget", name, args, &resource, opts...)
 	if err != nil {

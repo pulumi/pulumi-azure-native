@@ -62,6 +62,12 @@ func NewDisk(ctx *pulumi.Context,
 	if args == nil {
 		args = &DiskArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20160515:Disk"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Disk
 	err := ctx.RegisterResource("azurerm:devtestlab/v20180915:Disk", name, args, &resource, opts...)
 	if err != nil {

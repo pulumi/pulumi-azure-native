@@ -60,6 +60,12 @@ func NewService(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:search/v20150819:Service"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Service
 	err := ctx.RegisterResource("azurerm:search/v20200313:Service", name, args, &resource, opts...)
 	if err != nil {

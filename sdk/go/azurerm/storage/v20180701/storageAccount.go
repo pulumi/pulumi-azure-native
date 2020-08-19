@@ -87,6 +87,39 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &StorageAccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storage/v20150615:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20160101:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20160501:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20161201:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20170601:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20171001:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20180201:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20181101:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20190401:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20190601:StorageAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StorageAccount
 	err := ctx.RegisterResource("azurerm:storage/v20180701:StorageAccount", name, args, &resource, opts...)
 	if err != nil {

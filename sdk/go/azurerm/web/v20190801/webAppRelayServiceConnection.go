@@ -41,6 +41,21 @@ func NewWebAppRelayServiceConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppRelayServiceConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:WebAppRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20160801:WebAppRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebAppRelayServiceConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:WebAppRelayServiceConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppRelayServiceConnection
 	err := ctx.RegisterResource("azurerm:web/v20190801:WebAppRelayServiceConnection", name, args, &resource, opts...)
 	if err != nil {

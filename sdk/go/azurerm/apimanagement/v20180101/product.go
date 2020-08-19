@@ -52,6 +52,24 @@ func NewProduct(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProductArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20160707:Product"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20161010:Product"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:Product"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:Product"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:Product"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Product
 	err := ctx.RegisterResource("azurerm:apimanagement/v20180101:Product", name, args, &resource, opts...)
 	if err != nil {

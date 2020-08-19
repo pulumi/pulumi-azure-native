@@ -60,6 +60,15 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	if args == nil {
 		args = &StorageAccountCredentialArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190301:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190701:StorageAccountCredential"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StorageAccountCredential
 	err := ctx.RegisterResource("azurerm:databoxedge/v20190801:StorageAccountCredential", name, args, &resource, opts...)
 	if err != nil {

@@ -47,6 +47,12 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &StreamingPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/v20200501:StreamingPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StreamingPolicy
 	err := ctx.RegisterResource("azurerm:media/v20180701:StreamingPolicy", name, args, &resource, opts...)
 	if err != nil {

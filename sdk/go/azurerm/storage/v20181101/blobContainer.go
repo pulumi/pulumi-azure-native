@@ -57,6 +57,21 @@ func NewBlobContainer(ctx *pulumi.Context,
 	if args == nil {
 		args = &BlobContainerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storage/v20180201:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20180701:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20190401:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20190601:BlobContainer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BlobContainer
 	err := ctx.RegisterResource("azurerm:storage/v20181101:BlobContainer", name, args, &resource, opts...)
 	if err != nil {

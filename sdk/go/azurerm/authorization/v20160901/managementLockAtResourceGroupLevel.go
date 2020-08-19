@@ -41,6 +41,12 @@ func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagementLockAtResourceGroupLevelArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:authorization/v20150101:ManagementLockAtResourceGroupLevel"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementLockAtResourceGroupLevel
 	err := ctx.RegisterResource("azurerm:authorization/v20160901:ManagementLockAtResourceGroupLevel", name, args, &resource, opts...)
 	if err != nil {

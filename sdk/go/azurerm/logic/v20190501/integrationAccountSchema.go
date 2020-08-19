@@ -62,6 +62,12 @@ func NewIntegrationAccountSchema(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationAccountSchemaArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountSchema"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationAccountSchema
 	err := ctx.RegisterResource("azurerm:logic/v20190501:IntegrationAccountSchema", name, args, &resource, opts...)
 	if err != nil {

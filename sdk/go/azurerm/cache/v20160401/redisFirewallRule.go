@@ -45,6 +45,18 @@ func NewRedisFirewallRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &RedisFirewallRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cache/v20170201:RedisFirewallRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20171001:RedisFirewallRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20180301:RedisFirewallRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RedisFirewallRule
 	err := ctx.RegisterResource("azurerm:cache/v20160401:RedisFirewallRule", name, args, &resource, opts...)
 	if err != nil {

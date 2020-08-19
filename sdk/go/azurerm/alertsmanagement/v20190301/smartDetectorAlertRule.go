@@ -66,6 +66,12 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &SmartDetectorAlertRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:alertsmanagement/v20190601:SmartDetectorAlertRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SmartDetectorAlertRule
 	err := ctx.RegisterResource("azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule", name, args, &resource, opts...)
 	if err != nil {

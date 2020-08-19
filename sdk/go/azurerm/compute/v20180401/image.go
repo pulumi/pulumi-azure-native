@@ -45,6 +45,33 @@ func NewImage(ctx *pulumi.Context,
 	if args == nil {
 		args = &ImageArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20170330:Image"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20171201:Image"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180601:Image"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20181001:Image"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190301:Image"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190701:Image"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20191201:Image"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200601:Image"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Image
 	err := ctx.RegisterResource("azurerm:compute/v20180401:Image", name, args, &resource, opts...)
 	if err != nil {

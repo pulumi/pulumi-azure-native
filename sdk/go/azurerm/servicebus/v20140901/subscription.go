@@ -75,6 +75,15 @@ func NewSubscription(ctx *pulumi.Context,
 	if args == nil {
 		args = &SubscriptionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:servicebus/v20150801:Subscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicebus/v20170401:Subscription"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Subscription
 	err := ctx.RegisterResource("azurerm:servicebus/v20140901:Subscription", name, args, &resource, opts...)
 	if err != nil {

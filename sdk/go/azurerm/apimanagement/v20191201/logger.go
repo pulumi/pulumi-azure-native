@@ -52,6 +52,12 @@ func NewLogger(ctx *pulumi.Context,
 	if args == nil {
 		args = &LoggerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:Logger"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Logger
 	err := ctx.RegisterResource("azurerm:apimanagement/v20191201:Logger", name, args, &resource, opts...)
 	if err != nil {

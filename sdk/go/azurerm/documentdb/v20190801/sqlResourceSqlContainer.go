@@ -49,6 +49,18 @@ func NewSqlResourceSqlContainer(ctx *pulumi.Context,
 	if args == nil {
 		args = &SqlResourceSqlContainerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20191212:SqlResourceSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200301:SqlResourceSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200401:SqlResourceSqlContainer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlResourceSqlContainer
 	err := ctx.RegisterResource("azurerm:documentdb/v20190801:SqlResourceSqlContainer", name, args, &resource, opts...)
 	if err != nil {

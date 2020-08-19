@@ -57,6 +57,15 @@ func NewNotificationHub(ctx *pulumi.Context,
 	if args == nil {
 		args = &NotificationHubArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:notificationhubs/v20140901:NotificationHub"),
+		},
+		{
+			Type: pulumi.String("azurerm:notificationhubs/v20160301:NotificationHub"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NotificationHub
 	err := ctx.RegisterResource("azurerm:notificationhubs/v20170401:NotificationHub", name, args, &resource, opts...)
 	if err != nil {

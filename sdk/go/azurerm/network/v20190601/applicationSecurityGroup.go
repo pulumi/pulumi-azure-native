@@ -42,6 +42,75 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApplicationSecurityGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20170901:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ApplicationSecurityGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApplicationSecurityGroup
 	err := ctx.RegisterResource("azurerm:network/v20190601:ApplicationSecurityGroup", name, args, &resource, opts...)
 	if err != nil {

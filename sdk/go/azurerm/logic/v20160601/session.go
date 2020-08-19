@@ -45,6 +45,12 @@ func NewSession(ctx *pulumi.Context,
 	if args == nil {
 		args = &SessionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20190501:Session"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Session
 	err := ctx.RegisterResource("azurerm:logic/v20160601:Session", name, args, &resource, opts...)
 	if err != nil {

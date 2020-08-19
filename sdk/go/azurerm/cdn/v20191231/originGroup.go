@@ -53,6 +53,15 @@ func NewOriginGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &OriginGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cdn/v20200331:OriginGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20200415:OriginGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource OriginGroup
 	err := ctx.RegisterResource("azurerm:cdn/v20191231:OriginGroup", name, args, &resource, opts...)
 	if err != nil {

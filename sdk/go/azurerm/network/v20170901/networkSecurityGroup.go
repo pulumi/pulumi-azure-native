@@ -50,6 +50,99 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &NetworkSecurityGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20150615:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160330:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160601:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:NetworkSecurityGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NetworkSecurityGroup
 	err := ctx.RegisterResource("azurerm:network/v20170901:NetworkSecurityGroup", name, args, &resource, opts...)
 	if err != nil {

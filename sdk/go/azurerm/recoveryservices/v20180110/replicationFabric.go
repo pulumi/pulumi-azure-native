@@ -39,6 +39,15 @@ func NewReplicationFabric(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReplicationFabricArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationFabric"),
+		},
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20180710:ReplicationFabric"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReplicationFabric
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20180110:ReplicationFabric", name, args, &resource, opts...)
 	if err != nil {

@@ -79,6 +79,15 @@ func NewTopic(ctx *pulumi.Context,
 	if args == nil {
 		args = &TopicArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:servicebus/v20140901:Topic"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicebus/v20170401:Topic"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Topic
 	err := ctx.RegisterResource("azurerm:servicebus/v20150801:Topic", name, args, &resource, opts...)
 	if err != nil {

@@ -63,6 +63,21 @@ func NewFlowLog(ctx *pulumi.Context,
 	if args == nil {
 		args = &FlowLogArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20191101:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:FlowLog"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource FlowLog
 	err := ctx.RegisterResource("azurerm:network/v20191201:FlowLog", name, args, &resource, opts...)
 	if err != nil {

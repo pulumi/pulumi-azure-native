@@ -82,6 +82,99 @@ func NewApplicationGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApplicationGatewayArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20150615:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160330:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160601:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ApplicationGateway"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApplicationGateway
 	err := ctx.RegisterResource("azurerm:network/v20180601:ApplicationGateway", name, args, &resource, opts...)
 	if err != nil {

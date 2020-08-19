@@ -57,6 +57,39 @@ func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebApplicationFirewallPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20181201:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:WebApplicationFirewallPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebApplicationFirewallPolicy
 	err := ctx.RegisterResource("azurerm:network/v20190901:WebApplicationFirewallPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -74,6 +74,30 @@ func NewDisk(ctx *pulumi.Context,
 	if args == nil {
 		args = &DiskArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20170330:Disk"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180401:Disk"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180601:Disk"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180930:Disk"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190301:Disk"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20191101:Disk"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200501:Disk"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Disk
 	err := ctx.RegisterResource("azurerm:compute/v20190701:Disk", name, args, &resource, opts...)
 	if err != nil {

@@ -42,6 +42,33 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &IotHubResourceEventHubConsumerGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devices/v20160203:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20170119:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20170701:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20180401:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20190322:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20191104:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200301:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200401:IotHubResourceEventHubConsumerGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IotHubResourceEventHubConsumerGroup
 	err := ctx.RegisterResource("azurerm:devices/v20180122:IotHubResourceEventHubConsumerGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -81,6 +81,12 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &RoleAssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:customerinsights/v20170426:RoleAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RoleAssignment
 	err := ctx.RegisterResource("azurerm:customerinsights/v20170101:RoleAssignment", name, args, &resource, opts...)
 	if err != nil {

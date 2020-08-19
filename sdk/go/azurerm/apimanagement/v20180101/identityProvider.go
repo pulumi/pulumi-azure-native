@@ -55,6 +55,24 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &IdentityProviderArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20160707:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20161010:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:IdentityProvider"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IdentityProvider
 	err := ctx.RegisterResource("azurerm:apimanagement/v20180101:IdentityProvider", name, args, &resource, opts...)
 	if err != nil {

@@ -43,6 +43,18 @@ func NewTagByOperation(ctx *pulumi.Context,
 	if args == nil {
 		args = &TagByOperationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:TagByOperation"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:TagByOperation"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:TagByOperation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TagByOperation
 	err := ctx.RegisterResource("azurerm:apimanagement/v20170301:TagByOperation", name, args, &resource, opts...)
 	if err != nil {

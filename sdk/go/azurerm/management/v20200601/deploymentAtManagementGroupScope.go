@@ -44,6 +44,24 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeploymentAtManagementGroupScopeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:management/v20190501:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20190510:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20190701:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20190801:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20191001:DeploymentAtManagementGroupScope"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DeploymentAtManagementGroupScope
 	err := ctx.RegisterResource("azurerm:management/v20200601:DeploymentAtManagementGroupScope", name, args, &resource, opts...)
 	if err != nil {

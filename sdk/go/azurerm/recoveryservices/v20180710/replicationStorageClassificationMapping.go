@@ -45,6 +45,15 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReplicationStorageClassificationMappingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
+		},
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20180110:ReplicationStorageClassificationMapping"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReplicationStorageClassificationMapping
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20180710:ReplicationStorageClassificationMapping", name, args, &resource, opts...)
 	if err != nil {

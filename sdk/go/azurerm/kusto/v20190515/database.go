@@ -45,6 +45,24 @@ func NewDatabase(ctx *pulumi.Context,
 	if args == nil {
 		args = &DatabaseArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:kusto/v20190121:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20190907:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20191109:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20200215:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20200614:Database"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Database
 	err := ctx.RegisterResource("azurerm:kusto/v20190515:Database", name, args, &resource, opts...)
 	if err != nil {

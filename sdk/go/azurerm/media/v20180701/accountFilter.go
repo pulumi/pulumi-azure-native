@@ -41,6 +41,12 @@ func NewAccountFilter(ctx *pulumi.Context,
 	if args == nil {
 		args = &AccountFilterArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/v20200501:AccountFilter"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AccountFilter
 	err := ctx.RegisterResource("azurerm:media/v20180701:AccountFilter", name, args, &resource, opts...)
 	if err != nil {

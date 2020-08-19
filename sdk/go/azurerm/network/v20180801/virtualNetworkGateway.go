@@ -60,6 +60,99 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualNetworkGatewayArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20150615:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160330:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160601:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:VirtualNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:VirtualNetworkGateway"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualNetworkGateway
 	err := ctx.RegisterResource("azurerm:network/v20180801:VirtualNetworkGateway", name, args, &resource, opts...)
 	if err != nil {

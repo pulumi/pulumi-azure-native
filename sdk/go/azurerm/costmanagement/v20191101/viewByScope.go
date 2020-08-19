@@ -64,6 +64,12 @@ func NewViewByScope(ctx *pulumi.Context,
 	if args == nil {
 		args = &ViewByScopeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:costmanagement/v20200601:ViewByScope"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ViewByScope
 	err := ctx.RegisterResource("azurerm:costmanagement/v20191101:ViewByScope", name, args, &resource, opts...)
 	if err != nil {

@@ -40,6 +40,15 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &NamespaceAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:servicebus/v20140901:NamespaceAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicebus/v20150801:NamespaceAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NamespaceAuthorizationRule
 	err := ctx.RegisterResource("azurerm:servicebus/v20170401:NamespaceAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

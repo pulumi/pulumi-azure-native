@@ -45,6 +45,21 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 	if args == nil {
 		args = &DatabaseAccountMongoDBDatabaseArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20151106:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20160319:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20160331:DatabaseAccountMongoDBDatabase"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DatabaseAccountMongoDBDatabase
 	err := ctx.RegisterResource("azurerm:documentdb/v20150408:DatabaseAccountMongoDBDatabase", name, args, &resource, opts...)
 	if err != nil {

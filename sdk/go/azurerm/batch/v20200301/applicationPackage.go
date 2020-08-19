@@ -50,6 +50,21 @@ func NewApplicationPackage(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApplicationPackageArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:batch/v20181201:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20190401:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20190801:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20200501:ApplicationPackage"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApplicationPackage
 	err := ctx.RegisterResource("azurerm:batch/v20200301:ApplicationPackage", name, args, &resource, opts...)
 	if err != nil {

@@ -43,6 +43,24 @@ func NewPolicyDefinition(ctx *pulumi.Context,
 	if args == nil {
 		args = &PolicyDefinitionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:authorization/v20161201:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20180301:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20180501:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20190601:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20190901:PolicyDefinition"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PolicyDefinition
 	err := ctx.RegisterResource("azurerm:authorization/v20190101:PolicyDefinition", name, args, &resource, opts...)
 	if err != nil {
