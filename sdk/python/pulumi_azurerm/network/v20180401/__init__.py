@@ -40,6 +40,7 @@ from .get_route_filter_rule import *
 from .get_route_table import *
 from .get_security_rule import *
 from .get_subnet import *
+from .get_traffic_manager_user_metrics_key import *
 from .get_virtual_hub import *
 from .get_virtual_network import *
 from .get_virtual_network_gateway import *
@@ -64,6 +65,7 @@ from .route_filter_rule import *
 from .route_table import *
 from .security_rule import *
 from .subnet import *
+from .traffic_manager_user_metrics_key import *
 from .virtual_hub import *
 from .virtual_network import *
 from .virtual_network_gateway import *

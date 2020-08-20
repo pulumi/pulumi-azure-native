@@ -15,7 +15,7 @@ export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:resources/v20200601:getTagAtScope", {
-        "name": args.name,
+        "scope": args.scope,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetTagAtScopeArgs {
     /**
      * The resource scope.
      */
-    readonly name: string;
+    readonly scope: string;
 }
 
 /**

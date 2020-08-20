@@ -25,11 +25,11 @@ type TagAtScope struct {
 // NewTagAtScope registers a new resource with the given unique name, arguments, and options.
 func NewTagAtScope(ctx *pulumi.Context,
 	name string, args *TagAtScopeArgs, opts ...pulumi.ResourceOption) (*TagAtScope, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
+	}
+	if args == nil || args.Scope == nil {
+		return nil, errors.New("missing required argument 'Scope'")
 	}
 	if args == nil {
 		args = &TagAtScopeArgs{}
@@ -84,18 +84,18 @@ func (TagAtScopeState) ElementType() reflect.Type {
 }
 
 type tagAtScopeArgs struct {
-	// The resource scope.
-	Name string `pulumi:"name"`
 	// The set of tags.
 	Properties Tags `pulumi:"properties"`
+	// The resource scope.
+	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a TagAtScope resource.
 type TagAtScopeArgs struct {
-	// The resource scope.
-	Name pulumi.StringInput
 	// The set of tags.
 	Properties TagsInput
+	// The resource scope.
+	Scope pulumi.StringInput
 }
 
 func (TagAtScopeArgs) ElementType() reflect.Type {

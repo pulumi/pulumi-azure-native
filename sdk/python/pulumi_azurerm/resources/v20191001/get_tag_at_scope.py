@@ -45,14 +45,14 @@ class AwaitableGetTagAtScopeResult(GetTagAtScopeResult):
             type=self.type)
 
 
-def get_tag_at_scope(name=None, opts=None):
+def get_tag_at_scope(scope=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The resource scope.
+    :param str scope: The resource scope.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['scope'] = scope
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
