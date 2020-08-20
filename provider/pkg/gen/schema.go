@@ -348,6 +348,10 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *paramete
 		part := parts[i]
 		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
 			name := part[1 : len(part)-1]
+			if name == "name" {
+				// It's already called `name`, nothing needs to change.
+				return nil
+			}
 			sdkName := name
 			for _, v := range requestProperties.parameters {
 				if v.Name == name {
