@@ -34,14 +34,14 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
     }
 
     /**
-     * The configuration status of the VM/server group or machine or rule on the machine
+     * The configuration status of the machines group or machine or rule
      */
     public /*out*/ readonly configurationStatus!: pulumi.Output<string>;
     /**
-     * The application control policy enforcement/protection mode of the VM/server group
+     * The application control policy enforcement/protection mode of the machine group
      */
     public readonly enforcementMode!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly issues!: pulumi.Output<outputs.security.v20200101.AppWhitelistingIssueSummaryResponse[]>;
+    public /*out*/ readonly issues!: pulumi.Output<outputs.security.v20200101.AdaptiveApplicationControlIssueSummaryResponse[]>;
     /**
      * Location where the resource is stored
      */
@@ -56,11 +56,11 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
      */
     public readonly protectionMode!: pulumi.Output<outputs.security.v20200101.ProtectionModeResponse | undefined>;
     /**
-     * The recommendation status of the VM/server group or VM/server
+     * The initial recommendation status of the machine group or machine
      */
     public /*out*/ readonly recommendationStatus!: pulumi.Output<string>;
     /**
-     * The source type of the VM/server group
+     * The source type of the machine group
      */
     public /*out*/ readonly sourceSystem!: pulumi.Output<string>;
     /**
@@ -121,11 +121,11 @@ export interface AdaptiveApplicationControlArgs {
      */
     readonly ascLocation: pulumi.Input<string>;
     /**
-     * The application control policy enforcement/protection mode of the VM/server group
+     * The application control policy enforcement/protection mode of the machine group
      */
     readonly enforcementMode?: pulumi.Input<string>;
     /**
-     * Name of an application control VM/server group
+     * Name of an application control machine group
      */
     readonly name: pulumi.Input<string>;
     readonly pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.PathRecommendation>[]>;

@@ -50,6 +50,10 @@ export interface GetVirtualMachineScaleSetExtensionResult {
      */
     readonly autoUpgradeMinorVersion?: boolean;
     /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+     */
+    readonly enableAutomaticUpgrade?: boolean;
+    /**
      * If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
      */
     readonly forceUpdateTag?: string;

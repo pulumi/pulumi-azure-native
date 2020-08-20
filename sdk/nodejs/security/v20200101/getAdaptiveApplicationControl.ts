@@ -26,21 +26,21 @@ export interface GetAdaptiveApplicationControlArgs {
      */
     readonly ascLocation: string;
     /**
-     * Name of an application control VM/server group
+     * Name of an application control machine group
      */
     readonly name: string;
 }
 
 export interface GetAdaptiveApplicationControlResult {
     /**
-     * The configuration status of the VM/server group or machine or rule on the machine
+     * The configuration status of the machines group or machine or rule
      */
     readonly configurationStatus: string;
     /**
-     * The application control policy enforcement/protection mode of the VM/server group
+     * The application control policy enforcement/protection mode of the machine group
      */
     readonly enforcementMode?: string;
-    readonly issues: outputs.security.v20200101.AppWhitelistingIssueSummaryResponse[];
+    readonly issues: outputs.security.v20200101.AdaptiveApplicationControlIssueSummaryResponse[];
     /**
      * Location where the resource is stored
      */
@@ -55,11 +55,11 @@ export interface GetAdaptiveApplicationControlResult {
      */
     readonly protectionMode?: outputs.security.v20200101.ProtectionModeResponse;
     /**
-     * The recommendation status of the VM/server group or VM/server
+     * The initial recommendation status of the machine group or machine
      */
     readonly recommendationStatus: string;
     /**
-     * The source type of the VM/server group
+     * The source type of the machine group
      */
     readonly sourceSystem: string;
     /**

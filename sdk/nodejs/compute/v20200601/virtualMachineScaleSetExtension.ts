@@ -39,6 +39,10 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+     */
+    public readonly enableAutomaticUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
      * If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
      */
     public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
@@ -98,6 +102,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            inputs["enableAutomaticUpgrade"] = args ? args.enableAutomaticUpgrade : undefined;
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
@@ -131,6 +136,10 @@ export interface VirtualMachineScaleSetExtensionArgs {
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
     readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+     */
+    readonly enableAutomaticUpgrade?: pulumi.Input<boolean>;
     /**
      * If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
      */

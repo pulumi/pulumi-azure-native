@@ -92,6 +92,8 @@ export class Site extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:offazure/v20200707:Site" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Site.__pulumiType, name, inputs, opts);
     }
 }

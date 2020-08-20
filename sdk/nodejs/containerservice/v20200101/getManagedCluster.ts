@@ -60,7 +60,7 @@ export interface GetManagedClusterResult {
      */
     readonly dnsPrefix?: string;
     /**
-     * (PREVIEW) Whether to enable Kubernetes Pod security policy.
+     * (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
      */
     readonly enablePodSecurityPolicy?: boolean;
     /**

@@ -21,7 +21,9 @@ export function listShareSynchronizationDetails(args: ListShareSynchronizationDe
         "consumerTenantName": args.consumerTenantName,
         "durationMs": args.durationMs,
         "endTime": args.endTime,
+        "filter": args.filter,
         "message": args.message,
+        "orderby": args.orderby,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,
         "skipToken": args.skipToken,
@@ -57,9 +59,17 @@ export interface ListShareSynchronizationDetailsArgs {
      */
     readonly endTime?: string;
     /**
+     * Filters the results using OData syntax.
+     */
+    readonly filter?: string;
+    /**
      * message of synchronization
      */
     readonly message?: string;
+    /**
+     * Sorts the results using OData syntax.
+     */
+    readonly orderby?: string;
     /**
      * The resource group name.
      */

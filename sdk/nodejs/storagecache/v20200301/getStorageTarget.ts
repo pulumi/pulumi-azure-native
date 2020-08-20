@@ -63,11 +63,7 @@ export interface GetStorageTargetResult {
     /**
      * Type of the Storage Target.
      */
-    readonly targetBaseType: string;
-    /**
-     * Type of the Storage Target.
-     */
-    readonly targetType?: string;
+    readonly targetType: string;
     /**
      * Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
      */

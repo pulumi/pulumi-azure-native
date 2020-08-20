@@ -53,6 +53,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public readonly consistencyPolicy!: pulumi.Output<outputs.documentdb.v20200401.ConsistencyPolicyResponse | undefined>;
     /**
+     * The CORS policy for the Cosmos DB database account.
+     */
+    public readonly cors!: pulumi.Output<outputs.documentdb.v20200401.CorsPolicyResponse[] | undefined>;
+    /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
     public readonly databaseAccountOfferType!: pulumi.Output<string>;
@@ -178,6 +182,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["connectorOffer"] = args ? args.connectorOffer : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
+            inputs["cors"] = args ? args.cors : undefined;
             inputs["databaseAccountOfferType"] = args ? args.databaseAccountOfferType : undefined;
             inputs["disableKeyBasedMetadataWriteAccess"] = args ? args.disableKeyBasedMetadataWriteAccess : undefined;
             inputs["enableAnalyticalStorage"] = args ? args.enableAnalyticalStorage : undefined;
@@ -237,6 +242,10 @@ export interface DatabaseAccountArgs {
      * The consistency policy for the Cosmos DB account.
      */
     readonly consistencyPolicy?: pulumi.Input<inputs.documentdb.v20200401.ConsistencyPolicy>;
+    /**
+     * The CORS policy for the Cosmos DB database account.
+     */
+    readonly cors?: pulumi.Input<pulumi.Input<inputs.documentdb.v20200401.CorsPolicy>[]>;
     /**
      * The offer type for the database
      */

@@ -111,7 +111,7 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:certificateregistration/v20180201:CertificateOrderCertificate" }, { type: "azurerm:certificateregistration/v20190801:CertificateOrderCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:certificateregistration/v20180201:CertificateOrderCertificate" }, { type: "azurerm:certificateregistration/v20190801:CertificateOrderCertificate" }, { type: "azurerm:certificateregistration/v20200601:CertificateOrderCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CertificateOrderCertificate.__pulumiType, name, inputs, opts);
     }

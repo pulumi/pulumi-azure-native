@@ -111,7 +111,7 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20200301:SecurityPartnerProvider" }, { type: "azurerm:network/v20200501:SecurityPartnerProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20200301:SecurityPartnerProvider" }, { type: "azurerm:network/v20200501:SecurityPartnerProvider" }, { type: "azurerm:network/v20200601:SecurityPartnerProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SecurityPartnerProvider.__pulumiType, name, inputs, opts);
     }
