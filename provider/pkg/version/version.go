@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2020, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,5 +14,9 @@
 
 package version
 
-// Version is initialized by the Go linker to contain the semver of this build.
+// TODO: Version should be initialized by the Go linker to contain the semver of this build.
 var Version string
+
+func init() {
+	Version = "0.1.0"
+}
