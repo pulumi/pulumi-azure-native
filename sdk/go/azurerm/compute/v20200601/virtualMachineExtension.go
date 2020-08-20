@@ -16,6 +16,8 @@ type VirtualMachineExtension struct {
 
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrOutput `pulumi:"enableAutomaticUpgrade"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
 	// The virtual machine extension instance view.
@@ -115,6 +117,8 @@ func GetVirtualMachineExtension(ctx *pulumi.Context,
 type virtualMachineExtensionState struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The virtual machine extension instance view.
@@ -142,6 +146,8 @@ type virtualMachineExtensionState struct {
 type VirtualMachineExtensionState struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrInput
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The virtual machine extension instance view.
@@ -173,6 +179,8 @@ func (VirtualMachineExtensionState) ElementType() reflect.Type {
 type virtualMachineExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The virtual machine extension instance view.
@@ -203,6 +211,8 @@ type virtualMachineExtensionArgs struct {
 type VirtualMachineExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrInput
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The virtual machine extension instance view.

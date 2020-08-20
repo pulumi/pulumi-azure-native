@@ -90,6 +90,9 @@ func NewServiceEndpointPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:ServiceEndpointPolicy"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:ServiceEndpointPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceEndpointPolicy

@@ -128,6 +128,9 @@ func NewInboundNatRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200401:InboundNatRule"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:InboundNatRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource InboundNatRule

@@ -31,6 +31,8 @@ type LookupVirtualMachineScaleSetExtensionArgs struct {
 type LookupVirtualMachineScaleSetExtensionResult struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the extension.

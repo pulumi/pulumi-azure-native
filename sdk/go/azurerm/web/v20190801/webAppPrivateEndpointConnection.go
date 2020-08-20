@@ -39,6 +39,12 @@ func NewWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppPrivateEndpointConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppPrivateEndpointConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppPrivateEndpointConnection
 	err := ctx.RegisterResource("azurerm:web/v20190801:WebAppPrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

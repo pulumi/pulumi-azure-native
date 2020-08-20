@@ -28,7 +28,7 @@ type ManagedCluster struct {
 	DiskEncryptionSetID pulumi.StringPtrOutput `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix pulumi.StringPtrOutput `pulumi:"dnsPrefix"`
-	// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy pulumi.BoolPtrOutput `pulumi:"enablePodSecurityPolicy"`
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC pulumi.BoolPtrOutput `pulumi:"enableRBAC"`
@@ -120,6 +120,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:containerservice/v20200601:ManagedCluster"),
 		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200701:ManagedCluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedCluster
@@ -158,7 +161,7 @@ type managedClusterState struct {
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
-	// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC *bool `pulumi:"enableRBAC"`
@@ -213,7 +216,7 @@ type ManagedClusterState struct {
 	DiskEncryptionSetID pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix pulumi.StringPtrInput
-	// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC pulumi.BoolPtrInput
@@ -272,7 +275,7 @@ type managedClusterArgs struct {
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
-	// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC *bool `pulumi:"enableRBAC"`
@@ -320,7 +323,7 @@ type ManagedClusterArgs struct {
 	DiskEncryptionSetID pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix pulumi.StringPtrInput
-	// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC pulumi.BoolPtrInput

@@ -38,9 +38,7 @@ type LookupStorageTargetResult struct {
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Type of the Storage Target.
-	TargetBaseType string `pulumi:"targetBaseType"`
-	// Type of the Storage Target.
-	TargetType *string `pulumi:"targetType"`
+	TargetType string `pulumi:"targetType"`
 	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
 	Type string `pulumi:"type"`
 	// Properties when targetType is unknown.

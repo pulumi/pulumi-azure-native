@@ -29,8 +29,12 @@ type ListShareSynchronizationDetailsArgs struct {
 	DurationMs *int `pulumi:"durationMs"`
 	// End time of synchronization
 	EndTime *string `pulumi:"endTime"`
+	// Filters the results using OData syntax.
+	Filter *string `pulumi:"filter"`
 	// message of synchronization
 	Message *string `pulumi:"message"`
+	// Sorts the results using OData syntax.
+	Orderby *string `pulumi:"orderby"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share.

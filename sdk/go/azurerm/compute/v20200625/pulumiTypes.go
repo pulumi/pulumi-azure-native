@@ -280,6 +280,8 @@ type AssignmentReportResourceResponse struct {
 	Properties map[string]interface{} `pulumi:"properties"`
 	// Compliance reason and reason code for a resource.
 	Reasons []AssignmentReportResourceComplianceReasonResponse `pulumi:"reasons"`
+	// Name of the guest configuration assignment resource setting.
+	ResourceId string `pulumi:"resourceId"`
 }
 
 // AssignmentReportResourceResponseInput is an input type that accepts AssignmentReportResourceResponseArgs and AssignmentReportResourceResponseOutput values.
@@ -301,6 +303,8 @@ type AssignmentReportResourceResponseArgs struct {
 	Properties pulumi.MapInput `pulumi:"properties"`
 	// Compliance reason and reason code for a resource.
 	Reasons AssignmentReportResourceComplianceReasonResponseArrayInput `pulumi:"reasons"`
+	// Name of the guest configuration assignment resource setting.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
 
 func (AssignmentReportResourceResponseArgs) ElementType() reflect.Type {
@@ -370,6 +374,11 @@ func (o AssignmentReportResourceResponseOutput) Reasons() AssignmentReportResour
 	return o.ApplyT(func(v AssignmentReportResourceResponse) []AssignmentReportResourceComplianceReasonResponse {
 		return v.Reasons
 	}).(AssignmentReportResourceComplianceReasonResponseArrayOutput)
+}
+
+// Name of the guest configuration assignment resource setting.
+func (o AssignmentReportResourceResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResourceResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
 type AssignmentReportResourceResponseArrayOutput struct{ *pulumi.OutputState }

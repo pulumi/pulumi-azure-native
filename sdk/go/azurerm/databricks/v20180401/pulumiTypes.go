@@ -2162,6 +2162,8 @@ func (o WorkspaceCustomBooleanParameterResponsePtrOutput) Value() pulumi.BoolPtr
 
 // Custom Parameters used for Cluster Creation.
 type WorkspaceCustomParameters struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+	AmlWorkspaceId *WorkspaceCustomStringParameter `pulumi:"amlWorkspaceId"`
 	// The name of the Private Subnet within the Virtual Network
 	CustomPrivateSubnetName *WorkspaceCustomStringParameter `pulumi:"customPrivateSubnetName"`
 	// The name of a Public Subnet within the Virtual Network
@@ -2174,6 +2176,8 @@ type WorkspaceCustomParameters struct {
 	Encryption *WorkspaceEncryptionParameter `pulumi:"encryption"`
 	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 	PrepareEncryption *WorkspaceCustomBooleanParameter `pulumi:"prepareEncryption"`
+	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+	RequireInfrastructureEncryption *WorkspaceCustomBooleanParameter `pulumi:"requireInfrastructureEncryption"`
 }
 
 // WorkspaceCustomParametersInput is an input type that accepts WorkspaceCustomParametersArgs and WorkspaceCustomParametersOutput values.
@@ -2189,6 +2193,8 @@ type WorkspaceCustomParametersInput interface {
 
 // Custom Parameters used for Cluster Creation.
 type WorkspaceCustomParametersArgs struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+	AmlWorkspaceId WorkspaceCustomStringParameterPtrInput `pulumi:"amlWorkspaceId"`
 	// The name of the Private Subnet within the Virtual Network
 	CustomPrivateSubnetName WorkspaceCustomStringParameterPtrInput `pulumi:"customPrivateSubnetName"`
 	// The name of a Public Subnet within the Virtual Network
@@ -2201,6 +2207,8 @@ type WorkspaceCustomParametersArgs struct {
 	Encryption WorkspaceEncryptionParameterPtrInput `pulumi:"encryption"`
 	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 	PrepareEncryption WorkspaceCustomBooleanParameterPtrInput `pulumi:"prepareEncryption"`
+	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+	RequireInfrastructureEncryption WorkspaceCustomBooleanParameterPtrInput `pulumi:"requireInfrastructureEncryption"`
 }
 
 func (WorkspaceCustomParametersArgs) ElementType() reflect.Type {
@@ -2281,6 +2289,11 @@ func (o WorkspaceCustomParametersOutput) ToWorkspaceCustomParametersPtrOutputWit
 	}).(WorkspaceCustomParametersPtrOutput)
 }
 
+// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+func (o WorkspaceCustomParametersOutput) AmlWorkspaceId() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomStringParameter { return v.AmlWorkspaceId }).(WorkspaceCustomStringParameterPtrOutput)
+}
+
 // The name of the Private Subnet within the Virtual Network
 func (o WorkspaceCustomParametersOutput) CustomPrivateSubnetName() WorkspaceCustomStringParameterPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomStringParameter { return v.CustomPrivateSubnetName }).(WorkspaceCustomStringParameterPtrOutput)
@@ -2311,6 +2324,13 @@ func (o WorkspaceCustomParametersOutput) PrepareEncryption() WorkspaceCustomBool
 	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomBooleanParameter { return v.PrepareEncryption }).(WorkspaceCustomBooleanParameterPtrOutput)
 }
 
+// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+func (o WorkspaceCustomParametersOutput) RequireInfrastructureEncryption() WorkspaceCustomBooleanParameterPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomBooleanParameter {
+		return v.RequireInfrastructureEncryption
+	}).(WorkspaceCustomBooleanParameterPtrOutput)
+}
+
 type WorkspaceCustomParametersPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCustomParametersPtrOutput) ElementType() reflect.Type {
@@ -2327,6 +2347,16 @@ func (o WorkspaceCustomParametersPtrOutput) ToWorkspaceCustomParametersPtrOutput
 
 func (o WorkspaceCustomParametersPtrOutput) Elem() WorkspaceCustomParametersOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) WorkspaceCustomParameters { return *v }).(WorkspaceCustomParametersOutput)
+}
+
+// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+func (o WorkspaceCustomParametersPtrOutput) AmlWorkspaceId() WorkspaceCustomStringParameterPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomStringParameter {
+		if v == nil {
+			return nil
+		}
+		return v.AmlWorkspaceId
+	}).(WorkspaceCustomStringParameterPtrOutput)
 }
 
 // The name of the Private Subnet within the Virtual Network
@@ -2389,8 +2419,20 @@ func (o WorkspaceCustomParametersPtrOutput) PrepareEncryption() WorkspaceCustomB
 	}).(WorkspaceCustomBooleanParameterPtrOutput)
 }
 
+// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+func (o WorkspaceCustomParametersPtrOutput) RequireInfrastructureEncryption() WorkspaceCustomBooleanParameterPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomBooleanParameter {
+		if v == nil {
+			return nil
+		}
+		return v.RequireInfrastructureEncryption
+	}).(WorkspaceCustomBooleanParameterPtrOutput)
+}
+
 // Custom Parameters used for Cluster Creation.
 type WorkspaceCustomParametersResponse struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+	AmlWorkspaceId *WorkspaceCustomStringParameterResponse `pulumi:"amlWorkspaceId"`
 	// The name of the Private Subnet within the Virtual Network
 	CustomPrivateSubnetName *WorkspaceCustomStringParameterResponse `pulumi:"customPrivateSubnetName"`
 	// The name of a Public Subnet within the Virtual Network
@@ -2403,6 +2445,8 @@ type WorkspaceCustomParametersResponse struct {
 	Encryption *WorkspaceEncryptionParameterResponse `pulumi:"encryption"`
 	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 	PrepareEncryption *WorkspaceCustomBooleanParameterResponse `pulumi:"prepareEncryption"`
+	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+	RequireInfrastructureEncryption *WorkspaceCustomBooleanParameterResponse `pulumi:"requireInfrastructureEncryption"`
 }
 
 // WorkspaceCustomParametersResponseInput is an input type that accepts WorkspaceCustomParametersResponseArgs and WorkspaceCustomParametersResponseOutput values.
@@ -2418,6 +2462,8 @@ type WorkspaceCustomParametersResponseInput interface {
 
 // Custom Parameters used for Cluster Creation.
 type WorkspaceCustomParametersResponseArgs struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+	AmlWorkspaceId WorkspaceCustomStringParameterResponsePtrInput `pulumi:"amlWorkspaceId"`
 	// The name of the Private Subnet within the Virtual Network
 	CustomPrivateSubnetName WorkspaceCustomStringParameterResponsePtrInput `pulumi:"customPrivateSubnetName"`
 	// The name of a Public Subnet within the Virtual Network
@@ -2430,6 +2476,8 @@ type WorkspaceCustomParametersResponseArgs struct {
 	Encryption WorkspaceEncryptionParameterResponsePtrInput `pulumi:"encryption"`
 	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 	PrepareEncryption WorkspaceCustomBooleanParameterResponsePtrInput `pulumi:"prepareEncryption"`
+	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+	RequireInfrastructureEncryption WorkspaceCustomBooleanParameterResponsePtrInput `pulumi:"requireInfrastructureEncryption"`
 }
 
 func (WorkspaceCustomParametersResponseArgs) ElementType() reflect.Type {
@@ -2510,6 +2558,13 @@ func (o WorkspaceCustomParametersResponseOutput) ToWorkspaceCustomParametersResp
 	}).(WorkspaceCustomParametersResponsePtrOutput)
 }
 
+// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+func (o WorkspaceCustomParametersResponseOutput) AmlWorkspaceId() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		return v.AmlWorkspaceId
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
+}
+
 // The name of the Private Subnet within the Virtual Network
 func (o WorkspaceCustomParametersResponseOutput) CustomPrivateSubnetName() WorkspaceCustomStringParameterResponsePtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
@@ -2550,6 +2605,13 @@ func (o WorkspaceCustomParametersResponseOutput) PrepareEncryption() WorkspaceCu
 	}).(WorkspaceCustomBooleanParameterResponsePtrOutput)
 }
 
+// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+func (o WorkspaceCustomParametersResponseOutput) RequireInfrastructureEncryption() WorkspaceCustomBooleanParameterResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomBooleanParameterResponse {
+		return v.RequireInfrastructureEncryption
+	}).(WorkspaceCustomBooleanParameterResponsePtrOutput)
+}
+
 type WorkspaceCustomParametersResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCustomParametersResponsePtrOutput) ElementType() reflect.Type {
@@ -2566,6 +2628,16 @@ func (o WorkspaceCustomParametersResponsePtrOutput) ToWorkspaceCustomParametersR
 
 func (o WorkspaceCustomParametersResponsePtrOutput) Elem() WorkspaceCustomParametersResponseOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) WorkspaceCustomParametersResponse { return *v }).(WorkspaceCustomParametersResponseOutput)
+}
+
+// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+func (o WorkspaceCustomParametersResponsePtrOutput) AmlWorkspaceId() WorkspaceCustomStringParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomStringParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AmlWorkspaceId
+	}).(WorkspaceCustomStringParameterResponsePtrOutput)
 }
 
 // The name of the Private Subnet within the Virtual Network
@@ -2625,6 +2697,16 @@ func (o WorkspaceCustomParametersResponsePtrOutput) PrepareEncryption() Workspac
 			return nil
 		}
 		return v.PrepareEncryption
+	}).(WorkspaceCustomBooleanParameterResponsePtrOutput)
+}
+
+// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+func (o WorkspaceCustomParametersResponsePtrOutput) RequireInfrastructureEncryption() WorkspaceCustomBooleanParameterResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) *WorkspaceCustomBooleanParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RequireInfrastructureEncryption
 	}).(WorkspaceCustomBooleanParameterResponsePtrOutput)
 }
 

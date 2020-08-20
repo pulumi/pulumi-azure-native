@@ -57,6 +57,9 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:VirtualHubRouteTableV2"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:VirtualHubRouteTableV2"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualHubRouteTableV2

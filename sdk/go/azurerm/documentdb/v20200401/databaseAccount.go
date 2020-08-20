@@ -22,6 +22,8 @@ type DatabaseAccount struct {
 	ConnectorOffer pulumi.StringPtrOutput `pulumi:"connectorOffer"`
 	// The consistency policy for the Cosmos DB database account.
 	ConsistencyPolicy ConsistencyPolicyResponsePtrOutput `pulumi:"consistencyPolicy"`
+	// The CORS policy for the Cosmos DB database account.
+	Cors CorsPolicyResponseArrayOutput `pulumi:"cors"`
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType pulumi.StringOutput `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -147,6 +149,8 @@ type databaseAccountState struct {
 	ConnectorOffer *string `pulumi:"connectorOffer"`
 	// The consistency policy for the Cosmos DB database account.
 	ConsistencyPolicy *ConsistencyPolicyResponse `pulumi:"consistencyPolicy"`
+	// The CORS policy for the Cosmos DB database account.
+	Cors []CorsPolicyResponse `pulumi:"cors"`
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType *string `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -206,6 +210,8 @@ type DatabaseAccountState struct {
 	ConnectorOffer pulumi.StringPtrInput
 	// The consistency policy for the Cosmos DB database account.
 	ConsistencyPolicy ConsistencyPolicyResponsePtrInput
+	// The CORS policy for the Cosmos DB database account.
+	Cors CorsPolicyResponseArrayInput
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType pulumi.StringPtrInput
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -269,6 +275,8 @@ type databaseAccountArgs struct {
 	ConnectorOffer *string `pulumi:"connectorOffer"`
 	// The consistency policy for the Cosmos DB account.
 	ConsistencyPolicy *ConsistencyPolicy `pulumi:"consistencyPolicy"`
+	// The CORS policy for the Cosmos DB database account.
+	Cors []CorsPolicy `pulumi:"cors"`
 	// The offer type for the database
 	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -317,6 +325,8 @@ type DatabaseAccountArgs struct {
 	ConnectorOffer pulumi.StringPtrInput
 	// The consistency policy for the Cosmos DB account.
 	ConsistencyPolicy ConsistencyPolicyPtrInput
+	// The CORS policy for the Cosmos DB database account.
+	Cors CorsPolicyArrayInput
 	// The offer type for the database
 	DatabaseAccountOfferType pulumi.StringInput
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys

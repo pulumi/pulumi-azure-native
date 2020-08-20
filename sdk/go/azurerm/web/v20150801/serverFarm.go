@@ -76,6 +76,9 @@ func NewServerFarm(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:ServerFarm"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:ServerFarm"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServerFarm

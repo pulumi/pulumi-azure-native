@@ -70,6 +70,9 @@ func NewSiteVNETConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:SiteVNETConnectionSlot"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:SiteVNETConnectionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteVNETConnectionSlot

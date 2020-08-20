@@ -144,6 +144,9 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:PublicIPAddress"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:PublicIPAddress"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PublicIPAddress

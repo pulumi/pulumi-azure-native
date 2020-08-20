@@ -128,6 +128,9 @@ func NewRouteFilter(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200401:RouteFilter"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:RouteFilter"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RouteFilter

@@ -64,6 +64,9 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20181101:WebAppHybridConnection"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppHybridConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHybridConnection

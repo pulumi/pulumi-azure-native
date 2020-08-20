@@ -16,6 +16,8 @@ type VirtualMachineScaleSetExtension struct {
 
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrOutput `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
 	// The name of the extension.
@@ -102,6 +104,8 @@ func GetVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 type virtualMachineScaleSetExtensionState struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the extension.
@@ -125,6 +129,8 @@ type virtualMachineScaleSetExtensionState struct {
 type VirtualMachineScaleSetExtensionState struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrInput
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name of the extension.
@@ -152,6 +158,8 @@ func (VirtualMachineScaleSetExtensionState) ElementType() reflect.Type {
 type virtualMachineScaleSetExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the VM scale set extension.
@@ -178,6 +186,8 @@ type virtualMachineScaleSetExtensionArgs struct {
 type VirtualMachineScaleSetExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrInput
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name of the VM scale set extension.

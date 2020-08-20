@@ -86,6 +86,9 @@ func NewAppServicePlan(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:AppServicePlan"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:AppServicePlan"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServicePlan

@@ -800,6 +800,334 @@ func (o ApiEntityReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Api error base.
+type ApiErrorBaseResponse struct {
+	// The error code.
+	Code *string `pulumi:"code"`
+	// The error message.
+	Message *string `pulumi:"message"`
+	// The target of the particular error.
+	Target *string `pulumi:"target"`
+}
+
+// ApiErrorBaseResponseInput is an input type that accepts ApiErrorBaseResponseArgs and ApiErrorBaseResponseOutput values.
+// You can construct a concrete instance of `ApiErrorBaseResponseInput` via:
+//
+//          ApiErrorBaseResponseArgs{...}
+type ApiErrorBaseResponseInput interface {
+	pulumi.Input
+
+	ToApiErrorBaseResponseOutput() ApiErrorBaseResponseOutput
+	ToApiErrorBaseResponseOutputWithContext(context.Context) ApiErrorBaseResponseOutput
+}
+
+// Api error base.
+type ApiErrorBaseResponseArgs struct {
+	// The error code.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// The error message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The target of the particular error.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ApiErrorBaseResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (i ApiErrorBaseResponseArgs) ToApiErrorBaseResponseOutput() ApiErrorBaseResponseOutput {
+	return i.ToApiErrorBaseResponseOutputWithContext(context.Background())
+}
+
+func (i ApiErrorBaseResponseArgs) ToApiErrorBaseResponseOutputWithContext(ctx context.Context) ApiErrorBaseResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorBaseResponseOutput)
+}
+
+// ApiErrorBaseResponseArrayInput is an input type that accepts ApiErrorBaseResponseArray and ApiErrorBaseResponseArrayOutput values.
+// You can construct a concrete instance of `ApiErrorBaseResponseArrayInput` via:
+//
+//          ApiErrorBaseResponseArray{ ApiErrorBaseResponseArgs{...} }
+type ApiErrorBaseResponseArrayInput interface {
+	pulumi.Input
+
+	ToApiErrorBaseResponseArrayOutput() ApiErrorBaseResponseArrayOutput
+	ToApiErrorBaseResponseArrayOutputWithContext(context.Context) ApiErrorBaseResponseArrayOutput
+}
+
+type ApiErrorBaseResponseArray []ApiErrorBaseResponseInput
+
+func (ApiErrorBaseResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (i ApiErrorBaseResponseArray) ToApiErrorBaseResponseArrayOutput() ApiErrorBaseResponseArrayOutput {
+	return i.ToApiErrorBaseResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApiErrorBaseResponseArray) ToApiErrorBaseResponseArrayOutputWithContext(ctx context.Context) ApiErrorBaseResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorBaseResponseArrayOutput)
+}
+
+// Api error base.
+type ApiErrorBaseResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorBaseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (o ApiErrorBaseResponseOutput) ToApiErrorBaseResponseOutput() ApiErrorBaseResponseOutput {
+	return o
+}
+
+func (o ApiErrorBaseResponseOutput) ToApiErrorBaseResponseOutputWithContext(ctx context.Context) ApiErrorBaseResponseOutput {
+	return o
+}
+
+// The error code.
+func (o ApiErrorBaseResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorBaseResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// The error message.
+func (o ApiErrorBaseResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorBaseResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error.
+func (o ApiErrorBaseResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorBaseResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ApiErrorBaseResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorBaseResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiErrorBaseResponse)(nil)).Elem()
+}
+
+func (o ApiErrorBaseResponseArrayOutput) ToApiErrorBaseResponseArrayOutput() ApiErrorBaseResponseArrayOutput {
+	return o
+}
+
+func (o ApiErrorBaseResponseArrayOutput) ToApiErrorBaseResponseArrayOutputWithContext(ctx context.Context) ApiErrorBaseResponseArrayOutput {
+	return o
+}
+
+func (o ApiErrorBaseResponseArrayOutput) Index(i pulumi.IntInput) ApiErrorBaseResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiErrorBaseResponse {
+		return vs[0].([]ApiErrorBaseResponse)[vs[1].(int)]
+	}).(ApiErrorBaseResponseOutput)
+}
+
+// Api error.
+type ApiErrorResponse struct {
+	// The error code.
+	Code *string `pulumi:"code"`
+	// The Api error details
+	Details []ApiErrorBaseResponse `pulumi:"details"`
+	// The Api inner error
+	Innererror *InnerErrorResponse `pulumi:"innererror"`
+	// The error message.
+	Message *string `pulumi:"message"`
+	// The target of the particular error.
+	Target *string `pulumi:"target"`
+}
+
+// ApiErrorResponseInput is an input type that accepts ApiErrorResponseArgs and ApiErrorResponseOutput values.
+// You can construct a concrete instance of `ApiErrorResponseInput` via:
+//
+//          ApiErrorResponseArgs{...}
+type ApiErrorResponseInput interface {
+	pulumi.Input
+
+	ToApiErrorResponseOutput() ApiErrorResponseOutput
+	ToApiErrorResponseOutputWithContext(context.Context) ApiErrorResponseOutput
+}
+
+// Api error.
+type ApiErrorResponseArgs struct {
+	// The error code.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// The Api error details
+	Details ApiErrorBaseResponseArrayInput `pulumi:"details"`
+	// The Api inner error
+	Innererror InnerErrorResponsePtrInput `pulumi:"innererror"`
+	// The error message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The target of the particular error.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ApiErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorResponse)(nil)).Elem()
+}
+
+func (i ApiErrorResponseArgs) ToApiErrorResponseOutput() ApiErrorResponseOutput {
+	return i.ToApiErrorResponseOutputWithContext(context.Background())
+}
+
+func (i ApiErrorResponseArgs) ToApiErrorResponseOutputWithContext(ctx context.Context) ApiErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorResponseOutput)
+}
+
+func (i ApiErrorResponseArgs) ToApiErrorResponsePtrOutput() ApiErrorResponsePtrOutput {
+	return i.ToApiErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiErrorResponseArgs) ToApiErrorResponsePtrOutputWithContext(ctx context.Context) ApiErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorResponseOutput).ToApiErrorResponsePtrOutputWithContext(ctx)
+}
+
+// ApiErrorResponsePtrInput is an input type that accepts ApiErrorResponseArgs, ApiErrorResponsePtr and ApiErrorResponsePtrOutput values.
+// You can construct a concrete instance of `ApiErrorResponsePtrInput` via:
+//
+//          ApiErrorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiErrorResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiErrorResponsePtrOutput() ApiErrorResponsePtrOutput
+	ToApiErrorResponsePtrOutputWithContext(context.Context) ApiErrorResponsePtrOutput
+}
+
+type apiErrorResponsePtrType ApiErrorResponseArgs
+
+func ApiErrorResponsePtr(v *ApiErrorResponseArgs) ApiErrorResponsePtrInput {
+	return (*apiErrorResponsePtrType)(v)
+}
+
+func (*apiErrorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiErrorResponse)(nil)).Elem()
+}
+
+func (i *apiErrorResponsePtrType) ToApiErrorResponsePtrOutput() ApiErrorResponsePtrOutput {
+	return i.ToApiErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiErrorResponsePtrType) ToApiErrorResponsePtrOutputWithContext(ctx context.Context) ApiErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiErrorResponsePtrOutput)
+}
+
+// Api error.
+type ApiErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiErrorResponse)(nil)).Elem()
+}
+
+func (o ApiErrorResponseOutput) ToApiErrorResponseOutput() ApiErrorResponseOutput {
+	return o
+}
+
+func (o ApiErrorResponseOutput) ToApiErrorResponseOutputWithContext(ctx context.Context) ApiErrorResponseOutput {
+	return o
+}
+
+func (o ApiErrorResponseOutput) ToApiErrorResponsePtrOutput() ApiErrorResponsePtrOutput {
+	return o.ToApiErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiErrorResponseOutput) ToApiErrorResponsePtrOutputWithContext(ctx context.Context) ApiErrorResponsePtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *ApiErrorResponse {
+		return &v
+	}).(ApiErrorResponsePtrOutput)
+}
+
+// The error code.
+func (o ApiErrorResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// The Api error details
+func (o ApiErrorResponseOutput) Details() ApiErrorBaseResponseArrayOutput {
+	return o.ApplyT(func(v ApiErrorResponse) []ApiErrorBaseResponse { return v.Details }).(ApiErrorBaseResponseArrayOutput)
+}
+
+// The Api inner error
+func (o ApiErrorResponseOutput) Innererror() InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *InnerErrorResponse { return v.Innererror }).(InnerErrorResponsePtrOutput)
+}
+
+// The error message.
+func (o ApiErrorResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error.
+func (o ApiErrorResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiErrorResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ApiErrorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiErrorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiErrorResponse)(nil)).Elem()
+}
+
+func (o ApiErrorResponsePtrOutput) ToApiErrorResponsePtrOutput() ApiErrorResponsePtrOutput {
+	return o
+}
+
+func (o ApiErrorResponsePtrOutput) ToApiErrorResponsePtrOutputWithContext(ctx context.Context) ApiErrorResponsePtrOutput {
+	return o
+}
+
+func (o ApiErrorResponsePtrOutput) Elem() ApiErrorResponseOutput {
+	return o.ApplyT(func(v *ApiErrorResponse) ApiErrorResponse { return *v }).(ApiErrorResponseOutput)
+}
+
+// The error code.
+func (o ApiErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Api error details
+func (o ApiErrorResponsePtrOutput) Details() ApiErrorBaseResponseArrayOutput {
+	return o.ApplyT(func(v *ApiErrorResponse) []ApiErrorBaseResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Details
+	}).(ApiErrorBaseResponseArrayOutput)
+}
+
+// The Api inner error
+func (o ApiErrorResponsePtrOutput) Innererror() InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v *ApiErrorResponse) *InnerErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Innererror
+	}).(InnerErrorResponsePtrOutput)
+}
+
+// The error message.
+func (o ApiErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error.
+func (o ApiErrorResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
 // The configuration parameters used for performing automatic OS upgrade.
 type AutomaticOSUpgradePolicy struct {
 	// Whether OS image rollback feature should be disabled. Default value is false.
@@ -1409,6 +1737,273 @@ func (o AutomaticRepairsPolicyResponsePtrOutput) GracePeriod() pulumi.StringPtrO
 			return nil
 		}
 		return v.GracePeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties of an virtual machine instance view for available patch summary.
+type AvailablePatchSummaryResponse struct {
+	// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+	AssessmentActivityId string `pulumi:"assessmentActivityId"`
+	// The number of critical or security patches that have been detected as available and not yet installed.
+	CriticalAndSecurityPatchCount int `pulumi:"criticalAndSecurityPatchCount"`
+	// The errors that were encountered during execution of the operation. The details array contains the list of them.
+	Error ApiErrorResponse `pulumi:"error"`
+	// The UTC timestamp when the operation began.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
+	// The number of all available patches excluding critical and security.
+	OtherPatchCount int `pulumi:"otherPatchCount"`
+	// The overall reboot status of the VM. It will be true when partially installed patches require a reboot to complete installation but the reboot has not yet occurred.
+	RebootPending bool `pulumi:"rebootPending"`
+	// The UTC timestamp when the operation began.
+	StartTime string `pulumi:"startTime"`
+	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+	Status string `pulumi:"status"`
+}
+
+// AvailablePatchSummaryResponseInput is an input type that accepts AvailablePatchSummaryResponseArgs and AvailablePatchSummaryResponseOutput values.
+// You can construct a concrete instance of `AvailablePatchSummaryResponseInput` via:
+//
+//          AvailablePatchSummaryResponseArgs{...}
+type AvailablePatchSummaryResponseInput interface {
+	pulumi.Input
+
+	ToAvailablePatchSummaryResponseOutput() AvailablePatchSummaryResponseOutput
+	ToAvailablePatchSummaryResponseOutputWithContext(context.Context) AvailablePatchSummaryResponseOutput
+}
+
+// Describes the properties of an virtual machine instance view for available patch summary.
+type AvailablePatchSummaryResponseArgs struct {
+	// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+	AssessmentActivityId pulumi.StringInput `pulumi:"assessmentActivityId"`
+	// The number of critical or security patches that have been detected as available and not yet installed.
+	CriticalAndSecurityPatchCount pulumi.IntInput `pulumi:"criticalAndSecurityPatchCount"`
+	// The errors that were encountered during execution of the operation. The details array contains the list of them.
+	Error ApiErrorResponseInput `pulumi:"error"`
+	// The UTC timestamp when the operation began.
+	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
+	// The number of all available patches excluding critical and security.
+	OtherPatchCount pulumi.IntInput `pulumi:"otherPatchCount"`
+	// The overall reboot status of the VM. It will be true when partially installed patches require a reboot to complete installation but the reboot has not yet occurred.
+	RebootPending pulumi.BoolInput `pulumi:"rebootPending"`
+	// The UTC timestamp when the operation began.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (AvailablePatchSummaryResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailablePatchSummaryResponse)(nil)).Elem()
+}
+
+func (i AvailablePatchSummaryResponseArgs) ToAvailablePatchSummaryResponseOutput() AvailablePatchSummaryResponseOutput {
+	return i.ToAvailablePatchSummaryResponseOutputWithContext(context.Background())
+}
+
+func (i AvailablePatchSummaryResponseArgs) ToAvailablePatchSummaryResponseOutputWithContext(ctx context.Context) AvailablePatchSummaryResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailablePatchSummaryResponseOutput)
+}
+
+func (i AvailablePatchSummaryResponseArgs) ToAvailablePatchSummaryResponsePtrOutput() AvailablePatchSummaryResponsePtrOutput {
+	return i.ToAvailablePatchSummaryResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AvailablePatchSummaryResponseArgs) ToAvailablePatchSummaryResponsePtrOutputWithContext(ctx context.Context) AvailablePatchSummaryResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailablePatchSummaryResponseOutput).ToAvailablePatchSummaryResponsePtrOutputWithContext(ctx)
+}
+
+// AvailablePatchSummaryResponsePtrInput is an input type that accepts AvailablePatchSummaryResponseArgs, AvailablePatchSummaryResponsePtr and AvailablePatchSummaryResponsePtrOutput values.
+// You can construct a concrete instance of `AvailablePatchSummaryResponsePtrInput` via:
+//
+//          AvailablePatchSummaryResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AvailablePatchSummaryResponsePtrInput interface {
+	pulumi.Input
+
+	ToAvailablePatchSummaryResponsePtrOutput() AvailablePatchSummaryResponsePtrOutput
+	ToAvailablePatchSummaryResponsePtrOutputWithContext(context.Context) AvailablePatchSummaryResponsePtrOutput
+}
+
+type availablePatchSummaryResponsePtrType AvailablePatchSummaryResponseArgs
+
+func AvailablePatchSummaryResponsePtr(v *AvailablePatchSummaryResponseArgs) AvailablePatchSummaryResponsePtrInput {
+	return (*availablePatchSummaryResponsePtrType)(v)
+}
+
+func (*availablePatchSummaryResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AvailablePatchSummaryResponse)(nil)).Elem()
+}
+
+func (i *availablePatchSummaryResponsePtrType) ToAvailablePatchSummaryResponsePtrOutput() AvailablePatchSummaryResponsePtrOutput {
+	return i.ToAvailablePatchSummaryResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *availablePatchSummaryResponsePtrType) ToAvailablePatchSummaryResponsePtrOutputWithContext(ctx context.Context) AvailablePatchSummaryResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailablePatchSummaryResponsePtrOutput)
+}
+
+// Describes the properties of an virtual machine instance view for available patch summary.
+type AvailablePatchSummaryResponseOutput struct{ *pulumi.OutputState }
+
+func (AvailablePatchSummaryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailablePatchSummaryResponse)(nil)).Elem()
+}
+
+func (o AvailablePatchSummaryResponseOutput) ToAvailablePatchSummaryResponseOutput() AvailablePatchSummaryResponseOutput {
+	return o
+}
+
+func (o AvailablePatchSummaryResponseOutput) ToAvailablePatchSummaryResponseOutputWithContext(ctx context.Context) AvailablePatchSummaryResponseOutput {
+	return o
+}
+
+func (o AvailablePatchSummaryResponseOutput) ToAvailablePatchSummaryResponsePtrOutput() AvailablePatchSummaryResponsePtrOutput {
+	return o.ToAvailablePatchSummaryResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AvailablePatchSummaryResponseOutput) ToAvailablePatchSummaryResponsePtrOutputWithContext(ctx context.Context) AvailablePatchSummaryResponsePtrOutput {
+	return o.ApplyT(func(v AvailablePatchSummaryResponse) *AvailablePatchSummaryResponse {
+		return &v
+	}).(AvailablePatchSummaryResponsePtrOutput)
+}
+
+// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+func (o AvailablePatchSummaryResponseOutput) AssessmentActivityId() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailablePatchSummaryResponse) string { return v.AssessmentActivityId }).(pulumi.StringOutput)
+}
+
+// The number of critical or security patches that have been detected as available and not yet installed.
+func (o AvailablePatchSummaryResponseOutput) CriticalAndSecurityPatchCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AvailablePatchSummaryResponse) int { return v.CriticalAndSecurityPatchCount }).(pulumi.IntOutput)
+}
+
+// The errors that were encountered during execution of the operation. The details array contains the list of them.
+func (o AvailablePatchSummaryResponseOutput) Error() ApiErrorResponseOutput {
+	return o.ApplyT(func(v AvailablePatchSummaryResponse) ApiErrorResponse { return v.Error }).(ApiErrorResponseOutput)
+}
+
+// The UTC timestamp when the operation began.
+func (o AvailablePatchSummaryResponseOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailablePatchSummaryResponse) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The number of all available patches excluding critical and security.
+func (o AvailablePatchSummaryResponseOutput) OtherPatchCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AvailablePatchSummaryResponse) int { return v.OtherPatchCount }).(pulumi.IntOutput)
+}
+
+// The overall reboot status of the VM. It will be true when partially installed patches require a reboot to complete installation but the reboot has not yet occurred.
+func (o AvailablePatchSummaryResponseOutput) RebootPending() pulumi.BoolOutput {
+	return o.ApplyT(func(v AvailablePatchSummaryResponse) bool { return v.RebootPending }).(pulumi.BoolOutput)
+}
+
+// The UTC timestamp when the operation began.
+func (o AvailablePatchSummaryResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailablePatchSummaryResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+func (o AvailablePatchSummaryResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v AvailablePatchSummaryResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type AvailablePatchSummaryResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AvailablePatchSummaryResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AvailablePatchSummaryResponse)(nil)).Elem()
+}
+
+func (o AvailablePatchSummaryResponsePtrOutput) ToAvailablePatchSummaryResponsePtrOutput() AvailablePatchSummaryResponsePtrOutput {
+	return o
+}
+
+func (o AvailablePatchSummaryResponsePtrOutput) ToAvailablePatchSummaryResponsePtrOutputWithContext(ctx context.Context) AvailablePatchSummaryResponsePtrOutput {
+	return o
+}
+
+func (o AvailablePatchSummaryResponsePtrOutput) Elem() AvailablePatchSummaryResponseOutput {
+	return o.ApplyT(func(v *AvailablePatchSummaryResponse) AvailablePatchSummaryResponse { return *v }).(AvailablePatchSummaryResponseOutput)
+}
+
+// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+func (o AvailablePatchSummaryResponsePtrOutput) AssessmentActivityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailablePatchSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssessmentActivityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of critical or security patches that have been detected as available and not yet installed.
+func (o AvailablePatchSummaryResponsePtrOutput) CriticalAndSecurityPatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AvailablePatchSummaryResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CriticalAndSecurityPatchCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The errors that were encountered during execution of the operation. The details array contains the list of them.
+func (o AvailablePatchSummaryResponsePtrOutput) Error() ApiErrorResponsePtrOutput {
+	return o.ApplyT(func(v *AvailablePatchSummaryResponse) *ApiErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Error
+	}).(ApiErrorResponsePtrOutput)
+}
+
+// The UTC timestamp when the operation began.
+func (o AvailablePatchSummaryResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailablePatchSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of all available patches excluding critical and security.
+func (o AvailablePatchSummaryResponsePtrOutput) OtherPatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AvailablePatchSummaryResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.OtherPatchCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The overall reboot status of the VM. It will be true when partially installed patches require a reboot to complete installation but the reboot has not yet occurred.
+func (o AvailablePatchSummaryResponsePtrOutput) RebootPending() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AvailablePatchSummaryResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RebootPending
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The UTC timestamp when the operation began.
+func (o AvailablePatchSummaryResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailablePatchSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+func (o AvailablePatchSummaryResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailablePatchSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6517,6 +7112,159 @@ func (o ImageStorageProfileResponsePtrOutput) ZoneResilient() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Inner error details.
+type InnerErrorResponse struct {
+	// The internal error message or exception dump.
+	Errordetail *string `pulumi:"errordetail"`
+	// The exception type.
+	Exceptiontype *string `pulumi:"exceptiontype"`
+}
+
+// InnerErrorResponseInput is an input type that accepts InnerErrorResponseArgs and InnerErrorResponseOutput values.
+// You can construct a concrete instance of `InnerErrorResponseInput` via:
+//
+//          InnerErrorResponseArgs{...}
+type InnerErrorResponseInput interface {
+	pulumi.Input
+
+	ToInnerErrorResponseOutput() InnerErrorResponseOutput
+	ToInnerErrorResponseOutputWithContext(context.Context) InnerErrorResponseOutput
+}
+
+// Inner error details.
+type InnerErrorResponseArgs struct {
+	// The internal error message or exception dump.
+	Errordetail pulumi.StringPtrInput `pulumi:"errordetail"`
+	// The exception type.
+	Exceptiontype pulumi.StringPtrInput `pulumi:"exceptiontype"`
+}
+
+func (InnerErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InnerErrorResponse)(nil)).Elem()
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponseOutput() InnerErrorResponseOutput {
+	return i.ToInnerErrorResponseOutputWithContext(context.Background())
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponseOutputWithContext(ctx context.Context) InnerErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponseOutput)
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return i.ToInnerErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponseOutput).ToInnerErrorResponsePtrOutputWithContext(ctx)
+}
+
+// InnerErrorResponsePtrInput is an input type that accepts InnerErrorResponseArgs, InnerErrorResponsePtr and InnerErrorResponsePtrOutput values.
+// You can construct a concrete instance of `InnerErrorResponsePtrInput` via:
+//
+//          InnerErrorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type InnerErrorResponsePtrInput interface {
+	pulumi.Input
+
+	ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput
+	ToInnerErrorResponsePtrOutputWithContext(context.Context) InnerErrorResponsePtrOutput
+}
+
+type innerErrorResponsePtrType InnerErrorResponseArgs
+
+func InnerErrorResponsePtr(v *InnerErrorResponseArgs) InnerErrorResponsePtrInput {
+	return (*innerErrorResponsePtrType)(v)
+}
+
+func (*innerErrorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InnerErrorResponse)(nil)).Elem()
+}
+
+func (i *innerErrorResponsePtrType) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return i.ToInnerErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *innerErrorResponsePtrType) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponsePtrOutput)
+}
+
+// Inner error details.
+type InnerErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (InnerErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InnerErrorResponse)(nil)).Elem()
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponseOutput() InnerErrorResponseOutput {
+	return o
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponseOutputWithContext(ctx context.Context) InnerErrorResponseOutput {
+	return o
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return o.ToInnerErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *InnerErrorResponse {
+		return &v
+	}).(InnerErrorResponsePtrOutput)
+}
+
+// The internal error message or exception dump.
+func (o InnerErrorResponseOutput) Errordetail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *string { return v.Errordetail }).(pulumi.StringPtrOutput)
+}
+
+// The exception type.
+func (o InnerErrorResponseOutput) Exceptiontype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *string { return v.Exceptiontype }).(pulumi.StringPtrOutput)
+}
+
+type InnerErrorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (InnerErrorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InnerErrorResponse)(nil)).Elem()
+}
+
+func (o InnerErrorResponsePtrOutput) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return o
+}
+
+func (o InnerErrorResponsePtrOutput) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return o
+}
+
+func (o InnerErrorResponsePtrOutput) Elem() InnerErrorResponseOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) InnerErrorResponse { return *v }).(InnerErrorResponseOutput)
+}
+
+// The internal error message or exception dump.
+func (o InnerErrorResponsePtrOutput) Errordetail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Errordetail
+	}).(pulumi.StringPtrOutput)
+}
+
+// The exception type.
+func (o InnerErrorResponsePtrOutput) Exceptiontype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exceptiontype
+	}).(pulumi.StringPtrOutput)
+}
+
 // Instance view status.
 type InstanceViewStatus struct {
 	// The status code.
@@ -7637,6 +8385,368 @@ func (o KeyVaultSecretReferenceResponsePtrOutput) SourceVault() SubResourceRespo
 		}
 		return &v.SourceVault
 	}).(SubResourceResponsePtrOutput)
+}
+
+// Describes the properties of the last installed patch summary.
+type LastPatchInstallationSummaryResponse struct {
+	// The errors that were encountered during execution of the operation. The details array contains the list of them.
+	Error ApiErrorResponse `pulumi:"error"`
+	// The number of all available patches but excluded explicitly by a customer-specified exclusion list match.
+	ExcludedPatchCount int `pulumi:"excludedPatchCount"`
+	// The count of patches that failed installation.
+	FailedPatchCount int `pulumi:"failedPatchCount"`
+	// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+	InstallationActivityId string `pulumi:"installationActivityId"`
+	// The count of patches that successfully installed.
+	InstalledPatchCount int `pulumi:"installedPatchCount"`
+	// The UTC timestamp when the operation began.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
+	// Describes whether the operation ran out of time before it completed all its intended actions
+	MaintenanceWindowExceeded bool `pulumi:"maintenanceWindowExceeded"`
+	// The number of all available patches but not going to be installed because it didn't match a classification or inclusion list entry.
+	NotSelectedPatchCount int `pulumi:"notSelectedPatchCount"`
+	// The number of all available patches expected to be installed over the course of the patch installation operation.
+	PendingPatchCount int `pulumi:"pendingPatchCount"`
+	// The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
+	RebootStatus string `pulumi:"rebootStatus"`
+	// The UTC timestamp when the operation began.
+	StartTime string `pulumi:"startTime"`
+	// The person or system account that started the operation
+	StartedBy string `pulumi:"startedBy"`
+	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+	Status string `pulumi:"status"`
+}
+
+// LastPatchInstallationSummaryResponseInput is an input type that accepts LastPatchInstallationSummaryResponseArgs and LastPatchInstallationSummaryResponseOutput values.
+// You can construct a concrete instance of `LastPatchInstallationSummaryResponseInput` via:
+//
+//          LastPatchInstallationSummaryResponseArgs{...}
+type LastPatchInstallationSummaryResponseInput interface {
+	pulumi.Input
+
+	ToLastPatchInstallationSummaryResponseOutput() LastPatchInstallationSummaryResponseOutput
+	ToLastPatchInstallationSummaryResponseOutputWithContext(context.Context) LastPatchInstallationSummaryResponseOutput
+}
+
+// Describes the properties of the last installed patch summary.
+type LastPatchInstallationSummaryResponseArgs struct {
+	// The errors that were encountered during execution of the operation. The details array contains the list of them.
+	Error ApiErrorResponseInput `pulumi:"error"`
+	// The number of all available patches but excluded explicitly by a customer-specified exclusion list match.
+	ExcludedPatchCount pulumi.IntInput `pulumi:"excludedPatchCount"`
+	// The count of patches that failed installation.
+	FailedPatchCount pulumi.IntInput `pulumi:"failedPatchCount"`
+	// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+	InstallationActivityId pulumi.StringInput `pulumi:"installationActivityId"`
+	// The count of patches that successfully installed.
+	InstalledPatchCount pulumi.IntInput `pulumi:"installedPatchCount"`
+	// The UTC timestamp when the operation began.
+	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
+	// Describes whether the operation ran out of time before it completed all its intended actions
+	MaintenanceWindowExceeded pulumi.BoolInput `pulumi:"maintenanceWindowExceeded"`
+	// The number of all available patches but not going to be installed because it didn't match a classification or inclusion list entry.
+	NotSelectedPatchCount pulumi.IntInput `pulumi:"notSelectedPatchCount"`
+	// The number of all available patches expected to be installed over the course of the patch installation operation.
+	PendingPatchCount pulumi.IntInput `pulumi:"pendingPatchCount"`
+	// The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
+	RebootStatus pulumi.StringInput `pulumi:"rebootStatus"`
+	// The UTC timestamp when the operation began.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// The person or system account that started the operation
+	StartedBy pulumi.StringInput `pulumi:"startedBy"`
+	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (LastPatchInstallationSummaryResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastPatchInstallationSummaryResponse)(nil)).Elem()
+}
+
+func (i LastPatchInstallationSummaryResponseArgs) ToLastPatchInstallationSummaryResponseOutput() LastPatchInstallationSummaryResponseOutput {
+	return i.ToLastPatchInstallationSummaryResponseOutputWithContext(context.Background())
+}
+
+func (i LastPatchInstallationSummaryResponseArgs) ToLastPatchInstallationSummaryResponseOutputWithContext(ctx context.Context) LastPatchInstallationSummaryResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastPatchInstallationSummaryResponseOutput)
+}
+
+func (i LastPatchInstallationSummaryResponseArgs) ToLastPatchInstallationSummaryResponsePtrOutput() LastPatchInstallationSummaryResponsePtrOutput {
+	return i.ToLastPatchInstallationSummaryResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LastPatchInstallationSummaryResponseArgs) ToLastPatchInstallationSummaryResponsePtrOutputWithContext(ctx context.Context) LastPatchInstallationSummaryResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastPatchInstallationSummaryResponseOutput).ToLastPatchInstallationSummaryResponsePtrOutputWithContext(ctx)
+}
+
+// LastPatchInstallationSummaryResponsePtrInput is an input type that accepts LastPatchInstallationSummaryResponseArgs, LastPatchInstallationSummaryResponsePtr and LastPatchInstallationSummaryResponsePtrOutput values.
+// You can construct a concrete instance of `LastPatchInstallationSummaryResponsePtrInput` via:
+//
+//          LastPatchInstallationSummaryResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LastPatchInstallationSummaryResponsePtrInput interface {
+	pulumi.Input
+
+	ToLastPatchInstallationSummaryResponsePtrOutput() LastPatchInstallationSummaryResponsePtrOutput
+	ToLastPatchInstallationSummaryResponsePtrOutputWithContext(context.Context) LastPatchInstallationSummaryResponsePtrOutput
+}
+
+type lastPatchInstallationSummaryResponsePtrType LastPatchInstallationSummaryResponseArgs
+
+func LastPatchInstallationSummaryResponsePtr(v *LastPatchInstallationSummaryResponseArgs) LastPatchInstallationSummaryResponsePtrInput {
+	return (*lastPatchInstallationSummaryResponsePtrType)(v)
+}
+
+func (*lastPatchInstallationSummaryResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastPatchInstallationSummaryResponse)(nil)).Elem()
+}
+
+func (i *lastPatchInstallationSummaryResponsePtrType) ToLastPatchInstallationSummaryResponsePtrOutput() LastPatchInstallationSummaryResponsePtrOutput {
+	return i.ToLastPatchInstallationSummaryResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *lastPatchInstallationSummaryResponsePtrType) ToLastPatchInstallationSummaryResponsePtrOutputWithContext(ctx context.Context) LastPatchInstallationSummaryResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastPatchInstallationSummaryResponsePtrOutput)
+}
+
+// Describes the properties of the last installed patch summary.
+type LastPatchInstallationSummaryResponseOutput struct{ *pulumi.OutputState }
+
+func (LastPatchInstallationSummaryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastPatchInstallationSummaryResponse)(nil)).Elem()
+}
+
+func (o LastPatchInstallationSummaryResponseOutput) ToLastPatchInstallationSummaryResponseOutput() LastPatchInstallationSummaryResponseOutput {
+	return o
+}
+
+func (o LastPatchInstallationSummaryResponseOutput) ToLastPatchInstallationSummaryResponseOutputWithContext(ctx context.Context) LastPatchInstallationSummaryResponseOutput {
+	return o
+}
+
+func (o LastPatchInstallationSummaryResponseOutput) ToLastPatchInstallationSummaryResponsePtrOutput() LastPatchInstallationSummaryResponsePtrOutput {
+	return o.ToLastPatchInstallationSummaryResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LastPatchInstallationSummaryResponseOutput) ToLastPatchInstallationSummaryResponsePtrOutputWithContext(ctx context.Context) LastPatchInstallationSummaryResponsePtrOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) *LastPatchInstallationSummaryResponse {
+		return &v
+	}).(LastPatchInstallationSummaryResponsePtrOutput)
+}
+
+// The errors that were encountered during execution of the operation. The details array contains the list of them.
+func (o LastPatchInstallationSummaryResponseOutput) Error() ApiErrorResponseOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) ApiErrorResponse { return v.Error }).(ApiErrorResponseOutput)
+}
+
+// The number of all available patches but excluded explicitly by a customer-specified exclusion list match.
+func (o LastPatchInstallationSummaryResponseOutput) ExcludedPatchCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) int { return v.ExcludedPatchCount }).(pulumi.IntOutput)
+}
+
+// The count of patches that failed installation.
+func (o LastPatchInstallationSummaryResponseOutput) FailedPatchCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) int { return v.FailedPatchCount }).(pulumi.IntOutput)
+}
+
+// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+func (o LastPatchInstallationSummaryResponseOutput) InstallationActivityId() pulumi.StringOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.InstallationActivityId }).(pulumi.StringOutput)
+}
+
+// The count of patches that successfully installed.
+func (o LastPatchInstallationSummaryResponseOutput) InstalledPatchCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) int { return v.InstalledPatchCount }).(pulumi.IntOutput)
+}
+
+// The UTC timestamp when the operation began.
+func (o LastPatchInstallationSummaryResponseOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// Describes whether the operation ran out of time before it completed all its intended actions
+func (o LastPatchInstallationSummaryResponseOutput) MaintenanceWindowExceeded() pulumi.BoolOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) bool { return v.MaintenanceWindowExceeded }).(pulumi.BoolOutput)
+}
+
+// The number of all available patches but not going to be installed because it didn't match a classification or inclusion list entry.
+func (o LastPatchInstallationSummaryResponseOutput) NotSelectedPatchCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) int { return v.NotSelectedPatchCount }).(pulumi.IntOutput)
+}
+
+// The number of all available patches expected to be installed over the course of the patch installation operation.
+func (o LastPatchInstallationSummaryResponseOutput) PendingPatchCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) int { return v.PendingPatchCount }).(pulumi.IntOutput)
+}
+
+// The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
+func (o LastPatchInstallationSummaryResponseOutput) RebootStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.RebootStatus }).(pulumi.StringOutput)
+}
+
+// The UTC timestamp when the operation began.
+func (o LastPatchInstallationSummaryResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The person or system account that started the operation
+func (o LastPatchInstallationSummaryResponseOutput) StartedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.StartedBy }).(pulumi.StringOutput)
+}
+
+// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+func (o LastPatchInstallationSummaryResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type LastPatchInstallationSummaryResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LastPatchInstallationSummaryResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastPatchInstallationSummaryResponse)(nil)).Elem()
+}
+
+func (o LastPatchInstallationSummaryResponsePtrOutput) ToLastPatchInstallationSummaryResponsePtrOutput() LastPatchInstallationSummaryResponsePtrOutput {
+	return o
+}
+
+func (o LastPatchInstallationSummaryResponsePtrOutput) ToLastPatchInstallationSummaryResponsePtrOutputWithContext(ctx context.Context) LastPatchInstallationSummaryResponsePtrOutput {
+	return o
+}
+
+func (o LastPatchInstallationSummaryResponsePtrOutput) Elem() LastPatchInstallationSummaryResponseOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) LastPatchInstallationSummaryResponse { return *v }).(LastPatchInstallationSummaryResponseOutput)
+}
+
+// The errors that were encountered during execution of the operation. The details array contains the list of them.
+func (o LastPatchInstallationSummaryResponsePtrOutput) Error() ApiErrorResponsePtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *ApiErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Error
+	}).(ApiErrorResponsePtrOutput)
+}
+
+// The number of all available patches but excluded explicitly by a customer-specified exclusion list match.
+func (o LastPatchInstallationSummaryResponsePtrOutput) ExcludedPatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ExcludedPatchCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The count of patches that failed installation.
+func (o LastPatchInstallationSummaryResponsePtrOutput) FailedPatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FailedPatchCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+func (o LastPatchInstallationSummaryResponsePtrOutput) InstallationActivityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstallationActivityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The count of patches that successfully installed.
+func (o LastPatchInstallationSummaryResponsePtrOutput) InstalledPatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InstalledPatchCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The UTC timestamp when the operation began.
+func (o LastPatchInstallationSummaryResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether the operation ran out of time before it completed all its intended actions
+func (o LastPatchInstallationSummaryResponsePtrOutput) MaintenanceWindowExceeded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.MaintenanceWindowExceeded
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of all available patches but not going to be installed because it didn't match a classification or inclusion list entry.
+func (o LastPatchInstallationSummaryResponsePtrOutput) NotSelectedPatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.NotSelectedPatchCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of all available patches expected to be installed over the course of the patch installation operation.
+func (o LastPatchInstallationSummaryResponsePtrOutput) PendingPatchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PendingPatchCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
+func (o LastPatchInstallationSummaryResponsePtrOutput) RebootStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RebootStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The UTC timestamp when the operation began.
+func (o LastPatchInstallationSummaryResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The person or system account that started the operation
+func (o LastPatchInstallationSummaryResponsePtrOutput) StartedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+func (o LastPatchInstallationSummaryResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -10282,7 +11392,7 @@ func (o OSProfileResponsePtrOutput) WindowsConfiguration() WindowsConfigurationR
 }
 
 type PatchSettings struct {
-	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 	PatchMode *string `pulumi:"patchMode"`
 }
 
@@ -10298,7 +11408,7 @@ type PatchSettingsInput interface {
 }
 
 type PatchSettingsArgs struct {
-	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 	PatchMode pulumi.StringPtrInput `pulumi:"patchMode"`
 }
 
@@ -10379,7 +11489,7 @@ func (o PatchSettingsOutput) ToPatchSettingsPtrOutputWithContext(ctx context.Con
 	}).(PatchSettingsPtrOutput)
 }
 
-// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 func (o PatchSettingsOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchSettings) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
@@ -10402,7 +11512,7 @@ func (o PatchSettingsPtrOutput) Elem() PatchSettingsOutput {
 	return o.ApplyT(func(v *PatchSettings) PatchSettings { return *v }).(PatchSettingsOutput)
 }
 
-// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 func (o PatchSettingsPtrOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PatchSettings) *string {
 		if v == nil {
@@ -10413,7 +11523,7 @@ func (o PatchSettingsPtrOutput) PatchMode() pulumi.StringPtrOutput {
 }
 
 type PatchSettingsResponse struct {
-	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 	PatchMode *string `pulumi:"patchMode"`
 }
 
@@ -10429,7 +11539,7 @@ type PatchSettingsResponseInput interface {
 }
 
 type PatchSettingsResponseArgs struct {
-	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 	PatchMode pulumi.StringPtrInput `pulumi:"patchMode"`
 }
 
@@ -10510,7 +11620,7 @@ func (o PatchSettingsResponseOutput) ToPatchSettingsResponsePtrOutputWithContext
 	}).(PatchSettingsResponsePtrOutput)
 }
 
-// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 func (o PatchSettingsResponseOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchSettingsResponse) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
@@ -10533,7 +11643,7 @@ func (o PatchSettingsResponsePtrOutput) Elem() PatchSettingsResponseOutput {
 	return o.ApplyT(func(v *PatchSettingsResponse) PatchSettingsResponse { return *v }).(PatchSettingsResponseOutput)
 }
 
-// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 func (o PatchSettingsResponsePtrOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PatchSettingsResponse) *string {
 		if v == nil {
@@ -15949,6 +17059,8 @@ func (o VirtualMachineExtensionInstanceViewResponseArrayOutput) Index(i pulumi.I
 type VirtualMachineExtensionResponse struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// Resource Id
@@ -15990,6 +17102,8 @@ type VirtualMachineExtensionResponseInput interface {
 type VirtualMachineExtensionResponseArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrade"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// Resource Id
@@ -16071,6 +17185,11 @@ func (o VirtualMachineExtensionResponseOutput) ToVirtualMachineExtensionResponse
 // Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 func (o VirtualMachineExtensionResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualMachineExtensionResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+func (o VirtualMachineExtensionResponseOutput) EnableAutomaticUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) *bool { return v.EnableAutomaticUpgrade }).(pulumi.BoolPtrOutput)
 }
 
 // How the extension handler should be forced to update even if the extension configuration has not changed.
@@ -16742,6 +17861,8 @@ type VirtualMachineInstanceViewResponse struct {
 	OsName *string `pulumi:"osName"`
 	// The version of Operating System running on the virtual machine.
 	OsVersion *string `pulumi:"osVersion"`
+	// The status of virtual machine patch operations.
+	PatchStatus *VirtualMachinePatchStatusResponse `pulumi:"patchStatus"`
 	// Specifies the fault domain of the virtual machine.
 	PlatformFaultDomain *int `pulumi:"platformFaultDomain"`
 	// Specifies the update domain of the virtual machine.
@@ -16787,6 +17908,8 @@ type VirtualMachineInstanceViewResponseArgs struct {
 	OsName pulumi.StringPtrInput `pulumi:"osName"`
 	// The version of Operating System running on the virtual machine.
 	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
+	// The status of virtual machine patch operations.
+	PatchStatus VirtualMachinePatchStatusResponsePtrInput `pulumi:"patchStatus"`
 	// Specifies the fault domain of the virtual machine.
 	PlatformFaultDomain pulumi.IntPtrInput `pulumi:"platformFaultDomain"`
 	// Specifies the update domain of the virtual machine.
@@ -16930,6 +18053,11 @@ func (o VirtualMachineInstanceViewResponseOutput) OsVersion() pulumi.StringPtrOu
 	return o.ApplyT(func(v VirtualMachineInstanceViewResponse) *string { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
 
+// The status of virtual machine patch operations.
+func (o VirtualMachineInstanceViewResponseOutput) PatchStatus() VirtualMachinePatchStatusResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineInstanceViewResponse) *VirtualMachinePatchStatusResponse { return v.PatchStatus }).(VirtualMachinePatchStatusResponsePtrOutput)
+}
+
 // Specifies the fault domain of the virtual machine.
 func (o VirtualMachineInstanceViewResponseOutput) PlatformFaultDomain() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualMachineInstanceViewResponse) *int { return v.PlatformFaultDomain }).(pulumi.IntPtrOutput)
@@ -17068,6 +18196,16 @@ func (o VirtualMachineInstanceViewResponsePtrOutput) OsVersion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of virtual machine patch operations.
+func (o VirtualMachineInstanceViewResponsePtrOutput) PatchStatus() VirtualMachinePatchStatusResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineInstanceViewResponse) *VirtualMachinePatchStatusResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PatchStatus
+	}).(VirtualMachinePatchStatusResponsePtrOutput)
+}
+
 // Specifies the fault domain of the virtual machine.
 func (o VirtualMachineInstanceViewResponsePtrOutput) PlatformFaultDomain() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineInstanceViewResponse) *int {
@@ -17126,6 +18264,163 @@ func (o VirtualMachineInstanceViewResponsePtrOutput) VmHealth() VirtualMachineHe
 		}
 		return &v.VmHealth
 	}).(VirtualMachineHealthStatusResponsePtrOutput)
+}
+
+// The status of virtual machine patch operations.
+type VirtualMachinePatchStatusResponse struct {
+	// The available patch summary of the latest assessment operation for the virtual machine.
+	AvailablePatchSummary *AvailablePatchSummaryResponse `pulumi:"availablePatchSummary"`
+	// The installation summary of the latest installation operation for the virtual machine.
+	LastPatchInstallationSummary *LastPatchInstallationSummaryResponse `pulumi:"lastPatchInstallationSummary"`
+}
+
+// VirtualMachinePatchStatusResponseInput is an input type that accepts VirtualMachinePatchStatusResponseArgs and VirtualMachinePatchStatusResponseOutput values.
+// You can construct a concrete instance of `VirtualMachinePatchStatusResponseInput` via:
+//
+//          VirtualMachinePatchStatusResponseArgs{...}
+type VirtualMachinePatchStatusResponseInput interface {
+	pulumi.Input
+
+	ToVirtualMachinePatchStatusResponseOutput() VirtualMachinePatchStatusResponseOutput
+	ToVirtualMachinePatchStatusResponseOutputWithContext(context.Context) VirtualMachinePatchStatusResponseOutput
+}
+
+// The status of virtual machine patch operations.
+type VirtualMachinePatchStatusResponseArgs struct {
+	// The available patch summary of the latest assessment operation for the virtual machine.
+	AvailablePatchSummary AvailablePatchSummaryResponsePtrInput `pulumi:"availablePatchSummary"`
+	// The installation summary of the latest installation operation for the virtual machine.
+	LastPatchInstallationSummary LastPatchInstallationSummaryResponsePtrInput `pulumi:"lastPatchInstallationSummary"`
+}
+
+func (VirtualMachinePatchStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachinePatchStatusResponse)(nil)).Elem()
+}
+
+func (i VirtualMachinePatchStatusResponseArgs) ToVirtualMachinePatchStatusResponseOutput() VirtualMachinePatchStatusResponseOutput {
+	return i.ToVirtualMachinePatchStatusResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualMachinePatchStatusResponseArgs) ToVirtualMachinePatchStatusResponseOutputWithContext(ctx context.Context) VirtualMachinePatchStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePatchStatusResponseOutput)
+}
+
+func (i VirtualMachinePatchStatusResponseArgs) ToVirtualMachinePatchStatusResponsePtrOutput() VirtualMachinePatchStatusResponsePtrOutput {
+	return i.ToVirtualMachinePatchStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachinePatchStatusResponseArgs) ToVirtualMachinePatchStatusResponsePtrOutputWithContext(ctx context.Context) VirtualMachinePatchStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePatchStatusResponseOutput).ToVirtualMachinePatchStatusResponsePtrOutputWithContext(ctx)
+}
+
+// VirtualMachinePatchStatusResponsePtrInput is an input type that accepts VirtualMachinePatchStatusResponseArgs, VirtualMachinePatchStatusResponsePtr and VirtualMachinePatchStatusResponsePtrOutput values.
+// You can construct a concrete instance of `VirtualMachinePatchStatusResponsePtrInput` via:
+//
+//          VirtualMachinePatchStatusResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachinePatchStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachinePatchStatusResponsePtrOutput() VirtualMachinePatchStatusResponsePtrOutput
+	ToVirtualMachinePatchStatusResponsePtrOutputWithContext(context.Context) VirtualMachinePatchStatusResponsePtrOutput
+}
+
+type virtualMachinePatchStatusResponsePtrType VirtualMachinePatchStatusResponseArgs
+
+func VirtualMachinePatchStatusResponsePtr(v *VirtualMachinePatchStatusResponseArgs) VirtualMachinePatchStatusResponsePtrInput {
+	return (*virtualMachinePatchStatusResponsePtrType)(v)
+}
+
+func (*virtualMachinePatchStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachinePatchStatusResponse)(nil)).Elem()
+}
+
+func (i *virtualMachinePatchStatusResponsePtrType) ToVirtualMachinePatchStatusResponsePtrOutput() VirtualMachinePatchStatusResponsePtrOutput {
+	return i.ToVirtualMachinePatchStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachinePatchStatusResponsePtrType) ToVirtualMachinePatchStatusResponsePtrOutputWithContext(ctx context.Context) VirtualMachinePatchStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePatchStatusResponsePtrOutput)
+}
+
+// The status of virtual machine patch operations.
+type VirtualMachinePatchStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachinePatchStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachinePatchStatusResponse)(nil)).Elem()
+}
+
+func (o VirtualMachinePatchStatusResponseOutput) ToVirtualMachinePatchStatusResponseOutput() VirtualMachinePatchStatusResponseOutput {
+	return o
+}
+
+func (o VirtualMachinePatchStatusResponseOutput) ToVirtualMachinePatchStatusResponseOutputWithContext(ctx context.Context) VirtualMachinePatchStatusResponseOutput {
+	return o
+}
+
+func (o VirtualMachinePatchStatusResponseOutput) ToVirtualMachinePatchStatusResponsePtrOutput() VirtualMachinePatchStatusResponsePtrOutput {
+	return o.ToVirtualMachinePatchStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachinePatchStatusResponseOutput) ToVirtualMachinePatchStatusResponsePtrOutputWithContext(ctx context.Context) VirtualMachinePatchStatusResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachinePatchStatusResponse) *VirtualMachinePatchStatusResponse {
+		return &v
+	}).(VirtualMachinePatchStatusResponsePtrOutput)
+}
+
+// The available patch summary of the latest assessment operation for the virtual machine.
+func (o VirtualMachinePatchStatusResponseOutput) AvailablePatchSummary() AvailablePatchSummaryResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachinePatchStatusResponse) *AvailablePatchSummaryResponse {
+		return v.AvailablePatchSummary
+	}).(AvailablePatchSummaryResponsePtrOutput)
+}
+
+// The installation summary of the latest installation operation for the virtual machine.
+func (o VirtualMachinePatchStatusResponseOutput) LastPatchInstallationSummary() LastPatchInstallationSummaryResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachinePatchStatusResponse) *LastPatchInstallationSummaryResponse {
+		return v.LastPatchInstallationSummary
+	}).(LastPatchInstallationSummaryResponsePtrOutput)
+}
+
+type VirtualMachinePatchStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachinePatchStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachinePatchStatusResponse)(nil)).Elem()
+}
+
+func (o VirtualMachinePatchStatusResponsePtrOutput) ToVirtualMachinePatchStatusResponsePtrOutput() VirtualMachinePatchStatusResponsePtrOutput {
+	return o
+}
+
+func (o VirtualMachinePatchStatusResponsePtrOutput) ToVirtualMachinePatchStatusResponsePtrOutputWithContext(ctx context.Context) VirtualMachinePatchStatusResponsePtrOutput {
+	return o
+}
+
+func (o VirtualMachinePatchStatusResponsePtrOutput) Elem() VirtualMachinePatchStatusResponseOutput {
+	return o.ApplyT(func(v *VirtualMachinePatchStatusResponse) VirtualMachinePatchStatusResponse { return *v }).(VirtualMachinePatchStatusResponseOutput)
+}
+
+// The available patch summary of the latest assessment operation for the virtual machine.
+func (o VirtualMachinePatchStatusResponsePtrOutput) AvailablePatchSummary() AvailablePatchSummaryResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachinePatchStatusResponse) *AvailablePatchSummaryResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AvailablePatchSummary
+	}).(AvailablePatchSummaryResponsePtrOutput)
+}
+
+// The installation summary of the latest installation operation for the virtual machine.
+func (o VirtualMachinePatchStatusResponsePtrOutput) LastPatchInstallationSummary() LastPatchInstallationSummaryResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachinePatchStatusResponse) *LastPatchInstallationSummaryResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LastPatchInstallationSummary
+	}).(LastPatchInstallationSummaryResponsePtrOutput)
 }
 
 // Describes a virtual machine scale set data disk.
@@ -17480,6 +18775,8 @@ func (o VirtualMachineScaleSetDataDiskResponseArrayOutput) Index(i pulumi.IntInp
 type VirtualMachineScaleSetExtensionType struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the extension.
@@ -17513,6 +18810,8 @@ type VirtualMachineScaleSetExtensionTypeInput interface {
 type VirtualMachineScaleSetExtensionTypeArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// The name of the extension.
@@ -17586,6 +18885,11 @@ func (o VirtualMachineScaleSetExtensionTypeOutput) ToVirtualMachineScaleSetExten
 // Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 func (o VirtualMachineScaleSetExtensionTypeOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+func (o VirtualMachineScaleSetExtensionTypeOutput) EnableAutomaticUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) *bool { return v.EnableAutomaticUpgrade }).(pulumi.BoolPtrOutput)
 }
 
 // If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
@@ -17964,6 +19268,8 @@ func (o VirtualMachineScaleSetExtensionProfileResponsePtrOutput) ExtensionsTimeB
 type VirtualMachineScaleSetExtensionResponse struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// Resource Id
@@ -18001,6 +19307,8 @@ type VirtualMachineScaleSetExtensionResponseInput interface {
 type VirtualMachineScaleSetExtensionResponseArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+	EnableAutomaticUpgrade pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// Resource Id
@@ -18078,6 +19386,11 @@ func (o VirtualMachineScaleSetExtensionResponseOutput) ToVirtualMachineScaleSetE
 // Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 func (o VirtualMachineScaleSetExtensionResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+func (o VirtualMachineScaleSetExtensionResponseOutput) EnableAutomaticUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) *bool { return v.EnableAutomaticUpgrade }).(pulumi.BoolPtrOutput)
 }
 
 // If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
@@ -25183,6 +26496,10 @@ func init() {
 	pulumi.RegisterOutputType(ApiEntityReferencePtrOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiErrorBaseResponseOutput{})
+	pulumi.RegisterOutputType(ApiErrorBaseResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApiErrorResponseOutput{})
+	pulumi.RegisterOutputType(ApiErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutomaticOSUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(AutomaticOSUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutomaticOSUpgradePolicyResponseOutput{})
@@ -25191,6 +26508,8 @@ func init() {
 	pulumi.RegisterOutputType(AutomaticRepairsPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutomaticRepairsPolicyResponseOutput{})
 	pulumi.RegisterOutputType(AutomaticRepairsPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(AvailablePatchSummaryResponseOutput{})
+	pulumi.RegisterOutputType(AvailablePatchSummaryResponsePtrOutput{})
 	pulumi.RegisterOutputType(BillingProfileOutput{})
 	pulumi.RegisterOutputType(BillingProfilePtrOutput{})
 	pulumi.RegisterOutputType(BillingProfileResponseOutput{})
@@ -25254,6 +26573,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(ImageStorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(ImageStorageProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(InnerErrorResponseOutput{})
+	pulumi.RegisterOutputType(InnerErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusPtrOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusArrayOutput{})
@@ -25268,6 +26589,8 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultSecretReferencePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretReferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(LastPatchInstallationSummaryResponseOutput{})
+	pulumi.RegisterOutputType(LastPatchInstallationSummaryResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponseOutput{})
@@ -25385,6 +26708,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineIdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachinePatchStatusResponseOutput{})
+	pulumi.RegisterOutputType(VirtualMachinePatchStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskResponseOutput{})

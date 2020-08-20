@@ -133,6 +133,9 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:AppServiceEnvironment"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:AppServiceEnvironment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServiceEnvironment

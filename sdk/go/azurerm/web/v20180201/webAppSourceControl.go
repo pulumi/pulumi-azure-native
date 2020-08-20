@@ -57,6 +57,9 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:WebAppSourceControl"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppSourceControl"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSourceControl

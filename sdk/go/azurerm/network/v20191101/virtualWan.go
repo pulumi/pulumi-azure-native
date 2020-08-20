@@ -107,6 +107,9 @@ func NewVirtualWan(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:VirtualWan"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:VirtualWan"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualWan

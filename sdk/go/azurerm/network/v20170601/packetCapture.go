@@ -135,6 +135,9 @@ func NewPacketCapture(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:PacketCapture"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:PacketCapture"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PacketCapture

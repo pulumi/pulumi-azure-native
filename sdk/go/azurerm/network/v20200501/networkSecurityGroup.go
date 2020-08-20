@@ -143,6 +143,9 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200401:NetworkSecurityGroup"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:NetworkSecurityGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkSecurityGroup

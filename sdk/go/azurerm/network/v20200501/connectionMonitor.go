@@ -131,6 +131,9 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200401:ConnectionMonitor"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:ConnectionMonitor"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionMonitor

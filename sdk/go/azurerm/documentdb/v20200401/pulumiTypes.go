@@ -4028,6 +4028,278 @@ func (o ContainerPartitionKeyResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The CORS policy for the Cosmos DB database account.
+type CorsPolicy struct {
+	// The request headers that the origin domain may specify on the CORS request.
+	AllowedHeaders *string `pulumi:"allowedHeaders"`
+	// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+	AllowedMethods *string `pulumi:"allowedMethods"`
+	// The origin domains that are permitted to make a request against the service via CORS.
+	AllowedOrigins string `pulumi:"allowedOrigins"`
+	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+	ExposedHeaders *string `pulumi:"exposedHeaders"`
+	// The maximum amount time that a browser should cache the preflight OPTIONS request.
+	MaxAgeInSeconds *int `pulumi:"maxAgeInSeconds"`
+}
+
+// CorsPolicyInput is an input type that accepts CorsPolicyArgs and CorsPolicyOutput values.
+// You can construct a concrete instance of `CorsPolicyInput` via:
+//
+//          CorsPolicyArgs{...}
+type CorsPolicyInput interface {
+	pulumi.Input
+
+	ToCorsPolicyOutput() CorsPolicyOutput
+	ToCorsPolicyOutputWithContext(context.Context) CorsPolicyOutput
+}
+
+// The CORS policy for the Cosmos DB database account.
+type CorsPolicyArgs struct {
+	// The request headers that the origin domain may specify on the CORS request.
+	AllowedHeaders pulumi.StringPtrInput `pulumi:"allowedHeaders"`
+	// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+	AllowedMethods pulumi.StringPtrInput `pulumi:"allowedMethods"`
+	// The origin domains that are permitted to make a request against the service via CORS.
+	AllowedOrigins pulumi.StringInput `pulumi:"allowedOrigins"`
+	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+	ExposedHeaders pulumi.StringPtrInput `pulumi:"exposedHeaders"`
+	// The maximum amount time that a browser should cache the preflight OPTIONS request.
+	MaxAgeInSeconds pulumi.IntPtrInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (CorsPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsPolicy)(nil)).Elem()
+}
+
+func (i CorsPolicyArgs) ToCorsPolicyOutput() CorsPolicyOutput {
+	return i.ToCorsPolicyOutputWithContext(context.Background())
+}
+
+func (i CorsPolicyArgs) ToCorsPolicyOutputWithContext(ctx context.Context) CorsPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsPolicyOutput)
+}
+
+// CorsPolicyArrayInput is an input type that accepts CorsPolicyArray and CorsPolicyArrayOutput values.
+// You can construct a concrete instance of `CorsPolicyArrayInput` via:
+//
+//          CorsPolicyArray{ CorsPolicyArgs{...} }
+type CorsPolicyArrayInput interface {
+	pulumi.Input
+
+	ToCorsPolicyArrayOutput() CorsPolicyArrayOutput
+	ToCorsPolicyArrayOutputWithContext(context.Context) CorsPolicyArrayOutput
+}
+
+type CorsPolicyArray []CorsPolicyInput
+
+func (CorsPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsPolicy)(nil)).Elem()
+}
+
+func (i CorsPolicyArray) ToCorsPolicyArrayOutput() CorsPolicyArrayOutput {
+	return i.ToCorsPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i CorsPolicyArray) ToCorsPolicyArrayOutputWithContext(ctx context.Context) CorsPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsPolicyArrayOutput)
+}
+
+// The CORS policy for the Cosmos DB database account.
+type CorsPolicyOutput struct{ *pulumi.OutputState }
+
+func (CorsPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsPolicy)(nil)).Elem()
+}
+
+func (o CorsPolicyOutput) ToCorsPolicyOutput() CorsPolicyOutput {
+	return o
+}
+
+func (o CorsPolicyOutput) ToCorsPolicyOutputWithContext(ctx context.Context) CorsPolicyOutput {
+	return o
+}
+
+// The request headers that the origin domain may specify on the CORS request.
+func (o CorsPolicyOutput) AllowedHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorsPolicy) *string { return v.AllowedHeaders }).(pulumi.StringPtrOutput)
+}
+
+// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+func (o CorsPolicyOutput) AllowedMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorsPolicy) *string { return v.AllowedMethods }).(pulumi.StringPtrOutput)
+}
+
+// The origin domains that are permitted to make a request against the service via CORS.
+func (o CorsPolicyOutput) AllowedOrigins() pulumi.StringOutput {
+	return o.ApplyT(func(v CorsPolicy) string { return v.AllowedOrigins }).(pulumi.StringOutput)
+}
+
+// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+func (o CorsPolicyOutput) ExposedHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorsPolicy) *string { return v.ExposedHeaders }).(pulumi.StringPtrOutput)
+}
+
+// The maximum amount time that a browser should cache the preflight OPTIONS request.
+func (o CorsPolicyOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CorsPolicy) *int { return v.MaxAgeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type CorsPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (CorsPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsPolicy)(nil)).Elem()
+}
+
+func (o CorsPolicyArrayOutput) ToCorsPolicyArrayOutput() CorsPolicyArrayOutput {
+	return o
+}
+
+func (o CorsPolicyArrayOutput) ToCorsPolicyArrayOutputWithContext(ctx context.Context) CorsPolicyArrayOutput {
+	return o
+}
+
+func (o CorsPolicyArrayOutput) Index(i pulumi.IntInput) CorsPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CorsPolicy {
+		return vs[0].([]CorsPolicy)[vs[1].(int)]
+	}).(CorsPolicyOutput)
+}
+
+// The CORS policy for the Cosmos DB database account.
+type CorsPolicyResponse struct {
+	// The request headers that the origin domain may specify on the CORS request.
+	AllowedHeaders *string `pulumi:"allowedHeaders"`
+	// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+	AllowedMethods *string `pulumi:"allowedMethods"`
+	// The origin domains that are permitted to make a request against the service via CORS.
+	AllowedOrigins string `pulumi:"allowedOrigins"`
+	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+	ExposedHeaders *string `pulumi:"exposedHeaders"`
+	// The maximum amount time that a browser should cache the preflight OPTIONS request.
+	MaxAgeInSeconds *int `pulumi:"maxAgeInSeconds"`
+}
+
+// CorsPolicyResponseInput is an input type that accepts CorsPolicyResponseArgs and CorsPolicyResponseOutput values.
+// You can construct a concrete instance of `CorsPolicyResponseInput` via:
+//
+//          CorsPolicyResponseArgs{...}
+type CorsPolicyResponseInput interface {
+	pulumi.Input
+
+	ToCorsPolicyResponseOutput() CorsPolicyResponseOutput
+	ToCorsPolicyResponseOutputWithContext(context.Context) CorsPolicyResponseOutput
+}
+
+// The CORS policy for the Cosmos DB database account.
+type CorsPolicyResponseArgs struct {
+	// The request headers that the origin domain may specify on the CORS request.
+	AllowedHeaders pulumi.StringPtrInput `pulumi:"allowedHeaders"`
+	// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+	AllowedMethods pulumi.StringPtrInput `pulumi:"allowedMethods"`
+	// The origin domains that are permitted to make a request against the service via CORS.
+	AllowedOrigins pulumi.StringInput `pulumi:"allowedOrigins"`
+	// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+	ExposedHeaders pulumi.StringPtrInput `pulumi:"exposedHeaders"`
+	// The maximum amount time that a browser should cache the preflight OPTIONS request.
+	MaxAgeInSeconds pulumi.IntPtrInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (CorsPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsPolicyResponse)(nil)).Elem()
+}
+
+func (i CorsPolicyResponseArgs) ToCorsPolicyResponseOutput() CorsPolicyResponseOutput {
+	return i.ToCorsPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i CorsPolicyResponseArgs) ToCorsPolicyResponseOutputWithContext(ctx context.Context) CorsPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsPolicyResponseOutput)
+}
+
+// CorsPolicyResponseArrayInput is an input type that accepts CorsPolicyResponseArray and CorsPolicyResponseArrayOutput values.
+// You can construct a concrete instance of `CorsPolicyResponseArrayInput` via:
+//
+//          CorsPolicyResponseArray{ CorsPolicyResponseArgs{...} }
+type CorsPolicyResponseArrayInput interface {
+	pulumi.Input
+
+	ToCorsPolicyResponseArrayOutput() CorsPolicyResponseArrayOutput
+	ToCorsPolicyResponseArrayOutputWithContext(context.Context) CorsPolicyResponseArrayOutput
+}
+
+type CorsPolicyResponseArray []CorsPolicyResponseInput
+
+func (CorsPolicyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsPolicyResponse)(nil)).Elem()
+}
+
+func (i CorsPolicyResponseArray) ToCorsPolicyResponseArrayOutput() CorsPolicyResponseArrayOutput {
+	return i.ToCorsPolicyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CorsPolicyResponseArray) ToCorsPolicyResponseArrayOutputWithContext(ctx context.Context) CorsPolicyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsPolicyResponseArrayOutput)
+}
+
+// The CORS policy for the Cosmos DB database account.
+type CorsPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (CorsPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsPolicyResponse)(nil)).Elem()
+}
+
+func (o CorsPolicyResponseOutput) ToCorsPolicyResponseOutput() CorsPolicyResponseOutput {
+	return o
+}
+
+func (o CorsPolicyResponseOutput) ToCorsPolicyResponseOutputWithContext(ctx context.Context) CorsPolicyResponseOutput {
+	return o
+}
+
+// The request headers that the origin domain may specify on the CORS request.
+func (o CorsPolicyResponseOutput) AllowedHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorsPolicyResponse) *string { return v.AllowedHeaders }).(pulumi.StringPtrOutput)
+}
+
+// The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+func (o CorsPolicyResponseOutput) AllowedMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorsPolicyResponse) *string { return v.AllowedMethods }).(pulumi.StringPtrOutput)
+}
+
+// The origin domains that are permitted to make a request against the service via CORS.
+func (o CorsPolicyResponseOutput) AllowedOrigins() pulumi.StringOutput {
+	return o.ApplyT(func(v CorsPolicyResponse) string { return v.AllowedOrigins }).(pulumi.StringOutput)
+}
+
+// The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+func (o CorsPolicyResponseOutput) ExposedHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorsPolicyResponse) *string { return v.ExposedHeaders }).(pulumi.StringPtrOutput)
+}
+
+// The maximum amount time that a browser should cache the preflight OPTIONS request.
+func (o CorsPolicyResponseOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CorsPolicyResponse) *int { return v.MaxAgeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type CorsPolicyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CorsPolicyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CorsPolicyResponse)(nil)).Elem()
+}
+
+func (o CorsPolicyResponseArrayOutput) ToCorsPolicyResponseArrayOutput() CorsPolicyResponseArrayOutput {
+	return o
+}
+
+func (o CorsPolicyResponseArrayOutput) ToCorsPolicyResponseArrayOutputWithContext(ctx context.Context) CorsPolicyResponseArrayOutput {
+	return o
+}
+
+func (o CorsPolicyResponseArrayOutput) Index(i pulumi.IntInput) CorsPolicyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CorsPolicyResponse {
+		return vs[0].([]CorsPolicyResponse)[vs[1].(int)]
+	}).(CorsPolicyResponseOutput)
+}
+
 // CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are "If-Match", "If-None-Match", "Session-Token" and "Throughput"
 type CreateUpdateOptions struct {
 	// Specifies the Autoscale settings.
@@ -9788,6 +10060,8 @@ func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.I
 }
 
 type SqlContainerGetPropertiesResponseResource struct {
+	// Analytical TTL.
+	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -9820,6 +10094,8 @@ type SqlContainerGetPropertiesResponseResourceInput interface {
 }
 
 type SqlContainerGetPropertiesResponseResourceArgs struct {
+	// Analytical TTL.
+	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -9917,6 +10193,11 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetProper
 	}).(SqlContainerGetPropertiesResponseResourcePtrOutput)
 }
 
+// Analytical TTL.
+func (o SqlContainerGetPropertiesResponseResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
+}
+
 // The conflict resolution policy for the container.
 func (o SqlContainerGetPropertiesResponseResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
@@ -9984,6 +10265,16 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Elem() SqlContainerG
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) SqlContainerGetPropertiesResponseResource {
 		return *v
 	}).(SqlContainerGetPropertiesResponseResourceOutput)
+}
+
+// Analytical TTL.
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AnalyticalStorageTtl
+	}).(pulumi.IntPtrOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -10078,6 +10369,8 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) UniqueKeyPolicy() Un
 
 // Cosmos DB SQL container resource object
 type SqlContainerResource struct {
+	// Analytical TTL.
+	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy *ConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -10105,6 +10398,8 @@ type SqlContainerResourceInput interface {
 
 // Cosmos DB SQL container resource object
 type SqlContainerResourceArgs struct {
+	// Analytical TTL.
+	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy ConflictResolutionPolicyPtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -10197,6 +10492,11 @@ func (o SqlContainerResourceOutput) ToSqlContainerResourcePtrOutputWithContext(c
 	}).(SqlContainerResourcePtrOutput)
 }
 
+// Analytical TTL.
+func (o SqlContainerResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlContainerResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
+}
+
 // The conflict resolution policy for the container.
 func (o SqlContainerResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyPtrOutput {
 	return o.ApplyT(func(v SqlContainerResource) *ConflictResolutionPolicy { return v.ConflictResolutionPolicy }).(ConflictResolutionPolicyPtrOutput)
@@ -10243,6 +10543,16 @@ func (o SqlContainerResourcePtrOutput) ToSqlContainerResourcePtrOutputWithContex
 
 func (o SqlContainerResourcePtrOutput) Elem() SqlContainerResourceOutput {
 	return o.ApplyT(func(v *SqlContainerResource) SqlContainerResource { return *v }).(SqlContainerResourceOutput)
+}
+
+// Analytical TTL.
+func (o SqlContainerResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlContainerResource) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AnalyticalStorageTtl
+	}).(pulumi.IntPtrOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -13190,6 +13500,10 @@ func init() {
 	pulumi.RegisterOutputType(ContainerPartitionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponsePtrOutput{})
+	pulumi.RegisterOutputType(CorsPolicyOutput{})
+	pulumi.RegisterOutputType(CorsPolicyArrayOutput{})
+	pulumi.RegisterOutputType(CorsPolicyResponseOutput{})
+	pulumi.RegisterOutputType(CorsPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CreateUpdateOptionsOutput{})
 	pulumi.RegisterOutputType(CreateUpdateOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})

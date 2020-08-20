@@ -70,6 +70,9 @@ func NewWebAppFunction(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20181101:WebAppFunction"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppFunction"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppFunction

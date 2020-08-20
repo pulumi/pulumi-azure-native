@@ -83,6 +83,9 @@ func NewVpnServerConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:VpnServerConfiguration"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:VpnServerConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VpnServerConfiguration

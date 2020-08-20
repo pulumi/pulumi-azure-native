@@ -167,6 +167,9 @@ func NewSecurityRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:SecurityRule"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:SecurityRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SecurityRule

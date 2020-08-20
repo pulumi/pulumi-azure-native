@@ -10,113 +10,113 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents a summary of the alerts of the VM/server group
-type AppWhitelistingIssueSummaryResponse struct {
-	// An alert that VMs/servers within a group can have
+// Represents a summary of the alerts of the machine group
+type AdaptiveApplicationControlIssueSummaryResponse struct {
+	// An alert that machines within a group can have
 	Issue *string `pulumi:"issue"`
-	// The number of machines in the VM/server group that have this alert
+	// The number of machines in the group that have this alert
 	NumberOfVms *float64 `pulumi:"numberOfVms"`
 }
 
-// AppWhitelistingIssueSummaryResponseInput is an input type that accepts AppWhitelistingIssueSummaryResponseArgs and AppWhitelistingIssueSummaryResponseOutput values.
-// You can construct a concrete instance of `AppWhitelistingIssueSummaryResponseInput` via:
+// AdaptiveApplicationControlIssueSummaryResponseInput is an input type that accepts AdaptiveApplicationControlIssueSummaryResponseArgs and AdaptiveApplicationControlIssueSummaryResponseOutput values.
+// You can construct a concrete instance of `AdaptiveApplicationControlIssueSummaryResponseInput` via:
 //
-//          AppWhitelistingIssueSummaryResponseArgs{...}
-type AppWhitelistingIssueSummaryResponseInput interface {
+//          AdaptiveApplicationControlIssueSummaryResponseArgs{...}
+type AdaptiveApplicationControlIssueSummaryResponseInput interface {
 	pulumi.Input
 
-	ToAppWhitelistingIssueSummaryResponseOutput() AppWhitelistingIssueSummaryResponseOutput
-	ToAppWhitelistingIssueSummaryResponseOutputWithContext(context.Context) AppWhitelistingIssueSummaryResponseOutput
+	ToAdaptiveApplicationControlIssueSummaryResponseOutput() AdaptiveApplicationControlIssueSummaryResponseOutput
+	ToAdaptiveApplicationControlIssueSummaryResponseOutputWithContext(context.Context) AdaptiveApplicationControlIssueSummaryResponseOutput
 }
 
-// Represents a summary of the alerts of the VM/server group
-type AppWhitelistingIssueSummaryResponseArgs struct {
-	// An alert that VMs/servers within a group can have
+// Represents a summary of the alerts of the machine group
+type AdaptiveApplicationControlIssueSummaryResponseArgs struct {
+	// An alert that machines within a group can have
 	Issue pulumi.StringPtrInput `pulumi:"issue"`
-	// The number of machines in the VM/server group that have this alert
+	// The number of machines in the group that have this alert
 	NumberOfVms pulumi.Float64PtrInput `pulumi:"numberOfVms"`
 }
 
-func (AppWhitelistingIssueSummaryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppWhitelistingIssueSummaryResponse)(nil)).Elem()
+func (AdaptiveApplicationControlIssueSummaryResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdaptiveApplicationControlIssueSummaryResponse)(nil)).Elem()
 }
 
-func (i AppWhitelistingIssueSummaryResponseArgs) ToAppWhitelistingIssueSummaryResponseOutput() AppWhitelistingIssueSummaryResponseOutput {
-	return i.ToAppWhitelistingIssueSummaryResponseOutputWithContext(context.Background())
+func (i AdaptiveApplicationControlIssueSummaryResponseArgs) ToAdaptiveApplicationControlIssueSummaryResponseOutput() AdaptiveApplicationControlIssueSummaryResponseOutput {
+	return i.ToAdaptiveApplicationControlIssueSummaryResponseOutputWithContext(context.Background())
 }
 
-func (i AppWhitelistingIssueSummaryResponseArgs) ToAppWhitelistingIssueSummaryResponseOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssueSummaryResponseOutput)
+func (i AdaptiveApplicationControlIssueSummaryResponseArgs) ToAdaptiveApplicationControlIssueSummaryResponseOutputWithContext(ctx context.Context) AdaptiveApplicationControlIssueSummaryResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdaptiveApplicationControlIssueSummaryResponseOutput)
 }
 
-// AppWhitelistingIssueSummaryResponseArrayInput is an input type that accepts AppWhitelistingIssueSummaryResponseArray and AppWhitelistingIssueSummaryResponseArrayOutput values.
-// You can construct a concrete instance of `AppWhitelistingIssueSummaryResponseArrayInput` via:
+// AdaptiveApplicationControlIssueSummaryResponseArrayInput is an input type that accepts AdaptiveApplicationControlIssueSummaryResponseArray and AdaptiveApplicationControlIssueSummaryResponseArrayOutput values.
+// You can construct a concrete instance of `AdaptiveApplicationControlIssueSummaryResponseArrayInput` via:
 //
-//          AppWhitelistingIssueSummaryResponseArray{ AppWhitelistingIssueSummaryResponseArgs{...} }
-type AppWhitelistingIssueSummaryResponseArrayInput interface {
+//          AdaptiveApplicationControlIssueSummaryResponseArray{ AdaptiveApplicationControlIssueSummaryResponseArgs{...} }
+type AdaptiveApplicationControlIssueSummaryResponseArrayInput interface {
 	pulumi.Input
 
-	ToAppWhitelistingIssueSummaryResponseArrayOutput() AppWhitelistingIssueSummaryResponseArrayOutput
-	ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(context.Context) AppWhitelistingIssueSummaryResponseArrayOutput
+	ToAdaptiveApplicationControlIssueSummaryResponseArrayOutput() AdaptiveApplicationControlIssueSummaryResponseArrayOutput
+	ToAdaptiveApplicationControlIssueSummaryResponseArrayOutputWithContext(context.Context) AdaptiveApplicationControlIssueSummaryResponseArrayOutput
 }
 
-type AppWhitelistingIssueSummaryResponseArray []AppWhitelistingIssueSummaryResponseInput
+type AdaptiveApplicationControlIssueSummaryResponseArray []AdaptiveApplicationControlIssueSummaryResponseInput
 
-func (AppWhitelistingIssueSummaryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppWhitelistingIssueSummaryResponse)(nil)).Elem()
+func (AdaptiveApplicationControlIssueSummaryResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdaptiveApplicationControlIssueSummaryResponse)(nil)).Elem()
 }
 
-func (i AppWhitelistingIssueSummaryResponseArray) ToAppWhitelistingIssueSummaryResponseArrayOutput() AppWhitelistingIssueSummaryResponseArrayOutput {
-	return i.ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(context.Background())
+func (i AdaptiveApplicationControlIssueSummaryResponseArray) ToAdaptiveApplicationControlIssueSummaryResponseArrayOutput() AdaptiveApplicationControlIssueSummaryResponseArrayOutput {
+	return i.ToAdaptiveApplicationControlIssueSummaryResponseArrayOutputWithContext(context.Background())
 }
 
-func (i AppWhitelistingIssueSummaryResponseArray) ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssueSummaryResponseArrayOutput)
+func (i AdaptiveApplicationControlIssueSummaryResponseArray) ToAdaptiveApplicationControlIssueSummaryResponseArrayOutputWithContext(ctx context.Context) AdaptiveApplicationControlIssueSummaryResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdaptiveApplicationControlIssueSummaryResponseArrayOutput)
 }
 
-// Represents a summary of the alerts of the VM/server group
-type AppWhitelistingIssueSummaryResponseOutput struct{ *pulumi.OutputState }
+// Represents a summary of the alerts of the machine group
+type AdaptiveApplicationControlIssueSummaryResponseOutput struct{ *pulumi.OutputState }
 
-func (AppWhitelistingIssueSummaryResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppWhitelistingIssueSummaryResponse)(nil)).Elem()
+func (AdaptiveApplicationControlIssueSummaryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdaptiveApplicationControlIssueSummaryResponse)(nil)).Elem()
 }
 
-func (o AppWhitelistingIssueSummaryResponseOutput) ToAppWhitelistingIssueSummaryResponseOutput() AppWhitelistingIssueSummaryResponseOutput {
+func (o AdaptiveApplicationControlIssueSummaryResponseOutput) ToAdaptiveApplicationControlIssueSummaryResponseOutput() AdaptiveApplicationControlIssueSummaryResponseOutput {
 	return o
 }
 
-func (o AppWhitelistingIssueSummaryResponseOutput) ToAppWhitelistingIssueSummaryResponseOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseOutput {
+func (o AdaptiveApplicationControlIssueSummaryResponseOutput) ToAdaptiveApplicationControlIssueSummaryResponseOutputWithContext(ctx context.Context) AdaptiveApplicationControlIssueSummaryResponseOutput {
 	return o
 }
 
-// An alert that VMs/servers within a group can have
-func (o AppWhitelistingIssueSummaryResponseOutput) Issue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppWhitelistingIssueSummaryResponse) *string { return v.Issue }).(pulumi.StringPtrOutput)
+// An alert that machines within a group can have
+func (o AdaptiveApplicationControlIssueSummaryResponseOutput) Issue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdaptiveApplicationControlIssueSummaryResponse) *string { return v.Issue }).(pulumi.StringPtrOutput)
 }
 
-// The number of machines in the VM/server group that have this alert
-func (o AppWhitelistingIssueSummaryResponseOutput) NumberOfVms() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v AppWhitelistingIssueSummaryResponse) *float64 { return v.NumberOfVms }).(pulumi.Float64PtrOutput)
+// The number of machines in the group that have this alert
+func (o AdaptiveApplicationControlIssueSummaryResponseOutput) NumberOfVms() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AdaptiveApplicationControlIssueSummaryResponse) *float64 { return v.NumberOfVms }).(pulumi.Float64PtrOutput)
 }
 
-type AppWhitelistingIssueSummaryResponseArrayOutput struct{ *pulumi.OutputState }
+type AdaptiveApplicationControlIssueSummaryResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (AppWhitelistingIssueSummaryResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppWhitelistingIssueSummaryResponse)(nil)).Elem()
+func (AdaptiveApplicationControlIssueSummaryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdaptiveApplicationControlIssueSummaryResponse)(nil)).Elem()
 }
 
-func (o AppWhitelistingIssueSummaryResponseArrayOutput) ToAppWhitelistingIssueSummaryResponseArrayOutput() AppWhitelistingIssueSummaryResponseArrayOutput {
+func (o AdaptiveApplicationControlIssueSummaryResponseArrayOutput) ToAdaptiveApplicationControlIssueSummaryResponseArrayOutput() AdaptiveApplicationControlIssueSummaryResponseArrayOutput {
 	return o
 }
 
-func (o AppWhitelistingIssueSummaryResponseArrayOutput) ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseArrayOutput {
+func (o AdaptiveApplicationControlIssueSummaryResponseArrayOutput) ToAdaptiveApplicationControlIssueSummaryResponseArrayOutputWithContext(ctx context.Context) AdaptiveApplicationControlIssueSummaryResponseArrayOutput {
 	return o
 }
 
-func (o AppWhitelistingIssueSummaryResponseArrayOutput) Index(i pulumi.IntInput) AppWhitelistingIssueSummaryResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppWhitelistingIssueSummaryResponse {
-		return vs[0].([]AppWhitelistingIssueSummaryResponse)[vs[1].(int)]
-	}).(AppWhitelistingIssueSummaryResponseOutput)
+func (o AdaptiveApplicationControlIssueSummaryResponseArrayOutput) Index(i pulumi.IntInput) AdaptiveApplicationControlIssueSummaryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdaptiveApplicationControlIssueSummaryResponse {
+		return vs[0].([]AdaptiveApplicationControlIssueSummaryResponse)[vs[1].(int)]
+	}).(AdaptiveApplicationControlIssueSummaryResponseOutput)
 }
 
 // Links relevant to the assessment
@@ -1839,15 +1839,15 @@ func (o JitNetworkAccessRequestVirtualMachineResponseArrayOutput) Index(i pulumi
 
 // Represents a path that is recommended to be allowed and its properties
 type PathRecommendation struct {
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	Action *string `pulumi:"action"`
-	// Whether the path is commonly run on the machine
+	// Whether the application is commonly run on the machine
 	Common *bool `pulumi:"common"`
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus *string `pulumi:"configurationStatus"`
 	// The type of the file (for Linux files - Executable is used)
 	FileType *string `pulumi:"fileType"`
-	// The full path to whitelist
+	// The full path of the file, or an identifier of the application
 	Path *string `pulumi:"path"`
 	// Represents the publisher information of a process/rule
 	PublisherInfo *PublisherInfo `pulumi:"publisherInfo"`
@@ -1870,15 +1870,15 @@ type PathRecommendationInput interface {
 
 // Represents a path that is recommended to be allowed and its properties
 type PathRecommendationArgs struct {
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Whether the path is commonly run on the machine
+	// Whether the application is commonly run on the machine
 	Common pulumi.BoolPtrInput `pulumi:"common"`
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
 	// The type of the file (for Linux files - Executable is used)
 	FileType pulumi.StringPtrInput `pulumi:"fileType"`
-	// The full path to whitelist
+	// The full path of the file, or an identifier of the application
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Represents the publisher information of a process/rule
 	PublisherInfo PublisherInfoPtrInput `pulumi:"publisherInfo"`
@@ -1940,17 +1940,17 @@ func (o PathRecommendationOutput) ToPathRecommendationOutputWithContext(ctx cont
 	return o
 }
 
-// The recommendation action of the VM/server or rule
+// The recommendation action of the machine or rule
 func (o PathRecommendationOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Whether the path is commonly run on the machine
+// Whether the application is commonly run on the machine
 func (o PathRecommendationOutput) Common() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *bool { return v.Common }).(pulumi.BoolPtrOutput)
 }
 
-// The configuration status of the VM/server group or machine or rule on the machine
+// The configuration status of the machines group or machine or rule
 func (o PathRecommendationOutput) ConfigurationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
@@ -1960,7 +1960,7 @@ func (o PathRecommendationOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *string { return v.FileType }).(pulumi.StringPtrOutput)
 }
 
-// The full path to whitelist
+// The full path of the file, or an identifier of the application
 func (o PathRecommendationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -2005,15 +2005,15 @@ func (o PathRecommendationArrayOutput) Index(i pulumi.IntInput) PathRecommendati
 
 // Represents a path that is recommended to be allowed and its properties
 type PathRecommendationResponse struct {
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	Action *string `pulumi:"action"`
-	// Whether the path is commonly run on the machine
+	// Whether the application is commonly run on the machine
 	Common *bool `pulumi:"common"`
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus *string `pulumi:"configurationStatus"`
 	// The type of the file (for Linux files - Executable is used)
 	FileType *string `pulumi:"fileType"`
-	// The full path to whitelist
+	// The full path of the file, or an identifier of the application
 	Path *string `pulumi:"path"`
 	// Represents the publisher information of a process/rule
 	PublisherInfo *PublisherInfoResponse `pulumi:"publisherInfo"`
@@ -2036,15 +2036,15 @@ type PathRecommendationResponseInput interface {
 
 // Represents a path that is recommended to be allowed and its properties
 type PathRecommendationResponseArgs struct {
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Whether the path is commonly run on the machine
+	// Whether the application is commonly run on the machine
 	Common pulumi.BoolPtrInput `pulumi:"common"`
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
 	// The type of the file (for Linux files - Executable is used)
 	FileType pulumi.StringPtrInput `pulumi:"fileType"`
-	// The full path to whitelist
+	// The full path of the file, or an identifier of the application
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Represents the publisher information of a process/rule
 	PublisherInfo PublisherInfoResponsePtrInput `pulumi:"publisherInfo"`
@@ -2106,17 +2106,17 @@ func (o PathRecommendationResponseOutput) ToPathRecommendationResponseOutputWith
 	return o
 }
 
-// The recommendation action of the VM/server or rule
+// The recommendation action of the machine or rule
 func (o PathRecommendationResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Whether the path is commonly run on the machine
+// Whether the application is commonly run on the machine
 func (o PathRecommendationResponseOutput) Common() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *bool { return v.Common }).(pulumi.BoolPtrOutput)
 }
 
-// The configuration status of the VM/server group or machine or rule on the machine
+// The configuration status of the machines group or machine or rule
 func (o PathRecommendationResponseOutput) ConfigurationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
@@ -2126,7 +2126,7 @@ func (o PathRecommendationResponseOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.FileType }).(pulumi.StringPtrOutput)
 }
 
-// The full path to whitelist
+// The full path of the file, or an identifier of the application
 func (o PathRecommendationResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -2171,13 +2171,13 @@ func (o PathRecommendationResponseArrayOutput) Index(i pulumi.IntInput) PathReco
 
 // The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionMode struct {
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Exe *string `pulumi:"exe"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Executable *string `pulumi:"executable"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Msi *string `pulumi:"msi"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Script *string `pulumi:"script"`
 }
 
@@ -2194,13 +2194,13 @@ type ProtectionModeInput interface {
 
 // The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeArgs struct {
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Exe pulumi.StringPtrInput `pulumi:"exe"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Executable pulumi.StringPtrInput `pulumi:"executable"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Msi pulumi.StringPtrInput `pulumi:"msi"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Script pulumi.StringPtrInput `pulumi:"script"`
 }
 
@@ -2282,22 +2282,22 @@ func (o ProtectionModeOutput) ToProtectionModePtrOutputWithContext(ctx context.C
 	}).(ProtectionModePtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionMode) *string { return v.Exe }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeOutput) Executable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionMode) *string { return v.Executable }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeOutput) Msi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionMode) *string { return v.Msi }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionMode) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
@@ -2320,7 +2320,7 @@ func (o ProtectionModePtrOutput) Elem() ProtectionModeOutput {
 	return o.ApplyT(func(v *ProtectionMode) ProtectionMode { return *v }).(ProtectionModeOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModePtrOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionMode) *string {
 		if v == nil {
@@ -2330,7 +2330,7 @@ func (o ProtectionModePtrOutput) Exe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModePtrOutput) Executable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionMode) *string {
 		if v == nil {
@@ -2340,7 +2340,7 @@ func (o ProtectionModePtrOutput) Executable() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModePtrOutput) Msi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionMode) *string {
 		if v == nil {
@@ -2350,7 +2350,7 @@ func (o ProtectionModePtrOutput) Msi() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModePtrOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionMode) *string {
 		if v == nil {
@@ -2362,13 +2362,13 @@ func (o ProtectionModePtrOutput) Script() pulumi.StringPtrOutput {
 
 // The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeResponse struct {
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Exe *string `pulumi:"exe"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Executable *string `pulumi:"executable"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Msi *string `pulumi:"msi"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Script *string `pulumi:"script"`
 }
 
@@ -2385,13 +2385,13 @@ type ProtectionModeResponseInput interface {
 
 // The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeResponseArgs struct {
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Exe pulumi.StringPtrInput `pulumi:"exe"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Executable pulumi.StringPtrInput `pulumi:"executable"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Msi pulumi.StringPtrInput `pulumi:"msi"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	Script pulumi.StringPtrInput `pulumi:"script"`
 }
 
@@ -2473,22 +2473,22 @@ func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutputWithConte
 	}).(ProtectionModeResponsePtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeResponseOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Exe }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeResponseOutput) Executable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Executable }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeResponseOutput) Msi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Msi }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeResponseOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
@@ -2511,7 +2511,7 @@ func (o ProtectionModeResponsePtrOutput) Elem() ProtectionModeResponseOutput {
 	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse { return *v }).(ProtectionModeResponseOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeResponsePtrOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionModeResponse) *string {
 		if v == nil {
@@ -2521,7 +2521,7 @@ func (o ProtectionModeResponsePtrOutput) Exe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeResponsePtrOutput) Executable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionModeResponse) *string {
 		if v == nil {
@@ -2531,7 +2531,7 @@ func (o ProtectionModeResponsePtrOutput) Executable() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeResponsePtrOutput) Msi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionModeResponse) *string {
 		if v == nil {
@@ -2541,7 +2541,7 @@ func (o ProtectionModeResponsePtrOutput) Msi() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
+// The application control policy enforcement/protection mode of the machine group
 func (o ProtectionModeResponsePtrOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionModeResponse) *string {
 		if v == nil {
@@ -4512,7 +4512,7 @@ func (o SecurityAssessmentPartnerDataResponsePtrOutput) Secret() pulumi.StringPt
 
 // Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendation struct {
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	RecommendationAction *string `pulumi:"recommendationAction"`
 	// Represents a user that is recommended to be allowed for a certain rule
 	Username *string `pulumi:"username"`
@@ -4531,7 +4531,7 @@ type UserRecommendationInput interface {
 
 // Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationArgs struct {
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
 	// Represents a user that is recommended to be allowed for a certain rule
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -4589,7 +4589,7 @@ func (o UserRecommendationOutput) ToUserRecommendationOutputWithContext(ctx cont
 	return o
 }
 
-// The recommendation action of the VM/server or rule
+// The recommendation action of the machine or rule
 func (o UserRecommendationOutput) RecommendationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserRecommendation) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
@@ -4621,7 +4621,7 @@ func (o UserRecommendationArrayOutput) Index(i pulumi.IntInput) UserRecommendati
 
 // Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationResponse struct {
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	RecommendationAction *string `pulumi:"recommendationAction"`
 	// Represents a user that is recommended to be allowed for a certain rule
 	Username *string `pulumi:"username"`
@@ -4640,7 +4640,7 @@ type UserRecommendationResponseInput interface {
 
 // Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationResponseArgs struct {
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
 	// Represents a user that is recommended to be allowed for a certain rule
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -4698,7 +4698,7 @@ func (o UserRecommendationResponseOutput) ToUserRecommendationResponseOutputWith
 	return o
 }
 
-// The recommendation action of the VM/server or rule
+// The recommendation action of the machine or rule
 func (o UserRecommendationResponseOutput) RecommendationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserRecommendationResponse) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
@@ -4728,15 +4728,15 @@ func (o UserRecommendationResponseArrayOutput) Index(i pulumi.IntInput) UserReco
 	}).(UserRecommendationResponseOutput)
 }
 
-// Represents a machine that is part of a VM/server group
+// Represents a machine that is part of a machine group
 type VmRecommendation struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus *string `pulumi:"configurationStatus"`
-	// The VM/server supportability of Enforce feature
+	// The machine supportability of Enforce feature
 	EnforcementSupport *string `pulumi:"enforcementSupport"`
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	RecommendationAction *string `pulumi:"recommendationAction"`
-	// The full azure resource id of the machine
+	// The full resource id of the machine
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -4751,15 +4751,15 @@ type VmRecommendationInput interface {
 	ToVmRecommendationOutputWithContext(context.Context) VmRecommendationOutput
 }
 
-// Represents a machine that is part of a VM/server group
+// Represents a machine that is part of a machine group
 type VmRecommendationArgs struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
-	// The VM/server supportability of Enforce feature
+	// The machine supportability of Enforce feature
 	EnforcementSupport pulumi.StringPtrInput `pulumi:"enforcementSupport"`
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
-	// The full azure resource id of the machine
+	// The full resource id of the machine
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
@@ -4800,7 +4800,7 @@ func (i VmRecommendationArray) ToVmRecommendationArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationArrayOutput)
 }
 
-// Represents a machine that is part of a VM/server group
+// Represents a machine that is part of a machine group
 type VmRecommendationOutput struct{ *pulumi.OutputState }
 
 func (VmRecommendationOutput) ElementType() reflect.Type {
@@ -4815,22 +4815,22 @@ func (o VmRecommendationOutput) ToVmRecommendationOutputWithContext(ctx context.
 	return o
 }
 
-// The configuration status of the VM/server group or machine or rule on the machine
+// The configuration status of the machines group or machine or rule
 func (o VmRecommendationOutput) ConfigurationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendation) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
-// The VM/server supportability of Enforce feature
+// The machine supportability of Enforce feature
 func (o VmRecommendationOutput) EnforcementSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendation) *string { return v.EnforcementSupport }).(pulumi.StringPtrOutput)
 }
 
-// The recommendation action of the VM/server or rule
+// The recommendation action of the machine or rule
 func (o VmRecommendationOutput) RecommendationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendation) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
 
-// The full azure resource id of the machine
+// The full resource id of the machine
 func (o VmRecommendationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendation) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -4855,15 +4855,15 @@ func (o VmRecommendationArrayOutput) Index(i pulumi.IntInput) VmRecommendationOu
 	}).(VmRecommendationOutput)
 }
 
-// Represents a machine that is part of a VM/server group
+// Represents a machine that is part of a machine group
 type VmRecommendationResponse struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus *string `pulumi:"configurationStatus"`
-	// The VM/server supportability of Enforce feature
+	// The machine supportability of Enforce feature
 	EnforcementSupport *string `pulumi:"enforcementSupport"`
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	RecommendationAction *string `pulumi:"recommendationAction"`
-	// The full azure resource id of the machine
+	// The full resource id of the machine
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -4878,15 +4878,15 @@ type VmRecommendationResponseInput interface {
 	ToVmRecommendationResponseOutputWithContext(context.Context) VmRecommendationResponseOutput
 }
 
-// Represents a machine that is part of a VM/server group
+// Represents a machine that is part of a machine group
 type VmRecommendationResponseArgs struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
-	// The VM/server supportability of Enforce feature
+	// The machine supportability of Enforce feature
 	EnforcementSupport pulumi.StringPtrInput `pulumi:"enforcementSupport"`
-	// The recommendation action of the VM/server or rule
+	// The recommendation action of the machine or rule
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
-	// The full azure resource id of the machine
+	// The full resource id of the machine
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
@@ -4927,7 +4927,7 @@ func (i VmRecommendationResponseArray) ToVmRecommendationResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationResponseArrayOutput)
 }
 
-// Represents a machine that is part of a VM/server group
+// Represents a machine that is part of a machine group
 type VmRecommendationResponseOutput struct{ *pulumi.OutputState }
 
 func (VmRecommendationResponseOutput) ElementType() reflect.Type {
@@ -4942,22 +4942,22 @@ func (o VmRecommendationResponseOutput) ToVmRecommendationResponseOutputWithCont
 	return o
 }
 
-// The configuration status of the VM/server group or machine or rule on the machine
+// The configuration status of the machines group or machine or rule
 func (o VmRecommendationResponseOutput) ConfigurationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
-// The VM/server supportability of Enforce feature
+// The machine supportability of Enforce feature
 func (o VmRecommendationResponseOutput) EnforcementSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.EnforcementSupport }).(pulumi.StringPtrOutput)
 }
 
-// The recommendation action of the VM/server or rule
+// The recommendation action of the machine or rule
 func (o VmRecommendationResponseOutput) RecommendationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
 
-// The full azure resource id of the machine
+// The full resource id of the machine
 func (o VmRecommendationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -4983,8 +4983,8 @@ func (o VmRecommendationResponseArrayOutput) Index(i pulumi.IntInput) VmRecommen
 }
 
 func init() {
-	pulumi.RegisterOutputType(AppWhitelistingIssueSummaryResponseOutput{})
-	pulumi.RegisterOutputType(AppWhitelistingIssueSummaryResponseArrayOutput{})
+	pulumi.RegisterOutputType(AdaptiveApplicationControlIssueSummaryResponseOutput{})
+	pulumi.RegisterOutputType(AdaptiveApplicationControlIssueSummaryResponseArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentLinksResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentLinksResponsePtrOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusOutput{})

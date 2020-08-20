@@ -45,6 +45,12 @@ func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualHubBgpConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20200601:VirtualHubBgpConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualHubBgpConnection
 	err := ctx.RegisterResource("azurerm:network/v20200501:VirtualHubBgpConnection", name, args, &resource, opts...)
 	if err != nil {

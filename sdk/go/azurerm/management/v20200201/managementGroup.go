@@ -45,6 +45,9 @@ func NewManagementGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:management/v20191101:ManagementGroup"),
 		},
+		{
+			Type: pulumi.String("azurerm:management/v20200501:ManagementGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementGroup

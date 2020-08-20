@@ -62,6 +62,9 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20181101:WebAppVnetConnection"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppVnetConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppVnetConnection

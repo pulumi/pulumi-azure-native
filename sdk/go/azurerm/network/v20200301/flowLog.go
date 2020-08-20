@@ -76,6 +76,9 @@ func NewFlowLog(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:FlowLog"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:FlowLog"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FlowLog

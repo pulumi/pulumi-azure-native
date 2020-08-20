@@ -35,6 +35,12 @@ func NewHierarchySetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &HierarchySettingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:management/v20200501:HierarchySetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HierarchySetting
 	err := ctx.RegisterResource("azurerm:management/v20200201:HierarchySetting", name, args, &resource, opts...)
 	if err != nil {

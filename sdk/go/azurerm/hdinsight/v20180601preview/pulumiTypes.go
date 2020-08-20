@@ -5111,6 +5111,8 @@ func (o DataDisksGroupsResponseArrayOutput) Index(i pulumi.IntInput) DataDisksGr
 type DiskEncryptionProperties struct {
 	// Algorithm identifier for encryption, default RSA-OAEP.
 	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
+	// Indicates whether or not resource disk encryption is enabled.
+	EncryptionAtHost *bool `pulumi:"encryptionAtHost"`
 	// Key name that is used for enabling disk encryption.
 	KeyName *string `pulumi:"keyName"`
 	// Specific key version that is used for enabling disk encryption.
@@ -5136,6 +5138,8 @@ type DiskEncryptionPropertiesInput interface {
 type DiskEncryptionPropertiesArgs struct {
 	// Algorithm identifier for encryption, default RSA-OAEP.
 	EncryptionAlgorithm pulumi.StringPtrInput `pulumi:"encryptionAlgorithm"`
+	// Indicates whether or not resource disk encryption is enabled.
+	EncryptionAtHost pulumi.BoolPtrInput `pulumi:"encryptionAtHost"`
 	// Key name that is used for enabling disk encryption.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// Specific key version that is used for enabling disk encryption.
@@ -5229,6 +5233,11 @@ func (o DiskEncryptionPropertiesOutput) EncryptionAlgorithm() pulumi.StringPtrOu
 	return o.ApplyT(func(v DiskEncryptionProperties) *string { return v.EncryptionAlgorithm }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether or not resource disk encryption is enabled.
+func (o DiskEncryptionPropertiesOutput) EncryptionAtHost() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DiskEncryptionProperties) *bool { return v.EncryptionAtHost }).(pulumi.BoolPtrOutput)
+}
+
 // Key name that is used for enabling disk encryption.
 func (o DiskEncryptionPropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
@@ -5277,6 +5286,16 @@ func (o DiskEncryptionPropertiesPtrOutput) EncryptionAlgorithm() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether or not resource disk encryption is enabled.
+func (o DiskEncryptionPropertiesPtrOutput) EncryptionAtHost() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DiskEncryptionProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAtHost
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Key name that is used for enabling disk encryption.
 func (o DiskEncryptionPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionProperties) *string {
@@ -5321,6 +5340,8 @@ func (o DiskEncryptionPropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 type DiskEncryptionPropertiesResponse struct {
 	// Algorithm identifier for encryption, default RSA-OAEP.
 	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
+	// Indicates whether or not resource disk encryption is enabled.
+	EncryptionAtHost *bool `pulumi:"encryptionAtHost"`
 	// Key name that is used for enabling disk encryption.
 	KeyName *string `pulumi:"keyName"`
 	// Specific key version that is used for enabling disk encryption.
@@ -5346,6 +5367,8 @@ type DiskEncryptionPropertiesResponseInput interface {
 type DiskEncryptionPropertiesResponseArgs struct {
 	// Algorithm identifier for encryption, default RSA-OAEP.
 	EncryptionAlgorithm pulumi.StringPtrInput `pulumi:"encryptionAlgorithm"`
+	// Indicates whether or not resource disk encryption is enabled.
+	EncryptionAtHost pulumi.BoolPtrInput `pulumi:"encryptionAtHost"`
 	// Key name that is used for enabling disk encryption.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// Specific key version that is used for enabling disk encryption.
@@ -5439,6 +5462,11 @@ func (o DiskEncryptionPropertiesResponseOutput) EncryptionAlgorithm() pulumi.Str
 	return o.ApplyT(func(v DiskEncryptionPropertiesResponse) *string { return v.EncryptionAlgorithm }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether or not resource disk encryption is enabled.
+func (o DiskEncryptionPropertiesResponseOutput) EncryptionAtHost() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DiskEncryptionPropertiesResponse) *bool { return v.EncryptionAtHost }).(pulumi.BoolPtrOutput)
+}
+
 // Key name that is used for enabling disk encryption.
 func (o DiskEncryptionPropertiesResponseOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionPropertiesResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
@@ -5485,6 +5513,16 @@ func (o DiskEncryptionPropertiesResponsePtrOutput) EncryptionAlgorithm() pulumi.
 		}
 		return v.EncryptionAlgorithm
 	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether or not resource disk encryption is enabled.
+func (o DiskEncryptionPropertiesResponsePtrOutput) EncryptionAtHost() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DiskEncryptionPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAtHost
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Key name that is used for enabling disk encryption.

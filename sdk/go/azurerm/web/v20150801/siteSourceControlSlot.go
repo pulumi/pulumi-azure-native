@@ -64,6 +64,9 @@ func NewSiteSourceControlSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:SiteSourceControlSlot"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:SiteSourceControlSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteSourceControlSlot

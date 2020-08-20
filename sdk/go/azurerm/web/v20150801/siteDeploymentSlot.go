@@ -75,6 +75,9 @@ func NewSiteDeploymentSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:SiteDeploymentSlot"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:SiteDeploymentSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteDeploymentSlot

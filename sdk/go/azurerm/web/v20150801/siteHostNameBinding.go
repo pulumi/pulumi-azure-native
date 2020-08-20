@@ -66,6 +66,9 @@ func NewSiteHostNameBinding(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:SiteHostNameBinding"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:SiteHostNameBinding"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteHostNameBinding

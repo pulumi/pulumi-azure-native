@@ -64,6 +64,9 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20181101:WebAppPremierAddOn"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppPremierAddOn"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPremierAddOn

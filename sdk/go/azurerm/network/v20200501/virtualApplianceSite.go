@@ -43,6 +43,12 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualApplianceSiteArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20200601:VirtualApplianceSite"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualApplianceSite
 	err := ctx.RegisterResource("azurerm:network/v20200501:VirtualApplianceSite", name, args, &resource, opts...)
 	if err != nil {
