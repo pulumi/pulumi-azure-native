@@ -65,6 +65,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                 {
                     new Alias { Type = "azurerm:network/v20200301:PrivateDnsZoneGroup"},
                     new Alias { Type = "azurerm:network/v20200501:PrivateDnsZoneGroup"},
+                    new Alias { Type = "azurerm:network/v20200601:PrivateDnsZoneGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

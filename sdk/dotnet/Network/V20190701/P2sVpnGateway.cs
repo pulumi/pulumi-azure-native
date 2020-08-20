@@ -125,6 +125,7 @@ namespace Pulumi.AzureRM.Network.V20190701
                     new Alias { Type = "azurerm:network/v20200301:P2sVpnGateway"},
                     new Alias { Type = "azurerm:network/v20200401:P2sVpnGateway"},
                     new Alias { Type = "azurerm:network/v20200501:P2sVpnGateway"},
+                    new Alias { Type = "azurerm:network/v20200601:P2sVpnGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

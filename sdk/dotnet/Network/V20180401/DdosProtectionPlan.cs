@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Network.V20180401
                     new Alias { Type = "azurerm:network/v20200301:DdosProtectionPlan"},
                     new Alias { Type = "azurerm:network/v20200401:DdosProtectionPlan"},
                     new Alias { Type = "azurerm:network/v20200501:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20200601:DdosProtectionPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

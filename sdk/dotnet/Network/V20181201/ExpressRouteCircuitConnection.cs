@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Network.V20181201
                     new Alias { Type = "azurerm:network/v20200301:ExpressRouteCircuitConnection"},
                     new Alias { Type = "azurerm:network/v20200401:ExpressRouteCircuitConnection"},
                     new Alias { Type = "azurerm:network/v20200501:ExpressRouteCircuitConnection"},
+                    new Alias { Type = "azurerm:network/v20200601:ExpressRouteCircuitConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200101
         public Output<string?> DnsPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+        /// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         /// </summary>
         [Output("enablePodSecurityPolicy")]
         public Output<bool?> EnablePodSecurityPolicy { get; private set; } = null!;
@@ -195,6 +195,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200101
                     new Alias { Type = "azurerm:containerservice/v20200301:ManagedCluster"},
                     new Alias { Type = "azurerm:containerservice/v20200401:ManagedCluster"},
                     new Alias { Type = "azurerm:containerservice/v20200601:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20200701:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -267,7 +268,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200101
         public Input<string>? DnsPrefix { get; set; }
 
         /// <summary>
-        /// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+        /// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         /// </summary>
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }

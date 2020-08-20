@@ -83,6 +83,7 @@ namespace Pulumi.AzureRM.Network.V20191201
                     new Alias { Type = "azurerm:network/v20200301:NetworkInterfaceTapConfiguration"},
                     new Alias { Type = "azurerm:network/v20200401:NetworkInterfaceTapConfiguration"},
                     new Alias { Type = "azurerm:network/v20200501:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20200601:NetworkInterfaceTapConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

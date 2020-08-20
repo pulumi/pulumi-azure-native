@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.Devices.V20200401
                 Aliases =
                 {
                     new Alias { Type = "azurerm:devices/v20200301:PrivateEndpointConnection"},
+                    new Alias { Type = "azurerm:devices/v20200615:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

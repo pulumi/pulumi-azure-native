@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Resources.V20200601.Outputs
     public sealed class AliasResponseResult
     {
         /// <summary>
+        /// The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
+        /// </summary>
+        public readonly Outputs.AliasPathMetadataResponseResult DefaultMetadata;
+        /// <summary>
         /// The default path for an alias.
         /// </summary>
         public readonly string? DefaultPath;
@@ -36,6 +40,8 @@ namespace Pulumi.AzureRM.Resources.V20200601.Outputs
 
         [OutputConstructor]
         private AliasResponseResult(
+            Outputs.AliasPathMetadataResponseResult defaultMetadata,
+
             string? defaultPath,
 
             Outputs.AliasPatternResponseResult? defaultPattern,
@@ -46,6 +52,7 @@ namespace Pulumi.AzureRM.Resources.V20200601.Outputs
 
             string? type)
         {
+            DefaultMetadata = defaultMetadata;
             DefaultPath = defaultPath;
             DefaultPattern = defaultPattern;
             Name = name;

@@ -39,12 +39,6 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         public Output<int?> HttpsPort { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
@@ -73,12 +67,6 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// </summary>
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -180,12 +168,6 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
         /// Name of the origin that is unique within the endpoint.
         /// </summary>
         [Input("name", required: true)]
@@ -214,18 +196,6 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000

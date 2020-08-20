@@ -193,6 +193,7 @@ namespace Pulumi.AzureRM.Web.V20190801
                     new Alias { Type = "azurerm:web/v20150801:AppServicePlan"},
                     new Alias { Type = "azurerm:web/v20160901:AppServicePlan"},
                     new Alias { Type = "azurerm:web/v20180201:AppServicePlan"},
+                    new Alias { Type = "azurerm:web/v20200601:AppServicePlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

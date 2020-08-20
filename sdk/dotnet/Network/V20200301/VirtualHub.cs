@@ -164,6 +164,7 @@ namespace Pulumi.AzureRM.Network.V20200301
                     new Alias { Type = "azurerm:network/v20191201:VirtualHub"},
                     new Alias { Type = "azurerm:network/v20200401:VirtualHub"},
                     new Alias { Type = "azurerm:network/v20200501:VirtualHub"},
+                    new Alias { Type = "azurerm:network/v20200601:VirtualHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

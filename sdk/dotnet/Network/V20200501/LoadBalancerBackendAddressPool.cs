@@ -117,6 +117,7 @@ namespace Pulumi.AzureRM.Network.V20200501
                     new Alias { Type = "azurerm:network/v20191201:LoadBalancerBackendAddressPool"},
                     new Alias { Type = "azurerm:network/v20200301:LoadBalancerBackendAddressPool"},
                     new Alias { Type = "azurerm:network/v20200401:LoadBalancerBackendAddressPool"},
+                    new Alias { Type = "azurerm:network/v20200601:LoadBalancerBackendAddressPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

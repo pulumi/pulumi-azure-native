@@ -121,6 +121,7 @@ namespace Pulumi.AzureRM.Network.V20191101
                     new Alias { Type = "azurerm:network/v20200301:FlowLog"},
                     new Alias { Type = "azurerm:network/v20200401:FlowLog"},
                     new Alias { Type = "azurerm:network/v20200501:FlowLog"},
+                    new Alias { Type = "azurerm:network/v20200601:FlowLog"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

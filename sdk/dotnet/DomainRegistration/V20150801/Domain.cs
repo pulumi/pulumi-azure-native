@@ -168,6 +168,7 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
                     new Alias { Type = "azurerm:domainregistration/v20150401:Domain"},
                     new Alias { Type = "azurerm:domainregistration/v20180201:Domain"},
                     new Alias { Type = "azurerm:domainregistration/v20190801:Domain"},
+                    new Alias { Type = "azurerm:domainregistration/v20200601:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -123,6 +123,7 @@ namespace Pulumi.AzureRM.Network.V20180601
                     new Alias { Type = "azurerm:network/v20200301:RouteTable"},
                     new Alias { Type = "azurerm:network/v20200401:RouteTable"},
                     new Alias { Type = "azurerm:network/v20200501:RouteTable"},
+                    new Alias { Type = "azurerm:network/v20200601:RouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

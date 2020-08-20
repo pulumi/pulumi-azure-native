@@ -92,6 +92,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:IpGroup"},
                     new Alias { Type = "azurerm:network/v20200301:IpGroup"},
                     new Alias { Type = "azurerm:network/v20200501:IpGroup"},
+                    new Alias { Type = "azurerm:network/v20200601:IpGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

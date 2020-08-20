@@ -165,6 +165,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:VirtualNetwork"},
                     new Alias { Type = "azurerm:network/v20200301:VirtualNetwork"},
                     new Alias { Type = "azurerm:network/v20200501:VirtualNetwork"},
+                    new Alias { Type = "azurerm:network/v20200601:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

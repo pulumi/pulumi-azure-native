@@ -153,6 +153,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:VpnServerConfiguration"},
                     new Alias { Type = "azurerm:network/v20200301:VpnServerConfiguration"},
                     new Alias { Type = "azurerm:network/v20200501:VpnServerConfiguration"},
+                    new Alias { Type = "azurerm:network/v20200601:VpnServerConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

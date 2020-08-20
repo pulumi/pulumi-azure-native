@@ -120,6 +120,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:PacketCapture"},
                     new Alias { Type = "azurerm:network/v20200301:PacketCapture"},
                     new Alias { Type = "azurerm:network/v20200501:PacketCapture"},
+                    new Alias { Type = "azurerm:network/v20200601:PacketCapture"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

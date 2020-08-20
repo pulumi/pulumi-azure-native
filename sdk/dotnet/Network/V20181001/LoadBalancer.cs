@@ -159,6 +159,7 @@ namespace Pulumi.AzureRM.Network.V20181001
                     new Alias { Type = "azurerm:network/v20200301:LoadBalancer"},
                     new Alias { Type = "azurerm:network/v20200401:LoadBalancer"},
                     new Alias { Type = "azurerm:network/v20200501:LoadBalancer"},
+                    new Alias { Type = "azurerm:network/v20200601:LoadBalancer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

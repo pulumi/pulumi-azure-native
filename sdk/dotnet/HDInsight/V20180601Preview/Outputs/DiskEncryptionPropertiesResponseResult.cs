@@ -18,6 +18,10 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly string? EncryptionAlgorithm;
         /// <summary>
+        /// Indicates whether or not resource disk encryption is enabled.
+        /// </summary>
+        public readonly bool? EncryptionAtHost;
+        /// <summary>
         /// Key name that is used for enabling disk encryption.
         /// </summary>
         public readonly string? KeyName;
@@ -38,6 +42,8 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Outputs
         private DiskEncryptionPropertiesResponseResult(
             string? encryptionAlgorithm,
 
+            bool? encryptionAtHost,
+
             string? keyName,
 
             string? keyVersion,
@@ -47,6 +53,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Outputs
             string? vaultUri)
         {
             EncryptionAlgorithm = encryptionAlgorithm;
+            EncryptionAtHost = encryptionAtHost;
             KeyName = keyName;
             KeyVersion = keyVersion;
             MsiResourceId = msiResourceId;

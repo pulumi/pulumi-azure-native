@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Inputs
     public sealed class WorkspaceCustomParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+        /// </summary>
+        [Input("amlWorkspaceId")]
+        public Input<Inputs.WorkspaceCustomStringParameterArgs>? AmlWorkspaceId { get; set; }
+
+        /// <summary>
         /// The name of the Private Subnet within the Virtual Network
         /// </summary>
         [Input("customPrivateSubnetName")]
@@ -50,6 +56,12 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Inputs
         /// </summary>
         [Input("prepareEncryption")]
         public Input<Inputs.WorkspaceCustomBooleanParameterArgs>? PrepareEncryption { get; set; }
+
+        /// <summary>
+        /// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        /// </summary>
+        [Input("requireInfrastructureEncryption")]
+        public Input<Inputs.WorkspaceCustomBooleanParameterArgs>? RequireInfrastructureEncryption { get; set; }
 
         public WorkspaceCustomParametersArgs()
         {

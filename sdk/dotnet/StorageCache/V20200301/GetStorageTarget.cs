@@ -68,11 +68,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <summary>
         /// Type of the Storage Target.
         /// </summary>
-        public readonly string TargetBaseType;
-        /// <summary>
-        /// Type of the Storage Target.
-        /// </summary>
-        public readonly string? TargetType;
+        public readonly string TargetType;
         /// <summary>
         /// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
         /// </summary>
@@ -94,9 +90,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
 
             string? provisioningState,
 
-            string targetBaseType,
-
-            string? targetType,
+            string targetType,
 
             string type,
 
@@ -107,7 +101,6 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
             Name = name;
             Nfs3 = nfs3;
             ProvisioningState = provisioningState;
-            TargetBaseType = targetBaseType;
             TargetType = targetType;
             Type = type;
             Unknown = unknown;

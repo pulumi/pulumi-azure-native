@@ -110,6 +110,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                     new Alias { Type = "azurerm:web/v20180201:SiteVNETConnection"},
                     new Alias { Type = "azurerm:web/v20181101:SiteVNETConnection"},
                     new Alias { Type = "azurerm:web/v20190801:SiteVNETConnection"},
+                    new Alias { Type = "azurerm:web/v20200601:SiteVNETConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

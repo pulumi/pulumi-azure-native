@@ -231,6 +231,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:VirtualNetworkGatewayConnection"},
                     new Alias { Type = "azurerm:network/v20200301:VirtualNetworkGatewayConnection"},
                     new Alias { Type = "azurerm:network/v20200501:VirtualNetworkGatewayConnection"},
+                    new Alias { Type = "azurerm:network/v20200601:VirtualNetworkGatewayConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

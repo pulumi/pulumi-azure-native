@@ -102,6 +102,7 @@ namespace Pulumi.AzureRM.Network.V20180701
                     new Alias { Type = "azurerm:network/v20200301:NetworkWatcher"},
                     new Alias { Type = "azurerm:network/v20200401:NetworkWatcher"},
                     new Alias { Type = "azurerm:network/v20200501:NetworkWatcher"},
+                    new Alias { Type = "azurerm:network/v20200601:NetworkWatcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -117,6 +117,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
                     new Alias { Type = "azurerm:containerservice/v20200301:ManagedCluster"},
                     new Alias { Type = "azurerm:containerservice/v20200401:ManagedCluster"},
                     new Alias { Type = "azurerm:containerservice/v20200601:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20200701:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -278,6 +278,7 @@ namespace Pulumi.AzureRM.Web.V20160901
                     new Alias { Type = "azurerm:web/v20150801:AppServiceEnvironment"},
                     new Alias { Type = "azurerm:web/v20180201:AppServiceEnvironment"},
                     new Alias { Type = "azurerm:web/v20190801:AppServiceEnvironment"},
+                    new Alias { Type = "azurerm:web/v20200601:AppServiceEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

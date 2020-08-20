@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Inputs
     public sealed class UserRecommendationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The recommendation action of the VM/server or rule
+        /// The recommendation action of the machine or rule
         /// </summary>
         [Input("recommendationAction")]
         public Input<string>? RecommendationAction { get; set; }

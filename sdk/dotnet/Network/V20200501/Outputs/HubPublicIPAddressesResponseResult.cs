@@ -14,11 +14,11 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
     public sealed class HubPublicIPAddressesResponseResult
     {
         /// <summary>
-        /// The number of Public IP addresses associated with azure firewall.
+        /// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureFirewallPublicIPAddressResponseResult> Addresses;
         /// <summary>
-        /// Private IP Address associated with azure firewall.
+        /// The number of Public IP addresses associated with azure firewall.
         /// </summary>
         public readonly int? Count;
 

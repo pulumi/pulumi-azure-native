@@ -55,10 +55,22 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public string? EndTime { get; set; }
 
         /// <summary>
+        /// Filters the results using OData syntax.
+        /// </summary>
+        [Input("filter")]
+        public string? Filter { get; set; }
+
+        /// <summary>
         /// message of synchronization
         /// </summary>
         [Input("message")]
         public string? Message { get; set; }
+
+        /// <summary>
+        /// Sorts the results using OData syntax.
+        /// </summary>
+        [Input("orderby")]
+        public string? Orderby { get; set; }
 
         /// <summary>
         /// The resource group name.

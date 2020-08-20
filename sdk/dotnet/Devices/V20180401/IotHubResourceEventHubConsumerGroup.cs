@@ -71,6 +71,7 @@ namespace Pulumi.AzureRM.Devices.V20180401
                     new Alias { Type = "azurerm:devices/v20191104:IotHubResourceEventHubConsumerGroup"},
                     new Alias { Type = "azurerm:devices/v20200301:IotHubResourceEventHubConsumerGroup"},
                     new Alias { Type = "azurerm:devices/v20200401:IotHubResourceEventHubConsumerGroup"},
+                    new Alias { Type = "azurerm:devices/v20200615:IotHubResourceEventHubConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

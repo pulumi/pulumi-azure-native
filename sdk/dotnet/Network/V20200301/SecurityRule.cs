@@ -177,6 +177,7 @@ namespace Pulumi.AzureRM.Network.V20200301
                     new Alias { Type = "azurerm:network/v20191201:SecurityRule"},
                     new Alias { Type = "azurerm:network/v20200401:SecurityRule"},
                     new Alias { Type = "azurerm:network/v20200501:SecurityRule"},
+                    new Alias { Type = "azurerm:network/v20200601:SecurityRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -25,6 +25,10 @@ namespace Pulumi.AzureRM.HybridCompute.V20200625.Outputs
         /// Compliance reason and reason code for a resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.AssignmentReportResourceComplianceReasonResponseResult> Reasons;
+        /// <summary>
+        /// Name of the guest configuration assignment resource setting.
+        /// </summary>
+        public readonly string ResourceId;
 
         [OutputConstructor]
         private AssignmentReportResourceResponseResult(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureRM.HybridCompute.V20200625.Outputs
 
             ImmutableDictionary<string, object> properties,
 
-            ImmutableArray<Outputs.AssignmentReportResourceComplianceReasonResponseResult> reasons)
+            ImmutableArray<Outputs.AssignmentReportResourceComplianceReasonResponseResult> reasons,
+
+            string resourceId)
         {
             ComplianceStatus = complianceStatus;
             Properties = properties;
             Reasons = reasons;
+            ResourceId = resourceId;
         }
     }
 }

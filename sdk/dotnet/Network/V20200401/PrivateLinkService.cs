@@ -138,6 +138,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:PrivateLinkService"},
                     new Alias { Type = "azurerm:network/v20200301:PrivateLinkService"},
                     new Alias { Type = "azurerm:network/v20200501:PrivateLinkService"},
+                    new Alias { Type = "azurerm:network/v20200601:PrivateLinkService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

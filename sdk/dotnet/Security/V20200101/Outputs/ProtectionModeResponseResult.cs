@@ -14,19 +14,19 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
     public sealed class ProtectionModeResponseResult
     {
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         public readonly string? Exe;
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         public readonly string? Executable;
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         public readonly string? Msi;
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         public readonly string? Script;
 

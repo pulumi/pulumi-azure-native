@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
         private InputList<Inputs.AzureFirewallPublicIPAddressArgs>? _addresses;
 
         /// <summary>
-        /// The number of Public IP addresses associated with azure firewall.
+        /// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
         /// </summary>
         public InputList<Inputs.AzureFirewallPublicIPAddressArgs> Addresses
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
         }
 
         /// <summary>
-        /// Private IP Address associated with azure firewall.
+        /// The number of Public IP addresses associated with azure firewall.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }

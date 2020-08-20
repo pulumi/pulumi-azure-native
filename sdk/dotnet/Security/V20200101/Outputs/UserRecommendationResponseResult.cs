@@ -14,7 +14,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
     public sealed class UserRecommendationResponseResult
     {
         /// <summary>
-        /// The recommendation action of the VM/server or rule
+        /// The recommendation action of the machine or rule
         /// </summary>
         public readonly string? RecommendationAction;
         /// <summary>

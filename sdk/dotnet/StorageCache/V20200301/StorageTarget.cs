@@ -47,14 +47,8 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <summary>
         /// Type of the Storage Target.
         /// </summary>
-        [Output("targetBaseType")]
-        public Output<string> TargetBaseType { get; private set; } = null!;
-
-        /// <summary>
-        /// Type of the Storage Target.
-        /// </summary>
         [Output("targetType")]
-        public Output<string?> TargetType { get; private set; } = null!;
+        public Output<string> TargetType { get; private set; } = null!;
 
         /// <summary>
         /// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
@@ -168,14 +162,8 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <summary>
         /// Type of the Storage Target.
         /// </summary>
-        [Input("targetBaseType", required: true)]
-        public Input<string> TargetBaseType { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the Storage Target.
-        /// </summary>
-        [Input("targetType")]
-        public Input<string>? TargetType { get; set; }
+        [Input("targetType", required: true)]
+        public Input<string> TargetType { get; set; } = null!;
 
         /// <summary>
         /// Properties when targetType is unknown.
