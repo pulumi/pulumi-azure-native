@@ -15,8 +15,8 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-azurerm/pkg/provider"
-	"github.com/pulumi/pulumi-azurerm/pkg/version"
+	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azurerm/provider/pkg/version"
 )
 
 var providerName = "azurerm"

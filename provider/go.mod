@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-azurerm
+module github.com/pulumi/pulumi-azurerm/provider
 
 go 1.13
 

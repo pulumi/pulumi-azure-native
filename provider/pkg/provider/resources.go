@@ -15,11 +15,12 @@
 package provider
 
 import (
-	"github.com/gedex/inflector"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/gedex/inflector"
 )
 
 // AzureApiParameter represents a parameter of a Azure REST API endpoint.

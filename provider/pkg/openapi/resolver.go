@@ -16,10 +16,11 @@ package openapi
 
 import (
 	"fmt"
+	"net/url"
+
 	"github.com/go-openapi/spec"
 	"github.com/go-openapi/swag"
 	"github.com/pkg/errors"
-	"net/url"
 )
 
 // ReferenceContext contains a pointer to a swagger schema and can navigate references from that schema.
@@ -117,7 +118,7 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 }
 
 // MergeParameters combines the Path Item parameters with Operation parameters.
-func (ctx *ReferenceContext) MergeParameters (operation []spec.Parameter, pathItem []spec.Parameter) []spec.Parameter {
+func (ctx *ReferenceContext) MergeParameters(operation []spec.Parameter, pathItem []spec.Parameter) []spec.Parameter {
 	// Open API spec for operations:
 	// > If a parameter is already defined at the Path Item, the new definition will override it.
 	// > A unique parameter is defined by a combination of a name and location.
@@ -179,6 +180,7 @@ func (ctx *ReferenceContext) resolveReference(ref spec.Ref) (*reference, bool, e
 
 // Cache of parsed Swagger specifications for a location.
 var specCache map[string]*spec.Swagger
+
 func init() {
 	specCache = map[string]*spec.Swagger{}
 }
