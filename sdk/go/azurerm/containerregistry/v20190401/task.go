@@ -69,6 +69,12 @@ func NewTask(ctx *pulumi.Context,
 	if args == nil {
 		args = &TaskArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20180901:Task"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Task
 	err := ctx.RegisterResource("azurerm:containerregistry/v20190401:Task", name, args, &resource, opts...)
 	if err != nil {

@@ -206,6 +206,8 @@ export class Domain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:domainregistration/v20150401:Domain" }, { type: "azurerm:domainregistration/v20150801:Domain" }, { type: "azurerm:domainregistration/v20190801:Domain" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Domain.__pulumiType, name, inputs, opts);
     }
 }

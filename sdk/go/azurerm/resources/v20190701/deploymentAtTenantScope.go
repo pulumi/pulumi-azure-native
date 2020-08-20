@@ -36,6 +36,18 @@ func NewDeploymentAtTenantScope(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeploymentAtTenantScopeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:resources/v20190801:DeploymentAtTenantScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20191001:DeploymentAtTenantScope"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20200601:DeploymentAtTenantScope"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DeploymentAtTenantScope
 	err := ctx.RegisterResource("azurerm:resources/v20190701:DeploymentAtTenantScope", name, args, &resource, opts...)
 	if err != nil {

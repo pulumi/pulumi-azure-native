@@ -62,6 +62,12 @@ func NewSchema(ctx *pulumi.Context,
 	if args == nil {
 		args = &SchemaArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20190501:Schema"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Schema
 	err := ctx.RegisterResource("azurerm:logic/v20160601:Schema", name, args, &resource, opts...)
 	if err != nil {

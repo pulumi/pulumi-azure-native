@@ -70,6 +70,12 @@ func NewSignalR(ctx *pulumi.Context,
 	if args == nil {
 		args = &SignalRArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:signalrservice/v20181001:SignalR"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SignalR
 	err := ctx.RegisterResource("azurerm:signalrservice/v20200501:SignalR", name, args, &resource, opts...)
 	if err != nil {

@@ -113,6 +113,8 @@ export class Snapshot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:netapp/v20190501:Snapshot" }, { type: "azurerm:netapp/v20190601:Snapshot" }, { type: "azurerm:netapp/v20190701:Snapshot" }, { type: "azurerm:netapp/v20190801:Snapshot" }, { type: "azurerm:netapp/v20191001:Snapshot" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Snapshot.__pulumiType, name, inputs, opts);
     }
 }

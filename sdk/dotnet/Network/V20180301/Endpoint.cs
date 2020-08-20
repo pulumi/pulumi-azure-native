@@ -109,6 +109,14 @@ namespace Pulumi.AzureRM.Network.V20180301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20151101:Endpoint"},
+                    new Alias { Type = "azurerm:network/v20170301:Endpoint"},
+                    new Alias { Type = "azurerm:network/v20170501:Endpoint"},
+                    new Alias { Type = "azurerm:network/v20180201:Endpoint"},
+                    new Alias { Type = "azurerm:network/v20180401:Endpoint"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

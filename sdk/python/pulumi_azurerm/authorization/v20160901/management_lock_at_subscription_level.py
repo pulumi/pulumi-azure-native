@@ -72,6 +72,8 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
             __props__['notes'] = notes
             __props__['owners'] = owners
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20150101:ManagementLockAtSubscriptionLevel")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockAtSubscriptionLevel, __self__).__init__(
             'azurerm:authorization/v20160901:ManagementLockAtSubscriptionLevel',
             resource_name,

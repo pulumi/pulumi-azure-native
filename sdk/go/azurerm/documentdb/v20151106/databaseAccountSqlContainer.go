@@ -64,6 +64,21 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 	if args == nil {
 		args = &DatabaseAccountSqlContainerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20150408:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20160319:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20160331:DatabaseAccountSqlContainer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DatabaseAccountSqlContainer
 	err := ctx.RegisterResource("azurerm:documentdb/v20151106:DatabaseAccountSqlContainer", name, args, &resource, opts...)
 	if err != nil {

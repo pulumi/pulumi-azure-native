@@ -44,6 +44,63 @@ func NewDdosProtectionPlan(ctx *pulumi.Context,
 	if args == nil {
 		args = &DdosProtectionPlanArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180201:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:DdosProtectionPlan"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DdosProtectionPlan
 	err := ctx.RegisterResource("azurerm:network/v20180801:DdosProtectionPlan", name, args, &resource, opts...)
 	if err != nil {

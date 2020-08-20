@@ -62,6 +62,27 @@ func NewVpnServerConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &VpnServerConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20190801:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:VpnServerConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VpnServerConfiguration
 	err := ctx.RegisterResource("azurerm:network/v20191201:VpnServerConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -60,6 +60,18 @@ func NewBudget(ctx *pulumi.Context,
 	if args == nil {
 		args = &BudgetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:consumption/v20190101:Budget"),
+		},
+		{
+			Type: pulumi.String("azurerm:consumption/v20190501:Budget"),
+		},
+		{
+			Type: pulumi.String("azurerm:consumption/v20190601:Budget"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Budget
 	err := ctx.RegisterResource("azurerm:consumption/v20191001:Budget", name, args, &resource, opts...)
 	if err != nil {

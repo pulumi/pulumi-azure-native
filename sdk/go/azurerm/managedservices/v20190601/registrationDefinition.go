@@ -36,6 +36,12 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegistrationDefinitionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:managedservices/v20190901:RegistrationDefinition"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RegistrationDefinition
 	err := ctx.RegisterResource("azurerm:managedservices/v20190601:RegistrationDefinition", name, args, &resource, opts...)
 	if err != nil {

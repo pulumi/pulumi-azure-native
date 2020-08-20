@@ -146,6 +146,8 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
             __props__['provisioning_state'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20190701:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azurerm:compute/v20200601:VirtualMachineScaleSetVMExtension")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVMExtension, __self__).__init__(
             'azurerm:compute/v20191201:VirtualMachineScaleSetVMExtension',
             resource_name,

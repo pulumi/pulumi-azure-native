@@ -63,6 +63,8 @@ class Tag(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Tag")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Tag, __self__).__init__(
             'azurerm:apimanagement/v20180101:Tag',
             resource_name,

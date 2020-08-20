@@ -69,6 +69,21 @@ func NewContainerGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ContainerGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerinstance/v20180401:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerinstance/v20180601:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerinstance/v20180901:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerinstance/v20191201:ContainerGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ContainerGroup
 	err := ctx.RegisterResource("azurerm:containerinstance/v20181001:ContainerGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -50,6 +50,24 @@ func NewProfile(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProfileArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20151101:Profile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:Profile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170501:Profile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:Profile"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180301:Profile"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Profile
 	err := ctx.RegisterResource("azurerm:network/v20180401:Profile", name, args, &resource, opts...)
 	if err != nil {

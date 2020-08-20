@@ -139,6 +139,27 @@ namespace Pulumi.AzureRM.Network.V20200301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180201:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20180401:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20180601:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20180701:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20180801:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20181001:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20181101:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20181201:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20190201:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20190401:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20190601:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20190701:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20190801:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20190901:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20191101:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20191201:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20200401:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20200501:ExpressRouteCrossConnectionPeering"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

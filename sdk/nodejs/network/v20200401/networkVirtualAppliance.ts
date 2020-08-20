@@ -131,6 +131,8 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20191201:NetworkVirtualAppliance" }, { type: "azurerm:network/v20200301:NetworkVirtualAppliance" }, { type: "azurerm:network/v20200501:NetworkVirtualAppliance" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkVirtualAppliance.__pulumiType, name, inputs, opts);
     }
 }

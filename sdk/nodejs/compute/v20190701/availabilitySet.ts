@@ -118,6 +118,8 @@ export class AvailabilitySet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20150615:AvailabilitySet" }, { type: "azurerm:compute/v20160330:AvailabilitySet" }, { type: "azurerm:compute/v20170330:AvailabilitySet" }, { type: "azurerm:compute/v20171201:AvailabilitySet" }, { type: "azurerm:compute/v20180401:AvailabilitySet" }, { type: "azurerm:compute/v20180601:AvailabilitySet" }, { type: "azurerm:compute/v20181001:AvailabilitySet" }, { type: "azurerm:compute/v20190301:AvailabilitySet" }, { type: "azurerm:compute/v20191201:AvailabilitySet" }, { type: "azurerm:compute/v20200601:AvailabilitySet" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AvailabilitySet.__pulumiType, name, inputs, opts);
     }
 }

@@ -287,6 +287,8 @@ export class WebApp extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebApp" }, { type: "azurerm:web/v20160801:WebApp" }, { type: "azurerm:web/v20181101:WebApp" }, { type: "azurerm:web/v20190801:WebApp" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebApp.__pulumiType, name, inputs, opts);
     }
 }

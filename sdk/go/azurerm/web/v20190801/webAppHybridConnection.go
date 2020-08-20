@@ -54,6 +54,18 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppHybridConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160801:WebAppHybridConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebAppHybridConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:WebAppHybridConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppHybridConnection
 	err := ctx.RegisterResource("azurerm:web/v20190801:WebAppHybridConnection", name, args, &resource, opts...)
 	if err != nil {

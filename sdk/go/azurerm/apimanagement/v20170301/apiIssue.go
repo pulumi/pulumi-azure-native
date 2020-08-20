@@ -59,6 +59,18 @@ func NewApiIssue(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApiIssueArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiIssue"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiIssue"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiIssue"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApiIssue
 	err := ctx.RegisterResource("azurerm:apimanagement/v20170301:ApiIssue", name, args, &resource, opts...)
 	if err != nil {

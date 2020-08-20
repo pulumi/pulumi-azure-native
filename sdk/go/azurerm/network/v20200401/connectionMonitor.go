@@ -67,6 +67,72 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConnectionMonitorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20171001:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ConnectionMonitor"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConnectionMonitor
 	err := ctx.RegisterResource("azurerm:network/v20200401:ConnectionMonitor", name, args, &resource, opts...)
 	if err != nil {

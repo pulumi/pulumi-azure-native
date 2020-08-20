@@ -57,6 +57,48 @@ func NewResource(ctx *pulumi.Context,
 	if args == nil {
 		args = &ResourceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:resources/v20151101:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20160201:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20160701:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20160901:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20170510:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20180201:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20180501:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190301:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190510:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190701:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190801:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20191001:Resource"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20200601:Resource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Resource
 	err := ctx.RegisterResource("azurerm:resources/v20190501:Resource", name, args, &resource, opts...)
 	if err != nil {

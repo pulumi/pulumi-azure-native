@@ -106,6 +106,8 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             __props__['vendor'] = vendor
             __props__['premier_add_on_name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppPremierAddOn")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPremierAddOn, __self__).__init__(
             'azurerm:web/v20160801:WebAppPremierAddOn',
             resource_name,

@@ -52,6 +52,15 @@ func NewIpAllocation(ctx *pulumi.Context,
 	if args == nil {
 		args = &IpAllocationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20200301:IpAllocation"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:IpAllocation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IpAllocation
 	err := ctx.RegisterResource("azurerm:network/v20200401:IpAllocation", name, args, &resource, opts...)
 	if err != nil {

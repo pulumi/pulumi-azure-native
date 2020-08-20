@@ -99,6 +99,8 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:SqlResourceSqlDatabase" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlDatabase" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlDatabase" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlDatabase.__pulumiType, name, inputs, opts);
     }
 }

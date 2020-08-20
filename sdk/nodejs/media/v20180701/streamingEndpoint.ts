@@ -173,6 +173,8 @@ export class StreamingEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:media/v20200501:StreamingEndpoint" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StreamingEndpoint.__pulumiType, name, inputs, opts);
     }
 }

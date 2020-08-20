@@ -64,6 +64,15 @@ func NewApplication(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApplicationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:solutions/v20180601:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:solutions/v20190701:Application"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Application
 	err := ctx.RegisterResource("azurerm:solutions/v20170901:Application", name, args, &resource, opts...)
 	if err != nil {

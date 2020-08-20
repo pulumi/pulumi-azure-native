@@ -113,6 +113,8 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
             __props__['schema'] = None
             __props__['tags'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20150401:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azurerm:documentdb/v20150408:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azurerm:documentdb/v20151106:DatabaseAccountCassandraTable"), pulumi.Alias(type_="azurerm:documentdb/v20160319:DatabaseAccountCassandraTable")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountCassandraTable, __self__).__init__(
             'azurerm:documentdb/v20160331:DatabaseAccountCassandraTable',
             resource_name,

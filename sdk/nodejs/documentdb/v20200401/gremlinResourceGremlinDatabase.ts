@@ -99,6 +99,8 @@ export class GremlinResourceGremlinDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:GremlinResourceGremlinDatabase" }, { type: "azurerm:documentdb/v20191212:GremlinResourceGremlinDatabase" }, { type: "azurerm:documentdb/v20200301:GremlinResourceGremlinDatabase" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GremlinResourceGremlinDatabase.__pulumiType, name, inputs, opts);
     }
 }

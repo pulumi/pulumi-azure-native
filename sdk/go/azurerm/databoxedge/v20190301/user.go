@@ -39,6 +39,15 @@ func NewUser(ctx *pulumi.Context,
 	if args == nil {
 		args = &UserArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190701:User"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190801:User"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource User
 	err := ctx.RegisterResource("azurerm:databoxedge/v20190301:User", name, args, &resource, opts...)
 	if err != nil {

@@ -41,6 +41,12 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &AccessPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:timeseriesinsights/v20171115:AccessPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AccessPolicy
 	err := ctx.RegisterResource("azurerm:timeseriesinsights/v20200515:AccessPolicy", name, args, &resource, opts...)
 	if err != nil {

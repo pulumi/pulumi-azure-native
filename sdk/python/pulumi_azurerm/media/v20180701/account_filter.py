@@ -104,6 +104,8 @@ class AccountFilter(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tracks'] = tracks
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20200501:AccountFilter")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccountFilter, __self__).__init__(
             'azurerm:media/v20180701:AccountFilter',
             resource_name,

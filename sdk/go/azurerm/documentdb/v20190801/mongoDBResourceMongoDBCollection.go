@@ -49,6 +49,18 @@ func NewMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 	if args == nil {
 		args = &MongoDBResourceMongoDBCollectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20191212:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200301:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200401:MongoDBResourceMongoDBCollection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MongoDBResourceMongoDBCollection
 	err := ctx.RegisterResource("azurerm:documentdb/v20190801:MongoDBResourceMongoDBCollection", name, args, &resource, opts...)
 	if err != nil {

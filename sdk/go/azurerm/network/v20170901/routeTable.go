@@ -44,6 +44,99 @@ func NewRouteTable(ctx *pulumi.Context,
 	if args == nil {
 		args = &RouteTableArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20150615:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160330:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160601:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:RouteTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:RouteTable"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RouteTable
 	err := ctx.RegisterResource("azurerm:network/v20170901:RouteTable", name, args, &resource, opts...)
 	if err != nil {

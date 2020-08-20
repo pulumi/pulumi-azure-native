@@ -51,6 +51,99 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 	if args == nil {
 		args = &PublicIPAddressArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20160330:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160601:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:PublicIPAddress"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PublicIPAddress
 	err := ctx.RegisterResource("azurerm:network/v20150615:PublicIPAddress", name, args, &resource, opts...)
 	if err != nil {

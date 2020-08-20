@@ -73,6 +73,11 @@ namespace Pulumi.AzureRM.Cache.V20170201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:cache/v20171001:RedisLinkedServer"},
+                    new Alias { Type = "azurerm:cache/v20180301:RedisLinkedServer"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

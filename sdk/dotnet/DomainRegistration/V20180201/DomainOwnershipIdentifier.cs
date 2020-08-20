@@ -61,6 +61,11 @@ namespace Pulumi.AzureRM.DomainRegistration.V20180201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:domainregistration/v20150401:DomainOwnershipIdentifier"},
+                    new Alias { Type = "azurerm:domainregistration/v20190801:DomainOwnershipIdentifier"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

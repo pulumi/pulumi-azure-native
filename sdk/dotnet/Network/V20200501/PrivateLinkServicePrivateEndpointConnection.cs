@@ -79,6 +79,18 @@ namespace Pulumi.AzureRM.Network.V20200501
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20190401:PrivateLinkServicePrivateEndpointConnection"},
+                    new Alias { Type = "azurerm:network/v20190601:PrivateLinkServicePrivateEndpointConnection"},
+                    new Alias { Type = "azurerm:network/v20190701:PrivateLinkServicePrivateEndpointConnection"},
+                    new Alias { Type = "azurerm:network/v20190801:PrivateLinkServicePrivateEndpointConnection"},
+                    new Alias { Type = "azurerm:network/v20190901:PrivateLinkServicePrivateEndpointConnection"},
+                    new Alias { Type = "azurerm:network/v20191101:PrivateLinkServicePrivateEndpointConnection"},
+                    new Alias { Type = "azurerm:network/v20191201:PrivateLinkServicePrivateEndpointConnection"},
+                    new Alias { Type = "azurerm:network/v20200301:PrivateLinkServicePrivateEndpointConnection"},
+                    new Alias { Type = "azurerm:network/v20200401:PrivateLinkServicePrivateEndpointConnection"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

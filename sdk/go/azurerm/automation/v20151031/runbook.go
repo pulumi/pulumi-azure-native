@@ -74,6 +74,12 @@ func NewRunbook(ctx *pulumi.Context,
 	if args == nil {
 		args = &RunbookArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/v20180630:Runbook"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Runbook
 	err := ctx.RegisterResource("azurerm:automation/v20151031:Runbook", name, args, &resource, opts...)
 	if err != nil {

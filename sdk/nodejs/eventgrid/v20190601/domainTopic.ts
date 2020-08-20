@@ -82,6 +82,8 @@ export class DomainTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/v20200601:DomainTopic" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainTopic.__pulumiType, name, inputs, opts);
     }
 }

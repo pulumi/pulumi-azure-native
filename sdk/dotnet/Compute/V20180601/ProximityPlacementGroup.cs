@@ -85,6 +85,15 @@ namespace Pulumi.AzureRM.Compute.V20180601
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:compute/v20180401:ProximityPlacementGroup"},
+                    new Alias { Type = "azurerm:compute/v20181001:ProximityPlacementGroup"},
+                    new Alias { Type = "azurerm:compute/v20190301:ProximityPlacementGroup"},
+                    new Alias { Type = "azurerm:compute/v20190701:ProximityPlacementGroup"},
+                    new Alias { Type = "azurerm:compute/v20191201:ProximityPlacementGroup"},
+                    new Alias { Type = "azurerm:compute/v20200601:ProximityPlacementGroup"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

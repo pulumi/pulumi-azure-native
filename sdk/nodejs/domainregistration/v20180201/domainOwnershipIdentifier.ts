@@ -87,6 +87,8 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azurerm:domainregistration/v20190801:DomainOwnershipIdentifier" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }
 }

@@ -102,6 +102,8 @@ class ProtectionContainer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20160601:ProtectionContainer")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProtectionContainer, __self__).__init__(
             'azurerm:recoveryservices/v20161201:ProtectionContainer',
             resource_name,

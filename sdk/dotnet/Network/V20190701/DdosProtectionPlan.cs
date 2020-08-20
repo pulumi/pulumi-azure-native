@@ -85,6 +85,27 @@ namespace Pulumi.AzureRM.Network.V20190701
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180201:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20180401:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20180601:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20180701:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20180801:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20181001:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20181101:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20181201:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20190201:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20190401:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20190601:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20190801:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20190901:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20191101:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20191201:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20200301:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20200401:DdosProtectionPlan"},
+                    new Alias { Type = "azurerm:network/v20200501:DdosProtectionPlan"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

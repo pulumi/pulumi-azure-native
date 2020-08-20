@@ -95,6 +95,8 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20190901:VirtualHubRouteTableV2" }, { type: "azurerm:network/v20191101:VirtualHubRouteTableV2" }, { type: "azurerm:network/v20191201:VirtualHubRouteTableV2" }, { type: "azurerm:network/v20200401:VirtualHubRouteTableV2" }, { type: "azurerm:network/v20200501:VirtualHubRouteTableV2" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualHubRouteTableV2.__pulumiType, name, inputs, opts);
     }
 }

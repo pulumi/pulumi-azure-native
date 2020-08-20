@@ -129,6 +129,8 @@ class Workflow(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['version'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20190501:Workflow")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workflow, __self__).__init__(
             'azurerm:logic/v20160601:Workflow',
             resource_name,

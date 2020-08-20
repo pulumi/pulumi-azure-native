@@ -43,6 +43,30 @@ func NewVirtualRouterPeering(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualRouterPeeringArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20190801:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:VirtualRouterPeering"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualRouterPeering
 	err := ctx.RegisterResource("azurerm:network/v20190701:VirtualRouterPeering", name, args, &resource, opts...)
 	if err != nil {

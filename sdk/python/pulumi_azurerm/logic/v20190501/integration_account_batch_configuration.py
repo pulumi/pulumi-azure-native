@@ -124,6 +124,8 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountBatchConfiguration")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountBatchConfiguration, __self__).__init__(
             'azurerm:logic/v20190501:IntegrationAccountBatchConfiguration',
             resource_name,

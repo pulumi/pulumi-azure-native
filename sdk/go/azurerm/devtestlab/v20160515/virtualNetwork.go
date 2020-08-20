@@ -55,6 +55,12 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualNetworkArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20180915:VirtualNetwork"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualNetwork
 	err := ctx.RegisterResource("azurerm:devtestlab/v20160515:VirtualNetwork", name, args, &resource, opts...)
 	if err != nil {

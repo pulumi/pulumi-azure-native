@@ -299,6 +299,13 @@ namespace Pulumi.AzureRM.Web.V20181101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:web/v20150801:WebAppSlot"},
+                    new Alias { Type = "azurerm:web/v20160801:WebAppSlot"},
+                    new Alias { Type = "azurerm:web/v20180201:WebAppSlot"},
+                    new Alias { Type = "azurerm:web/v20190801:WebAppSlot"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -117,6 +117,18 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 	if args == nil {
 		args = &AppServiceEnvironmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:AppServiceEnvironment"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:AppServiceEnvironment"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:AppServiceEnvironment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AppServiceEnvironment
 	err := ctx.RegisterResource("azurerm:web/v20160901:AppServiceEnvironment", name, args, &resource, opts...)
 	if err != nil {

@@ -86,6 +86,8 @@ export class TagByProduct extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:TagByProduct" }, { type: "azurerm:apimanagement/v20180101:TagByProduct" }, { type: "azurerm:apimanagement/v20191201:TagByProduct" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagByProduct.__pulumiType, name, inputs, opts);
     }
 }

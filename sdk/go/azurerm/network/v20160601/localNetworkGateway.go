@@ -48,6 +48,99 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &LocalNetworkGatewayArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20150615:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160330:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:LocalNetworkGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:LocalNetworkGateway"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LocalNetworkGateway
 	err := ctx.RegisterResource("azurerm:network/v20160601:LocalNetworkGateway", name, args, &resource, opts...)
 	if err != nil {

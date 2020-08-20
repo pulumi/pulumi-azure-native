@@ -114,6 +114,8 @@ class Deployment(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20151101:Deployment"), pulumi.Alias(type_="azurerm:resources/v20160201:Deployment"), pulumi.Alias(type_="azurerm:resources/v20160701:Deployment"), pulumi.Alias(type_="azurerm:resources/v20170510:Deployment"), pulumi.Alias(type_="azurerm:resources/v20180201:Deployment"), pulumi.Alias(type_="azurerm:resources/v20180501:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190301:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190501:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190510:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190701:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190801:Deployment"), pulumi.Alias(type_="azurerm:resources/v20191001:Deployment"), pulumi.Alias(type_="azurerm:resources/v20200601:Deployment")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Deployment, __self__).__init__(
             'azurerm:resources/v20160901:Deployment',
             resource_name,

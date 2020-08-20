@@ -71,6 +71,8 @@ class RedisFirewallRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'start_ip'")
             __props__['start_ip'] = start_ip
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/v20170201:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20171001:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20180301:RedisFirewallRule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RedisFirewallRule, __self__).__init__(
             'azurerm:cache/v20160401:RedisFirewallRule',
             resource_name,

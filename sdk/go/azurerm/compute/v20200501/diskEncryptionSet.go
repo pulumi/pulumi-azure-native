@@ -49,6 +49,15 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &DiskEncryptionSetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20190701:DiskEncryptionSet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20191101:DiskEncryptionSet"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DiskEncryptionSet
 	err := ctx.RegisterResource("azurerm:compute/v20200501:DiskEncryptionSet", name, args, &resource, opts...)
 	if err != nil {

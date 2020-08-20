@@ -85,6 +85,13 @@ namespace Pulumi.AzureRM.Management.V20180501
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:management/v20180301:PolicySetDefinitionAtManagementGroup"},
+                    new Alias { Type = "azurerm:management/v20190101:PolicySetDefinitionAtManagementGroup"},
+                    new Alias { Type = "azurerm:management/v20190601:PolicySetDefinitionAtManagementGroup"},
+                    new Alias { Type = "azurerm:management/v20190901:PolicySetDefinitionAtManagementGroup"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -101,6 +101,21 @@ func NewSite(ctx *pulumi.Context,
 	if args == nil {
 		args = &SiteArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160801:Site"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:Site"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:Site"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:Site"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Site
 	err := ctx.RegisterResource("azurerm:web/v20150801:Site", name, args, &resource, opts...)
 	if err != nil {

@@ -130,6 +130,8 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20190301:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20190501:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20190510:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20190701:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20190801:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20191001:DeploymentAtSubscriptionScope"), pulumi.Alias(type_="azurerm:resources/v20200601:DeploymentAtSubscriptionScope")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentAtSubscriptionScope, __self__).__init__(
             'azurerm:resources/v20180501:DeploymentAtSubscriptionScope',
             resource_name,

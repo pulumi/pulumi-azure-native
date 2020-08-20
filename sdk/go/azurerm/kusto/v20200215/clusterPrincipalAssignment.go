@@ -58,6 +58,15 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &ClusterPrincipalAssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:kusto/v20191109:ClusterPrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20200614:ClusterPrincipalAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ClusterPrincipalAssignment
 	err := ctx.RegisterResource("azurerm:kusto/v20200215:ClusterPrincipalAssignment", name, args, &resource, opts...)
 	if err != nil {

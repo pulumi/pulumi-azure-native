@@ -159,6 +159,8 @@ export class Link extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/v20170101:Link" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Link.__pulumiType, name, inputs, opts);
     }
 }

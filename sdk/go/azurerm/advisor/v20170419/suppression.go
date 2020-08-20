@@ -39,6 +39,15 @@ func NewSuppression(ctx *pulumi.Context,
 	if args == nil {
 		args = &SuppressionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:advisor/v20170331:Suppression"),
+		},
+		{
+			Type: pulumi.String("azurerm:advisor/v20200101:Suppression"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Suppression
 	err := ctx.RegisterResource("azurerm:advisor/v20170419:Suppression", name, args, &resource, opts...)
 	if err != nil {

@@ -112,6 +112,8 @@ class RulesEngine(pulumi.CustomResource):
             __props__['resource_state'] = resource_state
             __props__['rules'] = rules
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200101:RulesEngine"), pulumi.Alias(type_="azurerm:network/v20200401:RulesEngine")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RulesEngine, __self__).__init__(
             'azurerm:network/v20200501:RulesEngine',
             resource_name,

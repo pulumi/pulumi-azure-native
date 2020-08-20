@@ -195,6 +195,8 @@ class StreamingEndpoint(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20180701:StreamingEndpoint")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingEndpoint, __self__).__init__(
             'azurerm:media/v20200501:StreamingEndpoint',
             resource_name,

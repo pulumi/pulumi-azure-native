@@ -85,6 +85,8 @@ export class RegistrationDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:managedservices/v20190601:RegistrationDefinition" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationDefinition.__pulumiType, name, inputs, opts);
     }
 }

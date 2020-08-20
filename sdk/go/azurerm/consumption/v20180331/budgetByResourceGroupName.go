@@ -60,6 +60,21 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 	if args == nil {
 		args = &BudgetByResourceGroupNameArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:consumption/v20180131:BudgetByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azurerm:consumption/v20180630:BudgetByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azurerm:consumption/v20180831:BudgetByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azurerm:consumption/v20181001:BudgetByResourceGroupName"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BudgetByResourceGroupName
 	err := ctx.RegisterResource("azurerm:consumption/v20180331:BudgetByResourceGroupName", name, args, &resource, opts...)
 	if err != nil {

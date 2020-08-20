@@ -56,6 +56,12 @@ func NewWorkflow(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkflowArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20190501:Workflow"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Workflow
 	err := ctx.RegisterResource("azurerm:logic/v20160601:Workflow", name, args, &resource, opts...)
 	if err != nil {

@@ -87,6 +87,8 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppSourceControlSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppSourceControlSlot")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSourceControlSlot, __self__).__init__(
             'azurerm:web/v20180201:WebAppSourceControlSlot',
             resource_name,

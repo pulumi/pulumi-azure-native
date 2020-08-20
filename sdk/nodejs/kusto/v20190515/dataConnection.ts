@@ -94,6 +94,8 @@ export class DataConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:kusto/v20190121:DataConnection" }, { type: "azurerm:kusto/v20190907:DataConnection" }, { type: "azurerm:kusto/v20191109:DataConnection" }, { type: "azurerm:kusto/v20200215:DataConnection" }, { type: "azurerm:kusto/v20200614:DataConnection" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataConnection.__pulumiType, name, inputs, opts);
     }
 }

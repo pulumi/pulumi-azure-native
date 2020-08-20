@@ -94,6 +94,8 @@ export class ProductPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:ProductPolicy" }, { type: "azurerm:apimanagement/v20190101:ProductPolicy" }, { type: "azurerm:apimanagement/v20191201:ProductPolicy" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProductPolicy.__pulumiType, name, inputs, opts);
     }
 }

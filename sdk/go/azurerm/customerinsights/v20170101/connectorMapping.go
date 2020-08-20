@@ -77,6 +77,12 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConnectorMappingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:customerinsights/v20170426:ConnectorMapping"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConnectorMapping
 	err := ctx.RegisterResource("azurerm:customerinsights/v20170101:ConnectorMapping", name, args, &resource, opts...)
 	if err != nil {

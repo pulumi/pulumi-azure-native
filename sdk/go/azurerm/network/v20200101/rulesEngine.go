@@ -39,6 +39,15 @@ func NewRulesEngine(ctx *pulumi.Context,
 	if args == nil {
 		args = &RulesEngineArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20200401:RulesEngine"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:RulesEngine"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RulesEngine
 	err := ctx.RegisterResource("azurerm:network/v20200101:RulesEngine", name, args, &resource, opts...)
 	if err != nil {

@@ -46,6 +46,18 @@ func NewTableResourceTable(ctx *pulumi.Context,
 	if args == nil {
 		args = &TableResourceTableArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20191212:TableResourceTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200301:TableResourceTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200401:TableResourceTable"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TableResourceTable
 	err := ctx.RegisterResource("azurerm:documentdb/v20190801:TableResourceTable", name, args, &resource, opts...)
 	if err != nil {

@@ -82,6 +82,8 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
             __props__['provisioning_state'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azurerm:network/v20200401:PrivateDnsZoneGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateDnsZoneGroup, __self__).__init__(
             'azurerm:network/v20200501:PrivateDnsZoneGroup',
             resource_name,

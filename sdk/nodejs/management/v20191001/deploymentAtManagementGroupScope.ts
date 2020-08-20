@@ -96,6 +96,8 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:management/v20190501:DeploymentAtManagementGroupScope" }, { type: "azurerm:management/v20190510:DeploymentAtManagementGroupScope" }, { type: "azurerm:management/v20190701:DeploymentAtManagementGroupScope" }, { type: "azurerm:management/v20190801:DeploymentAtManagementGroupScope" }, { type: "azurerm:management/v20200601:DeploymentAtManagementGroupScope" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtManagementGroupScope.__pulumiType, name, inputs, opts);
     }
 }

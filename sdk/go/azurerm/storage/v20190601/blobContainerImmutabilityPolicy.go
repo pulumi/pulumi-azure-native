@@ -46,6 +46,21 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &BlobContainerImmutabilityPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storage/v20180201:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20180701:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20181101:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20190401:BlobContainerImmutabilityPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BlobContainerImmutabilityPolicy
 	err := ctx.RegisterResource("azurerm:storage/v20190601:BlobContainerImmutabilityPolicy", name, args, &resource, opts...)
 	if err != nil {

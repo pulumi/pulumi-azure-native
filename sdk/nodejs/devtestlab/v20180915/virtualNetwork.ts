@@ -129,6 +129,8 @@ export class VirtualNetwork extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20160515:VirtualNetwork" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }
 }

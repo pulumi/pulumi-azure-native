@@ -48,6 +48,12 @@ func NewSecret(ctx *pulumi.Context,
 	if args == nil {
 		args = &SecretArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20160515:Secret"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Secret
 	err := ctx.RegisterResource("azurerm:devtestlab/v20180915:Secret", name, args, &resource, opts...)
 	if err != nil {

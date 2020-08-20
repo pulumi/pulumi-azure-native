@@ -55,6 +55,30 @@ func NewP2sVpnServerConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &P2sVpnServerConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180801:P2sVpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:P2sVpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:P2sVpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:P2sVpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:P2sVpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:P2sVpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:P2sVpnServerConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource P2sVpnServerConfiguration
 	err := ctx.RegisterResource("azurerm:network/v20190401:P2sVpnServerConfiguration", name, args, &resource, opts...)
 	if err != nil {

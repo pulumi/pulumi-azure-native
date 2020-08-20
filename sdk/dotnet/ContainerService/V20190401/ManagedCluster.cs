@@ -163,6 +163,21 @@ namespace Pulumi.AzureRM.ContainerService.V20190401
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:containerservice/v20170831:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20180331:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20190201:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20190601:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20190801:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20191001:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20191101:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20200101:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20200201:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20200301:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20200401:ManagedCluster"},
+                    new Alias { Type = "azurerm:containerservice/v20200601:ManagedCluster"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

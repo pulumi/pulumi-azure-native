@@ -61,6 +61,10 @@ namespace Pulumi.AzureRM.Compute.V20200625
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:compute/v20181120:GuestConfigurationAssignment"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

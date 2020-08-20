@@ -55,6 +55,11 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:databoxedge/v20190701:Role"},
+                    new Alias { Type = "azurerm:databoxedge/v20190801:Role"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

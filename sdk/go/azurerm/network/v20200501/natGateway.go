@@ -54,6 +54,39 @@ func NewNatGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &NatGatewayArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20190201:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:NatGateway"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NatGateway
 	err := ctx.RegisterResource("azurerm:network/v20200501:NatGateway", name, args, &resource, opts...)
 	if err != nil {

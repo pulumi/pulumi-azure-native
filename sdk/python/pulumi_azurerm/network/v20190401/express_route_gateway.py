@@ -117,6 +117,8 @@ class ExpressRouteGateway(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['express_route_connections'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180801:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20181001:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20181101:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20181201:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190201:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190601:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190701:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190801:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20190901:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20191101:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20191201:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20200301:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20200401:ExpressRouteGateway"), pulumi.Alias(type_="azurerm:network/v20200501:ExpressRouteGateway")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRouteGateway, __self__).__init__(
             'azurerm:network/v20190401:ExpressRouteGateway',
             resource_name,

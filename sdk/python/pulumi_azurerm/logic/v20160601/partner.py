@@ -110,6 +110,8 @@ class Partner(pulumi.CustomResource):
             __props__['changed_time'] = None
             __props__['created_time'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20190501:Partner")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Partner, __self__).__init__(
             'azurerm:logic/v20160601:Partner',
             resource_name,

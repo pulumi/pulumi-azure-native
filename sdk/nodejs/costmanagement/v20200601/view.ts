@@ -142,6 +142,8 @@ export class View extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:costmanagement/v20191101:View" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(View.__pulumiType, name, inputs, opts);
     }
 }

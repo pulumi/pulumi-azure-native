@@ -134,6 +134,8 @@ export class ActionGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/v20180301:ActionGroup" }, { type: "azurerm:insights/v20180901:ActionGroup" }, { type: "azurerm:insights/v20190301:ActionGroup" }, { type: "azurerm:insights/v20190601:ActionGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ActionGroup.__pulumiType, name, inputs, opts);
     }
 }

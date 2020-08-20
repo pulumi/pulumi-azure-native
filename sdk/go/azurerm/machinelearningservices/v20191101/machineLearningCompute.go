@@ -45,6 +45,30 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 	if args == nil {
 		args = &MachineLearningComputeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20181119:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20190501:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20190601:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200101:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200301:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200401:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200601:MachineLearningCompute"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MachineLearningCompute
 	err := ctx.RegisterResource("azurerm:machinelearningservices/v20191101:MachineLearningCompute", name, args, &resource, opts...)
 	if err != nil {

@@ -70,6 +70,8 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
             __props__['resource_type'] = resource_type
             __props__['entity_name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppRelayServiceConnection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppRelayServiceConnection, __self__).__init__(
             'azurerm:web/v20160801:WebAppRelayServiceConnection',
             resource_name,

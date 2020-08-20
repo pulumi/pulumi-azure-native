@@ -108,6 +108,8 @@ class AssetFilter(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tracks'] = tracks
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20180701:AssetFilter")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssetFilter, __self__).__init__(
             'azurerm:media/v20200501:AssetFilter',
             resource_name,

@@ -111,6 +111,8 @@ export class ApplicationPackage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:batch/v20181201:ApplicationPackage" }, { type: "azurerm:batch/v20190401:ApplicationPackage" }, { type: "azurerm:batch/v20200301:ApplicationPackage" }, { type: "azurerm:batch/v20200501:ApplicationPackage" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationPackage.__pulumiType, name, inputs, opts);
     }
 }

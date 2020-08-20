@@ -64,6 +64,12 @@ func NewLiveEvent(ctx *pulumi.Context,
 	if args == nil {
 		args = &LiveEventArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/v20200501:LiveEvent"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LiveEvent
 	err := ctx.RegisterResource("azurerm:media/v20180701:LiveEvent", name, args, &resource, opts...)
 	if err != nil {

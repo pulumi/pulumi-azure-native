@@ -77,6 +77,8 @@ class FileShare(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/v20190601:FileShare")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileShare, __self__).__init__(
             'azurerm:storage/v20190401:FileShare',
             resource_name,

@@ -55,6 +55,15 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 	if args == nil {
 		args = &BandwidthScheduleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190301:BandwidthSchedule"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190801:BandwidthSchedule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BandwidthSchedule
 	err := ctx.RegisterResource("azurerm:databoxedge/v20190701:BandwidthSchedule", name, args, &resource, opts...)
 	if err != nil {

@@ -64,6 +64,8 @@ class TagByApi(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['display_name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:TagByApi"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:TagByApi"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:TagByApi")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagByApi, __self__).__init__(
             'azurerm:apimanagement/v20180101:TagByApi',
             resource_name,

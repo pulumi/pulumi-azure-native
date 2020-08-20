@@ -46,6 +46,12 @@ func NewHub(ctx *pulumi.Context,
 	if args == nil {
 		args = &HubArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:customerinsights/v20170426:Hub"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Hub
 	err := ctx.RegisterResource("azurerm:customerinsights/v20170101:Hub", name, args, &resource, opts...)
 	if err != nil {

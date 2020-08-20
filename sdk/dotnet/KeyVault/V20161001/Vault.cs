@@ -67,6 +67,12 @@ namespace Pulumi.AzureRM.KeyVault.V20161001
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:keyvault/v20150601:Vault"},
+                    new Alias { Type = "azurerm:keyvault/v20180214:Vault"},
+                    new Alias { Type = "azurerm:keyvault/v20190901:Vault"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -91,6 +91,21 @@ namespace Pulumi.AzureRM.Network.V20191101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20181101:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20181201:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20190201:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20190401:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20190601:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20190701:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20190801:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20190901:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20191201:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20200301:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20200401:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20200501:DdosCustomPolicy"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

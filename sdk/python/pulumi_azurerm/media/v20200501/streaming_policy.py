@@ -236,6 +236,8 @@ class StreamingPolicy(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['created'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20180701:StreamingPolicy")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingPolicy, __self__).__init__(
             'azurerm:media/v20200501:StreamingPolicy',
             resource_name,

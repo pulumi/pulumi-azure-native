@@ -54,6 +54,87 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &RouteFilterRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20161201:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:RouteFilterRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RouteFilterRule
 	err := ctx.RegisterResource("azurerm:network/v20180401:RouteFilterRule", name, args, &resource, opts...)
 	if err != nil {

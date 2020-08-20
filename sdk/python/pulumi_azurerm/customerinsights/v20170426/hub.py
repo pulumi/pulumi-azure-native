@@ -99,6 +99,8 @@ class Hub(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['web_endpoint'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customerinsights/v20170101:Hub")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Hub, __self__).__init__(
             'azurerm:customerinsights/v20170426:Hub',
             resource_name,

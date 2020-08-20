@@ -118,6 +118,8 @@ export class IdentityProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:IdentityProvider" }, { type: "azurerm:apimanagement/v20161010:IdentityProvider" }, { type: "azurerm:apimanagement/v20170301:IdentityProvider" }, { type: "azurerm:apimanagement/v20190101:IdentityProvider" }, { type: "azurerm:apimanagement/v20191201:IdentityProvider" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IdentityProvider.__pulumiType, name, inputs, opts);
     }
 }

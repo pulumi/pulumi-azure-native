@@ -229,6 +229,39 @@ namespace Pulumi.AzureRM.Network.V20191101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20150615:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20160330:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20160601:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20160901:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20161201:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20170301:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20170601:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20170801:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20170901:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20171001:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20171101:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20180101:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20180201:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20180401:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20180601:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20180701:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20180801:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20181001:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20181101:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20181201:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20190201:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20190401:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20190601:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20190701:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20190801:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20190901:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20191201:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20200301:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20200401:ApplicationGateway"},
+                    new Alias { Type = "azurerm:network/v20200501:ApplicationGateway"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

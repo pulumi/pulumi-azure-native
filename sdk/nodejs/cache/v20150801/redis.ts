@@ -161,6 +161,8 @@ export class Redis extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:cache/v20160401:Redis" }, { type: "azurerm:cache/v20170201:Redis" }, { type: "azurerm:cache/v20171001:Redis" }, { type: "azurerm:cache/v20180301:Redis" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Redis.__pulumiType, name, inputs, opts);
     }
 }

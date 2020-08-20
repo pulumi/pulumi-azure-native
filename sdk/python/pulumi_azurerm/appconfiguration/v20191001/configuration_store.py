@@ -107,6 +107,8 @@ class ConfigurationStore(pulumi.CustomResource):
             __props__['endpoint'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:appconfiguration/v20200601:ConfigurationStore")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationStore, __self__).__init__(
             'azurerm:appconfiguration/v20191001:ConfigurationStore',
             resource_name,

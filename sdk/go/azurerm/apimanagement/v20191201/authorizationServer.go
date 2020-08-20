@@ -82,6 +82,24 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	if args == nil {
 		args = &AuthorizationServerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20160707:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20161010:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:AuthorizationServer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AuthorizationServer
 	err := ctx.RegisterResource("azurerm:apimanagement/v20191201:AuthorizationServer", name, args, &resource, opts...)
 	if err != nil {

@@ -115,6 +115,11 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:analysisservices/v20160516:ServerDetails"},
+                    new Alias { Type = "azurerm:analysisservices/v20170714:ServerDetails"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

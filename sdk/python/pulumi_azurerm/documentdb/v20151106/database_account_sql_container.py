@@ -169,6 +169,8 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
             __props__['ts'] = None
             __props__['type'] = None
             __props__['unique_key_policy'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20150401:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azurerm:documentdb/v20150408:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azurerm:documentdb/v20160319:DatabaseAccountSqlContainer"), pulumi.Alias(type_="azurerm:documentdb/v20160331:DatabaseAccountSqlContainer")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountSqlContainer, __self__).__init__(
             'azurerm:documentdb/v20151106:DatabaseAccountSqlContainer',
             resource_name,

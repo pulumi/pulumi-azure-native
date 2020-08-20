@@ -41,6 +41,51 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &NetworkInterfaceTapConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180801:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:NetworkInterfaceTapConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NetworkInterfaceTapConfiguration
 	err := ctx.RegisterResource("azurerm:network/v20200501:NetworkInterfaceTapConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -46,6 +46,15 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &SecurityPartnerProviderArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20200401:SecurityPartnerProvider"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:SecurityPartnerProvider"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SecurityPartnerProvider
 	err := ctx.RegisterResource("azurerm:network/v20200301:SecurityPartnerProvider", name, args, &resource, opts...)
 	if err != nil {

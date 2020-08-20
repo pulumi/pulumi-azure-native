@@ -44,6 +44,18 @@ func NewVault(ctx *pulumi.Context,
 	if args == nil {
 		args = &VaultArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:keyvault/v20161001:Vault"),
+		},
+		{
+			Type: pulumi.String("azurerm:keyvault/v20180214:Vault"),
+		},
+		{
+			Type: pulumi.String("azurerm:keyvault/v20190901:Vault"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Vault
 	err := ctx.RegisterResource("azurerm:keyvault/v20150601:Vault", name, args, &resource, opts...)
 	if err != nil {

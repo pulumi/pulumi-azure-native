@@ -73,6 +73,11 @@ namespace Pulumi.AzureRM.RecoveryServices.V20190615
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:recoveryservices/v20160601:ProtectedItem"},
+                    new Alias { Type = "azurerm:recoveryservices/v20190513:ProtectedItem"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

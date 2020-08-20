@@ -103,6 +103,33 @@ namespace Pulumi.AzureRM.Network.V20190201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20170601:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20170801:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20170901:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20171001:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20171101:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20180101:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20180201:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20180401:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20180601:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20180701:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20180801:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20181001:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20181101:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20181201:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20190401:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20190601:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20190701:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20190801:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20190901:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20191101:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20191201:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20200301:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20200401:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20200501:InboundNatRule"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

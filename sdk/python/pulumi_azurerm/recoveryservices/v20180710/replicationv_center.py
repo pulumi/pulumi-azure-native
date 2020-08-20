@@ -118,6 +118,8 @@ class ReplicationvCenter(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['location'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20160810:ReplicationvCenter"), pulumi.Alias(type_="azurerm:recoveryservices/v20180110:ReplicationvCenter")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationvCenter, __self__).__init__(
             'azurerm:recoveryservices/v20180710:ReplicationvCenter',
             resource_name,

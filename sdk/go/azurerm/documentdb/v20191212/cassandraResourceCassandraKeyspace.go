@@ -46,6 +46,18 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 	if args == nil {
 		args = &CassandraResourceCassandraKeyspaceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20190801:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200301:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200401:CassandraResourceCassandraKeyspace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CassandraResourceCassandraKeyspace
 	err := ctx.RegisterResource("azurerm:documentdb/v20191212:CassandraResourceCassandraKeyspace", name, args, &resource, opts...)
 	if err != nil {

@@ -51,6 +51,60 @@ func NewVpnGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &VpnGatewayArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180401:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:VpnGateway"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VpnGateway
 	err := ctx.RegisterResource("azurerm:network/v20190901:VpnGateway", name, args, &resource, opts...)
 	if err != nil {

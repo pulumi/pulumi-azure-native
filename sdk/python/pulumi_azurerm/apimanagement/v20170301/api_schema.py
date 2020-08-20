@@ -73,6 +73,8 @@ class ApiSchema(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['value'] = value
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiSchema")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiSchema, __self__).__init__(
             'azurerm:apimanagement/v20170301:ApiSchema',
             resource_name,

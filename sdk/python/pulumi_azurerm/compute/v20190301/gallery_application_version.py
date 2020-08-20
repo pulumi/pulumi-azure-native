@@ -129,6 +129,8 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['replication_status'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20190701:GalleryApplicationVersion"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryApplicationVersion")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryApplicationVersion, __self__).__init__(
             'azurerm:compute/v20190301:GalleryApplicationVersion',
             resource_name,

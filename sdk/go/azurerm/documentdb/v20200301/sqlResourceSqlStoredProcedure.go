@@ -52,6 +52,18 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 	if args == nil {
 		args = &SqlResourceSqlStoredProcedureArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20190801:SqlResourceSqlStoredProcedure"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20191212:SqlResourceSqlStoredProcedure"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200401:SqlResourceSqlStoredProcedure"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlResourceSqlStoredProcedure
 	err := ctx.RegisterResource("azurerm:documentdb/v20200301:SqlResourceSqlStoredProcedure", name, args, &resource, opts...)
 	if err != nil {

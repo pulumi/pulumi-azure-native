@@ -219,6 +219,8 @@ class Task(pulumi.CustomResource):
             __props__['creation_date'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/v20190401:Task")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Task, __self__).__init__(
             'azurerm:containerregistry/v20180901:Task',
             resource_name,

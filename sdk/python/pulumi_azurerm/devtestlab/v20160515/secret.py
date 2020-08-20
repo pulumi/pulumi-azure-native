@@ -89,6 +89,8 @@ class Secret(pulumi.CustomResource):
             __props__['user_name'] = user_name
             __props__['value'] = value
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/v20180915:Secret")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Secret, __self__).__init__(
             'azurerm:devtestlab/v20160515:Secret',
             resource_name,

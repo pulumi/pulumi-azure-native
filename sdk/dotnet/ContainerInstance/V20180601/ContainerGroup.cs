@@ -118,6 +118,13 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180601
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:containerinstance/v20180401:ContainerGroup"},
+                    new Alias { Type = "azurerm:containerinstance/v20180901:ContainerGroup"},
+                    new Alias { Type = "azurerm:containerinstance/v20181001:ContainerGroup"},
+                    new Alias { Type = "azurerm:containerinstance/v20191201:ContainerGroup"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

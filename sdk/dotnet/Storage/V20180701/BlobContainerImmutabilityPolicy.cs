@@ -67,6 +67,13 @@ namespace Pulumi.AzureRM.Storage.V20180701
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:storage/v20180201:BlobContainerImmutabilityPolicy"},
+                    new Alias { Type = "azurerm:storage/v20181101:BlobContainerImmutabilityPolicy"},
+                    new Alias { Type = "azurerm:storage/v20190401:BlobContainerImmutabilityPolicy"},
+                    new Alias { Type = "azurerm:storage/v20190601:BlobContainerImmutabilityPolicy"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

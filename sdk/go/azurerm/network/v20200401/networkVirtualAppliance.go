@@ -54,6 +54,18 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 	if args == nil {
 		args = &NetworkVirtualApplianceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20191201:NetworkVirtualAppliance"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:NetworkVirtualAppliance"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:NetworkVirtualAppliance"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NetworkVirtualAppliance
 	err := ctx.RegisterResource("azurerm:network/v20200401:NetworkVirtualAppliance", name, args, &resource, opts...)
 	if err != nil {

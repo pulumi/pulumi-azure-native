@@ -89,6 +89,8 @@ export class ReplicationFabric extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/v20160810:ReplicationFabric" }, { type: "azurerm:recoveryservices/v20180710:ReplicationFabric" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationFabric.__pulumiType, name, inputs, opts);
     }
 }

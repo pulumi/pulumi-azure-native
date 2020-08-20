@@ -45,6 +45,21 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 	if args == nil {
 		args = &DatabaseAccountCassandraKeyspaceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccountCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20150408:DatabaseAccountCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20151106:DatabaseAccountCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20160331:DatabaseAccountCassandraKeyspace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DatabaseAccountCassandraKeyspace
 	err := ctx.RegisterResource("azurerm:documentdb/v20160319:DatabaseAccountCassandraKeyspace", name, args, &resource, opts...)
 	if err != nil {

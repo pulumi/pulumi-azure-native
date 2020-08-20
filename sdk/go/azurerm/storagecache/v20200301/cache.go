@@ -58,6 +58,12 @@ func NewCache(ctx *pulumi.Context,
 	if args == nil {
 		args = &CacheArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storagecache/v20191101:Cache"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Cache
 	err := ctx.RegisterResource("azurerm:storagecache/v20200301:Cache", name, args, &resource, opts...)
 	if err != nil {

@@ -47,6 +47,12 @@ func NewEventSource(ctx *pulumi.Context,
 	if args == nil {
 		args = &EventSourceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:timeseriesinsights/v20171115:EventSource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource EventSource
 	err := ctx.RegisterResource("azurerm:timeseriesinsights/v20200515:EventSource", name, args, &resource, opts...)
 	if err != nil {

@@ -150,6 +150,8 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
             __props__['title'] = None
             __props__['type'] = None
             __props__['version'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20180201:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppSiteExtensionSlot")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSiteExtensionSlot, __self__).__init__(
             'azurerm:web/v20160801:WebAppSiteExtensionSlot',
             resource_name,

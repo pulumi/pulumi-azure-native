@@ -97,6 +97,39 @@ namespace Pulumi.AzureRM.Network.V20181101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20150615:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20160330:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20160601:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20160901:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20161201:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20170301:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20170601:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20170801:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20170901:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20171001:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20171101:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20180101:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20180201:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20180401:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20180601:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20180701:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20180801:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20181001:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20181201:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20190201:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20190401:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20190601:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20190701:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20190801:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20190901:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20191101:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20191201:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20200301:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20200401:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20200501:LocalNetworkGateway"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

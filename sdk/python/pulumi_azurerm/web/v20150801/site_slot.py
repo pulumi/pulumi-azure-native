@@ -534,6 +534,8 @@ class SiteSlot(pulumi.CustomResource):
             __props__['target_swap_slot'] = None
             __props__['traffic_manager_host_names'] = None
             __props__['usage_state'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20160801:SiteSlot"), pulumi.Alias(type_="azurerm:web/v20180201:SiteSlot"), pulumi.Alias(type_="azurerm:web/v20181101:SiteSlot"), pulumi.Alias(type_="azurerm:web/v20190801:SiteSlot")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteSlot, __self__).__init__(
             'azurerm:web/v20150801:SiteSlot',
             resource_name,

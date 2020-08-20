@@ -41,6 +41,12 @@ func NewManagementGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagementGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:management/v20200201:ManagementGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementGroup
 	err := ctx.RegisterResource("azurerm:management/v20191101:ManagementGroup", name, args, &resource, opts...)
 	if err != nil {

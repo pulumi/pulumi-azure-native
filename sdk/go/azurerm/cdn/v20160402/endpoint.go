@@ -67,6 +67,36 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args == nil {
 		args = &EndpointArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cdn/v20150601:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20161002:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20170402:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20171012:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190415:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190615:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20191231:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20200331:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20200415:Endpoint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Endpoint
 	err := ctx.RegisterResource("azurerm:cdn/v20160402:Endpoint", name, args, &resource, opts...)
 	if err != nil {

@@ -207,6 +207,8 @@ class VirtualHub(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180401:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20180601:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20180701:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20180801:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20181001:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20181101:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20181201:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190201:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190401:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190601:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190701:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190801:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190901:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20191101:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20191201:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20200401:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20200501:VirtualHub")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHub, __self__).__init__(
             'azurerm:network/v20200301:VirtualHub',
             resource_name,

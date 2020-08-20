@@ -79,6 +79,23 @@ namespace Pulumi.AzureRM.Network.V20200401
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180801:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20181001:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20181101:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20181201:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20190201:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20190401:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20190601:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20190701:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20190801:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20190901:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20191101:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20191201:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20200301:ExpressRouteConnection"},
+                    new Alias { Type = "azurerm:network/v20200501:ExpressRouteConnection"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

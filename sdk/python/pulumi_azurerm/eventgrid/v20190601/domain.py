@@ -75,6 +75,8 @@ class Domain(pulumi.CustomResource):
             __props__['endpoint'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventgrid/v20200601:Domain")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azurerm:eventgrid/v20190601:Domain',
             resource_name,

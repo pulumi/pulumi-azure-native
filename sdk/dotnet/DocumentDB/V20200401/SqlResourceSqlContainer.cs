@@ -67,6 +67,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlContainer"},
+                    new Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlContainer"},
+                    new Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlContainer"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -87,6 +87,8 @@ class ApiIssueAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiIssueAttachment")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssueAttachment, __self__).__init__(
             'azurerm:apimanagement/v20190101:ApiIssueAttachment',
             resource_name,

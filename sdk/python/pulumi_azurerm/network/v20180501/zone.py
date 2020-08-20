@@ -110,6 +110,8 @@ class Zone(pulumi.CustomResource):
             __props__['name_servers'] = None
             __props__['number_of_record_sets'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20160401:Zone"), pulumi.Alias(type_="azurerm:network/v20170901:Zone"), pulumi.Alias(type_="azurerm:network/v20171001:Zone")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Zone, __self__).__init__(
             'azurerm:network/v20180501:Zone',
             resource_name,

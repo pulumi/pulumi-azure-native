@@ -49,6 +49,15 @@ func NewLinkedServer(ctx *pulumi.Context,
 	if args == nil {
 		args = &LinkedServerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cache/v20170201:LinkedServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20171001:LinkedServer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LinkedServer
 	err := ctx.RegisterResource("azurerm:cache/v20180301:LinkedServer", name, args, &resource, opts...)
 	if err != nil {

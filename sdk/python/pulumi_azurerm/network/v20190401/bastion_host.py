@@ -109,6 +109,8 @@ class BastionHost(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['etag'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190601:BastionHost"), pulumi.Alias(type_="azurerm:network/v20190701:BastionHost"), pulumi.Alias(type_="azurerm:network/v20190801:BastionHost"), pulumi.Alias(type_="azurerm:network/v20190901:BastionHost"), pulumi.Alias(type_="azurerm:network/v20191101:BastionHost"), pulumi.Alias(type_="azurerm:network/v20191201:BastionHost"), pulumi.Alias(type_="azurerm:network/v20200301:BastionHost"), pulumi.Alias(type_="azurerm:network/v20200401:BastionHost"), pulumi.Alias(type_="azurerm:network/v20200501:BastionHost")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BastionHost, __self__).__init__(
             'azurerm:network/v20190401:BastionHost',
             resource_name,

@@ -41,6 +41,12 @@ func NewSshPublicKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &SshPublicKeyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20191201:SshPublicKey"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SshPublicKey
 	err := ctx.RegisterResource("azurerm:compute/v20200601:SshPublicKey", name, args, &resource, opts...)
 	if err != nil {

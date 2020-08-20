@@ -85,6 +85,18 @@ namespace Pulumi.AzureRM.Network.V20191101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20190401:BastionHost"},
+                    new Alias { Type = "azurerm:network/v20190601:BastionHost"},
+                    new Alias { Type = "azurerm:network/v20190701:BastionHost"},
+                    new Alias { Type = "azurerm:network/v20190801:BastionHost"},
+                    new Alias { Type = "azurerm:network/v20190901:BastionHost"},
+                    new Alias { Type = "azurerm:network/v20191201:BastionHost"},
+                    new Alias { Type = "azurerm:network/v20200301:BastionHost"},
+                    new Alias { Type = "azurerm:network/v20200401:BastionHost"},
+                    new Alias { Type = "azurerm:network/v20200501:BastionHost"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

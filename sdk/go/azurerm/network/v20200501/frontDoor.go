@@ -62,6 +62,21 @@ func NewFrontDoor(ctx *pulumi.Context,
 	if args == nil {
 		args = &FrontDoorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20190401:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190501:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200101:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:FrontDoor"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource FrontDoor
 	err := ctx.RegisterResource("azurerm:network/v20200501:FrontDoor", name, args, &resource, opts...)
 	if err != nil {

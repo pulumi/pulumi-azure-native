@@ -50,6 +50,60 @@ func NewAzureFirewall(ctx *pulumi.Context,
 	if args == nil {
 		args = &AzureFirewallArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180401:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:AzureFirewall"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AzureFirewall
 	err := ctx.RegisterResource("azurerm:network/v20181201:AzureFirewall", name, args, &resource, opts...)
 	if err != nil {

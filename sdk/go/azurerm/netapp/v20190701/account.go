@@ -43,6 +43,24 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &AccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:netapp/v20190501:Account"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20190601:Account"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20190801:Account"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20191001:Account"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20191101:Account"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Account
 	err := ctx.RegisterResource("azurerm:netapp/v20190701:Account", name, args, &resource, opts...)
 	if err != nil {

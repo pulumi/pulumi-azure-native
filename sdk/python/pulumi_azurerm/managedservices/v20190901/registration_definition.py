@@ -93,6 +93,8 @@ class RegistrationDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:managedservices/v20190601:RegistrationDefinition")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistrationDefinition, __self__).__init__(
             'azurerm:managedservices/v20190901:RegistrationDefinition',
             resource_name,

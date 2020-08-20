@@ -118,6 +118,26 @@ namespace Pulumi.AzureRM.Network.V20180801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180401:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20180601:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20180701:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20181001:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20181101:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20181201:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20190201:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20190401:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20190601:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20190701:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20190801:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20190901:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20191101:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20191201:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20200301:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20200401:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20200501:VirtualWan"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

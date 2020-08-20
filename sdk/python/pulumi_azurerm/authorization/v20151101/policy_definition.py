@@ -57,6 +57,8 @@ class PolicyDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20160401:PolicyDefinition")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyDefinition, __self__).__init__(
             'azurerm:authorization/v20151101:PolicyDefinition',
             resource_name,

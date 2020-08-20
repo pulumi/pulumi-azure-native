@@ -89,6 +89,8 @@ class ApiVersionSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'versioning_scheme'")
             __props__['versioning_scheme'] = versioning_scheme
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiVersionSet")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiVersionSet, __self__).__init__(
             'azurerm:apimanagement/v20170301:ApiVersionSet',
             resource_name,

@@ -66,6 +66,15 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApplicationDefinitionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:solutions/v20180601:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:solutions/v20190701:ApplicationDefinition"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApplicationDefinition
 	err := ctx.RegisterResource("azurerm:solutions/v20170901:ApplicationDefinition", name, args, &resource, opts...)
 	if err != nil {

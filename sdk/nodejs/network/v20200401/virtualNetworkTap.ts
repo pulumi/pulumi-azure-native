@@ -121,6 +121,8 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20180801:VirtualNetworkTap" }, { type: "azurerm:network/v20181001:VirtualNetworkTap" }, { type: "azurerm:network/v20181101:VirtualNetworkTap" }, { type: "azurerm:network/v20181201:VirtualNetworkTap" }, { type: "azurerm:network/v20190201:VirtualNetworkTap" }, { type: "azurerm:network/v20190401:VirtualNetworkTap" }, { type: "azurerm:network/v20190601:VirtualNetworkTap" }, { type: "azurerm:network/v20190701:VirtualNetworkTap" }, { type: "azurerm:network/v20190801:VirtualNetworkTap" }, { type: "azurerm:network/v20190901:VirtualNetworkTap" }, { type: "azurerm:network/v20191101:VirtualNetworkTap" }, { type: "azurerm:network/v20191201:VirtualNetworkTap" }, { type: "azurerm:network/v20200301:VirtualNetworkTap" }, { type: "azurerm:network/v20200501:VirtualNetworkTap" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkTap.__pulumiType, name, inputs, opts);
     }
 }

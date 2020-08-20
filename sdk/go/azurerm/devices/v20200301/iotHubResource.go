@@ -48,6 +48,33 @@ func NewIotHubResource(ctx *pulumi.Context,
 	if args == nil {
 		args = &IotHubResourceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devices/v20160203:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20170119:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20170701:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20180122:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20180401:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20190322:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20191104:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200401:IotHubResource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IotHubResource
 	err := ctx.RegisterResource("azurerm:devices/v20200301:IotHubResource", name, args, &resource, opts...)
 	if err != nil {

@@ -59,6 +59,15 @@ func NewPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &PolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cdn/v20200331:Policy"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20200415:Policy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Policy
 	err := ctx.RegisterResource("azurerm:cdn/v20190615:Policy", name, args, &resource, opts...)
 	if err != nil {

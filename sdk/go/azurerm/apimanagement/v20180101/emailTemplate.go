@@ -47,6 +47,18 @@ func NewEmailTemplate(ctx *pulumi.Context,
 	if args == nil {
 		args = &EmailTemplateArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:EmailTemplate"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:EmailTemplate"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:EmailTemplate"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource EmailTemplate
 	err := ctx.RegisterResource("azurerm:apimanagement/v20180101:EmailTemplate", name, args, &resource, opts...)
 	if err != nil {

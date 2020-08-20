@@ -61,6 +61,22 @@ namespace Pulumi.AzureRM.Resources.V20190301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:resources/v20151101:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20160201:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20160701:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20160901:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20170510:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20180201:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20180501:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20190501:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20190510:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20190701:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20190801:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20191001:Deployment"},
+                    new Alias { Type = "azurerm:resources/v20200601:Deployment"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

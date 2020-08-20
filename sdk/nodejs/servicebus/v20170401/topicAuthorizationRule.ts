@@ -89,6 +89,8 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azurerm:servicebus/v20150801:TopicAuthorizationRule" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TopicAuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }

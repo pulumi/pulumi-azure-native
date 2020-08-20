@@ -106,6 +106,8 @@ export class SiteRelayServiceConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160801:SiteRelayServiceConnection" }, { type: "azurerm:web/v20180201:SiteRelayServiceConnection" }, { type: "azurerm:web/v20181101:SiteRelayServiceConnection" }, { type: "azurerm:web/v20190801:SiteRelayServiceConnection" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteRelayServiceConnection.__pulumiType, name, inputs, opts);
     }
 }

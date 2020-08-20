@@ -79,6 +79,11 @@ namespace Pulumi.AzureRM.EventHub.V20140901
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:eventhub/v20150801:ConsumerGroup"},
+                    new Alias { Type = "azurerm:eventhub/v20170401:ConsumerGroup"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -39,6 +39,12 @@ func NewPatchSchedule(ctx *pulumi.Context,
 	if args == nil {
 		args = &PatchScheduleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cache/v20170201:PatchSchedule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PatchSchedule
 	err := ctx.RegisterResource("azurerm:cache/v20160401:PatchSchedule", name, args, &resource, opts...)
 	if err != nil {

@@ -139,6 +139,26 @@ namespace Pulumi.AzureRM.Network.V20190401
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180401:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20180601:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20180701:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20180801:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20181001:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20181101:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20181201:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20190201:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20190601:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20190701:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20190801:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20190901:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20191101:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20191201:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20200301:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20200401:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20200501:VpnConnection"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

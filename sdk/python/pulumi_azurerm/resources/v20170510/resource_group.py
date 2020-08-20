@@ -68,6 +68,8 @@ class ResourceGroup(pulumi.CustomResource):
             __props__['name'] = name
             __props__['tags'] = tags
             __props__['properties'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20151101:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20160201:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20160701:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20160901:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20180201:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20180501:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190301:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190501:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190510:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190701:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20190801:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20191001:ResourceGroup"), pulumi.Alias(type_="azurerm:resources/v20200601:ResourceGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceGroup, __self__).__init__(
             'azurerm:resources/v20170510:ResourceGroup',
             resource_name,

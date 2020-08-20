@@ -60,6 +60,15 @@ func NewRegistry(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegistryArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20170301:Registry"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20171001:Registry"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Registry
 	err := ctx.RegisterResource("azurerm:containerregistry/v20190501:Registry", name, args, &resource, opts...)
 	if err != nil {

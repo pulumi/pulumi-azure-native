@@ -1622,6 +1622,8 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__['alias'] = None
             __props__['network_interfaces'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190401:PrivateLinkService"), pulumi.Alias(type_="azurerm:network/v20190601:PrivateLinkService"), pulumi.Alias(type_="azurerm:network/v20190801:PrivateLinkService"), pulumi.Alias(type_="azurerm:network/v20190901:PrivateLinkService"), pulumi.Alias(type_="azurerm:network/v20191101:PrivateLinkService"), pulumi.Alias(type_="azurerm:network/v20191201:PrivateLinkService"), pulumi.Alias(type_="azurerm:network/v20200301:PrivateLinkService"), pulumi.Alias(type_="azurerm:network/v20200401:PrivateLinkService"), pulumi.Alias(type_="azurerm:network/v20200501:PrivateLinkService")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkService, __self__).__init__(
             'azurerm:network/v20190701:PrivateLinkService',
             resource_name,

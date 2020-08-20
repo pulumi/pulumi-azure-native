@@ -45,6 +45,18 @@ func NewApiSchema(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApiSchemaArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiSchema"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiSchema"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiSchema"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApiSchema
 	err := ctx.RegisterResource("azurerm:apimanagement/v20170301:ApiSchema", name, args, &resource, opts...)
 	if err != nil {

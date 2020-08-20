@@ -42,6 +42,15 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReplicationvCenterArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationvCenter"),
+		},
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20180710:ReplicationvCenter"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReplicationvCenter
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20180110:ReplicationvCenter", name, args, &resource, opts...)
 	if err != nil {

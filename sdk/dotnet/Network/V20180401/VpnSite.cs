@@ -109,6 +109,26 @@ namespace Pulumi.AzureRM.Network.V20180401
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180601:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20180701:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20180801:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20181001:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20181101:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20181201:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20190201:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20190401:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20190601:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20190701:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20190801:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20190901:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20191101:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20191201:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20200301:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20200401:VpnSite"},
+                    new Alias { Type = "azurerm:network/v20200501:VpnSite"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

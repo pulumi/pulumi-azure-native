@@ -51,6 +51,21 @@ func NewSiteSourceControl(ctx *pulumi.Context,
 	if args == nil {
 		args = &SiteSourceControlArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160801:SiteSourceControl"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:SiteSourceControl"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:SiteSourceControl"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:SiteSourceControl"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SiteSourceControl
 	err := ctx.RegisterResource("azurerm:web/v20150801:SiteSourceControl", name, args, &resource, opts...)
 	if err != nil {

@@ -77,6 +77,8 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/v20180201:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azurerm:storage/v20180701:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azurerm:storage/v20190401:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azurerm:storage/v20190601:BlobContainerImmutabilityPolicy")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobContainerImmutabilityPolicy, __self__).__init__(
             'azurerm:storage/v20181101:BlobContainerImmutabilityPolicy',
             resource_name,

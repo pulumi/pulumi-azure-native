@@ -788,6 +788,8 @@ class InterfaceEndpoint(pulumi.CustomResource):
             __props__['owner'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180801:InterfaceEndpoint"), pulumi.Alias(type_="azurerm:network/v20181101:InterfaceEndpoint"), pulumi.Alias(type_="azurerm:network/v20181201:InterfaceEndpoint"), pulumi.Alias(type_="azurerm:network/v20190201:InterfaceEndpoint")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InterfaceEndpoint, __self__).__init__(
             'azurerm:network/v20181001:InterfaceEndpoint',
             resource_name,

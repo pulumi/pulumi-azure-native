@@ -102,6 +102,8 @@ class HubRouteTable(pulumi.CustomResource):
             __props__['propagating_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200501:HubRouteTable")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HubRouteTable, __self__).__init__(
             'azurerm:network/v20200401:HubRouteTable',
             resource_name,

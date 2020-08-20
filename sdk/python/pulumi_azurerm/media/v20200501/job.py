@@ -144,6 +144,8 @@ class Job(pulumi.CustomResource):
             __props__['start_time'] = None
             __props__['state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20180701:Job")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azurerm:media/v20200501:Job',
             resource_name,

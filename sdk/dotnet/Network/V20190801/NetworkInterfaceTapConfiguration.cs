@@ -67,6 +67,23 @@ namespace Pulumi.AzureRM.Network.V20190801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180801:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20181001:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20181101:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20181201:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20190201:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20190401:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20190601:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20190701:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20190901:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20191101:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20191201:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20200301:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20200401:NetworkInterfaceTapConfiguration"},
+                    new Alias { Type = "azurerm:network/v20200501:NetworkInterfaceTapConfiguration"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

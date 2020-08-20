@@ -91,6 +91,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:apimanagement/v20160707:Product"},
+                    new Alias { Type = "azurerm:apimanagement/v20161010:Product"},
+                    new Alias { Type = "azurerm:apimanagement/v20180101:Product"},
+                    new Alias { Type = "azurerm:apimanagement/v20190101:Product"},
+                    new Alias { Type = "azurerm:apimanagement/v20191201:Product"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

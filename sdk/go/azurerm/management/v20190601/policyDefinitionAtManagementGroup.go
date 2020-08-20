@@ -46,6 +46,24 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &PolicyDefinitionAtManagementGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:management/v20161201:PolicyDefinitionAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20180301:PolicyDefinitionAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20180501:PolicyDefinitionAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20190101:PolicyDefinitionAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20190901:PolicyDefinitionAtManagementGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PolicyDefinitionAtManagementGroup
 	err := ctx.RegisterResource("azurerm:management/v20190601:PolicyDefinitionAtManagementGroup", name, args, &resource, opts...)
 	if err != nil {

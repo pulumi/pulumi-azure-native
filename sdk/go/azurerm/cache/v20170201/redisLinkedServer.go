@@ -49,6 +49,15 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 	if args == nil {
 		args = &RedisLinkedServerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cache/v20171001:RedisLinkedServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20180301:RedisLinkedServer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RedisLinkedServer
 	err := ctx.RegisterResource("azurerm:cache/v20170201:RedisLinkedServer", name, args, &resource, opts...)
 	if err != nil {

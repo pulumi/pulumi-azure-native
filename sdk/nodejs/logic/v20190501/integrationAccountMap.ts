@@ -132,6 +132,8 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:IntegrationAccountMap" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountMap.__pulumiType, name, inputs, opts);
     }
 }

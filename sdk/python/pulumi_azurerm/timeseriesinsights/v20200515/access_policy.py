@@ -73,6 +73,8 @@ class AccessPolicy(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['roles'] = roles
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:timeseriesinsights/v20171115:AccessPolicy")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessPolicy, __self__).__init__(
             'azurerm:timeseriesinsights/v20200515:AccessPolicy',
             resource_name,

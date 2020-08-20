@@ -99,6 +99,8 @@ class Asset(pulumi.CustomResource):
             __props__['last_modified'] = None
             __props__['storage_encryption_format'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20200501:Asset")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Asset, __self__).__init__(
             'azurerm:media/v20180701:Asset',
             resource_name,

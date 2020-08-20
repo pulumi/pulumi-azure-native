@@ -78,6 +78,8 @@ class Certificate(pulumi.CustomResource):
             __props__['subject'] = None
             __props__['thumbprint'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Certificate"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Certificate"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Certificate"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Certificate"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Certificate")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azurerm:apimanagement/v20190101:Certificate',
             resource_name,

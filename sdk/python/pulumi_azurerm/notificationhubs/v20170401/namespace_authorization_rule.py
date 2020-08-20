@@ -128,6 +128,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__['sku'] = None
             __props__['tags'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:notificationhubs/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azurerm:notificationhubs/v20160301:NamespaceAuthorizationRule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azurerm:notificationhubs/v20170401:NamespaceAuthorizationRule',
             resource_name,

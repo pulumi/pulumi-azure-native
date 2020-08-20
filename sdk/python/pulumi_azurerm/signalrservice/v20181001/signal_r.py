@@ -180,6 +180,8 @@ class SignalR(pulumi.CustomResource):
             __props__['server_port'] = None
             __props__['type'] = None
             __props__['version'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:signalrservice/v20200501:SignalR")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalR, __self__).__init__(
             'azurerm:signalrservice/v20181001:SignalR',
             resource_name,

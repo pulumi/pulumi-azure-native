@@ -81,6 +81,39 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualMachineArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20150615:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20160330:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20170330:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20171201:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180401:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180601:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20181001:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190301:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190701:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200601:VirtualMachine"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualMachine
 	err := ctx.RegisterResource("azurerm:compute/v20191201:VirtualMachine", name, args, &resource, opts...)
 	if err != nil {

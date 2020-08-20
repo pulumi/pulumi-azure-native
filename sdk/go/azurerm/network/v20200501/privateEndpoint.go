@@ -50,6 +50,36 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateEndpointArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20190401:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:PrivateEndpoint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateEndpoint
 	err := ctx.RegisterResource("azurerm:network/v20200501:PrivateEndpoint", name, args, &resource, opts...)
 	if err != nil {

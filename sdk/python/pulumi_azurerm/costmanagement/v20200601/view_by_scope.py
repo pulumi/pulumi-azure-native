@@ -202,6 +202,8 @@ class ViewByScope(pulumi.CustomResource):
             __props__['type'] = type
             __props__['created_on'] = None
             __props__['modified_on'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:costmanagement/v20191101:ViewByScope")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ViewByScope, __self__).__init__(
             'azurerm:costmanagement/v20200601:ViewByScope',
             resource_name,

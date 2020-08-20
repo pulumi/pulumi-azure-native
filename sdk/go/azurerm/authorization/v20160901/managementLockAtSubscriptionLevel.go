@@ -38,6 +38,12 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagementLockAtSubscriptionLevelArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:authorization/v20150101:ManagementLockAtSubscriptionLevel"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementLockAtSubscriptionLevel
 	err := ctx.RegisterResource("azurerm:authorization/v20160901:ManagementLockAtSubscriptionLevel", name, args, &resource, opts...)
 	if err != nil {

@@ -53,6 +53,18 @@ func NewZone(ctx *pulumi.Context,
 	if args == nil {
 		args = &ZoneArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20160401:Zone"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:Zone"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:Zone"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Zone
 	err := ctx.RegisterResource("azurerm:network/v20180501:Zone", name, args, &resource, opts...)
 	if err != nil {

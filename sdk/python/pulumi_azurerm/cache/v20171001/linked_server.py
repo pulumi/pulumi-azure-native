@@ -80,6 +80,8 @@ class LinkedServer(pulumi.CustomResource):
             __props__['server_role'] = server_role
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/v20170201:LinkedServer"), pulumi.Alias(type_="azurerm:cache/v20180301:LinkedServer")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedServer, __self__).__init__(
             'azurerm:cache/v20171001:LinkedServer',
             resource_name,

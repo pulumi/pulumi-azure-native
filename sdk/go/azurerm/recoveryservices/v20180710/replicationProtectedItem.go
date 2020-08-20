@@ -45,6 +45,15 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReplicationProtectedItemArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20180110:ReplicationProtectedItem"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReplicationProtectedItem
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20180710:ReplicationProtectedItem", name, args, &resource, opts...)
 	if err != nil {

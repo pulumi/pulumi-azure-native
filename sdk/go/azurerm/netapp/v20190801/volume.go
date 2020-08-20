@@ -80,6 +80,24 @@ func NewVolume(ctx *pulumi.Context,
 	if args == nil {
 		args = &VolumeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:netapp/v20190501:Volume"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20190601:Volume"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20190701:Volume"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20191001:Volume"),
+		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20191101:Volume"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Volume
 	err := ctx.RegisterResource("azurerm:netapp/v20190801:Volume", name, args, &resource, opts...)
 	if err != nil {

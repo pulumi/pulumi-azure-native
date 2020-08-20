@@ -47,6 +47,21 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppVnetConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:WebAppVnetConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebAppVnetConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:WebAppVnetConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:WebAppVnetConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppVnetConnection
 	err := ctx.RegisterResource("azurerm:web/v20160801:WebAppVnetConnection", name, args, &resource, opts...)
 	if err != nil {

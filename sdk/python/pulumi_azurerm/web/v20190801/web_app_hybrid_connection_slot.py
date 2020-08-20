@@ -114,6 +114,8 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['relay_name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20160801:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppHybridConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppHybridConnectionSlot")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHybridConnectionSlot, __self__).__init__(
             'azurerm:web/v20190801:WebAppHybridConnectionSlot',
             resource_name,

@@ -55,6 +55,12 @@ func NewIntegrationAccountPartner(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationAccountPartnerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountPartner"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationAccountPartner
 	err := ctx.RegisterResource("azurerm:logic/v20190501:IntegrationAccountPartner", name, args, &resource, opts...)
 	if err != nil {

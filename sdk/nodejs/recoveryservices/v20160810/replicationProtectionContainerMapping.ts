@@ -97,6 +97,8 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/v20180110:ReplicationProtectionContainerMapping" }, { type: "azurerm:recoveryservices/v20180710:ReplicationProtectionContainerMapping" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationProtectionContainerMapping.__pulumiType, name, inputs, opts);
     }
 }

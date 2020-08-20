@@ -102,6 +102,8 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:IntegrationAccountSession" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountSession.__pulumiType, name, inputs, opts);
     }
 }

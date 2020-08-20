@@ -61,6 +61,11 @@ namespace Pulumi.AzureRM.Devices.V20180122
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:devices/v20171115:DpsCertificate"},
+                    new Alias { Type = "azurerm:devices/v20200101:DpsCertificate"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -49,6 +49,27 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProximityPlacementGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20180401:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20180601:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20181001:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20190301:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20191201:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200601:ProximityPlacementGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ProximityPlacementGroup
 	err := ctx.RegisterResource("azurerm:compute/v20190701:ProximityPlacementGroup", name, args, &resource, opts...)
 	if err != nil {

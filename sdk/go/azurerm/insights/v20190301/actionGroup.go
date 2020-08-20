@@ -69,6 +69,21 @@ func NewActionGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ActionGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/v20170401:ActionGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:insights/v20180301:ActionGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:insights/v20180901:ActionGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:insights/v20190601:ActionGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ActionGroup
 	err := ctx.RegisterResource("azurerm:insights/v20190301:ActionGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -56,6 +56,18 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &AttachedDatabaseConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:kusto/v20190907:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20191109:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20200614:AttachedDatabaseConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AttachedDatabaseConfiguration
 	err := ctx.RegisterResource("azurerm:kusto/v20200215:AttachedDatabaseConfiguration", name, args, &resource, opts...)
 	if err != nil {

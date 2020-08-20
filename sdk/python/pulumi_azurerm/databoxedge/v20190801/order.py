@@ -144,6 +144,8 @@ class Order(pulumi.CustomResource):
             __props__['return_tracking_info'] = None
             __props__['serial_number'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databoxedge/v20190301:Order"), pulumi.Alias(type_="azurerm:databoxedge/v20190701:Order")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Order, __self__).__init__(
             'azurerm:databoxedge/v20190801:Order',
             resource_name,

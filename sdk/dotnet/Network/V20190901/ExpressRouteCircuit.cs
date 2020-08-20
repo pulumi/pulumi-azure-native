@@ -157,6 +157,39 @@ namespace Pulumi.AzureRM.Network.V20190901
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20150615:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20160330:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20160601:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20160901:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20161201:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20170301:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20170601:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20170801:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20170901:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20171001:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20171101:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20180101:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20180201:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20180401:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20180601:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20180701:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20180801:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20181001:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20181101:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20181201:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20190201:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20190401:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20190601:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20190701:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20190801:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20191101:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20191201:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20200301:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20200401:ExpressRouteCircuit"},
+                    new Alias { Type = "azurerm:network/v20200501:ExpressRouteCircuit"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -67,6 +67,45 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedClusterArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerservice/v20170831:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20180331:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20190401:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20190601:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20190801:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20191001:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20191101:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200101:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200201:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200301:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200401:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200601:ManagedCluster"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedCluster
 	err := ctx.RegisterResource("azurerm:containerservice/v20190201:ManagedCluster", name, args, &resource, opts...)
 	if err != nil {

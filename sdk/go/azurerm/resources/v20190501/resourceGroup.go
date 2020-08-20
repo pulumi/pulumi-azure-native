@@ -40,6 +40,48 @@ func NewResourceGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ResourceGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:resources/v20151101:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20160201:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20160701:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20160901:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20170510:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20180201:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20180501:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190301:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190510:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190701:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20190801:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20191001:ResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:resources/v20200601:ResourceGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ResourceGroup
 	err := ctx.RegisterResource("azurerm:resources/v20190501:ResourceGroup", name, args, &resource, opts...)
 	if err != nil {

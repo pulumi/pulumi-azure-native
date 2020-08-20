@@ -66,6 +66,36 @@ func NewOrigin(ctx *pulumi.Context,
 	if args == nil {
 		args = &OriginArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:cdn/v20150601:Origin"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20160402:Origin"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20161002:Origin"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20170402:Origin"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20171012:Origin"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190415:Origin"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190615:Origin"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20191231:Origin"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20200415:Origin"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Origin
 	err := ctx.RegisterResource("azurerm:cdn/v20200331:Origin", name, args, &resource, opts...)
 	if err != nil {

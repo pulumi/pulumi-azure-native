@@ -164,6 +164,8 @@ export class BlobContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/v20180201:BlobContainer" }, { type: "azurerm:storage/v20180701:BlobContainer" }, { type: "azurerm:storage/v20181101:BlobContainer" }, { type: "azurerm:storage/v20190401:BlobContainer" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainer.__pulumiType, name, inputs, opts);
     }
 }

@@ -56,6 +56,18 @@ func NewServerFarmRouteForVnet(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerFarmRouteForVnetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160901:ServerFarmRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:ServerFarmRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:ServerFarmRouteForVnet"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerFarmRouteForVnet
 	err := ctx.RegisterResource("azurerm:web/v20150801:ServerFarmRouteForVnet", name, args, &resource, opts...)
 	if err != nil {

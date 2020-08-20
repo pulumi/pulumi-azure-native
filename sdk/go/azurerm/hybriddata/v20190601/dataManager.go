@@ -46,6 +46,12 @@ func NewDataManager(ctx *pulumi.Context,
 	if args == nil {
 		args = &DataManagerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hybriddata/v20160601:DataManager"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataManager
 	err := ctx.RegisterResource("azurerm:hybriddata/v20190601:DataManager", name, args, &resource, opts...)
 	if err != nil {

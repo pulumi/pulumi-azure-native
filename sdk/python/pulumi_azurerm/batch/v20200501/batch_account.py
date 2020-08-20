@@ -192,6 +192,8 @@ class BatchAccount(pulumi.CustomResource):
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:batch/v20151201:BatchAccount"), pulumi.Alias(type_="azurerm:batch/v20170101:BatchAccount"), pulumi.Alias(type_="azurerm:batch/v20170501:BatchAccount"), pulumi.Alias(type_="azurerm:batch/v20170901:BatchAccount"), pulumi.Alias(type_="azurerm:batch/v20181201:BatchAccount"), pulumi.Alias(type_="azurerm:batch/v20190401:BatchAccount"), pulumi.Alias(type_="azurerm:batch/v20190801:BatchAccount"), pulumi.Alias(type_="azurerm:batch/v20200301:BatchAccount")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BatchAccount, __self__).__init__(
             'azurerm:batch/v20200501:BatchAccount',
             resource_name,

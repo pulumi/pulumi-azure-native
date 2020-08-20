@@ -45,6 +45,15 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReplicationNetworkMappingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationNetworkMapping"),
+		},
+		{
+			Type: pulumi.String("azurerm:recoveryservices/v20180110:ReplicationNetworkMapping"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReplicationNetworkMapping
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20180710:ReplicationNetworkMapping", name, args, &resource, opts...)
 	if err != nil {

@@ -101,6 +101,8 @@ export class TagDescription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:TagDescription" }, { type: "azurerm:apimanagement/v20190101:TagDescription" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagDescription.__pulumiType, name, inputs, opts);
     }
 }

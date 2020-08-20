@@ -65,6 +65,63 @@ func NewExpressRouteCrossConnectionPeering(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExpressRouteCrossConnectionPeeringArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180201:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:ExpressRouteCrossConnectionPeering"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ExpressRouteCrossConnectionPeering"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ExpressRouteCrossConnectionPeering
 	err := ctx.RegisterResource("azurerm:network/v20180401:ExpressRouteCrossConnectionPeering", name, args, &resource, opts...)
 	if err != nil {

@@ -39,6 +39,15 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 	if args == nil {
 		args = &DomainOwnershipIdentifierArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:domainregistration/v20150401:DomainOwnershipIdentifier"),
+		},
+		{
+			Type: pulumi.String("azurerm:domainregistration/v20190801:DomainOwnershipIdentifier"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DomainOwnershipIdentifier
 	err := ctx.RegisterResource("azurerm:domainregistration/v20180201:DomainOwnershipIdentifier", name, args, &resource, opts...)
 	if err != nil {

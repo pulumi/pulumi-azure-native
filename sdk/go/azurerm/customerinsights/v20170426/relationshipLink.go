@@ -69,6 +69,12 @@ func NewRelationshipLink(ctx *pulumi.Context,
 	if args == nil {
 		args = &RelationshipLinkArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:customerinsights/v20170101:RelationshipLink"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RelationshipLink
 	err := ctx.RegisterResource("azurerm:customerinsights/v20170426:RelationshipLink", name, args, &resource, opts...)
 	if err != nil {

@@ -49,6 +49,96 @@ func NewSubnet(ctx *pulumi.Context,
 	if args == nil {
 		args = &SubnetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20160330:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160601:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171101:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:Subnet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:Subnet"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Subnet
 	err := ctx.RegisterResource("azurerm:network/v20180601:Subnet", name, args, &resource, opts...)
 	if err != nil {

@@ -94,6 +94,8 @@ export class AccountFilter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:media/v20200501:AccountFilter" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AccountFilter.__pulumiType, name, inputs, opts);
     }
 }

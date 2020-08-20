@@ -188,6 +188,8 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:solutions/v20170901:Application" }, { type: "azurerm:solutions/v20180601:Application" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Application.__pulumiType, name, inputs, opts);
     }
 }

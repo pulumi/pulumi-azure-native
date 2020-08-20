@@ -166,6 +166,8 @@ class VpnGateway(pulumi.CustomResource):
             __props__['virtual_hub'] = virtual_hub
             __props__['etag'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180401:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20180601:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20180801:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20181001:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20181101:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20181201:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190201:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190401:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190601:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190701:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190801:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190901:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20191101:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20191201:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20200301:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20200401:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20200501:VpnGateway")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpnGateway, __self__).__init__(
             'azurerm:network/v20180701:VpnGateway',
             resource_name,

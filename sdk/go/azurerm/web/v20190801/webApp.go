@@ -119,6 +119,21 @@ func NewWebApp(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20150801:WebApp"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20160801:WebApp"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebApp"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:WebApp"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebApp
 	err := ctx.RegisterResource("azurerm:web/v20190801:WebApp", name, args, &resource, opts...)
 	if err != nil {

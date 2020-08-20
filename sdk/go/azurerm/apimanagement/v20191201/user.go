@@ -60,6 +60,12 @@ func NewUser(ctx *pulumi.Context,
 	if args == nil {
 		args = &UserArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:User"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource User
 	err := ctx.RegisterResource("azurerm:apimanagement/v20191201:User", name, args, &resource, opts...)
 	if err != nil {

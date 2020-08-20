@@ -91,6 +91,24 @@ namespace Pulumi.AzureRM.Network.V20190901
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20180701:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20180801:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20181001:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20181101:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20181201:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20190201:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20190401:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20190601:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20190701:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20190801:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20191101:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20191201:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20200301:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20200401:ServiceEndpointPolicy"},
+                    new Alias { Type = "azurerm:network/v20200501:ServiceEndpointPolicy"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

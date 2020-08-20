@@ -39,6 +39,12 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &GuestConfigurationAssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20200625:GuestConfigurationAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource GuestConfigurationAssignment
 	err := ctx.RegisterResource("azurerm:compute/v20181120:GuestConfigurationAssignment", name, args, &resource, opts...)
 	if err != nil {

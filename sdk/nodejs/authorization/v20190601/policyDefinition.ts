@@ -104,6 +104,8 @@ export class PolicyDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/v20161201:PolicyDefinition" }, { type: "azurerm:authorization/v20180301:PolicyDefinition" }, { type: "azurerm:authorization/v20180501:PolicyDefinition" }, { type: "azurerm:authorization/v20190101:PolicyDefinition" }, { type: "azurerm:authorization/v20190901:PolicyDefinition" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyDefinition.__pulumiType, name, inputs, opts);
     }
 }

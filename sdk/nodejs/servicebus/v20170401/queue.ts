@@ -184,6 +184,8 @@ export class Queue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/v20140901:Queue" }, { type: "azurerm:servicebus/v20150801:Queue" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Queue.__pulumiType, name, inputs, opts);
     }
 }

@@ -51,6 +51,21 @@ func NewSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 	if args == nil {
 		args = &SiteRelayServiceConnectionSlotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160801:SiteRelayServiceConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:SiteRelayServiceConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20181101:SiteRelayServiceConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:SiteRelayServiceConnectionSlot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SiteRelayServiceConnectionSlot
 	err := ctx.RegisterResource("azurerm:web/v20150801:SiteRelayServiceConnectionSlot", name, args, &resource, opts...)
 	if err != nil {

@@ -127,6 +127,8 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebAppHostNameBindingSlot" }, { type: "azurerm:web/v20160801:WebAppHostNameBindingSlot" }, { type: "azurerm:web/v20180201:WebAppHostNameBindingSlot" }, { type: "azurerm:web/v20190801:WebAppHostNameBindingSlot" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHostNameBindingSlot.__pulumiType, name, inputs, opts);
     }
 }

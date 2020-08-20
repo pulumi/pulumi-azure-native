@@ -59,6 +59,15 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &QueueAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:servicebus/v20150801:QueueAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicebus/v20170401:QueueAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource QueueAuthorizationRule
 	err := ctx.RegisterResource("azurerm:servicebus/v20140901:QueueAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

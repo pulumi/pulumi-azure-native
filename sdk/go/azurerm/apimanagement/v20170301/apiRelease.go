@@ -46,6 +46,18 @@ func NewApiRelease(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApiReleaseArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiRelease"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiRelease"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiRelease"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApiRelease
 	err := ctx.RegisterResource("azurerm:apimanagement/v20170301:ApiRelease", name, args, &resource, opts...)
 	if err != nil {

@@ -55,6 +55,12 @@ func NewPartner(ctx *pulumi.Context,
 	if args == nil {
 		args = &PartnerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20190501:Partner"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Partner
 	err := ctx.RegisterResource("azurerm:logic/v20160601:Partner", name, args, &resource, opts...)
 	if err != nil {

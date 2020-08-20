@@ -96,6 +96,24 @@ func NewApiManagementService(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApiManagementServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20160707:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20161010:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiManagementService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApiManagementService
 	err := ctx.RegisterResource("azurerm:apimanagement/v20190101:ApiManagementService", name, args, &resource, opts...)
 	if err != nil {

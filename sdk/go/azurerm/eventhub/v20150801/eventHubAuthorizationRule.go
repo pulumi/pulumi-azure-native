@@ -45,6 +45,15 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &EventHubAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:eventhub/v20140901:EventHubAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventhub/v20170401:EventHubAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource EventHubAuthorizationRule
 	err := ctx.RegisterResource("azurerm:eventhub/v20150801:EventHubAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

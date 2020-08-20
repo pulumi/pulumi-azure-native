@@ -60,6 +60,15 @@ func NewDomainService(ctx *pulumi.Context,
 	if args == nil {
 		args = &DomainServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:aad/v20170101:DomainService"),
+		},
+		{
+			Type: pulumi.String("azurerm:aad/v20170601:DomainService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DomainService
 	err := ctx.RegisterResource("azurerm:aad/v20200101:DomainService", name, args, &resource, opts...)
 	if err != nil {

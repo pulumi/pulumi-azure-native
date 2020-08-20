@@ -103,6 +103,8 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebAppSourceControlSlot" }, { type: "azurerm:web/v20160801:WebAppSourceControlSlot" }, { type: "azurerm:web/v20180201:WebAppSourceControlSlot" }, { type: "azurerm:web/v20181101:WebAppSourceControlSlot" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSourceControlSlot.__pulumiType, name, inputs, opts);
     }
 }

@@ -66,6 +66,18 @@ func NewContainerService(ctx *pulumi.Context,
 	if args == nil {
 		args = &ContainerServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerservice/v20160330:ContainerService"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20160930:ContainerService"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20170701:ContainerService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ContainerService
 	err := ctx.RegisterResource("azurerm:containerservice/v20170131:ContainerService", name, args, &resource, opts...)
 	if err != nil {

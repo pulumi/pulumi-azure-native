@@ -53,6 +53,12 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReferenceDataSetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:timeseriesinsights/v20200515:ReferenceDataSet"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReferenceDataSet
 	err := ctx.RegisterResource("azurerm:timeseriesinsights/v20171115:ReferenceDataSet", name, args, &resource, opts...)
 	if err != nil {

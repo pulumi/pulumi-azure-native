@@ -49,6 +49,12 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationAccountCertificateArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountCertificate"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationAccountCertificate
 	err := ctx.RegisterResource("azurerm:logic/v20190501:IntegrationAccountCertificate", name, args, &resource, opts...)
 	if err != nil {

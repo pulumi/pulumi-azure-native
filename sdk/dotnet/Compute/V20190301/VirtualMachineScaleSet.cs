@@ -163,6 +163,19 @@ namespace Pulumi.AzureRM.Compute.V20190301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:compute/v20150615:VirtualMachineScaleSet"},
+                    new Alias { Type = "azurerm:compute/v20160330:VirtualMachineScaleSet"},
+                    new Alias { Type = "azurerm:compute/v20170330:VirtualMachineScaleSet"},
+                    new Alias { Type = "azurerm:compute/v20171201:VirtualMachineScaleSet"},
+                    new Alias { Type = "azurerm:compute/v20180401:VirtualMachineScaleSet"},
+                    new Alias { Type = "azurerm:compute/v20180601:VirtualMachineScaleSet"},
+                    new Alias { Type = "azurerm:compute/v20181001:VirtualMachineScaleSet"},
+                    new Alias { Type = "azurerm:compute/v20190701:VirtualMachineScaleSet"},
+                    new Alias { Type = "azurerm:compute/v20191201:VirtualMachineScaleSet"},
+                    new Alias { Type = "azurerm:compute/v20200601:VirtualMachineScaleSet"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

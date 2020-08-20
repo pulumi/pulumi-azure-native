@@ -66,6 +66,18 @@ func NewServerFarm(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerFarmArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160901:ServerFarm"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:ServerFarm"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:ServerFarm"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerFarm
 	err := ctx.RegisterResource("azurerm:web/v20150801:ServerFarm", name, args, &resource, opts...)
 	if err != nil {

@@ -61,6 +61,11 @@ namespace Pulumi.AzureRM.Advisor.V20170331
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:advisor/v20170419:Suppression"},
+                    new Alias { Type = "azurerm:advisor/v20200101:Suppression"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

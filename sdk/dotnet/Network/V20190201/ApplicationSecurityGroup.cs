@@ -79,6 +79,31 @@ namespace Pulumi.AzureRM.Network.V20190201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20170901:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20171001:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20171101:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180101:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180201:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180401:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180601:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180701:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180801:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20181001:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20181101:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20181201:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190401:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190601:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190701:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190801:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190901:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20191101:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20191201:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20200301:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20200401:ApplicationSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20200501:ApplicationSecurityGroup"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

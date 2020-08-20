@@ -114,6 +114,8 @@ class Registry(pulumi.CustomResource):
             __props__['login_server'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/v20171001:Registry"), pulumi.Alias(type_="azurerm:containerregistry/v20190501:Registry")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Registry, __self__).__init__(
             'azurerm:containerregistry/v20170301:Registry',
             resource_name,

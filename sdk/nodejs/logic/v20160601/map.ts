@@ -132,6 +132,8 @@ export class Map extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20190501:Map" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Map.__pulumiType, name, inputs, opts);
     }
 }

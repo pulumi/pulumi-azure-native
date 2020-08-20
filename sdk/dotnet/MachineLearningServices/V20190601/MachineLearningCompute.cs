@@ -73,6 +73,16 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190601
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:machinelearningservices/v20181119:MachineLearningCompute"},
+                    new Alias { Type = "azurerm:machinelearningservices/v20190501:MachineLearningCompute"},
+                    new Alias { Type = "azurerm:machinelearningservices/v20191101:MachineLearningCompute"},
+                    new Alias { Type = "azurerm:machinelearningservices/v20200101:MachineLearningCompute"},
+                    new Alias { Type = "azurerm:machinelearningservices/v20200301:MachineLearningCompute"},
+                    new Alias { Type = "azurerm:machinelearningservices/v20200401:MachineLearningCompute"},
+                    new Alias { Type = "azurerm:machinelearningservices/v20200601:MachineLearningCompute"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

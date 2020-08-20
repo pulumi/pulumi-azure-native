@@ -43,6 +43,30 @@ func NewFirewallPolicyRuleGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &FirewallPolicyRuleGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20190601:FirewallPolicyRuleGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:FirewallPolicyRuleGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:FirewallPolicyRuleGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:FirewallPolicyRuleGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:FirewallPolicyRuleGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:FirewallPolicyRuleGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:FirewallPolicyRuleGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource FirewallPolicyRuleGroup
 	err := ctx.RegisterResource("azurerm:network/v20191201:FirewallPolicyRuleGroup", name, args, &resource, opts...)
 	if err != nil {

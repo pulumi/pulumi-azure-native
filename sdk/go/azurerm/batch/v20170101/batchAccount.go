@@ -52,6 +52,33 @@ func NewBatchAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &BatchAccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:batch/v20151201:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20170501:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20170901:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20181201:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20190401:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20190801:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20200301:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20200501:BatchAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BatchAccount
 	err := ctx.RegisterResource("azurerm:batch/v20170101:BatchAccount", name, args, &resource, opts...)
 	if err != nil {

@@ -41,6 +41,99 @@ func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExpressRouteCircuitAuthorizationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20150615:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160330:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160601:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20160901:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20161201:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170301:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170601:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170801:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20170901:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20171001:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180101:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180201:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180401:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200501:ExpressRouteCircuitAuthorization"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ExpressRouteCircuitAuthorization
 	err := ctx.RegisterResource("azurerm:network/v20171101:ExpressRouteCircuitAuthorization", name, args, &resource, opts...)
 	if err != nil {

@@ -34,6 +34,18 @@ func NewWebAppDomainOwnershipIdentifier(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebAppDomainOwnershipIdentifierArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20160801:WebAppDomainOwnershipIdentifier"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20180201:WebAppDomainOwnershipIdentifier"),
+		},
+		{
+			Type: pulumi.String("azurerm:web/v20190801:WebAppDomainOwnershipIdentifier"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebAppDomainOwnershipIdentifier
 	err := ctx.RegisterResource("azurerm:web/v20181101:WebAppDomainOwnershipIdentifier", name, args, &resource, opts...)
 	if err != nil {

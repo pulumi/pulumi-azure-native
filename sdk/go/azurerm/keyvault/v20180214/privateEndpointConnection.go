@@ -45,6 +45,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateEndpointConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:keyvault/v20190901:PrivateEndpointConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
 	err := ctx.RegisterResource("azurerm:keyvault/v20180214:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

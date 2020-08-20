@@ -103,6 +103,13 @@ namespace Pulumi.AzureRM.Web.V20150801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:web/v20160801:SiteHostNameBinding"},
+                    new Alias { Type = "azurerm:web/v20180201:SiteHostNameBinding"},
+                    new Alias { Type = "azurerm:web/v20181101:SiteHostNameBinding"},
+                    new Alias { Type = "azurerm:web/v20190801:SiteHostNameBinding"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

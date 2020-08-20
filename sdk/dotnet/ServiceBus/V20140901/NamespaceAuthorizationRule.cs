@@ -103,6 +103,11 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:servicebus/v20150801:NamespaceAuthorizationRule"},
+                    new Alias { Type = "azurerm:servicebus/v20170401:NamespaceAuthorizationRule"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

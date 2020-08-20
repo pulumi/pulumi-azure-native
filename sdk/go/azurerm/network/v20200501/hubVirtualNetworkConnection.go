@@ -47,6 +47,60 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &HubVirtualNetworkConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20180401:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180601:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180701:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181001:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181101:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20181201:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190201:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190401:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190601:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190701:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190801:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20190901:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191101:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20191201:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200301:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20200401:HubVirtualNetworkConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HubVirtualNetworkConnection
 	err := ctx.RegisterResource("azurerm:network/v20200501:HubVirtualNetworkConnection", name, args, &resource, opts...)
 	if err != nil {

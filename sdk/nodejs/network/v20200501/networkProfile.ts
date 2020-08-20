@@ -111,6 +111,8 @@ export class NetworkProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20180801:NetworkProfile" }, { type: "azurerm:network/v20181001:NetworkProfile" }, { type: "azurerm:network/v20181101:NetworkProfile" }, { type: "azurerm:network/v20181201:NetworkProfile" }, { type: "azurerm:network/v20190201:NetworkProfile" }, { type: "azurerm:network/v20190401:NetworkProfile" }, { type: "azurerm:network/v20190601:NetworkProfile" }, { type: "azurerm:network/v20190701:NetworkProfile" }, { type: "azurerm:network/v20190801:NetworkProfile" }, { type: "azurerm:network/v20190901:NetworkProfile" }, { type: "azurerm:network/v20191101:NetworkProfile" }, { type: "azurerm:network/v20191201:NetworkProfile" }, { type: "azurerm:network/v20200301:NetworkProfile" }, { type: "azurerm:network/v20200401:NetworkProfile" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkProfile.__pulumiType, name, inputs, opts);
     }
 }

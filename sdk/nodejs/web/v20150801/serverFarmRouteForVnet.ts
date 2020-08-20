@@ -117,6 +117,8 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160901:ServerFarmRouteForVnet" }, { type: "azurerm:web/v20180201:ServerFarmRouteForVnet" }, { type: "azurerm:web/v20190801:ServerFarmRouteForVnet" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerFarmRouteForVnet.__pulumiType, name, inputs, opts);
     }
 }

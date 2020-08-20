@@ -103,6 +103,39 @@ namespace Pulumi.AzureRM.Network.V20190401
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:network/v20150615:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20160330:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20160601:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20160901:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20161201:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20170301:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20170601:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20170801:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20170901:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20171001:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20171101:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180101:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180201:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180401:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180601:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180701:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20180801:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20181001:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20181101:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20181201:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190201:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190601:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190701:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190801:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20190901:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20191101:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20191201:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20200301:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20200401:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20200501:NetworkSecurityGroup"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

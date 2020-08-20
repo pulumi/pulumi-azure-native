@@ -97,6 +97,8 @@ export class ApplicationType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/v20190301:ApplicationType" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationType.__pulumiType, name, inputs, opts);
     }
 }

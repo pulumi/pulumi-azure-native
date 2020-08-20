@@ -65,6 +65,12 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args == nil {
 		args = &JobDefinitionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hybriddata/v20190601:JobDefinition"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource JobDefinition
 	err := ctx.RegisterResource("azurerm:hybriddata/v20160601:JobDefinition", name, args, &resource, opts...)
 	if err != nil {

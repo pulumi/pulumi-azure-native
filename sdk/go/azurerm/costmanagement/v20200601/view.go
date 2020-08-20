@@ -61,6 +61,12 @@ func NewView(ctx *pulumi.Context,
 	if args == nil {
 		args = &ViewArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:costmanagement/v20191101:View"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource View
 	err := ctx.RegisterResource("azurerm:costmanagement/v20200601:View", name, args, &resource, opts...)
 	if err != nil {

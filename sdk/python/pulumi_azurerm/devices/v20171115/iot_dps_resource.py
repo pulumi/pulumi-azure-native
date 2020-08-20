@@ -132,6 +132,8 @@ class IotDpsResource(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azurerm:devices/v20200101:IotDpsResource")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotDpsResource, __self__).__init__(
             'azurerm:devices/v20171115:IotDpsResource',
             resource_name,

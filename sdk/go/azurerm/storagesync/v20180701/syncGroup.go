@@ -39,6 +39,30 @@ func NewSyncGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &SyncGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storagesync/v20180402:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20181001:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20190201:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20190301:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20190601:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20191001:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20200301:SyncGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SyncGroup
 	err := ctx.RegisterResource("azurerm:storagesync/v20180701:SyncGroup", name, args, &resource, opts...)
 	if err != nil {

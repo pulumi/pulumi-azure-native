@@ -122,6 +122,8 @@ class Vault(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:keyvault/v20150601:Vault"), pulumi.Alias(type_="azurerm:keyvault/v20180214:Vault"), pulumi.Alias(type_="azurerm:keyvault/v20190901:Vault")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Vault, __self__).__init__(
             'azurerm:keyvault/v20161001:Vault',
             resource_name,

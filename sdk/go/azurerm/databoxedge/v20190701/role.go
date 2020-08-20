@@ -40,6 +40,15 @@ func NewRole(ctx *pulumi.Context,
 	if args == nil {
 		args = &RoleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190301:Role"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190801:Role"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Role
 	err := ctx.RegisterResource("azurerm:databoxedge/v20190701:Role", name, args, &resource, opts...)
 	if err != nil {

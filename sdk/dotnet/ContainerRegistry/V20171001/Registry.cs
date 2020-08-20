@@ -109,6 +109,11 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:containerregistry/v20170301:Registry"},
+                    new Alias { Type = "azurerm:containerregistry/v20190501:Registry"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

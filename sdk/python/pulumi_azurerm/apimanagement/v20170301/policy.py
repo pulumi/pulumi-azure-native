@@ -63,6 +63,8 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20180101:Policy"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Policy"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Policy")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azurerm:apimanagement/v20170301:Policy',
             resource_name,

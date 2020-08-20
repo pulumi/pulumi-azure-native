@@ -45,6 +45,24 @@ func NewDataConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &DataConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:kusto/v20190121:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20190515:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20191109:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20200215:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20200614:DataConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataConnection
 	err := ctx.RegisterResource("azurerm:kusto/v20190907:DataConnection", name, args, &resource, opts...)
 	if err != nil {

@@ -103,6 +103,8 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azurerm:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azurerm:documentdb/v20200401:CassandraResourceCassandraTable" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CassandraResourceCassandraTable.__pulumiType, name, inputs, opts);
     }
 }

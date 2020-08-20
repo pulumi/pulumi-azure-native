@@ -98,6 +98,8 @@ class DataStore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybriddata/v20190601:DataStore")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataStore, __self__).__init__(
             'azurerm:hybriddata/v20160601:DataStore',
             resource_name,

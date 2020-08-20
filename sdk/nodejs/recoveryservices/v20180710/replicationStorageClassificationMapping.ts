@@ -97,6 +97,8 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azurerm:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationStorageClassificationMapping.__pulumiType, name, inputs, opts);
     }
 }

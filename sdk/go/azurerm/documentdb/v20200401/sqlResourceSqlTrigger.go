@@ -52,6 +52,18 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 	if args == nil {
 		args = &SqlResourceSqlTriggerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:documentdb/v20190801:SqlResourceSqlTrigger"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20191212:SqlResourceSqlTrigger"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200301:SqlResourceSqlTrigger"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlResourceSqlTrigger
 	err := ctx.RegisterResource("azurerm:documentdb/v20200401:SqlResourceSqlTrigger", name, args, &resource, opts...)
 	if err != nil {

@@ -51,6 +51,15 @@ func NewIotDpsResource(ctx *pulumi.Context,
 	if args == nil {
 		args = &IotDpsResourceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devices/v20180122:IotDpsResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200101:IotDpsResource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IotDpsResource
 	err := ctx.RegisterResource("azurerm:devices/v20171115:IotDpsResource", name, args, &resource, opts...)
 	if err != nil {

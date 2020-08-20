@@ -61,6 +61,15 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &DatabasePrincipalAssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:kusto/v20191109:DatabasePrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20200614:DatabasePrincipalAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DatabasePrincipalAssignment
 	err := ctx.RegisterResource("azurerm:kusto/v20200215:DatabasePrincipalAssignment", name, args, &resource, opts...)
 	if err != nil {

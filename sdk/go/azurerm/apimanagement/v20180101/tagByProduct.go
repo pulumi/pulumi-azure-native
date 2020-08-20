@@ -40,6 +40,18 @@ func NewTagByProduct(ctx *pulumi.Context,
 	if args == nil {
 		args = &TagByProductArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:TagByProduct"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:TagByProduct"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:TagByProduct"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TagByProduct
 	err := ctx.RegisterResource("azurerm:apimanagement/v20180101:TagByProduct", name, args, &resource, opts...)
 	if err != nil {

@@ -61,6 +61,12 @@ func NewStreamingLocator(ctx *pulumi.Context,
 	if args == nil {
 		args = &StreamingLocatorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/v20200501:StreamingLocator"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StreamingLocator
 	err := ctx.RegisterResource("azurerm:media/v20180701:StreamingLocator", name, args, &resource, opts...)
 	if err != nil {

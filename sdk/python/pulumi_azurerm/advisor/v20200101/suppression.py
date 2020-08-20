@@ -67,6 +67,8 @@ class Suppression(pulumi.CustomResource):
             __props__['suppression_id'] = suppression_id
             __props__['ttl'] = ttl
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:advisor/v20170331:Suppression"), pulumi.Alias(type_="azurerm:advisor/v20170419:Suppression")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Suppression, __self__).__init__(
             'azurerm:advisor/v20200101:Suppression',
             resource_name,

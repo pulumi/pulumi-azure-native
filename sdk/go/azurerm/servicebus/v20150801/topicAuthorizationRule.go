@@ -45,6 +45,15 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &TopicAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:servicebus/v20140901:TopicAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicebus/v20170401:TopicAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TopicAuthorizationRule
 	err := ctx.RegisterResource("azurerm:servicebus/v20150801:TopicAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

@@ -85,6 +85,8 @@ class Logger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Logger"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Logger"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Logger")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Logger, __self__).__init__(
             'azurerm:apimanagement/v20180101:Logger',
             resource_name,

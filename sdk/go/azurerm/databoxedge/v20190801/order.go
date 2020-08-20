@@ -52,6 +52,15 @@ func NewOrder(ctx *pulumi.Context,
 	if args == nil {
 		args = &OrderArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190301:Order"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20190701:Order"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Order
 	err := ctx.RegisterResource("azurerm:databoxedge/v20190801:Order", name, args, &resource, opts...)
 	if err != nil {

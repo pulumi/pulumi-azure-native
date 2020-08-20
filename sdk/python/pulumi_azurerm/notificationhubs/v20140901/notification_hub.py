@@ -176,6 +176,8 @@ class NotificationHub(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:notificationhubs/v20160301:NotificationHub"), pulumi.Alias(type_="azurerm:notificationhubs/v20170401:NotificationHub")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationHub, __self__).__init__(
             'azurerm:notificationhubs/v20140901:NotificationHub',
             resource_name,
