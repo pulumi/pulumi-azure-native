@@ -12,11 +12,11 @@ from ... import _utilities, _tables
 class AdaptiveApplicationControl(pulumi.CustomResource):
     configuration_status: pulumi.Output[str]
     """
-    The configuration status of the VM/server group or machine or rule on the machine
+    The configuration status of the machines group or machine or rule
     """
     enforcement_mode: pulumi.Output[str]
     """
-    The application control policy enforcement/protection mode of the VM/server group
+    The application control policy enforcement/protection mode of the machine group
     """
     issues: pulumi.Output[list]
     location: pulumi.Output[str]
@@ -31,18 +31,18 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
     protection_mode: pulumi.Output[dict]
     """
     The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
-      * `exe` (`str`) - The application control policy enforcement/protection mode of the VM/server group
-      * `executable` (`str`) - The application control policy enforcement/protection mode of the VM/server group
-      * `msi` (`str`) - The application control policy enforcement/protection mode of the VM/server group
-      * `script` (`str`) - The application control policy enforcement/protection mode of the VM/server group
+      * `exe` (`str`) - The application control policy enforcement/protection mode of the machine group
+      * `executable` (`str`) - The application control policy enforcement/protection mode of the machine group
+      * `msi` (`str`) - The application control policy enforcement/protection mode of the machine group
+      * `script` (`str`) - The application control policy enforcement/protection mode of the machine group
     """
     recommendation_status: pulumi.Output[str]
     """
-    The recommendation status of the VM/server group or VM/server
+    The initial recommendation status of the machine group or machine
     """
     source_system: pulumi.Output[str]
     """
-    The source type of the VM/server group
+    The source type of the machine group
     """
     type: pulumi.Output[str]
     """
@@ -55,17 +55,17 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
-        :param pulumi.Input[str] enforcement_mode: The application control policy enforcement/protection mode of the VM/server group
-        :param pulumi.Input[str] name: Name of an application control VM/server group
+        :param pulumi.Input[str] enforcement_mode: The application control policy enforcement/protection mode of the machine group
+        :param pulumi.Input[str] name: Name of an application control machine group
         :param pulumi.Input[dict] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 
         The **path_recommendations** object supports the following:
 
-          * `action` (`pulumi.Input[str]`) - The recommendation action of the VM/server or rule
-          * `common` (`pulumi.Input[bool]`) - Whether the path is commonly run on the machine
-          * `configuration_status` (`pulumi.Input[str]`) - The configuration status of the VM/server group or machine or rule on the machine
+          * `action` (`pulumi.Input[str]`) - The recommendation action of the machine or rule
+          * `common` (`pulumi.Input[bool]`) - Whether the application is commonly run on the machine
+          * `configuration_status` (`pulumi.Input[str]`) - The configuration status of the machines group or machine or rule
           * `file_type` (`pulumi.Input[str]`) - The type of the file (for Linux files - Executable is used)
-          * `path` (`pulumi.Input[str]`) - The full path to whitelist
+          * `path` (`pulumi.Input[str]`) - The full path of the file, or an identifier of the application
           * `publisher_info` (`pulumi.Input[dict]`) - Represents the publisher information of a process/rule
             * `binary_name` (`pulumi.Input[str]`) - The "OriginalName" field taken from the file's version resource
             * `product_name` (`pulumi.Input[str]`) - The product name taken from the file's version resource
@@ -75,22 +75,22 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
           * `type` (`pulumi.Input[str]`) - The type of the rule to be allowed
           * `user_sids` (`pulumi.Input[list]`)
           * `usernames` (`pulumi.Input[list]`)
-            * `recommendation_action` (`pulumi.Input[str]`) - The recommendation action of the VM/server or rule
+            * `recommendation_action` (`pulumi.Input[str]`) - The recommendation action of the machine or rule
             * `username` (`pulumi.Input[str]`) - Represents a user that is recommended to be allowed for a certain rule
 
         The **protection_mode** object supports the following:
 
-          * `exe` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
-          * `executable` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
-          * `msi` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
-          * `script` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
+          * `exe` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the machine group
+          * `executable` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the machine group
+          * `msi` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the machine group
+          * `script` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the machine group
 
         The **vm_recommendations** object supports the following:
 
-          * `configuration_status` (`pulumi.Input[str]`) - The configuration status of the VM/server group or machine or rule on the machine
-          * `enforcement_support` (`pulumi.Input[str]`) - The VM/server supportability of Enforce feature
-          * `recommendation_action` (`pulumi.Input[str]`) - The recommendation action of the VM/server or rule
-          * `resource_id` (`pulumi.Input[str]`) - The full azure resource id of the machine
+          * `configuration_status` (`pulumi.Input[str]`) - The configuration status of the machines group or machine or rule
+          * `enforcement_support` (`pulumi.Input[str]`) - The machine supportability of Enforce feature
+          * `recommendation_action` (`pulumi.Input[str]`) - The recommendation action of the machine or rule
+          * `resource_id` (`pulumi.Input[str]`) - The full resource id of the machine
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

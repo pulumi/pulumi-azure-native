@@ -145,7 +145,7 @@ class SiteVNETConnection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['vnet_resource_id'] = vnet_resource_id
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20160801:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20180201:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20181101:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20190801:SiteVNETConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20160801:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20180201:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20181101:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20190801:SiteVNETConnection"), pulumi.Alias(type_="azurerm:web/v20200601:SiteVNETConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteVNETConnection, __self__).__init__(
             'azurerm:web/v20150801:SiteVNETConnection',

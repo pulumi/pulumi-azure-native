@@ -14,6 +14,10 @@ class VirtualMachineExtension(pulumi.CustomResource):
     """
     Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
     """
+    enable_automatic_upgrade: pulumi.Output[bool]
+    """
+    Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+    """
     force_update_tag: pulumi.Output[str]
     """
     How the extension handler should be forced to update even if the extension configuration has not changed.
@@ -69,13 +73,14 @@ class VirtualMachineExtension(pulumi.CustomResource):
     """
     Specifies the version of the script handler.
     """
-    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, force_update_tag=None, instance_view=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, vm_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, instance_view=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, vm_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a Virtual Machine Extension.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[dict] instance_view: The virtual machine extension instance view.
         :param pulumi.Input[str] location: Resource location
@@ -121,6 +126,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
+            __props__['enable_automatic_upgrade'] = enable_automatic_upgrade
             __props__['force_update_tag'] = force_update_tag
             __props__['instance_view'] = instance_view
             if location is None:

@@ -42,10 +42,11 @@ class Workspace(pulumi.CustomResource):
     parameters: pulumi.Output[dict]
     """
     The workspace's custom parameters.
-      * `custom_private_subnet_name` (`dict`) - The name of the Private Subnet within the Virtual Network
+      * `aml_workspace_id` (`dict`) - The ID of a Azure Machine Learning workspace to link with Databricks workspace
         * `type` (`str`) - The type of variable that this is
         * `value` (`str`) - The value which should be used for this field.
 
+      * `custom_private_subnet_name` (`dict`) - The name of the Private Subnet within the Virtual Network
       * `custom_public_subnet_name` (`dict`) - The name of a Public Subnet within the Virtual Network
       * `custom_virtual_network_id` (`dict`) - The ID of a Virtual Network where this Databricks Cluster should be created
       * `enable_no_public_ip` (`dict`) - Should the Public IP be Disabled?
@@ -61,6 +62,7 @@ class Workspace(pulumi.CustomResource):
           * `key_version` (`str`) - The version of KeyVault key.
 
       * `prepare_encryption` (`dict`) - Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+      * `require_infrastructure_encryption` (`dict`) - A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
     """
     provisioning_state: pulumi.Output[str]
     """
@@ -130,10 +132,11 @@ class Workspace(pulumi.CustomResource):
 
         The **parameters** object supports the following:
 
-          * `custom_private_subnet_name` (`pulumi.Input[dict]`) - The name of the Private Subnet within the Virtual Network
+          * `aml_workspace_id` (`pulumi.Input[dict]`) - The ID of a Azure Machine Learning workspace to link with Databricks workspace
             * `type` (`pulumi.Input[str]`) - The type of variable that this is
             * `value` (`pulumi.Input[str]`) - The value which should be used for this field.
 
+          * `custom_private_subnet_name` (`pulumi.Input[dict]`) - The name of the Private Subnet within the Virtual Network
           * `custom_public_subnet_name` (`pulumi.Input[dict]`) - The name of a Public Subnet within the Virtual Network
           * `custom_virtual_network_id` (`pulumi.Input[dict]`) - The ID of a Virtual Network where this Databricks Cluster should be created
           * `enable_no_public_ip` (`pulumi.Input[dict]`) - Should the Public IP be Disabled?
@@ -149,6 +152,7 @@ class Workspace(pulumi.CustomResource):
               * `key_version` (`pulumi.Input[str]`) - The version of KeyVault key.
 
           * `prepare_encryption` (`pulumi.Input[dict]`) - Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+          * `require_infrastructure_encryption` (`pulumi.Input[dict]`) - A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
 
         The **sku** object supports the following:
 

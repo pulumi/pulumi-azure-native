@@ -64,6 +64,8 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
             * `code` (`str`) - Code for the compliance of the guest configuration assignment resource.
             * `phrase` (`str`) - Reason for the compliance of the guest configuration assignment resource.
 
+          * `resource_id` (`str`) - Name of the guest configuration assignment resource setting.
+
         * `start_time` (`str`) - Start date and time of the guest configuration assignment compliance status check.
         * `vm` (`dict`) - Information about the VM.
           * `id` (`str`) - Azure resource Id of the VM.

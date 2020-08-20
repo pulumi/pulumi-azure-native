@@ -110,7 +110,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
             __props__['thumbprint'] = thumbprint
             __props__['type'] = None
             __props__['virtual_ip'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppHostNameBinding"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppHostNameBinding"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppHostNameBinding"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppHostNameBinding")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppHostNameBinding"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppHostNameBinding"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppHostNameBinding"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppHostNameBinding"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppHostNameBinding")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHostNameBinding, __self__).__init__(
             'azurerm:web/v20190801:WebAppHostNameBinding',

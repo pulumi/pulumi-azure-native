@@ -51,10 +51,10 @@ class AzureFirewall(pulumi.CustomResource):
     IP addresses associated with AzureFirewall.
       * `private_ip_address` (`str`) - Private IP Address associated with azure firewall.
       * `public_i_ps` (`dict`) - Public IP addresses associated with azure firewall.
-        * `addresses` (`list`) - The number of Public IP addresses associated with azure firewall.
+        * `addresses` (`list`) - The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
           * `address` (`str`) - Public IP Address value.
 
-        * `count` (`float`) - Private IP Address associated with azure firewall.
+        * `count` (`float`) - The number of Public IP addresses associated with azure firewall.
     """
     ip_configurations: pulumi.Output[list]
     """
@@ -226,10 +226,10 @@ class AzureFirewall(pulumi.CustomResource):
 
           * `private_ip_address` (`pulumi.Input[str]`) - Private IP Address associated with azure firewall.
           * `public_i_ps` (`pulumi.Input[dict]`) - Public IP addresses associated with azure firewall.
-            * `addresses` (`pulumi.Input[list]`) - The number of Public IP addresses associated with azure firewall.
+            * `addresses` (`pulumi.Input[list]`) - The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
               * `address` (`pulumi.Input[str]`) - Public IP Address value.
 
-            * `count` (`pulumi.Input[float]`) - Private IP Address associated with azure firewall.
+            * `count` (`pulumi.Input[float]`) - The number of Public IP addresses associated with azure firewall.
 
         The **ip_configurations** object supports the following:
 
@@ -322,7 +322,7 @@ class AzureFirewall(pulumi.CustomResource):
             __props__['ip_groups'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180401:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20180601:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20180701:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20180801:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20181001:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20181101:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20181201:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190201:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190401:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190601:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190701:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190801:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190901:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20191101:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20191201:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20200301:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20200401:AzureFirewall")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180401:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20180601:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20180701:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20180801:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20181001:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20181101:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20181201:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190201:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190401:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190601:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190701:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190801:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190901:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20191101:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20191201:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20200301:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20200401:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20200601:AzureFirewall")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureFirewall, __self__).__init__(
             'azurerm:network/v20200501:AzureFirewall',

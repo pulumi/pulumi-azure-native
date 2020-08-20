@@ -88,6 +88,8 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200601:FirewallPolicyRuleCollectionGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyRuleCollectionGroup, __self__).__init__(
             'azurerm:network/v20200501:FirewallPolicyRuleCollectionGroup',
             resource_name,

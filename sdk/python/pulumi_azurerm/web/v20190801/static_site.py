@@ -157,6 +157,8 @@ class StaticSite(pulumi.CustomResource):
             __props__['custom_domains'] = None
             __props__['default_hostname'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20200601:StaticSite")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSite, __self__).__init__(
             'azurerm:web/v20190801:StaticSite',
             resource_name,

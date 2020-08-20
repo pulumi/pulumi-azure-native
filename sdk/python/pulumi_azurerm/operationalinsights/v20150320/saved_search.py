@@ -104,6 +104,8 @@ class SavedSearch(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/v20200801:SavedSearch")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SavedSearch, __self__).__init__(
             'azurerm:operationalinsights/v20150320:SavedSearch',
             resource_name,

@@ -13,7 +13,7 @@ class GetOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
-    def __init__(__self__, enabled=None, host_name=None, http_port=None, https_port=None, location=None, name=None, origin_host_header=None, priority=None, private_endpoint_status=None, private_link_alias=None, private_link_approval_message=None, private_link_location=None, private_link_resource_id=None, provisioning_state=None, resource_state=None, tags=None, type=None, weight=None):
+    def __init__(__self__, enabled=None, host_name=None, http_port=None, https_port=None, name=None, origin_host_header=None, priority=None, private_endpoint_status=None, private_link_alias=None, private_link_approval_message=None, private_link_location=None, private_link_resource_id=None, provisioning_state=None, resource_state=None, type=None, weight=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         __self__.enabled = enabled
@@ -37,12 +37,6 @@ class GetOriginResult:
         __self__.https_port = https_port
         """
         The value of the HTTPS port. Must be between 1 and 65535.
-        """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        """
-        Resource location.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -104,12 +98,6 @@ class GetOriginResult:
         """
         Resource status of the origin.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
-        """
-        Resource tags.
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
@@ -134,7 +122,6 @@ class AwaitableGetOriginResult(GetOriginResult):
             host_name=self.host_name,
             http_port=self.http_port,
             https_port=self.https_port,
-            location=self.location,
             name=self.name,
             origin_host_header=self.origin_host_header,
             priority=self.priority,
@@ -145,7 +132,6 @@ class AwaitableGetOriginResult(GetOriginResult):
             private_link_resource_id=self.private_link_resource_id,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
-            tags=self.tags,
             type=self.type,
             weight=self.weight)
 
@@ -175,7 +161,6 @@ def get_origin(endpoint_name=None, name=None, profile_name=None, resource_group_
         host_name=__ret__.get('hostName'),
         http_port=__ret__.get('httpPort'),
         https_port=__ret__.get('httpsPort'),
-        location=__ret__.get('location'),
         name=__ret__.get('name'),
         origin_host_header=__ret__.get('originHostHeader'),
         priority=__ret__.get('priority'),
@@ -186,6 +171,5 @@ def get_origin(endpoint_name=None, name=None, profile_name=None, resource_group_
         private_link_resource_id=__ret__.get('privateLinkResourceId'),
         provisioning_state=__ret__.get('provisioningState'),
         resource_state=__ret__.get('resourceState'),
-        tags=__ret__.get('tags'),
         type=__ret__.get('type'),
         weight=__ret__.get('weight'))

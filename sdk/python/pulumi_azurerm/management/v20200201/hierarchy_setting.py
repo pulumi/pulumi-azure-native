@@ -64,6 +64,8 @@ class HierarchySetting(pulumi.CustomResource):
             __props__['require_authorization_for_group_creation'] = require_authorization_for_group_creation
             __props__['tenant_id'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:management/v20200501:HierarchySetting")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HierarchySetting, __self__).__init__(
             'azurerm:management/v20200201:HierarchySetting',
             resource_name,

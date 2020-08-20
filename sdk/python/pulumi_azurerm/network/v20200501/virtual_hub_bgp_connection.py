@@ -84,6 +84,8 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200601:VirtualHubBgpConnection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHubBgpConnection, __self__).__init__(
             'azurerm:network/v20200501:VirtualHubBgpConnection',
             resource_name,

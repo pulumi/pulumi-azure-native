@@ -202,7 +202,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__['signed_certificate'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azurerm:certificateregistration/v20190801:AppServiceCertificateOrder")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azurerm:certificateregistration/v20190801:AppServiceCertificateOrder"), pulumi.Alias(type_="azurerm:certificateregistration/v20200601:AppServiceCertificateOrder")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServiceCertificateOrder, __self__).__init__(
             'azurerm:certificateregistration/v20180201:AppServiceCertificateOrder',

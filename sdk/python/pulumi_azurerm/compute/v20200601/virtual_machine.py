@@ -112,6 +112,45 @@ class VirtualMachine(pulumi.CustomResource):
 
       * `os_name` (`str`) - The Operating System running on the virtual machine.
       * `os_version` (`str`) - The version of Operating System running on the virtual machine.
+      * `patch_status` (`dict`) - The status of virtual machine patch operations.
+        * `available_patch_summary` (`dict`) - The available patch summary of the latest assessment operation for the virtual machine.
+          * `assessment_activity_id` (`str`) - The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+          * `critical_and_security_patch_count` (`float`) - The number of critical or security patches that have been detected as available and not yet installed.
+          * `error` (`dict`) - The errors that were encountered during execution of the operation. The details array contains the list of them.
+            * `code` (`str`) - The error code.
+            * `details` (`list`) - The Api error details
+              * `code` (`str`) - The error code.
+              * `message` (`str`) - The error message.
+              * `target` (`str`) - The target of the particular error.
+
+            * `innererror` (`dict`) - The Api inner error
+              * `errordetail` (`str`) - The internal error message or exception dump.
+              * `exceptiontype` (`str`) - The exception type.
+
+            * `message` (`str`) - The error message.
+            * `target` (`str`) - The target of the particular error.
+
+          * `last_modified_time` (`str`) - The UTC timestamp when the operation began.
+          * `other_patch_count` (`float`) - The number of all available patches excluding critical and security.
+          * `reboot_pending` (`bool`) - The overall reboot status of the VM. It will be true when partially installed patches require a reboot to complete installation but the reboot has not yet occurred.
+          * `start_time` (`str`) - The UTC timestamp when the operation began.
+          * `status` (`str`) - The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+
+        * `last_patch_installation_summary` (`dict`) - The installation summary of the latest installation operation for the virtual machine.
+          * `error` (`dict`) - The errors that were encountered during execution of the operation. The details array contains the list of them.
+          * `excluded_patch_count` (`float`) - The number of all available patches but excluded explicitly by a customer-specified exclusion list match.
+          * `failed_patch_count` (`float`) - The count of patches that failed installation.
+          * `installation_activity_id` (`str`) - The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
+          * `installed_patch_count` (`float`) - The count of patches that successfully installed.
+          * `last_modified_time` (`str`) - The UTC timestamp when the operation began.
+          * `maintenance_window_exceeded` (`bool`) - Describes whether the operation ran out of time before it completed all its intended actions
+          * `not_selected_patch_count` (`float`) - The number of all available patches but not going to be installed because it didn't match a classification or inclusion list entry.
+          * `pending_patch_count` (`float`) - The number of all available patches expected to be installed over the course of the patch installation operation.
+          * `reboot_status` (`str`) - The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
+          * `start_time` (`str`) - The UTC timestamp when the operation began.
+          * `started_by` (`str`) - The person or system account that started the operation
+          * `status` (`str`) - The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+
       * `platform_fault_domain` (`float`) - Specifies the fault domain of the virtual machine.
       * `platform_update_domain` (`float`) - Specifies the update domain of the virtual machine.
       * `rdp_thumb_print` (`str`) - The Remote desktop certificate thumbprint.
@@ -181,7 +220,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         * `enable_automatic_updates` (`bool`) - Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
         * `patch_settings` (`dict`) - Specifies settings related to in-guest patching (KBs).
-          * `patch_mode` (`str`) - Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+          * `patch_mode` (`str`) - Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
 
         * `provision_vm_agent` (`bool`) - Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         * `time_zone` (`str`) - Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". <br><br> Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.getsystemtimezones).
@@ -215,6 +254,7 @@ class VirtualMachine(pulumi.CustomResource):
     """
     The virtual machine child extension resources.
       * `auto_upgrade_minor_version` (`bool`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+      * `enable_automatic_upgrade` (`bool`) - Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
       * `force_update_tag` (`str`) - How the extension handler should be forced to update even if the extension configuration has not changed.
       * `id` (`str`) - Resource Id
       * `instance_view` (`dict`) - The virtual machine extension instance view.
@@ -419,7 +459,7 @@ class VirtualMachine(pulumi.CustomResource):
 
             * `enable_automatic_updates` (`pulumi.Input[bool]`) - Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
             * `patch_settings` (`pulumi.Input[dict]`) - Specifies settings related to in-guest patching (KBs).
-              * `patch_mode` (`pulumi.Input[str]`) - Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the OS. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+              * `patch_mode` (`pulumi.Input[str]`) - Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
 
             * `provision_vm_agent` (`pulumi.Input[bool]`) - Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
             * `time_zone` (`pulumi.Input[str]`) - Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". <br><br> Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.getsystemtimezones).

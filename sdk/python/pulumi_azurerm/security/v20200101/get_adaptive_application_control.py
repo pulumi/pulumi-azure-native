@@ -15,13 +15,13 @@ class GetAdaptiveApplicationControlResult:
             raise TypeError("Expected argument 'configuration_status' to be a str")
         __self__.configuration_status = configuration_status
         """
-        The configuration status of the VM/server group or machine or rule on the machine
+        The configuration status of the machines group or machine or rule
         """
         if enforcement_mode and not isinstance(enforcement_mode, str):
             raise TypeError("Expected argument 'enforcement_mode' to be a str")
         __self__.enforcement_mode = enforcement_mode
         """
-        The application control policy enforcement/protection mode of the VM/server group
+        The application control policy enforcement/protection mode of the machine group
         """
         if issues and not isinstance(issues, list):
             raise TypeError("Expected argument 'issues' to be a list")
@@ -51,13 +51,13 @@ class GetAdaptiveApplicationControlResult:
             raise TypeError("Expected argument 'recommendation_status' to be a str")
         __self__.recommendation_status = recommendation_status
         """
-        The recommendation status of the VM/server group or VM/server
+        The initial recommendation status of the machine group or machine
         """
         if source_system and not isinstance(source_system, str):
             raise TypeError("Expected argument 'source_system' to be a str")
         __self__.source_system = source_system
         """
-        The source type of the VM/server group
+        The source type of the machine group
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -94,7 +94,7 @@ def get_adaptive_application_control(asc_location=None, name=None, opts=None):
     Use this data source to access information about an existing resource.
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
-    :param str name: Name of an application control VM/server group
+    :param str name: Name of an application control machine group
     """
     __args__ = dict()
     __args__['ascLocation'] = asc_location

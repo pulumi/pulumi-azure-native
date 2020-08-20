@@ -13,7 +13,7 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, api_properties=None, capabilities=None, connector_offer=None, consistency_policy=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, api_properties=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if api_properties and not isinstance(api_properties, dict):
             raise TypeError("Expected argument 'api_properties' to be a dict")
         __self__.api_properties = api_properties
@@ -37,6 +37,12 @@ class GetDatabaseAccountResult:
         __self__.consistency_policy = consistency_policy
         """
         The consistency policy for the Cosmos DB database account.
+        """
+        if cors and not isinstance(cors, list):
+            raise TypeError("Expected argument 'cors' to be a list")
+        __self__.cors = cors
+        """
+        The CORS policy for the Cosmos DB database account.
         """
         if database_account_offer_type and not isinstance(database_account_offer_type, str):
             raise TypeError("Expected argument 'database_account_offer_type' to be a str")
@@ -194,6 +200,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             capabilities=self.capabilities,
             connector_offer=self.connector_offer,
             consistency_policy=self.consistency_policy,
+            cors=self.cors,
             database_account_offer_type=self.database_account_offer_type,
             disable_key_based_metadata_write_access=self.disable_key_based_metadata_write_access,
             document_endpoint=self.document_endpoint,
@@ -241,6 +248,7 @@ def get_database_account(name=None, resource_group_name=None, opts=None):
         capabilities=__ret__.get('capabilities'),
         connector_offer=__ret__.get('connectorOffer'),
         consistency_policy=__ret__.get('consistencyPolicy'),
+        cors=__ret__.get('cors'),
         database_account_offer_type=__ret__.get('databaseAccountOfferType'),
         disable_key_based_metadata_write_access=__ret__.get('disableKeyBasedMetadataWriteAccess'),
         document_endpoint=__ret__.get('documentEndpoint'),

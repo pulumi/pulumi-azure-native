@@ -86,6 +86,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20200701:PrivateEndpointConnection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:containerservice/v20200601:PrivateEndpointConnection',
             resource_name,

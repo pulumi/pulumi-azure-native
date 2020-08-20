@@ -38,11 +38,13 @@ class AwaitableListShareSubscriptionSynchronizationDetailsResult(ListShareSubscr
             value=self.value)
 
 
-def list_share_subscription_synchronization_details(account_name=None, resource_group_name=None, share_subscription_name=None, skip_token=None, synchronization_id=None, opts=None):
+def list_share_subscription_synchronization_details(account_name=None, filter=None, orderby=None, resource_group_name=None, share_subscription_name=None, skip_token=None, synchronization_id=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the share account.
+    :param str filter: Filters the results using OData syntax.
+    :param str orderby: Sorts the results using OData syntax.
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the share subscription.
     :param str skip_token: Continuation token
@@ -50,6 +52,8 @@ def list_share_subscription_synchronization_details(account_name=None, resource_
     """
     __args__ = dict()
     __args__['accountName'] = account_name
+    __args__['filter'] = filter
+    __args__['orderby'] = orderby
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareSubscriptionName'] = share_subscription_name
     __args__['skipToken'] = skip_token

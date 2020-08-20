@@ -87,7 +87,7 @@ class IpGroup(pulumi.CustomResource):
             __props__['firewalls'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190901:IpGroup"), pulumi.Alias(type_="azurerm:network/v20191101:IpGroup"), pulumi.Alias(type_="azurerm:network/v20191201:IpGroup"), pulumi.Alias(type_="azurerm:network/v20200301:IpGroup"), pulumi.Alias(type_="azurerm:network/v20200401:IpGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190901:IpGroup"), pulumi.Alias(type_="azurerm:network/v20191101:IpGroup"), pulumi.Alias(type_="azurerm:network/v20191201:IpGroup"), pulumi.Alias(type_="azurerm:network/v20200301:IpGroup"), pulumi.Alias(type_="azurerm:network/v20200401:IpGroup"), pulumi.Alias(type_="azurerm:network/v20200601:IpGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpGroup, __self__).__init__(
             'azurerm:network/v20200501:IpGroup',
