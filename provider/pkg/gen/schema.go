@@ -58,7 +58,6 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	csharpNamespaces := map[string]string{
 		"azurerm": "AzureRM",
 	}
-	pythonModuleNames := map[string]string{}
 
 	// Collect all versions for each path in the API across all Swagger files.
 	pathVersions := map[string]codegen.StringSet{}
@@ -93,7 +92,6 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 				module := gen.providerToModule(prov)
 				version := strings.Replace(gen.apiVersion(), "preview", "Preview", 1)
 				csharpNamespaces[module] = fmt.Sprintf("%s.V%s", prov, version)
-				pythonModuleNames[module] = module
 			}
 
 			gen.genResources(key, &path)
@@ -109,7 +107,6 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	})
 
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
-		"moduleNameOverrides": pythonModuleNames,
 		"requires": map[string]string{
 			"pulumi": ">=2.0.0,<3.0.0",
 		},
@@ -342,6 +339,27 @@ func (g *packageGenerator) apiVersion() string {
 // providerToModule produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
 func (g *packageGenerator) providerToModule(prov string) string {
 	return fmt.Sprintf("%s/v%s", strings.ToLower(prov), g.apiVersion())
+}
+
+// mergeParameters combines the Path Item parameters with Operation parameters.
+func (g *packageGenerator) mergeParameters (operation []spec.Parameter, pathItem []spec.Parameter) []spec.Parameter {
+	// Open API spec for operations:
+	// > If a parameter is already defined at the Path Item, the new definition will override it.
+	// > A unique parameter is defined by a combination of a name and location.
+	var result []spec.Parameter
+	seen := map[string]bool{}
+	for _, p := range operation {
+		key := fmt.Sprintf("%s@%s", p.Name, p.In)
+		seen[key] = true
+		result = append(result, p)
+	}
+	for _, p := range pathItem {
+		key := fmt.Sprintf("%s@%s", p.Name, p.In)
+		if _, ok := seen[key]; !ok {
+			result = append(result, p)
+		}
+	}
+	return result
 }
 
 type moduleGenerator struct {
@@ -588,7 +606,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			}
 			apiProperty = provider.AzureApiProperty{
 				Type:      propertySpec.Type,
-				Enum:      m.getEnumValues(&property),
+				Enum:      m.getStrictEnumValues(&property),
 				Ref:       propertySpec.Ref,
 				Minimum:   resolvedProperty.Minimum,
 				Maximum:   resolvedProperty.Maximum,
@@ -650,11 +668,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	return result, nil
 }
 
-func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
-	if property.Enum == nil {
-		return
-	}
-
+func (m *moduleGenerator) getStrictEnumValues(property *spec.Schema) (enum []string) {
 	restrictive := true
 	// If x-ms-enum is present and modelAsString is set to false, the enum is not strict, so we don't want to enforce it.
 	if extension, ok := property.Extensions[extensionEnum]; ok {
@@ -665,13 +679,40 @@ func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
 		}
 	}
 	if restrictive {
-		for _, value := range property.Enum {
-			if s, ok := value.(string); ok {
-				enum = append(enum, s)
-			}
-		}
+		enum = getEnumValues(property)
 	}
 	return
+}
+
+func getEnumValues(property *spec.Schema) (enum []string) {
+	if property.Enum == nil {
+		return
+	}
+
+	for _, value := range property.Enum {
+		if s, ok := value.(string); ok {
+			enum = append(enum, s)
+		}
+	}
+
+	return
+}
+
+func getEnumMetadata(property *spec.Schema) *pschema.EnumMetadataSpec {
+	var enumMetadata pschema.EnumMetadataSpec
+	if extension, ok := property.Extensions["x-ms-enum"].(map[string]interface{}); ok {
+		if name, ok := extension["name"].(string); ok {
+			enumMetadata.Name = name
+		}
+		if modelAsString, ok := extension["modelAsString"].(bool); ok {
+			enumMetadata.ModelAsString = modelAsString
+		}
+		if values, ok := extension["values"].([]interface{}); ok {
+			enumMetadata.Values = values
+		}
+		return &enumMetadata
+	}
+	return nil
 }
 
 func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
@@ -781,6 +822,8 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 	result := pschema.TypeSpec{
 		Type:                 primitiveTypeName,
 		AdditionalProperties: additionalProperties,
+		Enum:                 getEnumValues(schema),
+		EnumMetadata:         getEnumMetadata(schema),
 		Ref:                  referencedTypeName,
 	}
 
