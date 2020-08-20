@@ -17,10 +17,16 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"os"
+	"path"
+	"strings"
+
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-azurerm/pkg/gen"
-	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
-	"github.com/pulumi/pulumi-azurerm/pkg/provider"
+
+	"github.com/pulumi/pulumi-azurerm/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azurerm/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v2/codegen/nodejs"
@@ -28,10 +34,6 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
-	"io/ioutil"
-	"os"
-	"path"
-	"strings"
 )
 
 func main() {

@@ -17,16 +17,18 @@ package gen
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/go-openapi/spec"
-	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
-	"github.com/pulumi/pulumi-azurerm/pkg/provider"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
-	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 	"log"
 	"sort"
 	"strings"
+
+	"github.com/go-openapi/spec"
+	"github.com/pkg/errors"
+
+	"github.com/pulumi/pulumi-azurerm/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
+	"github.com/pulumi/pulumi/pkg/v2/codegen"
+	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 )
 
 // PulumiSchema will generate a Pulumi schema for the given swagger specs.

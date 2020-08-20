@@ -7,7 +7,7 @@ PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
 VERSION         := 0.1.0
 
-VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azurerm/provider/v2/pkg/version.Version=${VERSION}"
+VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azurerm/provider/pkg/version.Version=${VERSION}"
 
 GO              ?= go
 CURL            ?= curl
@@ -31,7 +31,7 @@ ensure:: init_submodules
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
 generate_schema::
-	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(CODEGEN)
+	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 	echo "Generating Pulumi schema..."
 	$(CODEGEN) schema $(VERSION)
 	echo "Finished generating schema."
@@ -41,7 +41,7 @@ generate::
 	rm -rf sdk/python
 	rm -rf sdk/dotnet
 	rm -rf sdk/go/azurerm
-	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(CODEGEN)
+	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN)
 	echo "Generating Pulumi Schema & SDK..."
 	$(CODEGEN) schema,nodejs,python,go,dotnet
 	echo "Finished generating Schema & SDK."
@@ -58,7 +58,7 @@ generate::
 		dotnet build
 
 build_provider::
-	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
+	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
 
 build:: generate build_provider
 

@@ -26,20 +26,19 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/go-azure-helpers/authentication"
-	"github.com/hashicorp/go-azure-helpers/sender"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
-
-	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
-	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
-
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
+	"github.com/hashicorp/go-azure-helpers/authentication"
+	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
+
+	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
+	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
 )
 
 const (
@@ -803,11 +802,11 @@ func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []Azure
 		"method": methodInputs,
 	}
 	params := map[string]map[string]interface{}{
-		"body":  {},
+		"body": {},
 		"query": {
 			"api-version": clientInputs["api-version"],
 		},
-		"path":  {},
+		"path": {},
 	}
 
 	for _, param := range parameters {

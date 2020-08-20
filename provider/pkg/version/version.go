@@ -16,7 +16,3 @@ package version
 
 // TODO: Version should be initialized by the Go linker to contain the semver of this build.
 var Version string
-
-func init() {
-	Version = "0.1.0"
-}
