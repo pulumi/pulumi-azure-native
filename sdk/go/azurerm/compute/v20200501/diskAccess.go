@@ -45,6 +45,12 @@ func NewDiskAccess(ctx *pulumi.Context,
 	if args == nil {
 		args = &DiskAccessArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/v20200630:DiskAccess"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DiskAccess
 	err := ctx.RegisterResource("azurerm:compute/v20200501:DiskAccess", name, args, &resource, opts...)
 	if err != nil {

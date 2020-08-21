@@ -148,6 +148,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
                     new Alias { Type = "azurerm:compute/v20190301:Snapshot"},
                     new Alias { Type = "azurerm:compute/v20191101:Snapshot"},
                     new Alias { Type = "azurerm:compute/v20200501:Snapshot"},
+                    new Alias { Type = "azurerm:compute/v20200630:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

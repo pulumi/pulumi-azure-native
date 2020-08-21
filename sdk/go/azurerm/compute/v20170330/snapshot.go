@@ -80,6 +80,9 @@ func NewSnapshot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:compute/v20200501:Snapshot"),
 		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200630:Snapshot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Snapshot

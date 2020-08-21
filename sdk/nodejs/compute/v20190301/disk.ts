@@ -166,7 +166,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20170330:Disk" }, { type: "azurerm:compute/v20180401:Disk" }, { type: "azurerm:compute/v20180601:Disk" }, { type: "azurerm:compute/v20180930:Disk" }, { type: "azurerm:compute/v20190701:Disk" }, { type: "azurerm:compute/v20191101:Disk" }, { type: "azurerm:compute/v20200501:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20170330:Disk" }, { type: "azurerm:compute/v20180401:Disk" }, { type: "azurerm:compute/v20180601:Disk" }, { type: "azurerm:compute/v20180930:Disk" }, { type: "azurerm:compute/v20190701:Disk" }, { type: "azurerm:compute/v20191101:Disk" }, { type: "azurerm:compute/v20200501:Disk" }, { type: "azurerm:compute/v20200630:Disk" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Disk.__pulumiType, name, inputs, opts);
     }
