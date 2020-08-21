@@ -108,7 +108,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20190701:DiskEncryptionSet" }, { type: "azurerm:compute/v20200501:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20190701:DiskEncryptionSet" }, { type: "azurerm:compute/v20200501:DiskEncryptionSet" }, { type: "azurerm:compute/v20200630:DiskEncryptionSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
     }

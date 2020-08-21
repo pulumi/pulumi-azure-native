@@ -103,6 +103,8 @@ export class DiskAccess extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20200630:DiskAccess" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskAccess.__pulumiType, name, inputs, opts);
     }
 }

@@ -89,6 +89,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
                 {
                     new Alias { Type = "azurerm:compute/v20191101:DiskEncryptionSet"},
                     new Alias { Type = "azurerm:compute/v20200501:DiskEncryptionSet"},
+                    new Alias { Type = "azurerm:compute/v20200630:DiskEncryptionSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

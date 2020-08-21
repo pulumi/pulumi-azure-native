@@ -96,6 +96,9 @@ func NewDisk(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:compute/v20200501:Disk"),
 		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200630:Disk"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Disk

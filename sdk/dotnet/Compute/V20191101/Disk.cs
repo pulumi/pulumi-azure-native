@@ -196,6 +196,7 @@ namespace Pulumi.AzureRM.Compute.V20191101
                     new Alias { Type = "azurerm:compute/v20190301:Disk"},
                     new Alias { Type = "azurerm:compute/v20190701:Disk"},
                     new Alias { Type = "azurerm:compute/v20200501:Disk"},
+                    new Alias { Type = "azurerm:compute/v20200630:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
