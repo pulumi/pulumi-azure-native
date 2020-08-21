@@ -92,7 +92,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['snapshot_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:netapp/v20190501:Snapshot"), pulumi.Alias(type_="azurerm:netapp/v20190701:Snapshot"), pulumi.Alias(type_="azurerm:netapp/v20190801:Snapshot"), pulumi.Alias(type_="azurerm:netapp/v20191001:Snapshot"), pulumi.Alias(type_="azurerm:netapp/v20191101:Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:netapp/v20190501:Snapshot"), pulumi.Alias(type_="azurerm:netapp/v20190701:Snapshot"), pulumi.Alias(type_="azurerm:netapp/v20190801:Snapshot"), pulumi.Alias(type_="azurerm:netapp/v20191001:Snapshot"), pulumi.Alias(type_="azurerm:netapp/v20191101:Snapshot"), pulumi.Alias(type_="azurerm:netapp/v20200201:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
             'azurerm:netapp/v20190601:Snapshot',

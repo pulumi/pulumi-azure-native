@@ -45,6 +45,12 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApplicationGatewayPrivateEndpointConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20200601:ApplicationGatewayPrivateEndpointConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApplicationGatewayPrivateEndpointConnection
 	err := ctx.RegisterResource("azurerm:network/v20200501:ApplicationGatewayPrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

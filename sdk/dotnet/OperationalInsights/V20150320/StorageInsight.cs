@@ -85,6 +85,10 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azurerm:operationalinsights/v20200801:StorageInsight"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

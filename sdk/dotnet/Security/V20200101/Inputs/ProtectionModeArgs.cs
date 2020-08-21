@@ -16,25 +16,25 @@ namespace Pulumi.AzureRM.Security.V20200101.Inputs
     public sealed class ProtectionModeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         [Input("exe")]
         public Input<string>? Exe { get; set; }
 
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         [Input("executable")]
         public Input<string>? Executable { get; set; }
 
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         [Input("msi")]
         public Input<string>? Msi { get; set; }
 
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         [Input("script")]
         public Input<string>? Script { get; set; }

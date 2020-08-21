@@ -104,6 +104,7 @@ namespace Pulumi.AzureRM.Web.V20190801
                     new Alias { Type = "azurerm:web/v20160801:WebAppVnetConnection"},
                     new Alias { Type = "azurerm:web/v20180201:WebAppVnetConnection"},
                     new Alias { Type = "azurerm:web/v20181101:WebAppVnetConnection"},
+                    new Alias { Type = "azurerm:web/v20200601:WebAppVnetConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

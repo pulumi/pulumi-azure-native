@@ -113,7 +113,7 @@ class IpAllocation(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['subnet'] = None
             __props__['virtual_network'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200301:IpAllocation"), pulumi.Alias(type_="azurerm:network/v20200501:IpAllocation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200301:IpAllocation"), pulumi.Alias(type_="azurerm:network/v20200501:IpAllocation"), pulumi.Alias(type_="azurerm:network/v20200601:IpAllocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpAllocation, __self__).__init__(
             'azurerm:network/v20200401:IpAllocation',

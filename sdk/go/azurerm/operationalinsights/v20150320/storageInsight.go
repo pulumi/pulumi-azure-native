@@ -50,6 +50,12 @@ func NewStorageInsight(ctx *pulumi.Context,
 	if args == nil {
 		args = &StorageInsightArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20200801:StorageInsight"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StorageInsight
 	err := ctx.RegisterResource("azurerm:operationalinsights/v20150320:StorageInsight", name, args, &resource, opts...)
 	if err != nil {

@@ -22,8 +22,6 @@ type Origin struct {
 	HttpPort pulumi.IntPtrOutput `pulumi:"httpPort"`
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort pulumi.IntPtrOutput `pulumi:"httpsPort"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
@@ -34,8 +32,6 @@ type Origin struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource status of the origin.
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
@@ -50,9 +46,6 @@ func NewOrigin(ctx *pulumi.Context,
 	}
 	if args == nil || args.HostName == nil {
 		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
@@ -126,8 +119,6 @@ type originState struct {
 	HttpPort *int `pulumi:"httpPort"`
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort *int `pulumi:"httpsPort"`
-	// Resource location.
-	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
@@ -138,8 +129,6 @@ type originState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource status of the origin.
 	ResourceState *string `pulumi:"resourceState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
@@ -155,8 +144,6 @@ type OriginState struct {
 	HttpPort pulumi.IntPtrInput
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort pulumi.IntPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
@@ -167,8 +154,6 @@ type OriginState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Resource status of the origin.
 	ResourceState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
@@ -190,8 +175,6 @@ type originArgs struct {
 	HttpPort *int `pulumi:"httpPort"`
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort *int `pulumi:"httpsPort"`
-	// Resource location.
-	Location string `pulumi:"location"`
 	// Name of the origin that is unique within the endpoint.
 	Name string `pulumi:"name"`
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
@@ -202,8 +185,6 @@ type originArgs struct {
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
 	Weight *int `pulumi:"weight"`
 }
@@ -220,8 +201,6 @@ type OriginArgs struct {
 	HttpPort pulumi.IntPtrInput
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort pulumi.IntPtrInput
-	// Resource location.
-	Location pulumi.StringInput
 	// Name of the origin that is unique within the endpoint.
 	Name pulumi.StringInput
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
@@ -232,8 +211,6 @@ type OriginArgs struct {
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
 	Weight pulumi.IntPtrInput
 }

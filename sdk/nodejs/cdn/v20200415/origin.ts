@@ -51,10 +51,6 @@ export class Origin extends pulumi.CustomResource {
      */
     public readonly httpsPort!: pulumi.Output<number | undefined>;
     /**
-     * Resource location.
-     */
-    public readonly location!: pulumi.Output<string>;
-    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -95,10 +91,6 @@ export class Origin extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
-     * Resource tags.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -126,9 +118,6 @@ export class Origin extends pulumi.CustomResource {
             if (!args || args.hostName === undefined) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -143,7 +132,6 @@ export class Origin extends pulumi.CustomResource {
             inputs["hostName"] = args ? args.hostName : undefined;
             inputs["httpPort"] = args ? args.httpPort : undefined;
             inputs["httpsPort"] = args ? args.httpsPort : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
             inputs["priority"] = args ? args.priority : undefined;
@@ -153,7 +141,6 @@ export class Origin extends pulumi.CustomResource {
             inputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["weight"] = args ? args.weight : undefined;
             inputs["privateEndpointStatus"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -198,10 +185,6 @@ export interface OriginArgs {
      */
     readonly httpsPort?: pulumi.Input<number>;
     /**
-     * Resource location.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
      * Name of the origin that is unique within the endpoint.
      */
     readonly name: pulumi.Input<string>;
@@ -237,10 +220,6 @@ export interface OriginArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
      */

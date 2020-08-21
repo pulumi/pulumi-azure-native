@@ -275,6 +275,7 @@ namespace Pulumi.AzureRM.Web.V20160801
                     new Alias { Type = "azurerm:web/v20180201:WebApp"},
                     new Alias { Type = "azurerm:web/v20181101:WebApp"},
                     new Alias { Type = "azurerm:web/v20190801:WebApp"},
+                    new Alias { Type = "azurerm:web/v20200601:WebApp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

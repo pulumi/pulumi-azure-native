@@ -120,6 +120,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:NetworkVirtualAppliance"},
                     new Alias { Type = "azurerm:network/v20200301:NetworkVirtualAppliance"},
                     new Alias { Type = "azurerm:network/v20200501:NetworkVirtualAppliance"},
+                    new Alias { Type = "azurerm:network/v20200601:NetworkVirtualAppliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

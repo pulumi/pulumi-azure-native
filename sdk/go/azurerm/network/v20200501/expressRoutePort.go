@@ -105,6 +105,9 @@ func NewExpressRoutePort(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200401:ExpressRoutePort"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:ExpressRoutePort"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRoutePort

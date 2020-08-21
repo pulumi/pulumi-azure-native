@@ -127,6 +127,7 @@ namespace Pulumi.AzureRM.Network.V20191101
                     new Alias { Type = "azurerm:network/v20200301:NatGateway"},
                     new Alias { Type = "azurerm:network/v20200401:NatGateway"},
                     new Alias { Type = "azurerm:network/v20200501:NatGateway"},
+                    new Alias { Type = "azurerm:network/v20200601:NatGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -18,6 +18,10 @@ namespace Pulumi.AzureRM.Resources.V20200601.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AliasResponseResult> Aliases;
         /// <summary>
+        /// The API profiles for the resource provider.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApiProfileResponseResult> ApiProfiles;
+        /// <summary>
         /// The API version.
         /// </summary>
         public readonly ImmutableArray<string> ApiVersions;
@@ -25,6 +29,10 @@ namespace Pulumi.AzureRM.Resources.V20200601.Outputs
         /// The additional capabilities offered by this resource type.
         /// </summary>
         public readonly string? Capabilities;
+        /// <summary>
+        /// The default API version.
+        /// </summary>
+        public readonly string DefaultApiVersion;
         /// <summary>
         /// The collection of locations where this resource type can be created.
         /// </summary>
@@ -42,9 +50,13 @@ namespace Pulumi.AzureRM.Resources.V20200601.Outputs
         private ProviderResourceTypeResponseResult(
             ImmutableArray<Outputs.AliasResponseResult> aliases,
 
+            ImmutableArray<Outputs.ApiProfileResponseResult> apiProfiles,
+
             ImmutableArray<string> apiVersions,
 
             string? capabilities,
+
+            string defaultApiVersion,
 
             ImmutableArray<string> locations,
 
@@ -53,8 +65,10 @@ namespace Pulumi.AzureRM.Resources.V20200601.Outputs
             string? resourceType)
         {
             Aliases = aliases;
+            ApiProfiles = apiProfiles;
             ApiVersions = apiVersions;
             Capabilities = capabilities;
+            DefaultApiVersion = defaultApiVersion;
             Locations = locations;
             Properties = properties;
             ResourceType = resourceType;

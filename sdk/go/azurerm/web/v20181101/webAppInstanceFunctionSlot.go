@@ -65,6 +65,9 @@ func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:WebAppInstanceFunctionSlot"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppInstanceFunctionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppInstanceFunctionSlot

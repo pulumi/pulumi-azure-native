@@ -177,6 +177,7 @@ namespace Pulumi.AzureRM.Web.V20180201
                     new Alias { Type = "azurerm:web/v20160801:WebAppSiteExtension"},
                     new Alias { Type = "azurerm:web/v20181101:WebAppSiteExtension"},
                     new Alias { Type = "azurerm:web/v20190801:WebAppSiteExtension"},
+                    new Alias { Type = "azurerm:web/v20200601:WebAppSiteExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

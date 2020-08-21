@@ -144,6 +144,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:PublicIPPrefix"},
                     new Alias { Type = "azurerm:network/v20200301:PublicIPPrefix"},
                     new Alias { Type = "azurerm:network/v20200501:PublicIPPrefix"},
+                    new Alias { Type = "azurerm:network/v20200601:PublicIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

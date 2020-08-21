@@ -500,6 +500,178 @@ func (o ActivityResponseArrayOutput) Index(i pulumi.IntInput) ActivityResponseOu
 	}).(ActivityResponseOutput)
 }
 
+// The connection state of a managed private endpoint
+type ConnectionStatePropertiesResponse struct {
+	// The actions required on the managed private endpoint
+	ActionsRequired string `pulumi:"actionsRequired"`
+	// The managed private endpoint description
+	Description string `pulumi:"description"`
+	// The approval status
+	Status string `pulumi:"status"`
+}
+
+// ConnectionStatePropertiesResponseInput is an input type that accepts ConnectionStatePropertiesResponseArgs and ConnectionStatePropertiesResponseOutput values.
+// You can construct a concrete instance of `ConnectionStatePropertiesResponseInput` via:
+//
+//          ConnectionStatePropertiesResponseArgs{...}
+type ConnectionStatePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToConnectionStatePropertiesResponseOutput() ConnectionStatePropertiesResponseOutput
+	ToConnectionStatePropertiesResponseOutputWithContext(context.Context) ConnectionStatePropertiesResponseOutput
+}
+
+// The connection state of a managed private endpoint
+type ConnectionStatePropertiesResponseArgs struct {
+	// The actions required on the managed private endpoint
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// The managed private endpoint description
+	Description pulumi.StringInput `pulumi:"description"`
+	// The approval status
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (ConnectionStatePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionStatePropertiesResponse)(nil)).Elem()
+}
+
+func (i ConnectionStatePropertiesResponseArgs) ToConnectionStatePropertiesResponseOutput() ConnectionStatePropertiesResponseOutput {
+	return i.ToConnectionStatePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectionStatePropertiesResponseArgs) ToConnectionStatePropertiesResponseOutputWithContext(ctx context.Context) ConnectionStatePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatePropertiesResponseOutput)
+}
+
+func (i ConnectionStatePropertiesResponseArgs) ToConnectionStatePropertiesResponsePtrOutput() ConnectionStatePropertiesResponsePtrOutput {
+	return i.ToConnectionStatePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionStatePropertiesResponseArgs) ToConnectionStatePropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectionStatePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatePropertiesResponseOutput).ToConnectionStatePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ConnectionStatePropertiesResponsePtrInput is an input type that accepts ConnectionStatePropertiesResponseArgs, ConnectionStatePropertiesResponsePtr and ConnectionStatePropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ConnectionStatePropertiesResponsePtrInput` via:
+//
+//          ConnectionStatePropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionStatePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToConnectionStatePropertiesResponsePtrOutput() ConnectionStatePropertiesResponsePtrOutput
+	ToConnectionStatePropertiesResponsePtrOutputWithContext(context.Context) ConnectionStatePropertiesResponsePtrOutput
+}
+
+type connectionStatePropertiesResponsePtrType ConnectionStatePropertiesResponseArgs
+
+func ConnectionStatePropertiesResponsePtr(v *ConnectionStatePropertiesResponseArgs) ConnectionStatePropertiesResponsePtrInput {
+	return (*connectionStatePropertiesResponsePtrType)(v)
+}
+
+func (*connectionStatePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionStatePropertiesResponse)(nil)).Elem()
+}
+
+func (i *connectionStatePropertiesResponsePtrType) ToConnectionStatePropertiesResponsePtrOutput() ConnectionStatePropertiesResponsePtrOutput {
+	return i.ToConnectionStatePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *connectionStatePropertiesResponsePtrType) ToConnectionStatePropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectionStatePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatePropertiesResponsePtrOutput)
+}
+
+// The connection state of a managed private endpoint
+type ConnectionStatePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectionStatePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionStatePropertiesResponse)(nil)).Elem()
+}
+
+func (o ConnectionStatePropertiesResponseOutput) ToConnectionStatePropertiesResponseOutput() ConnectionStatePropertiesResponseOutput {
+	return o
+}
+
+func (o ConnectionStatePropertiesResponseOutput) ToConnectionStatePropertiesResponseOutputWithContext(ctx context.Context) ConnectionStatePropertiesResponseOutput {
+	return o
+}
+
+func (o ConnectionStatePropertiesResponseOutput) ToConnectionStatePropertiesResponsePtrOutput() ConnectionStatePropertiesResponsePtrOutput {
+	return o.ToConnectionStatePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionStatePropertiesResponseOutput) ToConnectionStatePropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectionStatePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ConnectionStatePropertiesResponse) *ConnectionStatePropertiesResponse {
+		return &v
+	}).(ConnectionStatePropertiesResponsePtrOutput)
+}
+
+// The actions required on the managed private endpoint
+func (o ConnectionStatePropertiesResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionStatePropertiesResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+}
+
+// The managed private endpoint description
+func (o ConnectionStatePropertiesResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionStatePropertiesResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The approval status
+func (o ConnectionStatePropertiesResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionStatePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type ConnectionStatePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionStatePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionStatePropertiesResponse)(nil)).Elem()
+}
+
+func (o ConnectionStatePropertiesResponsePtrOutput) ToConnectionStatePropertiesResponsePtrOutput() ConnectionStatePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ConnectionStatePropertiesResponsePtrOutput) ToConnectionStatePropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectionStatePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ConnectionStatePropertiesResponsePtrOutput) Elem() ConnectionStatePropertiesResponseOutput {
+	return o.ApplyT(func(v *ConnectionStatePropertiesResponse) ConnectionStatePropertiesResponse { return *v }).(ConnectionStatePropertiesResponseOutput)
+}
+
+// The actions required on the managed private endpoint
+func (o ConnectionStatePropertiesResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionStatePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The managed private endpoint description
+func (o ConnectionStatePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionStatePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The approval status
+func (o ConnectionStatePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionStatePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 // Azure Data Factory nested object which contains a flow with data movements and transformations.
 type DataFlowType struct {
 	// List of tags that can be used for describing the data flow.
@@ -4348,6 +4520,407 @@ func (o LinkedServiceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties of a managed private endpoint
+type ManagedPrivateEndpointType struct {
+	// Fully qualified domain names
+	Fqdns []string `pulumi:"fqdns"`
+	// The groupId to which the managed private endpoint is created
+	GroupId *string `pulumi:"groupId"`
+	// The ARM resource ID of the resource to which the managed private endpoint is created
+	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
+}
+
+// ManagedPrivateEndpointTypeInput is an input type that accepts ManagedPrivateEndpointTypeArgs and ManagedPrivateEndpointTypeOutput values.
+// You can construct a concrete instance of `ManagedPrivateEndpointTypeInput` via:
+//
+//          ManagedPrivateEndpointTypeArgs{...}
+type ManagedPrivateEndpointTypeInput interface {
+	pulumi.Input
+
+	ToManagedPrivateEndpointTypeOutput() ManagedPrivateEndpointTypeOutput
+	ToManagedPrivateEndpointTypeOutputWithContext(context.Context) ManagedPrivateEndpointTypeOutput
+}
+
+// Properties of a managed private endpoint
+type ManagedPrivateEndpointTypeArgs struct {
+	// Fully qualified domain names
+	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
+	// The groupId to which the managed private endpoint is created
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The ARM resource ID of the resource to which the managed private endpoint is created
+	PrivateLinkResourceId pulumi.StringPtrInput `pulumi:"privateLinkResourceId"`
+}
+
+func (ManagedPrivateEndpointTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrivateEndpointType)(nil)).Elem()
+}
+
+func (i ManagedPrivateEndpointTypeArgs) ToManagedPrivateEndpointTypeOutput() ManagedPrivateEndpointTypeOutput {
+	return i.ToManagedPrivateEndpointTypeOutputWithContext(context.Background())
+}
+
+func (i ManagedPrivateEndpointTypeArgs) ToManagedPrivateEndpointTypeOutputWithContext(ctx context.Context) ManagedPrivateEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointTypeOutput)
+}
+
+func (i ManagedPrivateEndpointTypeArgs) ToManagedPrivateEndpointTypePtrOutput() ManagedPrivateEndpointTypePtrOutput {
+	return i.ToManagedPrivateEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedPrivateEndpointTypeArgs) ToManagedPrivateEndpointTypePtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointTypeOutput).ToManagedPrivateEndpointTypePtrOutputWithContext(ctx)
+}
+
+// ManagedPrivateEndpointTypePtrInput is an input type that accepts ManagedPrivateEndpointTypeArgs, ManagedPrivateEndpointTypePtr and ManagedPrivateEndpointTypePtrOutput values.
+// You can construct a concrete instance of `ManagedPrivateEndpointTypePtrInput` via:
+//
+//          ManagedPrivateEndpointTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedPrivateEndpointTypePtrInput interface {
+	pulumi.Input
+
+	ToManagedPrivateEndpointTypePtrOutput() ManagedPrivateEndpointTypePtrOutput
+	ToManagedPrivateEndpointTypePtrOutputWithContext(context.Context) ManagedPrivateEndpointTypePtrOutput
+}
+
+type managedPrivateEndpointTypePtrType ManagedPrivateEndpointTypeArgs
+
+func ManagedPrivateEndpointTypePtr(v *ManagedPrivateEndpointTypeArgs) ManagedPrivateEndpointTypePtrInput {
+	return (*managedPrivateEndpointTypePtrType)(v)
+}
+
+func (*managedPrivateEndpointTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedPrivateEndpointType)(nil)).Elem()
+}
+
+func (i *managedPrivateEndpointTypePtrType) ToManagedPrivateEndpointTypePtrOutput() ManagedPrivateEndpointTypePtrOutput {
+	return i.ToManagedPrivateEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (i *managedPrivateEndpointTypePtrType) ToManagedPrivateEndpointTypePtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointTypePtrOutput)
+}
+
+// Properties of a managed private endpoint
+type ManagedPrivateEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrivateEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrivateEndpointType)(nil)).Elem()
+}
+
+func (o ManagedPrivateEndpointTypeOutput) ToManagedPrivateEndpointTypeOutput() ManagedPrivateEndpointTypeOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointTypeOutput) ToManagedPrivateEndpointTypeOutputWithContext(ctx context.Context) ManagedPrivateEndpointTypeOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointTypeOutput) ToManagedPrivateEndpointTypePtrOutput() ManagedPrivateEndpointTypePtrOutput {
+	return o.ToManagedPrivateEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedPrivateEndpointTypeOutput) ToManagedPrivateEndpointTypePtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointTypePtrOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointType) *ManagedPrivateEndpointType {
+		return &v
+	}).(ManagedPrivateEndpointTypePtrOutput)
+}
+
+// Fully qualified domain names
+func (o ManagedPrivateEndpointTypeOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointType) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
+}
+
+// The groupId to which the managed private endpoint is created
+func (o ManagedPrivateEndpointTypeOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointType) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// The ARM resource ID of the resource to which the managed private endpoint is created
+func (o ManagedPrivateEndpointTypeOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointType) *string { return v.PrivateLinkResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedPrivateEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrivateEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedPrivateEndpointType)(nil)).Elem()
+}
+
+func (o ManagedPrivateEndpointTypePtrOutput) ToManagedPrivateEndpointTypePtrOutput() ManagedPrivateEndpointTypePtrOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointTypePtrOutput) ToManagedPrivateEndpointTypePtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointTypePtrOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointTypePtrOutput) Elem() ManagedPrivateEndpointTypeOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointType) ManagedPrivateEndpointType { return *v }).(ManagedPrivateEndpointTypeOutput)
+}
+
+// Fully qualified domain names
+func (o ManagedPrivateEndpointTypePtrOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fqdns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The groupId to which the managed private endpoint is created
+func (o ManagedPrivateEndpointTypePtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARM resource ID of the resource to which the managed private endpoint is created
+func (o ManagedPrivateEndpointTypePtrOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a managed private endpoint
+type ManagedPrivateEndpointResponse struct {
+	// The managed private endpoint connection state
+	ConnectionState *ConnectionStatePropertiesResponse `pulumi:"connectionState"`
+	// Fully qualified domain names
+	Fqdns []string `pulumi:"fqdns"`
+	// The groupId to which the managed private endpoint is created
+	GroupId *string `pulumi:"groupId"`
+	// Denotes whether the managed private endpoint is reserved
+	IsReserved bool `pulumi:"isReserved"`
+	// The ARM resource ID of the resource to which the managed private endpoint is created
+	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
+	// The managed private endpoint provisioning state
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// ManagedPrivateEndpointResponseInput is an input type that accepts ManagedPrivateEndpointResponseArgs and ManagedPrivateEndpointResponseOutput values.
+// You can construct a concrete instance of `ManagedPrivateEndpointResponseInput` via:
+//
+//          ManagedPrivateEndpointResponseArgs{...}
+type ManagedPrivateEndpointResponseInput interface {
+	pulumi.Input
+
+	ToManagedPrivateEndpointResponseOutput() ManagedPrivateEndpointResponseOutput
+	ToManagedPrivateEndpointResponseOutputWithContext(context.Context) ManagedPrivateEndpointResponseOutput
+}
+
+// Properties of a managed private endpoint
+type ManagedPrivateEndpointResponseArgs struct {
+	// The managed private endpoint connection state
+	ConnectionState ConnectionStatePropertiesResponsePtrInput `pulumi:"connectionState"`
+	// Fully qualified domain names
+	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
+	// The groupId to which the managed private endpoint is created
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// Denotes whether the managed private endpoint is reserved
+	IsReserved pulumi.BoolInput `pulumi:"isReserved"`
+	// The ARM resource ID of the resource to which the managed private endpoint is created
+	PrivateLinkResourceId pulumi.StringPtrInput `pulumi:"privateLinkResourceId"`
+	// The managed private endpoint provisioning state
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (ManagedPrivateEndpointResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrivateEndpointResponse)(nil)).Elem()
+}
+
+func (i ManagedPrivateEndpointResponseArgs) ToManagedPrivateEndpointResponseOutput() ManagedPrivateEndpointResponseOutput {
+	return i.ToManagedPrivateEndpointResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedPrivateEndpointResponseArgs) ToManagedPrivateEndpointResponseOutputWithContext(ctx context.Context) ManagedPrivateEndpointResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointResponseOutput)
+}
+
+func (i ManagedPrivateEndpointResponseArgs) ToManagedPrivateEndpointResponsePtrOutput() ManagedPrivateEndpointResponsePtrOutput {
+	return i.ToManagedPrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedPrivateEndpointResponseArgs) ToManagedPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointResponseOutput).ToManagedPrivateEndpointResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedPrivateEndpointResponsePtrInput is an input type that accepts ManagedPrivateEndpointResponseArgs, ManagedPrivateEndpointResponsePtr and ManagedPrivateEndpointResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedPrivateEndpointResponsePtrInput` via:
+//
+//          ManagedPrivateEndpointResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedPrivateEndpointResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedPrivateEndpointResponsePtrOutput() ManagedPrivateEndpointResponsePtrOutput
+	ToManagedPrivateEndpointResponsePtrOutputWithContext(context.Context) ManagedPrivateEndpointResponsePtrOutput
+}
+
+type managedPrivateEndpointResponsePtrType ManagedPrivateEndpointResponseArgs
+
+func ManagedPrivateEndpointResponsePtr(v *ManagedPrivateEndpointResponseArgs) ManagedPrivateEndpointResponsePtrInput {
+	return (*managedPrivateEndpointResponsePtrType)(v)
+}
+
+func (*managedPrivateEndpointResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedPrivateEndpointResponse)(nil)).Elem()
+}
+
+func (i *managedPrivateEndpointResponsePtrType) ToManagedPrivateEndpointResponsePtrOutput() ManagedPrivateEndpointResponsePtrOutput {
+	return i.ToManagedPrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedPrivateEndpointResponsePtrType) ToManagedPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointResponsePtrOutput)
+}
+
+// Properties of a managed private endpoint
+type ManagedPrivateEndpointResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrivateEndpointResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o ManagedPrivateEndpointResponseOutput) ToManagedPrivateEndpointResponseOutput() ManagedPrivateEndpointResponseOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointResponseOutput) ToManagedPrivateEndpointResponseOutputWithContext(ctx context.Context) ManagedPrivateEndpointResponseOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointResponseOutput) ToManagedPrivateEndpointResponsePtrOutput() ManagedPrivateEndpointResponsePtrOutput {
+	return o.ToManagedPrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedPrivateEndpointResponseOutput) ToManagedPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointResponse) *ManagedPrivateEndpointResponse {
+		return &v
+	}).(ManagedPrivateEndpointResponsePtrOutput)
+}
+
+// The managed private endpoint connection state
+func (o ManagedPrivateEndpointResponseOutput) ConnectionState() ConnectionStatePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointResponse) *ConnectionStatePropertiesResponse { return v.ConnectionState }).(ConnectionStatePropertiesResponsePtrOutput)
+}
+
+// Fully qualified domain names
+func (o ManagedPrivateEndpointResponseOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointResponse) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
+}
+
+// The groupId to which the managed private endpoint is created
+func (o ManagedPrivateEndpointResponseOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointResponse) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// Denotes whether the managed private endpoint is reserved
+func (o ManagedPrivateEndpointResponseOutput) IsReserved() pulumi.BoolOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointResponse) bool { return v.IsReserved }).(pulumi.BoolOutput)
+}
+
+// The ARM resource ID of the resource to which the managed private endpoint is created
+func (o ManagedPrivateEndpointResponseOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointResponse) *string { return v.PrivateLinkResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The managed private endpoint provisioning state
+func (o ManagedPrivateEndpointResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpointResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type ManagedPrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrivateEndpointResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedPrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o ManagedPrivateEndpointResponsePtrOutput) ToManagedPrivateEndpointResponsePtrOutput() ManagedPrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointResponsePtrOutput) ToManagedPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointResponsePtrOutput) Elem() ManagedPrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointResponse) ManagedPrivateEndpointResponse { return *v }).(ManagedPrivateEndpointResponseOutput)
+}
+
+// The managed private endpoint connection state
+func (o ManagedPrivateEndpointResponsePtrOutput) ConnectionState() ConnectionStatePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointResponse) *ConnectionStatePropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionState
+	}).(ConnectionStatePropertiesResponsePtrOutput)
+}
+
+// Fully qualified domain names
+func (o ManagedPrivateEndpointResponsePtrOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fqdns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The groupId to which the managed private endpoint is created
+func (o ManagedPrivateEndpointResponsePtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Denotes whether the managed private endpoint is reserved
+func (o ManagedPrivateEndpointResponsePtrOutput) IsReserved() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsReserved
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARM resource ID of the resource to which the managed private endpoint is created
+func (o ManagedPrivateEndpointResponsePtrOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The managed private endpoint provisioning state
+func (o ManagedPrivateEndpointResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
 // Definition of a single parameter for an entity.
 type ParameterSpecification struct {
 	// Default value of parameter.
@@ -5642,6 +6215,8 @@ func init() {
 	pulumi.RegisterOutputType(ActivityDependencyResponseArrayOutput{})
 	pulumi.RegisterOutputType(ActivityResponseOutput{})
 	pulumi.RegisterOutputType(ActivityResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionStatePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ConnectionStatePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowTypeOutput{})
 	pulumi.RegisterOutputType(DataFlowTypePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowFolderOutput{})
@@ -5686,6 +6261,10 @@ func init() {
 	pulumi.RegisterOutputType(LinkedServiceReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceResponseOutput{})
 	pulumi.RegisterOutputType(LinkedServiceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedPrivateEndpointTypeOutput{})
+	pulumi.RegisterOutputType(ManagedPrivateEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(ManagedPrivateEndpointResponseOutput{})
+	pulumi.RegisterOutputType(ManagedPrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(ParameterSpecificationOutput{})
 	pulumi.RegisterOutputType(ParameterSpecificationMapOutput{})
 	pulumi.RegisterOutputType(ParameterSpecificationResponseOutput{})

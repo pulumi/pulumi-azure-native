@@ -36,10 +36,6 @@ class StorageTarget(pulumi.CustomResource):
     """
     ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
     """
-    target_base_type: pulumi.Output[str]
-    """
-    Type of the Storage Target.
-    """
     target_type: pulumi.Output[str]
     """
     Type of the Storage Target.
@@ -53,7 +49,7 @@ class StorageTarget(pulumi.CustomResource):
     Properties when targetType is unknown.
       * `unknown_map` (`dict`) - Dictionary of string->string pairs containing information about the Storage Target.
     """
-    def __init__(__self__, resource_name, opts=None, cache_name=None, clfs=None, junctions=None, name=None, nfs3=None, provisioning_state=None, resource_group_name=None, target_base_type=None, target_type=None, unknown=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cache_name=None, clfs=None, junctions=None, name=None, nfs3=None, provisioning_state=None, resource_group_name=None, target_type=None, unknown=None, __props__=None, __name__=None, __opts__=None):
         """
         Type of the Storage Target.
 
@@ -66,7 +62,6 @@ class StorageTarget(pulumi.CustomResource):
         :param pulumi.Input[dict] nfs3: Properties when targetType is nfs3.
         :param pulumi.Input[str] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
-        :param pulumi.Input[str] target_base_type: Type of the Storage Target.
         :param pulumi.Input[str] target_type: Type of the Storage Target.
         :param pulumi.Input[dict] unknown: Properties when targetType is unknown.
 
@@ -119,9 +114,8 @@ class StorageTarget(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if target_base_type is None:
-                raise TypeError("Missing required property 'target_base_type'")
-            __props__['target_base_type'] = target_base_type
+            if target_type is None:
+                raise TypeError("Missing required property 'target_type'")
             __props__['target_type'] = target_type
             __props__['unknown'] = unknown
             __props__['type'] = None

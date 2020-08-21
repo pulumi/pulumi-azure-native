@@ -12,19 +12,19 @@ namespace Pulumi.AzureRM.Security.V20200101
     public partial class AdaptiveApplicationControl : Pulumi.CustomResource
     {
         /// <summary>
-        /// The configuration status of the VM/server group or machine or rule on the machine
+        /// The configuration status of the machines group or machine or rule
         /// </summary>
         [Output("configurationStatus")]
         public Output<string> ConfigurationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         [Output("enforcementMode")]
         public Output<string?> EnforcementMode { get; private set; } = null!;
 
         [Output("issues")]
-        public Output<ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult>> Issues { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AdaptiveApplicationControlIssueSummaryResponseResult>> Issues { get; private set; } = null!;
 
         /// <summary>
         /// Location where the resource is stored
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Security.V20200101
         public Output<Outputs.ProtectionModeResponseResult?> ProtectionMode { get; private set; } = null!;
 
         /// <summary>
-        /// The recommendation status of the VM/server group or VM/server
+        /// The initial recommendation status of the machine group or machine
         /// </summary>
         [Output("recommendationStatus")]
         public Output<string> RecommendationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The source type of the VM/server group
+        /// The source type of the machine group
         /// </summary>
         [Output("sourceSystem")]
         public Output<string> SourceSystem { get; private set; } = null!;
@@ -120,13 +120,13 @@ namespace Pulumi.AzureRM.Security.V20200101
         public Input<string> AscLocation { get; set; } = null!;
 
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         [Input("enforcementMode")]
         public Input<string>? EnforcementMode { get; set; }
 
         /// <summary>
-        /// Name of an application control VM/server group
+        /// Name of an application control machine group
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

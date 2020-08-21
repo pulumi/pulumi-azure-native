@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
     public sealed class WorkspaceCustomParametersResponseResult
     {
         /// <summary>
+        /// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+        /// </summary>
+        public readonly Outputs.WorkspaceCustomStringParameterResponseResult? AmlWorkspaceId;
+        /// <summary>
         /// The name of the Private Subnet within the Virtual Network
         /// </summary>
         public readonly Outputs.WorkspaceCustomStringParameterResponseResult? CustomPrivateSubnetName;
@@ -37,9 +41,15 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
         /// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
         /// </summary>
         public readonly Outputs.WorkspaceCustomBooleanParameterResponseResult? PrepareEncryption;
+        /// <summary>
+        /// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        /// </summary>
+        public readonly Outputs.WorkspaceCustomBooleanParameterResponseResult? RequireInfrastructureEncryption;
 
         [OutputConstructor]
         private WorkspaceCustomParametersResponseResult(
+            Outputs.WorkspaceCustomStringParameterResponseResult? amlWorkspaceId,
+
             Outputs.WorkspaceCustomStringParameterResponseResult? customPrivateSubnetName,
 
             Outputs.WorkspaceCustomStringParameterResponseResult? customPublicSubnetName,
@@ -50,14 +60,18 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
 
             Outputs.WorkspaceEncryptionParameterResponseResult? encryption,
 
-            Outputs.WorkspaceCustomBooleanParameterResponseResult? prepareEncryption)
+            Outputs.WorkspaceCustomBooleanParameterResponseResult? prepareEncryption,
+
+            Outputs.WorkspaceCustomBooleanParameterResponseResult? requireInfrastructureEncryption)
         {
+            AmlWorkspaceId = amlWorkspaceId;
             CustomPrivateSubnetName = customPrivateSubnetName;
             CustomPublicSubnetName = customPublicSubnetName;
             CustomVirtualNetworkId = customVirtualNetworkId;
             EnableNoPublicIp = enableNoPublicIp;
             Encryption = encryption;
             PrepareEncryption = prepareEncryption;
+            RequireInfrastructureEncryption = requireInfrastructureEncryption;
         }
     }
 }

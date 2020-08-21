@@ -108,6 +108,7 @@ namespace Pulumi.AzureRM.Network.V20190701
                     new Alias { Type = "azurerm:network/v20200301:PrivateEndpoint"},
                     new Alias { Type = "azurerm:network/v20200401:PrivateEndpoint"},
                     new Alias { Type = "azurerm:network/v20200501:PrivateEndpoint"},
+                    new Alias { Type = "azurerm:network/v20200601:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

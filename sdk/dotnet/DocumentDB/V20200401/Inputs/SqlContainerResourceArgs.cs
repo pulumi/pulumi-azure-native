@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Inputs
     public sealed class SqlContainerResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Analytical TTL.
+        /// </summary>
+        [Input("analyticalStorageTtl")]
+        public Input<int>? AnalyticalStorageTtl { get; set; }
+
+        /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
         [Input("conflictResolutionPolicy")]

@@ -89,6 +89,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20180201
                 {
                     new Alias { Type = "azurerm:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
                     new Alias { Type = "azurerm:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"},
+                    new Alias { Type = "azurerm:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

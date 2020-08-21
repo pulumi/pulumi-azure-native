@@ -129,6 +129,7 @@ namespace Pulumi.AzureRM.Network.V20190401
                     new Alias { Type = "azurerm:network/v20200301:LocalNetworkGateway"},
                     new Alias { Type = "azurerm:network/v20200401:LocalNetworkGateway"},
                     new Alias { Type = "azurerm:network/v20200501:LocalNetworkGateway"},
+                    new Alias { Type = "azurerm:network/v20200601:LocalNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

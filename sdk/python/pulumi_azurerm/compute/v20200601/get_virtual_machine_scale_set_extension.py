@@ -13,12 +13,18 @@ class GetVirtualMachineScaleSetExtensionResult:
     """
     Describes a Virtual Machine Scale Set Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, force_update_tag=None, name=None, protected_settings=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, name=None, protected_settings=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         __self__.auto_upgrade_minor_version = auto_upgrade_minor_version
         """
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        if enable_automatic_upgrade and not isinstance(enable_automatic_upgrade, bool):
+            raise TypeError("Expected argument 'enable_automatic_upgrade' to be a bool")
+        __self__.enable_automatic_upgrade = enable_automatic_upgrade
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         """
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
@@ -83,6 +89,7 @@ class AwaitableGetVirtualMachineScaleSetExtensionResult(GetVirtualMachineScaleSe
             yield self
         return GetVirtualMachineScaleSetExtensionResult(
             auto_upgrade_minor_version=self.auto_upgrade_minor_version,
+            enable_automatic_upgrade=self.enable_automatic_upgrade,
             force_update_tag=self.force_update_tag,
             name=self.name,
             protected_settings=self.protected_settings,
@@ -116,6 +123,7 @@ def get_virtual_machine_scale_set_extension(expand=None, name=None, resource_gro
 
     return AwaitableGetVirtualMachineScaleSetExtensionResult(
         auto_upgrade_minor_version=__ret__.get('autoUpgradeMinorVersion'),
+        enable_automatic_upgrade=__ret__.get('enableAutomaticUpgrade'),
         force_update_tag=__ret__.get('forceUpdateTag'),
         name=__ret__.get('name'),
         protected_settings=__ret__.get('protectedSettings'),

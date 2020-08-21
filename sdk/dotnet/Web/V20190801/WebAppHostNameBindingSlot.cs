@@ -115,6 +115,7 @@ namespace Pulumi.AzureRM.Web.V20190801
                     new Alias { Type = "azurerm:web/v20160801:WebAppHostNameBindingSlot"},
                     new Alias { Type = "azurerm:web/v20180201:WebAppHostNameBindingSlot"},
                     new Alias { Type = "azurerm:web/v20181101:WebAppHostNameBindingSlot"},
+                    new Alias { Type = "azurerm:web/v20200601:WebAppHostNameBindingSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

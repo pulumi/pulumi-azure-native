@@ -343,7 +343,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
             __props__['type'] = None
             __props__['upgrade_domains'] = None
             __props__['vip_mappings'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:AppServiceEnvironment"), pulumi.Alias(type_="azurerm:web/v20160901:AppServiceEnvironment"), pulumi.Alias(type_="azurerm:web/v20180201:AppServiceEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:AppServiceEnvironment"), pulumi.Alias(type_="azurerm:web/v20160901:AppServiceEnvironment"), pulumi.Alias(type_="azurerm:web/v20180201:AppServiceEnvironment"), pulumi.Alias(type_="azurerm:web/v20200601:AppServiceEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServiceEnvironment, __self__).__init__(
             'azurerm:web/v20190801:AppServiceEnvironment',

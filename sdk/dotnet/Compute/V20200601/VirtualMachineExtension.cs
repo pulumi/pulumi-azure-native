@@ -21,6 +21,12 @@ namespace Pulumi.AzureRM.Compute.V20200601
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        /// </summary>
+        [Output("enableAutomaticUpgrade")]
+        public Output<bool?> EnableAutomaticUpgrade { get; private set; } = null!;
+
+        /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
         /// </summary>
         [Output("forceUpdateTag")]
@@ -149,6 +155,12 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
+
+        /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        /// </summary>
+        [Input("enableAutomaticUpgrade")]
+        public Input<bool>? EnableAutomaticUpgrade { get; set; }
 
         /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.

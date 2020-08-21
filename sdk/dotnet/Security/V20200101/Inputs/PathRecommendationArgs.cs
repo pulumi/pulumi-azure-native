@@ -16,19 +16,19 @@ namespace Pulumi.AzureRM.Security.V20200101.Inputs
     public sealed class PathRecommendationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The recommendation action of the VM/server or rule
+        /// The recommendation action of the machine or rule
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// Whether the path is commonly run on the machine
+        /// Whether the application is commonly run on the machine
         /// </summary>
         [Input("common")]
         public Input<bool>? Common { get; set; }
 
         /// <summary>
-        /// The configuration status of the VM/server group or machine or rule on the machine
+        /// The configuration status of the machines group or machine or rule
         /// </summary>
         [Input("configurationStatus")]
         public Input<string>? ConfigurationStatus { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Inputs
         public Input<string>? FileType { get; set; }
 
         /// <summary>
-        /// The full path to whitelist
+        /// The full path of the file, or an identifier of the application
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

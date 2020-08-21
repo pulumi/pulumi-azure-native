@@ -75,6 +75,9 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:FirewallPolicy"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:FirewallPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FirewallPolicy

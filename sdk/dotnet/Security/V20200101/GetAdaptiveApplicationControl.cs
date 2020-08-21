@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.Security.V20200101
         public string AscLocation { get; set; } = null!;
 
         /// <summary>
-        /// Name of an application control VM/server group
+        /// Name of an application control machine group
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -40,14 +40,14 @@ namespace Pulumi.AzureRM.Security.V20200101
     public sealed class GetAdaptiveApplicationControlResult
     {
         /// <summary>
-        /// The configuration status of the VM/server group or machine or rule on the machine
+        /// The configuration status of the machines group or machine or rule
         /// </summary>
         public readonly string ConfigurationStatus;
         /// <summary>
-        /// The application control policy enforcement/protection mode of the VM/server group
+        /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         public readonly string? EnforcementMode;
-        public readonly ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult> Issues;
+        public readonly ImmutableArray<Outputs.AdaptiveApplicationControlIssueSummaryResponseResult> Issues;
         /// <summary>
         /// Location where the resource is stored
         /// </summary>
@@ -62,11 +62,11 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// </summary>
         public readonly Outputs.ProtectionModeResponseResult? ProtectionMode;
         /// <summary>
-        /// The recommendation status of the VM/server group or VM/server
+        /// The initial recommendation status of the machine group or machine
         /// </summary>
         public readonly string RecommendationStatus;
         /// <summary>
-        /// The source type of the VM/server group
+        /// The source type of the machine group
         /// </summary>
         public readonly string SourceSystem;
         /// <summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.Security.V20200101
 
             string? enforcementMode,
 
-            ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult> issues,
+            ImmutableArray<Outputs.AdaptiveApplicationControlIssueSummaryResponseResult> issues,
 
             string location,
 

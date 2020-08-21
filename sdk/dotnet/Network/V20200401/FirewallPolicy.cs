@@ -119,6 +119,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:FirewallPolicy"},
                     new Alias { Type = "azurerm:network/v20200301:FirewallPolicy"},
                     new Alias { Type = "azurerm:network/v20200501:FirewallPolicy"},
+                    new Alias { Type = "azurerm:network/v20200601:FirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -59,11 +59,7 @@ export class StorageTarget extends pulumi.CustomResource {
     /**
      * Type of the Storage Target.
      */
-    public readonly targetBaseType!: pulumi.Output<string>;
-    /**
-     * Type of the Storage Target.
-     */
-    public readonly targetType!: pulumi.Output<string | undefined>;
+    public readonly targetType!: pulumi.Output<string>;
     /**
      * Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
      */
@@ -95,8 +91,8 @@ export class StorageTarget extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.targetBaseType === undefined) {
-                throw new Error("Missing required property 'targetBaseType'");
+            if (!args || args.targetType === undefined) {
+                throw new Error("Missing required property 'targetType'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;
             inputs["clfs"] = args ? args.clfs : undefined;
@@ -105,7 +101,6 @@ export class StorageTarget extends pulumi.CustomResource {
             inputs["nfs3"] = args ? args.nfs3 : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["targetBaseType"] = args ? args.targetBaseType : undefined;
             inputs["targetType"] = args ? args.targetType : undefined;
             inputs["unknown"] = args ? args.unknown : undefined;
             inputs["type"] = undefined /*out*/;
@@ -158,11 +153,7 @@ export interface StorageTargetArgs {
     /**
      * Type of the Storage Target.
      */
-    readonly targetBaseType: pulumi.Input<string>;
-    /**
-     * Type of the Storage Target.
-     */
-    readonly targetType?: pulumi.Input<string>;
+    readonly targetType: pulumi.Input<string>;
     /**
      * Properties when targetType is unknown.
      */

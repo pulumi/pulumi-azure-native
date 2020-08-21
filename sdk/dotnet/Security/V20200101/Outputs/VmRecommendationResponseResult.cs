@@ -14,19 +14,19 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
     public sealed class VmRecommendationResponseResult
     {
         /// <summary>
-        /// The configuration status of the VM/server group or machine or rule on the machine
+        /// The configuration status of the machines group or machine or rule
         /// </summary>
         public readonly string? ConfigurationStatus;
         /// <summary>
-        /// The VM/server supportability of Enforce feature
+        /// The machine supportability of Enforce feature
         /// </summary>
         public readonly string? EnforcementSupport;
         /// <summary>
-        /// The recommendation action of the VM/server or rule
+        /// The recommendation action of the machine or rule
         /// </summary>
         public readonly string? RecommendationAction;
         /// <summary>
-        /// The full azure resource id of the machine
+        /// The full resource id of the machine
         /// </summary>
         public readonly string? ResourceId;
 

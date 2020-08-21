@@ -47,6 +47,12 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualHubIpConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/v20200601:VirtualHubIpConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualHubIpConfiguration
 	err := ctx.RegisterResource("azurerm:network/v20200501:VirtualHubIpConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -19,6 +19,10 @@ func ListShareSubscriptionSynchronizations(ctx *pulumi.Context, args *ListShareS
 type ListShareSubscriptionSynchronizationsArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
+	// Filters the results using OData syntax.
+	Filter *string `pulumi:"filter"`
+	// Sorts the results using OData syntax.
+	Orderby *string `pulumi:"orderby"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share subscription.

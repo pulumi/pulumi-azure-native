@@ -10,10 +10,73 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type AliasPathMetadataResponse struct {
+	// The attributes of the token that the alias path is referring to.
+	Attributes string `pulumi:"attributes"`
+	// The type of the token that the alias path is referring to.
+	Type string `pulumi:"type"`
+}
+
+// AliasPathMetadataResponseInput is an input type that accepts AliasPathMetadataResponseArgs and AliasPathMetadataResponseOutput values.
+// You can construct a concrete instance of `AliasPathMetadataResponseInput` via:
+//
+//          AliasPathMetadataResponseArgs{...}
+type AliasPathMetadataResponseInput interface {
+	pulumi.Input
+
+	ToAliasPathMetadataResponseOutput() AliasPathMetadataResponseOutput
+	ToAliasPathMetadataResponseOutputWithContext(context.Context) AliasPathMetadataResponseOutput
+}
+
+type AliasPathMetadataResponseArgs struct {
+	// The attributes of the token that the alias path is referring to.
+	Attributes pulumi.StringInput `pulumi:"attributes"`
+	// The type of the token that the alias path is referring to.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AliasPathMetadataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasPathMetadataResponse)(nil)).Elem()
+}
+
+func (i AliasPathMetadataResponseArgs) ToAliasPathMetadataResponseOutput() AliasPathMetadataResponseOutput {
+	return i.ToAliasPathMetadataResponseOutputWithContext(context.Background())
+}
+
+func (i AliasPathMetadataResponseArgs) ToAliasPathMetadataResponseOutputWithContext(ctx context.Context) AliasPathMetadataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasPathMetadataResponseOutput)
+}
+
+type AliasPathMetadataResponseOutput struct{ *pulumi.OutputState }
+
+func (AliasPathMetadataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasPathMetadataResponse)(nil)).Elem()
+}
+
+func (o AliasPathMetadataResponseOutput) ToAliasPathMetadataResponseOutput() AliasPathMetadataResponseOutput {
+	return o
+}
+
+func (o AliasPathMetadataResponseOutput) ToAliasPathMetadataResponseOutputWithContext(ctx context.Context) AliasPathMetadataResponseOutput {
+	return o
+}
+
+// The attributes of the token that the alias path is referring to.
+func (o AliasPathMetadataResponseOutput) Attributes() pulumi.StringOutput {
+	return o.ApplyT(func(v AliasPathMetadataResponse) string { return v.Attributes }).(pulumi.StringOutput)
+}
+
+// The type of the token that the alias path is referring to.
+func (o AliasPathMetadataResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AliasPathMetadataResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The type of the paths for alias.
 type AliasPathResponse struct {
 	// The API versions.
 	ApiVersions []string `pulumi:"apiVersions"`
+	// The metadata of the alias path. If missing, fall back to the default metadata of the alias.
+	Metadata AliasPathMetadataResponse `pulumi:"metadata"`
 	// The path of an alias.
 	Path *string `pulumi:"path"`
 	// The pattern for an alias path.
@@ -35,6 +98,8 @@ type AliasPathResponseInput interface {
 type AliasPathResponseArgs struct {
 	// The API versions.
 	ApiVersions pulumi.StringArrayInput `pulumi:"apiVersions"`
+	// The metadata of the alias path. If missing, fall back to the default metadata of the alias.
+	Metadata AliasPathMetadataResponseInput `pulumi:"metadata"`
 	// The path of an alias.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The pattern for an alias path.
@@ -96,6 +161,11 @@ func (o AliasPathResponseOutput) ToAliasPathResponseOutputWithContext(ctx contex
 // The API versions.
 func (o AliasPathResponseOutput) ApiVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AliasPathResponse) []string { return v.ApiVersions }).(pulumi.StringArrayOutput)
+}
+
+// The metadata of the alias path. If missing, fall back to the default metadata of the alias.
+func (o AliasPathResponseOutput) Metadata() AliasPathMetadataResponseOutput {
+	return o.ApplyT(func(v AliasPathResponse) AliasPathMetadataResponse { return v.Metadata }).(AliasPathMetadataResponseOutput)
 }
 
 // The path of an alias.
@@ -302,6 +372,8 @@ func (o AliasPatternResponsePtrOutput) Variable() pulumi.StringPtrOutput {
 
 // The alias type.
 type AliasResponse struct {
+	// The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
+	DefaultMetadata AliasPathMetadataResponse `pulumi:"defaultMetadata"`
 	// The default path for an alias.
 	DefaultPath *string `pulumi:"defaultPath"`
 	// The default pattern for an alias.
@@ -327,6 +399,8 @@ type AliasResponseInput interface {
 
 // The alias type.
 type AliasResponseArgs struct {
+	// The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
+	DefaultMetadata AliasPathMetadataResponseInput `pulumi:"defaultMetadata"`
 	// The default path for an alias.
 	DefaultPath pulumi.StringPtrInput `pulumi:"defaultPath"`
 	// The default pattern for an alias.
@@ -391,6 +465,11 @@ func (o AliasResponseOutput) ToAliasResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
+func (o AliasResponseOutput) DefaultMetadata() AliasPathMetadataResponseOutput {
+	return o.ApplyT(func(v AliasResponse) AliasPathMetadataResponse { return v.DefaultMetadata }).(AliasPathMetadataResponseOutput)
+}
+
 // The default path for an alias.
 func (o AliasResponseOutput) DefaultPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AliasResponse) *string { return v.DefaultPath }).(pulumi.StringPtrOutput)
@@ -434,6 +513,112 @@ func (o AliasResponseArrayOutput) Index(i pulumi.IntInput) AliasResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AliasResponse {
 		return vs[0].([]AliasResponse)[vs[1].(int)]
 	}).(AliasResponseOutput)
+}
+
+type ApiProfileResponse struct {
+	// The API version.
+	ApiVersion string `pulumi:"apiVersion"`
+	// The profile version.
+	ProfileVersion string `pulumi:"profileVersion"`
+}
+
+// ApiProfileResponseInput is an input type that accepts ApiProfileResponseArgs and ApiProfileResponseOutput values.
+// You can construct a concrete instance of `ApiProfileResponseInput` via:
+//
+//          ApiProfileResponseArgs{...}
+type ApiProfileResponseInput interface {
+	pulumi.Input
+
+	ToApiProfileResponseOutput() ApiProfileResponseOutput
+	ToApiProfileResponseOutputWithContext(context.Context) ApiProfileResponseOutput
+}
+
+type ApiProfileResponseArgs struct {
+	// The API version.
+	ApiVersion pulumi.StringInput `pulumi:"apiVersion"`
+	// The profile version.
+	ProfileVersion pulumi.StringInput `pulumi:"profileVersion"`
+}
+
+func (ApiProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiProfileResponse)(nil)).Elem()
+}
+
+func (i ApiProfileResponseArgs) ToApiProfileResponseOutput() ApiProfileResponseOutput {
+	return i.ToApiProfileResponseOutputWithContext(context.Background())
+}
+
+func (i ApiProfileResponseArgs) ToApiProfileResponseOutputWithContext(ctx context.Context) ApiProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiProfileResponseOutput)
+}
+
+// ApiProfileResponseArrayInput is an input type that accepts ApiProfileResponseArray and ApiProfileResponseArrayOutput values.
+// You can construct a concrete instance of `ApiProfileResponseArrayInput` via:
+//
+//          ApiProfileResponseArray{ ApiProfileResponseArgs{...} }
+type ApiProfileResponseArrayInput interface {
+	pulumi.Input
+
+	ToApiProfileResponseArrayOutput() ApiProfileResponseArrayOutput
+	ToApiProfileResponseArrayOutputWithContext(context.Context) ApiProfileResponseArrayOutput
+}
+
+type ApiProfileResponseArray []ApiProfileResponseInput
+
+func (ApiProfileResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiProfileResponse)(nil)).Elem()
+}
+
+func (i ApiProfileResponseArray) ToApiProfileResponseArrayOutput() ApiProfileResponseArrayOutput {
+	return i.ToApiProfileResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApiProfileResponseArray) ToApiProfileResponseArrayOutputWithContext(ctx context.Context) ApiProfileResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiProfileResponseArrayOutput)
+}
+
+type ApiProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiProfileResponse)(nil)).Elem()
+}
+
+func (o ApiProfileResponseOutput) ToApiProfileResponseOutput() ApiProfileResponseOutput {
+	return o
+}
+
+func (o ApiProfileResponseOutput) ToApiProfileResponseOutputWithContext(ctx context.Context) ApiProfileResponseOutput {
+	return o
+}
+
+// The API version.
+func (o ApiProfileResponseOutput) ApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiProfileResponse) string { return v.ApiVersion }).(pulumi.StringOutput)
+}
+
+// The profile version.
+func (o ApiProfileResponseOutput) ProfileVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiProfileResponse) string { return v.ProfileVersion }).(pulumi.StringOutput)
+}
+
+type ApiProfileResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiProfileResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiProfileResponse)(nil)).Elem()
+}
+
+func (o ApiProfileResponseArrayOutput) ToApiProfileResponseArrayOutput() ApiProfileResponseArrayOutput {
+	return o
+}
+
+func (o ApiProfileResponseArrayOutput) ToApiProfileResponseArrayOutputWithContext(ctx context.Context) ApiProfileResponseArrayOutput {
+	return o
+}
+
+func (o ApiProfileResponseArrayOutput) Index(i pulumi.IntInput) ApiProfileResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiProfileResponse {
+		return vs[0].([]ApiProfileResponse)[vs[1].(int)]
+	}).(ApiProfileResponseOutput)
 }
 
 // Deployment dependency information.
@@ -2636,10 +2821,14 @@ func (o ParametersLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 type ProviderResourceTypeResponse struct {
 	// The aliases that are supported by this resource type.
 	Aliases []AliasResponse `pulumi:"aliases"`
+	// The API profiles for the resource provider.
+	ApiProfiles []ApiProfileResponse `pulumi:"apiProfiles"`
 	// The API version.
 	ApiVersions []string `pulumi:"apiVersions"`
 	// The additional capabilities offered by this resource type.
 	Capabilities *string `pulumi:"capabilities"`
+	// The default API version.
+	DefaultApiVersion string `pulumi:"defaultApiVersion"`
 	// The collection of locations where this resource type can be created.
 	Locations []string `pulumi:"locations"`
 	// The properties.
@@ -2663,10 +2852,14 @@ type ProviderResourceTypeResponseInput interface {
 type ProviderResourceTypeResponseArgs struct {
 	// The aliases that are supported by this resource type.
 	Aliases AliasResponseArrayInput `pulumi:"aliases"`
+	// The API profiles for the resource provider.
+	ApiProfiles ApiProfileResponseArrayInput `pulumi:"apiProfiles"`
 	// The API version.
 	ApiVersions pulumi.StringArrayInput `pulumi:"apiVersions"`
 	// The additional capabilities offered by this resource type.
 	Capabilities pulumi.StringPtrInput `pulumi:"capabilities"`
+	// The default API version.
+	DefaultApiVersion pulumi.StringInput `pulumi:"defaultApiVersion"`
 	// The collection of locations where this resource type can be created.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 	// The properties.
@@ -2732,6 +2925,11 @@ func (o ProviderResourceTypeResponseOutput) Aliases() AliasResponseArrayOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) []AliasResponse { return v.Aliases }).(AliasResponseArrayOutput)
 }
 
+// The API profiles for the resource provider.
+func (o ProviderResourceTypeResponseOutput) ApiProfiles() ApiProfileResponseArrayOutput {
+	return o.ApplyT(func(v ProviderResourceTypeResponse) []ApiProfileResponse { return v.ApiProfiles }).(ApiProfileResponseArrayOutput)
+}
+
 // The API version.
 func (o ProviderResourceTypeResponseOutput) ApiVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) []string { return v.ApiVersions }).(pulumi.StringArrayOutput)
@@ -2740,6 +2938,11 @@ func (o ProviderResourceTypeResponseOutput) ApiVersions() pulumi.StringArrayOutp
 // The additional capabilities offered by this resource type.
 func (o ProviderResourceTypeResponseOutput) Capabilities() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) *string { return v.Capabilities }).(pulumi.StringPtrOutput)
+}
+
+// The default API version.
+func (o ProviderResourceTypeResponseOutput) DefaultApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderResourceTypeResponse) string { return v.DefaultApiVersion }).(pulumi.StringOutput)
 }
 
 // The collection of locations where this resource type can be created.
@@ -3396,12 +3599,15 @@ func (o TemplateLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AliasPathMetadataResponseOutput{})
 	pulumi.RegisterOutputType(AliasPathResponseOutput{})
 	pulumi.RegisterOutputType(AliasPathResponseArrayOutput{})
 	pulumi.RegisterOutputType(AliasPatternResponseOutput{})
 	pulumi.RegisterOutputType(AliasPatternResponsePtrOutput{})
 	pulumi.RegisterOutputType(AliasResponseOutput{})
 	pulumi.RegisterOutputType(AliasResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApiProfileResponseOutput{})
+	pulumi.RegisterOutputType(ApiProfileResponseArrayOutput{})
 	pulumi.RegisterOutputType(BasicDependencyResponseOutput{})
 	pulumi.RegisterOutputType(BasicDependencyResponseArrayOutput{})
 	pulumi.RegisterOutputType(DebugSettingOutput{})

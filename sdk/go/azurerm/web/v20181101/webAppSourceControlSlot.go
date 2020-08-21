@@ -57,6 +57,9 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:WebAppSourceControlSlot"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppSourceControlSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSourceControlSlot

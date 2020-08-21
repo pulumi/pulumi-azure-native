@@ -127,6 +127,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                     new Alias { Type = "azurerm:web/v20180201:SiteDeployment"},
                     new Alias { Type = "azurerm:web/v20181101:SiteDeployment"},
                     new Alias { Type = "azurerm:web/v20190801:SiteDeployment"},
+                    new Alias { Type = "azurerm:web/v20200601:SiteDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

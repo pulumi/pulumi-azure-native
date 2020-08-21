@@ -96,6 +96,7 @@ namespace Pulumi.AzureRM.Network.V20190801
                     new Alias { Type = "azurerm:network/v20200301:BastionHost"},
                     new Alias { Type = "azurerm:network/v20200401:BastionHost"},
                     new Alias { Type = "azurerm:network/v20200501:BastionHost"},
+                    new Alias { Type = "azurerm:network/v20200601:BastionHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

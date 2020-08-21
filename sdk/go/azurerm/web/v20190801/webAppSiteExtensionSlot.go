@@ -86,6 +86,9 @@ func NewWebAppSiteExtensionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20181101:WebAppSiteExtensionSlot"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppSiteExtensionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSiteExtensionSlot

@@ -189,6 +189,9 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200401:ApplicationGateway"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:ApplicationGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationGateway

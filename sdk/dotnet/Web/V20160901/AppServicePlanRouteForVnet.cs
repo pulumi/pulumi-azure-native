@@ -89,6 +89,7 @@ namespace Pulumi.AzureRM.Web.V20160901
                     new Alias { Type = "azurerm:web/v20150801:AppServicePlanRouteForVnet"},
                     new Alias { Type = "azurerm:web/v20180201:AppServicePlanRouteForVnet"},
                     new Alias { Type = "azurerm:web/v20190801:AppServicePlanRouteForVnet"},
+                    new Alias { Type = "azurerm:web/v20200601:AppServicePlanRouteForVnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

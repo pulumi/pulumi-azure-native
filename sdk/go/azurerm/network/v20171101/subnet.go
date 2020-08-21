@@ -137,6 +137,9 @@ func NewSubnet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:Subnet"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:Subnet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Subnet

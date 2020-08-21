@@ -60,7 +60,7 @@ class GetManagedClusterResult:
             raise TypeError("Expected argument 'enable_pod_security_policy' to be a bool")
         __self__.enable_pod_security_policy = enable_pod_security_policy
         """
-        (PREVIEW) Whether to enable Kubernetes Pod security policy.
+        (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         """
         if enable_rbac and not isinstance(enable_rbac, bool):
             raise TypeError("Expected argument 'enable_rbac' to be a bool")

@@ -56,6 +56,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         /// </summary>
         public readonly Outputs.ConsistencyPolicyResponseResult? ConsistencyPolicy;
         /// <summary>
+        /// The CORS policy for the Cosmos DB database account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CorsPolicyResponseResult> Cors;
+        /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
         /// </summary>
         public readonly string DatabaseAccountOfferType;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
 
             Outputs.ConsistencyPolicyResponseResult? consistencyPolicy,
 
+            ImmutableArray<Outputs.CorsPolicyResponseResult> cors,
+
             string databaseAccountOfferType,
 
             bool? disableKeyBasedMetadataWriteAccess,
@@ -214,6 +220,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
             Capabilities = capabilities;
             ConnectorOffer = connectorOffer;
             ConsistencyPolicy = consistencyPolicy;
+            Cors = cors;
             DatabaseAccountOfferType = databaseAccountOfferType;
             DisableKeyBasedMetadataWriteAccess = disableKeyBasedMetadataWriteAccess;
             DocumentEndpoint = documentEndpoint;

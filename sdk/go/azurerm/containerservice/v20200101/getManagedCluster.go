@@ -37,7 +37,7 @@ type LookupManagedClusterResult struct {
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
-	// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC *bool `pulumi:"enableRBAC"`

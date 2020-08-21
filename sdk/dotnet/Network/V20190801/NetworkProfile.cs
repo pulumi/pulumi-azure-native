@@ -107,6 +107,7 @@ namespace Pulumi.AzureRM.Network.V20190801
                     new Alias { Type = "azurerm:network/v20200301:NetworkProfile"},
                     new Alias { Type = "azurerm:network/v20200401:NetworkProfile"},
                     new Alias { Type = "azurerm:network/v20200501:NetworkProfile"},
+                    new Alias { Type = "azurerm:network/v20200601:NetworkProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

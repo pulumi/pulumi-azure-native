@@ -62,10 +62,6 @@ export interface GetOriginResult {
      */
     readonly httpsPort?: number;
     /**
-     * Resource location.
-     */
-    readonly location: string;
-    /**
      * Resource name.
      */
     readonly name: string;
@@ -105,10 +101,6 @@ export interface GetOriginResult {
      * Resource status of the origin.
      */
     readonly resourceState: string;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: {[key: string]: string};
     /**
      * Resource type.
      */

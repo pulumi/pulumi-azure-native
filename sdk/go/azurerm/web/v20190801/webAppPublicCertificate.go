@@ -50,6 +50,9 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20181101:WebAppPublicCertificate"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppPublicCertificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPublicCertificate

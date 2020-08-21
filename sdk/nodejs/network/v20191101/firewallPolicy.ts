@@ -121,7 +121,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20190601:FirewallPolicy" }, { type: "azurerm:network/v20190701:FirewallPolicy" }, { type: "azurerm:network/v20190801:FirewallPolicy" }, { type: "azurerm:network/v20190901:FirewallPolicy" }, { type: "azurerm:network/v20191201:FirewallPolicy" }, { type: "azurerm:network/v20200301:FirewallPolicy" }, { type: "azurerm:network/v20200401:FirewallPolicy" }, { type: "azurerm:network/v20200501:FirewallPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20190601:FirewallPolicy" }, { type: "azurerm:network/v20190701:FirewallPolicy" }, { type: "azurerm:network/v20190801:FirewallPolicy" }, { type: "azurerm:network/v20190901:FirewallPolicy" }, { type: "azurerm:network/v20191201:FirewallPolicy" }, { type: "azurerm:network/v20200301:FirewallPolicy" }, { type: "azurerm:network/v20200401:FirewallPolicy" }, { type: "azurerm:network/v20200501:FirewallPolicy" }, { type: "azurerm:network/v20200601:FirewallPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallPolicy.__pulumiType, name, inputs, opts);
     }

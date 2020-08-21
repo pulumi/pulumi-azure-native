@@ -64,6 +64,9 @@ func NewSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:SiteRelayServiceConnectionSlot"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:SiteRelayServiceConnectionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteRelayServiceConnectionSlot

@@ -68,6 +68,9 @@ func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:WebAppHostNameBindingSlot"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:WebAppHostNameBindingSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHostNameBindingSlot

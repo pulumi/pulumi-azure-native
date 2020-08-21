@@ -74,6 +74,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:VirtualHubRouteTableV2"},
                     new Alias { Type = "azurerm:network/v20200301:VirtualHubRouteTableV2"},
                     new Alias { Type = "azurerm:network/v20200501:VirtualHubRouteTableV2"},
+                    new Alias { Type = "azurerm:network/v20200601:VirtualHubRouteTableV2"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

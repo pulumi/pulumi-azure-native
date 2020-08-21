@@ -137,6 +137,9 @@ func NewRoute(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200401:Route"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:Route"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Route

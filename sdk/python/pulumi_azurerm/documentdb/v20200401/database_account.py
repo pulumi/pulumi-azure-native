@@ -31,6 +31,15 @@ class DatabaseAccount(pulumi.CustomResource):
       * `max_interval_in_seconds` (`float`) - When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
       * `max_staleness_prefix` (`float`) - When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
     """
+    cors: pulumi.Output[list]
+    """
+    The CORS policy for the Cosmos DB database account.
+      * `allowed_headers` (`str`) - The request headers that the origin domain may specify on the CORS request.
+      * `allowed_methods` (`str`) - The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+      * `allowed_origins` (`str`) - The origin domains that are permitted to make a request against the service via CORS.
+      * `exposed_headers` (`str`) - The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+      * `max_age_in_seconds` (`float`) - The maximum amount time that a browser should cache the preflight OPTIONS request.
+    """
     database_account_offer_type: pulumi.Output[str]
     """
     The offer type for the Cosmos DB database account. Default value: Standard.
@@ -161,7 +170,7 @@ class DatabaseAccount(pulumi.CustomResource):
       * `location_name` (`str`) - The name of the region.
       * `provisioning_state` (`str`) - The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
     """
-    def __init__(__self__, resource_name, opts=None, api_properties=None, capabilities=None, connector_offer=None, consistency_policy=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, public_network_access=None, resource_group_name=None, tags=None, virtual_network_rules=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_properties=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, public_network_access=None, resource_group_name=None, tags=None, virtual_network_rules=None, __props__=None, __name__=None, __opts__=None):
         """
         An Azure Cosmos DB database account.
 
@@ -171,6 +180,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[list] capabilities: List of Cosmos DB capabilities for the account
         :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input[dict] consistency_policy: The consistency policy for the Cosmos DB account.
+        :param pulumi.Input[list] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[str] database_account_offer_type: The offer type for the database
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
@@ -203,6 +213,14 @@ class DatabaseAccount(pulumi.CustomResource):
           * `default_consistency_level` (`pulumi.Input[str]`) - The default consistency level and configuration settings of the Cosmos DB account.
           * `max_interval_in_seconds` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
           * `max_staleness_prefix` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+
+        The **cors** object supports the following:
+
+          * `allowed_headers` (`pulumi.Input[str]`) - The request headers that the origin domain may specify on the CORS request.
+          * `allowed_methods` (`pulumi.Input[str]`) - The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+          * `allowed_origins` (`pulumi.Input[str]`) - The origin domains that are permitted to make a request against the service via CORS.
+          * `exposed_headers` (`pulumi.Input[str]`) - The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+          * `max_age_in_seconds` (`pulumi.Input[float]`) - The maximum amount time that a browser should cache the preflight OPTIONS request.
 
         The **ip_rules** object supports the following:
 
@@ -241,6 +259,7 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__['capabilities'] = capabilities
             __props__['connector_offer'] = connector_offer
             __props__['consistency_policy'] = consistency_policy
+            __props__['cors'] = cors
             if database_account_offer_type is None:
                 raise TypeError("Missing required property 'database_account_offer_type'")
             __props__['database_account_offer_type'] = database_account_offer_type

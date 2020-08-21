@@ -65,7 +65,7 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly dnsPrefix!: pulumi.Output<string | undefined>;
     /**
-     * (PREVIEW) Whether to enable Kubernetes Pod security policy.
+     * (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
      */
     public readonly enablePodSecurityPolicy!: pulumi.Output<boolean | undefined>;
     /**
@@ -198,7 +198,7 @@ export class ManagedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/v20170831:ManagedCluster" }, { type: "azurerm:containerservice/v20180331:ManagedCluster" }, { type: "azurerm:containerservice/v20190201:ManagedCluster" }, { type: "azurerm:containerservice/v20190401:ManagedCluster" }, { type: "azurerm:containerservice/v20190601:ManagedCluster" }, { type: "azurerm:containerservice/v20190801:ManagedCluster" }, { type: "azurerm:containerservice/v20191001:ManagedCluster" }, { type: "azurerm:containerservice/v20191101:ManagedCluster" }, { type: "azurerm:containerservice/v20200101:ManagedCluster" }, { type: "azurerm:containerservice/v20200201:ManagedCluster" }, { type: "azurerm:containerservice/v20200401:ManagedCluster" }, { type: "azurerm:containerservice/v20200601:ManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/v20170831:ManagedCluster" }, { type: "azurerm:containerservice/v20180331:ManagedCluster" }, { type: "azurerm:containerservice/v20190201:ManagedCluster" }, { type: "azurerm:containerservice/v20190401:ManagedCluster" }, { type: "azurerm:containerservice/v20190601:ManagedCluster" }, { type: "azurerm:containerservice/v20190801:ManagedCluster" }, { type: "azurerm:containerservice/v20191001:ManagedCluster" }, { type: "azurerm:containerservice/v20191101:ManagedCluster" }, { type: "azurerm:containerservice/v20200101:ManagedCluster" }, { type: "azurerm:containerservice/v20200201:ManagedCluster" }, { type: "azurerm:containerservice/v20200401:ManagedCluster" }, { type: "azurerm:containerservice/v20200601:ManagedCluster" }, { type: "azurerm:containerservice/v20200701:ManagedCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedCluster.__pulumiType, name, inputs, opts);
     }
@@ -237,7 +237,7 @@ export interface ManagedClusterArgs {
      */
     readonly dnsPrefix?: pulumi.Input<string>;
     /**
-     * (PREVIEW) Whether to enable Kubernetes Pod security policy.
+     * (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
      */
     readonly enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**

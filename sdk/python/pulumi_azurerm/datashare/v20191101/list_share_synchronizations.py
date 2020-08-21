@@ -38,17 +38,21 @@ class AwaitableListShareSynchronizationsResult(ListShareSynchronizationsResult):
             value=self.value)
 
 
-def list_share_synchronizations(account_name=None, resource_group_name=None, share_name=None, skip_token=None, opts=None):
+def list_share_synchronizations(account_name=None, filter=None, orderby=None, resource_group_name=None, share_name=None, skip_token=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the share account.
+    :param str filter: Filters the results using OData syntax.
+    :param str orderby: Sorts the results using OData syntax.
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     :param str skip_token: Continuation token
     """
     __args__ = dict()
     __args__['accountName'] = account_name
+    __args__['filter'] = filter
+    __args__['orderby'] = orderby
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
     __args__['skipToken'] = skip_token

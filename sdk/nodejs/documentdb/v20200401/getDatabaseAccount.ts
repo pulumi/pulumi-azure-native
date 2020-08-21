@@ -52,6 +52,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly consistencyPolicy?: outputs.documentdb.v20200401.ConsistencyPolicyResponse;
     /**
+     * The CORS policy for the Cosmos DB database account.
+     */
+    readonly cors?: outputs.documentdb.v20200401.CorsPolicyResponse[];
+    /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
     readonly databaseAccountOfferType: string;

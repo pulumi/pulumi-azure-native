@@ -25,6 +25,18 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public string AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Filters the results using OData syntax.
+        /// </summary>
+        [Input("filter")]
+        public string? Filter { get; set; }
+
+        /// <summary>
+        /// Sorts the results using OData syntax.
+        /// </summary>
+        [Input("orderby")]
+        public string? Orderby { get; set; }
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]

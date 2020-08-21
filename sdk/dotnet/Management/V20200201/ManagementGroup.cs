@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.Management.V20200201
                 Aliases =
                 {
                     new Alias { Type = "azurerm:management/v20191101:ManagementGroup"},
+                    new Alias { Type = "azurerm:management/v20200501:ManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

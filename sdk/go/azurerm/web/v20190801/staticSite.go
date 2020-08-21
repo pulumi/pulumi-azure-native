@@ -55,6 +55,12 @@ func NewStaticSite(ctx *pulumi.Context,
 	if args == nil {
 		args = &StaticSiteArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/v20200601:StaticSite"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StaticSite
 	err := ctx.RegisterResource("azurerm:web/v20190801:StaticSite", name, args, &resource, opts...)
 	if err != nil {

@@ -32071,9 +32071,9 @@ func (o HubIPAddressesResponsePtrOutput) PublicIPs() HubPublicIPAddressesRespons
 
 // Public IP addresses associated with azure firewall.
 type HubPublicIPAddresses struct {
-	// The number of Public IP addresses associated with azure firewall.
+	// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
 	Addresses []AzureFirewallPublicIPAddress `pulumi:"addresses"`
-	// Private IP Address associated with azure firewall.
+	// The number of Public IP addresses associated with azure firewall.
 	Count *int `pulumi:"count"`
 }
 
@@ -32090,9 +32090,9 @@ type HubPublicIPAddressesInput interface {
 
 // Public IP addresses associated with azure firewall.
 type HubPublicIPAddressesArgs struct {
-	// The number of Public IP addresses associated with azure firewall.
+	// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
 	Addresses AzureFirewallPublicIPAddressArrayInput `pulumi:"addresses"`
-	// Private IP Address associated with azure firewall.
+	// The number of Public IP addresses associated with azure firewall.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
@@ -32174,12 +32174,12 @@ func (o HubPublicIPAddressesOutput) ToHubPublicIPAddressesPtrOutputWithContext(c
 	}).(HubPublicIPAddressesPtrOutput)
 }
 
-// The number of Public IP addresses associated with azure firewall.
+// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
 func (o HubPublicIPAddressesOutput) Addresses() AzureFirewallPublicIPAddressArrayOutput {
 	return o.ApplyT(func(v HubPublicIPAddresses) []AzureFirewallPublicIPAddress { return v.Addresses }).(AzureFirewallPublicIPAddressArrayOutput)
 }
 
-// Private IP Address associated with azure firewall.
+// The number of Public IP addresses associated with azure firewall.
 func (o HubPublicIPAddressesOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HubPublicIPAddresses) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -32202,7 +32202,7 @@ func (o HubPublicIPAddressesPtrOutput) Elem() HubPublicIPAddressesOutput {
 	return o.ApplyT(func(v *HubPublicIPAddresses) HubPublicIPAddresses { return *v }).(HubPublicIPAddressesOutput)
 }
 
-// The number of Public IP addresses associated with azure firewall.
+// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
 func (o HubPublicIPAddressesPtrOutput) Addresses() AzureFirewallPublicIPAddressArrayOutput {
 	return o.ApplyT(func(v *HubPublicIPAddresses) []AzureFirewallPublicIPAddress {
 		if v == nil {
@@ -32212,7 +32212,7 @@ func (o HubPublicIPAddressesPtrOutput) Addresses() AzureFirewallPublicIPAddressA
 	}).(AzureFirewallPublicIPAddressArrayOutput)
 }
 
-// Private IP Address associated with azure firewall.
+// The number of Public IP addresses associated with azure firewall.
 func (o HubPublicIPAddressesPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HubPublicIPAddresses) *int {
 		if v == nil {
@@ -32224,9 +32224,9 @@ func (o HubPublicIPAddressesPtrOutput) Count() pulumi.IntPtrOutput {
 
 // Public IP addresses associated with azure firewall.
 type HubPublicIPAddressesResponse struct {
-	// The number of Public IP addresses associated with azure firewall.
+	// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
 	Addresses []AzureFirewallPublicIPAddressResponse `pulumi:"addresses"`
-	// Private IP Address associated with azure firewall.
+	// The number of Public IP addresses associated with azure firewall.
 	Count *int `pulumi:"count"`
 }
 
@@ -32243,9 +32243,9 @@ type HubPublicIPAddressesResponseInput interface {
 
 // Public IP addresses associated with azure firewall.
 type HubPublicIPAddressesResponseArgs struct {
-	// The number of Public IP addresses associated with azure firewall.
+	// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
 	Addresses AzureFirewallPublicIPAddressResponseArrayInput `pulumi:"addresses"`
-	// Private IP Address associated with azure firewall.
+	// The number of Public IP addresses associated with azure firewall.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
@@ -32327,12 +32327,12 @@ func (o HubPublicIPAddressesResponseOutput) ToHubPublicIPAddressesResponsePtrOut
 	}).(HubPublicIPAddressesResponsePtrOutput)
 }
 
-// The number of Public IP addresses associated with azure firewall.
+// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
 func (o HubPublicIPAddressesResponseOutput) Addresses() AzureFirewallPublicIPAddressResponseArrayOutput {
 	return o.ApplyT(func(v HubPublicIPAddressesResponse) []AzureFirewallPublicIPAddressResponse { return v.Addresses }).(AzureFirewallPublicIPAddressResponseArrayOutput)
 }
 
-// Private IP Address associated with azure firewall.
+// The number of Public IP addresses associated with azure firewall.
 func (o HubPublicIPAddressesResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HubPublicIPAddressesResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -32355,7 +32355,7 @@ func (o HubPublicIPAddressesResponsePtrOutput) Elem() HubPublicIPAddressesRespon
 	return o.ApplyT(func(v *HubPublicIPAddressesResponse) HubPublicIPAddressesResponse { return *v }).(HubPublicIPAddressesResponseOutput)
 }
 
-// The number of Public IP addresses associated with azure firewall.
+// The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
 func (o HubPublicIPAddressesResponsePtrOutput) Addresses() AzureFirewallPublicIPAddressResponseArrayOutput {
 	return o.ApplyT(func(v *HubPublicIPAddressesResponse) []AzureFirewallPublicIPAddressResponse {
 		if v == nil {
@@ -32365,7 +32365,7 @@ func (o HubPublicIPAddressesResponsePtrOutput) Addresses() AzureFirewallPublicIP
 	}).(AzureFirewallPublicIPAddressResponseArrayOutput)
 }
 
-// Private IP Address associated with azure firewall.
+// The number of Public IP addresses associated with azure firewall.
 func (o HubPublicIPAddressesResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HubPublicIPAddressesResponse) *int {
 		if v == nil {

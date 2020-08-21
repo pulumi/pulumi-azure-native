@@ -96,6 +96,7 @@ class Cluster(pulumi.CustomResource):
       * `created_date` (`str`) - The date on which the cluster was created.
       * `disk_encryption_properties` (`dict`) - The disk encryption properties.
         * `encryption_algorithm` (`str`) - Algorithm identifier for encryption, default RSA-OAEP.
+        * `encryption_at_host` (`bool`) - Indicates whether or not resource disk encryption is enabled.
         * `key_name` (`str`) - Key name that is used for enabling disk encryption.
         * `key_version` (`str`) - Specific key version that is used for enabling disk encryption.
         * `msi_resource_id` (`str`) - Resource ID of Managed Identity that is used to access the key vault.
@@ -216,6 +217,7 @@ class Cluster(pulumi.CustomResource):
 
           * `disk_encryption_properties` (`pulumi.Input[dict]`) - The disk encryption properties.
             * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm identifier for encryption, default RSA-OAEP.
+            * `encryption_at_host` (`pulumi.Input[bool]`) - Indicates whether or not resource disk encryption is enabled.
             * `key_name` (`pulumi.Input[str]`) - Key name that is used for enabling disk encryption.
             * `key_version` (`pulumi.Input[str]`) - Specific key version that is used for enabling disk encryption.
             * `msi_resource_id` (`pulumi.Input[str]`) - Resource ID of Managed Identity that is used to access the key vault.

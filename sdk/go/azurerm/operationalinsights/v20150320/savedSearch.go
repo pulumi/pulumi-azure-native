@@ -56,6 +56,12 @@ func NewSavedSearch(ctx *pulumi.Context,
 	if args == nil {
 		args = &SavedSearchArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20200801:SavedSearch"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SavedSearch
 	err := ctx.RegisterResource("azurerm:operationalinsights/v20150320:SavedSearch", name, args, &resource, opts...)
 	if err != nil {

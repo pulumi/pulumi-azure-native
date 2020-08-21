@@ -86,6 +86,7 @@ namespace Pulumi.AzureRM.NetApp.V20191101
                     new Alias { Type = "azurerm:netapp/v20190701:Snapshot"},
                     new Alias { Type = "azurerm:netapp/v20190801:Snapshot"},
                     new Alias { Type = "azurerm:netapp/v20191001:Snapshot"},
+                    new Alias { Type = "azurerm:netapp/v20200201:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

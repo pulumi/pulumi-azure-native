@@ -114,6 +114,9 @@ func NewSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:Site"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:Site"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Site

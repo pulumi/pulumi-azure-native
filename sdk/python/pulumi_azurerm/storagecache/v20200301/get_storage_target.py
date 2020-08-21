@@ -13,7 +13,7 @@ class GetStorageTargetResult:
     """
     Type of the Storage Target.
     """
-    def __init__(__self__, clfs=None, junctions=None, name=None, nfs3=None, provisioning_state=None, target_base_type=None, target_type=None, type=None, unknown=None):
+    def __init__(__self__, clfs=None, junctions=None, name=None, nfs3=None, provisioning_state=None, target_type=None, type=None, unknown=None):
         if clfs and not isinstance(clfs, dict):
             raise TypeError("Expected argument 'clfs' to be a dict")
         __self__.clfs = clfs
@@ -43,12 +43,6 @@ class GetStorageTargetResult:
         __self__.provisioning_state = provisioning_state
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-        """
-        if target_base_type and not isinstance(target_base_type, str):
-            raise TypeError("Expected argument 'target_base_type' to be a str")
-        __self__.target_base_type = target_base_type
-        """
-        Type of the Storage Target.
         """
         if target_type and not isinstance(target_type, str):
             raise TypeError("Expected argument 'target_type' to be a str")
@@ -81,7 +75,6 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
             name=self.name,
             nfs3=self.nfs3,
             provisioning_state=self.provisioning_state,
-            target_base_type=self.target_base_type,
             target_type=self.target_type,
             type=self.type,
             unknown=self.unknown)
@@ -111,7 +104,6 @@ def get_storage_target(cache_name=None, name=None, resource_group_name=None, opt
         name=__ret__.get('name'),
         nfs3=__ret__.get('nfs3'),
         provisioning_state=__ret__.get('provisioningState'),
-        target_base_type=__ret__.get('targetBaseType'),
         target_type=__ret__.get('targetType'),
         type=__ret__.get('type'),
         unknown=__ret__.get('unknown'))

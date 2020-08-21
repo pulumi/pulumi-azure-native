@@ -91,6 +91,7 @@ namespace Pulumi.AzureRM.Web.V20160801
                     new Alias { Type = "azurerm:web/v20180201:WebAppSourceControl"},
                     new Alias { Type = "azurerm:web/v20181101:WebAppSourceControl"},
                     new Alias { Type = "azurerm:web/v20190801:WebAppSourceControl"},
+                    new Alias { Type = "azurerm:web/v20200601:WebAppSourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

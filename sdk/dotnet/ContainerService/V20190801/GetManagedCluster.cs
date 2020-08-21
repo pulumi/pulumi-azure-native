@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ContainerService.V20190801
         /// </summary>
         public readonly string? DnsPrefix;
         /// <summary>
-        /// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+        /// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         /// </summary>
         public readonly bool? EnablePodSecurityPolicy;
         /// <summary>

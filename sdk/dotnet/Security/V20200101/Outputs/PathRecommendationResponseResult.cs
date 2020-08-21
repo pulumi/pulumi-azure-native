@@ -14,15 +14,15 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
     public sealed class PathRecommendationResponseResult
     {
         /// <summary>
-        /// The recommendation action of the VM/server or rule
+        /// The recommendation action of the machine or rule
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// Whether the path is commonly run on the machine
+        /// Whether the application is commonly run on the machine
         /// </summary>
         public readonly bool? Common;
         /// <summary>
-        /// The configuration status of the VM/server group or machine or rule on the machine
+        /// The configuration status of the machines group or machine or rule
         /// </summary>
         public readonly string? ConfigurationStatus;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
         /// </summary>
         public readonly string? FileType;
         /// <summary>
-        /// The full path to whitelist
+        /// The full path of the file, or an identifier of the application
         /// </summary>
         public readonly string? Path;
         /// <summary>

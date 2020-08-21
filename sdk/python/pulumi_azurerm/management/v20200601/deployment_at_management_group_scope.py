@@ -68,6 +68,10 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
         * `registration_state` (`str`) - The registration state of the resource provider.
         * `resource_types` (`list`) - The collection of provider resource types.
           * `aliases` (`list`) - The aliases that are supported by this resource type.
+            * `default_metadata` (`dict`) - The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
+              * `attributes` (`str`) - The attributes of the token that the alias path is referring to.
+              * `type` (`str`) - The type of the token that the alias path is referring to.
+
             * `default_path` (`str`) - The default path for an alias.
             * `default_pattern` (`dict`) - The default pattern for an alias.
               * `phrase` (`str`) - The alias pattern phrase.
@@ -77,13 +81,19 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
             * `name` (`str`) - The alias name.
             * `paths` (`list`) - The paths for an alias.
               * `api_versions` (`list`) - The API versions.
+              * `metadata` (`dict`) - The metadata of the alias path. If missing, fall back to the default metadata of the alias.
               * `path` (`str`) - The path of an alias.
               * `pattern` (`dict`) - The pattern for an alias path.
 
             * `type` (`str`) - The type of the alias.
 
+          * `api_profiles` (`list`) - The API profiles for the resource provider.
+            * `api_version` (`str`) - The API version.
+            * `profile_version` (`str`) - The profile version.
+
           * `api_versions` (`list`) - The API version.
           * `capabilities` (`str`) - The additional capabilities offered by this resource type.
+          * `default_api_version` (`str`) - The default API version.
           * `locations` (`list`) - The collection of locations where this resource type can be created.
           * `properties` (`dict`) - The properties.
           * `resource_type` (`str`) - The resource type.

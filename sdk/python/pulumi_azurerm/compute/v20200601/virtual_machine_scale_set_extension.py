@@ -14,6 +14,10 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     """
     Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
     """
+    enable_automatic_upgrade: pulumi.Output[bool]
+    """
+    Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+    """
     force_update_tag: pulumi.Output[str]
     """
     If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
@@ -50,13 +54,14 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     """
     Specifies the version of the script handler.
     """
-    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, force_update_tag=None, name=None, protected_settings=None, provision_after_extensions=None, publisher=None, resource_group_name=None, settings=None, type=None, type_handler_version=None, vm_scale_set_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, name=None, protected_settings=None, provision_after_extensions=None, publisher=None, resource_group_name=None, settings=None, type=None, type_handler_version=None, vm_scale_set_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a Virtual Machine Scale Set Extension.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param pulumi.Input[str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[str] name: The name of the VM scale set extension.
         :param pulumi.Input[dict] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
@@ -86,6 +91,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
+            __props__['enable_automatic_upgrade'] = enable_automatic_upgrade
             __props__['force_update_tag'] = force_update_tag
             if name is None:
                 raise TypeError("Missing required property 'name'")

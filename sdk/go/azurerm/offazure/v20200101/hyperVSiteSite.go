@@ -39,6 +39,12 @@ func NewHyperVSiteSite(ctx *pulumi.Context,
 	if args == nil {
 		args = &HyperVSiteSiteArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:offazure/v20200707:HyperVSiteSite"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HyperVSiteSite
 	err := ctx.RegisterResource("azurerm:offazure/v20200101:HyperVSiteSite", name, args, &resource, opts...)
 	if err != nil {

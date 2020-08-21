@@ -248,7 +248,7 @@ export class HostingEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160901:HostingEnvironment" }, { type: "azurerm:web/v20180201:HostingEnvironment" }, { type: "azurerm:web/v20190801:HostingEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160901:HostingEnvironment" }, { type: "azurerm:web/v20180201:HostingEnvironment" }, { type: "azurerm:web/v20190801:HostingEnvironment" }, { type: "azurerm:web/v20200601:HostingEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HostingEnvironment.__pulumiType, name, inputs, opts);
     }

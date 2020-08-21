@@ -68,10 +68,6 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// </summary>
         public readonly int? HttpsPort;
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -112,10 +108,6 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -133,8 +125,6 @@ namespace Pulumi.AzureRM.Cdn.V20200415
             int? httpPort,
 
             int? httpsPort,
-
-            string location,
 
             string name,
 
@@ -156,8 +146,6 @@ namespace Pulumi.AzureRM.Cdn.V20200415
 
             string resourceState,
 
-            ImmutableDictionary<string, string>? tags,
-
             string type,
 
             int? weight)
@@ -166,7 +154,6 @@ namespace Pulumi.AzureRM.Cdn.V20200415
             HostName = hostName;
             HttpPort = httpPort;
             HttpsPort = httpsPort;
-            Location = location;
             Name = name;
             OriginHostHeader = originHostHeader;
             Priority = priority;
@@ -177,7 +164,6 @@ namespace Pulumi.AzureRM.Cdn.V20200415
             PrivateLinkResourceId = privateLinkResourceId;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
-            Tags = tags;
             Type = type;
             Weight = weight;
         }

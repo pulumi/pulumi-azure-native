@@ -157,7 +157,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/v20190401:AgentPool" }, { type: "azurerm:containerservice/v20190601:AgentPool" }, { type: "azurerm:containerservice/v20191001:AgentPool" }, { type: "azurerm:containerservice/v20191101:AgentPool" }, { type: "azurerm:containerservice/v20200101:AgentPool" }, { type: "azurerm:containerservice/v20200201:AgentPool" }, { type: "azurerm:containerservice/v20200301:AgentPool" }, { type: "azurerm:containerservice/v20200401:AgentPool" }, { type: "azurerm:containerservice/v20200601:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/v20190401:AgentPool" }, { type: "azurerm:containerservice/v20190601:AgentPool" }, { type: "azurerm:containerservice/v20191001:AgentPool" }, { type: "azurerm:containerservice/v20191101:AgentPool" }, { type: "azurerm:containerservice/v20200101:AgentPool" }, { type: "azurerm:containerservice/v20200201:AgentPool" }, { type: "azurerm:containerservice/v20200301:AgentPool" }, { type: "azurerm:containerservice/v20200401:AgentPool" }, { type: "azurerm:containerservice/v20200601:AgentPool" }, { type: "azurerm:containerservice/v20200701:AgentPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AgentPool.__pulumiType, name, inputs, opts);
     }

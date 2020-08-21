@@ -64,6 +64,9 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:NetworkVirtualAppliance"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:NetworkVirtualAppliance"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkVirtualAppliance

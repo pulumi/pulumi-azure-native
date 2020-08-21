@@ -113,6 +113,7 @@ namespace Pulumi.AzureRM.Network.V20170801
                     new Alias { Type = "azurerm:network/v20200301:RouteFilterRule"},
                     new Alias { Type = "azurerm:network/v20200401:RouteFilterRule"},
                     new Alias { Type = "azurerm:network/v20200501:RouteFilterRule"},
+                    new Alias { Type = "azurerm:network/v20200601:RouteFilterRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

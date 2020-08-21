@@ -159,6 +159,7 @@ namespace Pulumi.AzureRM.Network.V20190701
                     new Alias { Type = "azurerm:network/v20200301:ExpressRouteCrossConnectionPeering"},
                     new Alias { Type = "azurerm:network/v20200401:ExpressRouteCrossConnectionPeering"},
                     new Alias { Type = "azurerm:network/v20200501:ExpressRouteCrossConnectionPeering"},
+                    new Alias { Type = "azurerm:network/v20200601:ExpressRouteCrossConnectionPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -123,7 +123,7 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebAppHostNameBinding" }, { type: "azurerm:web/v20160801:WebAppHostNameBinding" }, { type: "azurerm:web/v20181101:WebAppHostNameBinding" }, { type: "azurerm:web/v20190801:WebAppHostNameBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebAppHostNameBinding" }, { type: "azurerm:web/v20160801:WebAppHostNameBinding" }, { type: "azurerm:web/v20181101:WebAppHostNameBinding" }, { type: "azurerm:web/v20190801:WebAppHostNameBinding" }, { type: "azurerm:web/v20200601:WebAppHostNameBinding" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHostNameBinding.__pulumiType, name, inputs, opts);
     }

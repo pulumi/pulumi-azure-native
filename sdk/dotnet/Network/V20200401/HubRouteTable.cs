@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                 Aliases =
                 {
                     new Alias { Type = "azurerm:network/v20200501:HubRouteTable"},
+                    new Alias { Type = "azurerm:network/v20200601:HubRouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

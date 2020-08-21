@@ -106,6 +106,9 @@ func NewDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:domainregistration/v20190801:Domain"),
 		},
+		{
+			Type: pulumi.String("azurerm:domainregistration/v20200601:Domain"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Domain

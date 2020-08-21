@@ -50,6 +50,10 @@ namespace Pulumi.AzureRM.Compute.V20200601.Outputs
         /// </summary>
         public readonly string? OsVersion;
         /// <summary>
+        /// The status of virtual machine patch operations.
+        /// </summary>
+        public readonly Outputs.VirtualMachinePatchStatusResponseResult? PatchStatus;
+        /// <summary>
         /// Specifies the fault domain of the virtual machine.
         /// </summary>
         public readonly int? PlatformFaultDomain;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureRM.Compute.V20200601.Outputs
 
             string? osVersion,
 
+            Outputs.VirtualMachinePatchStatusResponseResult? patchStatus,
+
             int? platformFaultDomain,
 
             int? platformUpdateDomain,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureRM.Compute.V20200601.Outputs
             MaintenanceRedeployStatus = maintenanceRedeployStatus;
             OsName = osName;
             OsVersion = osVersion;
+            PatchStatus = patchStatus;
             PlatformFaultDomain = platformFaultDomain;
             PlatformUpdateDomain = platformUpdateDomain;
             RdpThumbPrint = rdpThumbPrint;

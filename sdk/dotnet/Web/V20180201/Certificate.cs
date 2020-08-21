@@ -187,6 +187,7 @@ namespace Pulumi.AzureRM.Web.V20180201
                     new Alias { Type = "azurerm:web/v20160301:Certificate"},
                     new Alias { Type = "azurerm:web/v20181101:Certificate"},
                     new Alias { Type = "azurerm:web/v20190801:Certificate"},
+                    new Alias { Type = "azurerm:web/v20200601:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

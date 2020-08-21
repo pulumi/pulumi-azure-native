@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Network.V20190801
                     new Alias { Type = "azurerm:network/v20200301:DdosCustomPolicy"},
                     new Alias { Type = "azurerm:network/v20200401:DdosCustomPolicy"},
                     new Alias { Type = "azurerm:network/v20200501:DdosCustomPolicy"},
+                    new Alias { Type = "azurerm:network/v20200601:DdosCustomPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

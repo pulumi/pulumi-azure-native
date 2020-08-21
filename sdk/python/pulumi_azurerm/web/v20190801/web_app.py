@@ -178,6 +178,8 @@ class WebApp(pulumi.CustomResource):
     site_config: pulumi.Output[dict]
     """
     Configuration of the app.
+      * `acr_use_managed_identity_creds` (`bool`) - Flag to use Managed Identity Creds for ACR pull
+      * `acr_user_managed_identity_id` (`str`) - If using user managed identity, the user managed identity ClientId
       * `always_on` (`bool`) - <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
       * `api_definition` (`dict`) - Information about the formal API definition for the app.
         * `url` (`str`) - The URL of the API definition.
@@ -445,6 +447,8 @@ class WebApp(pulumi.CustomResource):
 
         The **site_config** object supports the following:
 
+          * `acr_use_managed_identity_creds` (`pulumi.Input[bool]`) - Flag to use Managed Identity Creds for ACR pull
+          * `acr_user_managed_identity_id` (`pulumi.Input[str]`) - If using user managed identity, the user managed identity ClientId
           * `always_on` (`pulumi.Input[bool]`) - <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
           * `api_definition` (`pulumi.Input[dict]`) - Information about the formal API definition for the app.
             * `url` (`pulumi.Input[str]`) - The URL of the API definition.
@@ -663,7 +667,7 @@ class WebApp(pulumi.CustomResource):
             __props__['traffic_manager_host_names'] = None
             __props__['type'] = None
             __props__['usage_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebApp"), pulumi.Alias(type_="azurerm:web/v20160801:WebApp"), pulumi.Alias(type_="azurerm:web/v20180201:WebApp"), pulumi.Alias(type_="azurerm:web/v20181101:WebApp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebApp"), pulumi.Alias(type_="azurerm:web/v20160801:WebApp"), pulumi.Alias(type_="azurerm:web/v20180201:WebApp"), pulumi.Alias(type_="azurerm:web/v20181101:WebApp"), pulumi.Alias(type_="azurerm:web/v20200601:WebApp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebApp, __self__).__init__(
             'azurerm:web/v20190801:WebApp',

@@ -99,6 +99,9 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200401:HubVirtualNetworkConnection"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:HubVirtualNetworkConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource HubVirtualNetworkConnection

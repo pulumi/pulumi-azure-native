@@ -135,6 +135,7 @@ namespace Pulumi.AzureRM.Network.V20200501
                     new Alias { Type = "azurerm:network/v20191201:InboundNatRule"},
                     new Alias { Type = "azurerm:network/v20200301:InboundNatRule"},
                     new Alias { Type = "azurerm:network/v20200401:InboundNatRule"},
+                    new Alias { Type = "azurerm:network/v20200601:InboundNatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

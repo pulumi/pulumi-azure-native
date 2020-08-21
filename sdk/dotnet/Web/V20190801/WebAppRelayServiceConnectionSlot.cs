@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Web.V20190801
                     new Alias { Type = "azurerm:web/v20160801:WebAppRelayServiceConnectionSlot"},
                     new Alias { Type = "azurerm:web/v20180201:WebAppRelayServiceConnectionSlot"},
                     new Alias { Type = "azurerm:web/v20181101:WebAppRelayServiceConnectionSlot"},
+                    new Alias { Type = "azurerm:web/v20200601:WebAppRelayServiceConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

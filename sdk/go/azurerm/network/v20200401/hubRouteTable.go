@@ -51,6 +51,9 @@ func NewHubRouteTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:HubRouteTable"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:HubRouteTable"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource HubRouteTable

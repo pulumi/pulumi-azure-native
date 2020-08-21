@@ -127,6 +127,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:VirtualNetworkPeering"},
                     new Alias { Type = "azurerm:network/v20200301:VirtualNetworkPeering"},
                     new Alias { Type = "azurerm:network/v20200501:VirtualNetworkPeering"},
+                    new Alias { Type = "azurerm:network/v20200601:VirtualNetworkPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

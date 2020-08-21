@@ -41,6 +41,10 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+     */
+    public readonly enableAutomaticUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
     public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
@@ -111,6 +115,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vmName'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            inputs["enableAutomaticUpgrade"] = args ? args.enableAutomaticUpgrade : undefined;
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             inputs["instanceView"] = args ? args.instanceView : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -146,6 +151,10 @@ export interface VirtualMachineExtensionArgs {
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
     readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+     */
+    readonly enableAutomaticUpgrade?: pulumi.Input<boolean>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */

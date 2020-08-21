@@ -153,6 +153,7 @@ namespace Pulumi.AzureRM.Network.V20150615
                     new Alias { Type = "azurerm:network/v20200301:NetworkInterface"},
                     new Alias { Type = "azurerm:network/v20200401:NetworkInterface"},
                     new Alias { Type = "azurerm:network/v20200501:NetworkInterface"},
+                    new Alias { Type = "azurerm:network/v20200601:NetworkInterface"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

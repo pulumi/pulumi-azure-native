@@ -140,6 +140,7 @@ namespace Pulumi.AzureRM.Network.V20190201
                     new Alias { Type = "azurerm:network/v20200301:VirtualWan"},
                     new Alias { Type = "azurerm:network/v20200401:VirtualWan"},
                     new Alias { Type = "azurerm:network/v20200501:VirtualWan"},
+                    new Alias { Type = "azurerm:network/v20200601:VirtualWan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

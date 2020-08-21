@@ -19,16 +19,16 @@ func LookupAdaptiveApplicationControl(ctx *pulumi.Context, args *LookupAdaptiveA
 type LookupAdaptiveApplicationControlArgs struct {
 	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
 	AscLocation string `pulumi:"ascLocation"`
-	// Name of an application control VM/server group
+	// Name of an application control machine group
 	Name string `pulumi:"name"`
 }
 
 type LookupAdaptiveApplicationControlResult struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus string `pulumi:"configurationStatus"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	EnforcementMode *string                               `pulumi:"enforcementMode"`
-	Issues          []AppWhitelistingIssueSummaryResponse `pulumi:"issues"`
+	// The application control policy enforcement/protection mode of the machine group
+	EnforcementMode *string                                          `pulumi:"enforcementMode"`
+	Issues          []AdaptiveApplicationControlIssueSummaryResponse `pulumi:"issues"`
 	// Location where the resource is stored
 	Location string `pulumi:"location"`
 	// Resource name
@@ -36,9 +36,9 @@ type LookupAdaptiveApplicationControlResult struct {
 	PathRecommendations []PathRecommendationResponse `pulumi:"pathRecommendations"`
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode *ProtectionModeResponse `pulumi:"protectionMode"`
-	// The recommendation status of the VM/server group or VM/server
+	// The initial recommendation status of the machine group or machine
 	RecommendationStatus string `pulumi:"recommendationStatus"`
-	// The source type of the VM/server group
+	// The source type of the machine group
 	SourceSystem string `pulumi:"sourceSystem"`
 	// Resource type
 	Type              string                     `pulumi:"type"`

@@ -50,7 +50,7 @@ class ManagedCluster(pulumi.CustomResource):
     """
     enable_pod_security_policy: pulumi.Output[bool]
     """
-    (PREVIEW) Whether to enable Kubernetes Pod security policy.
+    (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
     """
     enable_rbac: pulumi.Output[bool]
     """
@@ -123,7 +123,7 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[list] agent_pool_profiles: Properties of the agent pool.
         :param pulumi.Input[list] api_server_authorized_ip_ranges: (PREVIEW) Authorized IP Ranges to kubernetes API server.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
-        :param pulumi.Input[bool] enable_pod_security_policy: (PREVIEW) Whether to enable Kubernetes Pod security policy.
+        :param pulumi.Input[bool] enable_pod_security_policy: (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         :param pulumi.Input[bool] enable_rbac: Whether to enable Kubernetes Role-Based Access Control.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
         :param pulumi.Input[dict] linux_profile: Profile for Linux VMs in the container service cluster.
@@ -220,7 +220,7 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['node_resource_group'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20170831:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20180331:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190601:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190801:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191001:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200201:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200301:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200601:ManagedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20170831:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20180331:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190601:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190801:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191001:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200201:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200301:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200601:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200701:ManagedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedCluster, __self__).__init__(
             'azurerm:containerservice/v20190201:ManagedCluster',

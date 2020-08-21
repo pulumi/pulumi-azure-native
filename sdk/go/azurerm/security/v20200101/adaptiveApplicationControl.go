@@ -13,11 +13,11 @@ import (
 type AdaptiveApplicationControl struct {
 	pulumi.CustomResourceState
 
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus pulumi.StringOutput `pulumi:"configurationStatus"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	EnforcementMode pulumi.StringPtrOutput                         `pulumi:"enforcementMode"`
-	Issues          AppWhitelistingIssueSummaryResponseArrayOutput `pulumi:"issues"`
+	// The application control policy enforcement/protection mode of the machine group
+	EnforcementMode pulumi.StringPtrOutput                                    `pulumi:"enforcementMode"`
+	Issues          AdaptiveApplicationControlIssueSummaryResponseArrayOutput `pulumi:"issues"`
 	// Location where the resource is stored
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
@@ -25,9 +25,9 @@ type AdaptiveApplicationControl struct {
 	PathRecommendations PathRecommendationResponseArrayOutput `pulumi:"pathRecommendations"`
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode ProtectionModeResponsePtrOutput `pulumi:"protectionMode"`
-	// The recommendation status of the VM/server group or VM/server
+	// The initial recommendation status of the machine group or machine
 	RecommendationStatus pulumi.StringOutput `pulumi:"recommendationStatus"`
-	// The source type of the VM/server group
+	// The source type of the machine group
 	SourceSystem pulumi.StringOutput `pulumi:"sourceSystem"`
 	// Resource type
 	Type              pulumi.StringOutput                 `pulumi:"type"`
@@ -68,11 +68,11 @@ func GetAdaptiveApplicationControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdaptiveApplicationControl resources.
 type adaptiveApplicationControlState struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus *string `pulumi:"configurationStatus"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	EnforcementMode *string                               `pulumi:"enforcementMode"`
-	Issues          []AppWhitelistingIssueSummaryResponse `pulumi:"issues"`
+	// The application control policy enforcement/protection mode of the machine group
+	EnforcementMode *string                                          `pulumi:"enforcementMode"`
+	Issues          []AdaptiveApplicationControlIssueSummaryResponse `pulumi:"issues"`
 	// Location where the resource is stored
 	Location *string `pulumi:"location"`
 	// Resource name
@@ -80,9 +80,9 @@ type adaptiveApplicationControlState struct {
 	PathRecommendations []PathRecommendationResponse `pulumi:"pathRecommendations"`
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode *ProtectionModeResponse `pulumi:"protectionMode"`
-	// The recommendation status of the VM/server group or VM/server
+	// The initial recommendation status of the machine group or machine
 	RecommendationStatus *string `pulumi:"recommendationStatus"`
-	// The source type of the VM/server group
+	// The source type of the machine group
 	SourceSystem *string `pulumi:"sourceSystem"`
 	// Resource type
 	Type              *string                    `pulumi:"type"`
@@ -90,11 +90,11 @@ type adaptiveApplicationControlState struct {
 }
 
 type AdaptiveApplicationControlState struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
+	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus pulumi.StringPtrInput
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	EnforcementMode pulumi.StringPtrInput
-	Issues          AppWhitelistingIssueSummaryResponseArrayInput
+	Issues          AdaptiveApplicationControlIssueSummaryResponseArrayInput
 	// Location where the resource is stored
 	Location pulumi.StringPtrInput
 	// Resource name
@@ -102,9 +102,9 @@ type AdaptiveApplicationControlState struct {
 	PathRecommendations PathRecommendationResponseArrayInput
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode ProtectionModeResponsePtrInput
-	// The recommendation status of the VM/server group or VM/server
+	// The initial recommendation status of the machine group or machine
 	RecommendationStatus pulumi.StringPtrInput
-	// The source type of the VM/server group
+	// The source type of the machine group
 	SourceSystem pulumi.StringPtrInput
 	// Resource type
 	Type              pulumi.StringPtrInput
@@ -118,9 +118,9 @@ func (AdaptiveApplicationControlState) ElementType() reflect.Type {
 type adaptiveApplicationControlArgs struct {
 	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
 	AscLocation string `pulumi:"ascLocation"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	EnforcementMode *string `pulumi:"enforcementMode"`
-	// Name of an application control VM/server group
+	// Name of an application control machine group
 	Name                string               `pulumi:"name"`
 	PathRecommendations []PathRecommendation `pulumi:"pathRecommendations"`
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
@@ -132,9 +132,9 @@ type adaptiveApplicationControlArgs struct {
 type AdaptiveApplicationControlArgs struct {
 	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
 	AscLocation pulumi.StringInput
-	// The application control policy enforcement/protection mode of the VM/server group
+	// The application control policy enforcement/protection mode of the machine group
 	EnforcementMode pulumi.StringPtrInput
-	// Name of an application control VM/server group
+	// Name of an application control machine group
 	Name                pulumi.StringInput
 	PathRecommendations PathRecommendationArrayInput
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.

@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Network.V20170601
                     new Alias { Type = "azurerm:network/v20200301:Route"},
                     new Alias { Type = "azurerm:network/v20200401:Route"},
                     new Alias { Type = "azurerm:network/v20200501:Route"},
+                    new Alias { Type = "azurerm:network/v20200601:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

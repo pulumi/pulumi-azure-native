@@ -115,6 +115,9 @@ func NewHostingEnvironment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/v20190801:HostingEnvironment"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/v20200601:HostingEnvironment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource HostingEnvironment

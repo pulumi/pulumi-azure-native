@@ -22,6 +22,12 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Inputs
         public Input<string>? EncryptionAlgorithm { get; set; }
 
         /// <summary>
+        /// Indicates whether or not resource disk encryption is enabled.
+        /// </summary>
+        [Input("encryptionAtHost")]
+        public Input<bool>? EncryptionAtHost { get; set; }
+
+        /// <summary>
         /// Key name that is used for enabling disk encryption.
         /// </summary>
         [Input("keyName")]

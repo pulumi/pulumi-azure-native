@@ -89,6 +89,9 @@ func NewNetworkProfile(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:NetworkProfile"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:NetworkProfile"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkProfile

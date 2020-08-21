@@ -26,10 +26,6 @@ class Origin(pulumi.CustomResource):
     """
     The value of the HTTPS port. Must be between 1 and 65535.
     """
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
     name: pulumi.Output[str]
     """
     Resource name.
@@ -70,10 +66,6 @@ class Origin(pulumi.CustomResource):
     """
     Resource status of the origin.
     """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
     type: pulumi.Output[str]
     """
     Resource type.
@@ -82,7 +74,7 @@ class Origin(pulumi.CustomResource):
     """
     Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
     """
-    def __init__(__self__, resource_name, opts=None, enabled=None, endpoint_name=None, host_name=None, http_port=None, https_port=None, location=None, name=None, origin_host_header=None, priority=None, private_link_alias=None, private_link_approval_message=None, private_link_location=None, private_link_resource_id=None, profile_name=None, resource_group_name=None, tags=None, weight=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enabled=None, endpoint_name=None, host_name=None, http_port=None, https_port=None, name=None, origin_host_header=None, priority=None, private_link_alias=None, private_link_approval_message=None, private_link_location=None, private_link_resource_id=None, profile_name=None, resource_group_name=None, weight=None, __props__=None, __name__=None, __opts__=None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 
@@ -93,7 +85,6 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535.
-        :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: Name of the origin that is unique within the endpoint.
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         :param pulumi.Input[float] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
@@ -103,7 +94,6 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[str] private_link_resource_id: The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[float] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         if __name__ is not None:
@@ -132,9 +122,6 @@ class Origin(pulumi.CustomResource):
             __props__['host_name'] = host_name
             __props__['http_port'] = http_port
             __props__['https_port'] = https_port
-            if location is None:
-                raise TypeError("Missing required property 'location'")
-            __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
@@ -150,7 +137,6 @@ class Origin(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
             __props__['weight'] = weight
             __props__['private_endpoint_status'] = None
             __props__['provisioning_state'] = None

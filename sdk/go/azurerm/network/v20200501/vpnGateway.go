@@ -103,6 +103,9 @@ func NewVpnGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200401:VpnGateway"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:VpnGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VpnGateway

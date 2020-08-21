@@ -25,9 +25,7 @@ type StorageTarget struct {
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Type of the Storage Target.
-	TargetBaseType pulumi.StringOutput `pulumi:"targetBaseType"`
-	// Type of the Storage Target.
-	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
+	TargetType pulumi.StringOutput `pulumi:"targetType"`
 	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Properties when targetType is unknown.
@@ -46,8 +44,8 @@ func NewStorageTarget(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.TargetBaseType == nil {
-		return nil, errors.New("missing required argument 'TargetBaseType'")
+	if args == nil || args.TargetType == nil {
+		return nil, errors.New("missing required argument 'TargetType'")
 	}
 	if args == nil {
 		args = &StorageTargetArgs{}
@@ -91,8 +89,6 @@ type storageTargetState struct {
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Type of the Storage Target.
-	TargetBaseType *string `pulumi:"targetBaseType"`
-	// Type of the Storage Target.
 	TargetType *string `pulumi:"targetType"`
 	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
 	Type *string `pulumi:"type"`
@@ -111,8 +107,6 @@ type StorageTargetState struct {
 	Nfs3 Nfs3TargetResponsePtrInput
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState pulumi.StringPtrInput
-	// Type of the Storage Target.
-	TargetBaseType pulumi.StringPtrInput
 	// Type of the Storage Target.
 	TargetType pulumi.StringPtrInput
 	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
@@ -141,9 +135,7 @@ type storageTargetArgs struct {
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Type of the Storage Target.
-	TargetBaseType string `pulumi:"targetBaseType"`
-	// Type of the Storage Target.
-	TargetType *string `pulumi:"targetType"`
+	TargetType string `pulumi:"targetType"`
 	// Properties when targetType is unknown.
 	Unknown *UnknownTarget `pulumi:"unknown"`
 }
@@ -165,9 +157,7 @@ type StorageTargetArgs struct {
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
 	// Type of the Storage Target.
-	TargetBaseType pulumi.StringInput
-	// Type of the Storage Target.
-	TargetType pulumi.StringPtrInput
+	TargetType pulumi.StringInput
 	// Properties when targetType is unknown.
 	Unknown UnknownTargetPtrInput
 }

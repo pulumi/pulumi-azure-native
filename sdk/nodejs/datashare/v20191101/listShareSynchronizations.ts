@@ -16,6 +16,8 @@ export function listShareSynchronizations(args: ListShareSynchronizationsArgs, o
     }
     return pulumi.runtime.invoke("azurerm:datashare/v20191101:listShareSynchronizations", {
         "accountName": args.accountName,
+        "filter": args.filter,
+        "orderby": args.orderby,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,
         "skipToken": args.skipToken,
@@ -27,6 +29,14 @@ export interface ListShareSynchronizationsArgs {
      * The name of the share account.
      */
     readonly accountName: string;
+    /**
+     * Filters the results using OData syntax.
+     */
+    readonly filter?: string;
+    /**
+     * Sorts the results using OData syntax.
+     */
+    readonly orderby?: string;
     /**
      * The resource group name.
      */

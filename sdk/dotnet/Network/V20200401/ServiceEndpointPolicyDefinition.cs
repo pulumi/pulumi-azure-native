@@ -90,6 +90,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:ServiceEndpointPolicyDefinition"},
                     new Alias { Type = "azurerm:network/v20200301:ServiceEndpointPolicyDefinition"},
                     new Alias { Type = "azurerm:network/v20200501:ServiceEndpointPolicyDefinition"},
+                    new Alias { Type = "azurerm:network/v20200601:ServiceEndpointPolicyDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

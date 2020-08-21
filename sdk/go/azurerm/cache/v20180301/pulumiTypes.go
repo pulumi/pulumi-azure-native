@@ -263,7 +263,7 @@ func (o RedisLinkedServerResponseArrayOutput) Index(i pulumi.IntInput) RedisLink
 	}).(RedisLinkedServerResponseOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
+// Patch schedule entry for a Redis Cache.
 type ScheduleEntry struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek string `pulumi:"dayOfWeek"`
@@ -284,7 +284,7 @@ type ScheduleEntryInput interface {
 	ToScheduleEntryOutputWithContext(context.Context) ScheduleEntryOutput
 }
 
-// Patch schedule entry for a Premium Redis Cache.
+// Patch schedule entry for a Redis Cache.
 type ScheduleEntryArgs struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
@@ -331,7 +331,7 @@ func (i ScheduleEntryArray) ToScheduleEntryArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryArrayOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
+// Patch schedule entry for a Redis Cache.
 type ScheduleEntryOutput struct{ *pulumi.OutputState }
 
 func (ScheduleEntryOutput) ElementType() reflect.Type {
@@ -381,7 +381,7 @@ func (o ScheduleEntryArrayOutput) Index(i pulumi.IntInput) ScheduleEntryOutput {
 	}).(ScheduleEntryOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
+// Patch schedule entry for a Redis Cache.
 type ScheduleEntryResponse struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek string `pulumi:"dayOfWeek"`
@@ -402,7 +402,7 @@ type ScheduleEntryResponseInput interface {
 	ToScheduleEntryResponseOutputWithContext(context.Context) ScheduleEntryResponseOutput
 }
 
-// Patch schedule entry for a Premium Redis Cache.
+// Patch schedule entry for a Redis Cache.
 type ScheduleEntryResponseArgs struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
@@ -449,7 +449,7 @@ func (i ScheduleEntryResponseArray) ToScheduleEntryResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryResponseArrayOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
+// Patch schedule entry for a Redis Cache.
 type ScheduleEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleEntryResponseOutput) ElementType() reflect.Type {

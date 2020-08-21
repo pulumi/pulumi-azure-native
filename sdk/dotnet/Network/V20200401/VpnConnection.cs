@@ -176,6 +176,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                     new Alias { Type = "azurerm:network/v20191201:VpnConnection"},
                     new Alias { Type = "azurerm:network/v20200301:VpnConnection"},
                     new Alias { Type = "azurerm:network/v20200501:VpnConnection"},
+                    new Alias { Type = "azurerm:network/v20200601:VpnConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

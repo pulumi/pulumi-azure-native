@@ -299,6 +299,7 @@ namespace Pulumi.AzureRM.Web.V20190801
                     new Alias { Type = "azurerm:web/v20160801:WebAppSlot"},
                     new Alias { Type = "azurerm:web/v20180201:WebAppSlot"},
                     new Alias { Type = "azurerm:web/v20181101:WebAppSlot"},
+                    new Alias { Type = "azurerm:web/v20200601:WebAppSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

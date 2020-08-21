@@ -188,6 +188,7 @@ namespace Pulumi.AzureRM.Network.V20200301
                     new Alias { Type = "azurerm:network/v20191201:Subnet"},
                     new Alias { Type = "azurerm:network/v20200401:Subnet"},
                     new Alias { Type = "azurerm:network/v20200501:Subnet"},
+                    new Alias { Type = "azurerm:network/v20200601:Subnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

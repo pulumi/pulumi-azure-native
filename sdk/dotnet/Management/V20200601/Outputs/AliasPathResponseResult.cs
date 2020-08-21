@@ -18,6 +18,10 @@ namespace Pulumi.AzureRM.Management.V20200601.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ApiVersions;
         /// <summary>
+        /// The metadata of the alias path. If missing, fall back to the default metadata of the alias.
+        /// </summary>
+        public readonly Outputs.AliasPathMetadataResponseResult Metadata;
+        /// <summary>
         /// The path of an alias.
         /// </summary>
         public readonly string? Path;
@@ -30,11 +34,14 @@ namespace Pulumi.AzureRM.Management.V20200601.Outputs
         private AliasPathResponseResult(
             ImmutableArray<string> apiVersions,
 
+            Outputs.AliasPathMetadataResponseResult metadata,
+
             string? path,
 
             Outputs.AliasPatternResponseResult? pattern)
         {
             ApiVersions = apiVersions;
+            Metadata = metadata;
             Path = path;
             Pattern = pattern;
         }

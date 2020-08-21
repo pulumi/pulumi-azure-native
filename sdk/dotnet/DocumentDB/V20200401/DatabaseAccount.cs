@@ -39,6 +39,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         public Output<Outputs.ConsistencyPolicyResponseResult?> ConsistencyPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The CORS policy for the Cosmos DB database account.
+        /// </summary>
+        [Output("cors")]
+        public Output<ImmutableArray<Outputs.CorsPolicyResponseResult>> Cors { get; private set; } = null!;
+
+        /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
         /// </summary>
         [Output("databaseAccountOfferType")]
@@ -267,6 +273,18 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         /// </summary>
         [Input("consistencyPolicy")]
         public Input<Inputs.ConsistencyPolicyArgs>? ConsistencyPolicy { get; set; }
+
+        [Input("cors")]
+        private InputList<Inputs.CorsPolicyArgs>? _cors;
+
+        /// <summary>
+        /// The CORS policy for the Cosmos DB database account.
+        /// </summary>
+        public InputList<Inputs.CorsPolicyArgs> Cors
+        {
+            get => _cors ?? (_cors = new InputList<Inputs.CorsPolicyArgs>());
+            set => _cors = value;
+        }
 
         /// <summary>
         /// The offer type for the database

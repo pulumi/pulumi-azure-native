@@ -15,7 +15,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public partial class Product : Pulumi.CustomResource
     {
         /// <summary>
-        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
+        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
         /// </summary>
         [Output("approvalRequired")]
         public Output<bool?> ApprovalRequired { get; private set; } = null!;
@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
+        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
         /// </summary>
         [Output("subscriptionsLimit")]
         public Output<int?> SubscriptionsLimit { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class ProductArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
+        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
         /// </summary>
         [Input("approvalRequired")]
         public Input<bool>? ApprovalRequired { get; set; }
@@ -170,7 +170,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         public Input<bool>? SubscriptionRequired { get; set; }
 
         /// <summary>
-        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
+        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
         /// </summary>
         [Input("subscriptionsLimit")]
         public Input<int>? SubscriptionsLimit { get; set; }

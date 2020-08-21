@@ -84,6 +84,9 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/v20200501:NetworkInterfaceTapConfiguration"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/v20200601:NetworkInterfaceTapConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkInterfaceTapConfiguration

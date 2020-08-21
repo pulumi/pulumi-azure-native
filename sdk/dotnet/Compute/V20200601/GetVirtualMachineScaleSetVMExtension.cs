@@ -62,6 +62,10 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        /// </summary>
+        public readonly bool? EnableAutomaticUpgrade;
+        /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
         /// </summary>
         public readonly string? ForceUpdateTag;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureRM.Compute.V20200601
         private GetVirtualMachineScaleSetVMExtensionResult(
             bool? autoUpgradeMinorVersion,
 
+            bool? enableAutomaticUpgrade,
+
             string? forceUpdateTag,
 
             Outputs.VirtualMachineExtensionInstanceViewResponseResult? instanceView,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
             string? typeHandlerVersion)
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            EnableAutomaticUpgrade = enableAutomaticUpgrade;
             ForceUpdateTag = forceUpdateTag;
             InstanceView = instanceView;
             Location = location;

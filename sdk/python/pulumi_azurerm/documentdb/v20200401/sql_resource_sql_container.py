@@ -52,6 +52,7 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
 
         The **resource** object supports the following:
 
+          * `analytical_storage_ttl` (`pulumi.Input[float]`) - Analytical TTL.
           * `conflict_resolution_policy` (`pulumi.Input[dict]`) - The conflict resolution policy for the container.
             * `conflict_resolution_path` (`pulumi.Input[str]`) - The conflict resolution path in the case of LastWriterWins mode.
             * `conflict_resolution_procedure` (`pulumi.Input[str]`) - The procedure to resolve conflicts in the case of custom mode.

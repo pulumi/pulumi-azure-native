@@ -116,7 +116,7 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebAppPremierAddOn" }, { type: "azurerm:web/v20160801:WebAppPremierAddOn" }, { type: "azurerm:web/v20180201:WebAppPremierAddOn" }, { type: "azurerm:web/v20181101:WebAppPremierAddOn" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:WebAppPremierAddOn" }, { type: "azurerm:web/v20160801:WebAppPremierAddOn" }, { type: "azurerm:web/v20180201:WebAppPremierAddOn" }, { type: "azurerm:web/v20181101:WebAppPremierAddOn" }, { type: "azurerm:web/v20200601:WebAppPremierAddOn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPremierAddOn.__pulumiType, name, inputs, opts);
     }

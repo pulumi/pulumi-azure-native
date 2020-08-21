@@ -135,6 +135,7 @@ namespace Pulumi.AzureRM.Network.V20181101
                     new Alias { Type = "azurerm:network/v20200301:NetworkSecurityGroup"},
                     new Alias { Type = "azurerm:network/v20200401:NetworkSecurityGroup"},
                     new Alias { Type = "azurerm:network/v20200501:NetworkSecurityGroup"},
+                    new Alias { Type = "azurerm:network/v20200601:NetworkSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

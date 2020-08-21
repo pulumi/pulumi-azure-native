@@ -11,30 +11,30 @@ namespace Pulumi.AzureRM.Security.V20200101.Inputs
 {
 
     /// <summary>
-    /// Represents a machine that is part of a VM/server group
+    /// Represents a machine that is part of a machine group
     /// </summary>
     public sealed class VmRecommendationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration status of the VM/server group or machine or rule on the machine
+        /// The configuration status of the machines group or machine or rule
         /// </summary>
         [Input("configurationStatus")]
         public Input<string>? ConfigurationStatus { get; set; }
 
         /// <summary>
-        /// The VM/server supportability of Enforce feature
+        /// The machine supportability of Enforce feature
         /// </summary>
         [Input("enforcementSupport")]
         public Input<string>? EnforcementSupport { get; set; }
 
         /// <summary>
-        /// The recommendation action of the VM/server or rule
+        /// The recommendation action of the machine or rule
         /// </summary>
         [Input("recommendationAction")]
         public Input<string>? RecommendationAction { get; set; }
 
         /// <summary>
-        /// The full azure resource id of the machine
+        /// The full resource id of the machine
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

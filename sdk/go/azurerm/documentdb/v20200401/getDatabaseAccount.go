@@ -33,6 +33,8 @@ type LookupDatabaseAccountResult struct {
 	ConnectorOffer *string `pulumi:"connectorOffer"`
 	// The consistency policy for the Cosmos DB database account.
 	ConsistencyPolicy *ConsistencyPolicyResponse `pulumi:"consistencyPolicy"`
+	// The CORS policy for the Cosmos DB database account.
+	Cors []CorsPolicyResponse `pulumi:"cors"`
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys

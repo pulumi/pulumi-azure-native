@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.Devices.V20191104
                     new Alias { Type = "azurerm:devices/v20190322:Certificate"},
                     new Alias { Type = "azurerm:devices/v20200301:Certificate"},
                     new Alias { Type = "azurerm:devices/v20200401:Certificate"},
+                    new Alias { Type = "azurerm:devices/v20200615:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
