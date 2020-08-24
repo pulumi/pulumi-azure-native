@@ -99,7 +99,7 @@ class Template extends pulumi.ComponentResource {
 
 const resourceGroupName = "azurermtemplates";
 
-const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("azurerm", {
+const resourceGroup = new azurerm.resources.latest.ResourceGroup("azurerm", {
     resourceGroupName,
     location: "westus2",
     tags: {

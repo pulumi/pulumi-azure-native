@@ -9,7 +9,7 @@ const username = config.require("username");
 const password = config.require("password");
 
 // Create an Azure Resource Group
-const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("spark-rg", {
+const resourceGroup = new azurerm.resources.latest.ResourceGroup("spark-rg", {
     resourceGroupName: "azurerm",
     location: location,
     tags: {
@@ -18,7 +18,7 @@ const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("spark-rg", 
 });
 
 // Create a storage account and a container for Spark
-const storageAccount = new azurerm.storage.v20190601.StorageAccount("sparksa", {
+const storageAccount = new azurerm.storage.latest.StorageAccount("sparksa", {
     resourceGroupName: resourceGroup.name,
     sku: {
         name: "Standard_LRS",
@@ -29,7 +29,7 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sparksa", {
     kind: "StorageV2",
 });
 
-const storageContainer = new azurerm.storage.v20190601.BlobContainer("spark", {
+const storageContainer = new azurerm.storage.latest.BlobContainer("spark", {
     containerName: "spark-sc12345",
     accountName: storageAccount.name,
     resourceGroupName: resourceGroup.name,
@@ -37,12 +37,12 @@ const storageContainer = new azurerm.storage.v20190601.BlobContainer("spark", {
 
 const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, storageAccount.id]).apply(
     ([resourceGroupName, accountName]) =>
-        azurerm.storage.v20190601.listStorageAccountKeys({ resourceGroupName, accountName }));
+        azurerm.storage.latest.listStorageAccountKeys({ resourceGroupName, accountName }));
 
 const primaryStorageKey = storageAccountKeys.keys[0].value;
 
 // Create a Spark cluster in HDInsight
-const sparkCluster = new azurerm.hdinsight.v20180601preview.Cluster("myspark", {
+const sparkCluster = new azurerm.hdinsight.latest.Cluster("myspark", {
     clusterName: "spark-cluster12345",
     resourceGroupName: resourceGroup.name,
     location: location,

@@ -1,7 +1,7 @@
 using Pulumi;
-using Pulumi.AzureRM.Resources.V20200601;
-using Pulumi.AzureRM.Storage.V20190601;
-using Pulumi.AzureRM.Storage.V20190601.Inputs;
+using Pulumi.AzureRM.Resources.Latest;
+using Pulumi.AzureRM.Storage.Latest;
+using Pulumi.AzureRM.Storage.Latest.Inputs;
 using Pulumi.Random;
 
 class MyStack : Stack

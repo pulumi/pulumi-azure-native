@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 
-const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
+const resourceGroup = new azurerm.resources.latest.ResourceGroup("rg", {
     resourceGroupName: "azurerm-appservice",
     location: "westus2",
     tags: {
@@ -10,7 +10,7 @@ const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
     },
 });
 
-const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
+const storageAccount = new azurerm.storage.latest.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
     accountName: "pulumiassa",
     location: "westus2",
@@ -21,7 +21,7 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
     kind: "StorageV2",
 });
 
-const appServicePlan  = new azurerm.web.v20190801.AppServicePlan("asp", {
+const appServicePlan  = new azurerm.web.latest.AppServicePlan("asp", {
     resourceGroupName: resourceGroup.name,
     name: "appservice-plan",
     location: "westus2",
@@ -32,7 +32,7 @@ const appServicePlan  = new azurerm.web.v20190801.AppServicePlan("asp", {
     },
 });
 
-const storageContainer = new azurerm.storage.v20190601.BlobContainer("c", {
+const storageContainer = new azurerm.storage.latest.BlobContainer("c", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
     containerName: "files",
@@ -51,7 +51,7 @@ const storageContainer = new azurerm.storage.v20190601.BlobContainer("c", {
 // TODO: invokes are not supported yet
 // const codeBlobUrl = azure.storage.signedBlobReadUrl(blob, storageAccount);
 
-const appInsights = new azurerm.insights.v20150501.Component("ai", {
+const appInsights = new azurerm.insights.latest.Component("ai", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     resourceName: "pulumi-as-ai",
@@ -62,7 +62,7 @@ const appInsights = new azurerm.insights.v20150501.Component("ai", {
 const username = "pulumi";
 const pwd = "Not2S3cure!?";
 
-const sqlServer = new azurerm.sql.v20140401.Server("sql", {
+const sqlServer = new azurerm.sql.latest.Server("sql", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     serverName: "pulumi-as-sql",
@@ -71,7 +71,7 @@ const sqlServer = new azurerm.sql.v20140401.Server("sql", {
     version: "12.0",
 });
 
-const database = new azurerm.sql.v20140401.Database("db", {
+const database = new azurerm.sql.latest.Database("db", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     serverName: sqlServer.name,
@@ -79,7 +79,7 @@ const database = new azurerm.sql.v20140401.Database("db", {
     requestedServiceObjectiveName: "S0",
 });
 
-const app = new azurerm.web.v20190801.WebApp("as", {
+const app = new azurerm.web.latest.WebApp("as", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     name: "pulumi-rm-as",

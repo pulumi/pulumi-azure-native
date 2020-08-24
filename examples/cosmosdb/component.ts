@@ -66,7 +66,7 @@ type MultipleLocations = {
 type Locationable = SingleLocation | MultipleLocations;
 
 interface MyDatabaseAccountArgs {
-    resourceGroup: azurerm.resources.v20200601.ResourceGroup;
+    resourceGroup: azurerm.resources.latest.ResourceGroup;
     api: Api;
     consisencyPolicy: ConsistencyPolicy;
     location: Locationable;
@@ -78,7 +78,7 @@ export class DatabaseAccount {
     constructor(name: string, args: MyDatabaseAccountArgs) {
 
         let kind = "GlobalDocumentDB";
-        let capabilities: azurerm.types.input.documentdb.v20200401.Capability[] = [];
+        let capabilities: azurerm.types.input.documentdb.latest.Capability[] = [];
         if (args.api === "MongoDB") {
             kind = "MongoDB";
         } else if (args.api === "Cassandra") {
@@ -93,7 +93,7 @@ export class DatabaseAccount {
         const enableMultipleWriteLocations = args.location.type === "single" ? false : args.location.enableMultipleWriteLocations;
         const enableAutomaticFailover = args.location.type === "single" ? false : args.location.enableAutomaticFailover;
 
-        const cosmosdbAccount = new azurerm.documentdb.v20200401.DatabaseAccount(name, {
+        const cosmosdbAccount = new azurerm.documentdb.latest.DatabaseAccount(name, {
             resourceGroupName: args.resourceGroup.name,
             accountName: name,
             location: locations[0],
