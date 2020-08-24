@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Subscription.V20200901
 {
-    public static class GetSubscriptionAlias
+    public static class GetAlias
     {
-        public static Task<GetSubscriptionAliasResult> InvokeAsync(GetSubscriptionAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionAliasResult>("azurerm:subscription/v20200901:getSubscriptionAlias", args ?? new GetSubscriptionAliasArgs(), options.WithVersion());
+        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azurerm:subscription/v20200901:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetSubscriptionAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Alias Name
@@ -24,14 +24,14 @@ namespace Pulumi.AzureRM.Subscription.V20200901
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        public GetSubscriptionAliasArgs()
+        public GetAliasArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetSubscriptionAliasResult
+    public sealed class GetAliasResult
     {
         /// <summary>
         /// Alias ID.
@@ -47,7 +47,7 @@ namespace Pulumi.AzureRM.Subscription.V20200901
         public readonly string Type;
 
         [OutputConstructor]
-        private GetSubscriptionAliasResult(
+        private GetAliasResult(
             string name,
 
             Outputs.PutAliasResponsePropertiesResponseResult properties,

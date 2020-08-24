@@ -135,6 +135,7 @@ namespace Pulumi.AzureRM.NetApp.V20190501
                     new Alias { Type = "azurerm:netapp/v20191001:Volume"},
                     new Alias { Type = "azurerm:netapp/v20191101:Volume"},
                     new Alias { Type = "azurerm:netapp/v20200201:Volume"},
+                    new Alias { Type = "azurerm:netapp/v20200601:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

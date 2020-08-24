@@ -10,10 +10,10 @@ from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SubscriptionAlias']
+__all__ = ['Alias']
 
 
-class SubscriptionAlias(pulumi.CustomResource):
+class Alias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,10 +50,12 @@ class SubscriptionAlias(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if properties is None:
+                raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             __props__['type'] = None
-        super(SubscriptionAlias, __self__).__init__(
-            'azurerm:subscription/v20200901:SubscriptionAlias',
+        super(Alias, __self__).__init__(
+            'azurerm:subscription/v20200901:Alias',
             resource_name,
             __props__,
             opts)
@@ -61,9 +63,9 @@ class SubscriptionAlias(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'SubscriptionAlias':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Alias':
         """
-        Get an existing SubscriptionAlias resource's state with the given name, id, and optional extra
+        Get an existing Alias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -74,7 +76,7 @@ class SubscriptionAlias(pulumi.CustomResource):
 
         __props__ = dict()
 
-        return SubscriptionAlias(resource_name, opts=opts, __props__=__props__)
+        return Alias(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter

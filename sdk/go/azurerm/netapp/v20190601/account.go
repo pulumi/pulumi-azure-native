@@ -62,6 +62,9 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:netapp/v20200201:Account"),
 		},
+		{
+			Type: pulumi.String("azurerm:netapp/v20200601:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account

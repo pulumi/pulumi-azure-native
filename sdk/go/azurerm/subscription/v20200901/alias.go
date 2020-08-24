@@ -11,7 +11,7 @@ import (
 )
 
 // Subscription Information with the alias.
-type SubscriptionAlias struct {
+type Alias struct {
 	pulumi.CustomResourceState
 
 	// Alias ID.
@@ -22,37 +22,40 @@ type SubscriptionAlias struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
-// NewSubscriptionAlias registers a new resource with the given unique name, arguments, and options.
-func NewSubscriptionAlias(ctx *pulumi.Context,
-	name string, args *SubscriptionAliasArgs, opts ...pulumi.ResourceOption) (*SubscriptionAlias, error) {
+// NewAlias registers a new resource with the given unique name, arguments, and options.
+func NewAlias(ctx *pulumi.Context,
+	name string, args *AliasArgs, opts ...pulumi.ResourceOption) (*Alias, error) {
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Properties == nil {
+		return nil, errors.New("missing required argument 'Properties'")
+	}
 	if args == nil {
-		args = &SubscriptionAliasArgs{}
+		args = &AliasArgs{}
 	}
-	var resource SubscriptionAlias
-	err := ctx.RegisterResource("azurerm:subscription/v20200901:SubscriptionAlias", name, args, &resource, opts...)
+	var resource Alias
+	err := ctx.RegisterResource("azurerm:subscription/v20200901:Alias", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetSubscriptionAlias gets an existing SubscriptionAlias resource's state with the given name, ID, and optional
+// GetAlias gets an existing Alias resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetSubscriptionAlias(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *SubscriptionAliasState, opts ...pulumi.ResourceOption) (*SubscriptionAlias, error) {
-	var resource SubscriptionAlias
-	err := ctx.ReadResource("azurerm:subscription/v20200901:SubscriptionAlias", name, id, state, &resource, opts...)
+func GetAlias(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *AliasState, opts ...pulumi.ResourceOption) (*Alias, error) {
+	var resource Alias
+	err := ctx.ReadResource("azurerm:subscription/v20200901:Alias", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering SubscriptionAlias resources.
-type subscriptionAliasState struct {
+// Input properties used for looking up and filtering Alias resources.
+type aliasState struct {
 	// Alias ID.
 	Name *string `pulumi:"name"`
 	// Put Alias response properties.
@@ -61,7 +64,7 @@ type subscriptionAliasState struct {
 	Type *string `pulumi:"type"`
 }
 
-type SubscriptionAliasState struct {
+type AliasState struct {
 	// Alias ID.
 	Name pulumi.StringPtrInput
 	// Put Alias response properties.
@@ -70,25 +73,25 @@ type SubscriptionAliasState struct {
 	Type pulumi.StringPtrInput
 }
 
-func (SubscriptionAliasState) ElementType() reflect.Type {
-	return reflect.TypeOf((*subscriptionAliasState)(nil)).Elem()
+func (AliasState) ElementType() reflect.Type {
+	return reflect.TypeOf((*aliasState)(nil)).Elem()
 }
 
-type subscriptionAliasArgs struct {
+type aliasArgs struct {
 	// Alias Name
 	Name string `pulumi:"name"`
 	// Put alias request properties.
-	Properties *PutAliasRequestProperties `pulumi:"properties"`
+	Properties PutAliasRequestProperties `pulumi:"properties"`
 }
 
-// The set of arguments for constructing a SubscriptionAlias resource.
-type SubscriptionAliasArgs struct {
+// The set of arguments for constructing a Alias resource.
+type AliasArgs struct {
 	// Alias Name
 	Name pulumi.StringInput
 	// Put alias request properties.
-	Properties PutAliasRequestPropertiesPtrInput
+	Properties PutAliasRequestPropertiesInput
 }
 
-func (SubscriptionAliasArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*subscriptionAliasArgs)(nil)).Elem()
+func (AliasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*aliasArgs)(nil)).Elem()
 }

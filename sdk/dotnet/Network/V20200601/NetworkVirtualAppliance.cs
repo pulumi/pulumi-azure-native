@@ -51,6 +51,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// List of references to InboundSecurityRules.
+        /// </summary>
+        [Output("inboundSecurityRules")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> InboundSecurityRules { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]

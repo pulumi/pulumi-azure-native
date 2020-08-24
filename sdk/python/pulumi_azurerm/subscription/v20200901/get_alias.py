@@ -10,13 +10,13 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'GetSubscriptionAliasResult',
-    'AwaitableGetSubscriptionAliasResult',
-    'get_subscription_alias',
+    'GetAliasResult',
+    'AwaitableGetAliasResult',
+    'get_alias',
 ]
 
 @pulumi.output_type
-class GetSubscriptionAliasResult:
+class GetAliasResult:
     """
     Subscription Information with the alias.
     """
@@ -56,19 +56,19 @@ class GetSubscriptionAliasResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetSubscriptionAliasResult(GetSubscriptionAliasResult):
+class AwaitableGetAliasResult(GetAliasResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSubscriptionAliasResult(
+        return GetAliasResult(
             name=self.name,
             properties=self.properties,
             type=self.type)
 
 
-def get_subscription_alias(name: Optional[str] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionAliasResult:
+def get_alias(name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -80,9 +80,9 @@ def get_subscription_alias(name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:subscription/v20200901:getSubscriptionAlias', __args__, opts=opts, typ=GetSubscriptionAliasResult).value
+    __ret__ = pulumi.runtime.invoke('azurerm:subscription/v20200901:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
-    return AwaitableGetSubscriptionAliasResult(
+    return AwaitableGetAliasResult(
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)
